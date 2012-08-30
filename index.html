@@ -19,7 +19,7 @@
           <a id="forkme_banner" href="https://github.com/zenexity/ReactiveMongo">View on GitHub</a>
 
           <h1 id="project_title">ReactiveMongo</h1>
-          <!-- <h2 id="project_tagline">Reactive Scala driver for MongoDB</h2> -->
+          <h2 id="project_tagline">Reactive Scala driver for MongoDB</h2>
 
             <!--<section id="downloads">
               <a class="zip_download_link" href="https://github.com/sgodbillon/test/zipball/master">Download this project as a .zip file</a>
@@ -30,10 +30,209 @@
 
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
-      <article class="inner">
-      Soon :)
-      </article>
-    </div>
+
+  <article class="markdown-body entry-content inner" itemprop="mainContentOfPage"><h1>
+  <a name="reactivemongo---asynchronous--non-blocking-scala-driver-for-mongodb" class="anchor" href="#reactivemongo---asynchronous--non-blocking-scala-driver-for-mongodb"><span class="mini-icon mini-icon-link"></span></a>ReactiveMongo - Asynchronous &amp; Non-Blocking Scala Driver for MongoDB</h1>
+
+  <p><a href="https://github.com/zenexity/ReactiveMongo/">ReactiveMongo</a> is a scala driver that provides fully non-blocking and asynchronous I/O operations.</p>
+
+  <h2>
+  <a name="scale-better-use-less-threads" class="anchor" href="#scale-better-use-less-threads"><span class="mini-icon mini-icon-link"></span></a>Scale better, use less threads</h2>
+
+  <p>With a classic synchronous database driver, each operation blocks the current thread until a response is received. This model is simple but has a major flaw - it can't scale that much.</p>
+
+  <p>Imagine that you have a web application with 10 concurrent accesses to the database. That means you eventually end up with 10 frozen threads at the same time, doing nothing but waiting for a response. A common solution is to rise the number of running threads to handle more requests. Such a waste of resources is not really a problem if your application is not heavily loaded, but what happens if you have 100 or even 1000 more requests to handle, performing each several db queries? The multiplication grows really fast...</p>
+
+  <p>The problem is getting more and more obvious while using the new generation of web frameworks. What's the point of using a nifty, powerful, fully asynchronous web framework like <a href="http://www.playframework.org">Play Framework</a> if all your database accesses are blocking?</p>
+
+  <p>ReactiveMongo is designed to avoid any kind of blocking request. Every operation returns immediately, freeing the running thread and resuming execution when it is over. Accessing the database is not a bottleneck anymore.</p>
+
+  <h2>
+  <a name="let-the-stream-flow" class="anchor" href="#let-the-stream-flow"><span class="mini-icon mini-icon-link"></span></a>Let the stream flow!</h2>
+
+  <p>The future of the web is in streaming data to a very large number of clients simultaneously. Twitter Stream API is a good example of this paradigm shift that is radically altering the way data is consumed all over the web.</p>
+
+  <p>ReactiveMongo enables you to build such a web application right now. It allows you to stream data both into and from your MongoDB servers.</p>
+
+  <p>One scenario could be consuming progressively your collection of documents as needed without filling memory unnecessarily.</p>
+
+  <p>But if what you're interested in is live feeds then you can stream a MongoDB <a href="http://www.mongodb.org/display/DOCS/Tailable+Cursors">capped collection</a> through a websocket, comet or any other streaming protocol. A capped collection is a fixed-size (FIFO) collection from which you can fetch documents as they are inserted. Each time a document is stored into this collection, the webapp broadcasts it to all the interested clients, in a complete non-blocking way.</p>
+
+  <p>Moreover, you can now use GridFS as a non-blocking, streaming datastore. ReactiveMongo retrieves the file, chunk by chunk, and streams it until the client is done or there's no more data. Neither huge memory consumption, nor blocked thread during the process!</p>
+
+  <h2>
+  <a name="step-by-step-example" class="anchor" href="#step-by-step-example"><span class="mini-icon mini-icon-link"></span></a>Step By Step Example</h2>
+
+  <p>Let's show a simple use case: print the documents of a capped collection.</p>
+
+  <h3>
+  <a name="prerequisites" class="anchor" href="#prerequisites"><span class="mini-icon mini-icon-link"></span></a>Prerequisites</h3>
+
+  <p>We assume that you got a running MongoDB instance. If not, get <a href="http://www.mongodb.org/downloads">the latest MongoDB binaries</a> and unzip the archive. Then you can launch the database:</p>
+
+  <pre><code>$ mkdir data
+  $ ./bin/mongod --dbpath data
+  </code></pre>
+
+  <p>This will start a standalone MongoDB instance that stores its data in the <code>data</code> directory and listens on the TCP port 27017.</p>
+
+  <h3>
+  <a name="set-up-your-project-dependencies" class="anchor" href="#set-up-your-project-dependencies"><span class="mini-icon mini-icon-link"></span></a>Set up your project dependencies</h3>
+
+  <p>There is a Maven repository at <code>https://bitbucket.org/sgodbillon/repository/raw/master/snapshots/</code>.</p>
+
+  <p>If you use SBT, you just have to edit your build.properties and add the following:</p>
+
+  <div class="highlight"><pre><span class="n">resolvers</span> <span class="o">+=</span> <span class="s">"sgodbillon"</span> <span class="n">at</span> <span class="s">"https://bitbucket.org/sgodbillon/repository/raw/master/snapshots/"</span>
+
+  <span class="n">libraryDependencies</span> <span class="o">++=</span> <span class="nc">Seq</span><span class="o">(</span>
+    <span class="s">"reactivemongo"</span> <span class="o">%%</span> <span class="s">"reactivemongo"</span> <span class="o">%</span> <span class="s">"0.1-SNAPSHOT"</span>
+  <span class="o">)</span>
+  </pre></div>
+
+  <h3>
+  <a name="connect-to-the-database" class="anchor" href="#connect-to-the-database"><span class="mini-icon mini-icon-link"></span></a>Connect to the database</h3>
+
+  <p>You can get a connection to a server (or a replica set) like this:</p>
+
+  <div class="highlight"><pre><span class="k">def</span> <span class="n">test</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">import</span> <span class="nn">reactivemongo.api._</span>
+    <span class="k">import</span> <span class="nn">scala.concurrent.ExecutionContext.Implicits.global</span>
+
+    <span class="k">val</span> <span class="n">connection</span> <span class="k">=</span> <span class="nc">MongoConnection</span><span class="o">(</span> <span class="nc">List</span><span class="o">(</span> <span class="s">"localhost:27017"</span> <span class="o">)</span> <span class="o">)</span>
+    <span class="k">val</span> <span class="n">db</span> <span class="k">=</span> <span class="n">connection</span><span class="o">(</span><span class="s">"plugin"</span><span class="o">)</span>
+    <span class="k">val</span> <span class="n">collection</span> <span class="k">=</span> <span class="n">db</span><span class="o">(</span><span class="s">"acoll"</span><span class="o">)</span>
+  <span class="o">}</span>
+  </pre></div>
+
+  <p>The <code>connection</code> reference manages a pool of connections. You can provide a list of one ore more servers; the driver will guess if it's a standalone server or a replica set configuration. Even with one replica node, the driver will probe for other nodes and add them automatically.</p>
+
+  <h3>
+  <a name="run-a-simple-query" class="anchor" href="#run-a-simple-query"><span class="mini-icon mini-icon-link"></span></a>Run a simple query</h3>
+
+  <div class="highlight"><pre><span class="k">package</span> <span class="nn">foo</span>
+
+  <span class="k">import</span> <span class="nn">reactivemongo.api._</span>
+  <span class="k">import</span> <span class="nn">reactivemongo.bson._</span>
+  <span class="k">import</span> <span class="nn">reactivemongo.bson.handlers.DefaultBSONHandlers._</span>
+  <span class="k">import</span> <span class="nn">play.api.libs.iteratee.Iteratee</span>
+
+  <span class="k">object</span> <span class="nc">Samples</span> <span class="o">{</span>
+    <span class="k">import</span> <span class="nn">scala.concurrent.ExecutionContext.Implicits.global</span>
+
+    <span class="k">def</span> <span class="n">listDocs</span><span class="o">()</span> <span class="k">=</span> <span class="o">{</span>
+      <span class="c1">// select only the documents which field 'firstName' equals 'Jack'</span>
+      <span class="k">val</span> <span class="n">query</span> <span class="k">=</span> <span class="nc">BSONDocument</span><span class="o">(</span><span class="s">"firstName"</span> <span class="o">-&gt;</span> <span class="nc">BSONString</span><span class="o">(</span><span class="s">"Jack"</span><span class="o">))</span>
+
+      <span class="c1">// get a Cursor[DefaultBSONIterator]</span>
+      <span class="k">val</span> <span class="n">cursor</span> <span class="k">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="o">(</span><span class="n">query</span><span class="o">)</span>
+      <span class="c1">// let's enumerate this cursor and print a readable representation of each document in the response</span>
+      <span class="n">cursor</span><span class="o">.</span><span class="n">enumerate</span><span class="o">.</span><span class="n">apply</span><span class="o">(</span><span class="nc">Iteratee</span><span class="o">.</span><span class="n">foreach</span> <span class="o">{</span> <span class="n">doc</span> <span class="k">=&gt;</span>
+        <span class="n">println</span><span class="o">(</span><span class="s">"found document: "</span> <span class="o">+</span> <span class="nc">DefaultBSONIterator</span><span class="o">.</span><span class="n">pretty</span><span class="o">(</span><span class="n">doc</span><span class="o">.</span><span class="n">bsonIterator</span><span class="o">))</span>
+      <span class="o">})</span>
+
+      <span class="c1">// or, the same with getting a list</span>
+      <span class="k">val</span> <span class="n">cursor2</span> <span class="k">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="o">(</span><span class="n">query</span><span class="o">)</span>
+      <span class="k">val</span> <span class="n">futurelist</span> <span class="k">=</span> <span class="n">cursor2</span><span class="o">.</span><span class="n">toList</span>
+      <span class="n">futurelist</span><span class="o">.</span><span class="n">onSuccess</span> <span class="o">{</span>
+        <span class="k">case</span> <span class="n">list</span> <span class="k">=&gt;</span>
+          <span class="k">val</span> <span class="n">names</span> <span class="k">=</span> <span class="n">list</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">getAs</span><span class="o">[</span><span class="kt">BSONString</span><span class="o">](</span><span class="s">"lastName"</span><span class="o">).</span><span class="n">get</span><span class="o">.</span><span class="n">value</span><span class="o">)</span>
+          <span class="n">println</span><span class="o">(</span><span class="s">"got names: "</span> <span class="o">+</span> <span class="n">names</span><span class="o">)</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+  </pre></div>
+
+  <p>The above code deserves some explanations.
+  First, let's take a look to the <code>collection.find</code> signature:</p>
+
+  <div class="highlight"><pre><span class="k">def</span> <span class="n">find</span><span class="o">[</span><span class="kt">Qry</span>, <span class="kt">Rst</span><span class="o">](</span><span class="n">query</span><span class="k">:</span> <span class="kt">Qry</span><span class="o">)(</span><span class="k">implicit</span> <span class="n">writer</span><span class="k">:</span> <span class="kt">BSONWriter</span><span class="o">[</span><span class="kt">Qry</span><span class="o">],</span> <span class="n">handler</span><span class="k">:</span> <span class="kt">BSONReaderHandler</span><span class="o">,</span> <span class="n">reader</span><span class="k">:</span> <span class="kt">BSONReader</span><span class="o">[</span><span class="kt">Rst</span><span class="o">])</span> <span class="k">:</span><span class="kt">FlattenedCursor</span><span class="o">[</span><span class="kt">Rst</span><span class="o">]</span>
+  </pre></div>
+
+  <p>The find method allows you to pass any query object of type <code>Qry</code>, provided that there is an implicit <code>BSONWriter[Qry]</code> in the scope. <code>BSONWriter[Qry]</code> is a typeclass which instances implement a <code>write(document: Qry)</code> method that returns a <code>ChannelBuffer</code>:</p>
+
+  <div class="highlight"><pre><span class="k">trait</span> <span class="nc">BSONWriter</span><span class="o">[</span><span class="kt">DocumentType</span><span class="o">]</span> <span class="o">{</span>
+    <span class="k">def</span> <span class="n">write</span><span class="o">(</span><span class="n">document</span><span class="k">:</span> <span class="kt">DocumentType</span><span class="o">)</span> <span class="k">:</span><span class="kt">ChannelBuffer</span>
+  <span class="o">}</span>
+  </pre></div>
+
+  <p><code>BSONReader[Rst]</code> is the opposite typeclass. It's typically a deserializer that takes a <code>ChannelBuffer</code> and returns an instance of <code>Rst</code>:</p>
+
+  <div class="highlight"><pre><span class="k">trait</span> <span class="nc">BSONReader</span><span class="o">[</span><span class="kt">DocumentType</span><span class="o">]</span> <span class="o">{</span>
+    <span class="k">def</span> <span class="n">read</span><span class="o">(</span><span class="n">buffer</span><span class="k">:</span> <span class="kt">ChannelBuffer</span><span class="o">)</span> <span class="k">:</span><span class="kt">DocumentType</span>
+  <span class="o">}</span>
+  </pre></div>
+
+  <p>These two typeclasses allow you to provide different de/serializers for different types.
+  For this example, we don't need to write specific handlers, so we use the default ones by importing <code>reactivemongo.bson.handlers.DefaultBSONHandlers._</code>.</p>
+
+  <p>Among <code>DefaultBSONHandlers</code> is a <code>BSONWriter[BSONDocument]</code> that handles the shipped-in BSON library.</p>
+
+  <p>You may have noticed that <code>collection.find</code> returns a <code>FlattenedCursor[Rst]</code>. This cursor is actually a future cursor. In fact, <em>everything in ReactiveMongo is both non-blocking and asynchronous</em>. That means each time you make a query, the only immediate result you get is a future of result, so the current thread is not blocked waiting for its completion. You don't need to have <em>n</em> threads to process <em>n</em> database operations at the same time anymore.</p>
+
+  <p>When a query matches too much documents, Mongo sends just a part of them and creates a Cursor in order to get the next documents. The problem is, how to handle it in a non-blocking, asynchronous, yet elegant way?</p>
+
+  <p>Obviously ReactiveMongo's cursor provides helpful methods to build a collection (like a list) from it, so we could write:</p>
+
+  <div class="highlight"><pre><span class="k">val</span> <span class="n">futureList</span> <span class="k">:</span><span class="kt">Future</span><span class="o">[</span><span class="kt">List</span><span class="o">]</span> <span class="k">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">toList</span>
+  <span class="n">futureList</span><span class="o">.</span><span class="n">map</span> <span class="o">{</span> <span class="n">list</span> <span class="k">=&gt;</span>
+    <span class="n">println</span><span class="o">(</span><span class="s">"ok, got the list: "</span> <span class="o">+</span> <span class="n">list</span><span class="o">)</span>
+  <span class="o">}</span>
+  </pre></div>
+
+  <p>As always, this is perfectly non-blocking... but what if we want to process the returned documents on the fly, without creating a potentially huge list in memory?</p>
+
+  <p>That's where the Enumerator/Iteratee pattern (or immutable Producer/Consumer pattern) comes to the rescue!</p>
+
+  <p>Let's consider the next statement:</p>
+
+  <div class="highlight"><pre><span class="n">cursor</span><span class="o">.</span><span class="n">enumerate</span><span class="o">.</span><span class="n">apply</span><span class="o">(</span><span class="nc">Iteratee</span><span class="o">.</span><span class="n">foreach</span> <span class="o">{</span> <span class="n">doc</span> <span class="k">=&gt;</span>
+    <span class="n">println</span><span class="o">(</span><span class="s">"found document: "</span> <span class="o">+</span> <span class="nc">DefaultBSONIterator</span><span class="o">.</span><span class="n">pretty</span><span class="o">(</span><span class="n">doc</span><span class="o">))</span>
+  <span class="o">})</span>
+  </pre></div>
+
+  <p>The method <code>cursor.enumerate</code> returns an <code>Enumerator[T]</code>. Enumerators can be seen as //producers// of data: their job is to give chunks of data when data is available. In this case, we get a producer of documents, which source is a future cursor.</p>
+
+  <p>Now that we have the producer, we need to define how the documents are processed: that is the <code>Iteratee</code>'s job. Iteratees, as the opposite of Enumerators, are consumers: they are fed in by enumerators and do some computation with the chunks they get.</p>
+
+  <p>Here, we write a very simple Iteratee: each time it gets a document, it makes a readable, JSON-like description of the document and prints it on the console. Note that none of these operations are blocking: when the running thread is not processing the callback of our iteratee, it can be used to compute other things.</p>
+
+  <p>When this snippet is run, we get the following:</p>
+
+  <pre><code>found document: {
+      _id: BSONObjectID["4f899e7eaf527324ab25c56b"],
+    firstName: BSONString(Jack),
+      lastName: BSONString(London)
+  }
+  found document: {
+      _id: BSONObjectID["4f899f9baf527324ab25c56c"],
+    firstName: BSONString(Jack),
+      lastName: BSONString(Kerouac)
+  }
+  found document: {
+      _id: BSONObjectID["4f899f9baf527324ab25c56d"],
+    firstName: BSONString(Jack),
+      lastName: BSONString(Nicholson)
+  }
+  </code></pre>
+
+  <h2>
+  <a name="go-further" class="anchor" href="#go-further"><span class="mini-icon mini-icon-link"></span></a>Go further!</h2>
+
+  <p>There is a pretty complete <a href="api/index.html">Scaladoc</a> available</a>. The code is accessible from the <a href="https://github.com/zenexity/ReactiveMongo">Github repository</a>.</p>
+  <p>ReactiveMongo makes a heavy usage of the Iteratee library provided by the <a href="http://www.playframework.org/">Play! Framework 2.1</a>. You can dive into <a href="http://www.playframework.org/documentation/2.0.2/Iteratees">Play's Iteratee documentation</a> to learn about this cool piece of software, and make your own Iteratees and Enumerators.</p>
+
+  <p>Used in conjonction with stream-aware frameworks, like Play!, you can easily stream the data stored in MongoDB. For Play, there is a <a href="https://github.com/zenexity/Play-ReactiveMongo">ReactiveMongo Plugin</a> that brings some cool stuff, like JSON to BSON conversion and helpers for GridFS. See the examples and get convinced!</p>
+
+  <h3>
+  <a name="samples" class="anchor" href="#samples"><span class="mini-icon mini-icon-link"></span></a>Samples</h3>
+
+  <ul>
+  <li><a href="https://github.com/sgodbillon/reactivemongo-tailablecursor-demo">ReactiveMongo Tailable Cursor, WebSocket and Play 2</a></li>
+  <li><a href="https://github.com/sgodbillon/reactivemongo-demo-app">Full Web Application featuring basic CRUD operations and GridFS streaming</a></li>
+  </ul>
+  </article>
+</div>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
