@@ -71,7 +71,7 @@
   <p>We assume that you got a running MongoDB instance. If not, get <a href="http://www.mongodb.org/downloads">the latest MongoDB binaries</a> and unzip the archive. Then you can launch the database:</p>
 
   <pre><code>$ mkdir data
-  $ ./bin/mongod --dbpath data
+$ ./bin/mongod --dbpath data
   </code></pre>
 
   <p>This will start a standalone MongoDB instance that stores its data in the <code>data</code> directory and listens on the TCP port 27017.</p>
@@ -85,9 +85,9 @@
 
   <div class="highlight"><pre><span class="n">resolvers</span> <span class="o">+=</span> <span class="s">"sgodbillon"</span> <span class="n">at</span> <span class="s">"https://bitbucket.org/sgodbillon/repository/raw/master/snapshots/"</span>
 
-  <span class="n">libraryDependencies</span> <span class="o">++=</span> <span class="nc">Seq</span><span class="o">(</span>
-    <span class="s">"reactivemongo"</span> <span class="o">%%</span> <span class="s">"reactivemongo"</span> <span class="o">%</span> <span class="s">"0.1-SNAPSHOT"</span>
-  <span class="o">)</span>
+<span class="n">libraryDependencies</span> <span class="o">++=</span> <span class="nc">Seq</span><span class="o">(</span>
+  <span class="s">"reactivemongo"</span> <span class="o">%%</span> <span class="s">"reactivemongo"</span> <span class="o">%</span> <span class="s">"0.1-SNAPSHOT"</span>
+<span class="o">)</span>
   </pre></div>
 
   <h3>
@@ -128,7 +128,7 @@
       <span class="k">val</span> <span class="n">cursor</span> <span class="k">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="o">(</span><span class="n">query</span><span class="o">)</span>
       <span class="c1">// let's enumerate this cursor and print a readable representation of each document in the response</span>
       <span class="n">cursor</span><span class="o">.</span><span class="n">enumerate</span><span class="o">.</span><span class="n">apply</span><span class="o">(</span><span class="nc">Iteratee</span><span class="o">.</span><span class="n">foreach</span> <span class="o">{</span> <span class="n">doc</span> <span class="k">=&gt;</span>
-        <span class="n">println</span><span class="o">(</span><span class="s">"found document: "</span> <span class="o">+</span> <span class="nc">DefaultBSONIterator</span><span class="o">.</span><span class="n">pretty</span><span class="o">(</span><span class="n">doc</span><span class="o">.</span><span class="n">bsonIterator</span><span class="o">))</span>
+        <span class="n">println</span><span class="o">(</span><span class="s">"found document: "</span> <span class="o">+</span> <span class="nc">BSONDocument</span><span class="o">.</span><span class="n">pretty</span><span class="o">(</span><span class="n">doc</span><span class="o">))</span>
       <span class="o">})</span>
 
       <span class="c1">// or, the same with getting a list</span>
@@ -149,17 +149,17 @@
   <div class="highlight"><pre><span class="k">def</span> <span class="n">find</span><span class="o">[</span><span class="kt">Qry</span>, <span class="kt">Rst</span><span class="o">](</span><span class="n">query</span><span class="k">:</span> <span class="kt">Qry</span><span class="o">)(</span><span class="k">implicit</span> <span class="n">writer</span><span class="k">:</span> <span class="kt">BSONWriter</span><span class="o">[</span><span class="kt">Qry</span><span class="o">],</span> <span class="n">handler</span><span class="k">:</span> <span class="kt">BSONReaderHandler</span><span class="o">,</span> <span class="n">reader</span><span class="k">:</span> <span class="kt">BSONReader</span><span class="o">[</span><span class="kt">Rst</span><span class="o">])</span> <span class="k">:</span><span class="kt">FlattenedCursor</span><span class="o">[</span><span class="kt">Rst</span><span class="o">]</span>
   </pre></div>
 
-  <p>The find method allows you to pass any query object of type <code>Qry</code>, provided that there is an implicit <code>BSONWriter[Qry]</code> in the scope. <code>BSONWriter[Qry]</code> is a typeclass which instances implement a <code>write(document: Qry)</code> method that returns a <code>ChannelBuffer</code>:</p>
+  <p>The find method allows you to pass any query object of type <code>Qry</code>, provided that there is an implicit <code>BSONWriter[Qry]</code> in the scope. <code>BSONWriter[Qry]</code> is a typeclass which instances implement a <code>write(document: Qry)</code> method that returns a <code>BSONDocument</code>:</p>
 
   <div class="highlight"><pre><span class="k">trait</span> <span class="nc">BSONWriter</span><span class="o">[</span><span class="kt">DocumentType</span><span class="o">]</span> <span class="o">{</span>
-    <span class="k">def</span> <span class="n">write</span><span class="o">(</span><span class="n">document</span><span class="k">:</span> <span class="kt">DocumentType</span><span class="o">)</span> <span class="k">:</span><span class="kt">ChannelBuffer</span>
+    <span class="k">def</span> <span class="n">write</span><span class="o">(</span><span class="n">document</span><span class="k">:</span> <span class="kt">DocumentType</span><span class="o">)</span> <span class="k">:</span><span class="kt">BSONDocument</span>
   <span class="o">}</span>
   </pre></div>
 
-  <p><code>BSONReader[Rst]</code> is the opposite typeclass. It's typically a deserializer that takes a <code>ChannelBuffer</code> and returns an instance of <code>Rst</code>:</p>
+  <p><code>BSONReader[Rst]</code> is the opposite typeclass. It's typically a deserializer that takes a <code>BSONDocument</code> and returns an instance of <code>Rst</code>:</p>
 
   <div class="highlight"><pre><span class="k">trait</span> <span class="nc">BSONReader</span><span class="o">[</span><span class="kt">DocumentType</span><span class="o">]</span> <span class="o">{</span>
-    <span class="k">def</span> <span class="n">read</span><span class="o">(</span><span class="n">buffer</span><span class="k">:</span> <span class="kt">ChannelBuffer</span><span class="o">)</span> <span class="k">:</span><span class="kt">DocumentType</span>
+    <span class="k">def</span> <span class="n">read</span><span class="o">(</span><span class="n">buffer</span><span class="k">:</span> <span class="kt">BSONDocument</span><span class="o">)</span> <span class="k">:</span><span class="kt">DocumentType</span>
   <span class="o">}</span>
   </pre></div>
 
@@ -175,9 +175,9 @@
   <p>Obviously ReactiveMongo's cursor provides helpful methods to build a collection (like a list) from it, so we could write:</p>
 
   <div class="highlight"><pre><span class="k">val</span> <span class="n">futureList</span> <span class="k">:</span><span class="kt">Future</span><span class="o">[</span><span class="kt">List</span><span class="o">]</span> <span class="k">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">toList</span>
-  <span class="n">futureList</span><span class="o">.</span><span class="n">map</span> <span class="o">{</span> <span class="n">list</span> <span class="k">=&gt;</span>
-    <span class="n">println</span><span class="o">(</span><span class="s">"ok, got the list: "</span> <span class="o">+</span> <span class="n">list</span><span class="o">)</span>
-  <span class="o">}</span>
+<span class="n">futureList</span><span class="o">.</span><span class="n">map</span> <span class="o">{</span> <span class="n">list</span> <span class="k">=&gt;</span>
+  <span class="n">println</span><span class="o">(</span><span class="s">"ok, got the list: "</span> <span class="o">+</span> <span class="n">list</span><span class="o">)</span>
+<span class="o">}</span>
   </pre></div>
 
   <p>As always, this is perfectly non-blocking... but what if we want to process the returned documents on the fly, without creating a potentially huge list in memory?</p>
@@ -187,8 +187,8 @@
   <p>Let's consider the next statement:</p>
 
   <div class="highlight"><pre><span class="n">cursor</span><span class="o">.</span><span class="n">enumerate</span><span class="o">.</span><span class="n">apply</span><span class="o">(</span><span class="nc">Iteratee</span><span class="o">.</span><span class="n">foreach</span> <span class="o">{</span> <span class="n">doc</span> <span class="k">=&gt;</span>
-    <span class="n">println</span><span class="o">(</span><span class="s">"found document: "</span> <span class="o">+</span> <span class="nc">DefaultBSONIterator</span><span class="o">.</span><span class="n">pretty</span><span class="o">(</span><span class="n">doc</span><span class="o">))</span>
-  <span class="o">})</span>
+  <span class="n">println</span><span class="o">(</span><span class="s">"found document: "</span> <span class="o">+</span> <span class="nc">BSONDocument</span><span class="o">.</span><span class="n">pretty</span><span class="o">(</span><span class="n">doc</span><span class="o">))</span>
+<span class="o">})</span>
   </pre></div>
 
   <p>The method <code>cursor.enumerate</code> returns an <code>Enumerator[T]</code>. Enumerators can be seen as //producers// of data: their job is to give chunks of data when data is available. In this case, we get a producer of documents, which source is a future cursor.</p>
@@ -200,21 +200,21 @@
   <p>When this snippet is run, we get the following:</p>
 
   <pre><code>found document: {
-      _id: BSONObjectID["4f899e7eaf527324ab25c56b"],
-    firstName: BSONString(Jack),
-      lastName: BSONString(London)
-  }
-  found document: {
-      _id: BSONObjectID["4f899f9baf527324ab25c56c"],
-    firstName: BSONString(Jack),
-      lastName: BSONString(Kerouac)
-  }
-  found document: {
-      _id: BSONObjectID["4f899f9baf527324ab25c56d"],
-    firstName: BSONString(Jack),
-      lastName: BSONString(Nicholson)
-  }
-  </code></pre>
+  _id: BSONObjectID["4f899e7eaf527324ab25c56b"],
+  firstName: BSONString(Jack),
+  lastName: BSONString(London)
+}
+found document: {
+  _id: BSONObjectID["4f899f9baf527324ab25c56c"],
+  firstName: BSONString(Jack),
+  lastName: BSONString(Kerouac)
+}
+found document: {
+  _id: BSONObjectID["4f899f9baf527324ab25c56d"],
+  firstName: BSONString(Jack),
+  lastName: BSONString(Nicholson)
+}
+</code></pre>
 
   <h2>
   <a name="go-further" class="anchor" href="#go-further"><span class="mini-icon mini-icon-link"></span></a>Go further!</h2>
@@ -226,6 +226,10 @@
 
   <h3>
   <a name="samples" class="anchor" href="#samples"><span class="mini-icon mini-icon-link"></span></a>Samples</h3>
+
+  <p>
+  These sample applications are kept up to date with the latest driver version. They are built upon Play 2.1. Currently, Play 2.1 is being refactored, so it is better to use <a href="https://bitbucket.org/sgodbillon/repository/src/9f0c4e40cca1/play-2.1-SNAPSHOT.zip">this specific snapshot</a> until the next Play RC is released.
+  </p>
 
   <ul>
   <li><a href="https://github.com/sgodbillon/reactivemongo-tailablecursor-demo">ReactiveMongo Tailable Cursor, WebSocket and Play 2</a></li>
