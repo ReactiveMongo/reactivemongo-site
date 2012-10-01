@@ -262,6 +262,16 @@ img {
   max-width: 100%;
 }
 
+.notice {
+  background: #FFFFCC;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: #FFD053;
+  padding: 5px 10px;
+}
+.notice.center {
+  text-align: center;
+}
 /*******************************************************************************
 Full-Width Styles
 *******************************************************************************/
