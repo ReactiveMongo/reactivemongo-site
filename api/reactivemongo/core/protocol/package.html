@@ -2,24 +2,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>reactivemongo.core.protocol</title>
+          <title>protocol - ReactiveMongo API 0.1 - reactivemongo.core.protocol</title>
+          <meta name="description" content="protocol - ReactiveMongo API 0.1 - reactivemongo.core.protocol" />
+          <meta name="keywords" content="protocol ReactiveMongo API 0.1 reactivemongo.core.protocol" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
-      <link type="text/css" media="screen" rel="stylesheet" href="../../../lib/template.css" />
-      <script type="text/javascript" src="../../../lib/jquery.js"></script>
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
       <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../../lib/template.js"></script>
       <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../index.html';
+            var hash = 'reactivemongo.core.protocol.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
     
         </head>
-        <body onload="sh_highlightDocument('../lib/', '.min.js');" class="value">
+        <body class="value">
       <div id="definition">
         <img src="../../../lib/package_big.png" />
-        <p id="owner"><a name="reactivemongo" class="extype" href="../../package.html">reactivemongo</a>.<a name="reactivemongo.core" class="extype" href="../package.html">core</a></p>
+        <p id="owner"><a href="../../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../package.html" class="extype" name="reactivemongo.core">core</a></p>
         <h1>protocol</h1>
       </div>
 
-      <h4 class="signature" id="signature">
+      <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">package</span>
@@ -29,11 +44,15 @@
       </span>
       </h4>
       
-      <div class="fullcommenttop" id="comment"></div>
-    
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block diagram-container" id="content-diagram-container">
+                <span class="toggle diagram-link">Content Hierarchy</span>
+                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
+                <div class="diagram" id="content-diagram"><svg class="package-diagram" id="graph5" viewBox="0.00 0.00 652.00 282.00" height="282pt" width="652pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 278)" class="graph" id="graph1"><polygon points="-4,5 -4,-278 649,-278 649,5 -4,5" stroke="white" fill="white"></polygon><!-- node0 --><g class="node class" id="graph5_0"><a xlink:title="reactivemongo.core.protocol.Request" xlink:href="Request.html#inheritance-diagram"><polygon points="82,-212 0,-212 0,-186 82,-186 82,-212" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-207" x="10" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-195" x="32" text-anchor="start">Request</text></a></g><!-- node1 --><g class="node object" id="graph5_1"><a xlink:title="reactivemongo.core.protocol.MessageHeader" xlink:href="MessageHeader$.html#inheritance-diagram"><polygon points="556,-212 438,-212 438,-186 556,-186 556,-212" stroke="#102966" fill="#3556a7"></polygon><image xlink:href="../../../lib/object_diagram.png" y="-207" x="448" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-195" x="470" text-anchor="start">MessageHeader</text></a></g><!-- node2 --><g class="node class" id="graph5_2"><a xlink:title="reactivemongo.core.protocol.MessageHeader" xlink:href="MessageHeader.html#inheritance-diagram"><polygon points="218,-212 100,-212 100,-186 218,-186 218,-212" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-207" x="110" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-195" x="132" text-anchor="start">MessageHeader</text></a></g><!-- node3 --><g class="node trait" id="graph5_3"><a xlink:title="reactivemongo.core.protocol.ChannelBufferReadable" xlink:href="ChannelBufferReadable.html#inheritance-diagram"><polygon points="634.25,-274 471.75,-274 471.75,-248 634.25,-248 634.25,-274" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-269" x="482" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-257" x="504" text-anchor="start">ChannelBufferReadable[T]</text></a></g><!-- node3&#45;&gt;node1 --><g class="edge inheritance" id="graph5_3_1"><a xlink:title="MessageHeader is a subtype of ChannelBufferReadable[T]"><path d="M538.092,-244.027C528.746,-234.014 516.888,-221.309 508.316,-212.124" stroke="#d4d4d4" fill="none"></path><polygon points="536.977,-245.397 541.668,-247.858 539.535,-243.009 536.977,-245.397" stroke="#d4d4d4" fill="none"></polygon></a></g><!-- node11 --><g class="node object" id="graph5_11"><a xlink:title="reactivemongo.core.protocol.Reply" xlink:href="Reply$.html#inheritance-diagram"><polygon points="644,-212 574,-212 574,-186 644,-186 644,-212" stroke="#102966" fill="#3556a7"></polygon><image xlink:href="../../../lib/object_diagram.png" y="-207" x="584" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-195" x="606" text-anchor="start">Reply</text></a></g><!-- node3&#45;&gt;node11 --><g class="edge inheritance" id="graph5_3_11"><a xlink:title="Reply is a subtype of ChannelBufferReadable[T]"><path d="M567.908,-244.027C577.254,-234.014 589.112,-221.309 597.684,-212.124" stroke="#d4d4d4" fill="none"></path><polygon points="566.465,-243.009 564.332,-247.858 569.023,-245.397 566.465,-243.009" stroke="#d4d4d4" fill="none"></polygon></a></g><!-- node4 --><g class="node trait" id="graph5_4"><a xlink:title="reactivemongo.core.protocol.ChannelBufferWritable" xlink:href="ChannelBufferWritable.html#inheritance-diagram"><polygon points="231.25,-274 86.75,-274 86.75,-248 231.25,-248 231.25,-274" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-269" x="97" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-257" x="119" text-anchor="start">ChannelBufferWritable</text></a></g><!-- node4&#45;&gt;node0 --><g class="edge inheritance" id="graph5_4_0"><a xlink:title="Request is a subtype of ChannelBufferWritable"><path d="M130.423,-245.469C110.342,-235.259 83.7871,-221.756 64.8435,-212.124" stroke="#d4d4d4" fill="none"></path><polygon points="129.871,-247.152 135.121,-247.858 131.457,-244.032 129.871,-247.152" stroke="#d4d4d4" fill="none"></polygon></a></g><!-- node4&#45;&gt;node2 --><g class="edge inheritance" id="graph5_4_2"><a xlink:title="MessageHeader is a subtype of ChannelBufferWritable"><path d="M159,-242.683C159,-232.896 159,-220.903 159,-212.124" stroke="#d4d4d4" fill="none"></path><polygon points="157.25,-242.858 159,-247.858 160.75,-242.858 157.25,-242.858" stroke="#d4d4d4" fill="none"></polygon></a></g><!-- node15 --><g class="node trait" id="graph5_15"><a xlink:title="reactivemongo.core.protocol.RequestOp" xlink:href="RequestOp.html#inheritance-diagram"><polygon points="331.25,-212 236.75,-212 236.75,-186 331.25,-186 331.25,-212" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-207" x="247" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-195" x="269" text-anchor="start">RequestOp</text></a></g><!-- node4&#45;&gt;node15 --><g class="edge inheritance" id="graph5_4_15"><a xlink:title="RequestOp is a subtype of ChannelBufferWritable"><path d="M189.003,-245.599C210.307,-235.373 238.59,-221.797 258.742,-212.124" stroke="#d4d4d4" fill="none"></path><polygon points="188.046,-244.117 184.296,-247.858 189.561,-247.272 188.046,-244.117" stroke="#d4d4d4" fill="none"></polygon></a></g><!-- node5 --><g class="node class" id="graph5_5"><a xlink:title="reactivemongo.core.protocol.KillCursors" xlink:href="KillCursors.html#inheritance-diagram"><polygon points="256.25,-150 163.75,-150 163.75,-124 256.25,-124 256.25,-150" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-145" x="174" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-133" x="196" text-anchor="start">KillCursors</text></a></g><!-- node6 --><g class="node class" id="graph5_6"><a xlink:title="reactivemongo.core.protocol.Delete" xlink:href="Delete.html#inheritance-diagram"><polygon points="418.25,-26 345.75,-26 345.75,-0 418.25,-0 418.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-21" x="356" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-9" x="378" text-anchor="start">Delete</text></a></g><!-- node7 --><g class="node class" id="graph5_7"><a xlink:title="reactivemongo.core.protocol.GetMore" xlink:href="GetMore.html#inheritance-diagram"><polygon points="303.25,-88 220.75,-88 220.75,-62 303.25,-62 303.25,-88" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-83" x="231" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-71" x="253" text-anchor="start">GetMore</text></a></g><!-- node8 --><g class="node class" id="graph5_8"><a xlink:title="reactivemongo.core.protocol.Query" xlink:href="Query.html#inheritance-diagram"><polygon points="394,-88 322,-88 322,-62 394,-62 394,-88" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-83" x="332" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-71" x="354" text-anchor="start">Query</text></a></g><!-- node9 --><g class="node class" id="graph5_9"><a xlink:title="reactivemongo.core.protocol.Insert" xlink:href="Insert.html#inheritance-diagram"><polygon points="505.25,-26 436.75,-26 436.75,-0 505.25,-0 505.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-21" x="447" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-9" x="469" text-anchor="start">Insert</text></a></g><!-- node10 --><g class="node class" id="graph5_10"><a xlink:title="reactivemongo.core.protocol.Update" xlink:href="Update.html#inheritance-diagram"><polygon points="600.25,-26 523.75,-26 523.75,-0 600.25,-0 600.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-21" x="534" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-9" x="556" text-anchor="start">Update</text></a></g><!-- node12 --><g class="node class" id="graph5_12"><a xlink:title="reactivemongo.core.protocol.Reply" xlink:href="Reply.html#inheritance-diagram"><polygon points="420,-212 350,-212 350,-186 420,-186 420,-212" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-207" x="360" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-195" x="382" text-anchor="start">Reply</text></a></g><!-- node13 --><g class="node trait" id="graph5_13"><a xlink:title="reactivemongo.core.protocol.WriteRequestOp" xlink:href="WriteRequestOp.html#inheritance-diagram"><polygon points="530,-88 412,-88 412,-62 530,-62 530,-88" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-83" x="422" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-71" x="444" text-anchor="start">WriteRequestOp</text></a></g><!-- node13&#45;&gt;node6 --><g class="edge inheritance" id="graph5_13_6"><a xlink:title="Delete is a subtype of WriteRequestOp"><path d="M448.481,-58.8189C433.458,-48.6906 413.97,-35.5529 399.984,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="447.865,-60.5142 452.99,-61.8581 449.822,-57.612 447.865,-60.5142" stroke="#d4d4d4" fill="none"></polygon></a></g><!-- node13&#45;&gt;node9 --><g class="edge inheritance" id="graph5_13_9"><a xlink:title="Insert is a subtype of WriteRequestOp"><path d="M471,-56.6826C471,-46.8961 471,-34.9026 471,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="469.25,-56.8581 471,-61.8581 472.75,-56.8581 469.25,-56.8581" stroke="#d4d4d4" fill="none"></polygon></a></g><!-- node13&#45;&gt;node10 --><g class="edge inheritance" id="graph5_13_10"><a xlink:title="Update is a subtype of WriteRequestOp"><path d="M493.628,-59.0801C509.042,-48.9173 529.188,-35.6342 543.612,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="492.626,-57.6448 489.415,-61.8581 494.553,-60.5668 492.626,-57.6448" stroke="#d4d4d4" fill="none"></polygon></a></g><!-- node14 --><g class="node trait" id="graph5_14"><a xlink:title="reactivemongo.core.protocol.CollectionAwareRequestOp" xlink:href="CollectionAwareRequestOp.html#inheritance-diagram"><polygon points="441.25,-150 274.75,-150 274.75,-124 441.25,-124 441.25,-150" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-145" x="285" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-133" x="307" text-anchor="start">CollectionAwareRequestOp</text></a></g><!-- node14&#45;&gt;node7 --><g class="edge inheritance" id="graph5_14_7"><a xlink:title="GetMore is a subtype of CollectionAwareRequestOp"><path d="M334.128,-121.08C317.868,-110.917 296.615,-97.6342 281.398,-88.1238" stroke="#d4d4d4" fill="none"></path><polygon points="333.405,-122.692 338.573,-123.858 335.26,-119.724 333.405,-122.692" stroke="#d4d4d4" fill="none"></polygon></a></g><!-- node14&#45;&gt;node8 --><g class="edge inheritance" id="graph5_14_8"><a xlink:title="Query is a subtype of CollectionAwareRequestOp"><path d="M358,-118.683C358,-108.896 358,-96.9026 358,-88.1238" stroke="#d4d4d4" fill="none"></path><polygon points="356.25,-118.858 358,-123.858 359.75,-118.858 356.25,-118.858" stroke="#d4d4d4" fill="none"></polygon></a></g><!-- node14&#45;&gt;node13 --><g class="edge inheritance" id="graph5_14_13"><a xlink:title="WriteRequestOp is a subtype of CollectionAwareRequestOp"><path d="M385.61,-121.34C404.811,-111.145 430.102,-97.7155 448.167,-88.1238" stroke="#d4d4d4" fill="none"></path><polygon points="384.463,-119.968 380.867,-123.858 386.104,-123.059 384.463,-119.968" stroke="#d4d4d4" fill="none"></polygon></a></g><!-- node15&#45;&gt;node5 --><g class="edge inheritance" id="graph5_15_5"><a xlink:title="KillCursors is a subtype of RequestOp"><path d="M264.953,-182.556C252.506,-172.464 236.482,-159.472 224.953,-150.124" stroke="#d4d4d4" fill="none"></path><polygon points="264.039,-184.068 269.025,-185.858 266.243,-181.35 264.039,-184.068" stroke="#d4d4d4" fill="none"></polygon></a></g><!-- node15&#45;&gt;node14 --><g class="edge inheritance" id="graph5_15_14"><a xlink:title="CollectionAwareRequestOp is a subtype of RequestOp"><path d="M303.047,-182.556C315.494,-172.464 331.518,-159.472 343.047,-150.124" stroke="#d4d4d4" fill="none"></path><polygon points="301.757,-181.35 298.975,-185.858 303.961,-184.068 301.757,-181.35" stroke="#d4d4d4" fill="none"></polygon></a></g><!-- node16 --><g class="node trait" id="graph5_16"><a xlink:title="reactivemongo.core.protocol.Op" xlink:href="Op.html#inheritance-diagram"><polygon points="355,-274 297,-274 297,-248 355,-248 355,-274" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-269" x="307" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-257" x="329" text-anchor="start">Op</text></a></g><!-- node16&#45;&gt;node12 --><g class="edge inheritance" id="graph5_16_12"><a xlink:title="Reply is a subtype of Op"><path d="M341.446,-244.292C351.332,-234.239 363.966,-221.39 373.078,-212.124" stroke="#d4d4d4" fill="none"></path><polygon points="340.197,-243.066 337.94,-247.858 342.693,-245.52 340.197,-243.066" stroke="#d4d4d4" fill="none"></polygon></a></g><!-- node16&#45;&gt;node15 --><g class="edge inheritance" id="graph5_16_15"><a xlink:title="RequestOp is a subtype of Op"><path d="M314.632,-243.761C307.652,-233.789 298.859,-221.228 292.487,-212.124" stroke="#d4d4d4" fill="none"></path><polygon points="313.2,-244.766 317.501,-247.858 316.067,-242.758 313.2,-244.766" stroke="#d4d4d4" fill="none"></polygon></a></g></g></svg></div>
+              </div></div>
+        
 
       <div id="mbrsel">
-        <div id="textfilter"><span class="pre"></span><span class="input"><input accesskey="/" type="text" /></span><span class="post"></span></div>
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
         
         
         <div id="visbl">
@@ -46,21 +65,23 @@
         <div id="allMembers">
         
 
-        <div class="types members" id="types">
+        <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li visbl="pub" name="reactivemongo.core.protocol.ChannelBufferReadable" data-isabs="true">
-      <a id="ChannelBufferReadable:ChannelBufferReadable[T]"></a>
+              <ol><li name="reactivemongo.core.protocol.ChannelBufferReadable" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ChannelBufferReadable[T]extendsObject"></a>
+      <a id="ChannelBufferReadable[T]:ChannelBufferReadable[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="ChannelBufferReadable.html"><span class="name">ChannelBufferReadable</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends AnyRef</span>
+        <a href="ChannelBufferReadable.html"><span class="name">ChannelBufferReadable</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
-      <p class="comment cmt">A constructor of T instances from a <a href="http://static.netty.io/3.5/api/org/jboss/netty/buffer/ChannelBuffer.html">ChannelBuffer</a>.</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.ChannelBufferWritable" data-isabs="true">
+      <p class="comment cmt">A constructor of T instances from a <a href="http://static.netty.io/3.5/api/org/jboss/netty/buffer/ChannelBuffer.html" target="_blank">ChannelBuffer</a>.</p>
+    </li><li name="reactivemongo.core.protocol.ChannelBufferWritable" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ChannelBufferWritableextendsObject"></a>
       <a id="ChannelBufferWritable:ChannelBufferWritable"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -68,11 +89,12 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="ChannelBufferWritable.html"><span class="name">ChannelBufferWritable</span></a><span class="result"> extends AnyRef</span>
+        <a href="ChannelBufferWritable.html"><span class="name">ChannelBufferWritable</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
-      <p class="comment cmt">Something that can be written into a <a href="http://static.netty.io/3.5/api/org/jboss/netty/buffer/ChannelBuffer.html">ChannelBuffer</a>.</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.ChannelState" data-isabs="true">
+      <p class="comment cmt">Something that can be written into a <a href="http://static.netty.io/3.5/api/org/jboss/netty/buffer/ChannelBuffer.html" target="_blank">ChannelBuffer</a>.</p>
+    </li><li name="reactivemongo.core.protocol.ChannelState" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ChannelStateextendsObject"></a>
       <a id="ChannelState:ChannelState"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -80,11 +102,12 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="ChannelState.html"><span class="name">ChannelState</span></a><span class="result"> extends AnyRef</span>
+        <a href="ChannelState.html"><span class="name">ChannelState</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
       <p class="comment cmt">State of a channel.</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.CheckedWriteRequest" data-isabs="false">
+    </li><li name="reactivemongo.core.protocol.CheckedWriteRequest" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CheckedWriteRequestextendsProductwithSerializable"></a>
       <a id="CheckedWriteRequest:CheckedWriteRequest"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -92,11 +115,12 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="CheckedWriteRequest.html"><span class="name">CheckedWriteRequest</span></a><span class="params">(<span name="op">op: WriteRequestOp</span>, <span name="documents">documents: ChannelBuffer</span>, <span name="getLastError">getLastError: GetLastError</span>)</span><span class="result"> extends Product with Serializable</span>
+        <a href="CheckedWriteRequest.html"><span class="name">CheckedWriteRequest</span></a><span class="params">(<span name="op">op: <a href="WriteRequestOp.html" class="extype" name="reactivemongo.core.protocol.WriteRequestOp">WriteRequestOp</a></span>, <span name="documents">documents: <a href="../../utils/buffers/BufferSequence.html" class="extype" name="reactivemongo.utils.buffers.BufferSequence">BufferSequence</a></span>, <span name="getLastError">getLastError: <a href="../commands/GetLastError.html" class="extype" name="reactivemongo.core.commands.GetLastError">GetLastError</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
-      <p class="comment cmt">A helper to build write request which result needs to be checked (by sending a <a name="reactivemongo.core.commands.GetLastError" class="extype" href="../commands/GetLastError.html">GetLastError</a> command after).</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.CollectionAwareRequestOp" data-isabs="true">
+      <p class="comment cmt">A helper to build write request which result needs to be checked (by sending a <a href="../commands/GetLastError.html" class="extype" name="reactivemongo.core.commands.GetLastError">reactivemongo.core.commands.GetLastError</a> command after).</p>
+    </li><li name="reactivemongo.core.protocol.CollectionAwareRequestOp" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CollectionAwareRequestOpextendsRequestOp"></a>
       <a id="CollectionAwareRequestOp:CollectionAwareRequestOp"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -104,11 +128,12 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="CollectionAwareRequestOp.html"><span class="name">CollectionAwareRequestOp</span></a><span class="result"> extends RequestOp</span>
+        <a href="CollectionAwareRequestOp.html"><span class="name">CollectionAwareRequestOp</span></a><span class="result"> extends <a href="RequestOp.html" class="extype" name="reactivemongo.core.protocol.RequestOp">RequestOp</a></span>
       </span>
       </h4>
       <p class="comment cmt">A request that needs to know the full collection name.</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.Delete" data-isabs="false">
+    </li><li name="reactivemongo.core.protocol.Delete" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DeleteextendsWriteRequestOpwithProductwithSerializable"></a>
       <a id="Delete:Delete"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -116,11 +141,12 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="Delete.html"><span class="name">Delete</span></a><span class="params">(<span name="fullCollectionName">fullCollectionName: String</span>, <span name="flags">flags: Int</span>)</span><span class="result"> extends WriteRequestOp with Product with Serializable</span>
+        <a href="Delete.html"><span class="name">Delete</span></a><span class="params">(<span name="fullCollectionName">fullCollectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="flags">flags: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <a href="WriteRequestOp.html" class="extype" name="reactivemongo.core.protocol.WriteRequestOp">WriteRequestOp</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Delete operation.</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.GetMore" data-isabs="false">
+    </li><li name="reactivemongo.core.protocol.GetMore" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GetMoreextendsCollectionAwareRequestOpwithProductwithSerializable"></a>
       <a id="GetMore:GetMore"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -128,11 +154,12 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="GetMore.html"><span class="name">GetMore</span></a><span class="params">(<span name="fullCollectionName">fullCollectionName: String</span>, <span name="numberToReturn">numberToReturn: Int</span>, <span name="cursorID">cursorID: Long</span>)</span><span class="result"> extends CollectionAwareRequestOp with Product with Serializable</span>
+        <a href="GetMore.html"><span class="name">GetMore</span></a><span class="params">(<span name="fullCollectionName">fullCollectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="numberToReturn">numberToReturn: <span class="extype" name="scala.Int">Int</span></span>, <span name="cursorID">cursorID: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result"> extends <a href="CollectionAwareRequestOp.html" class="extype" name="reactivemongo.core.protocol.CollectionAwareRequestOp">CollectionAwareRequestOp</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">GetMore operation.</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.Insert" data-isabs="false">
+    </li><li name="reactivemongo.core.protocol.Insert" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="InsertextendsWriteRequestOpwithProductwithSerializable"></a>
       <a id="Insert:Insert"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -140,11 +167,12 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="Insert.html"><span class="name">Insert</span></a><span class="params">(<span name="flags">flags: Int</span>, <span name="fullCollectionName">fullCollectionName: String</span>)</span><span class="result"> extends WriteRequestOp with Product with Serializable</span>
+        <a href="Insert.html"><span class="name">Insert</span></a><span class="params">(<span name="flags">flags: <span class="extype" name="scala.Int">Int</span></span>, <span name="fullCollectionName">fullCollectionName: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="WriteRequestOp.html" class="extype" name="reactivemongo.core.protocol.WriteRequestOp">WriteRequestOp</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Insert operation.</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.KillCursors" data-isabs="false">
+    </li><li name="reactivemongo.core.protocol.KillCursors" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="KillCursorsextendsRequestOpwithProductwithSerializable"></a>
       <a id="KillCursors:KillCursors"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -152,11 +180,12 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="KillCursors.html"><span class="name">KillCursors</span></a><span class="params">(<span name="cursorIDs">cursorIDs: Set[Long]</span>)</span><span class="result"> extends RequestOp with Product with Serializable</span>
+        <a href="KillCursors.html"><span class="name">KillCursors</span></a><span class="params">(<span name="cursorIDs">cursorIDs: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Long">Long</span>]</span>)</span><span class="result"> extends <a href="RequestOp.html" class="extype" name="reactivemongo.core.protocol.RequestOp">RequestOp</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">KillCursors operation.</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.MessageHeader" data-isabs="false">
+    </li><li name="reactivemongo.core.protocol.MessageHeader" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MessageHeaderextendsChannelBufferWritablewithProductwithSerializable"></a>
       <a id="MessageHeader:MessageHeader"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -164,11 +193,12 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="MessageHeader.html"><span class="name">MessageHeader</span></a><span class="params">(<span name="messageLength">messageLength: Int</span>, <span name="requestID">requestID: Int</span>, <span name="responseTo">responseTo: Int</span>, <span name="opCode">opCode: Int</span>)</span><span class="result"> extends ChannelBufferWritable with Product with Serializable</span>
+        <a href="MessageHeader.html"><span class="name">MessageHeader</span></a><span class="params">(<span name="messageLength">messageLength: <span class="extype" name="scala.Int">Int</span></span>, <span name="requestID">requestID: <span class="extype" name="scala.Int">Int</span></span>, <span name="responseTo">responseTo: <span class="extype" name="scala.Int">Int</span></span>, <span name="opCode">opCode: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <a href="ChannelBufferWritable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferWritable">ChannelBufferWritable</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Header of a Mongo Wire Protocol message.</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.MongoNodeState" data-isabs="true">
+    </li><li name="reactivemongo.core.protocol.MongoNodeState" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="MongoNodeStateextendsObject"></a>
       <a id="MongoNodeState:MongoNodeState"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -176,11 +206,12 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="MongoNodeState.html"><span class="name">MongoNodeState</span></a><span class="result"> extends AnyRef</span>
+        <a href="MongoNodeState.html"><span class="name">MongoNodeState</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
       <p class="comment cmt">State of a node in a replica set.</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.NodeState" data-isabs="true">
+    </li><li name="reactivemongo.core.protocol.NodeState" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="NodeStateextendsObject"></a>
       <a id="NodeState:NodeState"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -188,11 +219,12 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="NodeState.html"><span class="name">NodeState</span></a><span class="result"> extends AnyRef</span>
+        <a href="NodeState.html"><span class="name">NodeState</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
       <p class="comment cmt">State of a node.</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.Op" data-isabs="true">
+    </li><li name="reactivemongo.core.protocol.Op" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="OpextendsObject"></a>
       <a id="Op:Op"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -200,11 +232,12 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="Op.html"><span class="name">Op</span></a><span class="result"> extends AnyRef</span>
+        <a href="Op.html"><span class="name">Op</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
       <p class="comment cmt">A Mongo Wire Protocol operation</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.Query" data-isabs="false">
+    </li><li name="reactivemongo.core.protocol.Query" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="QueryextendsCollectionAwareRequestOpwithProductwithSerializable"></a>
       <a id="Query:Query"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -212,11 +245,12 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="Query.html"><span class="name">Query</span></a><span class="params">(<span name="flags">flags: Int</span>, <span name="fullCollectionName">fullCollectionName: String</span>, <span name="numberToSkip">numberToSkip: Int</span>, <span name="numberToReturn">numberToReturn: Int</span>)</span><span class="result"> extends CollectionAwareRequestOp with Product with Serializable</span>
+        <a href="Query.html"><span class="name">Query</span></a><span class="params">(<span name="flags">flags: <span class="extype" name="scala.Int">Int</span></span>, <span name="fullCollectionName">fullCollectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="numberToSkip">numberToSkip: <span class="extype" name="scala.Int">Int</span></span>, <span name="numberToReturn">numberToReturn: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <a href="CollectionAwareRequestOp.html" class="extype" name="reactivemongo.core.protocol.CollectionAwareRequestOp">CollectionAwareRequestOp</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Query operation.</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.Reply" data-isabs="false">
+    </li><li name="reactivemongo.core.protocol.Reply" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ReplyextendsOpwithProductwithSerializable"></a>
       <a id="Reply:Reply"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -224,11 +258,12 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="Reply.html"><span class="name">Reply</span></a><span class="params">(<span name="flags">flags: Int</span>, <span name="cursorID">cursorID: Long</span>, <span name="startingFrom">startingFrom: Int</span>, <span name="numberReturned">numberReturned: Int</span>)</span><span class="result"> extends Op with Product with Serializable</span>
+        <a href="Reply.html"><span class="name">Reply</span></a><span class="params">(<span name="flags">flags: <span class="extype" name="scala.Int">Int</span></span>, <span name="cursorID">cursorID: <span class="extype" name="scala.Long">Long</span></span>, <span name="startingFrom">startingFrom: <span class="extype" name="scala.Int">Int</span></span>, <span name="numberReturned">numberReturned: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <a href="Op.html" class="extype" name="reactivemongo.core.protocol.Op">Op</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Reply operation.</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.Request" data-isabs="false">
+    </li><li name="reactivemongo.core.protocol.Request" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RequestextendsChannelBufferWritablewithProductwithSerializable"></a>
       <a id="Request:Request"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -236,11 +271,12 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="Request.html"><span class="name">Request</span></a><span class="params">(<span name="requestID">requestID: Int</span>, <span name="responseTo">responseTo: Int</span>, <span name="op">op: RequestOp</span>, <span name="documents">documents: ChannelBuffer</span>, <span name="channelIdHint">channelIdHint: Option[Int]</span>)</span><span class="result"> extends ChannelBufferWritable with Product with Serializable</span>
+        <a href="Request.html"><span class="name">Request</span></a><span class="params">(<span name="requestID">requestID: <span class="extype" name="scala.Int">Int</span></span>, <span name="responseTo">responseTo: <span class="extype" name="scala.Int">Int</span></span>, <span name="op">op: <a href="RequestOp.html" class="extype" name="reactivemongo.core.protocol.RequestOp">RequestOp</a></span>, <span name="documents">documents: <a href="../../utils/buffers/BufferSequence.html" class="extype" name="reactivemongo.utils.buffers.BufferSequence">BufferSequence</a></span>, <span name="channelIdHint">channelIdHint: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>] = <span class="symbol">scala.None</span></span>)</span><span class="result"> extends <a href="ChannelBufferWritable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferWritable">ChannelBufferWritable</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Request message.</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.RequestMaker" data-isabs="false">
+    </li><li name="reactivemongo.core.protocol.RequestMaker" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RequestMakerextendsProductwithSerializable"></a>
       <a id="RequestMaker:RequestMaker"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -248,11 +284,12 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="RequestMaker.html"><span class="name">RequestMaker</span></a><span class="params">(<span name="op">op: RequestOp</span>, <span name="documents">documents: ChannelBuffer</span>, <span name="channelIdHint">channelIdHint: Option[Int]</span>)</span><span class="result"> extends Product with Serializable</span>
+        <a href="RequestMaker.html"><span class="name">RequestMaker</span></a><span class="params">(<span name="op">op: <a href="RequestOp.html" class="extype" name="reactivemongo.core.protocol.RequestOp">RequestOp</a></span>, <span name="documents">documents: <a href="../../utils/buffers/BufferSequence.html" class="extype" name="reactivemongo.utils.buffers.BufferSequence">BufferSequence</a> = <span class="defval" name="reactivemongo.utils.buffers.BufferSequence.empty">...</span></span>, <span name="channelIdHint">channelIdHint: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>] = <span class="symbol">scala.None</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">A helper to build requests.</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.RequestOp" data-isabs="true">
+    </li><li name="reactivemongo.core.protocol.RequestOp" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="RequestOpextendsOpwithChannelBufferWritable"></a>
       <a id="RequestOp:RequestOp"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -260,11 +297,12 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="RequestOp.html"><span class="name">RequestOp</span></a><span class="result"> extends Op with ChannelBufferWritable</span>
+        <a href="RequestOp.html"><span class="name">RequestOp</span></a><span class="result"> extends <a href="Op.html" class="extype" name="reactivemongo.core.protocol.Op">Op</a> with <a href="ChannelBufferWritable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferWritable">ChannelBufferWritable</a></span>
       </span>
       </h4>
       <p class="comment cmt">A Mongo Wire Protocol request operation.</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.Response" data-isabs="false">
+    </li><li name="reactivemongo.core.protocol.Response" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ResponseextendsProductwithSerializable"></a>
       <a id="Response:Response"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -272,11 +310,12 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="Response.html"><span class="name">Response</span></a><span class="params">(<span name="header">header: MessageHeader</span>, <span name="reply">reply: Reply</span>, <span name="documents">documents: ChannelBuffer</span>, <span name="info">info: ResponseInfo</span>)</span><span class="result"> extends Product with Serializable</span>
+        <a href="Response.html"><span class="name">Response</span></a><span class="params">(<span name="header">header: <a href="MessageHeader.html" class="extype" name="reactivemongo.core.protocol.MessageHeader">MessageHeader</a></span>, <span name="reply">reply: <a href="Reply.html" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a></span>, <span name="documents">documents: <span class="extype" name="org.jboss.netty.buffer.ChannelBuffer">ChannelBuffer</span></span>, <span name="info">info: <a href="ResponseInfo.html" class="extype" name="reactivemongo.core.protocol.ResponseInfo">ResponseInfo</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">A Mongo Wire Protocol Response messages.</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.ResponseInfo" data-isabs="false">
+    </li><li name="reactivemongo.core.protocol.ResponseInfo" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ResponseInfoextendsProductwithSerializable"></a>
       <a id="ResponseInfo:ResponseInfo"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -284,11 +323,12 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="ResponseInfo.html"><span class="name">ResponseInfo</span></a><span class="params">(<span name="channelId">channelId: Int</span>)</span><span class="result"> extends Product with Serializable</span>
+        <a href="ResponseInfo.html"><span class="name">ResponseInfo</span></a><span class="params">(<span name="channelId">channelId: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Response meta information.</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.Update" data-isabs="false">
+    </li><li name="reactivemongo.core.protocol.Update" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UpdateextendsWriteRequestOpwithProductwithSerializable"></a>
       <a id="Update:Update"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -296,11 +336,12 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="Update.html"><span class="name">Update</span></a><span class="params">(<span name="fullCollectionName">fullCollectionName: String</span>, <span name="flags">flags: Int</span>)</span><span class="result"> extends WriteRequestOp with Product with Serializable</span>
+        <a href="Update.html"><span class="name">Update</span></a><span class="params">(<span name="fullCollectionName">fullCollectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="flags">flags: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <a href="WriteRequestOp.html" class="extype" name="reactivemongo.core.protocol.WriteRequestOp">WriteRequestOp</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Update operation.</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.WriteRequestOp" data-isabs="true">
+    </li><li name="reactivemongo.core.protocol.WriteRequestOp" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="WriteRequestOpextendsCollectionAwareRequestOp"></a>
       <a id="WriteRequestOp:WriteRequestOp"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -308,7 +349,7 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="WriteRequestOp.html"><span class="name">WriteRequestOp</span></a><span class="result"> extends CollectionAwareRequestOp</span>
+        <a href="WriteRequestOp.html"><span class="name">WriteRequestOp</span></a><span class="result"> extends <a href="CollectionAwareRequestOp.html" class="extype" name="reactivemongo.core.protocol.CollectionAwareRequestOp">CollectionAwareRequestOp</a></span>
       </span>
       </h4>
       <p class="comment cmt">A request that will perform a write on the database</p>
@@ -317,9 +358,10 @@
 
         
 
-        <div class="values members" id="values">
+        <div id="values" class="values members">
               <h3>Value Members</h3>
-              <ol><li visbl="pub" name="reactivemongo.core.protocol.ChannelState" data-isabs="false">
+              <ol><li name="reactivemongo.core.protocol.ChannelState" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ChannelState"></a>
       <a id="ChannelState:ChannelState"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -327,11 +369,12 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="ChannelState$.html"><span class="name">ChannelState</span></a><span class="result"> extends AnyRef</span>
+        <a href="ChannelState$.html"><span class="name">ChannelState</span></a>
       </span>
       </h4>
       
-    </li><li visbl="pub" name="reactivemongo.core.protocol.MessageHeader" data-isabs="false">
+    </li><li name="reactivemongo.core.protocol.MessageHeader" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MessageHeader"></a>
       <a id="MessageHeader:MessageHeader"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -339,11 +382,12 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="MessageHeader$.html"><span class="name">MessageHeader</span></a><span class="result"> extends ChannelBufferReadable[MessageHeader] with Serializable</span>
+        <a href="MessageHeader$.html"><span class="name">MessageHeader</span></a><span class="result"> extends <a href="ChannelBufferReadable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferReadable">ChannelBufferReadable</a>[<a href="MessageHeader.html" class="extype" name="reactivemongo.core.protocol.MessageHeader">MessageHeader</a>] with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
-      <p class="comment cmt">Header deserializer from a <a href="http://static.netty.io/3.5/api/org/jboss/netty/buffer/ChannelBuffer.html">ChannelBuffer</a>.</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.NodeState" data-isabs="false">
+      <p class="comment cmt">Header deserializer from a <a href="http://static.netty.io/3.5/api/org/jboss/netty/buffer/ChannelBuffer.html" target="_blank">ChannelBuffer</a>.</p>
+    </li><li name="reactivemongo.core.protocol.NodeState" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="NodeState"></a>
       <a id="NodeState:NodeState"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -351,11 +395,12 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="NodeState$.html"><span class="name">NodeState</span></a><span class="result"> extends AnyRef</span>
+        <a href="NodeState$.html"><span class="name">NodeState</span></a>
       </span>
       </h4>
       
-    </li><li visbl="pub" name="reactivemongo.core.protocol.QueryFlags" data-isabs="false">
+    </li><li name="reactivemongo.core.protocol.QueryFlags" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="QueryFlags"></a>
       <a id="QueryFlags:QueryFlags"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -363,11 +408,12 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="QueryFlags$.html"><span class="name">QueryFlags</span></a><span class="result"> extends AnyRef</span>
+        <a href="QueryFlags$.html"><span class="name">QueryFlags</span></a>
       </span>
       </h4>
       <p class="comment cmt">Query flags.</p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.Reply" data-isabs="false">
+    </li><li name="reactivemongo.core.protocol.Reply" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Reply"></a>
       <a id="Reply:Reply"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -375,11 +421,12 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="Reply$.html"><span class="name">Reply</span></a><span class="result"> extends ChannelBufferReadable[Reply] with Serializable</span>
+        <a href="Reply$.html"><span class="name">Reply</span></a><span class="result"> extends <a href="ChannelBufferReadable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferReadable">ChannelBufferReadable</a>[<a href="Reply.html" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a>] with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
-    </li><li visbl="pub" name="reactivemongo.core.protocol.Request" data-isabs="false">
+    </li><li name="reactivemongo.core.protocol.Request" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Request"></a>
       <a id="Request:Request"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -387,23 +434,12 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="Request$.html"><span class="name">Request</span></a><span class="result"> extends Serializable</span>
+        <a href="Request$.html"><span class="name">Request</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt"></p>
-    </li><li visbl="pub" name="reactivemongo.core.protocol.RequestMaker" data-isabs="false">
-      <a id="RequestMaker:RequestMaker"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="RequestMaker$.html"><span class="name">RequestMaker</span></a><span class="result"> extends Serializable</span>
-      </span>
-      </h4>
-      
-    </li><li visbl="pub" name="reactivemongo.core.protocol.UpdateFlags" data-isabs="false">
+    </li><li name="reactivemongo.core.protocol.UpdateFlags" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UpdateFlags"></a>
       <a id="UpdateFlags:UpdateFlags"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -411,7 +447,7 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="UpdateFlags$.html"><span class="name">UpdateFlags</span></a><span class="result"> extends AnyRef</span>
+        <a href="UpdateFlags$.html"><span class="name">UpdateFlags</span></a>
       </span>
       </h4>
       
@@ -419,10 +455,20 @@
             </div>
 
         
+
+        
         </div>
 
         <div id="inheritedMembers">
         
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
         </div>
 
       </div>

@@ -2,24 +2,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>reactivemongo.api.indexes</title>
+          <title>indexes - ReactiveMongo API 0.1 - reactivemongo.api.indexes</title>
+          <meta name="description" content="indexes - ReactiveMongo API 0.1 - reactivemongo.api.indexes" />
+          <meta name="keywords" content="indexes ReactiveMongo API 0.1 reactivemongo.api.indexes" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
-      <link type="text/css" media="screen" rel="stylesheet" href="../../../lib/template.css" />
-      <script type="text/javascript" src="../../../lib/jquery.js"></script>
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
       <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../../lib/template.js"></script>
       <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../index.html';
+            var hash = 'reactivemongo.api.indexes.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
     
         </head>
-        <body onload="sh_highlightDocument('../lib/', '.min.js');" class="value">
+        <body class="value">
       <div id="definition">
         <img src="../../../lib/package_big.png" />
-        <p id="owner"><a name="reactivemongo" class="extype" href="../../package.html">reactivemongo</a>.<a name="reactivemongo.api" class="extype" href="../package.html">api</a></p>
+        <p id="owner"><a href="../../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../package.html" class="extype" name="reactivemongo.api">api</a></p>
         <h1>indexes</h1>
       </div>
 
-      <h4 class="signature" id="signature">
+      <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">package</span>
@@ -29,11 +44,11 @@
       </span>
       </h4>
       
-      <div class="fullcommenttop" id="comment"></div>
-    
+          <div id="comment" class="fullcommenttop"></div>
+        
 
       <div id="mbrsel">
-        <div id="textfilter"><span class="pre"></span><span class="input"><input accesskey="/" type="text" /></span><span class="post"></span></div>
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
         
         
         <div id="visbl">
@@ -46,9 +61,10 @@
         <div id="allMembers">
         
 
-        <div class="types members" id="types">
+        <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li visbl="pub" name="reactivemongo.api.indexes.CollectionIndexesManager" data-isabs="false">
+              <ol><li name="reactivemongo.api.indexes.CollectionIndexesManager" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CollectionIndexesManagerextendsObject"></a>
       <a id="CollectionIndexesManager:CollectionIndexesManager"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -56,11 +72,12 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="CollectionIndexesManager.html"><span class="name">CollectionIndexesManager</span></a><span class="result"> extends AnyRef</span>
+        <a href="CollectionIndexesManager.html"><span class="name">CollectionIndexesManager</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
       
-    </li><li visbl="pub" name="reactivemongo.api.indexes.Index" data-isabs="false">
+    </li><li name="reactivemongo.api.indexes.Index" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IndexextendsProductwithSerializable"></a>
       <a id="Index:Index"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -68,11 +85,12 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="Index.html"><span class="name">Index</span></a><span class="params">(<span name="key">key: List[(String, Boolean)]</span>, <span name="name">name: Option[String]</span>, <span name="unique">unique: Boolean</span>, <span name="background">background: Boolean</span>, <span name="dropDups">dropDups: Boolean</span>, <span name="sparse">sparse: Boolean</span>, <span name="version">version: Option[Int]</span>)</span><span class="result"> extends Product with Serializable</span>
+        <a href="Index.html"><span class="name">Index</span></a><span class="params">(<span name="key">key: <span class="extype" name="scala.List">List</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Boolean">Boolean</span>)]</span>, <span name="name">name: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">scala.None</span></span>, <span name="unique">unique: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="background">background: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="dropDups">dropDups: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="sparse">sparse: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="version">version: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>] = <span class="symbol">scala.None</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">A MongoDB index (excluding the namespace).</p>
-    </li><li visbl="pub" name="reactivemongo.api.indexes.IndexesManager" data-isabs="false">
+    </li><li name="reactivemongo.api.indexes.IndexesManager" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IndexesManagerextendsObject"></a>
       <a id="IndexesManager:IndexesManager"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -80,11 +98,12 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="IndexesManager.html"><span class="name">IndexesManager</span></a><span class="result"> extends AnyRef</span>
+        <a href="IndexesManager.html"><span class="name">IndexesManager</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
       <p class="comment cmt">A helper class to manage the indexes on the given database.</p>
-    </li><li visbl="pub" name="reactivemongo.api.indexes.NSIndex" data-isabs="false">
+    </li><li name="reactivemongo.api.indexes.NSIndex" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="NSIndexextendsProductwithSerializable"></a>
       <a id="NSIndex:NSIndex"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -92,7 +111,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="NSIndex.html"><span class="name">NSIndex</span></a><span class="params">(<span name="namespace">namespace: String</span>, <span name="index">index: Index</span>)</span><span class="result"> extends Product with Serializable</span>
+        <a href="NSIndex.html"><span class="name">NSIndex</span></a><span class="params">(<span name="namespace">namespace: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="index">index: <a href="Index.html" class="extype" name="reactivemongo.api.indexes.Index">Index</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">A MongoDB namespaced index.</p>
@@ -101,9 +120,10 @@
 
         
 
-        <div class="values members" id="values">
+        <div id="values" class="values members">
               <h3>Value Members</h3>
-              <ol><li visbl="pub" name="reactivemongo.api.indexes.IndexesManager" data-isabs="false">
+              <ol><li name="reactivemongo.api.indexes.IndexesManager" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IndexesManager"></a>
       <a id="IndexesManager:IndexesManager"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -111,7 +131,7 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="IndexesManager$.html"><span class="name">IndexesManager</span></a><span class="result"> extends AnyRef</span>
+        <a href="IndexesManager$.html"><span class="name">IndexesManager</span></a>
       </span>
       </h4>
       
@@ -119,10 +139,20 @@
             </div>
 
         
+
+        
         </div>
 
         <div id="inheritedMembers">
         
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
         </div>
 
       </div>

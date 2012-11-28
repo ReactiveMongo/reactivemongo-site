@@ -2,24 +2,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>reactivemongo.core.errors</title>
+          <title>errors - ReactiveMongo API 0.1 - reactivemongo.core.errors</title>
+          <meta name="description" content="errors - ReactiveMongo API 0.1 - reactivemongo.core.errors" />
+          <meta name="keywords" content="errors ReactiveMongo API 0.1 reactivemongo.core.errors" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
-      <link type="text/css" media="screen" rel="stylesheet" href="../../../lib/template.css" />
-      <script type="text/javascript" src="../../../lib/jquery.js"></script>
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
       <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../../lib/template.js"></script>
       <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../index.html';
+            var hash = 'reactivemongo.core.errors.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
     
         </head>
-        <body onload="sh_highlightDocument('../lib/', '.min.js');" class="value">
+        <body class="value">
       <div id="definition">
         <img src="../../../lib/package_big.png" />
-        <p id="owner"><a name="reactivemongo" class="extype" href="../../package.html">reactivemongo</a>.<a name="reactivemongo.core" class="extype" href="../package.html">core</a></p>
+        <p id="owner"><a href="../../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../package.html" class="extype" name="reactivemongo.core">core</a></p>
         <h1>errors</h1>
       </div>
 
-      <h4 class="signature" id="signature">
+      <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">package</span>
@@ -29,11 +44,15 @@
       </span>
       </h4>
       
-      <div class="fullcommenttop" id="comment"></div>
-    
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block diagram-container" id="content-diagram-container">
+                <span class="toggle diagram-link">Content Hierarchy</span>
+                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
+                <div class="diagram" id="content-diagram"><svg class="package-diagram" id="graph40" viewBox="0.00 0.00 323.00 158.00" height="158pt" width="323pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 154)" class="graph" id="graph1"><polygon points="-4,5 -4,-154 320,-154 320,5 -4,5" stroke="white" fill="white"></polygon><!-- node0 --><g class="node class" id="graph40_0"><a xlink:title="reactivemongo.core.errors.CompleteDBError" xlink:href="CompleteDBError.html#inheritance-diagram"><polygon points="182.25,-26 59.75,-26 59.75,-0 182.25,-0 182.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-21" x="70" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-9" x="92" text-anchor="start">CompleteDBError</text></a></g><!-- node1 --><g class="node class" id="graph40_1"><a xlink:title="reactivemongo.core.errors.GenericDBError" xlink:href="GenericDBError.html#inheritance-diagram"><polygon points="315.25,-26 200.75,-26 200.75,-0 315.25,-0 315.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-21" x="211" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-9" x="233" text-anchor="start">GenericDBError</text></a></g><!-- node2 --><g class="node class" id="graph40_2"><a xlink:title="reactivemongo.core.errors.GenericMongoError" xlink:href="GenericMongoError.html#inheritance-diagram"><polygon points="132,-88 0,-88 0,-62 132,-62 132,-88" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-83" x="10" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-71" x="32" text-anchor="start">GenericMongoError</text></a></g><!-- node3 --><g class="node trait" id="graph40_3"><a xlink:title="reactivemongo.core.errors.DBError" xlink:href="DBError.html#inheritance-diagram"><polygon points="230,-88 150,-88 150,-62 230,-62 230,-88" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-83" x="160" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-71" x="182" text-anchor="start">DBError</text></a></g><!-- node3&#45;&gt;node0 --><g class="edge inheritance" id="graph40_3_0"><a xlink:title="CompleteDBError is a subtype of DBError"><path d="M172.24,-58.5563C160.634,-48.4643 145.692,-35.4716 134.942,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="171.115,-59.8977 176.037,-61.8581 173.412,-57.2566 171.115,-59.8977" stroke="#d4d4d4" fill="none"></polygon></a></g><!-- node3&#45;&gt;node1 --><g class="edge inheritance" id="graph40_3_1"><a xlink:title="GenericDBError is a subtype of DBError"><path d="M207.802,-58.2924C219.196,-48.2386 233.758,-35.3904 244.26,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="206.352,-57.2377 203.761,-61.8581 208.668,-59.8622 206.352,-57.2377" stroke="#d4d4d4" fill="none"></polygon></a></g><!-- node4 --><g class="node trait" id="graph40_4"><a xlink:title="reactivemongo.core.errors.ReactiveMongoError" xlink:href="ReactiveMongoError.html#inheritance-diagram"><polygon points="196,-150 60,-150 60,-124 196,-124 196,-150" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-145" x="70" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-133" x="92" text-anchor="start">ReactiveMongoError</text></a></g><!-- node4&#45;&gt;node2 --><g class="edge inheritance" id="graph40_4_2"><a xlink:title="GenericMongoError is a subtype of ReactiveMongoError"><path d="M111.769,-120.292C101.38,-110.239 88.1034,-97.3904 78.528,-88.1238" stroke="#d4d4d4" fill="none"></path><polygon points="110.643,-121.639 115.453,-123.858 113.077,-119.123 110.643,-121.639" stroke="#d4d4d4" fill="none"></polygon></a></g><!-- node4&#45;&gt;node3 --><g class="edge inheritance" id="graph40_4_3"><a xlink:title="DBError is a subtype of ReactiveMongoError"><path d="M144.231,-120.292C154.62,-110.239 167.897,-97.3904 177.472,-88.1238" stroke="#d4d4d4" fill="none"></path><polygon points="142.923,-119.123 140.547,-123.858 145.357,-121.639 142.923,-119.123" stroke="#d4d4d4" fill="none"></polygon></a></g></g></svg></div>
+              </div></div>
+        
 
       <div id="mbrsel">
-        <div id="textfilter"><span class="pre"></span><span class="input"><input accesskey="/" type="text" /></span><span class="post"></span></div>
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
         
         
         <div id="visbl">
@@ -46,9 +65,10 @@
         <div id="allMembers">
         
 
-        <div class="types members" id="types">
+        <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li visbl="pub" name="reactivemongo.core.errors.CompleteDBError" data-isabs="false">
+              <ol><li name="reactivemongo.core.errors.CompleteDBError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CompleteDBErrorextendsThrowablewithDBError"></a>
       <a id="CompleteDBError:CompleteDBError"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -56,11 +76,12 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="CompleteDBError.html"><span class="name">CompleteDBError</span></a><span class="result"> extends Throwable with DBError</span>
+        <a href="CompleteDBError.html"><span class="name">CompleteDBError</span></a><span class="result"> extends <span class="extype" name="java.lang.Throwable">Throwable</span> with <a href="DBError.html" class="extype" name="reactivemongo.core.errors.DBError">DBError</a></span>
       </span>
       </h4>
       <p class="comment cmt">An error thrown by a MongoDB node (containing the original document of the error).</p>
-    </li><li visbl="pub" name="reactivemongo.core.errors.DBError" data-isabs="true">
+    </li><li name="reactivemongo.core.errors.DBError" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="DBErrorextendsThrowablewithReactiveMongoError"></a>
       <a id="DBError:DBError"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -68,11 +89,12 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="DBError.html"><span class="name">DBError</span></a><span class="result"> extends Throwable with ReactiveMongoError</span>
+        <a href="DBError.html"><span class="name">DBError</span></a><span class="result"> extends <span class="extype" name="java.lang.Throwable">Throwable</span> with <a href="ReactiveMongoError.html" class="extype" name="reactivemongo.core.errors.ReactiveMongoError">ReactiveMongoError</a></span>
       </span>
       </h4>
       <p class="comment cmt">An error thrown by a MongoDB node.</p>
-    </li><li visbl="pub" name="reactivemongo.core.errors.GenericDBError" data-isabs="false">
+    </li><li name="reactivemongo.core.errors.GenericDBError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GenericDBErrorextendsThrowablewithDBErrorwithProductwithSerializable"></a>
       <a id="GenericDBError:GenericDBError"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -80,11 +102,12 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="GenericDBError.html"><span class="name">GenericDBError</span></a><span class="params">(<span name="message">message: String</span>, <span name="code">code: Option[Int]</span>)</span><span class="result"> extends Throwable with DBError with Product with Serializable</span>
+        <a href="GenericDBError.html"><span class="name">GenericDBError</span></a><span class="params">(<span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="code">code: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>)</span><span class="result"> extends <span class="extype" name="java.lang.Throwable">Throwable</span> with <a href="DBError.html" class="extype" name="reactivemongo.core.errors.DBError">DBError</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">A generic error thrown by a MongoDB node.</p>
-    </li><li visbl="pub" name="reactivemongo.core.errors.GenericMongoError" data-isabs="false">
+    </li><li name="reactivemongo.core.errors.GenericMongoError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GenericMongoErrorextendsThrowablewithReactiveMongoErrorwithProductwithSerializable"></a>
       <a id="GenericMongoError:GenericMongoError"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -92,11 +115,25 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="GenericMongoError.html"><span class="name">GenericMongoError</span></a><span class="params">(<span name="message">message: String</span>)</span><span class="result"> extends Throwable with ReactiveMongoError with Product with Serializable</span>
+        <a href="GenericMongoError.html"><span class="name">GenericMongoError</span></a><span class="params">(<span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <span class="extype" name="java.lang.Throwable">Throwable</span> with <a href="ReactiveMongoError.html" class="extype" name="reactivemongo.core.errors.ReactiveMongoError">ReactiveMongoError</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">A generic driver error.</p>
-    </li><li visbl="pub" name="reactivemongo.core.errors.ReactiveMongoError" data-isabs="true">
+    </li><li name="reactivemongo.core.errors.NonRecoverableError" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="NonRecoverableErrorextendsObject"></a>
+      <a id="NonRecoverableError:NonRecoverableError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="NonRecoverableError.html"><span class="name">NonRecoverableError</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A non recoverable error</p>
+    </li><li name="reactivemongo.core.errors.ReactiveMongoError" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ReactiveMongoErrorextendsThrowable"></a>
       <a id="ReactiveMongoError:ReactiveMongoError"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -104,7 +141,7 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="ReactiveMongoError.html"><span class="name">ReactiveMongoError</span></a><span class="result"> extends Throwable</span>
+        <a href="ReactiveMongoError.html"><span class="name">ReactiveMongoError</span></a><span class="result"> extends <span class="extype" name="java.lang.Throwable">Throwable</span></span>
       </span>
       </h4>
       <p class="comment cmt">A driver error - can be from a MongoDB node or not.</p>
@@ -113,9 +150,10 @@
 
         
 
-        <div class="values members" id="values">
+        <div id="values" class="values members">
               <h3>Value Members</h3>
-              <ol><li visbl="pub" name="reactivemongo.core.errors.ReactiveMongoError" data-isabs="false">
+              <ol><li name="reactivemongo.core.errors.ReactiveMongoError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ReactiveMongoError"></a>
       <a id="ReactiveMongoError:ReactiveMongoError"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -123,7 +161,7 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="ReactiveMongoError$.html"><span class="name">ReactiveMongoError</span></a><span class="result"> extends Serializable</span>
+        <a href="ReactiveMongoError$.html"><span class="name">ReactiveMongoError</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
@@ -131,10 +169,20 @@
             </div>
 
         
+
+        
         </div>
 
         <div id="inheritedMembers">
         
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
         </div>
 
       </div>
