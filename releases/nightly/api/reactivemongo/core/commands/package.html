@@ -1,0 +1,975 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>commands - reactivemongo.core.commands</title>
+          <meta name="description" content="commands - reactivemongo.core.commands" />
+          <meta name="keywords" content="commands reactivemongo.core.commands" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../index.html';
+            var hash = 'reactivemongo.core.commands.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../lib/package_big.png" />
+        <p id="owner"><a href="../../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../package.html" class="extype" name="reactivemongo.core">core</a></p>
+        <h1>commands</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">commands</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="reactivemongo.core.commands.AddToSet" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AddToSetextendsGroupFunctionwithProductwithSerializable"></a>
+      <a id="AddToSet:AddToSet"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="AddToSet.html"><span class="name">AddToSet</span></a><span class="params">(<span name="field">field: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="GroupFunction.html" class="extype" name="reactivemongo.core.commands.GroupFunction">GroupFunction</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="reactivemongo.core.commands.AdminCommand" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="AdminCommand[Result]extendsCommand[Result]"></a>
+      <a id="AdminCommand[Result]:AdminCommand[Result]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="AdminCommand.html"><span class="name">AdminCommand</span></a><span class="tparams">[<span name="Result">Result</span>]</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="reactivemongo.core.commands.AdminCommand.Result">Result</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">A command that targets the <i>admin</i> database only (administrative commands).</p>
+    </li><li name="reactivemongo.core.commands.Aggregate" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AggregateextendsCommand[Stream[reactivemongo.bson.BSONDocument]]withProductwithSerializable"></a>
+      <a id="Aggregate:Aggregate"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Aggregate.html"><span class="name">Aggregate</span></a><span class="params">(<span name="collectionName">collectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="pipeline">pipeline: <span class="extype" name="scala.Seq">Seq</span>[<a href="PipelineOperator.html" class="extype" name="reactivemongo.core.commands.PipelineOperator">PipelineOperator</a>]</span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Stream">Stream</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Implements the &quot;aggregation&quot; command, otherwise known as the &quot;Aggregation Framework.</p>
+    </li><li name="reactivemongo.core.commands.Ascending" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AscendingextendsSortOrderwithProductwithSerializable"></a>
+      <a id="Ascending:Ascending"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Ascending.html"><span class="name">Ascending</span></a><span class="params">(<span name="field">field: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="SortOrder.html" class="extype" name="reactivemongo.core.commands.SortOrder">SortOrder</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="reactivemongo.core.commands.Authenticate" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AuthenticateextendsCommand[reactivemongo.core.commands.SuccessfulAuthentication]withProductwithSerializable"></a>
+      <a id="Authenticate:Authenticate"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Authenticate.html"><span class="name">Authenticate</span></a><span class="params">(<span name="user">user: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="password">password: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="nonce">nonce: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<a href="SuccessfulAuthentication.html" class="extype" name="reactivemongo.core.commands.SuccessfulAuthentication">SuccessfulAuthentication</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Authenticate Command.</p>
+    </li><li name="reactivemongo.core.commands.AuthenticationResult" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="AuthenticationResultextendsObject"></a>
+      <a id="AuthenticationResult:AuthenticationResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="AuthenticationResult.html"><span class="name">AuthenticationResult</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">an authentication result</p>
+    </li><li name="reactivemongo.core.commands.Avg" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AvgextendsGroupFunctionwithProductwithSerializable"></a>
+      <a id="Avg:Avg"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Avg.html"><span class="name">Avg</span></a><span class="params">(<span name="field">field: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="GroupFunction.html" class="extype" name="reactivemongo.core.commands.GroupFunction">GroupFunction</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="reactivemongo.core.commands.BSONCommandError" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="BSONCommandErrorextendsThrowablewithCommandError"></a>
+      <a id="BSONCommandError:BSONCommandError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONCommandError.html"><span class="name">BSONCommandError</span></a><span class="result"> extends <span class="extype" name="java.lang.Throwable">Throwable</span> with <a href="CommandError.html" class="extype" name="reactivemongo.core.commands.CommandError">CommandError</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A command error that optionally holds the original TraversableBSONDocument</p>
+    </li><li name="reactivemongo.core.commands.BSONCommandResultMaker" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="BSONCommandResultMaker[Result]extendsCommandResultMaker[Result]"></a>
+      <a id="BSONCommandResultMaker[Result]:BSONCommandResultMaker[Result]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONCommandResultMaker.html"><span class="name">BSONCommandResultMaker</span></a><span class="tparams">[<span name="Result">Result</span>]</span><span class="result"> extends <a href="CommandResultMaker.html" class="extype" name="reactivemongo.core.commands.CommandResultMaker">CommandResultMaker</a>[<span class="extype" name="reactivemongo.core.commands.BSONCommandResultMaker.Result">Result</span>]</span>
+      </span>
+      </h4>
+      
+    </li><li name="reactivemongo.core.commands.CappedOptions" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CappedOptionsextendsProductwithSerializable"></a>
+      <a id="CappedOptions:CappedOptions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="CappedOptions.html"><span class="name">CappedOptions</span></a><span class="params">(<span name="size">size: <span class="extype" name="scala.Long">Long</span></span>, <span name="maxDocuments">maxDocuments: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>] = <span class="symbol">scala.None</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="reactivemongo.core.commands.CollStats" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CollStatsextendsCommand[reactivemongo.core.commands.CollStatsResult]"></a>
+      <a id="CollStats:CollStats"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="CollStats.html"><span class="name">CollStats</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<a href="CollStatsResult.html" class="extype" name="reactivemongo.core.commands.CollStatsResult">CollStatsResult</a>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Returns a document containing various information about a collection.</p>
+    </li><li name="reactivemongo.core.commands.CollStatsResult" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CollStatsResultextendsProductwithSerializable"></a>
+      <a id="CollStatsResult:CollStatsResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="CollStatsResult.html"><span class="name">CollStatsResult</span></a><span class="params">(<span name="ns">ns: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="count">count: <span class="extype" name="scala.Int">Int</span></span>, <span name="size">size: <span class="extype" name="scala.Int">Int</span></span>, <span name="averageObjectSize">averageObjectSize: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Double">Double</span>]</span>, <span name="storageSize">storageSize: <span class="extype" name="scala.Int">Int</span></span>, <span name="numExtents">numExtents: <span class="extype" name="scala.Int">Int</span></span>, <span name="nindexes">nindexes: <span class="extype" name="scala.Int">Int</span></span>, <span name="lastExtentSize">lastExtentSize: <span class="extype" name="scala.Int">Int</span></span>, <span name="paddingFactor">paddingFactor: <span class="extype" name="scala.Double">Double</span></span>, <span name="systemFlags">systemFlags: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="userFlags">userFlags: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="totalIndexSize">totalIndexSize: <span class="extype" name="scala.Int">Int</span></span>, <span name="indexSizes">indexSizes: <span class="extype" name="scala.Array">Array</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Int">Int</span>)]</span>, <span name="capped">capped: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="max">max: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Various information about a collection.</p>
+    </li><li name="reactivemongo.core.commands.Command" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="Command[Result]extendsObject"></a>
+      <a id="Command[Result]:Command[Result]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Command.html"><span class="name">Command</span></a><span class="tparams">[<span name="Result">Result</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A MongoDB Command.</p>
+    </li><li name="reactivemongo.core.commands.CommandError" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CommandErrorextendsThrowablewithReactiveMongoException"></a>
+      <a id="CommandError:CommandError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CommandError.html"><span class="name">CommandError</span></a><span class="result"> extends <span class="extype" name="java.lang.Throwable">Throwable</span> with <a href="../errors/ReactiveMongoException.html" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A generic command error.</p>
+    </li><li name="reactivemongo.core.commands.CommandResultMaker" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CommandResultMaker[Result]extendsObject"></a>
+      <a id="CommandResultMaker[Result]:CommandResultMaker[Result]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CommandResultMaker.html"><span class="name">CommandResultMaker</span></a><span class="tparams">[<span name="Result">Result</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Handler for deserializing commands results.</p>
+    </li><li name="reactivemongo.core.commands.ConvertToCapped" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ConvertToCappedextendsCommand[Boolean]"></a>
+      <a id="ConvertToCapped:ConvertToCapped"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ConvertToCapped.html"><span class="name">ConvertToCapped</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Converts a regular collection into a capped one.</p>
+    </li><li name="reactivemongo.core.commands.Count" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CountextendsCommand[Int]withProductwithSerializable"></a>
+      <a id="Count:Count"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Count.html"><span class="name">Count</span></a><span class="params">(<span name="collectionName">collectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="query">query: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>] = <span class="symbol">scala.None</span></span>, <span name="fields">fields: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>] = <span class="symbol">scala.None</span></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Int">Int</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The Count command.</p>
+    </li><li name="reactivemongo.core.commands.CreateCollection" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CreateCollectionextendsCommand[Boolean]"></a>
+      <a id="CreateCollection:CreateCollection"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="CreateCollection.html"><span class="name">CreateCollection</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Creates a collection on the database.</p>
+    </li><li name="reactivemongo.core.commands.DefaultCommandError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DefaultCommandErrorextendsThrowablewithBSONCommandError"></a>
+      <a id="DefaultCommandError:DefaultCommandError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DefaultCommandError.html"><span class="name">DefaultCommandError</span></a><span class="result"> extends <span class="extype" name="java.lang.Throwable">Throwable</span> with <a href="BSONCommandError.html" class="extype" name="reactivemongo.core.commands.BSONCommandError">BSONCommandError</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A default command error, which may contain the original BSONDocument of the response.</p>
+    </li><li name="reactivemongo.core.commands.DeleteIndex" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DeleteIndexextendsCommand[Int]withProductwithSerializable"></a>
+      <a id="DeleteIndex:DeleteIndex"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="DeleteIndex.html"><span class="name">DeleteIndex</span></a><span class="params">(<span name="collection">collection: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="index">index: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Int">Int</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="reactivemongo.core.commands.Descending" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DescendingextendsSortOrderwithProductwithSerializable"></a>
+      <a id="Descending:Descending"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Descending.html"><span class="name">Descending</span></a><span class="params">(<span name="field">field: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="SortOrder.html" class="extype" name="reactivemongo.core.commands.SortOrder">SortOrder</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="reactivemongo.core.commands.Drop" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DropextendsCommand[Boolean]"></a>
+      <a id="Drop:Drop"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Drop.html"><span class="name">Drop</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Drop a collection.</p>
+    </li><li name="reactivemongo.core.commands.DropDatabase" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DropDatabaseextendsCommand[Boolean]"></a>
+      <a id="DropDatabase:DropDatabase"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DropDatabase.html"><span class="name">DropDatabase</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Drop a database.</p>
+    </li><li name="reactivemongo.core.commands.EmptyCapped" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="EmptyCappedextendsCommand[Boolean]"></a>
+      <a id="EmptyCapped:EmptyCapped"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="EmptyCapped.html"><span class="name">EmptyCapped</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Empty a capped collection.</p>
+    </li><li name="reactivemongo.core.commands.FailedAuthentication" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FailedAuthenticationextendsThrowablewithBSONCommandErrorwithAuthenticationResultwithProductwithSerializable"></a>
+      <a id="FailedAuthentication:FailedAuthentication"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="FailedAuthentication.html"><span class="name">FailedAuthentication</span></a><span class="params">(<span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="originalDocument">originalDocument: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]</span>)</span><span class="result"> extends <span class="extype" name="java.lang.Throwable">Throwable</span> with <a href="BSONCommandError.html" class="extype" name="reactivemongo.core.commands.BSONCommandError">BSONCommandError</a> with <a href="AuthenticationResult.html" class="extype" name="reactivemongo.core.commands.AuthenticationResult">AuthenticationResult</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A failed authentication result
+</p>
+    </li><li name="reactivemongo.core.commands.FindAndModify" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FindAndModifyextendsCommand[Option[reactivemongo.bson.BSONDocument]]withProductwithSerializable"></a>
+      <a id="FindAndModify:FindAndModify"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="FindAndModify.html"><span class="name">FindAndModify</span></a><span class="params">(<span name="collection">collection: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="query">query: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>, <span name="modify">modify: <a href="Modify.html" class="extype" name="reactivemongo.core.commands.Modify">Modify</a></span>, <span name="upsert">upsert: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="sort">sort: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>] = <span class="symbol">scala.None</span></span>, <span name="fields">fields: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>] = <span class="symbol">scala.None</span></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">FindAndModify command.</p>
+    </li><li name="reactivemongo.core.commands.First" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FirstextendsGroupFunctionwithProductwithSerializable"></a>
+      <a id="First:First"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="First.html"><span class="name">First</span></a><span class="params">(<span name="field">field: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="GroupFunction.html" class="extype" name="reactivemongo.core.commands.GroupFunction">GroupFunction</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="reactivemongo.core.commands.GetLastError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GetLastErrorextendsCommand[reactivemongo.core.commands.LastError]withProductwithSerializable"></a>
+      <a id="GetLastError:GetLastError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="GetLastError.html"><span class="name">GetLastError</span></a><span class="params">(<span name="awaitJournalCommit">awaitJournalCommit: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="waitForReplicatedOn">waitForReplicatedOn: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>] = <span class="symbol">scala.None</span></span>, <span name="fsync">fsync: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<a href="LastError.html" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">GetLastError Command.</p>
+    </li><li name="reactivemongo.core.commands.GroupField" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GroupFieldextendsPipelineOperatorwithProductwithSerializable"></a>
+      <a id="GroupField:GroupField"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="GroupField.html"><span class="name">GroupField</span></a><span class="params">(<span name="idField">idField: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span name="ops">ops: (<span class="extype" name="scala.Predef.String">String</span>, <a href="GroupFunction.html" class="extype" name="reactivemongo.core.commands.GroupFunction">GroupFunction</a>)*</span>)</span><span class="result"> extends <a href="PipelineOperator.html" class="extype" name="reactivemongo.core.commands.PipelineOperator">PipelineOperator</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Groups documents together to calulate aggregates on document collections.</p>
+    </li><li name="reactivemongo.core.commands.GroupFunction" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="GroupFunctionextendsObject"></a>
+      <a id="GroupFunction:GroupFunction"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="GroupFunction.html"><span class="name">GroupFunction</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Represents one of the group operators for the &quot;Group&quot; Operation.</p>
+    </li><li name="reactivemongo.core.commands.GroupMulti" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GroupMultiextendsPipelineOperatorwithProductwithSerializable"></a>
+      <a id="GroupMulti:GroupMulti"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="GroupMulti.html"><span class="name">GroupMulti</span></a><span class="params">(<span name="idField">idField: (<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)*</span>)</span><span class="params">(<span name="ops">ops: (<span class="extype" name="scala.Predef.String">String</span>, <a href="GroupFunction.html" class="extype" name="reactivemongo.core.commands.GroupFunction">GroupFunction</a>)*</span>)</span><span class="result"> extends <a href="PipelineOperator.html" class="extype" name="reactivemongo.core.commands.PipelineOperator">PipelineOperator</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Groups documents together to calulate aggregates on document collections.</p>
+    </li><li name="reactivemongo.core.commands.IsMasterResponse" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IsMasterResponseextendsProductwithSerializable"></a>
+      <a id="IsMasterResponse:IsMasterResponse"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="IsMasterResponse.html"><span class="name">IsMasterResponse</span></a><span class="params">(<span name="isMaster">isMaster: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="secondary">secondary: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="maxBsonObjectSize">maxBsonObjectSize: <span class="extype" name="scala.Int">Int</span></span>, <span name="setName">setName: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="hosts">hosts: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]]</span>, <span name="me">me: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Deserialized IsMaster command response.</p>
+    </li><li name="reactivemongo.core.commands.Last" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LastextendsGroupFunctionwithProductwithSerializable"></a>
+      <a id="Last:Last"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Last.html"><span class="name">Last</span></a><span class="params">(<span name="field">field: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="GroupFunction.html" class="extype" name="reactivemongo.core.commands.GroupFunction">GroupFunction</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="reactivemongo.core.commands.LastError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LastErrorextendsThrowablewithDatabaseExceptionwithProductwithSerializable"></a>
+      <a id="LastError:LastError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="LastError.html"><span class="name">LastError</span></a><span class="params">(<span name="ok">ok: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="err">err: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="code">code: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="errMsg">errMsg: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="originalDocument">originalDocument: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]</span>, <span name="updated">updated: <span class="extype" name="scala.Int">Int</span></span>, <span name="updatedExisting">updatedExisting: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result"> extends <span class="extype" name="java.lang.Throwable">Throwable</span> with <a href="../errors/DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Result of the <a href="GetLastError.html" class="extype" name="reactivemongo.core.commands.GetLastError">GetLastError</a> command.</p>
+    </li><li name="reactivemongo.core.commands.Limit" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LimitextendsPipelineOperatorwithProductwithSerializable"></a>
+      <a id="Limit:Limit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Limit.html"><span class="name">Limit</span></a><span class="params">(<span name="limit">limit: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <a href="PipelineOperator.html" class="extype" name="reactivemongo.core.commands.PipelineOperator">PipelineOperator</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Limts the number of documents that pass through the stream.</p>
+    </li><li name="reactivemongo.core.commands.MakableCommand" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MakableCommandextendsObject"></a>
+      <a id="MakableCommand:MakableCommand"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="MakableCommand.html"><span class="name">MakableCommand</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A makable command, that can produce a request maker ready to be sent to a <a href="../actors/MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">reactivemongo.core.actors.MongoDBSystem</a> actor.</p>
+    </li><li name="reactivemongo.core.commands.Match" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MatchextendsPipelineOperatorwithProductwithSerializable"></a>
+      <a id="Match:Match"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Match.html"><span class="name">Match</span></a><span class="params">(<span name="predicate">predicate: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span><span class="result"> extends <a href="PipelineOperator.html" class="extype" name="reactivemongo.core.commands.PipelineOperator">PipelineOperator</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Filters out documents from the stream that do not match the predicate.</p>
+    </li><li name="reactivemongo.core.commands.Max" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MaxextendsGroupFunctionwithProductwithSerializable"></a>
+      <a id="Max:Max"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Max.html"><span class="name">Max</span></a><span class="params">(<span name="field">field: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="GroupFunction.html" class="extype" name="reactivemongo.core.commands.GroupFunction">GroupFunction</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="reactivemongo.core.commands.Min" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MinextendsGroupFunctionwithProductwithSerializable"></a>
+      <a id="Min:Min"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Min.html"><span class="name">Min</span></a><span class="params">(<span name="field">field: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="GroupFunction.html" class="extype" name="reactivemongo.core.commands.GroupFunction">GroupFunction</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="reactivemongo.core.commands.Modify" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ModifyextendsObject"></a>
+      <a id="Modify:Modify"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Modify.html"><span class="name">Modify</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A modify operation, part of a FindAndModify command</p>
+    </li><li name="reactivemongo.core.commands.PipelineOperator" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="PipelineOperatorextendsObject"></a>
+      <a id="PipelineOperator:PipelineOperator"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="PipelineOperator.html"><span class="name">PipelineOperator</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">One of MongoDBs pipeline operators for aggregation.</p>
+    </li><li name="reactivemongo.core.commands.Project" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ProjectextendsPipelineOperatorwithProductwithSerializable"></a>
+      <a id="Project:Project"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Project.html"><span class="name">Project</span></a><span class="params">(<span name="fields">fields: (<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Int">Int</span>)*</span>)</span><span class="result"> extends <a href="PipelineOperator.html" class="extype" name="reactivemongo.core.commands.PipelineOperator">PipelineOperator</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Reshapes a document stream by renaming, adding, or removing fields.</p>
+    </li><li name="reactivemongo.core.commands.Push" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="PushextendsGroupFunctionwithProductwithSerializable"></a>
+      <a id="Push:Push"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Push.html"><span class="name">Push</span></a><span class="params">(<span name="field">field: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="GroupFunction.html" class="extype" name="reactivemongo.core.commands.GroupFunction">GroupFunction</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="reactivemongo.core.commands.RawCommand" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RawCommandextendsCommand[reactivemongo.bson.BSONDocument]withProductwithSerializable"></a>
+      <a id="RawCommand:RawCommand"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="RawCommand.html"><span class="name">RawCommand</span></a><span class="params">(<span name="bson">bson: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="reactivemongo.core.commands.RenameCollection" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RenameCollectionextendsCommand[Boolean]"></a>
+      <a id="RenameCollection:RenameCollection"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="RenameCollection.html"><span class="name">RenameCollection</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Rename a collection.</p>
+    </li><li name="reactivemongo.core.commands.Skip" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SkipextendsPipelineOperatorwithProductwithSerializable"></a>
+      <a id="Skip:Skip"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Skip.html"><span class="name">Skip</span></a><span class="params">(<span name="skip">skip: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <a href="PipelineOperator.html" class="extype" name="reactivemongo.core.commands.PipelineOperator">PipelineOperator</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Skips over a number of documents before passing all further documents along the stream.</p>
+    </li><li name="reactivemongo.core.commands.Sort" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SortextendsPipelineOperatorwithProductwithSerializable"></a>
+      <a id="Sort:Sort"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Sort.html"><span class="name">Sort</span></a><span class="params">(<span name="fields">fields: <span class="extype" name="scala.Seq">Seq</span>[<a href="SortOrder.html" class="extype" name="reactivemongo.core.commands.SortOrder">SortOrder</a>]</span>)</span><span class="result"> extends <a href="PipelineOperator.html" class="extype" name="reactivemongo.core.commands.PipelineOperator">PipelineOperator</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Sorts the stream based on the given fields.</p>
+    </li><li name="reactivemongo.core.commands.SortOrder" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SortOrderextendsObject"></a>
+      <a id="SortOrder:SortOrder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="SortOrder.html"><span class="name">SortOrder</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Represents that a field should be sorted on, as well as whether it
+should be ascending or descending.</p>
+    </li><li name="reactivemongo.core.commands.SuccessfulAuthentication" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SuccessfulAuthenticationextendsAuthenticationResult"></a>
+      <a id="SuccessfulAuthentication:SuccessfulAuthentication"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="SuccessfulAuthentication.html"><span class="name">SuccessfulAuthentication</span></a><span class="result"> extends <a href="AuthenticationResult.html" class="extype" name="reactivemongo.core.commands.AuthenticationResult">AuthenticationResult</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A successful authentication result.</p>
+    </li><li name="reactivemongo.core.commands.SumField" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SumFieldextendsGroupFunctionwithProductwithSerializable"></a>
+      <a id="SumField:SumField"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SumField.html"><span class="name">SumField</span></a><span class="params">(<span name="field">field: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="GroupFunction.html" class="extype" name="reactivemongo.core.commands.GroupFunction">GroupFunction</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="reactivemongo.core.commands.SumValue" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SumValueextendsGroupFunctionwithProductwithSerializable"></a>
+      <a id="SumValue:SumValue"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SumValue.html"><span class="name">SumValue</span></a><span class="params">(<span name="value">value: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <a href="GroupFunction.html" class="extype" name="reactivemongo.core.commands.GroupFunction">GroupFunction</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="reactivemongo.core.commands.Unwind" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UnwindextendsPipelineOperatorwithProductwithSerializable"></a>
+      <a id="Unwind:Unwind"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Unwind.html"><span class="name">Unwind</span></a><span class="params">(<span name="field">field: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="PipelineOperator.html" class="extype" name="reactivemongo.core.commands.PipelineOperator">PipelineOperator</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Turns a document with an array into multiple documents, one document for each
+element in the array.</p>
+    </li><li name="reactivemongo.core.commands.Update" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UpdateextendsModifywithProductwithSerializable"></a>
+      <a id="Update:Update"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Update.html"><span class="name">Update</span></a><span class="params">(<span name="update">update: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>, <span name="fetchNewObject">fetchNewObject: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result"> extends <a href="Modify.html" class="extype" name="reactivemongo.core.commands.Modify">Modify</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Update (part of a FindAndModify command).</p>
+    </li><li name="reactivemongo.core.commands.VerboseSuccessfulAuthentication" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="VerboseSuccessfulAuthenticationextendsSuccessfulAuthenticationwithProductwithSerializable"></a>
+      <a id="VerboseSuccessfulAuthentication:VerboseSuccessfulAuthentication"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="VerboseSuccessfulAuthentication.html"><span class="name">VerboseSuccessfulAuthentication</span></a><span class="params">(<span name="db">db: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="user">user: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="readOnly">readOnly: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result"> extends <a href="SuccessfulAuthentication.html" class="extype" name="reactivemongo.core.commands.SuccessfulAuthentication">SuccessfulAuthentication</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A verbose successful authentication result (MongoDB &gt;= 2.</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="reactivemongo.core.commands.Aggregate" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Aggregate"></a>
+      <a id="Aggregate:Aggregate"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Aggregate$.html"><span class="name">Aggregate</span></a><span class="result"> extends <a href="BSONCommandResultMaker.html" class="extype" name="reactivemongo.core.commands.BSONCommandResultMaker">BSONCommandResultMaker</a>[<span class="extype" name="scala.Stream">Stream</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]] with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="reactivemongo.core.commands.Authenticate" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Authenticate"></a>
+      <a id="Authenticate:Authenticate"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Authenticate$.html"><span class="name">Authenticate</span></a><span class="result"> extends <a href="BSONCommandResultMaker.html" class="extype" name="reactivemongo.core.commands.BSONCommandResultMaker">BSONCommandResultMaker</a>[<a href="SuccessfulAuthentication.html" class="extype" name="reactivemongo.core.commands.SuccessfulAuthentication">SuccessfulAuthentication</a>] with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Authentication command's response deserializer.</p>
+    </li><li name="reactivemongo.core.commands.CollStatsResult" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CollStatsResult"></a>
+      <a id="CollStatsResult:CollStatsResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="CollStatsResult$.html"><span class="name">CollStatsResult</span></a><span class="result"> extends <a href="BSONCommandResultMaker.html" class="extype" name="reactivemongo.core.commands.BSONCommandResultMaker">BSONCommandResultMaker</a>[<a href="CollStatsResult.html" class="extype" name="reactivemongo.core.commands.CollStatsResult">CollStatsResult</a>] with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="reactivemongo.core.commands.CommandError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CommandError"></a>
+      <a id="CommandError:CommandError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="CommandError$.html"><span class="name">CommandError</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="reactivemongo.core.commands.Count" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Count"></a>
+      <a id="Count:Count"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Count$.html"><span class="name">Count</span></a><span class="result"> extends <a href="BSONCommandResultMaker.html" class="extype" name="reactivemongo.core.commands.BSONCommandResultMaker">BSONCommandResultMaker</a>[<span class="extype" name="scala.Int">Int</span>] with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Deserializer for the Count command.</p>
+    </li><li name="reactivemongo.core.commands.FindAndModify" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FindAndModify"></a>
+      <a id="FindAndModify:FindAndModify"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="FindAndModify$.html"><span class="name">FindAndModify</span></a><span class="result"> extends <a href="BSONCommandResultMaker.html" class="extype" name="reactivemongo.core.commands.BSONCommandResultMaker">BSONCommandResultMaker</a>[<span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]] with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">FindAndModify command deserializer</p>
+    </li><li name="reactivemongo.core.commands.Getnonce" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Getnonce"></a>
+      <a id="Getnonce:Getnonce"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Getnonce$.html"><span class="name">Getnonce</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Getnonce Command.</p>
+    </li><li name="reactivemongo.core.commands.IsMaster" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IsMaster"></a>
+      <a id="IsMaster:IsMaster"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="IsMaster$.html"><span class="name">IsMaster</span></a><span class="result"> extends <a href="AdminCommand.html" class="extype" name="reactivemongo.core.commands.AdminCommand">AdminCommand</a>[<a href="IsMasterResponse.html" class="extype" name="reactivemongo.core.commands.IsMasterResponse">IsMasterResponse</a>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">IsMaster Command.</p>
+    </li><li name="reactivemongo.core.commands.LastError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LastError"></a>
+      <a id="LastError:LastError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="LastError$.html"><span class="name">LastError</span></a><span class="result"> extends <a href="BSONCommandResultMaker.html" class="extype" name="reactivemongo.core.commands.BSONCommandResultMaker">BSONCommandResultMaker</a>[<a href="LastError.html" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>] with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Deserializer for <a href="GetLastError.html" class="extype" name="reactivemongo.core.commands.GetLastError">GetLastError</a> command result.</p>
+    </li><li name="reactivemongo.core.commands.Remove" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Remove"></a>
+      <a id="Remove:Remove"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Remove$.html"><span class="name">Remove</span></a><span class="result"> extends <a href="Modify.html" class="extype" name="reactivemongo.core.commands.Modify">Modify</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Remove (part of a FindAndModify command).</p>
+    </li><li name="reactivemongo.core.commands.ReplStatus" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ReplStatus"></a>
+      <a id="ReplStatus:ReplStatus"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ReplStatus$.html"><span class="name">ReplStatus</span></a><span class="result"> extends <a href="AdminCommand.html" class="extype" name="reactivemongo.core.commands.AdminCommand">AdminCommand</a>[<span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">ReplSetGetStatus Command.</p>
+    </li><li name="reactivemongo.core.commands.SilentSuccessfulAuthentication" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SilentSuccessfulAuthentication"></a>
+      <a id="SilentSuccessfulAuthentication:SilentSuccessfulAuthentication"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SilentSuccessfulAuthentication$.html"><span class="name">SilentSuccessfulAuthentication</span></a><span class="result"> extends <a href="SuccessfulAuthentication.html" class="extype" name="reactivemongo.core.commands.SuccessfulAuthentication">SuccessfulAuthentication</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A silent successful authentication result (MongoDB &lt;= 2.</p>
+    </li><li name="reactivemongo.core.commands.Status" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Status"></a>
+      <a id="Status:Status"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Status$.html"><span class="name">Status</span></a><span class="result"> extends <a href="AdminCommand.html" class="extype" name="reactivemongo.core.commands.AdminCommand">AdminCommand</a>[<span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">ServerStatus Command.</p>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

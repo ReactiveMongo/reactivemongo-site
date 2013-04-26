@@ -101,7 +101,8 @@ h6 {
 }
 
 p {
-  margin: 10px 0 15px 0;
+  margin: 20px 0 15px 0;
+  line-height: 1.8;
 }
 
 footer p {
@@ -272,6 +273,28 @@ img {
 .notice.center {
   text-align: center;
 }
+header h1 a,
+header h2 a {
+  color: inherit;
+}
+#links {
+  display: block;
+  bottom: 0;
+  position: absolute;
+}
+#links a {
+  /*margin-right: 20px;*/
+}
+#links a:not(:last-child):after {
+  content: " • ";
+  padding: 0 20px;
+}
+*:not(pre) > code {
+  border: 1px solid lightBlue;
+  padding: 0 2px;
+  box-shadow: none;
+  color: #222;
+}
 /*******************************************************************************
 Full-Width Styles
 *******************************************************************************/
@@ -282,7 +305,8 @@ Full-Width Styles
 
 .inner {
   position: relative;
-  max-width: 640px;
+  /* max-width: 640px; */
+  max-width: 780px;
   padding: 20px 10px;
   margin: 0 auto;
 }
