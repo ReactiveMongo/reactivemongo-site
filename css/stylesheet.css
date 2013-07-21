@@ -295,6 +295,14 @@ header h2 a {
   box-shadow: none;
   color: #222;
 }
+footer img {
+	width: auto;
+	max-height: 20px;
+	padding: 15px 0;
+	float: right;
+	border: 0;
+	box-shadow: none;
+}
 /*******************************************************************************
 Full-Width Styles
 *******************************************************************************/
