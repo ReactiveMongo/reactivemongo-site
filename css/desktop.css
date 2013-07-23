@@ -1,0 +1,155 @@
+body {
+  background: #f4f4f4;
+  min-height: 100%;
+  margin: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #979797;
+}
+body > div {
+  
+}
+a {
+  color: #59b25b;
+  text-decoration: none;
+}
+h1, h2, h3, h4 {
+  color: #2f2f2f;
+}
+#header > *, #main > *, .container {
+  width: 700px;
+  margin: 0 auto;
+}
+#main h2 {
+  margin: 20px auto;
+}
+#main h3 {
+  margin: 15px auto;
+}
+#main p {
+  margin: 10px auto;
+  line-height: 1.5;
+}
+#header {
+  background: white;
+}
+#header > div:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#header > div > a > img {
+  max-height: 120px;
+  float: left;
+}
+#header .nav {
+  float: right;
+}
+#header .nav li {
+  list-style: none;
+  padding-top: 5px;
+}
+#header:after {
+  content: "";
+  clear: both;
+}
+#main {
+  padding-bottom: 100px;
+}
+#main > p {
+  color: #979797;
+}
+#main > h1 {
+  padding-top: 30px;
+}
+#main h1, #main .subtitle {
+  text-align: center;
+}
+#main .subtitle {
+  font-style: italic;
+  margin-bottom: 50px;
+}
+#main .shortpath:after {
+  content: "";
+  display: block;
+  clear: both;
+  float: none;
+}
+#main .shortpath .status, #main .shortpath .getting-started {
+  background: #59b25b;
+  padding: 10px;
+}
+#main .shortpath .status {
+  float: left; 
+}
+#main .shortpath {
+  margin: 40px auto;
+  color: #376a39;
+  text-transform: uppercase;
+}
+#main .shortpath .status {
+  width: 480px;
+}
+#main .shortpath .status > * {
+  margin-left: 10px;
+}
+#main .shortpath .version {
+  color: #e1f0e1;
+}
+#main .shortpath .release-notes {
+  background: #417f43;
+  margin-left: 10px;
+}
+#main .shortpath .getting-started {
+  float: right;
+  display: block;
+  width: 175px;
+  color: #e1f0e1;
+  text-align: center;
+}
+
+pre {
+  background: #f8f8f8;
+  width: 680px;
+  padding: 3px 10px;
+  margin: 10px auto;
+  overflow-x: auto;
+}
+
+p code {
+  background: #f8f8f8;
+}
+
+#footer {
+  font-size: 12px;
+  margin-top: 50px;
+  text-align: center;
+  background: #666;
+  color: #e1e1e1;
+  padding: 20px 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+#footer .container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#footer .copyright {
+  float: left;
+}
+#footer .sponsors {
+  float: right;
+  margin: 0;
+}
+#footer .sponsors img {
+  max-height: 17px;
+}
+#sponsors {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+}
+#sponsors img {
+  max-width: 100px;
+}

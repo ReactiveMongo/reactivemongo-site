@@ -1,15 +1,10 @@
 ---
-layout: default
+layout: home
 title: ReactiveMongo
 ---
 
-# ReactiveMongo - Asynchronous & Non-Blocking Scala Driver for MongoDB
 
-
-[ReactiveMongo](https://github.com/zenexity/ReactiveMongo/) is a scala driver that provides fully non-blocking and asynchronous I/O operations.
-
-
-  <p class="notice center">ReactiveMongo 0.9 is out! Check out the <a href="/releases/0.9/notes.html">releases notes</a>.</p>
+[ReactiveMongo](https://github.com/ReactiveMongo/ReactiveMongo/) is a scala driver that provides fully non-blocking and asynchronous I/O operations.
 
 ## Scale better, use less threads
 
@@ -33,7 +28,7 @@ But if what you're interested in is live feeds then you can stream a MongoDB [ca
 
 Moreover, you can now use GridFS as a non-blocking, streaming datastore. ReactiveMongo retrieves the file, chunk by chunk, and streams it until the client is done or there's no more data. Neither huge memory consumption, nor blocked thread during the process!
 
-## Step By Step Example
+## Step By Step Example<a id="step-by-step-example"></a>
 
 Let's show a simple use case: print the documents of a collection.
 
@@ -50,9 +45,7 @@ This will start a standalone MongoDB instance that stores its data in the `data`
 
 ### Set up your project dependencies
 
-ReactiveMongo is available on [Maven Central](http://search.maven.org/#browse%7C1306790).
-
-If you use SBT, you just have to edit `build.sbt` and add the following:
+ReactiveMongo is available on [Maven Central](http://search.maven.org/#browse%7C1306790). If you use SBT, you just have to edit `build.sbt` and add the following:
 
 {% highlight scala %}
 libraryDependencies ++= Seq(
@@ -203,11 +196,11 @@ When this snippet is run, we get the following:
 
 ## Go further!
 
-There is a pretty complete [Scaladoc](releases/0.9/api/index.html) available. The code is accessible from the [Github repository](https://github.com/zenexity/ReactiveMongo). And obviously, don't hesitate to ask questions in the [ReactiveMongo Google Group](https://groups.google.com/forum/?fromgroups#!forum/reactivemongo)!
+There is a pretty complete [Scaladoc](releases/0.9/api/index.html) available. The code is accessible from the [Github repository](https://github.com/ReactiveMongo/ReactiveMongo). And obviously, don't hesitate to ask questions in the [ReactiveMongo Google Group](https://groups.google.com/forum/?fromgroups#!forum/reactivemongo)!
 
 ReactiveMongo makes a heavy usage of the [Iteratee](http://www.playframework.com/documentation/2.1.1/Iteratees) library. Although it is developped by the [Play! Framework](http://www.playframework.com) team, it does _not_ depend on any other part of the framework. You can dive into [Play's Iteratee documentation](http://www.playframework.com/documentation/2.1.1/Iteratees) to learn about this cool piece of software, and make your own Iteratees and Enumerators.
 
-Used in conjonction with stream-aware frameworks, like Play!, you can easily stream the data stored in MongoDB. For Play, there is a [ReactiveMongo Plugin](https://github.com/zenexity/Play-ReactiveMongo) that brings some cool stuff, like JSON-specialized collection and helpers for GridFS. See the examples and get convinced!
+Used in conjonction with stream-aware frameworks, like Play!, you can easily stream the data stored in MongoDB. For Play, there is a [ReactiveMongo Plugin](https://github.com/ReactiveMongo/Play-ReactiveMongo) that brings some cool stuff, like JSON-specialized collection and helpers for GridFS. See the examples and get convinced!
 
 ### Samples
 

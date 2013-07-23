@@ -1,0 +1,133 @@
+a {
+  color: #59b25b;
+  text-decoration: none;
+}
+html, body {
+  /*color: green !important;*/
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+#header {
+  
+}
+#header > div:after {
+  content: "";
+  display: block;
+  float: none;
+  clear: both;
+}
+#header > div > a > img {
+  max-width: 200px;
+  display: block;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+#header > div > div {
+  float: right;
+}
+#header > div > .nav {
+  float: right;
+  display: block;
+  padding: 0;
+  margin-top: 10px;
+  margin-right: 5px;
+  list-style: none;
+}
+h1 {
+  text-align: center;
+  font-size: 24px;
+}
+.subtitle {
+  text-align: center;
+  font-style: italic;
+}
+h2 {
+  font-size: 20px;
+}
+h3 {
+  font-size: 16px;
+}
+h2, h3, p, div.highlight {
+  padding: 0 5px;
+}
+pre {
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+#main .shortpath:after {
+  content: "";
+  display: block;
+  clear: both;
+  float: none;
+}
+#main .shortpath .status, #main .shortpath .getting-started {
+  background: #59b25b;
+  padding: 2%;
+}
+#main .shortpath .status {
+  float: left; 
+}
+#main .shortpath {
+  margin: 30px 0;
+  color: #376a39;
+  text-transform: uppercase;
+}
+#main .shortpath .status {
+  width: 60%;
+}
+#main .shortpath .status > * {
+  margin-left: 0.5%;
+}
+#main .shortpath .version {
+  color: #e1f0e1;
+}
+#main .shortpath .release-notes {
+  background: #417f43;
+  margin-left: 0.5%;
+}
+#main .shortpath .getting-started {
+  float: right;
+  display: block;
+  width: 30%;
+  color: #e1f0e1;
+  text-align: center;
+}
+#footer {
+  font-size: 12px;
+  margin-top: 50px;
+  text-align: center;
+  background: #666;
+  color: #e1e1e1;
+  padding: 20px 0;
+  width: 100%;
+}
+#footer .container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#footer .copyright {
+  float: left;
+  padding-left: 5px;
+}
+#footer .sponsors {
+  float: right;
+  padding-right: 5px;
+  margin: 0;
+}
+#footer .sponsors img {
+  max-height: 17px;
+}
+#sponsors {
+  list-style: none;
+  margin: 0;
+  padding: 0 5px;
+}
+#sponsors img {
+  max-width: 100px;
+}
