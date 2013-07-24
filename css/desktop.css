@@ -3,7 +3,7 @@ body {
   min-height: 100%;
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
-  color: #979797;
+  color: #666;
 }
 body > div {
   
@@ -56,7 +56,7 @@ h1, h2, h3, h4 {
   padding-bottom: 100px;
 }
 #main > p {
-  color: #979797;
+  color: #666;
 }
 #main > h1 {
   padding-top: 30px;
@@ -121,7 +121,6 @@ p code {
 
 #footer {
   font-size: 12px;
-  margin-top: 50px;
   text-align: center;
   background: #666;
   color: #e1e1e1;
