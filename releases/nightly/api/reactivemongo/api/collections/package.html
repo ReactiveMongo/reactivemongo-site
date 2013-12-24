@@ -2,18 +2,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>collections - reactivemongo.api.collections</title>
-          <meta name="description" content="collections - reactivemongo.api.collections" />
-          <meta name="keywords" content="collections reactivemongo.api.collections" />
+          <title>collections - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.api.collections</title>
+          <meta name="description" content="collections - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.api.collections" />
+          <meta name="keywords" content="collections ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.api.collections" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
       <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
-      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
-      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
-      <script type="text/javascript" src="../../../lib/template.js"></script>
-      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
-      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -44,7 +39,11 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"></div>
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block diagram-container" id="content-diagram-container">
+                <span class="toggle diagram-link">Content Hierarchy</span>
+                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
+                <div class="diagram" id="content-diagram"><svg class="package-diagram" id="graph149" viewBox="0.00 0.00 521.00 96.00" height="96pt" width="521pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 92)" class="graph" id="graph0"><polygon points="-4,4 -4,-92 517,-92 517,4 -4,4" stroke="white" fill="white"></polygon><!-- node0 --><g class="node trait" id="graph149_0"><g id="a_trait|graph149_0"><a xlink:title="reactivemongo.api.collections.GenericQueryBuilder" xlink:href="GenericQueryBuilder.html#inheritance-diagram"><polygon points="254.25,-26 -0.25,-26 -0.25,-0 254.25,-0 254.25,-26" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-19" x="12" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="32" text-anchor="start">GenericQueryBuilder[Structure, Reader, Writer]</text></a></g></g><!-- node1 --><g class="node trait" id="graph149_1"><g id="a_trait|graph149_1"><a xlink:title="reactivemongo.api.collections.GenericCollection" xlink:href="GenericCollection.html#inheritance-diagram"><polygon points="513.25,-26 272.75,-26 272.75,-0 513.25,-0 513.25,-26" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-19" x="285" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="305" text-anchor="start">GenericCollection[Structure, Reader, Writer]</text></a></g></g><!-- node2 --><g class="node trait" id="graph149_2"><g id="a_trait|graph149_2"><a xlink:title="reactivemongo.api.collections.GenericHandlers" xlink:href="GenericHandlers.html#inheritance-diagram"><polygon points="378.25,-88 141.75,-88 141.75,-62 378.25,-62 378.25,-88" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-81" x="154" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-72.5" x="174" text-anchor="start">GenericHandlers[Structure, Reader, Writer]</text></a></g></g><!-- node2&#45;&gt;node0 --><g class="edge inheritance" id="graph149_2_0"><g id="a_inheritance|graph149_2_0"><a xlink:title="GenericQueryBuilder[Structure, Reader, Writer] is a subtype of GenericHandlers[Structure, Reader, Writer]"><path d="M228.362,-59.7273C205.662,-49.4867 175.406,-35.8374 153.875,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="227.808,-61.3971 233.085,-61.8581 229.247,-58.2068 227.808,-61.3971" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2&#45;&gt;node1 --><g class="edge inheritance" id="graph149_2_1"><g id="a_inheritance|graph149_2_1"><a xlink:title="GenericCollection[Structure, Reader, Writer] is a subtype of GenericHandlers[Structure, Reader, Writer]"><path d="M291.638,-59.7273C314.338,-49.4867 344.594,-35.8374 366.125,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="290.753,-58.2068 286.915,-61.8581 292.192,-61.3971 290.753,-58.2068" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
         
 
       <div id="mbrsel">
@@ -64,7 +63,7 @@
         <div id="types" class="types members">
               <h3>Type Members</h3>
               <ol><li name="reactivemongo.api.collections.BufferReader" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="BufferReader[+T]extendsObject"></a>
+      <a id="BufferReader[+T]extendsAnyRef"></a>
       <a id="BufferReader[+T]:BufferReader[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -77,7 +76,7 @@
       </h4>
       
     </li><li name="reactivemongo.api.collections.BufferWriter" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="BufferWriter[-T]extendsObject"></a>
+      <a id="BufferWriter[-T]extendsAnyRef"></a>
       <a id="BufferWriter[-T]:BufferWriter[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -116,7 +115,7 @@
       </h4>
       
     </li><li name="reactivemongo.api.collections.GenericHandlers" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="GenericHandlers[Structure,Reader[_],Writer[_]]extendsObject"></a>
+      <a id="GenericHandlers[Structure,Reader[_],Writer[_]]extendsAnyRef"></a>
       <a id="GenericHandlers[Structure,Reader[_],Writer[_]]:GenericHandlers[Structure,Reader,Writer]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -142,7 +141,7 @@
       </h4>
       <p class="comment cmt">A builder that helps to make a fine-tuned query to MongoDB.</p>
     </li><li name="reactivemongo.api.collections.GenericReader" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="GenericReader[S,T]extendsObject"></a>
+      <a id="GenericReader[S,T]extendsAnyRef"></a>
       <a id="GenericReader[S,T]:GenericReader[S,T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -155,7 +154,7 @@
       </h4>
       
     </li><li name="reactivemongo.api.collections.GenericWriter" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="GenericWriter[T,S]extendsObject"></a>
+      <a id="GenericWriter[T,S]extendsAnyRef"></a>
       <a id="GenericWriter[T,S]:GenericWriter[T,S]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -225,7 +224,6 @@
       <div id="tooltip"></div>
 
       <div id="footer">  </div>
-
-
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../lib/template.js"></script><script defer="defer" type="text/javascript" id="modernizr-custom-js" src="../../../lib/modernizr.custom.js"></script><script defer="defer" type="text/javascript" id="diagrams-js" src="../../../lib/diagrams.js"></script>
     </body>
       </html>

@@ -2,18 +2,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>LastError - reactivemongo.core.commands.LastError</title>
-          <meta name="description" content="LastError - reactivemongo.core.commands.LastError" />
-          <meta name="keywords" content="LastError reactivemongo.core.commands.LastError" />
+          <title>LastError - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.core.commands.LastError</title>
+          <meta name="description" content="LastError - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.core.commands.LastError" />
+          <meta name="keywords" content="LastError ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.core.commands.LastError" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
       <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
-      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
-      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
-      <script type="text/javascript" src="../../../lib/template.js"></script>
-      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
-      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -40,7 +35,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">LastError</span><span class="params">(<span name="ok">ok: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="err">err: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="code">code: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="errMsg">errMsg: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="originalDocument">originalDocument: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]</span>, <span name="updated">updated: <span class="extype" name="scala.Int">Int</span></span>, <span name="updatedExisting">updatedExisting: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result"> extends <span class="extype" name="java.lang.Throwable">Throwable</span> with <a href="../errors/DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">LastError</span><span class="params">(<span name="ok">ok: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="err">err: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="code">code: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="errMsg">errMsg: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="originalDocument">originalDocument: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]</span>, <span name="updated">updated: <span class="extype" name="scala.Int">Int</span></span>, <span name="updatedExisting">updatedExisting: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="../errors/DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
@@ -48,8 +43,12 @@
 </p></div><dl class="paramcmts block"><dt class="param">ok</dt><dd class="cmt"><p>True if the last operation was successful</p></dd><dt class="param">err</dt><dd class="cmt"><p>The err field, if any</p></dd><dt class="param">code</dt><dd class="cmt"><p>The error code, if any</p></dd><dt class="param">errMsg</dt><dd class="cmt"><p>The message (often regarding an error) if any</p></dd><dt class="param">originalDocument</dt><dd class="cmt"><p>The whole map resulting of the deserialization of the response with the <a href="../../bson/DefaultBSONHandlers.html" class="extype" name="reactivemongo.bson.DefaultBSONHandlers">DefaultBSONHandlers</a>.</p></dd><dt class="param">updated</dt><dd class="cmt"><p>The number of documents affected by last command, 0 if none</p></dd><dt class="param">updatedExisting</dt><dd class="cmt"><p>When true, the last update operation resulted in change of existing documents
 </p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="../errors/DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a>, <a href="../errors/ReactiveMongoException.html" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>, <span class="extype" name="java.lang.Throwable">Throwable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
-        </div></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="../errors/DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a>, <a href="../errors/ReactiveMongoException.html" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>, <span class="extype" name="java.lang.Exception">Exception</span>, <span class="extype" name="java.lang.Throwable">Throwable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+                <span class="toggle diagram-link">Type Hierarchy</span>
+                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph69" viewBox="0.00 0.00 473.00 128.00" height="128pt" width="473pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 124)" class="graph" id="graph0"><polygon points="-4,4 -4,-124 469,-124 469,4 -4,4" stroke="white" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust3"></g><g class="cluster" id="clust2"></g><!-- node5 --><g class="node implicit-outgoing class" id="graph69_5"><g id="a_implicit-outgoing class|graph69_5"><a xlink:title="reactivemongo.core.commands.LastError can be implicitly converted to RichException by the implicit method exceptionWrapper in object scala.Predef"><polygon points="133.25,-50 24.75,-50 24.75,-24 133.25,-24 133.25,-50" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-43" x="37" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-34.5" x="57" text-anchor="start">RichException</text></a></g></g><!-- node0 --><g class="node this class" id="graph69_0"><g id="a_this class|graph69_0"><a xlink:title="reactivemongo.core.commands.LastError (this class)" xlink:href="#inheritance-diagram"><polygon points="291,-50 205,-50 205,-24 291,-24 291,-50" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-43" x="217" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-34.5" x="237" text-anchor="start">LastError</text></a></g></g><!-- node0&#45;&gt;node5 --><g class="edge implicit-outgoing" id="0_5"><g id="a_implicit-outgoing|0_5"><a xlink:title="LastError can be implicitly converted to RichException"><path d="M197.366,-37C181.594,-37 163.937,-37 147.171,-37" stroke="#d4d4d4" fill="none"></path><polygon points="146.705,-35.2501 141.705,-37 146.705,-38.7501 146.705,-35.2501" stroke="#d4d4d4" fill="#d4d4d4"></polygon></a></g><text fill="#aaaaaa" font-size="10.00" font-family="Arial" y="-43" x="169" text-anchor="middle">implicitly</text></g><!-- node1 --><g class="node class" id="graph69_1"><g id="a_class|graph69_1"><a xlink:title="java.lang.Exception"><polygon points="101.25,-120 12.75,-120 12.75,-94 101.25,-94 101.25,-120" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-113" x="25" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-104.5" x="45" text-anchor="start">Exception</text></a></g></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph69_1_0"><g id="a_inheritance|graph69_1_0"><a xlink:title="LastError is a subtype of Exception"><path d="M95.7086,-92.2189C130.405,-79.8662 180.809,-61.9214 213.987,-50.1093" stroke="#d4d4d4" fill="none"></path><polygon points="94.8307,-90.6738 90.7073,-93.9995 96.0047,-93.9711 94.8307,-90.6738" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node trait" id="graph69_2"><g id="a_trait|graph69_2"><a xlink:title="reactivemongo.core.errors.DatabaseException" xlink:href="../errors/DatabaseException.html#inheritance-diagram"><polygon points="252,-120 120,-120 120,-94 252,-94 252,-120" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-113" x="132" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-104.5" x="152" text-anchor="start">DatabaseException</text></a></g></g><!-- node2&#45;&gt;node0 --><g class="edge inheritance" id="graph69_2_0"><g id="a_inheritance|graph69_2_0"><a xlink:title="LastError is a subtype of DatabaseException"><path d="M200.699,-89.8786C211.839,-77.6606 226.904,-61.1378 237.012,-50.0518" stroke="#d4d4d4" fill="none"></path><polygon points="199.16,-88.9691 197.084,-93.843 201.746,-91.3272 199.16,-88.9691" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node3 --><g class="node trait" id="graph69_3"><g id="a_trait|graph69_3"><a xlink:title="scala.Product"><polygon points="350,-120 270,-120 270,-94 350,-94 350,-120" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-113" x="282" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-104.5" x="302" text-anchor="start">Product</text></a></g></g><!-- node3&#45;&gt;node0 --><g class="edge inheritance" id="graph69_3_0"><g id="a_inheritance|graph69_3_0"><a xlink:title="LastError is a subtype of Product"><path d="M295.301,-89.8786C284.161,-77.6606 269.096,-61.1378 258.988,-50.0518" stroke="#d4d4d4" fill="none"></path><polygon points="294.254,-91.3272 298.916,-93.843 296.84,-88.9691 294.254,-91.3272" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node4 --><g class="node trait" id="graph69_4"><g id="a_trait|graph69_4"><a xlink:title="scala.Serializable"><polygon points="465.25,-120 368.75,-120 368.75,-94 465.25,-94 465.25,-120" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-113" x="381" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-104.5" x="401" text-anchor="start">Serializable</text></a></g></g><!-- node4&#45;&gt;node0 --><g class="edge inheritance" id="graph69_4_0"><g id="a_inheritance|graph69_4_0"><a xlink:title="LastError is a subtype of Serializable"><path d="M382.372,-92.0668C351.684,-79.7192 307.331,-61.873 278.095,-50.1093" stroke="#d4d4d4" fill="none"></path><polygon points="381.883,-93.7565 387.175,-93.9995 383.19,-90.5095 381.883,-93.7565" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
         
 
       <div id="mbrsel">
@@ -66,7 +65,12 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="reactivemongo.core.commands.LastError"><span>LastError</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="reactivemongo.core.errors.DatabaseException"><span>DatabaseException</span></li><li class="in" name="reactivemongo.core.errors.ReactiveMongoException"><span>ReactiveMongoException</span></li><li class="in" name="java.lang.Throwable"><span>Throwable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="reactivemongo.core.commands.LastError"><span>LastError</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="reactivemongo.core.errors.DatabaseException"><span>DatabaseException</span></li><li class="in" name="reactivemongo.core.errors.ReactiveMongoException"><span>ReactiveMongoException</span></li><li class="in" name="java.lang.Exception"><span>Exception</span></li><li class="in" name="java.lang.Throwable"><span>Throwable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+                <span class="filtertype">Implicitly<br />
+                </span>
+                <ol id="implicits"> <li class="in" name="scala.Predef.exceptionWrapper" data-hidden="false"><span>by exceptionWrapper</span></li><li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.any2stringfmt" data-hidden="true"><span>by any2stringfmt</span></li><li class="in" name="scala.Predef.any2ArrowAssoc" data-hidden="true"><span>by any2ArrowAssoc</span></li><li class="in" name="scala.Predef.any2Ensuring" data-hidden="true"><span>by any2Ensuring</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -148,6 +152,43 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="+(other:String):String"></a>
+      <a id="+(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a> to
+            <span class="extype" name="scala.runtime.StringAdd">StringAdd</span> performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringAdd</dd></dl></div>
+    </li><li name="scala.Predef.any2ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="-&gt;[B](y:B):(A,B)"></a>
+      <a id="-&gt;[B](B):(LastError,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
     </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:AnyRef):Boolean"></a>
       <a id="==(AnyRef):Boolean"></a>
@@ -199,8 +240,11 @@
         <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<span class="extype" name="java.lang">java.lang</span>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">()</span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
               
         </dd></dl></div>
     </li><li name="reactivemongo.core.commands.LastError#code" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -229,6 +273,74 @@
       </span>
       </h4>
       <p class="shortcomment cmt">Returns a <code>Stream</code> for all the elements of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a> if present, otherwise an empty <code>Stream</code>.</p>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring((LastError)⇒Boolean,⇒Any):LastError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a>
+      <a id="ensuring((LastError)⇒Boolean):LastError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring(Boolean,⇒Any):LastError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean):A"></a>
+      <a id="ensuring(Boolean):LastError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -293,8 +405,31 @@
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<span class="extype" name="java.lang">java.lang</span>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">()</span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.any2stringfmt#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="formatted(fmtstr:String):String"></a>
+      <a id="formatted(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a> to
+            <span class="extype" name="scala.runtime.StringFormat">StringFormat</span> performed by method any2stringfmt in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
               
         </dd></dl></div>
     </li><li name="reactivemongo.core.commands.LastError#get" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -426,6 +561,23 @@ If the value could not be deserialized or converted, returns a <code>Failure</co
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Throwable</dd></dl></div>
+    </li><li name="scala.Predef.exceptionWrapper#getStackTraceString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getStackTraceString:String"></a>
+      <a id="getStackTraceString:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">getStackTraceString</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a> to
+            <span class="extype" name="scala.runtime.RichException">RichException</span> performed by method exceptionWrapper in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>RichException</dd></dl></div>
     </li><li name="reactivemongo.core.commands.LastError#getTry" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getTry(key:String):scala.util.Try[reactivemongo.bson.BSONValue]"></a>
       <a id="getTry(String):Try[BSONValue]"></a>
@@ -501,13 +653,26 @@ If the matching value could not be deserialized, returns a <code>Failure</code>.
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">lazy val</span>
+        <span class="kind">def</span>
       </span>
       <span class="symbol">
         <span class="name">isNotAPrimaryError</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
       <p class="shortcomment cmt">Tells if this error is due to a write on a secondary node.</p><div class="fullcomment"><div class="comment cmt"><p>Tells if this error is due to a write on a secondary node.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../errors/DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a></dd></dl></div>
+    </li><li name="reactivemongo.core.errors.DatabaseException#isUnauthorized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isUnauthorized:Boolean"></a>
+      <a id="isUnauthorized:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isUnauthorized</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Tells if this error is related to authentication issues.</p><div class="fullcomment"><div class="comment cmt"><p>Tells if this error is related to authentication issues.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../errors/DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a></dd></dl></div>
     </li><li name="reactivemongo.core.commands.LastError#message" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="message:String"></a>
       <a id="message:String"></a>
@@ -743,7 +908,10 @@ If the matching value could not be deserialized, returns a <code>Failure</code>.
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">()</span>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
               
         </dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -759,7 +927,10 @@ If the matching value could not be deserialized, returns a <code>Failure</code>.
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">()</span>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
               
         </dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -775,15 +946,115 @@ If the matching value could not be deserialized, returns a <code>Failure</code>.
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">()</span>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
               
         </dd></dl></div>
+    </li><li name="scala.Predef.any2ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a>
+      <a id="→[B](B):(LastError,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
     </li></ol>
             </div>
 
-        
+        <div id="values" class="values members">
+              <h3>Shadowed Implicit Value Members</h3>
+              <ol><li name="scala.Predef.any2stringadd#self" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="self:Any"></a>
+      <a id="self:Any"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">self</span><span class="result">: <span class="extype" name="scala.Any">Any</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a> to
+            <span class="extype" name="scala.runtime.StringAdd">StringAdd</span> performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(lastError: StringAdd).self</pre></div></dd><dt>Definition Classes</dt><dd>StringAdd</dd></dl></div>
+    </li><li name="scala.Predef.any2stringfmt#self" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="self:Any"></a>
+      <a id="self:Any"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">self</span><span class="result">: <span class="extype" name="scala.Any">Any</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a> to
+            <span class="extype" name="scala.runtime.StringFormat">StringFormat</span> performed by method any2stringfmt in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(lastError: StringFormat).self</pre></div></dd><dt>Definition Classes</dt><dd>StringFormat</dd></dl></div>
+    </li></ol>
+            </div>
 
-        
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="scala.Predef.any2ArrowAssoc#x" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="x:A"></a>
+      <a id="x:LastError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed deprecated" title="Deprecated: (Since version 2.10.0) Use leftOfArrow instead">x</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(lastError: ArrowAssoc[LastError]).x</pre></div></dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 2.10.0)</i> Use <code><u>leftOfArrow<code> instead</code></u></code></p></dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#x" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="x:A"></a>
+      <a id="x:LastError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed deprecated" title="Deprecated: (Since version 2.10.0) Use resultOfEnsuring instead">x</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(lastError: Ensuring[LastError]).x</pre></div></dd><dt>Definition Classes</dt><dd>Ensuring</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 2.10.0)</i> Use <code><u>resultOfEnsuring<code> instead</code></u></code></p></dd></dl></div>
+    </li></ol>
+            </div>
         </div>
 
         <div id="inheritedMembers">
@@ -797,6 +1068,8 @@ If the matching value could not be deserialized, returns a <code>Failure</code>.
               <h3>Inherited from <a href="../errors/DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a></h3>
             </div><div class="parent" name="reactivemongo.core.errors.ReactiveMongoException">
               <h3>Inherited from <a href="../errors/ReactiveMongoException.html" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a></h3>
+            </div><div class="parent" name="java.lang.Exception">
+              <h3>Inherited from <span class="extype" name="java.lang.Exception">Exception</span></h3>
             </div><div class="parent" name="java.lang.Throwable">
               <h3>Inherited from <span class="extype" name="java.lang.Throwable">Throwable</span></h3>
             </div><div class="parent" name="java.io.Serializable">
@@ -806,7 +1079,27 @@ If the matching value could not be deserialized, returns a <code>Failure</code>.
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
             </div>
-        
+        <div class="conversion" name="scala.Predef.exceptionWrapper">
+              <h3>Inherited by implicit conversion exceptionWrapper from
+                <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a> to <span class="extype" name="scala.runtime.RichException">RichException</span>
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2stringadd">
+              <h3>Inherited by implicit conversion any2stringadd from
+                <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a> to <span class="extype" name="scala.runtime.StringAdd">StringAdd</span>
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2stringfmt">
+              <h3>Inherited by implicit conversion any2stringfmt from
+                <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a> to <span class="extype" name="scala.runtime.StringFormat">StringFormat</span>
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2ArrowAssoc">
+              <h3>Inherited by implicit conversion any2ArrowAssoc from
+                <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2Ensuring">
+              <h3>Inherited by implicit conversion any2Ensuring from
+                <a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>]
+              </h3>
+            </div>
         </div>
 
         <div id="groupedMembers">
@@ -821,7 +1114,6 @@ If the matching value could not be deserialized, returns a <code>Failure</code>.
       <div id="tooltip"></div>
 
       <div id="footer">  </div>
-
-
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../lib/template.js"></script><script defer="defer" type="text/javascript" id="modernizr-custom-js" src="../../../lib/modernizr.custom.js"></script><script defer="defer" type="text/javascript" id="diagrams-js" src="../../../lib/diagrams.js"></script>
     </body>
       </html>

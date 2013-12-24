@@ -2,18 +2,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>MongoDBSystem - reactivemongo.core.actors.MongoDBSystem</title>
-          <meta name="description" content="MongoDBSystem - reactivemongo.core.actors.MongoDBSystem" />
-          <meta name="keywords" content="MongoDBSystem reactivemongo.core.actors.MongoDBSystem" />
+          <title>MongoDBSystem - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.core.actors.MongoDBSystem</title>
+          <meta name="description" content="MongoDBSystem - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.core.actors.MongoDBSystem" />
+          <meta name="keywords" content="MongoDBSystem ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.core.actors.MongoDBSystem" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
       <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
-      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
-      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
-      <script type="text/javascript" src="../../../lib/template.js"></script>
-      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
-      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -48,7 +43,11 @@
 </p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="akka.actor.Actor">Actor</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
-        </div></div>
+        </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+                <span class="toggle diagram-link">Type Hierarchy</span>
+                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph117" viewBox="0.00 0.00 180.00 120.00" height="120pt" width="180pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 116)" class="graph" id="graph0"><polygon points="-4,4 -4,-116 176,-116 176,4 -4,4" stroke="white" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this class" id="graph117_0"><g id="a_this class|graph117_0"><a xlink:title="reactivemongo.core.actors.MongoDBSystem (this class)" xlink:href="#inheritance-diagram"><polygon points="147.25,-50 24.75,-50 24.75,-24 147.25,-24 147.25,-50" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-43" x="37" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-34.5" x="57" text-anchor="start">MongoDBSystem</text></a></g></g><!-- node1 --><g class="node trait" id="graph117_1"><g id="a_trait|graph117_1"><a xlink:title="akka.actor.Actor"><polygon points="120.25,-112 51.75,-112 51.75,-86 120.25,-86 120.25,-112" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-105" x="64" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-96.5" x="84" text-anchor="start">Actor</text></a></g></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph117_1_0"><g id="a_inheritance|graph117_1_0"><a xlink:title="MongoDBSystem is a subtype of Actor"><path d="M86,-80.6826C86,-70.8961 86,-58.9026 86,-50.1238" stroke="#d4d4d4" fill="none"></path><polygon points="84.2501,-80.8581 86,-85.8581 87.7501,-80.8581 84.2501,-80.8581" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
         
 
       <div id="mbrsel">
@@ -66,6 +65,11 @@
                 </span>
                 <ol id="linearization">
                   <li class="in" name="reactivemongo.core.actors.MongoDBSystem"><span>MongoDBSystem</span></li><li class="in" name="akka.actor.Actor"><span>Actor</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+                <span class="filtertype">Implicitly<br />
+                </span>
+                <ol id="implicits"> <li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.any2stringfmt" data-hidden="true"><span>by any2stringfmt</span></li><li class="in" name="scala.Predef.any2ArrowAssoc" data-hidden="true"><span>by any2ArrowAssoc</span></li><li class="in" name="scala.Predef.any2Ensuring" data-hidden="true"><span>by any2Ensuring</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -86,7 +90,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="reactivemongo.core.actors.MongoDBSystem#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(seeds:Seq[String],auth:Seq[reactivemongo.core.actors.Authenticate],nbChannelsPerNode:Int,channelFactory:reactivemongo.core.nodeset.ChannelFactory):reactivemongo.core.actors.MongoDBSystem"></a>
+      <a id="&lt;init&gt;(seeds:Seq[String],initialAuthenticates:Seq[reactivemongo.core.nodeset.Authenticate],nbChannelsPerNode:Int,channelFactory:reactivemongo.core.nodeset.ChannelFactory):reactivemongo.core.actors.MongoDBSystem"></a>
       <a id="&lt;init&gt;:MongoDBSystem"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -94,10 +98,10 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">MongoDBSystem</span><span class="params">(<span name="seeds">seeds: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="auth">auth: <span class="extype" name="scala.Seq">Seq</span>[<a href="Authenticate.html" class="extype" name="reactivemongo.core.actors.Authenticate">Authenticate</a>]</span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <span class="extype" name="scala.Int">Int</span></span>, <span name="channelFactory">channelFactory: <a href="../nodeset/ChannelFactory.html" class="extype" name="reactivemongo.core.nodeset.ChannelFactory">ChannelFactory</a> = <span class="defval" name="new reactivemongo.core.nodeset.ChannelFactory(nodeset.this.ChannelFactory.&lt;init&gt;$default$1, nodeset.this.ChannelFactory.&lt;init&gt;$default$2)">...</span></span>)</span>
+        <span class="name">MongoDBSystem</span><span class="params">(<span name="seeds">seeds: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="initialAuthenticates">initialAuthenticates: <span class="extype" name="scala.Seq">Seq</span>[<a href="../nodeset/Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>]</span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <span class="extype" name="scala.Int">Int</span></span>, <span name="channelFactory">channelFactory: <a href="../nodeset/ChannelFactory.html" class="extype" name="reactivemongo.core.nodeset.ChannelFactory">ChannelFactory</a> = <span class="defval" name="new reactivemongo.core.nodeset.ChannelFactory(nodeset.this.ChannelFactory.&lt;init&gt;$default$1, nodeset.this.ChannelFactory.&lt;init&gt;$default$2)">...</span></span>)</span>
       </span>
       </h4>
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">seeds</dt><dd class="cmt"><p>nodes that will be probed to discover the whole replica set (or one standalone node)</p></dd><dt class="param">auth</dt><dd class="cmt"><p>list of authenticate messages - all the nodes will be authenticated as soon they are connected.</p></dd><dt class="param">nbChannelsPerNode</dt><dd class="cmt"><p>number of open channels by node
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">seeds</dt><dd class="cmt"><p>nodes that will be probed to discover the whole replica set (or one standalone node)</p></dd><dt class="param">nbChannelsPerNode</dt><dd class="cmt"><p>number of open channels by node
 </p></dd></dl></div>
     </li></ol>
             </div>
@@ -163,6 +167,43 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="+(other:String):String"></a>
+      <a id="+(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> to
+            <span class="extype" name="scala.runtime.StringAdd">StringAdd</span> performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringAdd</dd></dl></div>
+    </li><li name="scala.Predef.any2ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="-&gt;[B](y:B):(A,B)"></a>
+      <a id="-&gt;[B](B):(MongoDBSystem,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a>] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
     </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:AnyRef):Boolean"></a>
       <a id="==(AnyRef):Boolean"></a>
@@ -189,6 +230,32 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="reactivemongo.core.actors.MongoDBSystem.AuthRequestsManager" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AuthRequestsManager"></a>
+      <a id="AuthRequestsManager:AuthRequestsManager"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MongoDBSystem$AuthRequestsManager$.html"><span class="name">AuthRequestsManager</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="reactivemongo.core.actors.MongoDBSystem#allChannelGroup" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="allChannelGroup(nodeSet:reactivemongo.core.nodeset.NodeSet):org.jboss.netty.channel.group.DefaultChannelGroup"></a>
+      <a id="allChannelGroup(NodeSet):DefaultChannelGroup"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">allChannelGroup</span><span class="params">(<span name="nodeSet">nodeSet: <a href="../nodeset/NodeSet.html" class="extype" name="reactivemongo.core.nodeset.NodeSet">NodeSet</a></span>)</span><span class="result">: <span class="extype" name="org.jboss.netty.channel.group.DefaultChannelGroup">DefaultChannelGroup</span></span>
+      </span>
+      </h4>
+      
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -202,16 +269,45 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="reactivemongo.core.actors.MongoDBSystem#authenticateChannel" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="authenticateChannel(channel:reactivemongo.core.nodeset.MongoChannel,continuing:Boolean):reactivemongo.core.nodeset.MongoChannel"></a>
-      <a id="authenticateChannel(MongoChannel,Boolean):MongoChannel"></a>
+    </li><li name="reactivemongo.core.actors.MongoDBSystem#authenticateConnection" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="authenticateConnection(connection:reactivemongo.core.nodeset.Connection,auths:Seq[reactivemongo.core.nodeset.Authenticate]):reactivemongo.core.nodeset.Connection"></a>
+      <a id="authenticateConnection(Connection,Seq[Authenticate]):Connection"></a>
       <h4 class="signature">
       <span class="modifier_kind">
-        <span class="modifier"></span>
+        <span class="modifier">final </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">authenticateChannel</span><span class="params">(<span name="channel">channel: <a href="../nodeset/MongoChannel.html" class="extype" name="reactivemongo.core.nodeset.MongoChannel">MongoChannel</a></span>, <span name="continuing">continuing: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="../nodeset/MongoChannel.html" class="extype" name="reactivemongo.core.nodeset.MongoChannel">MongoChannel</a></span>
+        <span class="name">authenticateConnection</span><span class="params">(<span name="connection">connection: <a href="../nodeset/Connection.html" class="extype" name="reactivemongo.core.nodeset.Connection">Connection</a></span>, <span name="auths">auths: <span class="extype" name="scala.Seq">Seq</span>[<a href="../nodeset/Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>]</span>)</span><span class="result">: <a href="../nodeset/Connection.html" class="extype" name="reactivemongo.core.nodeset.Connection">Connection</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@tailrec</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="reactivemongo.core.actors.MongoDBSystem#authenticateNode" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="authenticateNode(node:reactivemongo.core.nodeset.Node,auths:Seq[reactivemongo.core.nodeset.Authenticate]):reactivemongo.core.nodeset.Node"></a>
+      <a id="authenticateNode(Node,Seq[Authenticate]):Node"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">authenticateNode</span><span class="params">(<span name="node">node: <a href="../nodeset/Node.html" class="extype" name="reactivemongo.core.nodeset.Node">Node</a></span>, <span name="auths">auths: <span class="extype" name="scala.Seq">Seq</span>[<a href="../nodeset/Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>]</span>)</span><span class="result">: <a href="../nodeset/Node.html" class="extype" name="reactivemongo.core.nodeset.Node">Node</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="reactivemongo.core.actors.MongoDBSystem#authenticateNodeSet" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="authenticateNodeSet(nodeSet:reactivemongo.core.nodeset.NodeSet):reactivemongo.core.nodeset.NodeSet"></a>
+      <a id="authenticateNodeSet(NodeSet):NodeSet"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">authenticateNodeSet</span><span class="params">(<span name="nodeSet">nodeSet: <a href="../nodeset/NodeSet.html" class="extype" name="reactivemongo.core.nodeset.NodeSet">NodeSet</a></span>)</span><span class="result">: <a href="../nodeset/NodeSet.html" class="extype" name="reactivemongo.core.nodeset.NodeSet">NodeSet</a></span>
       </span>
       </h4>
       
@@ -240,11 +336,40 @@
         <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<span class="extype" name="java.lang">java.lang</span>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">()</span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
               
         </dd></dl></div>
-    </li><li name="akka.actor.Actor#context" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="reactivemongo.core.actors.MongoDBSystem#closing" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="closing:MongoDBSystem.this.Receive"></a>
+      <a id="closing:Receive"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">closing</span><span class="result">: <a href="#Receive=akka.actor.Actor.Receive" class="extmbr" name="reactivemongo.core.actors.MongoDBSystem.Receive">Receive</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="reactivemongo.core.actors.MongoDBSystem#connectAll" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="connectAll(nodeSet:reactivemongo.core.nodeset.NodeSet):reactivemongo.core.nodeset.NodeSet"></a>
+      <a id="connectAll(NodeSet):NodeSet"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">connectAll</span><span class="params">(<span name="nodeSet">nodeSet: <a href="../nodeset/NodeSet.html" class="extype" name="reactivemongo.core.nodeset.NodeSet">NodeSet</a></span>)</span><span class="result">: <a href="../nodeset/NodeSet.html" class="extype" name="reactivemongo.core.nodeset.NodeSet">NodeSet</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="akka.actor.Actor#context" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="context:akka.actor.ActorContext"></a>
       <a id="context:ActorContext"></a>
       <h4 class="signature">
@@ -256,20 +381,88 @@
         <span class="name">context</span><span class="result">: <span class="extype" name="akka.actor.ActorContext">ActorContext</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../akka/package.html" class="extype" name="akka">akka</a>] </dd><dt>Definition Classes</dt><dd>Actor</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd></dl></div>
     </li><li name="reactivemongo.core.actors.MongoDBSystem#ec" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="ec:akka.dispatch.MessageDispatcher"></a>
-      <a id="ec:MessageDispatcher"></a>
+      <a id="ec:scala.concurrent.ExecutionContext"></a>
+      <a id="ec:ExecutionContext"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">implicit </span>
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">ec</span><span class="result">: <span class="extype" name="akka.dispatch.MessageDispatcher">MessageDispatcher</span></span>
+        <span class="name">ec</span><span class="result">: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>
       </span>
       </h4>
       
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring((MongoDBSystem)⇒Boolean,⇒Any):MongoDBSystem"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a>
+      <a id="ensuring((MongoDBSystem)⇒Boolean):MongoDBSystem"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring(Boolean,⇒Any):MongoDBSystem"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean):A"></a>
+      <a id="ensuring(Boolean):MongoDBSystem"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -308,8 +501,31 @@
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<span class="extype" name="java.lang">java.lang</span>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">()</span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.any2stringfmt#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="formatted(fmtstr:String):String"></a>
+      <a id="formatted(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> to
+            <span class="extype" name="scala.runtime.StringFormat">StringFormat</span> performed by method any2stringfmt in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
               
         </dd></dl></div>
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -417,15 +633,15 @@
       </h4>
       
     </li><li name="reactivemongo.core.actors.MongoDBSystem#pickChannel" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="pickChannel(request:reactivemongo.core.protocol.Request):Either[reactivemongo.core.errors.ReactiveMongoException,(reactivemongo.core.nodeset.Node,reactivemongo.core.nodeset.MongoChannel)]"></a>
-      <a id="pickChannel(Request):Either[ReactiveMongoException,(Node,MongoChannel)]"></a>
+      <a id="pickChannel(request:reactivemongo.core.protocol.Request):scala.util.Try[(reactivemongo.core.nodeset.Node,reactivemongo.core.nodeset.Connection)]"></a>
+      <a id="pickChannel(Request):Try[(Node,Connection)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">pickChannel</span><span class="params">(<span name="request">request: <a href="../protocol/Request.html" class="extype" name="reactivemongo.core.protocol.Request">Request</a></span>)</span><span class="result">: <span class="extype" name="scala.Either">Either</span>[<a href="../errors/ReactiveMongoException.html" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>, (<a href="../nodeset/Node.html" class="extype" name="reactivemongo.core.nodeset.Node">Node</a>, <a href="../nodeset/MongoChannel.html" class="extype" name="reactivemongo.core.nodeset.MongoChannel">MongoChannel</a>)]</span>
+        <span class="name">pickChannel</span><span class="params">(<span name="request">request: <a href="../protocol/Request.html" class="extype" name="reactivemongo.core.protocol.Request">Request</a></span>)</span><span class="result">: <span class="extype" name="scala.util.Try">Try</span>[(<a href="../nodeset/Node.html" class="extype" name="reactivemongo.core.nodeset.Node">Node</a>, <a href="../nodeset/Connection.html" class="extype" name="reactivemongo.core.nodeset.Connection">Connection</a>)]</span>
       </span>
       </h4>
       
@@ -441,7 +657,13 @@
         <span class="name">postRestart</span><span class="params">(<span name="reason">reason: <span class="extype" name="scala.Throwable">Throwable</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Exception]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
     </li><li name="reactivemongo.core.actors.MongoDBSystem#postStop" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="postStop():Unit"></a>
       <a id="postStop():Unit"></a>
@@ -467,7 +689,13 @@
         <span class="name">preRestart</span><span class="params">(<span name="reason">reason: <span class="extype" name="scala.Throwable">Throwable</span></span>, <span name="message">message: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Any">Any</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Exception]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
     </li><li name="akka.actor.Actor#preStart" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="preStart():Unit"></a>
       <a id="preStart():Unit"></a>
@@ -480,7 +708,13 @@
         <span class="name">preStart</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Exception]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
     </li><li name="reactivemongo.core.actors.MongoDBSystem#receive" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="receive:PartialFunction[Any,Unit]"></a>
       <a id="receive:PartialFunction[Any,Unit]"></a>
@@ -533,6 +767,19 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd></dl></div>
+    </li><li name="reactivemongo.core.actors.MongoDBSystem#sendIsMaster" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="sendIsMaster(node:reactivemongo.core.nodeset.Node,id:Int):reactivemongo.core.nodeset.Node"></a>
+      <a id="sendIsMaster(Node,Int):Node"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">sendIsMaster</span><span class="params">(<span name="node">node: <a href="../nodeset/Node.html" class="extype" name="reactivemongo.core.nodeset.Node">Node</a></span>, <span name="id">id: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="../nodeset/Node.html" class="extype" name="reactivemongo.core.nodeset.Node">Node</a></span>
+      </span>
+      </h4>
+      
     </li><li name="akka.actor.Actor#sender" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sender:akka.actor.ActorRef"></a>
       <a id="sender:ActorRef"></a>
@@ -611,6 +858,19 @@
       </span>
       </h4>
       
+    </li><li name="reactivemongo.core.actors.MongoDBSystem#updateNodeSetOnDisconnect" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="updateNodeSetOnDisconnect(channelId:Int):reactivemongo.core.nodeset.NodeSet"></a>
+      <a id="updateNodeSetOnDisconnect(Int):NodeSet"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">updateNodeSetOnDisconnect</span><span class="params">(<span name="channelId">channelId: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="../nodeset/NodeSet.html" class="extype" name="reactivemongo.core.nodeset.NodeSet">NodeSet</a></span>
+      </span>
+      </h4>
+      
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -624,7 +884,10 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">()</span>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
               
         </dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -640,7 +903,10 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">()</span>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
               
         </dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -656,15 +922,115 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">()</span>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
               
         </dd></dl></div>
+    </li><li name="scala.Predef.any2ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a>
+      <a id="→[B](B):(MongoDBSystem,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a>] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
     </li></ol>
             </div>
 
-        
+        <div id="values" class="values members">
+              <h3>Shadowed Implicit Value Members</h3>
+              <ol><li name="scala.Predef.any2stringadd#self" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="self:Any"></a>
+      <a id="self:Any"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">self</span><span class="result">: <span class="extype" name="scala.Any">Any</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> to
+            <span class="extype" name="scala.runtime.StringAdd">StringAdd</span> performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is shadowed by one or more members in this class.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(mongoDBSystem: StringAdd).self</pre></div></dd><dt>Definition Classes</dt><dd>StringAdd</dd></dl></div>
+    </li><li name="scala.Predef.any2stringfmt#self" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="self:Any"></a>
+      <a id="self:Any"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">self</span><span class="result">: <span class="extype" name="scala.Any">Any</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> to
+            <span class="extype" name="scala.runtime.StringFormat">StringFormat</span> performed by method any2stringfmt in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is shadowed by one or more members in this class.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(mongoDBSystem: StringFormat).self</pre></div></dd><dt>Definition Classes</dt><dd>StringFormat</dd></dl></div>
+    </li></ol>
+            </div>
 
-        
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="scala.Predef.any2ArrowAssoc#x" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="x:A"></a>
+      <a id="x:MongoDBSystem"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed deprecated" title="Deprecated: (Since version 2.10.0) Use leftOfArrow instead">x</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a>] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(mongoDBSystem: ArrowAssoc[MongoDBSystem]).x</pre></div></dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 2.10.0)</i> Use <code><u>leftOfArrow<code> instead</code></u></code></p></dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#x" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="x:A"></a>
+      <a id="x:MongoDBSystem"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed deprecated" title="Deprecated: (Since version 2.10.0) Use resultOfEnsuring instead">x</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(mongoDBSystem: Ensuring[MongoDBSystem]).x</pre></div></dd><dt>Definition Classes</dt><dd>Ensuring</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 2.10.0)</i> Use <code><u>resultOfEnsuring<code> instead</code></u></code></p></dd></dl></div>
+    </li></ol>
+            </div>
         </div>
 
         <div id="inheritedMembers">
@@ -675,7 +1041,23 @@
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
             </div>
-        
+        <div class="conversion" name="scala.Predef.any2stringadd">
+              <h3>Inherited by implicit conversion any2stringadd from
+                <a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> to <span class="extype" name="scala.runtime.StringAdd">StringAdd</span>
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2stringfmt">
+              <h3>Inherited by implicit conversion any2stringfmt from
+                <a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> to <span class="extype" name="scala.runtime.StringFormat">StringFormat</span>
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2ArrowAssoc">
+              <h3>Inherited by implicit conversion any2ArrowAssoc from
+                <a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2Ensuring">
+              <h3>Inherited by implicit conversion any2Ensuring from
+                <a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a>]
+              </h3>
+            </div>
         </div>
 
         <div id="groupedMembers">
@@ -690,7 +1072,6 @@
       <div id="tooltip"></div>
 
       <div id="footer">  </div>
-
-
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../lib/template.js"></script><script defer="defer" type="text/javascript" id="modernizr-custom-js" src="../../../lib/modernizr.custom.js"></script><script defer="defer" type="text/javascript" id="diagrams-js" src="../../../lib/diagrams.js"></script>
     </body>
       </html>

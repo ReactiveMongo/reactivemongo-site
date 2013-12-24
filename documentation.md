@@ -9,6 +9,7 @@ title: ReactiveMongo - Documentation
   * [Release Notes](/releases/0.10/documentation/release-details.html)
   * [Documentation](/releases/0.10/documentation/index.html)
   * [API](/releases/0.10/api/index.html)
+* [Nighlty build – API (0.11.0-SNAPSHOT)](/releases/nightly/api/index.html)
 * Older releases
   * [0.9](/releases/0.9/notes.html)
     * [Release Notes](/releases/0.9/notes.html)

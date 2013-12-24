@@ -2,18 +2,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>ReactiveMongoException - reactivemongo.core.errors.ReactiveMongoException</title>
-          <meta name="description" content="ReactiveMongoException - reactivemongo.core.errors.ReactiveMongoException" />
-          <meta name="keywords" content="ReactiveMongoException reactivemongo.core.errors.ReactiveMongoException" />
+          <title>ReactiveMongoException - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.core.errors.ReactiveMongoException</title>
+          <meta name="description" content="ReactiveMongoException - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.core.errors.ReactiveMongoException" />
+          <meta name="keywords" content="ReactiveMongoException ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.core.errors.ReactiveMongoException" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
       <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
-      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
-      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
-      <script type="text/javascript" src="../../../lib/template.js"></script>
-      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
-      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -40,17 +35,21 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">ReactiveMongoException</span><span class="result"> extends <span class="extype" name="java.lang.Throwable">Throwable</span></span>
+        <span class="name">ReactiveMongoException</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>An error that can come from a MongoDB node or not.</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="java.lang.Throwable">Throwable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="java.lang.Exception">Exception</span>, <span class="extype" name="java.lang.Throwable">Throwable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
           <span class="toggle">Known Subclasses</span>
-          <div class="subClasses hiddenContent"><a href="../commands/BSONCommandError.html" class="extype" name="reactivemongo.core.commands.BSONCommandError">BSONCommandError</a>, <a href="../actors/Exceptions$$ChannelNotFound$.html" class="extype" name="reactivemongo.core.actors.Exceptions.ChannelNotFound">ChannelNotFound</a>, <a href="../commands/CommandError.html" class="extype" name="reactivemongo.core.commands.CommandError">CommandError</a>, <a href="ConnectionException.html" class="extype" name="reactivemongo.core.errors.ConnectionException">ConnectionException</a>, <a href="DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a>, <a href="../commands/DefaultCommandError.html" class="extype" name="reactivemongo.core.commands.DefaultCommandError">DefaultCommandError</a>, <a href="DetailedDatabaseException.html" class="extype" name="reactivemongo.core.errors.DetailedDatabaseException">DetailedDatabaseException</a>, <a href="DriverException.html" class="extype" name="reactivemongo.core.errors.DriverException">DriverException</a>, <a href="../commands/FailedAuthentication.html" class="extype" name="reactivemongo.core.commands.FailedAuthentication">FailedAuthentication</a>, <a href="GenericDatabaseException.html" class="extype" name="reactivemongo.core.errors.GenericDatabaseException">GenericDatabaseException</a>, <a href="GenericDriverException.html" class="extype" name="reactivemongo.core.errors.GenericDriverException">GenericDriverException</a>, <a href="../commands/LastError.html" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>, <a href="../actors/Exceptions$$NodeSetNotReachable$.html" class="extype" name="reactivemongo.core.actors.Exceptions.NodeSetNotReachable">NodeSetNotReachable</a>, <a href="../actors/Exceptions$$PrimaryUnavailableException$.html" class="extype" name="reactivemongo.core.actors.Exceptions.PrimaryUnavailableException">PrimaryUnavailableException</a></div>
-        </div></div>
+          <div class="subClasses hiddenContent"><a href="../commands/BSONCommandError.html" class="extype" name="reactivemongo.core.commands.BSONCommandError">BSONCommandError</a>, <a href="../actors/Exceptions$$ChannelNotFound$.html" class="extype" name="reactivemongo.core.actors.Exceptions.ChannelNotFound">ChannelNotFound</a>, <a href="../actors/Exceptions$$ClosedException$.html" class="extype" name="reactivemongo.core.actors.Exceptions.ClosedException">ClosedException</a>, <a href="../commands/CommandError.html" class="extype" name="reactivemongo.core.commands.CommandError">CommandError</a>, <a href="ConnectionException.html" class="extype" name="reactivemongo.core.errors.ConnectionException">ConnectionException</a>, <a href="DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a>, <a href="../commands/DefaultCommandError.html" class="extype" name="reactivemongo.core.commands.DefaultCommandError">DefaultCommandError</a>, <a href="DetailedDatabaseException.html" class="extype" name="reactivemongo.core.errors.DetailedDatabaseException">DetailedDatabaseException</a>, <a href="DriverException.html" class="extype" name="reactivemongo.core.errors.DriverException">DriverException</a>, <a href="../commands/FailedAuthentication.html" class="extype" name="reactivemongo.core.commands.FailedAuthentication">FailedAuthentication</a>, <a href="GenericDatabaseException.html" class="extype" name="reactivemongo.core.errors.GenericDatabaseException">GenericDatabaseException</a>, <a href="GenericDriverException.html" class="extype" name="reactivemongo.core.errors.GenericDriverException">GenericDriverException</a>, <a href="../commands/LastError.html" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>, <a href="../actors/Exceptions$$NodeSetNotReachable$.html" class="extype" name="reactivemongo.core.actors.Exceptions.NodeSetNotReachable">NodeSetNotReachable</a>, <a href="../actors/Exceptions$$PrimaryUnavailableException$.html" class="extype" name="reactivemongo.core.actors.Exceptions.PrimaryUnavailableException">PrimaryUnavailableException</a></div>
+        </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+                <span class="toggle diagram-link">Type Hierarchy</span>
+                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph56" viewBox="0.00 0.00 491.00 174.00" height="174pt" width="491pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 170)" class="graph" id="graph0"><polygon points="-4,4 -4,-170 487,-170 487,4 -4,4" stroke="white" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><g class="cluster" id="clust3"></g><!-- node5 --><g class="node implicit-outgoing class" id="graph56_5"><g id="a_implicit-outgoing class|graph56_5"><a xlink:title="reactivemongo.core.errors.ReactiveMongoException can be implicitly converted to RichException by the implicit method exceptionWrapper in object scala.Predef"><polygon points="458.25,-96 349.75,-96 349.75,-70 458.25,-70 458.25,-96" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-89" x="362" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-80.5" x="382" text-anchor="start">RichException</text></a></g></g><!-- node0 --><g class="node this trait" id="graph56_0"><g id="a_this trait|graph56_0"><a xlink:title="reactivemongo.core.errors.ReactiveMongoException (this trait)" xlink:href="#inheritance-diagram"><polygon points="277.25,-96 118.75,-96 118.75,-70 277.25,-70 277.25,-96" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-89" x="131" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-80.5" x="151" text-anchor="start">ReactiveMongoException</text></a></g></g><!-- node0&#45;&gt;node5 --><g class="edge implicit-outgoing" id="0_5"><g id="a_implicit-outgoing|0_5"><a xlink:title="ReactiveMongoException can be implicitly converted to RichException"><path d="M285.592,-83C302.491,-83 319.955,-83 336.11,-83" stroke="#d4d4d4" fill="none"></path><polygon points="336.363,-84.7501 341.363,-83 336.363,-81.2501 336.363,-84.7501" stroke="#d4d4d4" fill="#d4d4d4"></polygon></a></g><text fill="#aaaaaa" font-size="10.00" font-family="Arial" y="-89" x="313.25" text-anchor="middle">implicitly</text></g><!-- node1 --><g class="node trait" id="graph56_1"><g id="a_trait|graph56_1"><a xlink:title="reactivemongo.core.commands.CommandError" xlink:href="../commands/CommandError.html#inheritance-diagram"><polygon points="114,-26 0,-26 0,-0 114,-0 114,-26" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-19" x="12" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="32" text-anchor="start">CommandError</text></a></g></g><!-- node0&#45;&gt;node1 --><g class="edge inheritance" id="graph56_0_1"><g id="a_inheritance|graph56_0_1"><a xlink:title="CommandError is a subtype of ReactiveMongoException"><path d="M168.475,-67.7608C142.898,-55.4258 106.301,-37.7762 82.1089,-26.1093" stroke="#d4d4d4" fill="none"></path><polygon points="167.853,-69.4038 173.117,-69.9995 169.373,-66.2512 167.853,-69.4038" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node trait" id="graph56_2"><g id="a_trait|graph56_2"><a xlink:title="reactivemongo.core.errors.DatabaseException" xlink:href="DatabaseException.html#inheritance-diagram"><polygon points="264,-26 132,-26 132,-0 264,-0 264,-26" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-19" x="144" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="164" text-anchor="start">DatabaseException</text></a></g></g><!-- node0&#45;&gt;node2 --><g class="edge inheritance" id="graph56_0_2"><g id="a_inheritance|graph56_0_2"><a xlink:title="DatabaseException is a subtype of ReactiveMongoException"><path d="M198,-64.5884C198,-52.5177 198,-36.7522 198,-26.0518" stroke="#d4d4d4" fill="none"></path><polygon points="196.25,-64.8429 198,-69.843 199.75,-64.843 196.25,-64.8429" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node3 --><g class="node trait" id="graph56_3"><g id="a_trait|graph56_3"><a xlink:title="reactivemongo.core.errors.DriverException" xlink:href="DriverException.html#inheritance-diagram"><polygon points="398,-26 282,-26 282,-0 398,-0 398,-26" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-19" x="294" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="314" text-anchor="start">DriverException</text></a></g></g><!-- node0&#45;&gt;node3 --><g class="edge inheritance" id="graph56_0_3"><g id="a_inheritance|graph56_0_3"><a xlink:title="DriverException is a subtype of ReactiveMongoException"><path d="M227.735,-67.7608C253.493,-55.4258 290.35,-37.7762 314.713,-26.1093" stroke="#d4d4d4" fill="none"></path><polygon points="226.814,-66.2616 223.06,-69.9995 228.325,-69.4183 226.814,-66.2616" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node4 --><g class="node class" id="graph56_4"><g id="a_class|graph56_4"><a xlink:title="java.lang.Exception"><polygon points="242.25,-166 153.75,-166 153.75,-140 242.25,-140 242.25,-166" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-159" x="166" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-150.5" x="186" text-anchor="start">Exception</text></a></g></g><!-- node4&#45;&gt;node0 --><g class="edge inheritance" id="graph56_4_0"><g id="a_inheritance|graph56_4_0"><a xlink:title="ReactiveMongoException is a subtype of Exception"><path d="M198,-134.588C198,-122.518 198,-106.752 198,-96.0518" stroke="#d4d4d4" fill="none"></path><polygon points="196.25,-134.843 198,-139.843 199.75,-134.843 196.25,-134.843" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
         
 
       <div id="mbrsel">
@@ -67,7 +66,12 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="reactivemongo.core.errors.ReactiveMongoException"><span>ReactiveMongoException</span></li><li class="in" name="java.lang.Throwable"><span>Throwable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="reactivemongo.core.errors.ReactiveMongoException"><span>ReactiveMongoException</span></li><li class="in" name="java.lang.Exception"><span>Exception</span></li><li class="in" name="java.lang.Throwable"><span>Throwable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+                <span class="filtertype">Implicitly<br />
+                </span>
+                <ol id="implicits"> <li class="in" name="scala.Predef.exceptionWrapper" data-hidden="false"><span>by exceptionWrapper</span></li><li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.any2stringfmt" data-hidden="true"><span>by any2stringfmt</span></li><li class="in" name="scala.Predef.any2ArrowAssoc" data-hidden="true"><span>by any2ArrowAssoc</span></li><li class="in" name="scala.Predef.any2Ensuring" data-hidden="true"><span>by any2Ensuring</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -148,6 +152,43 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="+(other:String):String"></a>
+      <a id="+(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a> to
+            <span class="extype" name="scala.runtime.StringAdd">StringAdd</span> performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringAdd</dd></dl></div>
+    </li><li name="scala.Predef.any2ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="-&gt;[B](y:B):(A,B)"></a>
+      <a id="-&gt;[B](B):(ReactiveMongoException,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
     </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:AnyRef):Boolean"></a>
       <a id="==(AnyRef):Boolean"></a>
@@ -199,10 +240,81 @@
         <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<span class="extype" name="java.lang">java.lang</span>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">()</span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
               
         </dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring((ReactiveMongoException)⇒Boolean,⇒Any):ReactiveMongoException"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a>
+      <a id="ensuring((ReactiveMongoException)⇒Boolean):ReactiveMongoException"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring(Boolean,⇒Any):ReactiveMongoException"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean):A"></a>
+      <a id="ensuring(Boolean):ReactiveMongoException"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -254,8 +366,31 @@
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<span class="extype" name="java.lang">java.lang</span>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">()</span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.any2stringfmt#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="formatted(fmtstr:String):String"></a>
+      <a id="formatted(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a> to
+            <span class="extype" name="scala.runtime.StringFormat">StringFormat</span> performed by method any2stringfmt in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
               
         </dd></dl></div>
     </li><li name="java.lang.Throwable#getCause" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -323,6 +458,23 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Throwable</dd></dl></div>
+    </li><li name="scala.Predef.exceptionWrapper#getStackTraceString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getStackTraceString:String"></a>
+      <a id="getStackTraceString:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">getStackTraceString</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a> to
+            <span class="extype" name="scala.runtime.RichException">RichException</span> performed by method exceptionWrapper in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>RichException</dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -492,7 +644,10 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">()</span>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
               
         </dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -508,7 +663,10 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">()</span>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
               
         </dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -524,19 +682,121 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">()</span>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
               
         </dd></dl></div>
+    </li><li name="scala.Predef.any2ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a>
+      <a id="→[B](B):(ReactiveMongoException,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
     </li></ol>
             </div>
 
-        
+        <div id="values" class="values members">
+              <h3>Shadowed Implicit Value Members</h3>
+              <ol><li name="scala.Predef.any2stringadd#self" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="self:Any"></a>
+      <a id="self:Any"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">self</span><span class="result">: <span class="extype" name="scala.Any">Any</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a> to
+            <span class="extype" name="scala.runtime.StringAdd">StringAdd</span> performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(reactiveMongoException: StringAdd).self</pre></div></dd><dt>Definition Classes</dt><dd>StringAdd</dd></dl></div>
+    </li><li name="scala.Predef.any2stringfmt#self" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="self:Any"></a>
+      <a id="self:Any"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">self</span><span class="result">: <span class="extype" name="scala.Any">Any</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a> to
+            <span class="extype" name="scala.runtime.StringFormat">StringFormat</span> performed by method any2stringfmt in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(reactiveMongoException: StringFormat).self</pre></div></dd><dt>Definition Classes</dt><dd>StringFormat</dd></dl></div>
+    </li></ol>
+            </div>
 
-        
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="scala.Predef.any2ArrowAssoc#x" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="x:A"></a>
+      <a id="x:ReactiveMongoException"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed deprecated" title="Deprecated: (Since version 2.10.0) Use leftOfArrow instead">x</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(reactiveMongoException: ArrowAssoc[ReactiveMongoException]).x</pre></div></dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 2.10.0)</i> Use <code><u>leftOfArrow<code> instead</code></u></code></p></dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#x" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="x:A"></a>
+      <a id="x:ReactiveMongoException"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed deprecated" title="Deprecated: (Since version 2.10.0) Use resultOfEnsuring instead">x</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(reactiveMongoException: Ensuring[ReactiveMongoException]).x</pre></div></dd><dt>Definition Classes</dt><dd>Ensuring</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 2.10.0)</i> Use <code><u>resultOfEnsuring<code> instead</code></u></code></p></dd></dl></div>
+    </li></ol>
+            </div>
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="java.lang.Throwable">
+        <div class="parent" name="java.lang.Exception">
+              <h3>Inherited from <span class="extype" name="java.lang.Exception">Exception</span></h3>
+            </div><div class="parent" name="java.lang.Throwable">
               <h3>Inherited from <span class="extype" name="java.lang.Throwable">Throwable</span></h3>
             </div><div class="parent" name="java.io.Serializable">
               <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
@@ -545,7 +805,27 @@
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
             </div>
-        
+        <div class="conversion" name="scala.Predef.exceptionWrapper">
+              <h3>Inherited by implicit conversion exceptionWrapper from
+                <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a> to <span class="extype" name="scala.runtime.RichException">RichException</span>
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2stringadd">
+              <h3>Inherited by implicit conversion any2stringadd from
+                <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a> to <span class="extype" name="scala.runtime.StringAdd">StringAdd</span>
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2stringfmt">
+              <h3>Inherited by implicit conversion any2stringfmt from
+                <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a> to <span class="extype" name="scala.runtime.StringFormat">StringFormat</span>
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2ArrowAssoc">
+              <h3>Inherited by implicit conversion any2ArrowAssoc from
+                <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2Ensuring">
+              <h3>Inherited by implicit conversion any2Ensuring from
+                <a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>]
+              </h3>
+            </div>
         </div>
 
         <div id="groupedMembers">
@@ -560,7 +840,6 @@
       <div id="tooltip"></div>
 
       <div id="footer">  </div>
-
-
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../lib/template.js"></script><script defer="defer" type="text/javascript" id="modernizr-custom-js" src="../../../lib/modernizr.custom.js"></script><script defer="defer" type="text/javascript" id="diagrams-js" src="../../../lib/diagrams.js"></script>
     </body>
       </html>

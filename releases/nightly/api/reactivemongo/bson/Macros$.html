@@ -2,18 +2,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>Macros - reactivemongo.bson.Macros</title>
-          <meta name="description" content="Macros - reactivemongo.bson.Macros" />
-          <meta name="keywords" content="Macros reactivemongo.bson.Macros" />
+          <title>Macros - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.bson.Macros</title>
+          <meta name="description" content="Macros - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.bson.Macros" />
+          <meta name="keywords" content="Macros ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.bson.Macros" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
       <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
-      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
-      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
-      <script type="text/javascript" src="../../lib/template.js"></script>
-      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
-      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../index.html';
@@ -59,9 +54,7 @@ them. In order to use custom types inside case classes just make sure
 appropriate handlers are in scope. Note that companion objects are searched
 too. For example if you have <code>case class Foo(bar: Bar)</code> and want to create a
 handler for it is enough to put an implicit handler for <code>Bar</code> in it's
-companion object. That handler might be macro generated or written by hand.
-As this might imply, recursive structures are not currently supported since
-that would be a cyclic dependency between implicits.</p><p>Case classes can also be defined inside other classes, objects or traits
+companion object. That handler might be macro generated or written by hand.</p><p>Case classes can also be defined inside other classes, objects or traits
 but not inside functions(known limitation). In order to work you should
 have the case class in scope(where you call the macro) so you can refer to
 it by it's short name - without package. This is necessary because the
@@ -72,8 +65,16 @@ Macros.handler[Foo]
 }</pre><p>Option types are handled somewhat specially: a field of type Option[T]
 will only be appended to the document if it contains a value. Similarly
 if a document does not contain a value it will be read as None.</p><p>Also supported neat trick are 'union types' that make for easy work with
-algebraic data types. See the UnionType option for more details.
-</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p>Macros.Options for specific options
+algebraic data types. See the UnionType option for more details.</p><p>You can also create recursive structures by explicitly annotating types of
+the implicit handlers. (To let the compiler know they exist)
+Example</p><pre><span class="kw">sealed</span> <span class="kw">trait</span> Tree
+<span class="kw">case</span> <span class="kw">class</span> Node(left: Tree, right: Tree) <span class="kw">extends</span> Tree
+<span class="kw">case</span> <span class="kw">class</span> Leaf(data: <span class="std">String</span>) <span class="kw">extends</span> Tree
+
+<span class="kw">object</span> Tree {
+  <span class="kw">import</span> Macros.Options._
+  <span class="kw">implicit</span> <span class="kw">val</span> bson: Handler[Tree] = Macros.handlerOpts[Tree, UnionType[Node \/ Leaf]]
+}</pre></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p>Macros.Options for specific options
 </p></span></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
@@ -185,6 +186,20 @@ algebraic data types. See the UnionType option for more details.
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="reactivemongo.bson.Macros.Annotations" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Annotations"></a>
+      <a id="Annotations:Annotations"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Macros$$Annotations$.html"><span class="name">Annotations</span></a>
+      </span>
+      </h4>
+      <p class="comment cmt">Annotations to use on case classes that are being processed by macros
+</p>
     </li><li name="reactivemongo.bson.Macros.Options" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Options"></a>
       <a id="Options:Options"></a>
@@ -224,8 +239,11 @@ type parameters that will customize behavior of the macros during compilation.</
         <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<span class="extype" name="java.lang">java.lang</span>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">()</span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
               
         </dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -266,8 +284,11 @@ type parameters that will customize behavior of the macros during compilation.</
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<span class="extype" name="java.lang">java.lang</span>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">()</span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
               
         </dd></dl></div>
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -296,7 +317,10 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4>
       <p class="shortcomment cmt">Creates an instance of BSONReader and BSONWriter for case class A</p><div class="fullcomment"><div class="comment cmt"><p>Creates an instance of BSONReader and BSONWriter for case class A</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
-                <span class="name">@macroImpl</span><span class="args">()</span>
+                <span class="name">@macroImpl</span><span class="args">(<span>
+      
+      <span class="defval" name="`macro`(&quot;versionFormat&quot; = 1, &quot;className&quot; = &quot;reactivemongo.bson.MacroImpl&quot;, &quot;methodName&quot; = &quot;handler&quot;, &quot;signature&quot; = List(-1, 0, 1))[A, reactivemongo.bson.Macros.Options.Default]">...</span>
+    </span>)</span>
               
         </dd></dl></div>
     </li><li name="reactivemongo.bson.Macros#handlerOpts" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -312,7 +336,10 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4>
       <p class="shortcomment cmt">Creates an instance of BSONReader and BSONWriter for case class A and takes additional options</p><div class="fullcomment"><div class="comment cmt"><p>Creates an instance of BSONReader and BSONWriter for case class A and takes additional options</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
-                <span class="name">@macroImpl</span><span class="args">()</span>
+                <span class="name">@macroImpl</span><span class="args">(<span>
+      
+      <span class="defval" name="`macro`(&quot;versionFormat&quot; = 1, &quot;className&quot; = &quot;reactivemongo.bson.MacroImpl&quot;, &quot;methodName&quot; = &quot;handler&quot;, &quot;signature&quot; = List(-1, 0, 1))[A, Opts]">...</span>
+    </span>)</span>
               
         </dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -393,7 +420,10 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4>
       <p class="shortcomment cmt">Creates an instance of BSONReader for case class A</p><div class="fullcomment"><div class="comment cmt"><p>Creates an instance of BSONReader for case class A</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
-                <span class="name">@macroImpl</span><span class="args">()</span>
+                <span class="name">@macroImpl</span><span class="args">(<span>
+      
+      <span class="defval" name="`macro`(&quot;versionFormat&quot; = 1, &quot;className&quot; = &quot;reactivemongo.bson.MacroImpl&quot;, &quot;methodName&quot; = &quot;reader&quot;, &quot;signature&quot; = List(-1, 0, 1))[A, reactivemongo.bson.Macros.Options.Default]">...</span>
+    </span>)</span>
               
         </dd><dt>See also</dt><dd><span class="cmt"><p>Macros
 </p></span></dd></dl></div>
@@ -410,7 +440,10 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4>
       <p class="shortcomment cmt">Creates an instance of BSONReader for case class A and takes additional options</p><div class="fullcomment"><div class="comment cmt"><p>Creates an instance of BSONReader for case class A and takes additional options</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
-                <span class="name">@macroImpl</span><span class="args">()</span>
+                <span class="name">@macroImpl</span><span class="args">(<span>
+      
+      <span class="defval" name="`macro`(&quot;versionFormat&quot; = 1, &quot;className&quot; = &quot;reactivemongo.bson.MacroImpl&quot;, &quot;methodName&quot; = &quot;reader&quot;, &quot;signature&quot; = List(-1, 0, 1))[A, Opts]">...</span>
+    </span>)</span>
               
         </dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -452,7 +485,10 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">()</span>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
               
         </dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -468,7 +504,10 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">()</span>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
               
         </dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -484,7 +523,10 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">()</span>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
               
         </dd></dl></div>
     </li><li name="reactivemongo.bson.Macros#writer" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -500,7 +542,10 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4>
       <p class="shortcomment cmt">Creates an instance of BSONWriter for case class A</p><div class="fullcomment"><div class="comment cmt"><p>Creates an instance of BSONWriter for case class A</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
-                <span class="name">@macroImpl</span><span class="args">()</span>
+                <span class="name">@macroImpl</span><span class="args">(<span>
+      
+      <span class="defval" name="`macro`(&quot;versionFormat&quot; = 1, &quot;className&quot; = &quot;reactivemongo.bson.MacroImpl&quot;, &quot;methodName&quot; = &quot;writer&quot;, &quot;signature&quot; = List(-1, 0, 1))[A, reactivemongo.bson.Macros.Options.Default]">...</span>
+    </span>)</span>
               
         </dd></dl></div>
     </li><li name="reactivemongo.bson.Macros#writerOpts" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -516,7 +561,10 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4>
       <p class="shortcomment cmt">Creates an instance of BSONWriter for case class A and takes additional options</p><div class="fullcomment"><div class="comment cmt"><p>Creates an instance of BSONWriter for case class A and takes additional options</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
-                <span class="name">@macroImpl</span><span class="args">()</span>
+                <span class="name">@macroImpl</span><span class="args">(<span>
+      
+      <span class="defval" name="`macro`(&quot;versionFormat&quot; = 1, &quot;className&quot; = &quot;reactivemongo.bson.MacroImpl&quot;, &quot;methodName&quot; = &quot;writer&quot;, &quot;signature&quot; = List(-1, 0, 1))[A, Opts]">...</span>
+    </span>)</span>
               
         </dd></dl></div>
     </li></ol>
@@ -548,7 +596,6 @@ type parameters that will customize behavior of the macros during compilation.</
       <div id="tooltip"></div>
 
       <div id="footer">  </div>
-
-
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../lib/template.js"></script><script defer="defer" type="text/javascript" id="modernizr-custom-js" src="../../lib/modernizr.custom.js"></script><script defer="defer" type="text/javascript" id="diagrams-js" src="../../lib/diagrams.js"></script>
     </body>
       </html>
