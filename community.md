@@ -5,7 +5,8 @@ title: ReactiveMongo – Community
 
 ## Community
 
-* [ReactiveMongo Google Group](https://groups.google.com/forum/?fromgroups#!forum/reactivemongo)
 * [GitHub](https://github.com/zenexity/ReactiveMongo)
+* [ReactiveMongo Google Group](https://groups.google.com/forum/?fromgroups#!forum/reactivemongo)
+* [StackOverflow ReactiveMongo tag](http://stackoverflow.com/questions/tagged/reactivemongo)
 
-Tickets are hosted on GitHub. Please feel free to report any bug you find, and don't hesitate to make pull requests since they are very welcome!
+[Tickets](https://github.com/ReactiveMongo/ReactiveMongo/issues?state=open) are hosted on GitHub. Please feel free to report any bug you find, and don't hesitate to make pull requests since they are very welcome!
