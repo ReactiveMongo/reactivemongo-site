@@ -22,8 +22,8 @@ title: ReactiveMongo 0.10 - Release details
 Here is the list of the commits included in this release (since 0.9, the top commit is the most recent one):
 
 ~~~
-git shortlog -s -n 4214da1f243ea3b13bc6b835ac64d1bb9cda69b5..HEAD
-    68  Stephane Godbillon
+git shortlog -s -n refs/tags/0.9..v0.10.0
+    70  Stephane Godbillon
      7  Andraz Bajt
      4  Arthur Gautier
      4  Ivan Mikushin
