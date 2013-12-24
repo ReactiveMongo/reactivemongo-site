@@ -31,3 +31,9 @@ title: ReactiveMongo 0.10 - Documentation
 3. [FailoverStrategy](advanced-topics/failoverstrategy.html)
 4. [ReadPreferences](advanced-topics/read-preferences.html)
 5. [GridFS](advanced-topics/gridfs.html)
+
+### Contribute
+
+ReactiveMongo is getting better with every release thanks to its [contributors](https://github.com/ReactiveMongo/ReactiveMongo/graphs/contributors). Feel free to browse [the GitHub repository](https://github.com/ReactiveMongo), to report any bug, feature request or make pull requests!
+
+You can also help improve this documentation by making pull request on this website [GitHub repository](https://github.com/ReactiveMongo/reactivemongo-site).
