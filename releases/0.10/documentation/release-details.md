@@ -17,6 +17,11 @@ title: ReactiveMongo 0.10 - Release details
 8. Migration to SBT 0.13.1
 9. … and many bugfixes :)
 
+
+### Documentation
+
+The [documentation](index.html) is also available and deprecates the old wiki. And of course, you can browse the [Scaladoc](../api/index.html).
+
 ### Stats
 
 Here is the list of the commits included in this release (since 0.9, the top commit is the most recent one):
