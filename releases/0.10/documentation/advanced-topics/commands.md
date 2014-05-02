@@ -31,7 +31,7 @@ It is possible to run any kind of commands, even if they are not specifically im
 // MongoDB Console example of Aggregate command
 db.orders.aggregate([
   { $match: { status: "A" } },
-  { $group: { _id: "$cust_id", total: { $sum: "$amount" } } },
+  { $group: { _id: "$cust_id", total: { $sum: 1 } } },
   { $sort: { total: -1 } }
 ])
 {% endhighlight %}
@@ -43,9 +43,9 @@ Actually, the MongoDB console sends a document that is a little bit more complex
 var command =
   {
     "aggregate": "orders", // name of the collection on which we run this command
-    "$pipeling": [
+    "pipeline": [
       { $match: { status: "A" } },
-      { $group: { _id: "$cust_id", total: { $sum: "$amount" } } },
+      { $group: { _id: "$cust_id", total: { $sum: 1 } } },
       { $sort: { total: -1 } }
     ]
   }
@@ -59,12 +59,12 @@ We do exactly the same thing with `RawCommand`, by making a `BSONDocument` that 
 val commandDoc =
   BSONDocument(
     "aggregate" -> "orders", // we aggregate on collection `orders`
-    "$pipeline" -> BSONArray(
+    "pipeline" -> BSONArray(
       BSONDocument("$match" -> BSONDocument("status" -> "A")),
       BSONDocument(
         "$group" -> BSONDocument(
           "_id" -> "$cust_id",
-          "total" -> BSONDocument("$sum" -> "$amound"))),
+          "total" -> BSONDocument("$sum" -> 1))),
       BSONDocument("$sort" -> BSONDocument("total" -> -1))
     )
   )
