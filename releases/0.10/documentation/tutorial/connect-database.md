@@ -72,7 +72,7 @@ import reactivemongo.core.nodeset.Authenticate
 val dbName = "somedatabase"
 val userName = "username"
 val password = "password"
-val credentials = List(Authenticate(dbName, userName, password))
+val credentials = Seq(Authenticate(dbName, userName, password))
 val connection = driver.connection(servers, nbChannelsPerNode = 5, authentications = credentials))
 {% endhighlight %}
 
