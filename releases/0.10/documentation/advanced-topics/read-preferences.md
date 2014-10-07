@@ -21,7 +21,7 @@ Read preference are given to `GenericQueryBuilder.cursor()` and `GenericQueryBui
 collection.
   find(BSONDocument("city" -> "San Francisco")).
   // read from any secondary whenever possible
-  cursor(ReadPreferences.secondaryPrefered).
+  cursor(ReadPreference.secondaryPrefered).
   collect[List]()
 {% endhighlight %}
 
