@@ -5,7 +5,7 @@ title: ReactiveMongo – Community
 
 ## Community
 
-* [GitHub](https://github.com/zenexity/ReactiveMongo)
+* [GitHub](https://github.com/ReactiveMongo/ReactiveMongo)
 * [ReactiveMongo Google Group](https://groups.google.com/forum/?fromgroups#!forum/reactivemongo)
 * [StackOverflow ReactiveMongo tag](http://stackoverflow.com/questions/tagged/reactivemongo)
 
