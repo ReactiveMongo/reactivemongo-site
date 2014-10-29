@@ -93,6 +93,7 @@ A `MongoDriver` instance manages an actor system; a `connection` manages a pool 
 {% highlight scala %}
 import reactivemongo.api._
 import reactivemongo.bson._
+import scala.concurrent.Future
 
 import scala.concurrent.ExecutionContext.Implicits.global
 
