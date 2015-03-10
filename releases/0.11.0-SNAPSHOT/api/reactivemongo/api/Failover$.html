@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Failover - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.api.Failover</title>
-          <meta name="description" content="Failover - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.api.Failover" />
-          <meta name="keywords" content="Failover ReactiveMongo API 0.10.5.0.akka23 reactivemongo.api.Failover" />
+          <title>Failover - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.api.Failover</title>
+          <meta name="description" content="Failover - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.api.Failover" />
+          <meta name="keywords" content="Failover ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.api.Failover" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -161,7 +161,7 @@
       </a>
     </span>
       <p class="shortcomment cmt">Produces a <a href="Failover.html" class="extype" name="reactivemongo.api.Failover">reactivemongo.api.Failover</a> holding a future reference that is completed with a result, after 1 or more attempts (specified in the given strategy).</p><div class="fullcomment"><div class="comment cmt"><p>Produces a <a href="Failover.html" class="extype" name="reactivemongo.api.Failover">reactivemongo.api.Failover</a> holding a future reference that is completed with a result, after 1 or more attempts (specified in the given strategy).
-</p></div><dl class="paramcmts block"><dt class="param">requestMaker</dt><dd class="cmt"><p>The requestMaker to send to the given actor.</p></dd><dt class="param">strategy</dt><dd class="cmt"><p>The Failover strategy.
+</p></div><dl class="paramcmts block"><dt class="param">requestMaker</dt><dd class="cmt"><p>The requestMaker to send to the given actor.</p></dd><dt class="param">connection</dt><dd class="cmt"><p>The reference to the MongoConnection actor the given message will be sent to.</p></dd><dt class="param">strategy</dt><dd class="cmt"><p>The Failover strategy.
 </p></dd></dl></div>
     </li><li name="reactivemongo.api.Failover#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="apply(checkedWriteRequest:reactivemongo.core.protocol.CheckedWriteRequest,connection:reactivemongo.api.MongoConnection,strategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext):reactivemongo.api.Failover[reactivemongo.core.protocol.CheckedWriteRequest]"></a>
@@ -180,7 +180,7 @@
       </a>
     </span>
       <p class="shortcomment cmt">Produces a <a href="Failover.html" class="extype" name="reactivemongo.api.Failover">reactivemongo.api.Failover</a> holding a future reference that is completed with a result, after 1 or more attempts (specified in the given strategy).</p><div class="fullcomment"><div class="comment cmt"><p>Produces a <a href="Failover.html" class="extype" name="reactivemongo.api.Failover">reactivemongo.api.Failover</a> holding a future reference that is completed with a result, after 1 or more attempts (specified in the given strategy).
-</p></div><dl class="paramcmts block"><dt class="param">checkedWriteRequest</dt><dd class="cmt"><p>The checkedWriteRequest to send to the given actor.</p></dd><dt class="param">strategy</dt><dd class="cmt"><p>The Failover strategy.
+</p></div><dl class="paramcmts block"><dt class="param">checkedWriteRequest</dt><dd class="cmt"><p>The checkedWriteRequest to send to the given actor.</p></dd><dt class="param">connection</dt><dd class="cmt"><p>The reference to the MongoConnection the given message will be sent to.</p></dd><dt class="param">strategy</dt><dd class="cmt"><p>The Failover strategy.
 </p></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>

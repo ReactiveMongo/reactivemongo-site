@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Update - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.core.commands.Update</title>
-          <meta name="description" content="Update - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.core.commands.Update" />
-          <meta name="keywords" content="Update ReactiveMongo API 0.10.5.0.akka23 reactivemongo.core.commands.Update" />
+          <title>Update - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.core.commands.Update</title>
+          <meta name="description" content="Update - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.core.commands.Update" />
+          <meta name="keywords" content="Update ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.core.commands.Update" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -43,13 +43,16 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">Update</span><span class="params">(<span name="update">update: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>, <span name="fetchNewObject">fetchNewObject: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result"> extends <a href="Modify.html" class="extype" name="reactivemongo.core.commands.Modify">Modify</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.0) consider using reactivemongo.api.commands.FindAndModifyCommand instead">Update</span><span class="params">(<span name="update">update: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>, <span name="fetchNewObject">fetchNewObject: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result"> extends <a href="Modify.html" class="extype" name="reactivemongo.core.commands.Modify">Modify</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Update (part of a FindAndModify command).
 </p></div><dl class="paramcmts block"><dt class="param">update</dt><dd class="cmt"><p>the modifier document.</p></dd><dt class="param">fetchNewObject</dt><dd class="cmt"><p>the command result must be the new object instead of the old one.
-</p></dd></dl><div class="toggleContainer block">
+</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.0)</i> consider using reactivemongo.api.commands.FindAndModifyCommand instead</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="Modify.html" class="extype" name="reactivemongo.core.commands.Modify">Modify</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>

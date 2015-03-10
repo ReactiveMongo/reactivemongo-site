@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>GenericCollection - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.api.collections.GenericCollection</title>
-          <meta name="description" content="GenericCollection - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.api.collections.GenericCollection" />
-          <meta name="keywords" content="GenericCollection ReactiveMongo API 0.10.5.0.akka23 reactivemongo.api.collections.GenericCollection" />
+          <title>GenericCollection - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.api.collections.GenericCollection</title>
+          <meta name="description" content="GenericCollection - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.api.collections.GenericCollection" />
+          <meta name="keywords" content="GenericCollection ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.api.collections.GenericCollection" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -43,19 +43,18 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">GenericCollection</span><span class="tparams">[<span name="Structure">Structure</span>, <span name="Reader">Reader<span class="tparams">[<span name="_">_</span>]</span></span>, <span name="Writer">Writer<span class="tparams">[<span name="_">_</span>]</span></span>]</span><span class="result"> extends <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a> with <a href="GenericHandlers.html" class="extype" name="reactivemongo.api.collections.GenericHandlers">GenericHandlers</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]</span>
+        <span class="name">GenericCollection</span><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a> with <span class="extype" name="scala.Singleton">Singleton</span></span>]</span><span class="result"> extends <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a> with <a href="GenericCollectionWithCommands.html" class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands">GenericCollectionWithCommands</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] with <a href="../CollectionMetaCommands.html" class="extype" name="reactivemongo.api.CollectionMetaCommands">CollectionMetaCommands</a> with <a href="../commands/ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]</span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A Collection that provides default methods using a <code>Structure</code> (like <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">reactivemongo.bson.BSONDocument</a>, or a Json document, etc.).</p><p>Some methods of this collection accept instances of <code>Reader[T]</code> and <code>Writer[T]</code>, that transform any <code>T</code> instance into a <code>Structure</code> and vice-versa.
-The default implementation of <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a>, <a href="default/BSONCollection.html" class="extype" name="reactivemongo.api.collections.default.BSONCollection">reactivemongo.api.collections.default.BSONCollection</a>, extends this trait.
-</p></div><dl class="paramcmts block"><dt class="tparam">Structure</dt><dd class="cmt"><p>The structure that will be turned into BSON (and vice versa), usually a <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">reactivemongo.bson.BSONDocument</a> or a Json document.</p></dd><dt class="tparam">Reader</dt><dd class="cmt"><p>A <code>Reader[T]</code> that produces a <code>T</code> instance from a <code>Structure</code>.</p></dd><dt class="tparam">Writer</dt><dd class="cmt"><p>A <code>Writer[T]</code> that produces a <code>Structure</code> instance from a <code>T</code>.
-</p></dd></dl><div class="toggleContainer block">
+The default implementation of <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a>, <span class="extype" name="reactivemongo.api.collections.default.BSONCollection">reactivemongo.api.collections.default.BSONCollection</span>, extends this trait.
+</p></div><dl class="attributes block"> <dt>Self Type</dt><dd><a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]</dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="GenericHandlers.html" class="extype" name="reactivemongo.api.collections.GenericHandlers">GenericHandlers</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>], <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="../commands/ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>], <a href="../CollectionMetaCommands.html" class="extype" name="reactivemongo.api.CollectionMetaCommands">CollectionMetaCommands</a>, <a href="GenericCollectionWithCommands.html" class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands">GenericCollectionWithCommands</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>], <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
             <span class="toggle">Known Subclasses</span>
-            <div class="subClasses hiddenContent"><a href="default/BSONCollection.html" class="extype" name="reactivemongo.api.collections.default.BSONCollection">BSONCollection</a>, <a href="buffer/ChannelCollection.html" class="extype" name="reactivemongo.api.collections.buffer.ChannelCollection">ChannelCollection</a></div>
+            <div class="subClasses hiddenContent"><a href="bson/BSONCollection.html" class="extype" name="reactivemongo.api.collections.bson.BSONCollection">BSONCollection</a></div>
           </div></div>
         
 
@@ -73,7 +72,7 @@ The default implementation of <a href="../Collection.html" class="extype" name="
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="reactivemongo.api.collections.GenericCollection"><span>GenericCollection</span></li><li class="in" name="reactivemongo.api.collections.GenericHandlers"><span>GenericHandlers</span></li><li class="in" name="reactivemongo.api.Collection"><span>Collection</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="reactivemongo.api.collections.GenericCollection"><span>GenericCollection</span></li><li class="in" name="reactivemongo.api.commands.ImplicitCommandHelpers"><span>ImplicitCommandHelpers</span></li><li class="in" name="reactivemongo.api.CollectionMetaCommands"><span>CollectionMetaCommands</span></li><li class="in" name="reactivemongo.api.collections.GenericCollectionWithCommands"><span>GenericCollectionWithCommands</span></li><li class="in" name="reactivemongo.api.Collection"><span>Collection</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
                 <span class="filtertype">Implicitly<br />
@@ -100,113 +99,96 @@ The default implementation of <a href="../Collection.html" class="extype" name="
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="reactivemongo.api.collections.GenericHandlers.GenericBufferReader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="GenericBufferReader[T]extendsBufferReader[T]withProductwithSerializable"></a>
-      <a id="GenericBufferReader[T]:GenericBufferReader[T]"></a>
+              <ol><li name="reactivemongo.api.collections.GenericCollection.BulkMaker" visbl="prt" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="BulkMaker[R,S&lt;:GenericCollection.this.BulkMaker[R,S]]extendsAnyRef"></a>
+      <a id="BulkMaker[R,S&lt;:BulkMaker[R,S]]:BulkMaker[R,S]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="GenericHandlers$GenericBufferReader.html"><span class="name">GenericBufferReader</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="reader">reader: <span class="extype" name="reactivemongo.api.collections.GenericHandlers.Reader">Reader</span>[<span class="extype" name="reactivemongo.api.collections.GenericHandlers.GenericBufferReader.T">T</span>]</span>)</span><span class="result"> extends <a href="BufferReader.html" class="extype" name="reactivemongo.api.collections.BufferReader">BufferReader</a>[<span class="extype" name="reactivemongo.api.collections.GenericHandlers.GenericBufferReader.T">T</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="GenericCollection$BulkMaker.html"><span class="name">BulkMaker</span></a><span class="tparams">[<span name="R">R</span>, <span name="S">S &lt;: <a href="GenericCollection$BulkMaker.html" class="extype" name="reactivemongo.api.collections.GenericCollection.BulkMaker">BulkMaker</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.BulkMaker.R">R</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.BulkMaker.S">S</span>]</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.GenericHandlers@GenericBufferReader[T]extendsBufferReader[T]withProductwithSerializable" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@BulkMaker[R,S&lt;:GenericCollection.this.BulkMaker[R,S]]extendsAnyRef" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GenericHandlers.html" class="extype" name="reactivemongo.api.collections.GenericHandlers">GenericHandlers</a></dd></dl></div>
-    </li><li name="reactivemongo.api.collections.GenericHandlers.GenericBufferWriter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="GenericBufferWriter[T]extendsBufferWriter[T]withProductwithSerializable"></a>
-      <a id="GenericBufferWriter[T]:GenericBufferWriter[T]"></a>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+    </li><li name="reactivemongo.api.commands.ImplicitCommandHelpers.ImplicitlyDocumentProducer" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ImplicitlyDocumentProducerextendsAnyRef"></a>
+      <a id="ImplicitlyDocumentProducer:ImplicitlyDocumentProducer"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">case class</span>
+        <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="GenericHandlers$GenericBufferWriter.html"><span class="name">GenericBufferWriter</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="writer">writer: <span class="extype" name="reactivemongo.api.collections.GenericHandlers.Writer">Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericHandlers.GenericBufferWriter.T">T</span>]</span>)</span><span class="result"> extends <a href="BufferWriter.html" class="extype" name="reactivemongo.api.collections.BufferWriter">BufferWriter</a>[<span class="extype" name="reactivemongo.api.collections.GenericHandlers.GenericBufferWriter.T">T</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="../commands/ImplicitCommandHelpers$ImplicitlyDocumentProducer.html"><span class="name">ImplicitlyDocumentProducer</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.GenericHandlers@GenericBufferWriter[T]extendsBufferWriter[T]withProductwithSerializable" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.ImplicitCommandHelpers@ImplicitlyDocumentProducerextendsAnyRef" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GenericHandlers.html" class="extype" name="reactivemongo.api.collections.GenericHandlers">GenericHandlers</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../commands/ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a></dd></dl></div>
+    </li><li name="reactivemongo.api.collections.GenericCollection.Mongo24BulkInsert" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Mongo24BulkInsertextendsGenericCollection.this.BulkMaker[reactivemongo.api.commands.LastError,GenericCollection.this.Mongo24BulkInsert]"></a>
+      <a id="Mongo24BulkInsert:Mongo24BulkInsert"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="GenericCollection$Mongo24BulkInsert.html"><span class="name">Mongo24BulkInsert</span></a><span class="result"> extends <a href="GenericCollection$BulkMaker.html" class="extype" name="reactivemongo.api.collections.GenericCollection.BulkMaker">BulkMaker</a>[<a href="../commands/LastError.html" class="extype" name="reactivemongo.api.commands.LastError">LastError</a>, <a href="GenericCollection$Mongo24BulkInsert.html" class="extype" name="reactivemongo.api.collections.GenericCollection.Mongo24BulkInsert">Mongo24BulkInsert</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@Mongo24BulkInsertextendsGenericCollection.this.BulkMaker[reactivemongo.api.commands.LastError,GenericCollection.this.Mongo24BulkInsert]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+    </li><li name="reactivemongo.api.collections.GenericCollection.Mongo26WriteCommand" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Mongo26WriteCommandextendsGenericCollection.this.BulkMaker[reactivemongo.api.commands.WriteResult,GenericCollection.this.Mongo26WriteCommand]"></a>
+      <a id="Mongo26WriteCommand:Mongo26WriteCommand"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="GenericCollection$Mongo26WriteCommand.html"><span class="name">Mongo26WriteCommand</span></a><span class="result"> extends <a href="GenericCollection$BulkMaker.html" class="extype" name="reactivemongo.api.collections.GenericCollection.BulkMaker">BulkMaker</a>[<a href="../commands/WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a>, <a href="GenericCollection$Mongo26WriteCommand.html" class="extype" name="reactivemongo.api.collections.GenericCollection.Mongo26WriteCommand">Mongo26WriteCommand</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@Mongo26WriteCommandextendsGenericCollection.this.BulkMaker[reactivemongo.api.commands.WriteResult,GenericCollection.this.Mongo26WriteCommand]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
     </li></ol>
             </div>
 
         <div id="values" class="values members">
               <h3>Abstract Value Members</h3>
-              <ol><li name="reactivemongo.api.collections.GenericHandlers#StructureBufferReader" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="StructureBufferReader:reactivemongo.api.collections.BufferReader[Structure]"></a>
-      <a id="StructureBufferReader:BufferReader[Structure]"></a>
+              <ol><li name="reactivemongo.api.collections.GenericCollection#BatchCommands" visbl="prt" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="BatchCommands:reactivemongo.api.collections.BatchCommands[GenericCollection.this.pack.type]"></a>
+      <a id="BatchCommands:BatchCommands[pack.type]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">abstract </span>
-        <span class="kind">def</span>
+        <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">StructureBufferReader</span><span class="result">: <a href="BufferReader.html" class="extype" name="reactivemongo.api.collections.BufferReader">BufferReader</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>]</span>
+        <span class="name">BatchCommands</span><span class="result">: <a href="BatchCommands.html" class="extype" name="reactivemongo.api.collections.BatchCommands">BatchCommands</a>[<a href="#pack:P" class="extmbr" name="reactivemongo.api.collections.GenericCollection#pack">pack</a>.type]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@StructureBufferReader:reactivemongo.api.collections.BufferReader[Structure]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@BatchCommands:reactivemongo.api.collections.BatchCommands[GenericCollection.this.pack.type]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GenericHandlers.html" class="extype" name="reactivemongo.api.collections.GenericHandlers">GenericHandlers</a></dd></dl></div>
-    </li><li name="reactivemongo.api.collections.GenericHandlers#StructureBufferWriter" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="StructureBufferWriter:reactivemongo.api.collections.BufferWriter[Structure]"></a>
-      <a id="StructureBufferWriter:BufferWriter[Structure]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">StructureBufferWriter</span><span class="result">: <a href="BufferWriter.html" class="extype" name="reactivemongo.api.collections.BufferWriter">BufferWriter</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@StructureBufferWriter:reactivemongo.api.collections.BufferWriter[Structure]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GenericHandlers.html" class="extype" name="reactivemongo.api.collections.GenericHandlers">GenericHandlers</a></dd></dl></div>
-    </li><li name="reactivemongo.api.collections.GenericHandlers#StructureReader" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="StructureReader[T](reader:Reader[T]):reactivemongo.api.collections.GenericReader[Structure,T]"></a>
-      <a id="StructureReader[T](Reader[T]):GenericReader[Structure,T]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">StructureReader</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="reader">reader: <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>[<span class="extype" name="reactivemongo.api.collections.GenericHandlers.StructureReader.T">T</span>]</span>)</span><span class="result">: <a href="GenericReader.html" class="extype" name="reactivemongo.api.collections.GenericReader">GenericReader</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericHandlers.StructureReader.T">T</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@StructureReader[T](reader:Reader[T]):reactivemongo.api.collections.GenericReader[Structure,T]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GenericHandlers.html" class="extype" name="reactivemongo.api.collections.GenericHandlers">GenericHandlers</a></dd></dl></div>
-    </li><li name="reactivemongo.api.collections.GenericHandlers#StructureWriter" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="StructureWriter[T](writer:Writer[T]):reactivemongo.api.collections.GenericWriter[T,Structure]"></a>
-      <a id="StructureWriter[T](Writer[T]):GenericWriter[T,Structure]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">StructureWriter</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="writer">writer: <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericHandlers.StructureWriter.T">T</span>]</span>)</span><span class="result">: <a href="GenericWriter.html" class="extype" name="reactivemongo.api.collections.GenericWriter">GenericWriter</a>[<span class="extype" name="reactivemongo.api.collections.GenericHandlers.StructureWriter.T">T</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@StructureWriter[T](writer:Writer[T]):reactivemongo.api.collections.GenericWriter[T,Structure]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GenericHandlers.html" class="extype" name="reactivemongo.api.collections.GenericHandlers">GenericHandlers</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
     </li><li name="reactivemongo.api.Collection#db" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="db:reactivemongo.api.DB"></a>
       <a id="db:DB"></a>
@@ -242,18 +224,18 @@ The default implementation of <a href="../Collection.html" class="extype" name="
     </span>
       <p class="shortcomment cmt">The default failover strategy for the methods of this collection.</p><div class="fullcomment"><div class="comment cmt"><p>The default failover strategy for the methods of this collection.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a> → <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a></dd></dl></div>
     </li><li name="reactivemongo.api.collections.GenericCollection#genericQueryBuilder" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="genericQueryBuilder:reactivemongo.api.collections.GenericQueryBuilder[Structure,Reader,Writer]"></a>
-      <a id="genericQueryBuilder:GenericQueryBuilder[Structure,Reader,Writer]"></a>
+      <a id="genericQueryBuilder:reactivemongo.api.collections.GenericQueryBuilder[GenericCollection.this.pack.type]"></a>
+      <a id="genericQueryBuilder:GenericQueryBuilder[pack.type]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">abstract </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">genericQueryBuilder</span><span class="result">: <a href="GenericQueryBuilder.html" class="extype" name="reactivemongo.api.collections.GenericQueryBuilder">GenericQueryBuilder</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]</span>
+        <span class="name">genericQueryBuilder</span><span class="result">: <a href="GenericQueryBuilder.html" class="extype" name="reactivemongo.api.collections.GenericQueryBuilder">GenericQueryBuilder</a>[<a href="#pack:P" class="extmbr" name="reactivemongo.api.collections.GenericCollection#pack">pack</a>.type]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@genericQueryBuilder:reactivemongo.api.collections.GenericQueryBuilder[Structure,Reader,Writer]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@genericQueryBuilder:reactivemongo.api.collections.GenericQueryBuilder[GenericCollection.this.pack.type]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -275,6 +257,23 @@ The default implementation of <a href="../Collection.html" class="extype" name="
       </a>
     </span>
       <p class="shortcomment cmt">The name of the collection.</p><div class="fullcomment"><div class="comment cmt"><p>The name of the collection.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a></dd></dl></div>
+    </li><li name="reactivemongo.api.collections.GenericCollection#pack" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="pack:P"></a>
+      <a id="pack:P"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">pack</span><span class="result">: <span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@pack:P" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a> → <a href="../commands/ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a> → <a href="GenericCollectionWithCommands.html" class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands">GenericCollectionWithCommands</a></dd></dl></div>
     </li></ol>
             </div>
 
@@ -331,20 +330,20 @@ The default implementation of <a href="../Collection.html" class="extype" name="
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>] to
-            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]] performed by method any2stringadd in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]] performed by method any2stringadd in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="-&gt;[B](y:B):(A,B)"></a>
-      <a id="-&gt;[B](B):(GenericCollection[Structure,Reader,Writer],B)"></a>
+      <a id="-&gt;[B](B):(GenericCollection[P],B)"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>], <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>], <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
@@ -352,8 +351,8 @@ The default implementation of <a href="../Collection.html" class="extype" name="
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>] to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -376,40 +375,74 @@ The default implementation of <a href="../Collection.html" class="extype" name="
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="reactivemongo.api.collections.GenericHandlers#BufferReaderInstance" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="BufferReaderInstance[T](reader:Reader[T]):GenericHandlers.this.GenericBufferReader[T]"></a>
-      <a id="BufferReaderInstance[T](Reader[T]):GenericBufferReader[T]"></a>
+    </li><li name="reactivemongo.api.commands.ImplicitCommandHelpers.ImplicitlyDocumentProducer" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ImplicitlyDocumentProducer"></a>
+      <a id="ImplicitlyDocumentProducer:ImplicitlyDocumentProducer"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">def</span>
+        <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">BufferReaderInstance</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="reader">reader: <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>[<span class="extype" name="reactivemongo.api.collections.GenericHandlers.BufferReaderInstance.T">T</span>]</span>)</span><span class="result">: <a href="#GenericBufferReader[T]extendsBufferReader[T]withProductwithSerializable" class="extmbr" name="reactivemongo.api.collections.GenericHandlers.GenericBufferReader">GenericBufferReader</a>[<span class="extype" name="reactivemongo.api.collections.GenericHandlers.BufferReaderInstance.T">T</span>]</span>
+        <a href="../commands/ImplicitCommandHelpers$ImplicitlyDocumentProducer$.html"><span class="name">ImplicitlyDocumentProducer</span></a>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@BufferReaderInstance[T](reader:Reader[T]):GenericHandlers.this.GenericBufferReader[T]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.ImplicitCommandHelpers@ImplicitlyDocumentProducer" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GenericHandlers.html" class="extype" name="reactivemongo.api.collections.GenericHandlers">GenericHandlers</a></dd></dl></div>
-    </li><li name="reactivemongo.api.collections.GenericHandlers#BufferWriterInstance" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="BufferWriterInstance[T](writer:Writer[T]):GenericHandlers.this.GenericBufferWriter[T]"></a>
-      <a id="BufferWriterInstance[T](Writer[T]):GenericBufferWriter[T]"></a>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../commands/ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a></dd></dl></div>
+    </li><li name="reactivemongo.api.collections.GenericCollection.Mongo26WriteCommand" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Mongo26WriteCommand"></a>
+      <a id="Mongo26WriteCommand:Mongo26WriteCommand"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">def</span>
+        <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">BufferWriterInstance</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="writer">writer: <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericHandlers.BufferWriterInstance.T">T</span>]</span>)</span><span class="result">: <a href="#GenericBufferWriter[T]extendsBufferWriter[T]withProductwithSerializable" class="extmbr" name="reactivemongo.api.collections.GenericHandlers.GenericBufferWriter">GenericBufferWriter</a>[<span class="extype" name="reactivemongo.api.collections.GenericHandlers.BufferWriterInstance.T">T</span>]</span>
+        <a href="GenericCollection$Mongo26WriteCommand$.html"><span class="name">Mongo26WriteCommand</span></a>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@BufferWriterInstance[T](writer:Writer[T]):GenericHandlers.this.GenericBufferWriter[T]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@Mongo26WriteCommand" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GenericHandlers.html" class="extype" name="reactivemongo.api.collections.GenericHandlers">GenericHandlers</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+    </li><li name="reactivemongo.api.collections.GenericCollection#PackIdentityReader" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="PackIdentityReader:GenericCollection.this.pack.Reader[GenericCollection.this.pack.Document]"></a>
+      <a id="PackIdentityReader:P.Reader[P.Document]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">PackIdentityReader</span><span class="result">: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">P.Reader</span>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@PackIdentityReader:GenericCollection.this.pack.Reader[GenericCollection.this.pack.Document]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.collections.GenericCollection#PackIdentityWriter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="PackIdentityWriter:GenericCollection.this.pack.Writer[GenericCollection.this.pack.Document]"></a>
+      <a id="PackIdentityWriter:P.Writer[P.Document]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">PackIdentityWriter</span><span class="result">: <span class="extype" name="reactivemongo.api.SerializationPack.Writer">P.Writer</span>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@PackIdentityWriter:GenericCollection.this.pack.Writer[GenericCollection.this.pack.Document]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="reactivemongo.api.Collection#as" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="as[C&lt;:reactivemongo.api.Collection](failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitproducer:reactivemongo.api.CollectionProducer[C]):C"></a>
       <a id="as[C&lt;:Collection](FailoverStrategy)(CollectionProducer[C]):C"></a>
@@ -419,7 +452,7 @@ The default implementation of <a href="../Collection.html" class="extype" name="
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">as</span><span class="tparams">[<span name="C">C &lt;: <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a></span>]</span><span class="params">(<span name="failoverStrategy">failoverStrategy: <a href="../FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol">failoverStrategy</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="producer">producer: <a href="../CollectionProducer.html" class="extype" name="reactivemongo.api.CollectionProducer">CollectionProducer</a>[<span class="extype" name="reactivemongo.api.Collection.as.C">C</span>] = <span class="defval" name='<span class="name"><a href="package.html">collections.default.BSONCollectionProducer</a></span>'>...</span></span>)</span><span class="result">: <span class="extype" name="reactivemongo.api.Collection.as.C">C</span></span>
+        <span class="name">as</span><span class="tparams">[<span name="C">C &lt;: <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a></span>]</span><span class="params">(<span name="failoverStrategy">failoverStrategy: <a href="../FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol">failoverStrategy</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="producer">producer: <a href="../CollectionProducer.html" class="extype" name="reactivemongo.api.CollectionProducer">CollectionProducer</a>[<span class="extype" name="reactivemongo.api.Collection.as.C">C</span>] = <span class="defval" name='<span class="name"><a href="package.html">collections.bson.BSONCollectionProducer</a></span>'>...</span></span>)</span><span class="result">: <span class="extype" name="reactivemongo.api.Collection.as.C">C</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@as[C&lt;:reactivemongo.api.Collection](failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitproducer:reactivemongo.api.CollectionProducer[C]):C" title="Permalink" target="_top">
@@ -427,7 +460,7 @@ The default implementation of <a href="../Collection.html" class="extype" name="
       </a>
     </span>
       <p class="shortcomment cmt">Gets another implementation of this collection.</p><div class="fullcomment"><div class="comment cmt"><p>Gets another implementation of this collection.
-An implicit CollectionProducer[C] must be present in the scope, or it will be the default implementation (<a href="default/BSONCollection.html" class="extype" name="reactivemongo.api.collections.default.BSONCollection">reactivemongo.api.collections.default.BSONCollection</a>).
+An implicit CollectionProducer[C] must be present in the scope, or it will be the default implementation (<a href="bson/BSONCollection.html" class="extype" name="reactivemongo.api.collections.bson.BSONCollection">reactivemongo.api.collections.bson.BSONCollection</a>).
 </p></div><dl class="paramcmts block"><dt class="param">failoverStrategy</dt><dd class="cmt"><p>Overrides the default strategy.
 </p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -448,35 +481,103 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="reactivemongo.api.collections.GenericCollection#bulkInsert" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="bulkInsert[T](enumerator:play.api.libs.iteratee.Enumerator[T],writeConcern:reactivemongo.core.commands.GetLastError,bulkSize:Int,bulkByteSize:Int)(implicitwriter:Writer[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Int]"></a>
-      <a id="bulkInsert[T](Enumerator[T],GetLastError,Int,Int)(Writer[T],ExecutionContext):Future[Int]"></a>
+      <a id="bulkInsert(documents:Stream[GenericCollection.this.pack.Document],ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern,bulkSize:Int,bulkByteSize:Int)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.MultiBulkWriteResult]"></a>
+      <a id="bulkInsert(Stream[P.Document],Boolean,WriteConcern,Int,Int)(ExecutionContext):Future[MultiBulkWriteResult]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">bulkInsert</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="enumerator">enumerator: <span class="extype" name="play.api.libs.iteratee.Enumerator">Enumerator</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.bulkInsert.T">T</span>]</span>, <span name="writeConcern">writeConcern: <a href="../../core/commands/GetLastError.html" class="extype" name="reactivemongo.core.commands.GetLastError">GetLastError</a> = <span class="symbol"><span class="name"><a href="../../package.html">GetLastError()</a></span></span></span>, <span name="bulkSize">bulkSize: <span class="extype" name="scala.Int">Int</span> = <span class="symbol"><span class="name"><a href="../../package.html">bulk.MaxDocs</a></span></span></span>, <span name="bulkByteSize">bulkByteSize: <span class="extype" name="scala.Int">Int</span> = <span class="symbol"><span class="name"><a href="../../package.html">bulk.MaxBulkSize</a></span></span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.bulkInsert.T">T</span>]</span>, <span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Int">Int</span>]</span>
+        <span class="name">bulkInsert</span><span class="params">(<span name="documents">documents: <span class="extype" name="scala.Stream">Stream</span>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>]</span>, <span name="ordered">ordered: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="writeConcern">writeConcern: <a href="../commands/package.html#WriteConcern=reactivemongo.api.commands.GetLastError" class="extmbr" name="reactivemongo.api.commands.WriteConcern">WriteConcern</a> = <span class="symbol"><span class="name"><a href="../../package.html">WriteConcern.Default</a></span></span></span>, <span name="bulkSize">bulkSize: <span class="extype" name="scala.Int">Int</span></span>, <span name="bulkByteSize">bulkByteSize: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../commands/MultiBulkWriteResult.html" class="extype" name="reactivemongo.api.commands.MultiBulkWriteResult">MultiBulkWriteResult</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@bulkInsert[T](enumerator:play.api.libs.iteratee.Enumerator[T],writeConcern:reactivemongo.core.commands.GetLastError,bulkSize:Int,bulkByteSize:Int)(implicitwriter:Writer[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Int]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@bulkInsert(documents:Stream[GenericCollection.this.pack.Document],ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern,bulkSize:Int,bulkByteSize:Int)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.MultiBulkWriteResult]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
       
-    </li><li name="reactivemongo.api.collections.GenericCollection#bulkInsertIteratee" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="bulkInsertIteratee[T](writeConcern:reactivemongo.core.commands.GetLastError,bulkSize:Int,bulkByteSize:Int)(implicitwriter:Writer[T],implicitec:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Iteratee[T,Int]"></a>
-      <a id="bulkInsertIteratee[T](GetLastError,Int,Int)(Writer[T],ExecutionContext):Iteratee[T,Int]"></a>
+    </li><li name="reactivemongo.api.collections.GenericCollection#bulkInsert" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="bulkInsert(documents:Stream[GenericCollection.this.pack.Document],ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.MultiBulkWriteResult]"></a>
+      <a id="bulkInsert(Stream[P.Document],Boolean,WriteConcern)(ExecutionContext):Future[MultiBulkWriteResult]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">bulkInsertIteratee</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="writeConcern">writeConcern: <a href="../../core/commands/GetLastError.html" class="extype" name="reactivemongo.core.commands.GetLastError">GetLastError</a> = <span class="symbol"><span class="name"><a href="../../package.html">GetLastError()</a></span></span></span>, <span name="bulkSize">bulkSize: <span class="extype" name="scala.Int">Int</span> = <span class="symbol"><span class="name"><a href="../../package.html">bulk.MaxDocs</a></span></span></span>, <span name="bulkByteSize">bulkByteSize: <span class="extype" name="scala.Int">Int</span> = <span class="symbol"><span class="name"><a href="../../package.html">bulk.MaxBulkSize</a></span></span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.bulkInsertIteratee.T">T</span>]</span>, <span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="play.api.libs.iteratee.Iteratee">Iteratee</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.bulkInsertIteratee.T">T</span>, <span class="extype" name="scala.Int">Int</span>]</span>
+        <span class="name">bulkInsert</span><span class="params">(<span name="documents">documents: <span class="extype" name="scala.Stream">Stream</span>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>]</span>, <span name="ordered">ordered: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="writeConcern">writeConcern: <a href="../commands/package.html#WriteConcern=reactivemongo.api.commands.GetLastError" class="extmbr" name="reactivemongo.api.commands.WriteConcern">WriteConcern</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../commands/MultiBulkWriteResult.html" class="extype" name="reactivemongo.api.commands.MultiBulkWriteResult">MultiBulkWriteResult</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@bulkInsertIteratee[T](writeConcern:reactivemongo.core.commands.GetLastError,bulkSize:Int,bulkByteSize:Int)(implicitwriter:Writer[T],implicitec:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Iteratee[T,Int]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@bulkInsert(documents:Stream[GenericCollection.this.pack.Document],ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.MultiBulkWriteResult]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.collections.GenericCollection#bulkInsert" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="bulkInsert(documents:Stream[GenericCollection.this.pack.Document],ordered:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.MultiBulkWriteResult]"></a>
+      <a id="bulkInsert(Stream[P.Document],Boolean)(ExecutionContext):Future[MultiBulkWriteResult]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bulkInsert</span><span class="params">(<span name="documents">documents: <span class="extype" name="scala.Stream">Stream</span>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>]</span>, <span name="ordered">ordered: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../commands/MultiBulkWriteResult.html" class="extype" name="reactivemongo.api.commands.MultiBulkWriteResult">MultiBulkWriteResult</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@bulkInsert(documents:Stream[GenericCollection.this.pack.Document],ordered:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.MultiBulkWriteResult]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.collections.GenericCollection#bulkInsert" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="bulkInsert(ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern,bulkSize:Int,bulkByteSize:Int)(documents:GenericCollection.this.ImplicitlyDocumentProducer*)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.MultiBulkWriteResult]"></a>
+      <a id="bulkInsert(Boolean,WriteConcern,Int,Int)(ImplicitlyDocumentProducer*)(ExecutionContext):Future[MultiBulkWriteResult]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bulkInsert</span><span class="params">(<span name="ordered">ordered: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="writeConcern">writeConcern: <a href="../commands/package.html#WriteConcern=reactivemongo.api.commands.GetLastError" class="extmbr" name="reactivemongo.api.commands.WriteConcern">WriteConcern</a></span>, <span name="bulkSize">bulkSize: <span class="extype" name="scala.Int">Int</span></span>, <span name="bulkByteSize">bulkByteSize: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="params">(<span name="documents">documents: <a href="#ImplicitlyDocumentProducerextendsAnyRef" class="extmbr" name="reactivemongo.api.commands.ImplicitCommandHelpers.ImplicitlyDocumentProducer">ImplicitlyDocumentProducer</a>*</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../commands/MultiBulkWriteResult.html" class="extype" name="reactivemongo.api.commands.MultiBulkWriteResult">MultiBulkWriteResult</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@bulkInsert(ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern,bulkSize:Int,bulkByteSize:Int)(documents:GenericCollection.this.ImplicitlyDocumentProducer*)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.MultiBulkWriteResult]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.collections.GenericCollection#bulkInsert" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="bulkInsert(ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern)(documents:GenericCollection.this.ImplicitlyDocumentProducer*)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.MultiBulkWriteResult]"></a>
+      <a id="bulkInsert(Boolean,WriteConcern)(ImplicitlyDocumentProducer*)(ExecutionContext):Future[MultiBulkWriteResult]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bulkInsert</span><span class="params">(<span name="ordered">ordered: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="writeConcern">writeConcern: <a href="../commands/package.html#WriteConcern=reactivemongo.api.commands.GetLastError" class="extmbr" name="reactivemongo.api.commands.WriteConcern">WriteConcern</a></span>)</span><span class="params">(<span name="documents">documents: <a href="#ImplicitlyDocumentProducerextendsAnyRef" class="extmbr" name="reactivemongo.api.commands.ImplicitCommandHelpers.ImplicitlyDocumentProducer">ImplicitlyDocumentProducer</a>*</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../commands/MultiBulkWriteResult.html" class="extype" name="reactivemongo.api.commands.MultiBulkWriteResult">MultiBulkWriteResult</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@bulkInsert(ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern)(documents:GenericCollection.this.ImplicitlyDocumentProducer*)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.MultiBulkWriteResult]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.collections.GenericCollection#bulkInsert" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="bulkInsert(ordered:Boolean)(documents:GenericCollection.this.ImplicitlyDocumentProducer*)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.MultiBulkWriteResult]"></a>
+      <a id="bulkInsert(Boolean)(ImplicitlyDocumentProducer*)(ExecutionContext):Future[MultiBulkWriteResult]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bulkInsert</span><span class="params">(<span name="ordered">ordered: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="params">(<span name="documents">documents: <a href="#ImplicitlyDocumentProducerextendsAnyRef" class="extmbr" name="reactivemongo.api.commands.ImplicitCommandHelpers.ImplicitlyDocumentProducer">ImplicitlyDocumentProducer</a>*</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../commands/MultiBulkWriteResult.html" class="extype" name="reactivemongo.api.commands.MultiBulkWriteResult">MultiBulkWriteResult</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@bulkInsert(ordered:Boolean)(documents:GenericCollection.this.ImplicitlyDocumentProducer*)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.MultiBulkWriteResult]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -504,16 +605,91 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
-      <a id="ensuring((GenericCollection[Structure,Reader,Writer])⇒Boolean,⇒Any):GenericCollection[Structure,Reader,Writer]"></a>
+    </li><li name="reactivemongo.api.CollectionMetaCommands#convertToCapped" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="convertToCapped(size:Long,maxDocuments:Option[Int])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a>
+      <a id="convertToCapped(Long,Option[Int])(ExecutionContext):Future[Unit]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]</span>
+        <span class="name">convertToCapped</span><span class="params">(<span name="size">size: <span class="extype" name="scala.Long">Long</span></span>, <span name="maxDocuments">maxDocuments: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@convertToCapped(size:Long,maxDocuments:Option[Int])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Converts this collection to a capped one.</p><div class="fullcomment"><div class="comment cmt"><p>Converts this collection to a capped one.
+</p></div><dl class="paramcmts block"><dt class="param">size</dt><dd class="cmt"><p>The size of this capped collection, in bytes.</p></dd><dt class="param">maxDocuments</dt><dd class="cmt"><p>The maximum number of documents this capped collection can contain.
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../CollectionMetaCommands.html" class="extype" name="reactivemongo.api.CollectionMetaCommands">CollectionMetaCommands</a></dd></dl></div>
+    </li><li name="reactivemongo.api.CollectionMetaCommands#create" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="create(autoIndexId:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a>
+      <a id="create(Boolean)(ExecutionContext):Future[Unit]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">create</span><span class="params">(<span name="autoIndexId">autoIndexId: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">true</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@create(autoIndexId:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Creates this collection.</p><div class="fullcomment"><div class="comment cmt"><p>Creates this collection.</p><p>The returned future will be completed with an error if this collection already exists.
+</p></div><dl class="paramcmts block"><dt class="param">autoIndexId</dt><dd class="cmt"><p>States if should automatically add an index on the _id field. By default, regular collections will have an indexed _id field, in contrast to capped collections.
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../CollectionMetaCommands.html" class="extype" name="reactivemongo.api.CollectionMetaCommands">CollectionMetaCommands</a></dd></dl></div>
+    </li><li name="reactivemongo.api.CollectionMetaCommands#createCapped" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createCapped(size:Long,maxDocuments:Option[Int],autoIndexId:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a>
+      <a id="createCapped(Long,Option[Int],Boolean)(ExecutionContext):Future[Unit]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createCapped</span><span class="params">(<span name="size">size: <span class="extype" name="scala.Long">Long</span></span>, <span name="maxDocuments">maxDocuments: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="autoIndexId">autoIndexId: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@createCapped(size:Long,maxDocuments:Option[Int],autoIndexId:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Creates this collection as a capped one.</p><div class="fullcomment"><div class="comment cmt"><p>Creates this collection as a capped one.</p><p>The returned future will be completed with an error if this collection already exists.
+</p></div><dl class="paramcmts block"><dt class="param">autoIndexId</dt><dd class="cmt"><p>States if should automatically add an index on the _id field. By default, capped collections will NOT have an indexed _id field, in contrast to regular collections.
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../CollectionMetaCommands.html" class="extype" name="reactivemongo.api.CollectionMetaCommands">CollectionMetaCommands</a></dd></dl></div>
+    </li><li name="reactivemongo.api.CollectionMetaCommands#drop" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="drop()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a>
+      <a id="drop()(ExecutionContext):Future[Unit]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">drop</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@drop()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Drops this collection.</p><div class="fullcomment"><div class="comment cmt"><p>Drops this collection.</p><p>The returned future will be completed with an error if this collection does not exist.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../CollectionMetaCommands.html" class="extype" name="reactivemongo.api.CollectionMetaCommands">CollectionMetaCommands</a></dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring((GenericCollection[P])⇒Boolean,⇒Any):GenericCollection[P]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -521,20 +697,20 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>] to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean):A"></a>
-      <a id="ensuring((GenericCollection[Structure,Reader,Writer])⇒Boolean):GenericCollection[Structure,Reader,Writer]"></a>
+      <a id="ensuring((GenericCollection[P])⇒Boolean):GenericCollection[P]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
@@ -542,20 +718,20 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>] to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
-      <a id="ensuring(Boolean,⇒Any):GenericCollection[Structure,Reader,Writer]"></a>
+      <a id="ensuring(Boolean,⇒Any):GenericCollection[P]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -563,20 +739,20 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>] to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:Boolean):A"></a>
-      <a id="ensuring(Boolean):GenericCollection[Structure,Reader,Writer]"></a>
+      <a id="ensuring(Boolean):GenericCollection[P]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@ensuring(cond:Boolean):A" title="Permalink" target="_top">
@@ -584,8 +760,8 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>] to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -646,18 +822,18 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
               
         </dd></dl></div>
     </li><li name="reactivemongo.api.collections.GenericCollection#find" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="find[S,P](selector:S,projection:P)(implicitswriter:Writer[S],implicitpwriter:Writer[P]):reactivemongo.api.collections.GenericQueryBuilder[Structure,Reader,Writer]"></a>
-      <a id="find[S,P](S,P)(Writer[S],Writer[P]):GenericQueryBuilder[Structure,Reader,Writer]"></a>
+      <a id="find[S,P](selector:S,projection:P)(implicitswriter:GenericCollection.this.pack.Writer[S],implicitpwriter:GenericCollection.this.pack.Writer[P]):reactivemongo.api.collections.GenericQueryBuilder[GenericCollection.this.pack.type]"></a>
+      <a id="find[S,P](S,P)(P.Writer[S],P.Writer[P]):GenericQueryBuilder[pack.type]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">find</span><span class="tparams">[<span name="S">S</span>, <span name="P">P</span>]</span><span class="params">(<span name="selector">selector: <span class="extype" name="reactivemongo.api.collections.GenericCollection.find.S">S</span></span>, <span name="projection">projection: <span class="extype" name="reactivemongo.api.collections.GenericCollection.find.P">P</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="swriter">swriter: <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.find.S">S</span>]</span>, <span name="pwriter">pwriter: <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.find.P">P</span>]</span>)</span><span class="result">: <a href="GenericQueryBuilder.html" class="extype" name="reactivemongo.api.collections.GenericQueryBuilder">GenericQueryBuilder</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]</span>
+        <span class="name">find</span><span class="tparams">[<span name="S">S</span>, <span name="P">P</span>]</span><span class="params">(<span name="selector">selector: <span class="extype" name="reactivemongo.api.collections.GenericCollection.find.S">S</span></span>, <span name="projection">projection: <span class="extype" name="reactivemongo.api.collections.GenericCollection.find.P">P</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="swriter">swriter: <span class="extype" name="reactivemongo.api.SerializationPack.Writer">P.Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.find.S">S</span>]</span>, <span name="pwriter">pwriter: <span class="extype" name="reactivemongo.api.SerializationPack.Writer">P.Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.find.P">P</span>]</span>)</span><span class="result">: <a href="GenericQueryBuilder.html" class="extype" name="reactivemongo.api.collections.GenericQueryBuilder">GenericQueryBuilder</a>[<a href="#pack:P" class="extmbr" name="reactivemongo.api.collections.GenericCollection#pack">pack</a>.type]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@find[S,P](selector:S,projection:P)(implicitswriter:Writer[S],implicitpwriter:Writer[P]):reactivemongo.api.collections.GenericQueryBuilder[Structure,Reader,Writer]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@find[S,P](selector:S,projection:P)(implicitswriter:GenericCollection.this.pack.Writer[S],implicitpwriter:GenericCollection.this.pack.Writer[P]):reactivemongo.api.collections.GenericQueryBuilder[GenericCollection.this.pack.type]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -667,18 +843,18 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
 </p></dd><dt>returns</dt><dd class="cmt"><p>a <a href="GenericQueryBuilder.html" class="extype" name="reactivemongo.api.collections.GenericQueryBuilder">GenericQueryBuilder</a> that you can use to to customize the query. You can obtain a cursor by calling the method <a href="../Cursor.html" class="extype" name="reactivemongo.api.Cursor">reactivemongo.api.Cursor</a> on this query builder.
 </p></dd></dl></div>
     </li><li name="reactivemongo.api.collections.GenericCollection#find" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="find[S](selector:S)(implicitswriter:Writer[S]):reactivemongo.api.collections.GenericQueryBuilder[Structure,Reader,Writer]"></a>
-      <a id="find[S](S)(Writer[S]):GenericQueryBuilder[Structure,Reader,Writer]"></a>
+      <a id="find[S](selector:S)(implicitswriter:GenericCollection.this.pack.Writer[S]):reactivemongo.api.collections.GenericQueryBuilder[GenericCollection.this.pack.type]"></a>
+      <a id="find[S](S)(P.Writer[S]):GenericQueryBuilder[pack.type]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">find</span><span class="tparams">[<span name="S">S</span>]</span><span class="params">(<span name="selector">selector: <span class="extype" name="reactivemongo.api.collections.GenericCollection.find.S">S</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="swriter">swriter: <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.find.S">S</span>]</span>)</span><span class="result">: <a href="GenericQueryBuilder.html" class="extype" name="reactivemongo.api.collections.GenericQueryBuilder">GenericQueryBuilder</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]</span>
+        <span class="name">find</span><span class="tparams">[<span name="S">S</span>]</span><span class="params">(<span name="selector">selector: <span class="extype" name="reactivemongo.api.collections.GenericCollection.find.S">S</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="swriter">swriter: <span class="extype" name="reactivemongo.api.SerializationPack.Writer">P.Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.find.S">S</span>]</span>)</span><span class="result">: <a href="GenericQueryBuilder.html" class="extype" name="reactivemongo.api.collections.GenericQueryBuilder">GenericQueryBuilder</a>[<a href="#pack:P" class="extmbr" name="reactivemongo.api.collections.GenericCollection#pack">pack</a>.type]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@find[S](selector:S)(implicitswriter:Writer[S]):reactivemongo.api.collections.GenericQueryBuilder[Structure,Reader,Writer]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@find[S](selector:S)(implicitswriter:GenericCollection.this.pack.Writer[S]):reactivemongo.api.collections.GenericQueryBuilder[GenericCollection.this.pack.type]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -703,8 +879,8 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>] to
-            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]] performed by method StringFormat in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]] performed by method StringFormat in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -761,59 +937,36 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="reactivemongo.api.collections.GenericCollection#insert" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="insert(document:Structure)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.commands.LastError]"></a>
-      <a id="insert(Structure)(ExecutionContext):Future[LastError]"></a>
+    </li><li name="reactivemongo.api.CollectionMetaCommands#indexesManager" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="indexesManager(implicitec:scala.concurrent.ExecutionContext):reactivemongo.api.indexes.CollectionIndexesManager"></a>
+      <a id="indexesManager(ExecutionContext):CollectionIndexesManager"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">insert</span><span class="params">(<span name="document">document: <span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../../core/commands/LastError.html" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>]</span>
+        <span class="name">indexesManager</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="../indexes/CollectionIndexesManager.html" class="extype" name="reactivemongo.api.indexes.CollectionIndexesManager">CollectionIndexesManager</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@insert(document:Structure)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.commands.LastError]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@indexesManager(implicitec:scala.concurrent.ExecutionContext):reactivemongo.api.indexes.CollectionIndexesManager" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">Inserts a document into the collection and wait for the <a href="../../core/commands/LastError.html" class="extype" name="reactivemongo.core.commands.LastError">reactivemongo.core.commands.LastError</a> result.</p><div class="fullcomment"><div class="comment cmt"><p>Inserts a document into the collection and wait for the <a href="../../core/commands/LastError.html" class="extype" name="reactivemongo.core.commands.LastError">reactivemongo.core.commands.LastError</a> result.
-</p></div><dl class="paramcmts block"><dt class="param">document</dt><dd class="cmt"><p>the document to insert.
-</p></dd><dt>returns</dt><dd class="cmt"><p>a future <a href="../../core/commands/LastError.html" class="extype" name="reactivemongo.core.commands.LastError">reactivemongo.core.commands.LastError</a> that can be used to check whether the insertion was successful.
-</p></dd></dl></div>
+      <p class="shortcomment cmt">Returns an index manager for this collection.</p><div class="fullcomment"><div class="comment cmt"><p>Returns an index manager for this collection.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../CollectionMetaCommands.html" class="extype" name="reactivemongo.api.CollectionMetaCommands">CollectionMetaCommands</a></dd></dl></div>
     </li><li name="reactivemongo.api.collections.GenericCollection#insert" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="insert(document:Structure,writeConcern:reactivemongo.core.commands.GetLastError)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.commands.LastError]"></a>
-      <a id="insert(Structure,GetLastError)(ExecutionContext):Future[LastError]"></a>
+      <a id="insert[T](document:T,writeConcern:reactivemongo.api.commands.WriteConcern)(implicitwriter:GenericCollection.this.pack.Writer[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.WriteResult]"></a>
+      <a id="insert[T](T,WriteConcern)(P.Writer[T],ExecutionContext):Future[WriteResult]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">insert</span><span class="params">(<span name="document">document: <span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span></span>, <span name="writeConcern">writeConcern: <a href="../../core/commands/GetLastError.html" class="extype" name="reactivemongo.core.commands.GetLastError">GetLastError</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../../core/commands/LastError.html" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>]</span>
+        <span class="name">insert</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="document">document: <span class="extype" name="reactivemongo.api.collections.GenericCollection.insert.T">T</span></span>, <span name="writeConcern">writeConcern: <a href="../commands/package.html#WriteConcern=reactivemongo.api.commands.GetLastError" class="extmbr" name="reactivemongo.api.commands.WriteConcern">WriteConcern</a> = <span class="symbol"><span class="name"><a href="../../package.html">WriteConcern.Default</a></span></span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <span class="extype" name="reactivemongo.api.SerializationPack.Writer">P.Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.insert.T">T</span>]</span>, <span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../commands/WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@insert(document:Structure,writeConcern:reactivemongo.core.commands.GetLastError)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.commands.LastError]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Inserts a document into the collection and wait for the <a href="../../core/commands/LastError.html" class="extype" name="reactivemongo.core.commands.LastError">reactivemongo.core.commands.LastError</a> result.</p><div class="fullcomment"><div class="comment cmt"><p>Inserts a document into the collection and wait for the <a href="../../core/commands/LastError.html" class="extype" name="reactivemongo.core.commands.LastError">reactivemongo.core.commands.LastError</a> result.</p><p>Please read the documentation about <a href="../../core/commands/GetLastError.html" class="extype" name="reactivemongo.core.commands.GetLastError">reactivemongo.core.commands.GetLastError</a> to know how to use it properly.
-</p></div><dl class="paramcmts block"><dt class="param">document</dt><dd class="cmt"><p>the document to insert.</p></dd><dt class="param">writeConcern</dt><dd class="cmt"><p>the <a href="../../core/commands/GetLastError.html" class="extype" name="reactivemongo.core.commands.GetLastError">reactivemongo.core.commands.GetLastError</a> command message to send in order to control how the document is inserted. Defaults to GetLastError().
-</p></dd><dt>returns</dt><dd class="cmt"><p>a future <a href="../../core/commands/LastError.html" class="extype" name="reactivemongo.core.commands.LastError">reactivemongo.core.commands.LastError</a> that can be used to check whether the insertion was successful.
-</p></dd></dl></div>
-    </li><li name="reactivemongo.api.collections.GenericCollection#insert" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="insert[T](document:T,writeConcern:reactivemongo.core.commands.GetLastError)(implicitwriter:Writer[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.commands.LastError]"></a>
-      <a id="insert[T](T,GetLastError)(Writer[T],ExecutionContext):Future[LastError]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">insert</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="document">document: <span class="extype" name="reactivemongo.api.collections.GenericCollection.insert.T">T</span></span>, <span name="writeConcern">writeConcern: <a href="../../core/commands/GetLastError.html" class="extype" name="reactivemongo.core.commands.GetLastError">GetLastError</a> = <span class="symbol"><span class="name"><a href="../../package.html">GetLastError()</a></span></span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.insert.T">T</span>]</span>, <span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../../core/commands/LastError.html" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@insert[T](document:T,writeConcern:reactivemongo.core.commands.GetLastError)(implicitwriter:Writer[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.commands.LastError]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@insert[T](document:T,writeConcern:reactivemongo.api.commands.WriteConcern)(implicitwriter:GenericCollection.this.pack.Writer[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.WriteResult]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -891,18 +1044,18 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="reactivemongo.api.collections.GenericCollection#remove" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="remove[T](query:T,writeConcern:reactivemongo.core.commands.GetLastError,firstMatchOnly:Boolean)(implicitwriter:Writer[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.commands.LastError]"></a>
-      <a id="remove[T](T,GetLastError,Boolean)(Writer[T],ExecutionContext):Future[LastError]"></a>
+      <a id="remove[T](query:T,writeConcern:reactivemongo.api.commands.WriteConcern,firstMatchOnly:Boolean)(implicitwriter:GenericCollection.this.pack.Writer[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.WriteResult]"></a>
+      <a id="remove[T](T,WriteConcern,Boolean)(P.Writer[T],ExecutionContext):Future[WriteResult]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">remove</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="query">query: <span class="extype" name="reactivemongo.api.collections.GenericCollection.remove.T">T</span></span>, <span name="writeConcern">writeConcern: <a href="../../core/commands/GetLastError.html" class="extype" name="reactivemongo.core.commands.GetLastError">GetLastError</a> = <span class="symbol"><span class="name"><a href="../../package.html">GetLastError()</a></span></span></span>, <span name="firstMatchOnly">firstMatchOnly: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.remove.T">T</span>]</span>, <span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../../core/commands/LastError.html" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>]</span>
+        <span class="name">remove</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="query">query: <span class="extype" name="reactivemongo.api.collections.GenericCollection.remove.T">T</span></span>, <span name="writeConcern">writeConcern: <a href="../commands/package.html#WriteConcern=reactivemongo.api.commands.GetLastError" class="extmbr" name="reactivemongo.api.commands.WriteConcern">WriteConcern</a> = <span class="symbol"><span class="name"><a href="../../package.html">WriteConcern.Default</a></span></span></span>, <span name="firstMatchOnly">firstMatchOnly: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <span class="extype" name="reactivemongo.api.SerializationPack.Writer">P.Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.remove.T">T</span>]</span>, <span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../commands/WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@remove[T](query:T,writeConcern:reactivemongo.core.commands.GetLastError,firstMatchOnly:Boolean)(implicitwriter:Writer[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.commands.LastError]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@remove[T](query:T,writeConcern:reactivemongo.api.commands.WriteConcern,firstMatchOnly:Boolean)(implicitwriter:GenericCollection.this.pack.Writer[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.WriteResult]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -911,6 +1064,93 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
 </p></dd><dt class="param">query</dt><dd class="cmt"><p>the selector of documents to remove.</p></dd><dt class="param">writeConcern</dt><dd class="cmt"><p>the <a href="../../core/commands/GetLastError.html" class="extype" name="reactivemongo.core.commands.GetLastError">reactivemongo.core.commands.GetLastError</a> command message to send in order to control how the documents are removed. Defaults to GetLastError().</p></dd><dt class="param">firstMatchOnly</dt><dd class="cmt"><p>states whether only the first matched documents has to be removed from this collection.
 </p></dd><dt>returns</dt><dd class="cmt"><p>a future <a href="../../core/commands/LastError.html" class="extype" name="reactivemongo.core.commands.LastError">reactivemongo.core.commands.LastError</a> that can be used to check whether the removal was successful.
 </p></dd></dl></div>
+    </li><li name="reactivemongo.api.CollectionMetaCommands#rename" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="rename(to:String,dropExisting:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a>
+      <a id="rename(String,Boolean)(ExecutionContext):Future[Unit]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">rename</span><span class="params">(<span name="to">to: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dropExisting">dropExisting: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@rename(to:String,dropExisting:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Renames this collection.</p><div class="fullcomment"><div class="comment cmt"><p>Renames this collection.
+</p></div><dl class="paramcmts block"><dt class="param">to</dt><dd class="cmt"><p>The new name of this collection.</p></dd><dt class="param">dropExisting</dt><dd class="cmt"><p>If a collection of name <code>to</code> already exists, then drops that collection before renaming this one.
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../CollectionMetaCommands.html" class="extype" name="reactivemongo.api.CollectionMetaCommands">CollectionMetaCommands</a></dd></dl></div>
+    </li><li name="reactivemongo.api.collections.GenericCollectionWithCommands#runCommand" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="runCommand[C&lt;:reactivemongo.api.commands.CollectionCommand](command:C)(implicitwriter:GenericCollectionWithCommands.this.pack.Writer[reactivemongo.api.commands.ResolvedCollectionCommand[C]]):reactivemongo.api.commands.CursorFetcher[GenericCollectionWithCommands.this.pack.type,reactivemongo.api.Cursor]"></a>
+      <a id="runCommand[C&lt;:CollectionCommand](C)(P.Writer[ResolvedCollectionCommand[C]]):CursorFetcher[pack.type,Cursor]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">runCommand</span><span class="tparams">[<span name="C">C &lt;: <a href="../commands/CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a></span>]</span><span class="params">(<span name="command">command: <span class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands.runCommand.C">C</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <span class="extype" name="reactivemongo.api.SerializationPack.Writer">P.Writer</span>[<a href="../commands/ResolvedCollectionCommand.html" class="extype" name="reactivemongo.api.commands.ResolvedCollectionCommand">ResolvedCollectionCommand</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands.runCommand.C">C</span>]]</span>)</span><span class="result">: <a href="../commands/CursorFetcher.html" class="extype" name="reactivemongo.api.commands.CursorFetcher">CursorFetcher</a>[<a href="#pack:P" class="extmbr" name="reactivemongo.api.collections.GenericCollection#pack">pack</a>.type, <a href="../Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@runCommand[C&lt;:reactivemongo.api.commands.CollectionCommand](command:C)(implicitwriter:GenericCollectionWithCommands.this.pack.Writer[reactivemongo.api.commands.ResolvedCollectionCommand[C]]):reactivemongo.api.commands.CursorFetcher[GenericCollectionWithCommands.this.pack.type,reactivemongo.api.Cursor]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GenericCollectionWithCommands.html" class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands">GenericCollectionWithCommands</a></dd></dl></div>
+    </li><li name="reactivemongo.api.collections.GenericCollectionWithCommands#runCommand" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="runCommand[R,C&lt;:reactivemongo.api.commands.CollectionCommandwithreactivemongo.api.commands.CommandWithResult[R]](command:Cwithreactivemongo.api.commands.CommandWithResult[R])(implicitwriter:GenericCollectionWithCommands.this.pack.Writer[reactivemongo.api.commands.ResolvedCollectionCommand[C]],implicitreader:GenericCollectionWithCommands.this.pack.Reader[R],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[R]"></a>
+      <a id="runCommand[R,C&lt;:CollectionCommandwithCommandWithResult[R]](CwithCommandWithResult[R])(P.Writer[ResolvedCollectionCommand[C]],P.Reader[R],ExecutionContext):Future[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">runCommand</span><span class="tparams">[<span name="R">R</span>, <span name="C">C &lt;: <a href="../commands/CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="../commands/CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands.runCommand.R">R</span>]</span>]</span><span class="params">(<span name="command">command: <span class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands.runCommand.C">C</span> with <a href="../commands/CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands.runCommand.R">R</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <span class="extype" name="reactivemongo.api.SerializationPack.Writer">P.Writer</span>[<a href="../commands/ResolvedCollectionCommand.html" class="extype" name="reactivemongo.api.commands.ResolvedCollectionCommand">ResolvedCollectionCommand</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands.runCommand.C">C</span>]]</span>, <span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">P.Reader</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands.runCommand.R">R</span>]</span>, <span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands.runCommand.R">R</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@runCommand[R,C&lt;:reactivemongo.api.commands.CollectionCommandwithreactivemongo.api.commands.CommandWithResult[R]](command:Cwithreactivemongo.api.commands.CommandWithResult[R])(implicitwriter:GenericCollectionWithCommands.this.pack.Writer[reactivemongo.api.commands.ResolvedCollectionCommand[C]],implicitreader:GenericCollectionWithCommands.this.pack.Reader[R],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[R]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GenericCollectionWithCommands.html" class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands">GenericCollectionWithCommands</a></dd></dl></div>
+    </li><li name="reactivemongo.api.collections.GenericCollectionWithCommands#runValueCommand" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="runValueCommand[A&lt;:AnyVal,R&lt;:reactivemongo.api.commands.BoxedAnyVal[A],C&lt;:reactivemongo.api.commands.CollectionCommandwithreactivemongo.api.commands.CommandWithResult[R]](command:Cwithreactivemongo.api.commands.CommandWithResult[Rwithreactivemongo.api.commands.BoxedAnyVal[A]])(implicitwriter:GenericCollectionWithCommands.this.pack.Writer[reactivemongo.api.commands.ResolvedCollectionCommand[C]],implicitreader:GenericCollectionWithCommands.this.pack.Reader[R],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
+      <a id="runValueCommand[A&lt;:AnyVal,R&lt;:BoxedAnyVal[A],C&lt;:CollectionCommandwithCommandWithResult[R]](CwithCommandWithResult[RwithBoxedAnyVal[A]])(P.Writer[ResolvedCollectionCommand[C]],P.Reader[R],ExecutionContext):Future[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">runValueCommand</span><span class="tparams">[<span name="A">A &lt;: <span class="extype" name="scala.AnyVal">AnyVal</span></span>, <span name="R">R &lt;: <a href="../commands/BoxedAnyVal.html" class="extype" name="reactivemongo.api.commands.BoxedAnyVal">BoxedAnyVal</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands.runValueCommand.A">A</span>]</span>, <span name="C">C &lt;: <a href="../commands/CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="../commands/CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands.runValueCommand.R">R</span>]</span>]</span><span class="params">(<span name="command">command: <span class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands.runValueCommand.C">C</span> with <a href="../commands/CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands.runValueCommand.R">R</span> with <a href="../commands/BoxedAnyVal.html" class="extype" name="reactivemongo.api.commands.BoxedAnyVal">BoxedAnyVal</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands.runValueCommand.A">A</span>]]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <span class="extype" name="reactivemongo.api.SerializationPack.Writer">P.Writer</span>[<a href="../commands/ResolvedCollectionCommand.html" class="extype" name="reactivemongo.api.commands.ResolvedCollectionCommand">ResolvedCollectionCommand</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands.runValueCommand.C">C</span>]]</span>, <span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">P.Reader</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands.runValueCommand.R">R</span>]</span>, <span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands.runValueCommand.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@runValueCommand[A&lt;:AnyVal,R&lt;:reactivemongo.api.commands.BoxedAnyVal[A],C&lt;:reactivemongo.api.commands.CollectionCommandwithreactivemongo.api.commands.CommandWithResult[R]](command:Cwithreactivemongo.api.commands.CommandWithResult[Rwithreactivemongo.api.commands.BoxedAnyVal[A]])(implicitwriter:GenericCollectionWithCommands.this.pack.Writer[reactivemongo.api.commands.ResolvedCollectionCommand[C]],implicitreader:GenericCollectionWithCommands.this.pack.Reader[R],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GenericCollectionWithCommands.html" class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands">GenericCollectionWithCommands</a></dd></dl></div>
+    </li><li name="reactivemongo.api.collections.GenericCollectionWithCommands#runner" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="runner:reactivemongo.api.commands.Command.CommandWithPackRunner[GenericCollectionWithCommands.this.pack.type]"></a>
+      <a id="runner:CommandWithPackRunner[pack.type]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">runner</span><span class="result">: <a href="../commands/Command$$CommandWithPackRunner.html" class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner">CommandWithPackRunner</a>[<a href="#pack:P" class="extmbr" name="reactivemongo.api.collections.GenericCollection#pack">pack</a>.type]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@runner:reactivemongo.api.commands.Command.CommandWithPackRunner[GenericCollectionWithCommands.this.pack.type]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GenericCollectionWithCommands.html" class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands">GenericCollectionWithCommands</a></dd></dl></div>
     </li><li name="reactivemongo.api.Collection#sibling" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sibling[C&lt;:reactivemongo.api.Collection](name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitproducer:reactivemongo.api.CollectionProducer[C]):C"></a>
       <a id="sibling[C&lt;:Collection](String,FailoverStrategy)(CollectionProducer[C]):C"></a>
@@ -920,7 +1160,7 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">sibling</span><span class="tparams">[<span name="C">C &lt;: <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a></span>]</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="failoverStrategy">failoverStrategy: <a href="../FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol">failoverStrategy</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="producer">producer: <a href="../CollectionProducer.html" class="extype" name="reactivemongo.api.CollectionProducer">CollectionProducer</a>[<span class="extype" name="reactivemongo.api.Collection.sibling.C">C</span>] = <span class="defval" name='<span class="name"><a href="package.html">collections.default.BSONCollectionProducer</a></span>'>...</span></span>)</span><span class="result">: <span class="extype" name="reactivemongo.api.Collection.sibling.C">C</span></span>
+        <span class="name">sibling</span><span class="tparams">[<span name="C">C &lt;: <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a></span>]</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="failoverStrategy">failoverStrategy: <a href="../FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol">failoverStrategy</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="producer">producer: <a href="../CollectionProducer.html" class="extype" name="reactivemongo.api.CollectionProducer">CollectionProducer</a>[<span class="extype" name="reactivemongo.api.Collection.sibling.C">C</span>] = <span class="defval" name='<span class="name"><a href="package.html">collections.bson.BSONCollectionProducer</a></span>'>...</span></span>)</span><span class="result">: <span class="extype" name="reactivemongo.api.Collection.sibling.C">C</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@sibling[C&lt;:reactivemongo.api.Collection](name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitproducer:reactivemongo.api.CollectionProducer[C]):C" title="Permalink" target="_top">
@@ -928,9 +1168,46 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
       </a>
     </span>
       <p class="shortcomment cmt">Gets another collection in the current database.</p><div class="fullcomment"><div class="comment cmt"><p>Gets another collection in the current database.
-An implicit CollectionProducer[C] must be present in the scope, or it will be the default implementation (<a href="default/BSONCollection.html" class="extype" name="reactivemongo.api.collections.default.BSONCollection">reactivemongo.api.collections.default.BSONCollection</a>).
+An implicit CollectionProducer[C] must be present in the scope, or it will be the default implementation (<a href="bson/BSONCollection.html" class="extype" name="reactivemongo.api.collections.bson.BSONCollection">reactivemongo.api.collections.bson.BSONCollection</a>).
 </p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>The other collection name.</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>Overrides the default strategy.
 </p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a></dd></dl></div>
+    </li><li name="reactivemongo.api.CollectionMetaCommands#stats" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="stats(scale:Int)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.CollStatsResult]"></a>
+      <a id="stats(Int)(ExecutionContext):Future[CollStatsResult]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">stats</span><span class="params">(<span name="scale">scale: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../commands/CollStatsResult.html" class="extype" name="reactivemongo.api.commands.CollStatsResult">CollStatsResult</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@stats(scale:Int)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.CollStatsResult]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns various information about this collection.</p><div class="fullcomment"><div class="comment cmt"><p>Returns various information about this collection.
+</p></div><dl class="paramcmts block"><dt class="param">scale</dt><dd class="cmt"><p>A scale factor (for example, to get all the sizes in kilobytes).
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../CollectionMetaCommands.html" class="extype" name="reactivemongo.api.CollectionMetaCommands">CollectionMetaCommands</a></dd></dl></div>
+    </li><li name="reactivemongo.api.CollectionMetaCommands#stats" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="stats()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.CollStatsResult]"></a>
+      <a id="stats()(ExecutionContext):Future[CollStatsResult]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">stats</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../commands/CollStatsResult.html" class="extype" name="reactivemongo.api.commands.CollStatsResult">CollStatsResult</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@stats()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.CollStatsResult]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns various information about this collection.</p><div class="fullcomment"><div class="comment cmt"><p>Returns various information about this collection.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../CollectionMetaCommands.html" class="extype" name="reactivemongo.api.CollectionMetaCommands">CollectionMetaCommands</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -966,18 +1243,18 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="reactivemongo.api.collections.GenericCollection#uncheckedInsert" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="uncheckedInsert[T](document:T)(implicitwriter:Writer[T]):Unit"></a>
-      <a id="uncheckedInsert[T](T)(Writer[T]):Unit"></a>
+      <a id="uncheckedInsert[T](document:T)(implicitwriter:GenericCollection.this.pack.Writer[T]):Unit"></a>
+      <a id="uncheckedInsert[T](T)(P.Writer[T]):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">uncheckedInsert</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="document">document: <span class="extype" name="reactivemongo.api.collections.GenericCollection.uncheckedInsert.T">T</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.uncheckedInsert.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">uncheckedInsert</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="document">document: <span class="extype" name="reactivemongo.api.collections.GenericCollection.uncheckedInsert.T">T</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <span class="extype" name="reactivemongo.api.SerializationPack.Writer">P.Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.uncheckedInsert.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@uncheckedInsert[T](document:T)(implicitwriter:Writer[T]):Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@uncheckedInsert[T](document:T)(implicitwriter:GenericCollection.this.pack.Writer[T]):Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -986,18 +1263,18 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
 </p></dd><dt class="param">document</dt><dd class="cmt"><p>the document to insert.
 </p></dd></dl></div>
     </li><li name="reactivemongo.api.collections.GenericCollection#uncheckedRemove" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="uncheckedRemove[T](query:T,firstMatchOnly:Boolean)(implicitwriter:Writer[T],implicitec:scala.concurrent.ExecutionContext):Unit"></a>
-      <a id="uncheckedRemove[T](T,Boolean)(Writer[T],ExecutionContext):Unit"></a>
+      <a id="uncheckedRemove[T](query:T,firstMatchOnly:Boolean)(implicitwriter:GenericCollection.this.pack.Writer[T],implicitec:scala.concurrent.ExecutionContext):Unit"></a>
+      <a id="uncheckedRemove[T](T,Boolean)(P.Writer[T],ExecutionContext):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">uncheckedRemove</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="query">query: <span class="extype" name="reactivemongo.api.collections.GenericCollection.uncheckedRemove.T">T</span></span>, <span name="firstMatchOnly">firstMatchOnly: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.uncheckedRemove.T">T</span>]</span>, <span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">uncheckedRemove</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="query">query: <span class="extype" name="reactivemongo.api.collections.GenericCollection.uncheckedRemove.T">T</span></span>, <span name="firstMatchOnly">firstMatchOnly: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <span class="extype" name="reactivemongo.api.SerializationPack.Writer">P.Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.uncheckedRemove.T">T</span>]</span>, <span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@uncheckedRemove[T](query:T,firstMatchOnly:Boolean)(implicitwriter:Writer[T],implicitec:scala.concurrent.ExecutionContext):Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@uncheckedRemove[T](query:T,firstMatchOnly:Boolean)(implicitwriter:GenericCollection.this.pack.Writer[T],implicitec:scala.concurrent.ExecutionContext):Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -1006,18 +1283,18 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
 </p></dd><dt class="param">query</dt><dd class="cmt"><p>the selector of documents to remove.</p></dd><dt class="param">firstMatchOnly</dt><dd class="cmt"><p>states whether only the first matched documents has to be removed from this collection.
 </p></dd></dl></div>
     </li><li name="reactivemongo.api.collections.GenericCollection#uncheckedUpdate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="uncheckedUpdate[S,U](selector:S,update:U,upsert:Boolean,multi:Boolean)(implicitselectorWriter:Writer[S],implicitupdateWriter:Writer[U]):Unit"></a>
-      <a id="uncheckedUpdate[S,U](S,U,Boolean,Boolean)(Writer[S],Writer[U]):Unit"></a>
+      <a id="uncheckedUpdate[S,U](selector:S,update:U,upsert:Boolean,multi:Boolean)(implicitselectorWriter:GenericCollection.this.pack.Writer[S],implicitupdateWriter:GenericCollection.this.pack.Writer[U]):Unit"></a>
+      <a id="uncheckedUpdate[S,U](S,U,Boolean,Boolean)(P.Writer[S],P.Writer[U]):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">uncheckedUpdate</span><span class="tparams">[<span name="S">S</span>, <span name="U">U</span>]</span><span class="params">(<span name="selector">selector: <span class="extype" name="reactivemongo.api.collections.GenericCollection.uncheckedUpdate.S">S</span></span>, <span name="update">update: <span class="extype" name="reactivemongo.api.collections.GenericCollection.uncheckedUpdate.U">U</span></span>, <span name="upsert">upsert: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="multi">multi: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="selectorWriter">selectorWriter: <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.uncheckedUpdate.S">S</span>]</span>, <span name="updateWriter">updateWriter: <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.uncheckedUpdate.U">U</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">uncheckedUpdate</span><span class="tparams">[<span name="S">S</span>, <span name="U">U</span>]</span><span class="params">(<span name="selector">selector: <span class="extype" name="reactivemongo.api.collections.GenericCollection.uncheckedUpdate.S">S</span></span>, <span name="update">update: <span class="extype" name="reactivemongo.api.collections.GenericCollection.uncheckedUpdate.U">U</span></span>, <span name="upsert">upsert: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="multi">multi: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="selectorWriter">selectorWriter: <span class="extype" name="reactivemongo.api.SerializationPack.Writer">P.Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.uncheckedUpdate.S">S</span>]</span>, <span name="updateWriter">updateWriter: <span class="extype" name="reactivemongo.api.SerializationPack.Writer">P.Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.uncheckedUpdate.U">U</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@uncheckedUpdate[S,U](selector:S,update:U,upsert:Boolean,multi:Boolean)(implicitselectorWriter:Writer[S],implicitupdateWriter:Writer[U]):Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@uncheckedUpdate[S,U](selector:S,update:U,upsert:Boolean,multi:Boolean)(implicitselectorWriter:GenericCollection.this.pack.Writer[S],implicitupdateWriter:GenericCollection.this.pack.Writer[U]):Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -1026,18 +1303,18 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
 </p></dd><dt class="param">selector</dt><dd class="cmt"><p>the selector object, for finding the documents to update.</p></dd><dt class="param">update</dt><dd class="cmt"><p>the modifier object (with special keys like $set) or replacement object.</p></dd><dt class="param">upsert</dt><dd class="cmt"><p>states whether the update objet should be inserted if no match found. Defaults to false.</p></dd><dt class="param">multi</dt><dd class="cmt"><p>states whether the update may be done on all the matching documents.
 </p></dd></dl></div>
     </li><li name="reactivemongo.api.collections.GenericCollection#update" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="update[S,U](selector:S,update:U,writeConcern:reactivemongo.core.commands.GetLastError,upsert:Boolean,multi:Boolean)(implicitselectorWriter:Writer[S],implicitupdateWriter:Writer[U],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.commands.LastError]"></a>
-      <a id="update[S,U](S,U,GetLastError,Boolean,Boolean)(Writer[S],Writer[U],ExecutionContext):Future[LastError]"></a>
+      <a id="update[S,U](selector:S,update:U,writeConcern:reactivemongo.api.commands.WriteConcern,upsert:Boolean,multi:Boolean)(implicitselectorWriter:GenericCollection.this.pack.Writer[S],implicitupdateWriter:GenericCollection.this.pack.Writer[U],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.WriteResult]"></a>
+      <a id="update[S,U](S,U,WriteConcern,Boolean,Boolean)(P.Writer[S],P.Writer[U],ExecutionContext):Future[WriteResult]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">update</span><span class="tparams">[<span name="S">S</span>, <span name="U">U</span>]</span><span class="params">(<span name="selector">selector: <span class="extype" name="reactivemongo.api.collections.GenericCollection.update.S">S</span></span>, <span name="update">update: <span class="extype" name="reactivemongo.api.collections.GenericCollection.update.U">U</span></span>, <span name="writeConcern">writeConcern: <a href="../../core/commands/GetLastError.html" class="extype" name="reactivemongo.core.commands.GetLastError">GetLastError</a> = <span class="symbol"><span class="name"><a href="../../package.html">GetLastError()</a></span></span></span>, <span name="upsert">upsert: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="multi">multi: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="selectorWriter">selectorWriter: <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.update.S">S</span>]</span>, <span name="updateWriter">updateWriter: <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.update.U">U</span>]</span>, <span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../../core/commands/LastError.html" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>]</span>
+        <span class="name">update</span><span class="tparams">[<span name="S">S</span>, <span name="U">U</span>]</span><span class="params">(<span name="selector">selector: <span class="extype" name="reactivemongo.api.collections.GenericCollection.update.S">S</span></span>, <span name="update">update: <span class="extype" name="reactivemongo.api.collections.GenericCollection.update.U">U</span></span>, <span name="writeConcern">writeConcern: <a href="../commands/package.html#WriteConcern=reactivemongo.api.commands.GetLastError" class="extmbr" name="reactivemongo.api.commands.WriteConcern">WriteConcern</a> = <span class="symbol"><span class="name"><a href="../../package.html">WriteConcern.Default</a></span></span></span>, <span name="upsert">upsert: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="multi">multi: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="selectorWriter">selectorWriter: <span class="extype" name="reactivemongo.api.SerializationPack.Writer">P.Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.update.S">S</span>]</span>, <span name="updateWriter">updateWriter: <span class="extype" name="reactivemongo.api.SerializationPack.Writer">P.Writer</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.update.U">U</span>]</span>, <span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../commands/WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@update[S,U](selector:S,update:U,writeConcern:reactivemongo.core.commands.GetLastError,upsert:Boolean,multi:Boolean)(implicitselectorWriter:Writer[S],implicitupdateWriter:Writer[U],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.commands.LastError]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@update[S,U](selector:S,update:U,writeConcern:reactivemongo.api.commands.WriteConcern,upsert:Boolean,multi:Boolean)(implicitselectorWriter:GenericCollection.this.pack.Writer[S],implicitupdateWriter:GenericCollection.this.pack.Writer[U],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.WriteResult]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -1134,14 +1411,14 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="→[B](y:B):(A,B)"></a>
-      <a id="→[B](B):(GenericCollection[Structure,Reader,Writer],B)"></a>
+      <a id="→[B](B):(GenericCollection[P],B)"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>], <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>], <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@→[B](y:B):(A,B)" title="Permalink" target="_top">
@@ -1149,8 +1426,8 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>] to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
     </li></ol>
@@ -1160,7 +1437,28 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
 
         <div id="values" class="values members">
               <h3>Deprecated Value Members</h3>
-              <ol><li name="reactivemongo.api.Collection#sister" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+              <ol><li name="reactivemongo.api.CollectionMetaCommands#emptyCapped" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="emptyCapped()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a>
+      <a id="emptyCapped()(ExecutionContext):Future[Unit]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.9) Deprecated because emptyCapped became an internal command, unavailable by default.">emptyCapped</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@emptyCapped()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">If this collection is capped, removes all the documents it contains.</p><div class="fullcomment"><div class="comment cmt"><p>If this collection is capped, removes all the documents it contains.</p><p>Deprecated because it became an internal command, unavailable by default.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../CollectionMetaCommands.html" class="extype" name="reactivemongo.api.CollectionMetaCommands">CollectionMetaCommands</a></dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.9)</i> Deprecated because emptyCapped became an internal command, unavailable by default.</p></dd></dl></div>
+    </li><li name="reactivemongo.api.Collection#sister" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sister[C&lt;:reactivemongo.api.Collection](name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitproducer:reactivemongo.api.CollectionProducer[C]):C"></a>
       <a id="sister[C&lt;:Collection](String,FailoverStrategy)(CollectionProducer[C]):C"></a>
       <h4 class="signature">
@@ -1169,7 +1467,7 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.10) Consider using sibling instead">sister</span><span class="tparams">[<span name="C">C &lt;: <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a></span>]</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="failoverStrategy">failoverStrategy: <a href="../FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol">failoverStrategy</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="producer">producer: <a href="../CollectionProducer.html" class="extype" name="reactivemongo.api.CollectionProducer">CollectionProducer</a>[<span class="extype" name="reactivemongo.api.Collection.sister.C">C</span>] = <span class="defval" name='<span class="name"><a href="package.html">collections.default.BSONCollectionProducer</a></span>'>...</span></span>)</span><span class="result">: <span class="extype" name="reactivemongo.api.Collection.sister.C">C</span></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.10) Consider using sibling instead">sister</span><span class="tparams">[<span name="C">C &lt;: <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a></span>]</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="failoverStrategy">failoverStrategy: <a href="../FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol">failoverStrategy</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="producer">producer: <a href="../CollectionProducer.html" class="extype" name="reactivemongo.api.CollectionProducer">CollectionProducer</a>[<span class="extype" name="reactivemongo.api.Collection.sister.C">C</span>] = <span class="defval" name='<span class="name"><a href="package.html">collections.bson.BSONCollectionProducer</a></span>'>...</span></span>)</span><span class="result">: <span class="extype" name="reactivemongo.api.Collection.sister.C">C</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.collections.GenericCollection@sister[C&lt;:reactivemongo.api.Collection](name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitproducer:reactivemongo.api.CollectionProducer[C]):C" title="Permalink" target="_top">
@@ -1177,7 +1475,7 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
       </a>
     </span>
       <p class="shortcomment cmt">Gets another collection in the current database.</p><div class="fullcomment"><div class="comment cmt"><p>Gets another collection in the current database.
-An implicit CollectionProducer[C] must be present in the scope, or it will be the default implementation (<a href="default/BSONCollection.html" class="extype" name="reactivemongo.api.collections.default.BSONCollection">reactivemongo.api.collections.default.BSONCollection</a>).
+An implicit CollectionProducer[C] must be present in the scope, or it will be the default implementation (<a href="bson/BSONCollection.html" class="extype" name="reactivemongo.api.collections.bson.BSONCollection">reactivemongo.api.collections.bson.BSONCollection</a>).
 </p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>The other collection name.</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>Overrides the default strategy.
 </p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a></dd><dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
@@ -1188,8 +1486,12 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="reactivemongo.api.collections.GenericHandlers">
-              <h3>Inherited from <a href="GenericHandlers.html" class="extype" name="reactivemongo.api.collections.GenericHandlers">GenericHandlers</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]</h3>
+        <div class="parent" name="reactivemongo.api.commands.ImplicitCommandHelpers">
+              <h3>Inherited from <a href="../commands/ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]</h3>
+            </div><div class="parent" name="reactivemongo.api.CollectionMetaCommands">
+              <h3>Inherited from <a href="../CollectionMetaCommands.html" class="extype" name="reactivemongo.api.CollectionMetaCommands">CollectionMetaCommands</a></h3>
+            </div><div class="parent" name="reactivemongo.api.collections.GenericCollectionWithCommands">
+              <h3>Inherited from <a href="GenericCollectionWithCommands.html" class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands">GenericCollectionWithCommands</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]</h3>
             </div><div class="parent" name="reactivemongo.api.Collection">
               <h3>Inherited from <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a></h3>
             </div><div class="parent" name="scala.AnyRef">
@@ -1199,19 +1501,19 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
             </div>
         <div class="conversion" name="scala.Predef.any2stringadd">
               <h3>Inherited by implicit conversion any2stringadd from
-                <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>] to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]]
+                <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.StringFormat">
               <h3>Inherited by implicit conversion StringFormat from
-                <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>] to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]]
+                <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.Ensuring">
               <h3>Inherited by implicit conversion Ensuring from
-                <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>] to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]]
+                <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.ArrowAssoc">
               <h3>Inherited by implicit conversion ArrowAssoc from
-                <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>] to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]]
+                <a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]]
               </h3>
             </div>
         </div>

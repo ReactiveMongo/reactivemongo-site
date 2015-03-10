@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>CollectionMetaCommands - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.api.CollectionMetaCommands</title>
-          <meta name="description" content="CollectionMetaCommands - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.api.CollectionMetaCommands" />
-          <meta name="keywords" content="CollectionMetaCommands ReactiveMongo API 0.10.5.0.akka23 reactivemongo.api.CollectionMetaCommands" />
+          <title>CollectionMetaCommands - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.api.CollectionMetaCommands</title>
+          <meta name="description" content="CollectionMetaCommands - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.api.CollectionMetaCommands" />
+          <meta name="keywords" content="CollectionMetaCommands ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.api.CollectionMetaCommands" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -52,7 +52,7 @@
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
             <span class="toggle">Known Subclasses</span>
-            <div class="subClasses hiddenContent"><a href="collections/default/BSONCollection.html" class="extype" name="reactivemongo.api.collections.default.BSONCollection">BSONCollection</a></div>
+            <div class="subClasses hiddenContent"><a href="collections/bson/BSONCollection.html" class="extype" name="reactivemongo.api.collections.bson.BSONCollection">BSONCollection</a>, <a href="collections/GenericCollection.html" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a></div>
           </div></div>
         
 
@@ -238,18 +238,18 @@
               
         </dd></dl></div>
     </li><li name="reactivemongo.api.CollectionMetaCommands#convertToCapped" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="convertToCapped(size:Long,maxDocuments:Option[Int])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Boolean]"></a>
-      <a id="convertToCapped(Long,Option[Int])(ExecutionContext):Future[Boolean]"></a>
+      <a id="convertToCapped(size:Long,maxDocuments:Option[Int])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a>
+      <a id="convertToCapped(Long,Option[Int])(ExecutionContext):Future[Unit]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">convertToCapped</span><span class="params">(<span name="size">size: <span class="extype" name="scala.Long">Long</span></span>, <span name="maxDocuments">maxDocuments: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
+        <span class="name">convertToCapped</span><span class="params">(<span name="size">size: <span class="extype" name="scala.Long">Long</span></span>, <span name="maxDocuments">maxDocuments: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.CollectionMetaCommands@convertToCapped(size:Long,maxDocuments:Option[Int])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Boolean]" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.CollectionMetaCommands@convertToCapped(size:Long,maxDocuments:Option[Int])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" />
       </a>
     </span>
@@ -257,18 +257,18 @@
 </p></div><dl class="paramcmts block"><dt class="param">size</dt><dd class="cmt"><p>The size of this capped collection, in bytes.</p></dd><dt class="param">maxDocuments</dt><dd class="cmt"><p>The maximum number of documents this capped collection can contain.
 </p></dd></dl></div>
     </li><li name="reactivemongo.api.CollectionMetaCommands#create" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="create(autoIndexId:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Boolean]"></a>
-      <a id="create(Boolean)(ExecutionContext):Future[Boolean]"></a>
+      <a id="create(autoIndexId:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a>
+      <a id="create(Boolean)(ExecutionContext):Future[Unit]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">create</span><span class="params">(<span name="autoIndexId">autoIndexId: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">true</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
+        <span class="name">create</span><span class="params">(<span name="autoIndexId">autoIndexId: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">true</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.CollectionMetaCommands@create(autoIndexId:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Boolean]" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.CollectionMetaCommands@create(autoIndexId:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" />
       </a>
     </span>
@@ -276,18 +276,18 @@
 </p></div><dl class="paramcmts block"><dt class="param">autoIndexId</dt><dd class="cmt"><p>States if should automatically add an index on the _id field. By default, regular collections will have an indexed _id field, in contrast to capped collections.
 </p></dd></dl></div>
     </li><li name="reactivemongo.api.CollectionMetaCommands#createCapped" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="createCapped(size:Long,maxDocuments:Option[Int],autoIndexId:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Boolean]"></a>
-      <a id="createCapped(Long,Option[Int],Boolean)(ExecutionContext):Future[Boolean]"></a>
+      <a id="createCapped(size:Long,maxDocuments:Option[Int],autoIndexId:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a>
+      <a id="createCapped(Long,Option[Int],Boolean)(ExecutionContext):Future[Unit]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">createCapped</span><span class="params">(<span name="size">size: <span class="extype" name="scala.Long">Long</span></span>, <span name="maxDocuments">maxDocuments: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="autoIndexId">autoIndexId: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
+        <span class="name">createCapped</span><span class="params">(<span name="size">size: <span class="extype" name="scala.Long">Long</span></span>, <span name="maxDocuments">maxDocuments: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="autoIndexId">autoIndexId: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.CollectionMetaCommands@createCapped(size:Long,maxDocuments:Option[Int],autoIndexId:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Boolean]" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.CollectionMetaCommands@createCapped(size:Long,maxDocuments:Option[Int],autoIndexId:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" />
       </a>
     </span>
@@ -295,18 +295,18 @@
 </p></div><dl class="paramcmts block"><dt class="param">autoIndexId</dt><dd class="cmt"><p>States if should automatically add an index on the _id field. By default, capped collections will NOT have an indexed _id field, in contrast to regular collections.
 </p></dd></dl></div>
     </li><li name="reactivemongo.api.CollectionMetaCommands#drop" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="drop()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Boolean]"></a>
-      <a id="drop()(ExecutionContext):Future[Boolean]"></a>
+      <a id="drop()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a>
+      <a id="drop()(ExecutionContext):Future[Unit]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">drop</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
+        <span class="name">drop</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.CollectionMetaCommands@drop()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Boolean]" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.CollectionMetaCommands@drop()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" />
       </a>
     </span>
@@ -597,18 +597,18 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="reactivemongo.api.CollectionMetaCommands#rename" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="rename(to:String,dropExisting:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Boolean]"></a>
-      <a id="rename(String,Boolean)(ExecutionContext):Future[Boolean]"></a>
+      <a id="rename(to:String,dropExisting:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a>
+      <a id="rename(String,Boolean)(ExecutionContext):Future[Unit]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">rename</span><span class="params">(<span name="to">to: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dropExisting">dropExisting: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
+        <span class="name">rename</span><span class="params">(<span name="to">to: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dropExisting">dropExisting: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.CollectionMetaCommands@rename(to:String,dropExisting:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Boolean]" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.CollectionMetaCommands@rename(to:String,dropExisting:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" />
       </a>
     </span>
@@ -616,7 +616,7 @@
 </p></div><dl class="paramcmts block"><dt class="param">to</dt><dd class="cmt"><p>The new name of this collection.</p></dd><dt class="param">dropExisting</dt><dd class="cmt"><p>If a collection of name <code>to</code> already exists, then drops that collection before renaming this one.
 </p></dd></dl></div>
     </li><li name="reactivemongo.api.CollectionMetaCommands#stats" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="stats(scale:Int)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.commands.CollStatsResult]"></a>
+      <a id="stats(scale:Int)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.CollStatsResult]"></a>
       <a id="stats(Int)(ExecutionContext):Future[CollStatsResult]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -624,10 +624,10 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">stats</span><span class="params">(<span name="scale">scale: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../core/commands/CollStatsResult.html" class="extype" name="reactivemongo.core.commands.CollStatsResult">CollStatsResult</a>]</span>
+        <span class="name">stats</span><span class="params">(<span name="scale">scale: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="commands/CollStatsResult.html" class="extype" name="reactivemongo.api.commands.CollStatsResult">CollStatsResult</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.CollectionMetaCommands@stats(scale:Int)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.commands.CollStatsResult]" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.CollectionMetaCommands@stats(scale:Int)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.CollStatsResult]" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" />
       </a>
     </span>
@@ -635,7 +635,7 @@
 </p></div><dl class="paramcmts block"><dt class="param">scale</dt><dd class="cmt"><p>A scale factor (for example, to get all the sizes in kilobytes).
 </p></dd></dl></div>
     </li><li name="reactivemongo.api.CollectionMetaCommands#stats" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="stats()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.commands.CollStatsResult]"></a>
+      <a id="stats()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.CollStatsResult]"></a>
       <a id="stats()(ExecutionContext):Future[CollStatsResult]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -643,10 +643,10 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">stats</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../core/commands/CollStatsResult.html" class="extype" name="reactivemongo.core.commands.CollStatsResult">CollStatsResult</a>]</span>
+        <span class="name">stats</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="commands/CollStatsResult.html" class="extype" name="reactivemongo.api.commands.CollStatsResult">CollStatsResult</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.CollectionMetaCommands@stats()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.commands.CollStatsResult]" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.CollectionMetaCommands@stats()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.CollStatsResult]" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" />
       </a>
     </span>
@@ -783,18 +783,18 @@
         <div id="values" class="values members">
               <h3>Deprecated Value Members</h3>
               <ol><li name="reactivemongo.api.CollectionMetaCommands#emptyCapped" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="emptyCapped()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Boolean]"></a>
-      <a id="emptyCapped()(ExecutionContext):Future[Boolean]"></a>
+      <a id="emptyCapped()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a>
+      <a id="emptyCapped()(ExecutionContext):Future[Unit]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.9) Deprecated because emptyCapped became an internal command, unavailable by default.">emptyCapped</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.9) Deprecated because emptyCapped became an internal command, unavailable by default.">emptyCapped</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.CollectionMetaCommands@emptyCapped()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Boolean]" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.CollectionMetaCommands@emptyCapped()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" />
       </a>
     </span>

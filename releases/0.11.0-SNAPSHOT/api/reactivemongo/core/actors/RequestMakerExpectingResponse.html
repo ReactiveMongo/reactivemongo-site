@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>RequestMakerExpectingResponse - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.core.actors.RequestMakerExpectingResponse</title>
-          <meta name="description" content="RequestMakerExpectingResponse - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.core.actors.RequestMakerExpectingResponse" />
-          <meta name="keywords" content="RequestMakerExpectingResponse ReactiveMongo API 0.10.5.0.akka23 reactivemongo.core.actors.RequestMakerExpectingResponse" />
+          <title>RequestMakerExpectingResponse - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.core.actors.RequestMakerExpectingResponse</title>
+          <meta name="description" content="RequestMakerExpectingResponse - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.core.actors.RequestMakerExpectingResponse" />
+          <meta name="keywords" content="RequestMakerExpectingResponse ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.core.actors.RequestMakerExpectingResponse" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -43,7 +43,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">RequestMakerExpectingResponse</span><span class="params">(<span name="requestMaker">requestMaker: <a href="../protocol/RequestMaker.html" class="extype" name="reactivemongo.core.protocol.RequestMaker">RequestMaker</a></span>)</span><span class="result"> extends <a href="ExpectingResponse.html" class="extype" name="reactivemongo.core.actors.ExpectingResponse">ExpectingResponse</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">RequestMakerExpectingResponse</span><span class="params">(<span name="requestMaker">requestMaker: <a href="../protocol/RequestMaker.html" class="extype" name="reactivemongo.core.protocol.RequestMaker">RequestMaker</a></span>, <span name="isMongo26WriteOp">isMongo26WriteOp: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result"> extends <a href="ExpectingResponse.html" class="extype" name="reactivemongo.core.actors.ExpectingResponse">ExpectingResponse</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
@@ -95,7 +95,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="reactivemongo.core.actors.RequestMakerExpectingResponse#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(requestMaker:reactivemongo.core.protocol.RequestMaker):reactivemongo.core.actors.RequestMakerExpectingResponse"></a>
+      <a id="&lt;init&gt;(requestMaker:reactivemongo.core.protocol.RequestMaker,isMongo26WriteOp:Boolean):reactivemongo.core.actors.RequestMakerExpectingResponse"></a>
       <a id="&lt;init&gt;:RequestMakerExpectingResponse"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -103,10 +103,10 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">RequestMakerExpectingResponse</span><span class="params">(<span name="requestMaker">requestMaker: <a href="../protocol/RequestMaker.html" class="extype" name="reactivemongo.core.protocol.RequestMaker">RequestMaker</a></span>)</span>
+        <span class="name">RequestMakerExpectingResponse</span><span class="params">(<span name="requestMaker">requestMaker: <a href="../protocol/RequestMaker.html" class="extype" name="reactivemongo.core.protocol.RequestMaker">RequestMaker</a></span>, <span name="isMongo26WriteOp">isMongo26WriteOp: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.actors.RequestMakerExpectingResponse@&lt;init&gt;(requestMaker:reactivemongo.core.protocol.RequestMaker):reactivemongo.core.actors.RequestMakerExpectingResponse" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.actors.RequestMakerExpectingResponse@&lt;init&gt;(requestMaker:reactivemongo.core.protocol.RequestMaker,isMongo26WriteOp:Boolean):reactivemongo.core.actors.RequestMakerExpectingResponse" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -456,6 +456,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="reactivemongo.core.actors.RequestMakerExpectingResponse#isMongo26WriteOp" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="isMongo26WriteOp:Boolean"></a>
+      <a id="isMongo26WriteOp:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isMongo26WriteOp</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.actors.RequestMakerExpectingResponse@isMongo26WriteOp:Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>

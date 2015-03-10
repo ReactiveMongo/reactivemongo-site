@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>MongoDriver - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.api.MongoDriver</title>
-          <meta name="description" content="MongoDriver - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.api.MongoDriver" />
-          <meta name="keywords" content="MongoDriver ReactiveMongo API 0.10.5.0.akka23 reactivemongo.api.MongoDriver" />
+          <title>MongoDriver - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.api.MongoDriver</title>
+          <meta name="description" content="MongoDriver - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.api.MongoDriver" />
+          <meta name="keywords" content="MongoDriver ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.api.MongoDriver" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -93,7 +93,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="reactivemongo.api.MongoDriver#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(system:akka.actor.ActorSystem):reactivemongo.api.MongoDriver"></a>
+      <a id="&lt;init&gt;(config:Option[com.typesafe.config.Config]):reactivemongo.api.MongoDriver"></a>
       <a id="&lt;init&gt;:MongoDriver"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -101,27 +101,10 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">MongoDriver</span><span class="params">(<span name="system">system: <span class="extype" name="akka.actor.ActorSystem">ActorSystem</span></span>)</span>
+        <span class="name">MongoDriver</span><span class="params">(<span name="config">config: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="com.typesafe.config.Config">Config</span>] = <span class="symbol">None</span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.MongoDriver@&lt;init&gt;(system:akka.actor.ActorSystem):reactivemongo.api.MongoDriver" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
-      </a>
-    </span>
-      
-    </li><li name="reactivemongo.api.MongoDriver#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(systemOption:Option[akka.actor.ActorSystem]):reactivemongo.api.MongoDriver"></a>
-      <a id="&lt;init&gt;:MongoDriver"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">new</span>
-      </span>
-      <span class="symbol">
-        <span class="name">MongoDriver</span><span class="params">(<span name="systemOption">systemOption: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="akka.actor.ActorSystem">ActorSystem</span>] = <span class="symbol">None</span></span>)</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.MongoDriver@&lt;init&gt;(systemOption:Option[akka.actor.ActorSystem]):reactivemongo.api.MongoDriver" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.MongoDriver@&lt;init&gt;(config:Option[com.typesafe.config.Config]):reactivemongo.api.MongoDriver" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" />
       </a>
     </span>
@@ -272,18 +255,18 @@
               
         </dd></dl></div>
     </li><li name="reactivemongo.api.MongoDriver#close" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="close():Unit"></a>
-      <a id="close():Unit"></a>
+      <a id="close(timeout:scala.concurrent.duration.FiniteDuration):Unit"></a>
+      <a id="close(FiniteDuration):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">close</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">close</span><span class="params">(<span name="timeout">timeout: <span class="extype" name="scala.concurrent.duration.FiniteDuration">FiniteDuration</span> = <span class="symbol">0.seconds</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.MongoDriver@close():Unit" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.MongoDriver@close(timeout:scala.concurrent.duration.FiniteDuration):Unit" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" />
       </a>
     </span>
@@ -365,18 +348,18 @@
 </p></div><dl class="paramcmts block"><dt class="param">nodes</dt><dd class="cmt"><p>A list of node names, like <i>node1.foo.com:27017</i>. Port is optional, it is 27017 by default.</p></dd><dt class="param">options</dt><dd class="cmt"><p>Options for the new connection pool.
 </p></dd><dt class="param">authentications</dt><dd class="cmt"><p>A list of Authenticates.</p></dd><dt class="param">nbChannelsPerNode</dt><dd class="cmt"><p>Number of channels to open per node. Defaults to 10.</p></dd><dt class="param">name</dt><dd class="cmt"><p>The name of the newly created <a href="../core/actors/MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">reactivemongo.core.actors.MongoDBSystem</a> actor, if needed.</p></dd></dl></div>
     </li><li name="reactivemongo.api.MongoDriver#connections" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="connections:Seq[reactivemongo.api.MongoConnection]"></a>
-      <a id="connections:Seq[MongoConnection]"></a>
+      <a id="connections:Iterable[reactivemongo.api.MongoConnection]"></a>
+      <a id="connections:Iterable[MongoConnection]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">connections</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a>]</span>
+        <span class="name">connections</span><span class="result">: <span class="extype" name="scala.Iterable">Iterable</span>[<a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.MongoDriver@connections:Seq[reactivemongo.api.MongoConnection]" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.MongoDriver@connections:Iterable[reactivemongo.api.MongoConnection]" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" />
       </a>
     </span>
@@ -648,6 +631,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="reactivemongo.api.MongoDriver#numConnections" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="numConnections:Int"></a>
+      <a id="numConnections:Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">numConnections</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.MongoDriver@numConnections:Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>

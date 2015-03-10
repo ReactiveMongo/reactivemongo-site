@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>indexes - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.api.indexes</title>
-          <meta name="description" content="indexes - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.api.indexes" />
-          <meta name="keywords" content="indexes ReactiveMongo API 0.10.5.0.akka23 reactivemongo.api.indexes" />
+          <title>indexes - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.api.indexes</title>
+          <meta name="description" content="indexes - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.api.indexes" />
+          <meta name="keywords" content="indexes ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.api.indexes" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -66,13 +66,13 @@
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="reactivemongo.api.indexes.CollectionIndexesManager" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+              <ol><li name="reactivemongo.api.indexes.CollectionIndexesManager" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="CollectionIndexesManagerextendsAnyRef"></a>
       <a id="CollectionIndexesManager:CollectionIndexesManager"></a>
       <h4 class="signature">
       <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">class</span>
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
       </span>
       <span class="symbol">
         <a href="CollectionIndexesManager.html"><span class="name">CollectionIndexesManager</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
@@ -83,6 +83,23 @@
       </a>
     </span>
       
+    </li><li name="reactivemongo.api.indexes.DefaultIndexesManager" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DefaultIndexesManagerextendsIndexesManager"></a>
+      <a id="DefaultIndexesManager:DefaultIndexesManager"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DefaultIndexesManager.html"><span class="name">DefaultIndexesManager</span></a><span class="result"> extends <a href="IndexesManager.html" class="extype" name="reactivemongo.api.indexes.IndexesManager">IndexesManager</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.indexes.package@DefaultIndexesManagerextendsIndexesManager" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A helper class to manage the indexes on a Mongo 3.x database.</p>
     </li><li name="reactivemongo.api.indexes.Index" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="IndexextendsProductwithSerializable"></a>
       <a id="Index:Index"></a>
@@ -119,13 +136,13 @@
       </a>
     </span>
       <p class="shortcomment cmt">Type of Index</p>
-    </li><li name="reactivemongo.api.indexes.IndexesManager" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="reactivemongo.api.indexes.IndexesManager" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="IndexesManagerextendsAnyRef"></a>
       <a id="IndexesManager:IndexesManager"></a>
       <h4 class="signature">
       <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">class</span>
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
       </span>
       <span class="symbol">
         <a href="IndexesManager.html"><span class="name">IndexesManager</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
@@ -135,7 +152,24 @@
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">A helper class to manage the indexes on the given database.</p>
+      <p class="shortcomment cmt">Indexes manager at database level.</p>
+    </li><li name="reactivemongo.api.indexes.LegacyIndexesManager" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LegacyIndexesManagerextendsIndexesManager"></a>
+      <a id="LegacyIndexesManager:LegacyIndexesManager"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="LegacyIndexesManager.html"><span class="name">LegacyIndexesManager</span></a><span class="result"> extends <a href="IndexesManager.html" class="extype" name="reactivemongo.api.indexes.IndexesManager">IndexesManager</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.indexes.package@LegacyIndexesManagerextendsIndexesManager" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A helper class to manage the indexes on a Mongo 2.x database.</p>
     </li><li name="reactivemongo.api.indexes.NSIndex" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="NSIndexextendsProductwithSerializable"></a>
       <a id="NSIndex:NSIndex"></a>
@@ -163,7 +197,24 @@ A MongoDB index is composed with the namespace (the fully qualified collection n
 
         <div id="values" class="values members">
               <h3>Value Members</h3>
-              <ol><li name="reactivemongo.api.indexes.IndexType" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+              <ol><li name="reactivemongo.api.indexes.CollectionIndexesManager" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CollectionIndexesManager"></a>
+      <a id="CollectionIndexesManager:CollectionIndexesManager"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="CollectionIndexesManager$.html"><span class="name">CollectionIndexesManager</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.indexes.package@CollectionIndexesManager" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Factory for indexes manager scoped with a specified collection.</p>
+    </li><li name="reactivemongo.api.indexes.IndexType" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="IndexType"></a>
       <a id="IndexType:IndexType"></a>
       <h4 class="signature">

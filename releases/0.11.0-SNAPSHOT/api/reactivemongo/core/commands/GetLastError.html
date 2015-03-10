@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>GetLastError - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.core.commands.GetLastError</title>
-          <meta name="description" content="GetLastError - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.core.commands.GetLastError" />
-          <meta name="keywords" content="GetLastError ReactiveMongo API 0.10.5.0.akka23 reactivemongo.core.commands.GetLastError" />
+          <title>GetLastError - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.core.commands.GetLastError</title>
+          <meta name="description" content="GetLastError - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.core.commands.GetLastError" />
+          <meta name="keywords" content="GetLastError ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.core.commands.GetLastError" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -43,7 +43,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">GetLastError</span><span class="params">(<span name="j">j: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="w">w: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>] = <span class="symbol">None</span></span>, <span name="wtimeout">wtimeout: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="fsync">fsync: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<a href="LastError.html" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.0) consider using reactivemongo.api.commands.GetLastError instead">GetLastError</span><span class="params">(<span name="j">j: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="w">w: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>] = <span class="symbol">None</span></span>, <span name="wtimeout">wtimeout: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="fsync">fsync: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<a href="LastError.html" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
@@ -52,7 +52,10 @@ It is commonly used to make sure that a write request has been effectively done 
 This command will return only when the previous operation is complete and matches its parameters
 (for example, with waitForReplicatedOn set to Some(2), this command will return only when at least two replicas have also run the previous operation).
 </p></div><dl class="paramcmts block"><dt class="param">j</dt><dd class="cmt"><p>Make sure that the previous operation has been committed into the journal. Journaling must be enabled on the servers.</p></dd><dt class="param">w</dt><dd class="cmt"><p>Specify the level of replication for a write operation. Should be a BSONString or BSONInteger. See <a href="http://docs.mongodb.org/manual/reference/command/getLastError/#dbcmd.getLastError" target="_blank">the MongoDB documentation</a>.</p></dd><dt class="param">wtimeout</dt><dd class="cmt"><p>Write propagation timeout (in milliseconds). See <a href="http://docs.mongodb.org/manual/reference/command/getLastError/#dbcmd.getLastError" target="_blank">the MongoDB documentation</a>.</p></dd><dt class="param">fsync</dt><dd class="cmt"><p>Make sure that the previous (write) operation has been written on the disk.
-</p></dd></dl><div class="toggleContainer block">
+</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.0)</i> consider using reactivemongo.api.commands.GetLastError instead</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<a href="LastError.html" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>

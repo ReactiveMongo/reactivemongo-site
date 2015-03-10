@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>protocol - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.core.protocol</title>
-          <meta name="description" content="protocol - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.core.protocol" />
-          <meta name="keywords" content="protocol ReactiveMongo API 0.10.5.0.akka23 reactivemongo.core.protocol" />
+          <title>protocol - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.core.protocol</title>
+          <meta name="description" content="protocol - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.core.protocol" />
+          <meta name="keywords" content="protocol ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.core.protocol" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -134,7 +134,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="CheckedWriteRequest.html"><span class="name">CheckedWriteRequest</span></a><span class="params">(<span name="op">op: <a href="WriteRequestOp.html" class="extype" name="reactivemongo.core.protocol.WriteRequestOp">WriteRequestOp</a></span>, <span name="documents">documents: <a href="../netty/BufferSequence.html" class="extype" name="reactivemongo.core.netty.BufferSequence">BufferSequence</a></span>, <span name="getLastError">getLastError: <a href="../commands/GetLastError.html" class="extype" name="reactivemongo.core.commands.GetLastError">GetLastError</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="CheckedWriteRequest.html"><span class="name">CheckedWriteRequest</span></a><span class="params">(<span name="op">op: <a href="WriteRequestOp.html" class="extype" name="reactivemongo.core.protocol.WriteRequestOp">WriteRequestOp</a></span>, <span name="documents">documents: <a href="../netty/BufferSequence.html" class="extype" name="reactivemongo.core.netty.BufferSequence">BufferSequence</a></span>, <span name="getLastError">getLastError: <a href="../../api/commands/GetLastError.html" class="extype" name="reactivemongo.api.commands.GetLastError">GetLastError</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.package@CheckedWriteRequestextendsProductwithSerializable" title="Permalink" target="_top">
@@ -254,6 +254,23 @@
       <p class="shortcomment cmt">Header of a Mongo Wire Protocol message.</p><div class="fullcomment"><div class="comment cmt"><p>Header of a Mongo Wire Protocol message.
 </p></div><dl class="paramcmts block"><dt class="param">messageLength</dt><dd class="cmt"><p>length of this message.</p></dd><dt class="param">requestID</dt><dd class="cmt"><p>id of this request (&gt; 0 for request operations, else 0).</p></dd><dt class="param">responseTo</dt><dd class="cmt"><p>id of the request that the message including this a response to (&gt; 0 for reply operation, else 0).</p></dd><dt class="param">opCode</dt><dd class="cmt"><p>operation code of this message.
 </p></dd></dl></div>
+    </li><li name="reactivemongo.core.protocol.MongoWireVersion" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="MongoWireVersionextendsOrdered[reactivemongo.core.protocol.MongoWireVersion]"></a>
+      <a id="MongoWireVersion:MongoWireVersion"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="MongoWireVersion.html"><span class="name">MongoWireVersion</span></a><span class="result"> extends <span class="extype" name="scala.Ordered">Ordered</span>[<a href="MongoWireVersion.html" class="extype" name="reactivemongo.core.protocol.MongoWireVersion">MongoWireVersion</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.protocol.package@MongoWireVersionextendsOrdered[reactivemongo.core.protocol.MongoWireVersion]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="reactivemongo.core.protocol.Op" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="OpextendsAnyRef"></a>
       <a id="Op:Op"></a>
@@ -418,7 +435,8 @@
       </a>
     </span>
       <p class="shortcomment cmt">Response meta information.</p><div class="fullcomment"><div class="comment cmt"><p>Response meta information.
-</p></div><dl class="paramcmts block"><dt class="param">channelId</dt><dd class="cmt"><p>the id of the channel that carried this response.</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">channelId</dt><dd class="cmt"><p>the id of the channel that carried this response.
+</p></dd></dl></div>
     </li><li name="reactivemongo.core.protocol.RichBuffer" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="RichBufferextendsAnyVal"></a>
       <a id="RichBuffer:RichBuffer"></a>
@@ -496,6 +514,23 @@
       </a>
     </span>
       <p class="shortcomment cmt">Header deserializer from a <a href="http://static.netty.io/3.5/api/org/jboss/netty/buffer/ChannelBuffer.html" target="_blank">ChannelBuffer</a>.</p>
+    </li><li name="reactivemongo.core.protocol.MongoWireVersion" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MongoWireVersion"></a>
+      <a id="MongoWireVersion:MongoWireVersion"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MongoWireVersion$.html"><span class="name">MongoWireVersion</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.protocol.package@MongoWireVersion" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="reactivemongo.core.protocol.QueryFlags" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="QueryFlags"></a>
       <a id="QueryFlags:QueryFlags"></a>
@@ -526,6 +561,23 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.package@Reply" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.core.protocol.ReplyDocumentIterator" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ReplyDocumentIterator"></a>
+      <a id="ReplyDocumentIterator:ReplyDocumentIterator"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ReplyDocumentIterator$.html"><span class="name">ReplyDocumentIterator</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.protocol.package@ReplyDocumentIterator" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>

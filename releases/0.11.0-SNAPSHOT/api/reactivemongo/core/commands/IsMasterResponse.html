@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>IsMasterResponse - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.core.commands.IsMasterResponse</title>
-          <meta name="description" content="IsMasterResponse - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.core.commands.IsMasterResponse" />
-          <meta name="keywords" content="IsMasterResponse ReactiveMongo API 0.10.5.0.akka23 reactivemongo.core.commands.IsMasterResponse" />
+          <title>IsMasterResponse - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.core.commands.IsMasterResponse</title>
+          <meta name="description" content="IsMasterResponse - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.core.commands.IsMasterResponse" />
+          <meta name="keywords" content="IsMasterResponse ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.core.commands.IsMasterResponse" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -43,13 +43,16 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">IsMasterResponse</span><span class="params">(<span name="isMaster">isMaster: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="secondary">secondary: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="maxBsonObjectSize">maxBsonObjectSize: <span class="extype" name="scala.Int">Int</span></span>, <span name="setName">setName: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="hosts">hosts: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]]</span>, <span name="me">me: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="tags">tags: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.0) consider using reactivemongo.api.commands.IsMasterCommand instead">IsMasterResponse</span><span class="params">(<span name="isMaster">isMaster: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="secondary">secondary: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="maxBsonObjectSize">maxBsonObjectSize: <span class="extype" name="scala.Int">Int</span></span>, <span name="setName">setName: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="hosts">hosts: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]]</span>, <span name="me">me: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="tags">tags: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Deserialized IsMaster command response.
 </p></div><dl class="paramcmts block"><dt class="param">isMaster</dt><dd class="cmt"><p>states if the server is a primary</p></dd><dt class="param">secondary</dt><dd class="cmt"><p>states if the server is a secondary</p></dd><dt class="param">maxBsonObjectSize</dt><dd class="cmt"><p>the maximum document size allowed by the server</p></dd><dt class="param">setName</dt><dd class="cmt"><p>the name of the replica set, if any</p></dd><dt class="param">hosts</dt><dd class="cmt"><p>the names (<i>servername</i>:<i>port</i>) of the other nodes in the replica set, if any</p></dd><dt class="param">me</dt><dd class="cmt"><p>the name (<i>servername</i>:<i>port</i>) of the answering server
-</p></dd></dl><div class="toggleContainer block">
+</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.0)</i> consider using reactivemongo.api.commands.IsMasterCommand instead</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
