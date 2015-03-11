@@ -32,7 +32,7 @@ import reactivemongo.api.MongoConnectionOptions
 
 val conOpts = MongoConnectionOptions(/* connection options */)
 val connection = driver.connection(List("localhost"), options = conOpts)
-{% endhighligh %}
+{% endhighlight %}
 
 The following options can be used with `MongoConnectionOptions` to configure the connection behaviour.
 
