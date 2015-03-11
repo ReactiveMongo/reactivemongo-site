@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>CollectionIndexesManager - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.api.indexes.CollectionIndexesManager</title>
-          <meta name="description" content="CollectionIndexesManager - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.api.indexes.CollectionIndexesManager" />
-          <meta name="keywords" content="CollectionIndexesManager ReactiveMongo API 0.10.5.0.akka23 reactivemongo.api.indexes.CollectionIndexesManager" />
+          <title>CollectionIndexesManager - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.api.indexes.CollectionIndexesManager</title>
+          <meta name="description" content="CollectionIndexesManager - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.api.indexes.CollectionIndexesManager" />
+          <meta name="keywords" content="CollectionIndexesManager ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.api.indexes.CollectionIndexesManager" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,9 +28,9 @@
         </head>
         <body class="type">
       <div id="definition">
-        <img src="../../../lib/class_big.png" />
+        <a href="CollectionIndexesManager$.html" title="Go to companion"><img src="../../../lib/trait_to_object_big.png" /></a>
         <p id="owner"><a href="../../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../package.html" class="extype" name="reactivemongo.api">api</a>.<a href="package.html" class="extype" name="reactivemongo.api.indexes">indexes</a></p>
-        <h1>CollectionIndexesManager</h1> <span class="permalink">
+        <h1><a href="CollectionIndexesManager$.html" title="Go to companion">CollectionIndexesManager</a></h1> <span class="permalink">
       <a href="../../../index.html#reactivemongo.api.indexes.CollectionIndexesManager" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
@@ -39,8 +39,8 @@
 
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">class</span>
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
       </span>
       <span class="symbol">
         <span class="name">CollectionIndexesManager</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
@@ -90,34 +90,174 @@
 
       <div id="template">
         <div id="allMembers">
-        <div id="constructors" class="members">
-              <h3>Instance Constructors</h3>
-              <ol><li name="reactivemongo.api.indexes.CollectionIndexesManager#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(fqName:String,manager:reactivemongo.api.indexes.IndexesManager)(implicitcontext:scala.concurrent.ExecutionContext):reactivemongo.api.indexes.CollectionIndexesManager"></a>
-      <a id="&lt;init&gt;:CollectionIndexesManager"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">new</span>
-      </span>
-      <span class="symbol">
-        <span class="name">CollectionIndexesManager</span><span class="params">(<span name="fqName">fqName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="manager">manager: <a href="IndexesManager.html" class="extype" name="reactivemongo.api.indexes.IndexesManager">IndexesManager</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="context">context: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.indexes.CollectionIndexesManager@&lt;init&gt;(fqName:String,manager:reactivemongo.api.indexes.IndexesManager)(implicitcontext:scala.concurrent.ExecutionContext):reactivemongo.api.indexes.CollectionIndexesManager" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      
-    </li></ol>
-            </div>
-
         
 
         
 
         <div id="values" class="values members">
-              <h3>Value Members</h3>
+              <h3>Abstract Value Members</h3>
+              <ol><li name="reactivemongo.api.indexes.CollectionIndexesManager#create" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="create(index:reactivemongo.api.indexes.Index):scala.concurrent.Future[reactivemongo.api.commands.WriteResult]"></a>
+      <a id="create(Index):Future[WriteResult]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">create</span><span class="params">(<span name="index">index: <a href="Index.html" class="extype" name="reactivemongo.api.indexes.Index">Index</a></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../commands/WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.indexes.CollectionIndexesManager@create(index:reactivemongo.api.indexes.Index):scala.concurrent.Future[reactivemongo.api.commands.WriteResult]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Creates the given index.</p><div class="fullcomment"><div class="comment cmt"><p>Creates the given index.</p><p>Warning: given the options you choose, and the data to index, it can be a long and blocking operation on the database.
+You should really consider reading <a href="http://www.mongodb.org/display/DOCS/Indexes" target="_blank">http://www.mongodb.org/display/DOCS/Indexes</a> before doing this, especially in production.
+</p></div><dl class="paramcmts block"><dt class="param">index</dt><dd class="cmt"><p>The index to create.
+</p></dd></dl></div>
+    </li><li name="reactivemongo.api.indexes.CollectionIndexesManager#drop" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="drop(indexName:String):scala.concurrent.Future[Int]"></a>
+      <a id="drop(String):Future[Int]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">drop</span><span class="params">(<span name="indexName">indexName: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Int">Int</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.indexes.CollectionIndexesManager@drop(indexName:String):scala.concurrent.Future[Int]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Drops the given index on that collection.</p><div class="fullcomment"><div class="comment cmt"><p>Drops the given index on that collection.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>The number of indexes that were dropped.
+</p></dd></dl></div>
+    </li><li name="reactivemongo.api.indexes.CollectionIndexesManager#drop" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="drop(nsIndex:reactivemongo.api.indexes.NSIndex):scala.concurrent.Future[Int]"></a>
+      <a id="drop(NSIndex):Future[Int]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">drop</span><span class="params">(<span name="nsIndex">nsIndex: <a href="NSIndex.html" class="extype" name="reactivemongo.api.indexes.NSIndex">NSIndex</a></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Int">Int</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.indexes.CollectionIndexesManager@drop(nsIndex:reactivemongo.api.indexes.NSIndex):scala.concurrent.Future[Int]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Drops the given index on that collection.</p><div class="fullcomment"><div class="comment cmt"><p>Drops the given index on that collection.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>The number of indexes that were dropped.
+</p></dd></dl></div>
+    </li><li name="reactivemongo.api.indexes.CollectionIndexesManager#dropAll" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="dropAll():scala.concurrent.Future[Int]"></a>
+      <a id="dropAll():Future[Int]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">dropAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Int">Int</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.indexes.CollectionIndexesManager@dropAll():scala.concurrent.Future[Int]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Drops all the indexes on that collection.</p>
+    </li><li name="reactivemongo.api.indexes.CollectionIndexesManager#ensure" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ensure(index:reactivemongo.api.indexes.Index):scala.concurrent.Future[Boolean]"></a>
+      <a id="ensure(Index):Future[Boolean]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ensure</span><span class="params">(<span name="index">index: <a href="Index.html" class="extype" name="reactivemongo.api.indexes.Index">Index</a></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.indexes.CollectionIndexesManager@ensure(index:reactivemongo.api.indexes.Index):scala.concurrent.Future[Boolean]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Creates the given index only if it does not exist on this collection.</p><div class="fullcomment"><div class="comment cmt"><p>Creates the given index only if it does not exist on this collection.</p><p>Warning: given the options you choose, and the data to index, it can be a long and blocking operation on the database.
+You should really consider reading <a href="http://www.mongodb.org/display/DOCS/Indexes" target="_blank">http://www.mongodb.org/display/DOCS/Indexes</a> before doing this, especially in production.
+</p></div><dl class="paramcmts block"><dt class="param">index</dt><dd class="cmt"><p>The index to create.
+</p></dd><dt>returns</dt><dd class="cmt"><p>a future containing true if the index was created, false if it already exists.
+</p></dd></dl></div>
+    </li><li name="reactivemongo.api.indexes.CollectionIndexesManager#list" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="list():scala.concurrent.Future[List[reactivemongo.api.indexes.Index]]"></a>
+      <a id="list():Future[List[Index]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">list</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.List">List</span>[<a href="Index.html" class="extype" name="reactivemongo.api.indexes.Index">Index</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.indexes.CollectionIndexesManager@list():scala.concurrent.Future[List[reactivemongo.api.indexes.Index]]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the list of indexes for the current collection.</p>
+    </li><li name="reactivemongo.api.indexes.CollectionIndexesManager#delete" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="delete(name:String):scala.concurrent.Future[Int]"></a>
+      <a id="delete(String):Future[Int]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.0) Use drop instead">delete</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Int">Int</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.indexes.CollectionIndexesManager@delete(name:String):scala.concurrent.Future[Int]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Deletes the given index on that collection.</p><div class="fullcomment"><div class="comment cmt"><p>Deletes the given index on that collection.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>The deleted index number.
+</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.0)</i> Use drop instead</p></dd></dl></div>
+    </li><li name="reactivemongo.api.indexes.CollectionIndexesManager#delete" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="delete(index:reactivemongo.api.indexes.Index):scala.concurrent.Future[Int]"></a>
+      <a id="delete(Index):Future[Int]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.0) Use drop instead">delete</span><span class="params">(<span name="index">index: <a href="Index.html" class="extype" name="reactivemongo.api.indexes.Index">Index</a></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Int">Int</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.indexes.CollectionIndexesManager@delete(index:reactivemongo.api.indexes.Index):scala.concurrent.Future[Int]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Deletes the given index on that collection.</p><div class="fullcomment"><div class="comment cmt"><p>Deletes the given index on that collection.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>The deleted index number.
+</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.0)</i> Use drop instead</p></dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Concrete Value Members</h3>
               <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a>
       <a id="!=(Any):Boolean"></a>
@@ -254,102 +394,6 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="reactivemongo.api.indexes.CollectionIndexesManager#collectionName" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="collectionName:String"></a>
-      <a id="collectionName:String"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">lazy val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">collectionName</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.indexes.CollectionIndexesManager@collectionName:String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      
-    </li><li name="reactivemongo.api.indexes.CollectionIndexesManager#create" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="create(index:reactivemongo.api.indexes.Index):scala.concurrent.Future[reactivemongo.core.commands.LastError]"></a>
-      <a id="create(Index):Future[LastError]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">create</span><span class="params">(<span name="index">index: <a href="Index.html" class="extype" name="reactivemongo.api.indexes.Index">Index</a></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../../core/commands/LastError.html" class="extype" name="reactivemongo.core.commands.LastError">LastError</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.indexes.CollectionIndexesManager@create(index:reactivemongo.api.indexes.Index):scala.concurrent.Future[reactivemongo.core.commands.LastError]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Creates the given index.</p><div class="fullcomment"><div class="comment cmt"><p>Creates the given index.</p><p>Warning: given the options you choose, and the data to index, it can be a long and blocking operation on the database.
-You should really consider reading <a href="http://www.mongodb.org/display/DOCS/Indexes" target="_blank">http://www.mongodb.org/display/DOCS/Indexes</a> before doing this, especially in production.
-</p></div><dl class="paramcmts block"><dt class="param">index</dt><dd class="cmt"><p>The index to create.
-</p></dd></dl></div>
-    </li><li name="reactivemongo.api.indexes.CollectionIndexesManager#delete" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="delete(name:String):scala.concurrent.Future[Int]"></a>
-      <a id="delete(String):Future[Int]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">delete</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Int">Int</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.indexes.CollectionIndexesManager@delete(name:String):scala.concurrent.Future[Int]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Deletes the given index on that collection.</p><div class="fullcomment"><div class="comment cmt"><p>Deletes the given index on that collection.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>The deleted index number.
-</p></dd></dl></div>
-    </li><li name="reactivemongo.api.indexes.CollectionIndexesManager#delete" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="delete(index:reactivemongo.api.indexes.Index):scala.concurrent.Future[Int]"></a>
-      <a id="delete(Index):Future[Int]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">delete</span><span class="params">(<span name="index">index: <a href="Index.html" class="extype" name="reactivemongo.api.indexes.Index">Index</a></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Int">Int</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.indexes.CollectionIndexesManager@delete(index:reactivemongo.api.indexes.Index):scala.concurrent.Future[Int]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Deletes the given index on that collection.</p><div class="fullcomment"><div class="comment cmt"><p>Deletes the given index on that collection.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>The deleted index number.
-</p></dd></dl></div>
-    </li><li name="reactivemongo.api.indexes.CollectionIndexesManager#ensure" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensure(index:reactivemongo.api.indexes.Index):scala.concurrent.Future[Boolean]"></a>
-      <a id="ensure(Index):Future[Boolean]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">ensure</span><span class="params">(<span name="index">index: <a href="Index.html" class="extype" name="reactivemongo.api.indexes.Index">Index</a></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.indexes.CollectionIndexesManager@ensure(index:reactivemongo.api.indexes.Index):scala.concurrent.Future[Boolean]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Creates the given index only if it does not exist on this collection.</p><div class="fullcomment"><div class="comment cmt"><p>Creates the given index only if it does not exist on this collection.</p><p>Warning: given the options you choose, and the data to index, it can be a long and blocking operation on the database.
-You should really consider reading <a href="http://www.mongodb.org/display/DOCS/Indexes" target="_blank">http://www.mongodb.org/display/DOCS/Indexes</a> before doing this, especially in production.
-</p></div><dl class="paramcmts block"><dt class="param">index</dt><dd class="cmt"><p>The index to create.
-</p></dd><dt>returns</dt><dd class="cmt"><p>a future containing true if the index was created, false if it already exists.
-</p></dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
       <a id="ensuring((CollectionIndexesManager)⇒Boolean,⇒Any):CollectionIndexesManager"></a>
@@ -566,23 +610,6 @@ You should really consider reading <a href="http://www.mongodb.org/display/DOCS/
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="reactivemongo.api.indexes.CollectionIndexesManager#list" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="list():scala.concurrent.Future[List[reactivemongo.api.indexes.Index]]"></a>
-      <a id="list():Future[List[Index]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">list</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.List">List</span>[<a href="Index.html" class="extype" name="reactivemongo.api.indexes.Index">Index</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.indexes.CollectionIndexesManager@list():scala.concurrent.Future[List[reactivemongo.api.indexes.Index]]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>

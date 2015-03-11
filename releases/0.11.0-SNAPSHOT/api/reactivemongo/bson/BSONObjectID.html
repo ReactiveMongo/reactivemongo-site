@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>BSONObjectID - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.bson.BSONObjectID</title>
-          <meta name="description" content="BSONObjectID - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.bson.BSONObjectID" />
-          <meta name="keywords" content="BSONObjectID ReactiveMongo API 0.10.5.0.akka23 reactivemongo.bson.BSONObjectID" />
+          <title>BSONObjectID - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.bson.BSONObjectID</title>
+          <meta name="description" content="BSONObjectID - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.bson.BSONObjectID" />
+          <meta name="keywords" content="BSONObjectID ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.bson.BSONObjectID" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -43,7 +43,7 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">BSONObjectID</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">BSONObjectID</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <span class="extype" name="scala.Serializable">Serializable</span> with <span class="extype" name="scala.Equals">Equals</span></span>
       </span>
       </h4>
       
@@ -52,7 +52,7 @@
               
         </dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.Equals">Equals</span>, <span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -70,7 +70,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="reactivemongo.bson.BSONObjectID"><span>BSONObjectID</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="reactivemongo.bson.BSONValue"><span>BSONValue</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="reactivemongo.bson.BSONObjectID"><span>BSONObjectID</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="reactivemongo.bson.BSONValue"><span>BSONValue</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
                 <span class="filtertype">Implicitly<br />
@@ -298,6 +298,23 @@
             <a href="BSONValue$$ExtendedBSONValue.html" class="extype" name="reactivemongo.bson.BSONValue.ExtendedBSONValue">ExtendedBSONValue</a>[<a href="" class="extype" name="reactivemongo.bson.BSONObjectID">BSONObjectID</a>] performed by method ExtendedBSONValue in <a href="BSONValue$.html" class="extype" name="reactivemongo.bson.BSONValue">reactivemongo.bson.BSONValue</a>.
             
           </dd><dt>Definition Classes</dt><dd><a href="BSONValue$$ExtendedBSONValue.html" class="extype" name="reactivemongo.bson.BSONValue.ExtendedBSONValue">ExtendedBSONValue</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONObjectID#canEqual" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="canEqual(that:Any):Boolean"></a>
+      <a id="canEqual(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">canEqual</span><span class="params">(<span name="that">that: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONObjectID@canEqual(that:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.BSONObjectID">BSONObjectID</a> → Equals</dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
       <a id="clone():AnyRef"></a>
@@ -440,7 +457,7 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="reactivemongo.bson.BSONObjectID#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="equals(obj:Any):Boolean"></a>
+      <a id="equals(that:Any):Boolean"></a>
       <a id="equals(Any):Boolean"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -448,14 +465,14 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">equals</span><span class="params">(<span name="obj">obj: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">equals</span><span class="params">(<span name="that">that: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.bson.BSONObjectID@equals(obj:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.bson.BSONObjectID@equals(that:Any):Boolean" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.BSONObjectID">BSONObjectID</a> → AnyRef → Any</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.BSONObjectID">BSONObjectID</a> → Equals → AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <a id="finalize():Unit"></a>
@@ -848,7 +865,9 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="scala.Serializable">
+        <div class="parent" name="scala.Equals">
+              <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
+            </div><div class="parent" name="scala.Serializable">
               <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
             </div><div class="parent" name="java.io.Serializable">
               <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>

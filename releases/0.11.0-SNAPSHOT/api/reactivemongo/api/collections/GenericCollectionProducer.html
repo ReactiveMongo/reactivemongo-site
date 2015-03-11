@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>GenericCollectionProducer - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.api.collections.GenericCollectionProducer</title>
-          <meta name="description" content="GenericCollectionProducer - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.api.collections.GenericCollectionProducer" />
-          <meta name="keywords" content="GenericCollectionProducer ReactiveMongo API 0.10.5.0.akka23 reactivemongo.api.collections.GenericCollectionProducer" />
+          <title>GenericCollectionProducer - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.api.collections.GenericCollectionProducer</title>
+          <meta name="description" content="GenericCollectionProducer - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.api.collections.GenericCollectionProducer" />
+          <meta name="keywords" content="GenericCollectionProducer ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.api.collections.GenericCollectionProducer" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -43,7 +43,7 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">GenericCollectionProducer</span><span class="tparams">[<span name="Structure">Structure</span>, <span name="Reader">Reader<span class="tparams">[<span name="_">_</span>]</span></span>, <span name="Writer">Writer<span class="tparams">[<span name="_">_</span>]</span></span>, <span name="C">+C &lt;: <a href="GenericCollection.html" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>]</span>]</span><span class="result"> extends <a href="../CollectionProducer.html" class="extype" name="reactivemongo.api.CollectionProducer">CollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]</span>
+        <span class="name">GenericCollectionProducer</span><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a> with <span class="extype" name="scala.Singleton">Singleton</span></span>, <span name="C">+C &lt;: <a href="GenericCollection.html" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>]</span>]</span><span class="result"> extends <a href="../CollectionProducer.html" class="extype" name="reactivemongo.api.CollectionProducer">CollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]</span>
       </span>
       </h4>
       
@@ -52,7 +52,7 @@
           <div class="superTypes hiddenContent"><a href="../CollectionProducer.html" class="extype" name="reactivemongo.api.CollectionProducer">CollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
             <span class="toggle">Known Subclasses</span>
-            <div class="subClasses hiddenContent"><a href="default/package$$BSONCollectionProducer$.html" class="extype" name="reactivemongo.api.collections.default.BSONCollectionProducer">BSONCollectionProducer</a>, <a href="buffer/package$$ChannelCollectionProducer$.html" class="extype" name="reactivemongo.api.collections.buffer.ChannelCollectionProducer">ChannelCollectionProducer</a></div>
+            <div class="subClasses hiddenContent"><a href="bson/package$$BSONCollectionProducer$.html" class="extype" name="reactivemongo.api.collections.bson.BSONCollectionProducer">BSONCollectionProducer</a></div>
           </div></div>
         
 
@@ -172,20 +172,20 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to
-            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]] performed by method any2stringadd in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]] performed by method any2stringadd in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="-&gt;[B](y:B):(A,B)"></a>
-      <a id="-&gt;[B](B):(GenericCollectionProducer[Structure,Reader,Writer,C],B)"></a>
+      <a id="-&gt;[B](B):(GenericCollectionProducer[P,C],B)"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>], <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>], <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.collections.GenericCollectionProducer@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
@@ -193,8 +193,8 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -259,14 +259,14 @@
         </dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
-      <a id="ensuring((GenericCollectionProducer[Structure,Reader,Writer,C])⇒Boolean,⇒Any):GenericCollectionProducer[Structure,Reader,Writer,C]"></a>
+      <a id="ensuring((GenericCollectionProducer[P,C])⇒Boolean,⇒Any):GenericCollectionProducer[P,C]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.collections.GenericCollectionProducer@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -274,20 +274,20 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean):A"></a>
-      <a id="ensuring((GenericCollectionProducer[Structure,Reader,Writer,C])⇒Boolean):GenericCollectionProducer[Structure,Reader,Writer,C]"></a>
+      <a id="ensuring((GenericCollectionProducer[P,C])⇒Boolean):GenericCollectionProducer[P,C]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.collections.GenericCollectionProducer@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
@@ -295,20 +295,20 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
-      <a id="ensuring(Boolean,⇒Any):GenericCollectionProducer[Structure,Reader,Writer,C]"></a>
+      <a id="ensuring(Boolean,⇒Any):GenericCollectionProducer[P,C]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.collections.GenericCollectionProducer@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -316,20 +316,20 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:Boolean):A"></a>
-      <a id="ensuring(Boolean):GenericCollectionProducer[Structure,Reader,Writer,C]"></a>
+      <a id="ensuring(Boolean):GenericCollectionProducer[P,C]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.collections.GenericCollectionProducer@ensuring(cond:Boolean):A" title="Permalink" target="_top">
@@ -337,8 +337,8 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -415,8 +415,8 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to
-            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]] performed by method StringFormat in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]] performed by method StringFormat in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -629,14 +629,14 @@
         </dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="→[B](y:B):(A,B)"></a>
-      <a id="→[B](B):(GenericCollectionProducer[Structure,Reader,Writer,C],B)"></a>
+      <a id="→[B](B):(GenericCollectionProducer[P,C],B)"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>], <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>], <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.collections.GenericCollectionProducer@→[B](y:B):(A,B)" title="Permalink" target="_top">
@@ -644,8 +644,8 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
     </li></ol>
@@ -666,19 +666,19 @@
             </div>
         <div class="conversion" name="scala.Predef.any2stringadd">
               <h3>Inherited by implicit conversion any2stringadd from
-                <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]]
+                <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.StringFormat">
               <h3>Inherited by implicit conversion StringFormat from
-                <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]]
+                <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.Ensuring">
               <h3>Inherited by implicit conversion Ensuring from
-                <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]]
+                <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.ArrowAssoc">
               <h3>Inherited by implicit conversion ArrowAssoc from
-                <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]]
+                <a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>] to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]]
               </h3>
             </div>
         </div>

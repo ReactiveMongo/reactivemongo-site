@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>collections - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.api.collections</title>
-          <meta name="description" content="collections - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.api.collections" />
-          <meta name="keywords" content="collections ReactiveMongo API 0.10.5.0.akka23 reactivemongo.api.collections" />
+          <title>collections - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.api.collections</title>
+          <meta name="description" content="collections - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.api.collections" />
+          <meta name="keywords" content="collections ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.api.collections" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -66,145 +66,93 @@
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="reactivemongo.api.collections.BufferReader" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="BufferReader[+T]extendsAnyRef"></a>
-      <a id="BufferReader[+T]:BufferReader[T]"></a>
+              <ol><li name="reactivemongo.api.collections.BatchCommands" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="BatchCommands[P&lt;:reactivemongo.api.SerializationPack]extendsAnyRef"></a>
+      <a id="BatchCommands[P&lt;:SerializationPack]:BatchCommands[P]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="BufferReader.html"><span class="name">BufferReader</span></a><span class="tparams">[<span name="T">+T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <a href="BatchCommands.html"><span class="name">BatchCommands</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.package@BufferReader[+T]extendsAnyRef" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      
-    </li><li name="reactivemongo.api.collections.BufferWriter" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="BufferWriter[-T]extendsAnyRef"></a>
-      <a id="BufferWriter[-T]:BufferWriter[T]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">trait</span>
-      </span>
-      <span class="symbol">
-        <a href="BufferWriter.html"><span class="name">BufferWriter</span></a><span class="tparams">[<span name="T">-T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.package@BufferWriter[-T]extendsAnyRef" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.collections.package@BatchCommands[P&lt;:reactivemongo.api.SerializationPack]extendsAnyRef" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
       
     </li><li name="reactivemongo.api.collections.GenericCollection" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="GenericCollection[Structure,Reader[_],Writer[_]]extendsCollectionwithGenericHandlers[Structure,Reader,Writer]"></a>
-      <a id="GenericCollection[Structure,Reader[_],Writer[_]]:GenericCollection[Structure,Reader,Writer]"></a>
+      <a id="GenericCollection[P&lt;:reactivemongo.api.SerializationPackwithSingleton]extendsCollectionwithGenericCollectionWithCommands[P]withCollectionMetaCommandswithImplicitCommandHelpers[P]"></a>
+      <a id="GenericCollection[P&lt;:SerializationPackwithSingleton]:GenericCollection[P]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="GenericCollection.html"><span class="name">GenericCollection</span></a><span class="tparams">[<span name="Structure">Structure</span>, <span name="Reader">Reader<span class="tparams">[<span name="_">_</span>]</span></span>, <span name="Writer">Writer<span class="tparams">[<span name="_">_</span>]</span></span>]</span><span class="result"> extends <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a> with <a href="GenericHandlers.html" class="extype" name="reactivemongo.api.collections.GenericHandlers">GenericHandlers</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollection.Writer">Writer</span>]</span>
+        <a href="GenericCollection.html"><span class="name">GenericCollection</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a> with <span class="extype" name="scala.Singleton">Singleton</span></span>]</span><span class="result"> extends <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a> with <a href="GenericCollectionWithCommands.html" class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands">GenericCollectionWithCommands</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] with <a href="../CollectionMetaCommands.html" class="extype" name="reactivemongo.api.CollectionMetaCommands">CollectionMetaCommands</a> with <a href="../commands/ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.package@GenericCollection[Structure,Reader[_],Writer[_]]extendsCollectionwithGenericHandlers[Structure,Reader,Writer]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.collections.package@GenericCollection[P&lt;:reactivemongo.api.SerializationPackwithSingleton]extendsCollectionwithGenericCollectionWithCommands[P]withCollectionMetaCommandswithImplicitCommandHelpers[P]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
       <p class="shortcomment cmt">A Collection that provides default methods using a <code>Structure</code> (like <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">reactivemongo.bson.BSONDocument</a>, or a Json document, etc.).</p><div class="fullcomment"><div class="comment cmt"><p>A Collection that provides default methods using a <code>Structure</code> (like <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">reactivemongo.bson.BSONDocument</a>, or a Json document, etc.).</p><p>Some methods of this collection accept instances of <code>Reader[T]</code> and <code>Writer[T]</code>, that transform any <code>T</code> instance into a <code>Structure</code> and vice-versa.
-The default implementation of <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a>, <a href="default/BSONCollection.html" class="extype" name="reactivemongo.api.collections.default.BSONCollection">reactivemongo.api.collections.default.BSONCollection</a>, extends this trait.
-</p></div><dl class="paramcmts block"><dt class="tparam">Structure</dt><dd class="cmt"><p>The structure that will be turned into BSON (and vice versa), usually a <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">reactivemongo.bson.BSONDocument</a> or a Json document.</p></dd><dt class="tparam">Reader</dt><dd class="cmt"><p>A <code>Reader[T]</code> that produces a <code>T</code> instance from a <code>Structure</code>.</p></dd><dt class="tparam">Writer</dt><dd class="cmt"><p>A <code>Writer[T]</code> that produces a <code>Structure</code> instance from a <code>T</code>.
-</p></dd></dl></div>
+The default implementation of <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a>, <span class="extype" name="reactivemongo.api.collections.default.BSONCollection">reactivemongo.api.collections.default.BSONCollection</span>, extends this trait.
+</p></div></div>
     </li><li name="reactivemongo.api.collections.GenericCollectionProducer" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="GenericCollectionProducer[Structure,Reader[_],Writer[_],+C&lt;:reactivemongo.api.collections.GenericCollection[Structure,Reader,Writer]]extendsCollectionProducer[C]"></a>
-      <a id="GenericCollectionProducer[Structure,Reader[_],Writer[_],+C&lt;:GenericCollection[Structure,Reader,Writer]]:GenericCollectionProducer[Structure,Reader,Writer,C]"></a>
+      <a id="GenericCollectionProducer[P&lt;:reactivemongo.api.SerializationPackwithSingleton,+C&lt;:reactivemongo.api.collections.GenericCollection[P]]extendsCollectionProducer[C]"></a>
+      <a id="GenericCollectionProducer[P&lt;:SerializationPackwithSingleton,+C&lt;:GenericCollection[P]]:GenericCollectionProducer[P,C]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="GenericCollectionProducer.html"><span class="name">GenericCollectionProducer</span></a><span class="tparams">[<span name="Structure">Structure</span>, <span name="Reader">Reader<span class="tparams">[<span name="_">_</span>]</span></span>, <span name="Writer">Writer<span class="tparams">[<span name="_">_</span>]</span></span>, <span name="C">+C &lt;: <a href="GenericCollection.html" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.Writer">Writer</span>]</span>]</span><span class="result"> extends <a href="../CollectionProducer.html" class="extype" name="reactivemongo.api.CollectionProducer">CollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]</span>
+        <a href="GenericCollectionProducer.html"><span class="name">GenericCollectionProducer</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a> with <span class="extype" name="scala.Singleton">Singleton</span></span>, <span name="C">+C &lt;: <a href="GenericCollection.html" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.P">P</span>]</span>]</span><span class="result"> extends <a href="../CollectionProducer.html" class="extype" name="reactivemongo.api.CollectionProducer">CollectionProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer.C">C</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.package@GenericCollectionProducer[Structure,Reader[_],Writer[_],+C&lt;:reactivemongo.api.collections.GenericCollection[Structure,Reader,Writer]]extendsCollectionProducer[C]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.collections.package@GenericCollectionProducer[P&lt;:reactivemongo.api.SerializationPackwithSingleton,+C&lt;:reactivemongo.api.collections.GenericCollection[P]]extendsCollectionProducer[C]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
       
-    </li><li name="reactivemongo.api.collections.GenericHandlers" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="GenericHandlers[Structure,Reader[_],Writer[_]]extendsAnyRef"></a>
-      <a id="GenericHandlers[Structure,Reader[_],Writer[_]]:GenericHandlers[Structure,Reader,Writer]"></a>
+    </li><li name="reactivemongo.api.collections.GenericCollectionWithCommands" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="GenericCollectionWithCommands[P&lt;:reactivemongo.api.SerializationPackwithSingleton]extendsAnyRef"></a>
+      <a id="GenericCollectionWithCommands[P&lt;:SerializationPackwithSingleton]:GenericCollectionWithCommands[P]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="GenericHandlers.html"><span class="name">GenericHandlers</span></a><span class="tparams">[<span name="Structure">Structure</span>, <span name="Reader">Reader<span class="tparams">[<span name="_">_</span>]</span></span>, <span name="Writer">Writer<span class="tparams">[<span name="_">_</span>]</span></span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <a href="GenericCollectionWithCommands.html"><span class="name">GenericCollectionWithCommands</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a> with <span class="extype" name="scala.Singleton">Singleton</span></span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.package@GenericHandlers[Structure,Reader[_],Writer[_]]extendsAnyRef" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.collections.package@GenericCollectionWithCommands[P&lt;:reactivemongo.api.SerializationPackwithSingleton]extendsAnyRef" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
       
     </li><li name="reactivemongo.api.collections.GenericQueryBuilder" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="GenericQueryBuilder[Structure,Reader[_],Writer[_]]extendsGenericHandlers[Structure,Reader,Writer]"></a>
-      <a id="GenericQueryBuilder[Structure,Reader[_],Writer[_]]:GenericQueryBuilder[Structure,Reader,Writer]"></a>
+      <a id="GenericQueryBuilder[P&lt;:reactivemongo.api.SerializationPack]extendsAnyRef"></a>
+      <a id="GenericQueryBuilder[P&lt;:SerializationPack]:GenericQueryBuilder[P]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="GenericQueryBuilder.html"><span class="name">GenericQueryBuilder</span></a><span class="tparams">[<span name="Structure">Structure</span>, <span name="Reader">Reader<span class="tparams">[<span name="_">_</span>]</span></span>, <span name="Writer">Writer<span class="tparams">[<span name="_">_</span>]</span></span>]</span><span class="result"> extends <a href="GenericHandlers.html" class="extype" name="reactivemongo.api.collections.GenericHandlers">GenericHandlers</a>[<span class="extype" name="reactivemongo.api.collections.GenericQueryBuilder.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.collections.GenericQueryBuilder.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.collections.GenericQueryBuilder.Writer">Writer</span>]</span>
+        <a href="GenericQueryBuilder.html"><span class="name">GenericQueryBuilder</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.package@GenericQueryBuilder[Structure,Reader[_],Writer[_]]extendsGenericHandlers[Structure,Reader,Writer]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.collections.package@GenericQueryBuilder[P&lt;:reactivemongo.api.SerializationPack]extendsAnyRef" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
       <p class="shortcomment cmt">A builder that helps to make a fine-tuned query to MongoDB.</p><div class="fullcomment"><div class="comment cmt"><p>A builder that helps to make a fine-tuned query to MongoDB.</p><p>When the query is ready, you can call <code>cursor</code> to get a <a href="../Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a>, or <code>one</code> if you want to retrieve just one document.</p></div></div>
-    </li><li name="reactivemongo.api.collections.GenericReader" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="GenericReader[S,T]extendsAnyRef"></a>
-      <a id="GenericReader[S,T]:GenericReader[S,T]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">trait</span>
-      </span>
-      <span class="symbol">
-        <a href="GenericReader.html"><span class="name">GenericReader</span></a><span class="tparams">[<span name="S">S</span>, <span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.package@GenericReader[S,T]extendsAnyRef" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      
-    </li><li name="reactivemongo.api.collections.GenericWriter" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="GenericWriter[T,S]extendsAnyRef"></a>
-      <a id="GenericWriter[T,S]:GenericWriter[T,S]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">trait</span>
-      </span>
-      <span class="symbol">
-        <a href="GenericWriter.html"><span class="name">GenericWriter</span></a><span class="tparams">[<span name="T">T</span>, <span name="S">S</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.package@GenericWriter[T,S]extendsAnyRef" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      
     </li></ol>
             </div>
 
@@ -212,36 +160,19 @@ The default implementation of <a href="../Collection.html" class="extype" name="
 
         <div id="values" class="values members">
               <h3>Value Members</h3>
-              <ol><li name="reactivemongo.api.collections.buffer" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="buffer"></a>
-      <a id="buffer:buffer"></a>
+              <ol><li name="reactivemongo.api.collections.bson" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="bson"></a>
+      <a id="bson:bson"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">package</span>
       </span>
       <span class="symbol">
-        <a href="buffer/package.html"><span class="name">buffer</span></a>
+        <a href="bson/package.html"><span class="name">bson</span></a>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.package@buffer" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      
-    </li><li name="reactivemongo.api.collections.default" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="default"></a>
-      <a id="default:default"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">package</span>
-      </span>
-      <span class="symbol">
-        <a href="default/package.html"><span class="name">default</span></a>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.collections.package@default" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.collections.package@bson" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>

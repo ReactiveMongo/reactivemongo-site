@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>GridFS - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.api.gridfs.GridFS</title>
-          <meta name="description" content="GridFS - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.api.gridfs.GridFS" />
-          <meta name="keywords" content="GridFS ReactiveMongo API 0.10.5.0.akka23 reactivemongo.api.gridfs.GridFS" />
+          <title>GridFS - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.api.gridfs.GridFS</title>
+          <meta name="description" content="GridFS - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.api.gridfs.GridFS" />
+          <meta name="keywords" content="GridFS ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.api.gridfs.GridFS" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -145,18 +145,18 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="reactivemongo.api.gridfs.GridFS#apply" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="apply[Structure,Reader[_],Writer[_]](db:reactivemongo.api.DBwithreactivemongo.api.DBMetaCommands,prefix:String)(implicitproducer:reactivemongo.api.collections.GenericCollectionProducer[Structure,Reader,Writer,reactivemongo.api.collections.GenericCollection[Structure,Reader,Writer]]):reactivemongo.api.gridfs.GridFS[Structure,Reader,Writer]"></a>
-      <a id="apply[Structure,Reader[_],Writer[_]](DBwithDBMetaCommands,String)(GenericCollectionProducer[Structure,Reader,Writer,GenericCollection[Structure,Reader,Writer]]):GridFS[Structure,Reader,Writer]"></a>
+      <a id="apply[P&lt;:reactivemongo.api.SerializationPackwithSingleton](db:reactivemongo.api.DBwithreactivemongo.api.DBMetaCommands,prefix:String)(implicitproducer:reactivemongo.api.collections.GenericCollectionProducer[P,reactivemongo.api.collections.GenericCollection[P]]):reactivemongo.api.gridfs.GridFS[P]"></a>
+      <a id="apply[P&lt;:SerializationPackwithSingleton](DBwithDBMetaCommands,String)(GenericCollectionProducer[P,GenericCollection[P]]):GridFS[P]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">apply</span><span class="tparams">[<span name="Structure">Structure</span>, <span name="Reader">Reader<span class="tparams">[<span name="_">_</span>]</span></span>, <span name="Writer">Writer<span class="tparams">[<span name="_">_</span>]</span></span>]</span><span class="params">(<span name="db">db: <a href="../DB.html" class="extype" name="reactivemongo.api.DB">DB</a> with <a href="../DBMetaCommands.html" class="extype" name="reactivemongo.api.DBMetaCommands">DBMetaCommands</a></span>, <span name="prefix">prefix: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;fs&quot;</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="producer">producer: <a href="../collections/GenericCollectionProducer.html" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.gridfs.GridFS.apply.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.gridfs.GridFS.apply.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.gridfs.GridFS.apply.Writer">Writer</span>, <a href="../collections/GenericCollection.html" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.gridfs.GridFS.apply.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.gridfs.GridFS.apply.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.gridfs.GridFS.apply.Writer">Writer</span>]] = <span class="defval" name='<span class="name"><a href="../../package.html">collections.default.BSONCollectionProducer</a></span>'>...</span></span>)</span><span class="result">: <a href="GridFS.html" class="extype" name="reactivemongo.api.gridfs.GridFS">GridFS</a>[<span class="extype" name="reactivemongo.api.gridfs.GridFS.apply.Structure">Structure</span>, <span class="extype" name="reactivemongo.api.gridfs.GridFS.apply.Reader">Reader</span>, <span class="extype" name="reactivemongo.api.gridfs.GridFS.apply.Writer">Writer</span>]</span>
+        <span class="name">apply</span><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a> with <span class="extype" name="scala.Singleton">Singleton</span></span>]</span><span class="params">(<span name="db">db: <a href="../DB.html" class="extype" name="reactivemongo.api.DB">DB</a> with <a href="../DBMetaCommands.html" class="extype" name="reactivemongo.api.DBMetaCommands">DBMetaCommands</a></span>, <span name="prefix">prefix: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;fs&quot;</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="producer">producer: <a href="../collections/GenericCollectionProducer.html" class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</a>[<span class="extype" name="reactivemongo.api.gridfs.GridFS.apply.P">P</span>, <a href="../collections/GenericCollection.html" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<span class="extype" name="reactivemongo.api.gridfs.GridFS.apply.P">P</span>]] = <span class="defval" name='<span class="name"><a href="../../package.html">collections.bson.BSONCollectionProducer</a></span>'>...</span></span>)</span><span class="result">: <a href="GridFS.html" class="extype" name="reactivemongo.api.gridfs.GridFS">GridFS</a>[<span class="extype" name="reactivemongo.api.gridfs.GridFS.apply.P">P</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.gridfs.GridFS$@apply[Structure,Reader[_],Writer[_]](db:reactivemongo.api.DBwithreactivemongo.api.DBMetaCommands,prefix:String)(implicitproducer:reactivemongo.api.collections.GenericCollectionProducer[Structure,Reader,Writer,reactivemongo.api.collections.GenericCollection[Structure,Reader,Writer]]):reactivemongo.api.gridfs.GridFS[Structure,Reader,Writer]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.gridfs.GridFS$@apply[P&lt;:reactivemongo.api.SerializationPackwithSingleton](db:reactivemongo.api.DBwithreactivemongo.api.DBMetaCommands,prefix:String)(implicitproducer:reactivemongo.api.collections.GenericCollectionProducer[P,reactivemongo.api.collections.GenericCollection[P]]):reactivemongo.api.gridfs.GridFS[P]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>

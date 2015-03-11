@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Node - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.core.nodeset.Node</title>
-          <meta name="description" content="Node - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.core.nodeset.Node" />
-          <meta name="keywords" content="Node ReactiveMongo API 0.10.5.0.akka23 reactivemongo.core.nodeset.Node" />
+          <title>Node - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.core.nodeset.Node</title>
+          <meta name="description" content="Node - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.core.nodeset.Node" />
+          <meta name="keywords" content="Node ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.core.nodeset.Node" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -43,7 +43,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">Node</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="status">status: <a href="NodeStatus.html" class="extype" name="reactivemongo.core.nodeset.NodeStatus">NodeStatus</a></span>, <span name="connections">connections: <span class="extype" name="scala.Vector">Vector</span>[<a href="Connection.html" class="extype" name="reactivemongo.core.nodeset.Connection">Connection</a>]</span>, <span name="authenticated">authenticated: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="Authenticated.html" class="extype" name="reactivemongo.core.nodeset.Authenticated">Authenticated</a>]</span>, <span name="tags">tags: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]</span>, <span name="pingInfo">pingInfo: <a href="PingInfo.html" class="extype" name="reactivemongo.core.nodeset.PingInfo">PingInfo</a> = <span class="symbol"><span class="name"><a href="PingInfo$.html">PingInfo()</a></span></span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">Node</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="status">status: <a href="NodeStatus.html" class="extype" name="reactivemongo.core.nodeset.NodeStatus">NodeStatus</a></span>, <span name="connections">connections: <span class="extype" name="scala.Vector">Vector</span>[<a href="Connection.html" class="extype" name="reactivemongo.core.nodeset.Connection">Connection</a>]</span>, <span name="authenticated">authenticated: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="Authenticated.html" class="extype" name="reactivemongo.core.nodeset.Authenticated">Authenticated</a>]</span>, <span name="tags">tags: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]</span>, <span name="protocolMetadata">protocolMetadata: <a href="ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a></span>, <span name="pingInfo">pingInfo: <a href="PingInfo.html" class="extype" name="reactivemongo.core.nodeset.PingInfo">PingInfo</a> = <span class="symbol"><span class="name"><a href="PingInfo$.html">PingInfo()</a></span></span></span>, <span name="isMongos">isMongos: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
@@ -93,7 +93,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="reactivemongo.core.nodeset.Node#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(name:String,status:reactivemongo.core.nodeset.NodeStatus,connections:Vector[reactivemongo.core.nodeset.Connection],authenticated:Set[reactivemongo.core.nodeset.Authenticated],tags:Option[reactivemongo.bson.BSONDocument],pingInfo:reactivemongo.core.nodeset.PingInfo):reactivemongo.core.nodeset.Node"></a>
+      <a id="&lt;init&gt;(name:String,status:reactivemongo.core.nodeset.NodeStatus,connections:Vector[reactivemongo.core.nodeset.Connection],authenticated:Set[reactivemongo.core.nodeset.Authenticated],tags:Option[reactivemongo.bson.BSONDocument],protocolMetadata:reactivemongo.core.nodeset.ProtocolMetadata,pingInfo:reactivemongo.core.nodeset.PingInfo,isMongos:Boolean):reactivemongo.core.nodeset.Node"></a>
       <a id="&lt;init&gt;:Node"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -101,10 +101,10 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">Node</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="status">status: <a href="NodeStatus.html" class="extype" name="reactivemongo.core.nodeset.NodeStatus">NodeStatus</a></span>, <span name="connections">connections: <span class="extype" name="scala.Vector">Vector</span>[<a href="Connection.html" class="extype" name="reactivemongo.core.nodeset.Connection">Connection</a>]</span>, <span name="authenticated">authenticated: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="Authenticated.html" class="extype" name="reactivemongo.core.nodeset.Authenticated">Authenticated</a>]</span>, <span name="tags">tags: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]</span>, <span name="pingInfo">pingInfo: <a href="PingInfo.html" class="extype" name="reactivemongo.core.nodeset.PingInfo">PingInfo</a> = <span class="symbol"><span class="name"><a href="PingInfo$.html">PingInfo()</a></span></span></span>)</span>
+        <span class="name">Node</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="status">status: <a href="NodeStatus.html" class="extype" name="reactivemongo.core.nodeset.NodeStatus">NodeStatus</a></span>, <span name="connections">connections: <span class="extype" name="scala.Vector">Vector</span>[<a href="Connection.html" class="extype" name="reactivemongo.core.nodeset.Connection">Connection</a>]</span>, <span name="authenticated">authenticated: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="Authenticated.html" class="extype" name="reactivemongo.core.nodeset.Authenticated">Authenticated</a>]</span>, <span name="tags">tags: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]</span>, <span name="protocolMetadata">protocolMetadata: <a href="ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a></span>, <span name="pingInfo">pingInfo: <a href="PingInfo.html" class="extype" name="reactivemongo.core.nodeset.PingInfo">PingInfo</a> = <span class="symbol"><span class="name"><a href="PingInfo$.html">PingInfo()</a></span></span></span>, <span name="isMongos">isMongos: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.nodeset.Node@&lt;init&gt;(name:String,status:reactivemongo.core.nodeset.NodeStatus,connections:Vector[reactivemongo.core.nodeset.Connection],authenticated:Set[reactivemongo.core.nodeset.Authenticated],tags:Option[reactivemongo.bson.BSONDocument],pingInfo:reactivemongo.core.nodeset.PingInfo):reactivemongo.core.nodeset.Node" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.Node@&lt;init&gt;(name:String,status:reactivemongo.core.nodeset.NodeStatus,connections:Vector[reactivemongo.core.nodeset.Connection],authenticated:Set[reactivemongo.core.nodeset.Authenticated],tags:Option[reactivemongo.bson.BSONDocument],protocolMetadata:reactivemongo.core.nodeset.ProtocolMetadata,pingInfo:reactivemongo.core.nodeset.PingInfo,isMongos:Boolean):reactivemongo.core.nodeset.Node" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -538,6 +538,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="reactivemongo.core.nodeset.Node#isMongos" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="isMongos:Boolean"></a>
+      <a id="isMongos:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isMongos</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.nodeset.Node@isMongos:Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="reactivemongo.core.nodeset.Node#name" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="name:String"></a>
       <a id="name:String"></a>
@@ -636,6 +653,23 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.nodeset.Node@port:Int" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.core.nodeset.Node#protocolMetadata" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="protocolMetadata:reactivemongo.core.nodeset.ProtocolMetadata"></a>
+      <a id="protocolMetadata:ProtocolMetadata"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">protocolMetadata</span><span class="result">: <a href="ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.nodeset.Node@protocolMetadata:reactivemongo.core.nodeset.ProtocolMetadata" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>

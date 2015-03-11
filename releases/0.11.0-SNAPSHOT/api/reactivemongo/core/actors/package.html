@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>actors - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.core.actors</title>
-          <meta name="description" content="actors - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.core.actors" />
-          <meta name="keywords" content="actors ReactiveMongo API 0.10.5.0.akka23 reactivemongo.core.actors" />
+          <title>actors - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.core.actors</title>
+          <meta name="description" content="actors - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.core.actors" />
+          <meta name="keywords" content="actors ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.core.actors" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -139,25 +139,23 @@ The future can be used to get the error or the successful response.
       </a>
     </span>
       <p class="shortcomment cmt">Main actor that processes the requests.</p>
-    </li><li name="reactivemongo.core.actors.MonitorActor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="MonitorActorextendsActor"></a>
-      <a id="MonitorActor:MonitorActor"></a>
+    </li><li name="reactivemongo.core.actors.PrimaryAvailable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="PrimaryAvailableextendsProductwithSerializable"></a>
+      <a id="PrimaryAvailable:PrimaryAvailable"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">class</span>
+        <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="MonitorActor.html"><span class="name">MonitorActor</span></a><span class="result"> extends <span class="extype" name="akka.actor.Actor">Actor</span></span>
+        <a href="PrimaryAvailable.html"><span class="name">PrimaryAvailable</span></a><span class="params">(<span name="metadata">metadata: <a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.actors.package@MonitorActorextendsActor" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.actors.package@PrimaryAvailableextendsProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">A monitor for MongoDBSystem actors.</p><div class="fullcomment"><div class="comment cmt"><p>A monitor for MongoDBSystem actors.</p><p>This monitor will be sent node state change events (like PrimaryAvailable, PrimaryUnavailable, etc.).
-See WaitForPrimary message.
-</p></div></div>
+      <p class="shortcomment cmt">Message sent when the primary has been discovered.</p>
     </li><li name="reactivemongo.core.actors.RequestMakerExpectingResponse" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="RequestMakerExpectingResponseextendsExpectingResponsewithProductwithSerializable"></a>
       <a id="RequestMakerExpectingResponse:RequestMakerExpectingResponse"></a>
@@ -167,7 +165,7 @@ See WaitForPrimary message.
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="RequestMakerExpectingResponse.html"><span class="name">RequestMakerExpectingResponse</span></a><span class="params">(<span name="requestMaker">requestMaker: <a href="../protocol/RequestMaker.html" class="extype" name="reactivemongo.core.protocol.RequestMaker">RequestMaker</a></span>)</span><span class="result"> extends <a href="ExpectingResponse.html" class="extype" name="reactivemongo.core.actors.ExpectingResponse">ExpectingResponse</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="RequestMakerExpectingResponse.html"><span class="name">RequestMakerExpectingResponse</span></a><span class="params">(<span name="requestMaker">requestMaker: <a href="../protocol/RequestMaker.html" class="extype" name="reactivemongo.core.protocol.RequestMaker">RequestMaker</a></span>, <span name="isMongo26WriteOp">isMongo26WriteOp: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result"> extends <a href="ExpectingResponse.html" class="extype" name="reactivemongo.core.actors.ExpectingResponse">ExpectingResponse</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.actors.package@RequestMakerExpectingResponseextendsExpectingResponsewithProductwithSerializable" title="Permalink" target="_top">
@@ -177,6 +175,23 @@ See WaitForPrimary message.
       <p class="shortcomment cmt">A request expecting a response.</p><div class="fullcomment"><div class="comment cmt"><p>A request expecting a response.
 </p></div><dl class="paramcmts block"><dt class="param">requestMaker</dt><dd class="cmt"><p>The request maker.
 </p></dd></dl></div>
+    </li><li name="reactivemongo.core.actors.SetAvailable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SetAvailableextendsProductwithSerializable"></a>
+      <a id="SetAvailable:SetAvailable"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SetAvailable.html"><span class="name">SetAvailable</span></a><span class="params">(<span name="metadata">metadata: <a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.actors.package@SetAvailableextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li></ol>
             </div>
 
@@ -237,6 +252,23 @@ The MongoDBSystem actor must not be used after this message has been sent.
       </a>
     </span>
       
+    </li><li name="reactivemongo.core.actors.GetLastMetadata" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GetLastMetadata"></a>
+      <a id="GetLastMetadata:GetLastMetadata"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="GetLastMetadata$.html"><span class="name">GetLastMetadata</span></a><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.actors.package@GetLastMetadata" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="reactivemongo.core.actors.MongoDBSystem" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="MongoDBSystem"></a>
       <a id="MongoDBSystem:MongoDBSystem"></a>
@@ -254,40 +286,6 @@ The MongoDBSystem actor must not be used after this message has been sent.
       </a>
     </span>
       
-    </li><li name="reactivemongo.core.actors.MonitorActor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="MonitorActor"></a>
-      <a id="MonitorActor:MonitorActor"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="MonitorActor$.html"><span class="name">MonitorActor</span></a>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.actors.package@MonitorActor" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      
-    </li><li name="reactivemongo.core.actors.PrimaryAvailable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="PrimaryAvailable"></a>
-      <a id="PrimaryAvailable:PrimaryAvailable"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="PrimaryAvailable$.html"><span class="name">PrimaryAvailable</span></a><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.actors.package@PrimaryAvailable" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Message sent when the primary has been discovered.</p>
     </li><li name="reactivemongo.core.actors.PrimaryUnavailable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="PrimaryUnavailable"></a>
       <a id="PrimaryUnavailable:PrimaryUnavailable"></a>
@@ -322,23 +320,6 @@ The MongoDBSystem actor must not be used after this message has been sent.
       </a>
     </span>
       <p class="shortcomment cmt">Register a monitor.</p>
-    </li><li name="reactivemongo.core.actors.SetAvailable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="SetAvailable"></a>
-      <a id="SetAvailable:SetAvailable"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="SetAvailable$.html"><span class="name">SetAvailable</span></a><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.actors.package@SetAvailable" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      
     </li><li name="reactivemongo.core.actors.SetUnavailable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="SetUnavailable"></a>
       <a id="SetUnavailable:SetUnavailable"></a>

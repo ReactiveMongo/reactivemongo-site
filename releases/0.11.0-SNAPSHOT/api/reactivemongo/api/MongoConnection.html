@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>MongoConnection - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.api.MongoConnection</title>
-          <meta name="description" content="MongoConnection - ReactiveMongo API 0.10.5.0.akka23 - reactivemongo.api.MongoConnection" />
-          <meta name="keywords" content="MongoConnection ReactiveMongo API 0.10.5.0.akka23 reactivemongo.api.MongoConnection" />
+          <title>MongoConnection - ReactiveMongo API 0.11.0-SNAPSHOT - reactivemongo.api.MongoConnection</title>
+          <meta name="description" content="MongoConnection - ReactiveMongo API 0.11.0 - SNAPSHOT - reactivemongo.api.MongoConnection" />
+          <meta name="keywords" content="MongoConnection ReactiveMongo API 0.11.0 SNAPSHOT reactivemongo.api.MongoConnection" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -103,7 +103,7 @@ Behind the scene, many connections (channels) are open on all the available serv
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="reactivemongo.api.MongoConnection#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(actorSystem:akka.actor.ActorSystem,mongosystem:akka.actor.ActorRef,monitor:akka.actor.ActorRef,options:reactivemongo.api.MongoConnectionOptions):reactivemongo.api.MongoConnection"></a>
+      <a id="&lt;init&gt;(actorSystem:akka.actor.ActorSystem,mongosystem:akka.actor.ActorRef,options:reactivemongo.api.MongoConnectionOptions):reactivemongo.api.MongoConnection"></a>
       <a id="&lt;init&gt;:MongoConnection"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -111,10 +111,10 @@ Behind the scene, many connections (channels) are open on all the available serv
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">MongoConnection</span><span class="params">(<span name="actorSystem">actorSystem: <span class="extype" name="akka.actor.ActorSystem">ActorSystem</span></span>, <span name="mongosystem">mongosystem: <span class="extype" name="akka.actor.ActorRef">ActorRef</span></span>, <span name="monitor">monitor: <span class="extype" name="akka.actor.ActorRef">ActorRef</span></span>, <span name="options">options: <a href="MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>)</span>
+        <span class="name">MongoConnection</span><span class="params">(<span name="actorSystem">actorSystem: <span class="extype" name="akka.actor.ActorSystem">ActorSystem</span></span>, <span name="mongosystem">mongosystem: <span class="extype" name="akka.actor.ActorRef">ActorRef</span></span>, <span name="options">options: <a href="MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.MongoConnection@&lt;init&gt;(actorSystem:akka.actor.ActorSystem,mongosystem:akka.actor.ActorRef,monitor:akka.actor.ActorRef,options:reactivemongo.api.MongoConnectionOptions):reactivemongo.api.MongoConnection" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.MongoConnection@&lt;init&gt;(actorSystem:akka.actor.ActorSystem,mongosystem:akka.actor.ActorRef,options:reactivemongo.api.MongoConnectionOptions):reactivemongo.api.MongoConnection" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" />
       </a>
     </span>
@@ -225,6 +225,23 @@ Behind the scene, many connections (channels) are open on all the available serv
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="reactivemongo.api.MongoConnection.MonitorActor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MonitorActor"></a>
+      <a id="MonitorActor:MonitorActor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MongoConnection$MonitorActor$.html"><span class="name">MonitorActor</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.MongoConnection@MonitorActor" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="reactivemongo.api.MongoConnection#actorSystem" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="actorSystem:akka.actor.ActorSystem"></a>
       <a id="actorSystem:ActorSystem"></a>
@@ -295,21 +312,22 @@ Behind the scene, many connections (channels) are open on all the available serv
       </a>
     </span>
       <p class="shortcomment cmt">Writes a checked write request and wait for a response.</p><div class="fullcomment"><div class="comment cmt"><p>Writes a checked write request and wait for a response.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>The future response.
+</p></div><dl class="paramcmts block"><dt class="param">checkedWriteRequest</dt><dd class="cmt"><p>The request maker.
+</p></dd><dt>returns</dt><dd class="cmt"><p>The future response.
 </p></dd></dl></div>
     </li><li name="reactivemongo.api.MongoConnection#ask" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ask(message:reactivemongo.core.protocol.RequestMaker):scala.concurrent.Future[reactivemongo.core.protocol.Response]"></a>
-      <a id="ask(RequestMaker):Future[Response]"></a>
+      <a id="ask(message:reactivemongo.core.protocol.RequestMaker,isMongo26WriteOp:Boolean):scala.concurrent.Future[reactivemongo.core.protocol.Response]"></a>
+      <a id="ask(RequestMaker,Boolean):Future[Response]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">ask</span><span class="params">(<span name="message">message: <a href="../core/protocol/RequestMaker.html" class="extype" name="reactivemongo.core.protocol.RequestMaker">RequestMaker</a></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../core/protocol/Response.html" class="extype" name="reactivemongo.core.protocol.Response">Response</a>]</span>
+        <span class="name">ask</span><span class="params">(<span name="message">message: <a href="../core/protocol/RequestMaker.html" class="extype" name="reactivemongo.core.protocol.RequestMaker">RequestMaker</a></span>, <span name="isMongo26WriteOp">isMongo26WriteOp: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../core/protocol/Response.html" class="extype" name="reactivemongo.core.protocol.Response">Response</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.MongoConnection@ask(message:reactivemongo.core.protocol.RequestMaker):scala.concurrent.Future[reactivemongo.core.protocol.Response]" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.MongoConnection@ask(message:reactivemongo.core.protocol.RequestMaker,isMongo26WriteOp:Boolean):scala.concurrent.Future[reactivemongo.core.protocol.Response]" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" />
       </a>
     </span>
@@ -747,6 +765,40 @@ Behind the scene, many connections (channels) are open on all the available serv
       <p class="shortcomment cmt">Writes a request and drop the response if any.</p><div class="fullcomment"><div class="comment cmt"><p>Writes a request and drop the response if any.
 </p></div><dl class="paramcmts block"><dt class="param">message</dt><dd class="cmt"><p>The request maker.
 </p></dd></dl></div>
+    </li><li name="reactivemongo.api.MongoConnection#sendExpectingResponse" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="sendExpectingResponse(requestMaker:reactivemongo.core.protocol.RequestMaker,isMongo26WriteOp:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.protocol.Response]"></a>
+      <a id="sendExpectingResponse(RequestMaker,Boolean)(ExecutionContext):Future[Response]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">sendExpectingResponse</span><span class="params">(<span name="requestMaker">requestMaker: <a href="../core/protocol/RequestMaker.html" class="extype" name="reactivemongo.core.protocol.RequestMaker">RequestMaker</a></span>, <span name="isMongo26WriteOp">isMongo26WriteOp: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../core/protocol/Response.html" class="extype" name="reactivemongo.core.protocol.Response">Response</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.MongoConnection@sendExpectingResponse(requestMaker:reactivemongo.core.protocol.RequestMaker,isMongo26WriteOp:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.protocol.Response]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.MongoConnection#sendExpectingResponse" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="sendExpectingResponse(checkedWriteRequest:reactivemongo.core.protocol.CheckedWriteRequest)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.protocol.Response]"></a>
+      <a id="sendExpectingResponse(CheckedWriteRequest)(ExecutionContext):Future[Response]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">sendExpectingResponse</span><span class="params">(<span name="checkedWriteRequest">checkedWriteRequest: <a href="../core/protocol/CheckedWriteRequest.html" class="extype" name="reactivemongo.core.protocol.CheckedWriteRequest">CheckedWriteRequest</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../core/protocol/Response.html" class="extype" name="reactivemongo.core.protocol.Response">Response</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.MongoConnection@sendExpectingResponse(checkedWriteRequest:reactivemongo.core.protocol.CheckedWriteRequest)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.protocol.Response]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
