@@ -25,6 +25,27 @@ Then you can connect to a MongoDB server.
 val connection = driver.connection(List("localhost"))
 {% endhighlight %}
 
+You can also pass options while connecting.
+
+{% highlight scala %}
+import reactivemongo.api.MongoConnectionOptions
+
+val conOpts = MongoConnectionOptions(/* connection options */)
+val connection = driver.connection(List("localhost"), options = conOpts)
+{% endhighligh %}
+
+The following options can be used with `MongoConnectionOptions` to configure the connection behaviour.
+
+- `authSource`: The database source for authentication credentials.
+- `connectTimeoutMS`: The number of milliseconds to wait for a connection to be established before giving up.
+- `sslEnabled`: It enables the SSL support for the connection.
+- `sslAllowsInvalidCert`: If `sslEnabled` is true, this one indicates whether to accept invalid certificates (e.g. self-signed).
+- `rm.tcpNoDelay`: TCPNoDelay flag.
+- `rm.keepAlive`: TCP KeepAlive flag.
+- `rm.nbChannelsPerNode`: Number of channels (connections) per node.
+
+> The option `sslEnabled` is needed if the MongoDB server is requiring SSL (`mongod --sslMode requireSSL`). The related option `sslAllowsInvalidCert` is required is the server allows invalid certificate (`mongod --sslAllowInvalidCertificates`).
+
 Getting a database and a collection is pretty easy:
 
 {% highlight scala %}
@@ -69,6 +90,7 @@ There are two ways to give ReactiveMongo your credentials.
 
 {% highlight scala %}
 import reactivemongo.core.nodeset.Authenticate
+
 val dbName = "somedatabase"
 val userName = "username"
 val password = "password"
