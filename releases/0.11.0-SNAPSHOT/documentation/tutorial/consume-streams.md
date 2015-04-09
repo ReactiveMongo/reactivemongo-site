@@ -5,10 +5,16 @@ title: ReactiveMongo 0.11.0-SNAPSHOT - Consume Streams of Documents
 
 ## Consume streams of documents
 
-Instead of accumulating documents in memory like in the two previous examples, we can process them in a streaming way. This is achieved using the [`play-iteratees`](http://www.playframework.com/documentation/2.3.x/Iteratees) library, in two steps:
+Instead of accumulating documents in memory like in the two previous examples, we can process them in a streaming way.
 
-- get an `Enumerator` of documents from ReactiveMongo. This is a producer of data;
-- apply an `Iteratee` (that we build for this purpose), which will consume data and eventually produce a result.
+ReactiveMongo can be used with several streaming frameworks: [Play Iteratees](http://www.playframework.com/documentation/2.3.x/Iteratees), [Akka Streams](http://akka.io/docs/), custom using `foldWhile`.
+
+### Play Iteratee
+
+The Play Iteratee library can work with document stream as following.
+
+- Get an `Enumerator` of documents from ReactiveMongo. This is a producer of data.
+- Apply an `Iteratee` (that we build for this purpose), which will consume data and eventually produce a result.
 
 {% highlight scala %}
 import play.api.libs.iteratee._
@@ -86,3 +92,31 @@ val meanAge =
 
 At each step, this Iteratee will extract the age from the document and add it to the current result; it also counts the number of documents processed. It eventually produces a tuple of two integers; in our case `(173, 3)`. When the `cumulated` future is completed, we divide the cumulated age by the number of documents to get the mean age.
 
+### Custom streaming
+
+ReactiveMongo streaming is based on the function `Cursor.foldWhile[A]`, which also allows to implement your custom streaming.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import reactivemongo.api.Cursor
+
+def streaming(c: Cursor[String]): Future[List[String]] =
+  c.foldWhile(List.empty[String], 1000/* optional: max doc */)(
+    { (ls, str) => // process next String value
+      if (str startsWith "#") Cursor.Cont(ls) // Skip: continue unchanged `ls`
+      else if (str == "_end") Cursor.Done(ls) // End processing
+      else Cursor.Cont(str :: ls) // Continue with updated `ls`
+    },
+    { (ls, err) => // handle failure
+      err match {
+        case SkipException(_) => Cursor.Cont(ls) // Skip error, continue
+        case _ => Cursor.Fail(err) // Stop with current failure -> Future.failed
+      }
+    })
+{% endhighlight %}
+
+At each streaming step, for each new value or error, you choose how you want to go on, using cases `Cursor.{ Cont, Done, Fail }`.
+
+- `Cont`: Continue processing.
+- `Done`: End processing, without error; A `Future.successful[T](t)` will be returned by `foldWhile[T]`.
+- `Stop`: Stop processing on an error; A `Future.failed` will be returned by `foldWhile[T]`.
