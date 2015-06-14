@@ -25,7 +25,7 @@ Some widely used commands, like `Count` or `FindAndModify`, are available in Rea
 
 ### Run any command with `RawCommand`
 
-It is possible to run any kind of commands, even if they are not specifically implemented in ReactiveMongo yet. Since a command in MongoDB is nothing more than a query on the special collection `$cmd` that returns a document, you can make your own command with `RawCommand`, which result type is `Future[BSONDocument]`. Let's take a look to the following example involving the Aggregation Framework (you can find this example in the [MongoDB documentation](http://docs.mongodb.org/manual/core/aggregation-pipeline/#aggregation-pipeline-behavior)):
+It is possible to run any kind of commands, even if they are not specifically implemented in ReactiveMongo yet. Since a command in MongoDB is nothing more than a query on the special collection `$cmd` that returns a document, you can make your own command, which result type is `Future[BSONDocument]`. Let's take a look to the following example involving the Aggregation Framework (you can find this example in the [MongoDB documentation](http://docs.mongodb.org/manual/core/aggregation-pipeline/#aggregation-pipeline-behavior)):
 
 {% highlight javascript %}
 // MongoDB Console example of Aggregate command
@@ -56,6 +56,10 @@ db.runCommand(command)
 We do exactly the same thing with `RawCommand`, by making a `BSONDocument` that contains the same fieds:
 
 {% highlight scala %}
+import reactivemongo.bson.{ BSONArray, BSONDocument }
+import reactivemongo.api.BSONSerializationPack
+import reactivemongo.api.commands.Command
+
 val commandDoc =
   BSONDocument(
     "aggregate" -> "orders", // we aggregate on collection `orders`
@@ -69,8 +73,11 @@ val commandDoc =
     )
   )
 
+val runner = Command.run(BSONSerializationPack)
+
 // we get a Future[BSONDocument]
-val futureResult = db.command(RawCommand(commandDoc))
+val futureResult =
+  runner.apply(db, runner.rawCommand(commandDoc)).one[BSONDocument]
 
 futureResult.map { result => // result is a BSONDocument
   // ...
