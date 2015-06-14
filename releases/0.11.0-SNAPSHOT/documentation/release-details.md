@@ -10,29 +10,9 @@ This is a minor release including mostly bugfixes and some enhancements.
 ### What's new?
 
 1. Two Releases:
-    - `0.10.5.0.akka23` (Scala 2.10 and 2.11): compiled against Akka 2.3 and Play-iteratees 2.3
-    - `0.10.5.0.akka22` (Scala 2.10 _only_): compiled against Akka 2.2 and Play-iteratees 2.2
+    - TODO
 2. Enhancements:
-    - API: add `MongoConnectionOptions`, support for options in mongodb URIs
-    - BSON library: `BSONObjectID` is now a serializable class with a private constructor
-    - BSON library: do not rely on exceptions in deserialization when possible
-    - Commands: `Eval`
-    - BufferCollection: `RawBSONDocumentSerializer`
-    - Upgrade to SBT 0.13.5
-    - Macros: support for `@Ignore` and `@transient` annotations
-3. Bugfixes:
-    - BSON library: fix `BSONDateTimeNumberLike` typeclass
-    - Cursor: fix exception propagation
-    - Commands: fix `ok` deserialization for some cases
-    - Commands: fix `CollStatsResult`
-    - Commands: fix `AddToSet` in aggregation
-    - Core: fix connection leak in some cases
-    - GenericCollection: do not ignore `WriteConcern` in `save()`
-    - GenericCollection: do not ignore `WriteConcern` in bulk inserts
-    - GridFS: fix `uploadDate` deserialization field
-    - Indexes: fix parsing for `Ascending` and `Descending`
-    - Macros: fix type aliases
-    - Macros: allow custom annotations
+    - TODO
 
 ### Documentation
 
@@ -40,7 +20,7 @@ The [documentation](index.html) is also available and deprecates the old wiki. A
 
 ### Stats
 
-Here is the list of the commits included in this release (since 0.9, the top commit is the most recent one):
+Here is the list of the commits included in this release (since 0.10, the top commit is the most recent one):
 
 ~~~
 $ git shortlog -s -n refs/tags/v0.10.0..0.10.5.x.akka23

@@ -1,4 +1,4 @@
-pygments: true
+highlighter: true
 name: "ReactiveMongo"
 description: "The reactive Scala driver for MongoDB"
 url: http://reactivemongo.org/
