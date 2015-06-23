@@ -59,7 +59,8 @@ Or if you want to be on the bleeding edge using snapshots:
 resolvers += "Sonatype Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
 
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "reactivemongo" % "0.11.0-SNAPSHOT"
+  "org.reactivemongo" %% "reactivemongo" % "0.11.0-M1"
+  //"org.reactivemongo" %% "reactivemongo" % "0.12.0-SNAPSHOT"
 )
 {% endhighlight %}
 
