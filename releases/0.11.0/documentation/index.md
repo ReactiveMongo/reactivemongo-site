@@ -10,6 +10,8 @@ title: ReactiveMongo 0.11.0 - Documentation
 
 The dependency can be added in your SBT project as following: `"org.reactivemongo" %% "reactivemongo" % "0.11.0-M1"`
 
+The documentation of the plugin for the **Play Framework** can is [available online](tutorial/play2.html).
+
 ### Tutorial
 
 1. [Add ReactiveMongo to your project](tutorial/setup.html)

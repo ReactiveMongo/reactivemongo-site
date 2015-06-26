@@ -17,6 +17,8 @@ Enhancements:
 - Builtin micro-DSL for BSON
 - Convenient operations on a collection (`.count`, `.runCommand`)
 
+There is also a new version of the [Play Framework plugin](tutorial/play2.html).
+
 ### Documentation
 
 The [documentation](index.html) is also available and deprecates the old wiki. And of course, you can browse the [Scaladoc](../api/index.html).

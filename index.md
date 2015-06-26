@@ -3,7 +3,6 @@ layout: home
 title: ReactiveMongo
 ---
 
-
 [ReactiveMongo](https://github.com/ReactiveMongo/ReactiveMongo/) is a scala driver that provides fully non-blocking and asynchronous I/O operations.
 
 ## Scale better, use less threads
@@ -49,7 +48,7 @@ ReactiveMongo is available on [Maven Central](http://search.maven.org/#browse%7C
 
 {% highlight scala %}
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "reactivemongo" % "0.10.5.0.akka23"
+  "org.reactivemongo" %% "reactivemongo" % "0.11.0-M1"
 )
 {% endhighlight %}
 
@@ -59,8 +58,7 @@ Or if you want to be on the bleeding edge using snapshots:
 resolvers += "Sonatype Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
 
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "reactivemongo" % "0.11.0-M1"
-  //"org.reactivemongo" %% "reactivemongo" % "0.12.0-SNAPSHOT"
+  "org.reactivemongo" %% "reactivemongo" % "0.12.0-SNAPSHOT"
 )
 {% endhighlight %}
 
@@ -203,11 +201,11 @@ When this snippet is run, we get the following:
 
 ## Go further!
 
-There is a pretty complete [Scaladoc](releases/0.10.5/api/index.html) available. The code is accessible from the [Github repository](https://github.com/ReactiveMongo/ReactiveMongo). And obviously, don't hesitate to ask questions in the [ReactiveMongo Google Group](https://groups.google.com/forum/?fromgroups#!forum/reactivemongo)!
+There is a pretty complete [Scaladoc](releases/0.11.0/api/index.html) available. The code is accessible from the [Github repository](https://github.com/ReactiveMongo/ReactiveMongo). And obviously, don't hesitate to ask questions in the [ReactiveMongo Google Group](https://groups.google.com/forum/?fromgroups#!forum/reactivemongo)!
 
-ReactiveMongo makes a heavy usage of the [Iteratee](http://www.playframework.com/documentation/2.3.x/Iteratees) library. Although it is developped by the [Play! Framework](http://www.playframework.com) team, it does _not_ depend on any other part of the framework. You can dive into [Play's Iteratee documentation](http://www.playframework.com/documentation/2.3.x/Iteratees) to learn about this cool piece of software, and make your own Iteratees and Enumerators.
+ReactiveMongo uses of the [Iteratee](http://www.playframework.com/documentation/2.4.x/Iteratees) library. Although it is developped by the [Play! Framework](http://www.playframework.com) team, it does _not_ depend on any other part of the framework. You can dive into Play's Iteratee documentation to learn about this cool piece of software, and make your own Iteratees and Enumerators.
 
-Used in conjonction with stream-aware frameworks, like Play!, you can easily stream the data stored in MongoDB. For Play, there is a [ReactiveMongo Plugin](https://github.com/ReactiveMongo/Play-ReactiveMongo) that brings some cool stuff, like JSON-specialized collection and helpers for GridFS. See the examples and get convinced!
+Used in conjonction with stream-aware frameworks, like Play!, you can easily stream the data stored in MongoDB. For Play, there is a [ReactiveMongo Plugin](releases/0.11.0/documentation/tutorial/play2.html) that brings some cool stuff, like JSON-specialized collection and helpers for GridFS. See the examples and get convinced!
 
 ### Samples
 

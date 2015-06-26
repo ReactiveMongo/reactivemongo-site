@@ -5,15 +5,15 @@ title: ReactiveMongo - Documentation
 
 ## Releases
 
-* [__Current stable version (0.10.5.0.akka23 / 0.10.5.0.akka22)__](/releases/0.10.5/documentation/index.html)
-  * [Release Notes](/releases/0.10.5/documentation/release-details.html)
-  * [Documentation](/releases/0.10.5/documentation/index.html)
-  * [API](/releases/0.10.5/api/index.html)
-* [Milestone – API (0.11.0-M1)](/releases/0.11.0/documentation/index.html)
+* [**Current stable version (0.11.0)**](/releases/0.11.0/documentation/index.html)
   * [Release Notes](/releases/0.11.0/documentation/release-details.html)
   * [Documentation](/releases/0.11.0/documentation/index.html)
   * [API](/releases/0.11.0/api/index.html)
 * Older releases
+  * [0.10.5.0.akka23 / 0.10.5.0.akka22](/releases/0.10.5/documentation/index.html)
+    * [Release Notes](/releases/0.10.5/documentation/release-details.html)
+    * [Documentation](/releases/0.10.5/documentation/index.html)
+    * [API](/releases/0.10.5/api/index.html)
   * [0.10.0](/releases/0.10/documentation/index.html)
     * [Release Notes](/releases/0.10/documentation/release-details.html)
     * [Documentation](/releases/0.10/documentation/index.html)
@@ -25,7 +25,7 @@ title: ReactiveMongo - Documentation
 
 ## Resources
 
-* The [documentation](/releases/0.10.5/documentation/index.html) of the latest ReactiveMongo version ([__0.10.5__](/releases/0.10.5/documentation/index.html))
+* The [documentation](/releases/0.11.0/documentation/index.html) of the latest ReactiveMongo version ([__0.11.0__](/releases/0.11.0/documentation/index.html))
 * Samples
     * [ReactiveMongo Tailable Cursor, WebSocket and Play 2](https://github.com/sgodbillon/reactivemongo-tailablecursor-demo)
     * [Full Web Application featuring basic CRUD operations and GridFS streaming](https://github.com/sgodbillon/reactivemongo-demo-app)
