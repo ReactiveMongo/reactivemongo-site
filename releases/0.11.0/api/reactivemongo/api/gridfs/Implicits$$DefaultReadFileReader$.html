@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>DefaultReadFileReader - ReactiveMongo API 0.11.0-M1 - reactivemongo.api.gridfs.Implicits.DefaultReadFileReader</title>
-          <meta name="description" content="DefaultReadFileReader - ReactiveMongo API 0.11.0 - M1 - reactivemongo.api.gridfs.Implicits.DefaultReadFileReader" />
-          <meta name="keywords" content="DefaultReadFileReader ReactiveMongo API 0.11.0 M1 reactivemongo.api.gridfs.Implicits.DefaultReadFileReader" />
+          <title>DefaultReadFileReader - ReactiveMongo API 0.11.0-M3 - reactivemongo.api.gridfs.Implicits.DefaultReadFileReader</title>
+          <meta name="description" content="DefaultReadFileReader - ReactiveMongo API 0.11.0 - M3 - reactivemongo.api.gridfs.Implicits.DefaultReadFileReader" />
+          <meta name="keywords" content="DefaultReadFileReader ReactiveMongo API 0.11.0 M3 reactivemongo.api.gridfs.Implicits.DefaultReadFileReader" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -43,13 +43,13 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">DefaultReadFileReader</span><span class="result"> extends <a href="../../bson/BSONDocumentReader.html" class="extype" name="reactivemongo.bson.BSONDocumentReader">BSONDocumentReader</a>[<a href="ReadFile.html" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]]</span>
+        <span class="name">DefaultReadFileReader</span><span class="result"> extends <a href="../../bson/BSONDocumentReader.html" class="extype" name="reactivemongo.bson.BSONDocumentReader">BSONDocumentReader</a>[<a href="ReadFile.html" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<a href="../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type, <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]]</span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A default <code>BSONReader</code> for <code>ReadFile</code>.</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="../../bson/BSONDocumentReader.html" class="extype" name="reactivemongo.bson.BSONDocumentReader">BSONDocumentReader</a>[<a href="ReadFile.html" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]], <a href="../../bson/BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>, <a href="ReadFile.html" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="../../bson/BSONDocumentReader.html" class="extype" name="reactivemongo.bson.BSONDocumentReader">BSONDocumentReader</a>[<a href="ReadFile.html" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<a href="../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type, <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]], <a href="../../bson/BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>, <a href="ReadFile.html" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<a href="../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type, <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -364,14 +364,14 @@ If used outside a reader, one should consider <code>readTry(bson: B): Try[T]</co
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.gridfs.Implicits.DefaultReadFileReader">DefaultReadFileReader</a> → <a href="../../bson/BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a></dd></dl></div>
     </li><li name="reactivemongo.bson.BSONReader#readOpt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="readOpt(bson:B):Option[T]"></a>
-      <a id="readOpt(BSONDocument):Option[ReadFile[BSONValue]]"></a>
+      <a id="readOpt(BSONDocument):Option[ReadFile[BSONSerializationPack.type,BSONValue]]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">readOpt</span><span class="params">(<span name="bson">bson: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="ReadFile.html" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]]</span>
+        <span class="name">readOpt</span><span class="params">(<span name="bson">bson: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="ReadFile.html" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<a href="../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type, <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.gridfs.Implicits$$DefaultReadFileReader$@readOpt(bson:B):Option[T]" title="Permalink" target="_top">
@@ -381,14 +381,14 @@ If used outside a reader, one should consider <code>readTry(bson: B): Try[T]</co
       <p class="shortcomment cmt">Tries to produce an instance of <code>T</code> from the <code>bson</code> value, returns <code>None</code> if an error occurred.</p><div class="fullcomment"><div class="comment cmt"><p>Tries to produce an instance of <code>T</code> from the <code>bson</code> value, returns <code>None</code> if an error occurred.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../bson/BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a></dd></dl></div>
     </li><li name="reactivemongo.bson.BSONReader#readTry" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="readTry(bson:B):scala.util.Try[T]"></a>
-      <a id="readTry(BSONDocument):Try[ReadFile[BSONValue]]"></a>
+      <a id="readTry(BSONDocument):Try[ReadFile[BSONSerializationPack.type,BSONValue]]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">readTry</span><span class="params">(<span name="bson">bson: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span><span class="result">: <span class="extype" name="scala.util.Try">Try</span>[<a href="ReadFile.html" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]]</span>
+        <span class="name">readTry</span><span class="params">(<span name="bson">bson: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span><span class="result">: <span class="extype" name="scala.util.Try">Try</span>[<a href="ReadFile.html" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<a href="../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type, <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.gridfs.Implicits$$DefaultReadFileReader$@readTry(bson:B):scala.util.Try[T]" title="Permalink" target="_top">
@@ -509,9 +509,9 @@ If used outside a reader, one should consider <code>readTry(bson: B): Try[T]</co
 
         <div id="inheritedMembers">
         <div class="parent" name="reactivemongo.bson.BSONDocumentReader">
-              <h3>Inherited from <a href="../../bson/BSONDocumentReader.html" class="extype" name="reactivemongo.bson.BSONDocumentReader">BSONDocumentReader</a>[<a href="ReadFile.html" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]]</h3>
+              <h3>Inherited from <a href="../../bson/BSONDocumentReader.html" class="extype" name="reactivemongo.bson.BSONDocumentReader">BSONDocumentReader</a>[<a href="ReadFile.html" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<a href="../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type, <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]]</h3>
             </div><div class="parent" name="reactivemongo.bson.BSONReader">
-              <h3>Inherited from <a href="../../bson/BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>, <a href="ReadFile.html" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]]</h3>
+              <h3>Inherited from <a href="../../bson/BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>, <a href="ReadFile.html" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<a href="../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type, <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]]</h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">

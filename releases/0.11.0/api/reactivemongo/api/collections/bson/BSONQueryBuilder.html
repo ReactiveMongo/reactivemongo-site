@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>BSONQueryBuilder - ReactiveMongo API 0.11.0-M1 - reactivemongo.api.collections.bson.BSONQueryBuilder</title>
-          <meta name="description" content="BSONQueryBuilder - ReactiveMongo API 0.11.0 - M1 - reactivemongo.api.collections.bson.BSONQueryBuilder" />
-          <meta name="keywords" content="BSONQueryBuilder ReactiveMongo API 0.11.0 M1 reactivemongo.api.collections.bson.BSONQueryBuilder" />
+          <title>BSONQueryBuilder - ReactiveMongo API 0.11.0-M3 - reactivemongo.api.collections.bson.BSONQueryBuilder</title>
+          <meta name="description" content="BSONQueryBuilder - ReactiveMongo API 0.11.0 - M3 - reactivemongo.api.collections.bson.BSONQueryBuilder" />
+          <meta name="keywords" content="BSONQueryBuilder ReactiveMongo API 0.11.0 M3 reactivemongo.api.collections.bson.BSONQueryBuilder" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -343,23 +343,24 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.collections.bson.BSONQueryBuilder">BSONQueryBuilder</a> → <a href="../GenericQueryBuilder.html" class="extype" name="reactivemongo.api.collections.GenericQueryBuilder">GenericQueryBuilder</a></dd></dl></div>
     </li><li name="reactivemongo.api.collections.GenericQueryBuilder#cursor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="cursor[T](implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor"></a>
-      <a id="cursor[T](Reader[T],ExecutionContext,CursorProducer[T]):ProducedCursor"></a>
+      <a id="cursor[T](readPreference:reactivemongo.api.ReadPreference,isMongo26WriteOp:Boolean)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor"></a>
+      <a id="cursor[T](ReadPreference,Boolean)(Reader[T],ExecutionContext,CursorProducer[T]):ProducedCursor"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">cursor</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <a href="../../BSONSerializationPack$.html#Reader[A]=reactivemongo.bson.BSONDocumentReader[A]" class="extmbr" name="reactivemongo.api.BSONSerializationPack.Reader">Reader</a>[<span class="extype" name="reactivemongo.api.collections.GenericQueryBuilder.cursor.T">T</span>]</span>, <span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>, <span name="cp">cp: <a href="../../CursorProducer.html" class="extype" name="reactivemongo.api.CursorProducer">CursorProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericQueryBuilder.cursor.T">T</span>]</span>)</span><span class="result">: <a href="../../CursorProducer.html#ProducedCursor&lt;:reactivemongo.api.Cursor[T]" class="extmbr" name="reactivemongo.api.CursorProducer.ProducedCursor">ProducedCursor</a></span>
+        <span class="name">cursor</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="readPreference">readPreference: <a href="../../ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> = <span class="symbol"><span class="name"><a href="../../../package.html">ReadPreference.primary</a></span></span></span>, <span name="isMongo26WriteOp">isMongo26WriteOp: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <a href="../../BSONSerializationPack$.html#Reader[A]=reactivemongo.bson.BSONDocumentReader[A]" class="extmbr" name="reactivemongo.api.BSONSerializationPack.Reader">Reader</a>[<span class="extype" name="reactivemongo.api.collections.GenericQueryBuilder.cursor.T">T</span>]</span>, <span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>, <span name="cp">cp: <a href="../../CursorProducer.html" class="extype" name="reactivemongo.api.CursorProducer">CursorProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericQueryBuilder.cursor.T">T</span>]</span>)</span><span class="result">: <a href="../../CursorProducer.html#ProducedCursor&lt;:reactivemongo.api.Cursor[T]" class="extmbr" name="reactivemongo.api.CursorProducer.ProducedCursor">ProducedCursor</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#reactivemongo.api.collections.bson.BSONQueryBuilder@cursor[T](implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor" title="Permalink" target="_top">
+      <a href="../../../../index.html#reactivemongo.api.collections.bson.BSONQueryBuilder@cursor[T](readPreference:reactivemongo.api.ReadPreference,isMongo26WriteOp:Boolean)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">Sends this query and gets a <a href="../../Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a> of instances of <code>T</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Sends this query and gets a <a href="../../Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a> of instances of <code>T</code>.</p><p>An implicit <code>Reader[T]</code> must be present in the scope.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../GenericQueryBuilder.html" class="extype" name="reactivemongo.api.collections.GenericQueryBuilder">GenericQueryBuilder</a></dd></dl></div>
+      <p class="shortcomment cmt">Makes a <a href="../../Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a> of this query, which can be enumerated.</p><div class="fullcomment"><div class="comment cmt"><p>Makes a <a href="../../Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a> of this query, which can be enumerated.</p><p>An implicit <code>Reader[T]</code> must be present in the scope.
+</p></div><dl class="paramcmts block"><dt class="param">readPreference</dt><dd class="cmt"><p>The ReadPreference for this request. If the ReadPreference implies that this request might be run on a Secondary, the slaveOk flag will be set.
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../GenericQueryBuilder.html" class="extype" name="reactivemongo.api.collections.GenericQueryBuilder">GenericQueryBuilder</a></dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
       <a id="ensuring((BSONQueryBuilder)⇒Boolean,⇒Any):BSONQueryBuilder"></a>
@@ -1052,7 +1053,31 @@
 
         
 
-        
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="reactivemongo.api.collections.GenericQueryBuilder#cursor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="cursor[T](implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor"></a>
+      <a id="cursor[T](Reader[T],ExecutionContext,CursorProducer[T]):ProducedCursor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.0) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@135f2239 function with read preference.">cursor</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <a href="../../BSONSerializationPack$.html#Reader[A]=reactivemongo.bson.BSONDocumentReader[A]" class="extmbr" name="reactivemongo.api.BSONSerializationPack.Reader">Reader</a>[<span class="extype" name="reactivemongo.api.collections.GenericQueryBuilder.cursor.T">T</span>]</span>, <span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>, <span name="cp">cp: <a href="../../CursorProducer.html" class="extype" name="reactivemongo.api.CursorProducer">CursorProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericQueryBuilder.cursor.T">T</span>]</span>)</span><span class="result">: <a href="../../CursorProducer.html#ProducedCursor&lt;:reactivemongo.api.Cursor[T]" class="extmbr" name="reactivemongo.api.CursorProducer.ProducedCursor">ProducedCursor</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.collections.bson.BSONQueryBuilder@cursor[T](implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Sends this query and gets a <a href="../../Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a> of instances of <code>T</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Sends this query and gets a <a href="../../Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a> of instances of <code>T</code>.</p><p>An implicit <code>Reader[T]</code> must be present in the scope.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../GenericQueryBuilder.html" class="extype" name="reactivemongo.api.collections.GenericQueryBuilder">GenericQueryBuilder</a></dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.0)</i> Use <a href="#cursor[T](readPreference:reactivemongo.api.ReadPreference,isMongo26WriteOp:Boolean)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor" class="extmbr" name="reactivemongo.api.collections.bson.BSONQueryBuilder#cursor">cursor</a> function with read preference.</p></dd></dl></div>
+    </li></ol>
+            </div>
         </div>
 
         <div id="inheritedMembers">

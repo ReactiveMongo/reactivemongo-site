@@ -27,8 +27,9 @@ title: ReactiveMongo - Documentation
 
 * The [documentation](/releases/0.11.0/documentation/index.html) of the latest ReactiveMongo version ([__0.11.0__](/releases/0.11.0/documentation/index.html))
 * Samples
-    * [ReactiveMongo Tailable Cursor, WebSocket and Play 2](https://github.com/sgodbillon/reactivemongo-tailablecursor-demo)
-    * [Full Web Application featuring basic CRUD operations and GridFS streaming](https://github.com/sgodbillon/reactivemongo-demo-app)
+    * [ReactiveMongo Tailable Cursor, WebSocket and Play 2](https://github.com/cchantep/reactivemongo-tailablecursor-demo)
+    * [Play Reactive Mongo application with KnockoutJS frontend](http://www.typesafe.com/activator/template/play-mongo-knockout)
+    * [Full Web Application featuring basic CRUD operations and GridFS streaming](https://github.com/cchantep/reactivemongo-demo-app)
 * Screencasts
     * [ReactiveMongo](http://yobriefca.se/screencasts/004-reactivemongo) (by James Hughes)
     * [ReactiveMongo Play Plugin](http://yobriefca.se/screencasts/005-play-reactivemongo) (by James Hughes)

@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>DefaultFileToSave - ReactiveMongo API 0.11.0-M1 - reactivemongo.api.gridfs.DefaultFileToSave</title>
-          <meta name="description" content="DefaultFileToSave - ReactiveMongo API 0.11.0 - M1 - reactivemongo.api.gridfs.DefaultFileToSave" />
-          <meta name="keywords" content="DefaultFileToSave ReactiveMongo API 0.11.0 M1 reactivemongo.api.gridfs.DefaultFileToSave" />
+          <title>DefaultFileToSave - ReactiveMongo API 0.11.0-M3 - reactivemongo.api.gridfs.DefaultFileToSave</title>
+          <meta name="description" content="DefaultFileToSave - ReactiveMongo API 0.11.0 - M3 - reactivemongo.api.gridfs.DefaultFileToSave" />
+          <meta name="keywords" content="DefaultFileToSave ReactiveMongo API 0.11.0 M3 reactivemongo.api.gridfs.DefaultFileToSave" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -43,13 +43,13 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">DefaultFileToSave</span><span class="params">(<span name="filename">filename: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="contentType">contentType: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="uploadDate">uploadDate: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>] = <span class="symbol">None</span></span>, <span name="metadata">metadata: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a> = <span class="symbol"><span class="name"><a href="../../package.html">BSONDocument()</a></span></span></span>, <span name="id">id: <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> = <span class="symbol"><span class="name"><a href="../../package.html">BSONObjectID.generate</a></span></span></span>)</span><span class="result"> extends <a href="FileToSave.html" class="extype" name="reactivemongo.api.gridfs.FileToSave">FileToSave</a>[<a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">DefaultFileToSave</span><span class="params">(<span name="filename">filename: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="contentType">contentType: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="uploadDate">uploadDate: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>] = <span class="symbol">None</span></span>, <span name="metadata">metadata: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a> = <span class="symbol"><span class="name"><a href="../../package.html">BSONDocument()</a></span></span></span>, <span name="id">id: <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> = <span class="symbol"><span class="name"><a href="../../package.html">BSONObjectID.generate</a></span></span></span>)</span><span class="result"> extends <a href="FileToSave.html" class="extype" name="reactivemongo.api.gridfs.FileToSave">FileToSave</a>[<a href="../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type, <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A default implementation of <code>FileToSave[BSONValue]</code>.</p></div><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A BSON implementation of <code>FileToSave</code>.</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="FileToSave.html" class="extype" name="reactivemongo.api.gridfs.FileToSave">FileToSave</a>[<a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>], <a href="CustomMetadata.html" class="extype" name="reactivemongo.api.gridfs.CustomMetadata">CustomMetadata</a>, <a href="BasicMetadata.html" class="extype" name="reactivemongo.api.gridfs.BasicMetadata">BasicMetadata</a>[<a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="FileToSave.html" class="extype" name="reactivemongo.api.gridfs.FileToSave">FileToSave</a>[<a href="../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type, <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>], <a href="CustomMetadata.html" class="extype" name="reactivemongo.api.gridfs.CustomMetadata">CustomMetadata</a>[<a href="../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type], <a href="BasicMetadata.html" class="extype" name="reactivemongo.api.gridfs.BasicMetadata">BasicMetadata</a>[<a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -555,6 +555,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="reactivemongo.api.gridfs.DefaultFileToSave#pack" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="pack:reactivemongo.api.BSONSerializationPack.type"></a>
+      <a id="pack:BSONSerializationPack.type"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">pack</span><span class="result">: <a href="../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.gridfs.DefaultFileToSave@pack:reactivemongo.api.BSONSerializationPack.type" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.gridfs.DefaultFileToSave">DefaultFileToSave</a> → <a href="CustomMetadata.html" class="extype" name="reactivemongo.api.gridfs.CustomMetadata">CustomMetadata</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -697,9 +714,9 @@
             </div><div class="parent" name="scala.Equals">
               <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
             </div><div class="parent" name="reactivemongo.api.gridfs.FileToSave">
-              <h3>Inherited from <a href="FileToSave.html" class="extype" name="reactivemongo.api.gridfs.FileToSave">FileToSave</a>[<a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]</h3>
+              <h3>Inherited from <a href="FileToSave.html" class="extype" name="reactivemongo.api.gridfs.FileToSave">FileToSave</a>[<a href="../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type, <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]</h3>
             </div><div class="parent" name="reactivemongo.api.gridfs.CustomMetadata">
-              <h3>Inherited from <a href="CustomMetadata.html" class="extype" name="reactivemongo.api.gridfs.CustomMetadata">CustomMetadata</a></h3>
+              <h3>Inherited from <a href="CustomMetadata.html" class="extype" name="reactivemongo.api.gridfs.CustomMetadata">CustomMetadata</a>[<a href="../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type]</h3>
             </div><div class="parent" name="reactivemongo.api.gridfs.BasicMetadata">
               <h3>Inherited from <a href="BasicMetadata.html" class="extype" name="reactivemongo.api.gridfs.BasicMetadata">BasicMetadata</a>[<a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]</h3>
             </div><div class="parent" name="scala.AnyRef">

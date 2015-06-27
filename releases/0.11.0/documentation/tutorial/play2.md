@@ -16,12 +16,14 @@ libraryDependencies ++= Seq(
 )
 {% endhighlight %}
 
+> As for Play 2.4 itself, this ReactiveMongo plugin requires a JVM 1.8+.
+
 If you are looking for a stable version for Play 2.3, please consider using the 0.11.0.play23 version:
 
 {% highlight scala %}
 // Only for Play 2.3.x
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.0.play23-M2"
+  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.0.play23-M3"
 )
 {% endhighlight %}
 
@@ -71,9 +73,21 @@ class MyController @Inject() (val reactiveMongoApi: ReactiveMongoApi)
 }
 {% endhighlight %}
 
+> When using Play dependency injection for a controller, the [injected routes need to be enabled](https://www.playframework.com/documentation/2.4.0/ScalaRouting#Dependency-Injection) by adding `routesGenerator := InjectedRoutesGenerator` to your build.
+
+The trait `ReactiveMongoApi` is defined as below.
+
+{% highlight scala %}
+trait ReactiveMongoApi {
+  def driver: MongoDriver
+  def connection: MongoConnection
+  def db: DB
+}
+{% endhighlight %}
+
 ### Play 2.3
 
-The version `0.11.0.play23-M2` of this plugin is available for Play 2.3.
+The version `0.11.0.play23-M3` of this plugin is available for Play 2.3.
 
 Add to your `conf/play.plugins`:
 
@@ -209,7 +223,7 @@ import play.modules.reactivemongo.{ // ReactiveMongo Play2 plugin
 
 // BSON-JSON conversions/collection
 import play.modules.reactivemongo.json._, ImplicitBSONHandlers._
-import play.modules.reactivemongo.json.collection.JSONCollection
+import play.modules.reactivemongo.json.collection._
 
 /*
  * Example using ReactiveMongo + Play JSON library.
@@ -364,7 +378,7 @@ import play.modules.reactivemongo.{ // ReactiveMongo Play2 plugin
 
 // BSON-JSON conversions/collection
 import play.modules.reactivemongo.json._, ImplicitBSONHandlers._
-import play.modules.reactivemongo.json.collection.JSONCollection
+import play.modules.reactivemongo.json.collection._
 
 /*
  * Example using ReactiveMongo + Play JSON library.

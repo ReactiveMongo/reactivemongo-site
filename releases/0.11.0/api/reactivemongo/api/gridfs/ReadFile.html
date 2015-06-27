@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>ReadFile - ReactiveMongo API 0.11.0-M1 - reactivemongo.api.gridfs.ReadFile</title>
-          <meta name="description" content="ReadFile - ReactiveMongo API 0.11.0 - M1 - reactivemongo.api.gridfs.ReadFile" />
-          <meta name="keywords" content="ReadFile ReactiveMongo API 0.11.0 M1 reactivemongo.api.gridfs.ReadFile" />
+          <title>ReadFile - ReactiveMongo API 0.11.0-M3 - reactivemongo.api.gridfs.ReadFile</title>
+          <meta name="description" content="ReadFile - ReactiveMongo API 0.11.0 - M3 - reactivemongo.api.gridfs.ReadFile" />
+          <meta name="keywords" content="ReadFile ReactiveMongo API 0.11.0 M3 reactivemongo.api.gridfs.ReadFile" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -43,14 +43,14 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">ReadFile</span><span class="tparams">[<span name="Id">+Id &lt;: <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>]</span><span class="result"> extends <a href="BasicMetadata.html" class="extype" name="reactivemongo.api.gridfs.BasicMetadata">BasicMetadata</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] with <a href="CustomMetadata.html" class="extype" name="reactivemongo.api.gridfs.CustomMetadata">CustomMetadata</a> with <a href="ComputedMetadata.html" class="extype" name="reactivemongo.api.gridfs.ComputedMetadata">ComputedMetadata</a></span>
+        <span class="name">ReadFile</span><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a> with <span class="extype" name="scala.Singleton">Singleton</span></span>, <span name="Id">+Id</span>]</span><span class="result"> extends <a href="BasicMetadata.html" class="extype" name="reactivemongo.api.gridfs.BasicMetadata">BasicMetadata</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] with <a href="CustomMetadata.html" class="extype" name="reactivemongo.api.gridfs.CustomMetadata">CustomMetadata</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>] with <a href="ComputedMetadata.html" class="extype" name="reactivemongo.api.gridfs.ComputedMetadata">ComputedMetadata</a></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A file read from a GridFS store.</p></div><dl class="paramcmts block"><dt class="tparam">Id</dt><dd class="cmt"><p>Type of the id of this file (generally <code>BSONObjectID</code> or <code>BSONValue</code>).
 </p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="ComputedMetadata.html" class="extype" name="reactivemongo.api.gridfs.ComputedMetadata">ComputedMetadata</a>, <a href="CustomMetadata.html" class="extype" name="reactivemongo.api.gridfs.CustomMetadata">CustomMetadata</a>, <a href="BasicMetadata.html" class="extype" name="reactivemongo.api.gridfs.BasicMetadata">BasicMetadata</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="ComputedMetadata.html" class="extype" name="reactivemongo.api.gridfs.ComputedMetadata">ComputedMetadata</a>, <a href="CustomMetadata.html" class="extype" name="reactivemongo.api.gridfs.CustomMetadata">CustomMetadata</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>], <a href="BasicMetadata.html" class="extype" name="reactivemongo.api.gridfs.BasicMetadata">BasicMetadata</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
             <span class="toggle">Known Subclasses</span>
             <div class="subClasses hiddenContent"><a href="DefaultReadFile.html" class="extype" name="reactivemongo.api.gridfs.DefaultReadFile">DefaultReadFile</a></div>
@@ -203,22 +203,39 @@
     </span>
       <p class="shortcomment cmt">MD5 hash of this file.</p><div class="fullcomment"><div class="comment cmt"><p>MD5 hash of this file.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ComputedMetadata.html" class="extype" name="reactivemongo.api.gridfs.ComputedMetadata">ComputedMetadata</a></dd></dl></div>
     </li><li name="reactivemongo.api.gridfs.CustomMetadata#metadata" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="metadata:reactivemongo.bson.BSONDocument"></a>
-      <a id="metadata:BSONDocument"></a>
+      <a id="metadata:CustomMetadata.this.pack.Document"></a>
+      <a id="metadata:P.Document"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">abstract </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">metadata</span><span class="result">: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>
+        <span class="name">metadata</span><span class="result">: <span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.gridfs.ReadFile@metadata:reactivemongo.bson.BSONDocument" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.gridfs.ReadFile@metadata:CustomMetadata.this.pack.Document" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
       <p class="shortcomment cmt">A BSONDocument holding all the metadata that are not standard.</p><div class="fullcomment"><div class="comment cmt"><p>A BSONDocument holding all the metadata that are not standard.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CustomMetadata.html" class="extype" name="reactivemongo.api.gridfs.CustomMetadata">CustomMetadata</a></dd></dl></div>
+    </li><li name="reactivemongo.api.gridfs.CustomMetadata#pack" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="pack:P"></a>
+      <a id="pack:P"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">pack</span><span class="result">: <span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.gridfs.ReadFile@pack:P" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CustomMetadata.html" class="extype" name="reactivemongo.api.gridfs.CustomMetadata">CustomMetadata</a></dd></dl></div>
     </li><li name="reactivemongo.api.gridfs.BasicMetadata#uploadDate" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="uploadDate:Option[Long]"></a>
       <a id="uploadDate:Option[Long]"></a>
@@ -292,20 +309,20 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to
-            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]] performed by method any2stringadd in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]] performed by method any2stringadd in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="-&gt;[B](y:B):(A,B)"></a>
-      <a id="-&gt;[B](B):(ReadFile[Id],B)"></a>
+      <a id="-&gt;[B](B):(ReadFile[P,Id],B)"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>], <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>], <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.gridfs.ReadFile@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
@@ -313,8 +330,8 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -379,14 +396,14 @@
         </dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
-      <a id="ensuring((ReadFile[Id])⇒Boolean,⇒Any):ReadFile[Id]"></a>
+      <a id="ensuring((ReadFile[P,Id])⇒Boolean,⇒Any):ReadFile[P,Id]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.gridfs.ReadFile@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -394,20 +411,20 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean):A"></a>
-      <a id="ensuring((ReadFile[Id])⇒Boolean):ReadFile[Id]"></a>
+      <a id="ensuring((ReadFile[P,Id])⇒Boolean):ReadFile[P,Id]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.gridfs.ReadFile@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
@@ -415,20 +432,20 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
-      <a id="ensuring(Boolean,⇒Any):ReadFile[Id]"></a>
+      <a id="ensuring(Boolean,⇒Any):ReadFile[P,Id]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.gridfs.ReadFile@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -436,20 +453,20 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:Boolean):A"></a>
-      <a id="ensuring(Boolean):ReadFile[Id]"></a>
+      <a id="ensuring(Boolean):ReadFile[P,Id]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.gridfs.ReadFile@ensuring(cond:Boolean):A" title="Permalink" target="_top">
@@ -457,8 +474,8 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -535,8 +552,8 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to
-            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]] performed by method StringFormat in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]] performed by method StringFormat in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -749,14 +766,14 @@
         </dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="→[B](y:B):(A,B)"></a>
-      <a id="→[B](B):(ReadFile[Id],B)"></a>
+      <a id="→[B](B):(ReadFile[P,Id],B)"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>], <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>], <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.gridfs.ReadFile@→[B](y:B):(A,B)" title="Permalink" target="_top">
@@ -764,8 +781,8 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
     </li></ol>
@@ -780,7 +797,7 @@
         <div class="parent" name="reactivemongo.api.gridfs.ComputedMetadata">
               <h3>Inherited from <a href="ComputedMetadata.html" class="extype" name="reactivemongo.api.gridfs.ComputedMetadata">ComputedMetadata</a></h3>
             </div><div class="parent" name="reactivemongo.api.gridfs.CustomMetadata">
-              <h3>Inherited from <a href="CustomMetadata.html" class="extype" name="reactivemongo.api.gridfs.CustomMetadata">CustomMetadata</a></h3>
+              <h3>Inherited from <a href="CustomMetadata.html" class="extype" name="reactivemongo.api.gridfs.CustomMetadata">CustomMetadata</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>]</h3>
             </div><div class="parent" name="reactivemongo.api.gridfs.BasicMetadata">
               <h3>Inherited from <a href="BasicMetadata.html" class="extype" name="reactivemongo.api.gridfs.BasicMetadata">BasicMetadata</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]</h3>
             </div><div class="parent" name="scala.AnyRef">
@@ -790,19 +807,19 @@
             </div>
         <div class="conversion" name="scala.Predef.any2stringadd">
               <h3>Inherited by implicit conversion any2stringadd from
-                <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]]
+                <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.StringFormat">
               <h3>Inherited by implicit conversion StringFormat from
-                <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]]
+                <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.Ensuring">
               <h3>Inherited by implicit conversion Ensuring from
-                <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]]
+                <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.ArrowAssoc">
               <h3>Inherited by implicit conversion ArrowAssoc from
-                <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]]
+                <a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>] to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<span class="extype" name="reactivemongo.api.gridfs.ReadFile.P">P</span>, <span class="extype" name="reactivemongo.api.gridfs.ReadFile.Id">Id</span>]]
               </h3>
             </div>
         </div>
