@@ -29,6 +29,7 @@ title: ReactiveMongo - Documentation
 * Samples
     * [ReactiveMongo Tailable Cursor, WebSocket and Play 2](https://github.com/cchantep/reactivemongo-tailablecursor-demo)
     * [Play Reactive Mongo application with KnockoutJS frontend](http://www.typesafe.com/activator/template/play-mongo-knockout)
+    * [Play Framework with REST, ReactiveMongo and Polymer](http://www.typesafe.com/activator/template/play-reactivemongo-polymer)
     * [Full Web Application featuring basic CRUD operations and GridFS streaming](https://github.com/cchantep/reactivemongo-demo-app)
 * Screencasts
     * [ReactiveMongo](http://yobriefca.se/screencasts/004-reactivemongo) (by James Hughes)
