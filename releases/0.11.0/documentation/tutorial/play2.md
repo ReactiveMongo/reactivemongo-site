@@ -195,6 +195,18 @@ trait MyController extends MongoController {
 }
 {% endhighlight %}
 
+### JSON cursors
+
+ReactiveMongo for Play Framework provides some extensions of the result cursors, as `.jsArray()` to read underlying data as a JSON array.
+
+{% highlight scala %}
+import play.modules.reactivemongo.json.collection.JsCursor._
+
+type ResultType = JsObject // any type which is provided a `Writes[T]`
+
+jsonCollection.find(Json.obj()).cursor[ResultType].jsArray()
+{% endhighlight %}
+
 ## Code samples
 
 ### Play2 controller sample
@@ -301,9 +313,8 @@ class Application @Inject() (val reactiveMongoApi: ReactiveMongoApi)
     val futurePersonsList: Future[List[JsObject]] = cursor.collect[List]()
 
     // transform the list into a JsArray
-    val futurePersonsJsonArray: Future[JsArray] = futurePersonsList.map { persons =>
-      Json.arr(persons)
-    }
+    val futurePersonsJsonArray: Future[JsArray] =
+      futurePersonsList.map { persons => Json.arr(persons: _*) }
 
     // everything's ok! Let's reply with the array
     futurePersonsJsonArray.map { persons =>

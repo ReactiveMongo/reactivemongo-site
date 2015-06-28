@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Collection - ReactiveMongo API 0.11.0-M3 - reactivemongo.api.Collection</title>
-          <meta name="description" content="Collection - ReactiveMongo API 0.11.0 - M3 - reactivemongo.api.Collection" />
-          <meta name="keywords" content="Collection ReactiveMongo API 0.11.0 M3 reactivemongo.api.Collection" />
+          <title>Collection - ReactiveMongo API 0.11.0 - reactivemongo.api.Collection</title>
+          <meta name="description" content="Collection - ReactiveMongo API 0.11.0 - reactivemongo.api.Collection" />
+          <meta name="keywords" content="Collection ReactiveMongo API 0.11.0 reactivemongo.api.Collection" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -30,7 +30,9 @@
       <div id="definition">
         <img src="../../lib/trait_big.png" />
         <p id="owner"><a href="../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="package.html" class="extype" name="reactivemongo.api">api</a></p>
-        <h1>Collection</h1> <span class="permalink">
+        <h1>Collection</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="reactivemongo.api">package api</a>
+          </div></span></h3><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Collection" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" />
       </a>
@@ -49,39 +51,39 @@
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A MongoDB Collection. You should consider the default implementation, <span class="extype" name="reactivemongo.api.collections.default.BSONCollection">reactivemongo.api.collections.default.BSONCollection</span>.</p><p>Example using the default implementation (BSONCollection):</p><pre><span class="kw">object</span> Samples {
 
-<span class="kw">val</span> connection = MongoConnection(<span class="std">List</span>(<span class="lit">"localhost"</span>))
+  <span class="kw">val</span> connection = MongoConnection(<span class="std">List</span>(<span class="lit">"localhost"</span>))
 
-<span class="cmt">// Gets a reference to the database "plugin"</span>
-<span class="kw">val</span> db = connection(<span class="lit">"plugin"</span>)
+  <span class="cmt">// Gets a reference to the database "plugin"</span>
+  <span class="kw">val</span> db = connection(<span class="lit">"plugin"</span>)
 
-<span class="cmt">// Gets a reference to the collection "acoll"</span>
-<span class="cmt">// By default, you get a BSONCollection.</span>
-<span class="kw">val</span> collection = db(<span class="lit">"acoll"</span>)
+  <span class="cmt">// Gets a reference to the collection "acoll"</span>
+  <span class="cmt">// By default, you get a BSONCollection.</span>
+  <span class="kw">val</span> collection = db(<span class="lit">"acoll"</span>)
 
-<span class="kw">def</span> listDocs() = {
-  <span class="cmt">// Select only the documents which field 'firstName' equals 'Jack'</span>
-  <span class="kw">val</span> query = BSONDocument(<span class="lit">"firstName"</span> -&gt; <span class="lit">"Jack"</span>)
-  <span class="cmt">// select only the field 'lastName'</span>
-  <span class="kw">val</span> filter = BSONDocument(
-    <span class="lit">"lastName"</span> -&gt; <span class="num">1</span>,
-    <span class="lit">"_id"</span> -&gt; <span class="num">0</span>)
+  <span class="kw">def</span> listDocs() = {
+    <span class="cmt">// Select only the documents which field 'firstName' equals 'Jack'</span>
+    <span class="kw">val</span> query = BSONDocument(<span class="lit">"firstName"</span> -&gt; <span class="lit">"Jack"</span>)
+    <span class="cmt">// select only the field 'lastName'</span>
+    <span class="kw">val</span> filter = BSONDocument(
+      <span class="lit">"lastName"</span> -&gt; <span class="num">1</span>,
+      <span class="lit">"_id"</span> -&gt; <span class="num">0</span>)
 
-  <span class="cmt">// Get a cursor of BSONDocuments</span>
-  <span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument]
-  <span class="cmt">// Let's enumerate this cursor and print a readable representation of each document in the response</span>
-  cursor.enumerate().apply(Iteratee.foreach { doc <span class="kw">=&gt;</span>
-    println(<span class="lit">"found document: "</span> + BSONDocument.pretty(doc))
-  })
-
-  <span class="cmt">// Or, the same with getting a list</span>
-  <span class="kw">val</span> cursor2 = collection.find(query, filter).cursor[BSONDocument]
-  <span class="kw">val</span> futureList = cursor.collect[<span class="std">List</span>]()
-  futureList.map { list <span class="kw">=&gt;</span>
-    list.foreach { doc <span class="kw">=&gt;</span>
+    <span class="cmt">// Get a cursor of BSONDocuments</span>
+    <span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument]
+    <span class="cmt">// Let's enumerate this cursor and print a readable representation of each document in the response</span>
+    cursor.enumerate().apply(Iteratee.foreach { doc <span class="kw">=&gt;</span>
       println(<span class="lit">"found document: "</span> + BSONDocument.pretty(doc))
+    })
+
+    <span class="cmt">// Or, the same with getting a list</span>
+    <span class="kw">val</span> cursor2 = collection.find(query, filter).cursor[BSONDocument]
+    <span class="kw">val</span> futureList = cursor.collect[<span class="std">List</span>]()
+    futureList.map { list <span class="kw">=&gt;</span>
+      list.foreach { doc <span class="kw">=&gt;</span>
+        println(<span class="lit">"found document: "</span> + BSONDocument.pretty(doc))
+      }
     }
   }
-}
 }</pre></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>

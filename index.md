@@ -48,7 +48,7 @@ ReactiveMongo is available on [Maven Central](http://search.maven.org/#browse%7C
 
 {% highlight scala %}
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "reactivemongo" % "0.11.0-M1"
+  "org.reactivemongo" %% "reactivemongo" % "0.11.0"
 )
 {% endhighlight %}
 

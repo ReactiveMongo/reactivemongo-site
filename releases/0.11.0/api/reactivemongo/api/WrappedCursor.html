@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>WrappedCursor - ReactiveMongo API 0.11.0-M3 - reactivemongo.api.WrappedCursor</title>
-          <meta name="description" content="WrappedCursor - ReactiveMongo API 0.11.0 - M3 - reactivemongo.api.WrappedCursor" />
-          <meta name="keywords" content="WrappedCursor ReactiveMongo API 0.11.0 M3 reactivemongo.api.WrappedCursor" />
+          <title>WrappedCursor - ReactiveMongo API 0.11.0 - reactivemongo.api.WrappedCursor</title>
+          <meta name="description" content="WrappedCursor - ReactiveMongo API 0.11.0 - reactivemongo.api.WrappedCursor" />
+          <meta name="keywords" content="WrappedCursor ReactiveMongo API 0.11.0 reactivemongo.api.WrappedCursor" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -30,7 +30,9 @@
       <div id="definition">
         <img src="../../lib/trait_big.png" />
         <p id="owner"><a href="../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="package.html" class="extype" name="reactivemongo.api">api</a></p>
-        <h1>WrappedCursor</h1> <span class="permalink">
+        <h1>WrappedCursor</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="reactivemongo.api">package api</a>
+          </div></span></h3><span class="permalink">
       <a href="../../index.html#reactivemongo.api.WrappedCursor" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" />
       </a>
@@ -547,7 +549,7 @@ by this cursor, going first to last.
 by this cursor, going first to last.</p><div class="fullcomment"><div class="comment cmt"><p>Applies a binary operator to a start value and all elements retrieved
 by this cursor, going first to last.
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the result type of the binary operator.</p></dd><dt class="param">z</dt><dd class="cmt"><p>the start value.</p></dd><dt class="param">maxDocs</dt><dd class="cmt"><p>the maximum number of documents to be read.</p></dd><dt class="param">suc</dt><dd class="cmt"><p>the binary operator to be applied when the next document is successfully read.</p></dd><dt class="param">err</dt><dd class="cmt"><p>the binary operator to be applied when failing to read the next document.</p><pre>cursor.foldWhile(Nil: <span class="std">Seq</span>[Person])((s, p) <span class="kw">=&gt;</span> Cursor.Cont(s :+ p),
-{ (l, e) <span class="kw">=&gt;</span> println(<span class="lit">"last valid value: "</span> + l); Cursor.Fail(e) })</pre></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.WrappedCursor">WrappedCursor</a> → <a href="Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd></dl></div>
+  { (l, e) <span class="kw">=&gt;</span> println(<span class="lit">"last valid value: "</span> + l); Cursor.Fail(e) })</pre></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.WrappedCursor">WrappedCursor</a> → <a href="Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd></dl></div>
     </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="formatted(fmtstr:String):String"></a>
       <a id="formatted(String):String"></a>
