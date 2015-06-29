@@ -13,7 +13,7 @@ Enhancements:
 
 - New APIs, for the commands and [streaming](tutorial/consume-streams.html)
 - Compatibility with MongoDB 3
-- [SSL support](tutorial/setup.md)
+- [SSL support](tutorial/connect-database.html)
 - Builtin micro-DSL for BSON
 - Convenient operations on a collection (`.count`, `.runCommand`)
 
