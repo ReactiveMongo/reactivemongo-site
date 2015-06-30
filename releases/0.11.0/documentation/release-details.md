@@ -23,6 +23,10 @@ There is also a new version of the [Play Framework plugin](tutorial/play2.html).
 
 The [documentation](index.html) is also available and deprecates the old wiki. And of course, you can browse the [Scaladoc](../api/index.html).
 
+### Migration notes
+
+The `.save` operation on a BSON collection has been removed, and must be replaced by `.update(selectorDoc, updateDoc, upsert = true)`. This is to make the ReactiveMongo API more coherent, and benefit from the upsert semantic of the MongoDB update command.
+
 ### Stats
 
 Here is the list of the commits included in this release (since 0.10, the top commit is the most recent one):

@@ -10,17 +10,24 @@ A MongoDB Command is a special query that returns at most one document. It is ru
 The return type of `db.command()` depends on the kind of command you gave it as a parameter; for example, with `Count` it would return `Future[Int]`:
 
 {% highlight scala %}
-import reactivemongo.core.commands.Count
+// BSON implementation of the count command
+import reactivemongo.api.commands.bson.BSONCountCommand.{ Count, CountResult }
+
+// BSON serialization-deserialization for the count arguments and result
+import reactivemongo.api.commands.bson.BSONCountCommandImplicits._
 
 // count the number of documents which tag equals "closed"
 val query = BSONDocument("tag" -> "closed")
 val command = Count("collectionName", Some(query))
-val result = db.command(command) // returns Future[Int]
+val result: Future[CountResult] = bsonCollection.runCommand(command)
 
-result.map { numberOfDocs =>
+result.map { res =>
+  val numberOfDocs: Int = res.value
   // do something with this number
 }
 {% endhighlight %}
+
+> The `.count` operation is now directly available on collection.
 
 Some widely used commands, like `Count` or `FindAndModify`, are available in ReactiveMongo. But how to run commands that are not explicitly supported?
 

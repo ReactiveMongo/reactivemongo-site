@@ -30,9 +30,7 @@
       <div id="definition">
         <img src="../../lib/trait_big.png" />
         <p id="owner"><a href="../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="package.html" class="extype" name="reactivemongo.api">api</a></p>
-        <h1>Collection</h1><h3><span class="morelinks"><div>Related Doc:
-            <a href="package.html" class="extype" name="reactivemongo.api">package api</a>
-          </div></span></h3><span class="permalink">
+        <h1>Collection</h1> <span class="permalink">
       <a href="../../index.html#reactivemongo.api.Collection" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" />
       </a>
@@ -49,7 +47,10 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A MongoDB Collection. You should consider the default implementation, <span class="extype" name="reactivemongo.api.collections.default.BSONCollection">reactivemongo.api.collections.default.BSONCollection</span>.</p><p>Example using the default implementation (BSONCollection):</p><pre><span class="kw">object</span> Samples {
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A MongoDB Collection. You should consider the default BSON implementation.</p><p>Example using the default implementation:</p><pre><span class="kw">import</span> reactivemongo.bson._
+<span class="kw">import</span> reactivemongo.api.collections.bson.BSONCollection
+
+<span class="kw">object</span> Samples {
 
   <span class="kw">val</span> connection = MongoConnection(<span class="std">List</span>(<span class="lit">"localhost"</span>))
 
@@ -58,7 +59,7 @@
 
   <span class="cmt">// Gets a reference to the collection "acoll"</span>
   <span class="cmt">// By default, you get a BSONCollection.</span>
-  <span class="kw">val</span> collection = db(<span class="lit">"acoll"</span>)
+  <span class="kw">val</span> collection = db[BSONCollection](<span class="lit">"acoll"</span>)
 
   <span class="kw">def</span> listDocs() = {
     <span class="cmt">// Select only the documents which field 'firstName' equals 'Jack'</span>

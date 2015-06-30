@@ -30,7 +30,7 @@
       <div id="definition">
         <img src="../../../lib/package_big.png" />
         <p id="owner"><a href="../../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../package.html" class="extype" name="reactivemongo.api">api</a></p>
-        <h1>collections</h1><span class="permalink">
+        <h1>collections</h1> <span class="permalink">
       <a href="../../../index.html#reactivemongo.api.collections.package" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
@@ -99,9 +99,11 @@
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">A Collection that provides default methods using a <code>Structure</code> (like <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">reactivemongo.bson.BSONDocument</a>, or a Json document, etc.).</p><div class="fullcomment"><div class="comment cmt"><p>A Collection that provides default methods using a <code>Structure</code> (like <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">reactivemongo.bson.BSONDocument</a>, or a Json document, etc.).</p><p>Some methods of this collection accept instances of <code>Reader[T]</code> and <code>Writer[T]</code>, that transform any <code>T</code> instance into a <code>Structure</code> and vice-versa.
-The default implementation of <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a>, <span class="extype" name="reactivemongo.api.collections.default.BSONCollection">reactivemongo.api.collections.default.BSONCollection</span>, extends this trait.
-</p></div></div>
+      <p class="shortcomment cmt">A Collection that provides default methods using a <code>SerializationPack</code>
+(e.g.</p><div class="fullcomment"><div class="comment cmt"><p>A Collection that provides default methods using a <code>SerializationPack</code>
+(e.g. the default <a href="../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">reactivemongo.api.BSONSerializationPack</a>).</p><p>Some methods of this collection accept instances of <code>Reader[T]</code> and <code>Writer[T]</code>, that transform any <code>T</code> instance into a document, compatible with the selected serialization pack, and vice-versa.
+</p></div><dl class="paramcmts block"><dt class="tparam">P</dt><dd class="cmt"><p>the serialization pack
+</p></dd></dl></div>
     </li><li name="reactivemongo.api.collections.GenericCollectionProducer" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="GenericCollectionProducer[P&lt;:reactivemongo.api.SerializationPackwithSingleton,+C&lt;:reactivemongo.api.collections.GenericCollection[P]]extendsCollectionProducer[C]"></a>
       <a id="GenericCollectionProducer[P&lt;:SerializationPackwithSingleton,+C&lt;:GenericCollection[P]]:GenericCollectionProducer[P,C]"></a>
