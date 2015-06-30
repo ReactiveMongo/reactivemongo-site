@@ -25,7 +25,14 @@ The [documentation](index.html) is also available and deprecates the old wiki. A
 
 ### Migration notes
 
-The `.save` operation on a BSON collection has been removed, and must be replaced by `.update(selectorDoc, updateDoc, upsert = true)`. This is to make the ReactiveMongo API more coherent, and benefit from the upsert semantic of the MongoDB update command.
+The **`.save`** operation on a BSON collection has been removed, and must be replaced by `.update(selectorDoc, updateDoc, upsert = true)`. This is to make the ReactiveMongo API more coherent, and benefit from the upsert semantic of the MongoDB update command.
+
+{% highlight text %}
+No Json serializer as JsObject found for type play.api.libs.json.JsObject.
+Try to implement an implicit OWrites or OFormat for this type.
+{% endhighlight %}
+
+When using the **[Play Framework module](tutorial/play2.html)**, if the previous error occurs, it necessary to make sure `import play.modules.reactivemongo.json._, ImplicitBSONHandlers._` is used, to import default BSON/JSON conversions.
 
 ### Stats
 
