@@ -211,7 +211,7 @@ Used in conjonction with stream-aware frameworks, like Play!, you can easily str
 
 These sample applications are kept up to date with the latest driver version. They are built upon Play Framework.
 
-* [ReactiveMongo Tailable Cursor, WebSocket and Play 2](https://github.com/cchantep/reactivemongo-tailablecursor-demo)
+* [ReactiveMongo Tailable Cursor, WebSocket and Play 2](https://github.com/sgodbillon/reactivemongo-tailablecursor-demo)
 * [Play Reactive Mongo application with KnockoutJS frontend](http://www.typesafe.com/activator/template/play-mongo-knockout)
 * [Play Framework with REST, ReactiveMongo and Polymer](http://www.typesafe.com/activator/template/play-reactivemongo-polymer)
-* [Full Web Application featuring basic CRUD operations and GridFS streaming](https://github.com/cchantep/reactivemongo-demo-app)
+* [Full Web Application featuring basic CRUD operations and GridFS streaming](https://github.com/sgodbillon/reactivemongo-demo-app)
