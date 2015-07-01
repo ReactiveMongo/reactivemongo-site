@@ -47,6 +47,25 @@ future.onComplete {
 }
 {% endhighlight %}
 
+### Insert multiple document
+
+The operation [`bulkInsert`](../../api/index.html#reactivemongo.api.collections.GenericCollection@bulkInsert%28ordered:Boolean%29%28documents:GenericCollection.this.ImplicitlyDocumentProducer*%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.commands.MultiBulkWriteResult]) make it possible to insert multiple document.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import reactivemongo.api.commands.MultiBulkWriteResult
+
+// Considering `collection` a ReactiveMongo collection
+
+import collection.ImplicitlyDocumentProducer._
+
+val bulkResult: Future[MultiBulkWriteResult] =
+  collection.bulkInsert(ordered = false)(
+    BSONDocument("name" -> "document1"),
+    BSONDocument("name" -> "document2"),
+    BSONDocument("name" -> "document3"))
+{% endhighlight %}
+
 ### Update a document
 
 The updates are done with the `update()` method, which follow the same logic as `insert()`.
