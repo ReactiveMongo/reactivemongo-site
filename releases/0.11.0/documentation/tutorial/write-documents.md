@@ -56,14 +56,18 @@ import scala.concurrent.Future
 import reactivemongo.api.commands.MultiBulkWriteResult
 
 // Considering `collection` a ReactiveMongo collection
-
-import collection.ImplicitlyDocumentProducer._
-
 val bulkResult: Future[MultiBulkWriteResult] =
   collection.bulkInsert(ordered = false)(
     BSONDocument("name" -> "document1"),
     BSONDocument("name" -> "document2"),
     BSONDocument("name" -> "document3"))
+
+// Considering `persons` a `Seq[Person]`, 
+// provided a `BSONDocumentWriter[Person]` can be resolved.
+val bulkDocs = // prepare the person documents to be inserted
+  persons.map(implicitly[collection.ImplicitlyDocumentProducer](_))
+  
+val bulkResult = collection.bulkInsert(ordered = true)(bulkDocs: _*)
 {% endhighlight %}
 
 ### Update a document
