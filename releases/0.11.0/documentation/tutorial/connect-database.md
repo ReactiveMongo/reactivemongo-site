@@ -25,7 +25,9 @@ Then you can connect to a MongoDB server.
 val connection = driver.connection(List("localhost"))
 {% endhighlight %}
 
-You can also pass options while connecting.
+A `MongoDriver` instance manages an actor system; A connection manages a pool of connections. In general, a `MongoDriver` or a `MongoConnection` is never instantiated more than once. You can provide a list of one ore more servers; the driver will guess if it's a standalone server or a replica set configuration. Even with one replica node, the driver will probe for other nodes and add them automatically.
+
+Some options can be provided while creating a connection.
 
 {% highlight scala %}
 import reactivemongo.api.MongoConnectionOptions

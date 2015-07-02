@@ -85,18 +85,20 @@ def connect() {
 }
 {% endhighlight %}
 
-A `MongoDriver` instance manages an actor system; a `connection` manages a pool of connections. In general, MongoDriver or create a MongoConnection are never instantiated more than once. You can provide a list of one ore more servers; the driver will guess if it's a standalone server or a replica set configuration. Even with one replica node, the driver will probe for other nodes and add them automatically.
+A detailed documentation is available about the [ReactiveMongo connections](releases/0.11.0/documentation/tutorial/connect-database.html).
 
 ### Run a simple query
 
 {% highlight scala %}
-import reactivemongo.api._
-import reactivemongo.bson._
 import scala.concurrent.Future
-
 import scala.concurrent.ExecutionContext.Implicits.global
 
-def listDocs() = {
+import play.api.libs.iteratee.Iteratee
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+def listDocs(collection: BSONCollection) = {
   // Select only the documents which field 'firstName' equals 'Jack'
   val query = BSONDocument("firstName" -> "Jack")
   // select only the fields 'lastName' and '_id'
@@ -110,7 +112,7 @@ def listDocs() = {
     find(query, filter).
     cursor[BSONDocument].
     enumerate().apply(Iteratee.foreach { doc =>
-      println("found document: " + BSONDocument.pretty(doc))
+      println(s"found document: ${BSONDocument pretty doc}")
     })
 
   // Or, the same with getting a list
@@ -122,7 +124,7 @@ def listDocs() = {
 
   futureList.map { list =>
     list.foreach { doc =>
-      println("found document: " + BSONDocument.pretty(doc))
+      println(s"found document: ${BSONDocument pretty doc}")
     }
   }
 }
@@ -131,10 +133,13 @@ def listDocs() = {
 The above code deserves some explanations. First, let's take a look to the `collection.find` signature:
 
 {% highlight scala %}
-def find[S](selector: S)(implicit wrt: BSONDocumentWriter[S]): BSONQueryBuilder
+// Considering `collection` is a `BSONCollection`,
+// with its `pack` being a `BSONSerializationPack`.
+
+def find[S](selector: S)(implicit swriter: pack.Writer[S]): GenericQueryBuilder[pack.type]
 {% endhighlight %}
 
-The find method allows you to pass any query object of type `S`, provided that there is an implicit `BSONDocumentWriter[S]` in the scope. `BSONDocumentWriter[S]` is a typeclass which instances implement a `write(document: S)` method that returns a `BSONDocument`. It can be described as follows:
+The find method allows you to pass any query selector of type `S`, provided that there is an implicit `BSONDocumentWriter[S]` in the scope. `BSONDocumentWriter[S]` is a typeclass which instances implement a `write(document: S)` function that returns a `BSONDocument`. It can be described as follows:
 
 {% highlight scala %}
 trait BSONDocumentWriter[DocumentType] {
@@ -142,9 +147,11 @@ trait BSONDocumentWriter[DocumentType] {
 }
 {% endhighlight %}
 
-Obviously, there is a default writer for `BSONDocuments` so you can give a `BSONDocument` as an argument for the `find` method.
+Obviously, there is a default writer for `BSONDocument`s so you can give a `BSONDocument` as an argument for the `find` method.
 
-The find method returns a QueryBuilder – the query is therefore not performed yet. It gives you the opportunity to add options to the query, like a sort order, projection, flags... When your query is ready to be sent to MongoDB, you may just call the `cursor` method on it. This method is parametrized with the type which the response documents will be deserialized to. A `BSONDocumentReader[T]` must be implicitly available in the scope for that type. As opposed to `BSONDocumentWriter[T]`, a reader is typically a deserializer that takes a `BSONDocument` and returns an instance of `T`:
+The find method returns a `GenericQueryBuilder` – the query is therefore not performed yet. It gives you the opportunity to add options to the query, like a sort order, projection, flags...
+
+When your query is ready to be sent to MongoDB, you may just call the `cursor` method on it. This method is parametrized with the type which the response documents will be deserialized to. A `BSONDocumentReader[T]` must be implicitly available in the scope for that type. As opposed to `BSONDocumentWriter[T]`, a reader is typically a deserializer that takes a `BSONDocument` and returns an instance of `T`:
 
 {% highlight scala %}
 trait BSONDocumentReader[DocumentType] {
@@ -154,27 +161,37 @@ trait BSONDocumentReader[DocumentType] {
 
 Like for `BSONDocumentWriter[T]`, there is a default reader for `BSONDocument` in the package `reactivemongo.bson`.
 
-When a query matches too much documents, MongoDB sends just a part of them and creates a Cursor in order to get the next documents. The problem is, how to handle it in a non-blocking, asynchronous, yet elegant way?
+When a query matches too much documents, MongoDB sends just a part of them and creates a cursor in order to get the next documents. The problem is, how to handle it in a non-blocking, asynchronous, yet elegant way?
 
-Obviously ReactiveMongo's cursor provides helpful methods to build a collection (like a list) from it, so we could write:
+Obviously ReactiveMongo's `Cursor` provides helpful methods to build a collection (like a `List`) from it, so we can write:
 
 {% highlight scala %}
-val cursor = collection.find(query).cursor[BSONDocument]
-val futureList: Future[List[BSONDocument]] = cursor.collect[List]()
-futureList.map { list =>
-  println("ok, got the list: " + list)
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+def print(collection: BSONCollection) = {
+  val query = BSONDocument("foo" -> "bar")
+  val cursor = collection.find(query).cursor[BSONDocument]
+  val futureList: Future[List[BSONDocument]] = cursor.collect[List]()
+
+  futureList.map { list =>
+    println("ok, got the list: " + list)
+  }
 }
 {% endhighlight %}
 
 As always, this is perfectly non-blocking... but what if we want to process the returned documents on the fly, without creating a potentially huge list in memory?
 
-That's where the Enumerator/Iteratee pattern (or immutable Producer/Consumer pattern) comes to the rescue!
+That's where the [streaming API](releases/0.11.0/documentation/tutorial/consume-streams.html) comes to the rescue!
 
 Let's consider the following statement:
 
 {% highlight scala %}
 cursor.enumerate().apply(Iteratee.foreach { doc =>
-  println("found document: " + BSONDocument.pretty(doc))
+  println(s"found document: ${BSONDocument pretty doc}")
 })
 {% endhighlight %}
 
@@ -200,6 +217,8 @@ When this snippet is run, we get the following:
     }
 
 ## Go further!
+
+The developer documentation can be [browsed online](releases/0.11.0/documentation/).
 
 There is a pretty complete [Scaladoc](releases/0.11.0/api/index.html) available. The code is accessible from the [Github repository](https://github.com/ReactiveMongo/ReactiveMongo). And obviously, don't hesitate to ask questions in the [ReactiveMongo Google Group](https://groups.google.com/forum/?fromgroups#!forum/reactivemongo)!
 
