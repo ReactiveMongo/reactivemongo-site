@@ -5,10 +5,10 @@ title: ReactiveMongo - Documentation
 
 ## Releases
 
-* [**Current stable version (0.11.0)**](/releases/0.11.0/documentation/index.html)
-  * [Release Notes](/releases/0.11.0/documentation/release-details.html)
-  * [Documentation](/releases/0.11.0/documentation/index.html)
-  * [API](/releases/0.11.0/api/index.html)
+* [**Current stable version ({{site.latest_release}})**](/releases/{{site.latest_release}}/documentation/index.html)
+  * [Release Notes](/releases/{{site.latest_release}}/documentation/release-details.html)
+  * [Documentation](/releases/{{site.latest_release}}/documentation/index.html)
+  * [API](/releases/{{site.latest_release}}/api/index.html)
 * Older releases
   * [0.10.5.0.akka23 / 0.10.5.0.akka22](/releases/0.10.5/documentation/index.html)
     * [Release Notes](/releases/0.10.5/documentation/release-details.html)
@@ -25,7 +25,7 @@ title: ReactiveMongo - Documentation
 
 ## Resources
 
-* The [documentation](/releases/0.11.0/documentation/index.html) of the latest ReactiveMongo version ([__0.11.0__](/releases/0.11.0/documentation/index.html))
+* The [documentation](/releases/{{site.latest_release}}/documentation/index.html) of the latest ReactiveMongo version ([__{{site.latest_release}}__](/releases/{{site.latest_release}}/documentation/index.html))
 * Samples
     * [ReactiveMongo Tailable Cursor, WebSocket and Play 2](https://github.com/sgodbillon/reactivemongo-tailablecursor-demo)
     * [Play Reactive Mongo application with KnockoutJS frontend](http://www.typesafe.com/activator/template/play-mongo-knockout)
