@@ -8,7 +8,7 @@ title: ReactiveMongo 0.11.0 - Documentation
 * You can read the [release notes](release-details.html) to know what is included in this release.
 * The [Scaladoc for the API](../api/index.html) can be browsed [here](../api/index.html).
 
-The dependency can be added in your SBT project as following: `"org.reactivemongo" %% "reactivemongo" % "0.11.0-M1"`
+The dependency can be added in your SBT project as following: `"org.reactivemongo" %% "reactivemongo" % "0.11.0"`
 
 The documentation of the plugin for the **Play Framework** can is [available online](tutorial/play2.html).
 
@@ -17,9 +17,10 @@ The documentation of the plugin for the **Play Framework** can is [available onl
 1. [Add ReactiveMongo to your project](tutorial/setup.html)
 2. [Connect to the database](tutorial/connect-database.html)
 3. [Open database and collections](tutorial/database-and-collection.html)
-4. [Find documents](tutorial/find-documents.html)
-5. [Consume streams of documents](tutorial/consume-streams.html)
-6. [Write documents (`insert`, `update`, `remove`)](tutorial/write-documents.html)
+4. [Write documents (`insert`, `update`, `remove`)](tutorial/write-documents.html)
+5. [Find documents](tutorial/find-documents.html)
+6. [BSON readers & writers](tutorial/bson-typeclasses.html)
+7. [Consume streams of documents](tutorial/consume-streams.html)
 
 ### BSON Manipulation
 
