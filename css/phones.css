@@ -86,7 +86,7 @@ pre {
 #main .shortpath .version {
   color: #e1f0e1;
 }
-#main .shortpath .release-notes {
+#main .shortpath .release-notes > .label {
   background: #417f43;
   margin-left: 0.5%;
 }

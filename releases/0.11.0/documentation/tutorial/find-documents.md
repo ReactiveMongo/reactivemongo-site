@@ -103,3 +103,5 @@ peopleOlderThanTwentySeven.map { people =>
   }
 }
 {% endhighlight %}
+
+> ReactiveMongo can directly return instances of a custom class, by defining a [custom reader](bson-typeclasses.html#custom-reader).

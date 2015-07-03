@@ -95,7 +95,7 @@ h1, h2, h3, h4 {
 #main .shortpath .version {
   color: #e1f0e1;
 }
-#main .shortpath .release-notes {
+#main .shortpath .release-notes > .label {
   background: #417f43;
   margin-left: 10px;
 }
@@ -151,4 +151,9 @@ p code {
 }
 #sponsors img {
   max-width: 100px;
+}
+
+#main blockquote > p {
+  border-left: .2em solid #666;
+  padding-left: .5em;
 }

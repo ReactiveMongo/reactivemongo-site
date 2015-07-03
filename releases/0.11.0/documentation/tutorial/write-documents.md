@@ -114,3 +114,5 @@ By default, `remove()` deletes all the documents that match the `selector`. You 
 {% highlight scala %}
 val futureRemove = collection.remove(selector, firstMatchOnly = true)
 {% endhighlight %}
+
+> The instances of a custom class can be directly store with ReactiveMongo, by defining a [custom writer](bson-typeclasses.html#custom-writer).

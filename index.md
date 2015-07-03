@@ -48,7 +48,7 @@ ReactiveMongo is available on [Maven Central](http://search.maven.org/#browse%7C
 
 {% highlight scala %}
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "reactivemongo" % "0.11.0"
+  "org.reactivemongo" %% "reactivemongo" % "{{site.latest_release}}"
 )
 {% endhighlight %}
 
@@ -85,7 +85,7 @@ def connect() {
 }
 {% endhighlight %}
 
-A detailed documentation is available about the [ReactiveMongo connections](releases/0.11.0/documentation/tutorial/connect-database.html).
+A detailed documentation is available about the [ReactiveMongo connections](releases/{{site.latest_release}}/documentation/tutorial/connect-database.html).
 
 ### Run a simple query
 
@@ -185,7 +185,7 @@ def print(collection: BSONCollection) = {
 
 As always, this is perfectly non-blocking... but what if we want to process the returned documents on the fly, without creating a potentially huge list in memory?
 
-That's where the [streaming API](releases/0.11.0/documentation/tutorial/consume-streams.html) comes to the rescue!
+That's where the [streaming API](releases/{{site.latest_release}}/documentation/tutorial/consume-streams.html) comes to the rescue!
 
 Let's consider the following statement:
 
@@ -218,13 +218,13 @@ When this snippet is run, we get the following:
 
 ## Go further!
 
-The developer documentation can be [browsed online](releases/0.11.0/documentation/).
+The developer documentation can be [browsed online](releases/{{site.latest_release}}/documentation/).
 
-There is a pretty complete [Scaladoc](releases/0.11.0/api/index.html) available. The code is accessible from the [Github repository](https://github.com/ReactiveMongo/ReactiveMongo). And obviously, don't hesitate to ask questions in the [ReactiveMongo Google Group](https://groups.google.com/forum/?fromgroups#!forum/reactivemongo)!
+There is a pretty complete [Scaladoc](releases/{{site.latest_release}}/api/index.html) available. The code is accessible from the [Github repository](https://github.com/ReactiveMongo/ReactiveMongo). And obviously, don't hesitate to ask questions in the [ReactiveMongo Google Group](https://groups.google.com/forum/?fromgroups#!forum/reactivemongo)!
 
 ReactiveMongo uses of the [Iteratee](http://www.playframework.com/documentation/2.4.x/Iteratees) library. Although it is developped by the [Play! Framework](http://www.playframework.com) team, it does _not_ depend on any other part of the framework. You can dive into Play's Iteratee documentation to learn about this cool piece of software, and make your own Iteratees and Enumerators.
 
-Used in conjonction with stream-aware frameworks, like Play!, you can easily stream the data stored in MongoDB. For Play, there is a [ReactiveMongo Plugin](releases/0.11.0/documentation/tutorial/play2.html) that brings some cool stuff, like JSON-specialized collection and helpers for GridFS. See the examples and get convinced!
+Used in conjonction with stream-aware frameworks, like Play!, you can easily stream the data stored in MongoDB. For Play, there is a [ReactiveMongo Plugin](releases/{{site.latest_release}}/documentation/tutorial/play2.html) that brings some cool stuff, like JSON-specialized collection and helpers for GridFS. See the examples and get convinced!
 
 ### Samples
 
