@@ -1,0 +1,1004 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>commands - ReactiveMongo API 0.11.1 - reactivemongo.api.commands</title>
+          <meta name="description" content="commands - ReactiveMongo API 0.11.1 - reactivemongo.api.commands" />
+          <meta name="keywords" content="commands ReactiveMongo API 0.11.1 reactivemongo.api.commands" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../index.html';
+            var hash = 'reactivemongo.api.commands.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../lib/package_big.png" />
+        <p id="owner"><a href="../../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../package.html" class="extype" name="reactivemongo.api">api</a></p>
+        <h1>commands</h1><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">commands</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="reactivemongo.api.commands"><span>commands</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="reactivemongo.api.commands.AbstractCommand" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="AbstractCommandextendsAnyRef"></a>
+      <a id="AbstractCommand:AbstractCommand"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="AbstractCommand.html"><span class="name">AbstractCommand</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@AbstractCommandextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.AggregationFramework" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="AggregationFramework[P&lt;:reactivemongo.api.SerializationPack]extendsAnyRef"></a>
+      <a id="AggregationFramework[P&lt;:SerializationPack]:AggregationFramework[P]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="AggregationFramework.html"><span class="name">AggregationFramework</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@AggregationFramework[P&lt;:reactivemongo.api.SerializationPack]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.BoxedAnyVal" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="BoxedAnyVal[A&lt;:AnyVal]extendsAnyRef"></a>
+      <a id="BoxedAnyVal[A&lt;:AnyVal]:BoxedAnyVal[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="BoxedAnyVal.html"><span class="name">BoxedAnyVal</span></a><span class="tparams">[<span name="A">A &lt;: <span class="extype" name="scala.AnyVal">AnyVal</span></span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@BoxedAnyVal[A&lt;:AnyVal]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.Capped" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CappedextendsProductwithSerializable"></a>
+      <a id="Capped:Capped"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Capped.html"><span class="name">Capped</span></a><span class="params">(<span name="size">size: <span class="extype" name="scala.Long">Long</span></span>, <span name="max">max: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@CappedextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.CollStats" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CollStatsextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.CollStatsResult]withProductwithSerializable"></a>
+      <a id="CollStats:CollStats"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="CollStats.html"><span class="name">CollStats</span></a><span class="params">(<span name="scale">scale: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="CollStatsResult.html" class="extype" name="reactivemongo.api.commands.CollStatsResult">CollStatsResult</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@CollStatsextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.CollStatsResult]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.CollStatsResult" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="CollStatsResultextendsProductwithSerializable"></a>
+      <a id="CollStatsResult:CollStatsResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="CollStatsResult.html"><span class="name">CollStatsResult</span></a><span class="params">(<span name="ns">ns: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="count">count: <span class="extype" name="scala.Int">Int</span></span>, <span name="size">size: <span class="extype" name="scala.Double">Double</span></span>, <span name="averageObjectSize">averageObjectSize: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Double">Double</span>]</span>, <span name="storageSize">storageSize: <span class="extype" name="scala.Double">Double</span></span>, <span name="numExtents">numExtents: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="nindexes">nindexes: <span class="extype" name="scala.Int">Int</span></span>, <span name="lastExtentSize">lastExtentSize: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="paddingFactor">paddingFactor: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Double">Double</span>]</span>, <span name="systemFlags">systemFlags: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="userFlags">userFlags: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="totalIndexSize">totalIndexSize: <span class="extype" name="scala.Int">Int</span></span>, <span name="indexSizes">indexSizes: <span class="extype" name="scala.Array">Array</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Int">Int</span>)]</span>, <span name="capped">capped: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="max">max: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@CollStatsResultextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Various information about a collection.</p><div class="fullcomment"><div class="comment cmt"><p>Various information about a collection.
+</p></div><dl class="paramcmts block"><dt class="param">ns</dt><dd class="cmt"><p>The fully qualified collection name.</p></dd><dt class="param">count</dt><dd class="cmt"><p>The number of documents in this collection.</p></dd><dt class="param">size</dt><dd class="cmt"><p>The size in bytes (or in bytes / scale, if any).</p></dd><dt class="param">averageObjectSize</dt><dd class="cmt"><p>The average object size in bytes (or in bytes / scale, if any).</p></dd><dt class="param">storageSize</dt><dd class="cmt"><p>Preallocated space for the collection.</p></dd><dt class="param">numExtents</dt><dd class="cmt"><p>Number of extents (contiguously allocated chunks of datafile space, only for mmapv1 storage engine).</p></dd><dt class="param">nindexes</dt><dd class="cmt"><p>Number of indexes.</p></dd><dt class="param">lastExtentSize</dt><dd class="cmt"><p>Size of the most recently created extent (only for mmapv1 storage engine).</p></dd><dt class="param">paddingFactor</dt><dd class="cmt"><p>Padding can speed up updates if documents grow (only for mmapv1 storage engine).</p></dd><dt class="param">systemFlags</dt><dd class="cmt"><p>System flags.</p></dd><dt class="param">userFlags</dt><dd class="cmt"><p>User flags.</p></dd><dt class="param">indexSizes</dt><dd class="cmt"><p>Size of specific indexes in bytes.</p></dd><dt class="param">capped</dt><dd class="cmt"><p>States if this collection is capped.</p></dd><dt class="param">max</dt><dd class="cmt"><p>The maximum number of documents of this collection, if capped.
+</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.CollectionCommand" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CollectionCommandextendsAbstractCommand"></a>
+      <a id="CollectionCommand:CollectionCommand"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CollectionCommand.html"><span class="name">CollectionCommand</span></a><span class="result"> extends <a href="AbstractCommand.html" class="extype" name="reactivemongo.api.commands.AbstractCommand">AbstractCommand</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@CollectionCommandextendsAbstractCommand" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.CollectionNames" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CollectionNamesextendsProductwithSerializable"></a>
+      <a id="CollectionNames:CollectionNames"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="CollectionNames.html"><span class="name">CollectionNames</span></a><span class="params">(<span name="names">names: <span class="extype" name="scala.List">List</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@CollectionNamesextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.Command" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CommandextendsAbstractCommand"></a>
+      <a id="Command:Command"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Command.html"><span class="name">Command</span></a><span class="result"> extends <a href="AbstractCommand.html" class="extype" name="reactivemongo.api.commands.AbstractCommand">AbstractCommand</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@CommandextendsAbstractCommand" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.CommandError" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CommandErrorextendsExceptionwithNoStackTrace"></a>
+      <a id="CommandError:CommandError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CommandError.html"><span class="name">CommandError</span></a><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <span class="extype" name="scala.util.control.NoStackTrace">NoStackTrace</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@CommandErrorextendsExceptionwithNoStackTrace" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.CommandWithPack" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CommandWithPack[P&lt;:reactivemongo.api.SerializationPack]extendsAnyRef"></a>
+      <a id="CommandWithPack[P&lt;:SerializationPack]:CommandWithPack[P]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CommandWithPack.html"><span class="name">CommandWithPack</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@CommandWithPack[P&lt;:reactivemongo.api.SerializationPack]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.CommandWithResult" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CommandWithResult[R]extendsAnyRef"></a>
+      <a id="CommandWithResult[R]:CommandWithResult[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CommandWithResult.html"><span class="name">CommandWithResult</span></a><span class="tparams">[<span name="R">R</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@CommandWithResult[R]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.ConvertToCapped" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ConvertToCappedextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.UnitBox.type]withProductwithSerializable"></a>
+      <a id="ConvertToCapped:ConvertToCapped"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ConvertToCapped.html"><span class="name">ConvertToCapped</span></a><span class="params">(<span name="capped">capped: <a href="Capped.html" class="extype" name="reactivemongo.api.commands.Capped">Capped</a></span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@ConvertToCappedextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.UnitBox.type]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.CountCommand" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CountCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]"></a>
+      <a id="CountCommand[P&lt;:SerializationPack]:CountCommand[P]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CountCommand.html"><span class="name">CountCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.CountCommand.P">P</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@CountCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.Create" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CreateextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.UnitBox.type]withProductwithSerializable"></a>
+      <a id="Create:Create"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Create.html"><span class="name">Create</span></a><span class="params">(<span name="capped">capped: <span class="extype" name="scala.Option">Option</span>[<a href="Capped.html" class="extype" name="reactivemongo.api.commands.Capped">Capped</a>] = <span class="symbol">None</span></span>, <span name="autoIndexId">autoIndexId: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">true</span></span>, <span name="flags">flags: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@CreateextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.UnitBox.type]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.CreateIndexes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="CreateIndexesextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.WriteResult]withProductwithSerializable"></a>
+      <a id="CreateIndexes:CreateIndexes"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="CreateIndexes.html"><span class="name">CreateIndexes</span></a><span class="params">(<span name="db">db: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="indexes">indexes: <span class="extype" name="scala.List">List</span>[<a href="../indexes/Index.html" class="extype" name="reactivemongo.api.indexes.Index">Index</a>]</span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@CreateIndexesextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.WriteResult]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Creates the given indexes on the specified collection.</p><div class="fullcomment"><div class="comment cmt"><p>Creates the given indexes on the specified collection.
+</p></div><dl class="paramcmts block"><dt class="param">db</dt><dd class="cmt"><p>the database name</p></dd><dt class="param">indexes</dt><dd class="cmt"><p>the indexes to be created
+</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.CursorCommand" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CursorCommandextendsAnyRef"></a>
+      <a id="CursorCommand:CursorCommand"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CursorCommand.html"><span class="name">CursorCommand</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@CursorCommandextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.CursorFetcher" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CursorFetcher[P&lt;:reactivemongo.api.SerializationPack,C[A]&lt;:reactivemongo.api.Cursor[A]]extendsAnyRef"></a>
+      <a id="CursorFetcher[P&lt;:SerializationPack,C[A]&lt;:Cursor[A]]:CursorFetcher[P,C]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CursorFetcher.html"><span class="name">CursorFetcher</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>, <span name="C">C<span class="tparams">[<span name="A">A</span>]</span> &lt;: <a href="../Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a>[<span class="extype" name="reactivemongo.api.commands.CursorFetcher.C.A">A</span>]</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@CursorFetcher[P&lt;:reactivemongo.api.SerializationPack,C[A]&lt;:reactivemongo.api.Cursor[A]]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.DefaultWriteResult" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DefaultWriteResultextendsExceptionwithWriteResultwithProductwithSerializable"></a>
+      <a id="DefaultWriteResult:DefaultWriteResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="DefaultWriteResult.html"><span class="name">DefaultWriteResult</span></a><span class="params">(<span name="ok">ok: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="n">n: <span class="extype" name="scala.Int">Int</span></span>, <span name="writeErrors">writeErrors: <span class="extype" name="scala.Seq">Seq</span>[<a href="WriteError.html" class="extype" name="reactivemongo.api.commands.WriteError">WriteError</a>]</span>, <span name="writeConcernError">writeConcernError: <span class="extype" name="scala.Option">Option</span>[<a href="WriteConcernError.html" class="extype" name="reactivemongo.api.commands.WriteConcernError">WriteConcernError</a>]</span>, <span name="code">code: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="errmsg">errmsg: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@DefaultWriteResultextendsExceptionwithWriteResultwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.DeleteCommand" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="DeleteCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]"></a>
+      <a id="DeleteCommand[P&lt;:SerializationPack]:DeleteCommand[P]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="DeleteCommand.html"><span class="name">DeleteCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.DeleteCommand.P">P</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@DeleteCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.DropIndexes" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DropIndexesextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.DropIndexesResult]withProductwithSerializable"></a>
+      <a id="DropIndexes:DropIndexes"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="DropIndexes.html"><span class="name">DropIndexes</span></a><span class="params">(<span name="index">index: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="DropIndexesResult.html" class="extype" name="reactivemongo.api.commands.DropIndexesResult">DropIndexesResult</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@DropIndexesextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.DropIndexesResult]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.DropIndexesResult" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DropIndexesResultextendsBoxedAnyVal[Int]withProductwithSerializable"></a>
+      <a id="DropIndexesResult:DropIndexesResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="DropIndexesResult.html"><span class="name">DropIndexesResult</span></a><span class="params">(<span name="value">value: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <a href="BoxedAnyVal.html" class="extype" name="reactivemongo.api.commands.BoxedAnyVal">BoxedAnyVal</a>[<span class="extype" name="scala.Int">Int</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@DropIndexesResultextendsBoxedAnyVal[Int]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.FindAndModifyCommand" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="FindAndModifyCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]"></a>
+      <a id="FindAndModifyCommand[P&lt;:SerializationPack]:FindAndModifyCommand[P]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="FindAndModifyCommand.html"><span class="name">FindAndModifyCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.P">P</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@FindAndModifyCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.GetLastError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GetLastErrorextendsCommandwithCommandWithResult[reactivemongo.api.commands.LastError]withProductwithSerializable"></a>
+      <a id="GetLastError:GetLastError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="GetLastError.html"><span class="name">GetLastError</span></a><span class="params">(<span name="w">w: <a href="GetLastError$$W.html" class="extype" name="reactivemongo.api.commands.GetLastError.W">W</a></span>, <span name="j">j: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="fsync">fsync: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="wtimeout">wtimeout: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="LastError.html" class="extype" name="reactivemongo.api.commands.LastError">LastError</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@GetLastErrorextendsCommandwithCommandWithResult[reactivemongo.api.commands.LastError]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.ImplicitCommandHelpers" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ImplicitCommandHelpers[P&lt;:reactivemongo.api.SerializationPack]extendsAnyRef"></a>
+      <a id="ImplicitCommandHelpers[P&lt;:SerializationPack]:ImplicitCommandHelpers[P]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ImplicitCommandHelpers.html"><span class="name">ImplicitCommandHelpers</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@ImplicitCommandHelpers[P&lt;:reactivemongo.api.SerializationPack]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.InsertCommand" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="InsertCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]"></a>
+      <a id="InsertCommand[P&lt;:SerializationPack]:InsertCommand[P]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="InsertCommand.html"><span class="name">InsertCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.InsertCommand.P">P</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@InsertCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.IsMasterCommand" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="IsMasterCommand[P&lt;:reactivemongo.api.SerializationPack]extendsAnyRef"></a>
+      <a id="IsMasterCommand[P&lt;:SerializationPack]:IsMasterCommand[P]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="IsMasterCommand.html"><span class="name">IsMasterCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@IsMasterCommand[P&lt;:reactivemongo.api.SerializationPack]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.LastError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LastErrorextendsExceptionwithWriteResultwithProductwithSerializable"></a>
+      <a id="LastError:LastError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="LastError.html"><span class="name">LastError</span></a><span class="params">(<span name="ok">ok: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="err">err: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="code">code: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="lastOp">lastOp: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>]</span>, <span name="n">n: <span class="extype" name="scala.Int">Int</span></span>, <span name="singleShard">singleShard: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="updatedExisting">updatedExisting: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="upserted">upserted: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONObjectID.html" class="extype" name="reactivemongo.bson.BSONObjectID">BSONObjectID</a>]</span>, <span name="wnote">wnote: <span class="extype" name="scala.Option">Option</span>[<a href="GetLastError$$W.html" class="extype" name="reactivemongo.api.commands.GetLastError.W">W</a>]</span>, <span name="wtimeout">wtimeout: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="waited">waited: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="wtime">wtime: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@LastErrorextendsExceptionwithWriteResultwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.ListIndexes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ListIndexesextendsCollectionCommandwithCommandWithResult[List[reactivemongo.api.indexes.Index]]withProductwithSerializable"></a>
+      <a id="ListIndexes:ListIndexes"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ListIndexes.html"><span class="name">ListIndexes</span></a><span class="params">(<span name="db">db: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<span class="extype" name="scala.List">List</span>[<a href="../indexes/Index.html" class="extype" name="reactivemongo.api.indexes.Index">Index</a>]] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@ListIndexesextendsCollectionCommandwithCommandWithResult[List[reactivemongo.api.indexes.Index]]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Lists the indexes of the specified collection.</p><div class="fullcomment"><div class="comment cmt"><p>Lists the indexes of the specified collection.
+</p></div><dl class="paramcmts block"><dt class="param">db</dt><dd class="cmt"><p>the database name
+</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.Mongo26WriteCommand" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="Mongo26WriteCommandextendsAnyRef"></a>
+      <a id="Mongo26WriteCommand:Mongo26WriteCommand"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Mongo26WriteCommand.html"><span class="name">Mongo26WriteCommand</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@Mongo26WriteCommandextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.MultiBulkWriteResult" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MultiBulkWriteResultextendsProductwithSerializable"></a>
+      <a id="MultiBulkWriteResult:MultiBulkWriteResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="MultiBulkWriteResult.html"><span class="name">MultiBulkWriteResult</span></a><span class="params">(<span name="ok">ok: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="n">n: <span class="extype" name="scala.Int">Int</span></span>, <span name="nModified">nModified: <span class="extype" name="scala.Int">Int</span></span>, <span name="upserted">upserted: <span class="extype" name="scala.Seq">Seq</span>[<a href="Upserted.html" class="extype" name="reactivemongo.api.commands.Upserted">Upserted</a>]</span>, <span name="writeErrors">writeErrors: <span class="extype" name="scala.Seq">Seq</span>[<a href="WriteError.html" class="extype" name="reactivemongo.api.commands.WriteError">WriteError</a>]</span>, <span name="writeConcernError">writeConcernError: <span class="extype" name="scala.Option">Option</span>[<a href="WriteConcernError.html" class="extype" name="reactivemongo.api.commands.WriteConcernError">WriteConcernError</a>]</span>, <span name="code">code: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="errmsg">errmsg: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="totalN">totalN: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@MultiBulkWriteResultextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.RenameCollection" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RenameCollectionextendsCommandwithCommandWithResult[reactivemongo.api.commands.UnitBox.type]withProductwithSerializable"></a>
+      <a id="RenameCollection:RenameCollection"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="RenameCollection.html"><span class="name">RenameCollection</span></a><span class="params">(<span name="fullyQualifiedCollectionName">fullyQualifiedCollectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="fullyQualifiedTargetName">fullyQualifiedTargetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dropTarget">dropTarget: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@RenameCollectionextendsCommandwithCommandWithResult[reactivemongo.api.commands.UnitBox.type]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.ResolvedCollectionCommand" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ResolvedCollectionCommand[C&lt;:reactivemongo.api.commands.CollectionCommand]extendsCommandwithProductwithSerializable"></a>
+      <a id="ResolvedCollectionCommand[C&lt;:CollectionCommand]:ResolvedCollectionCommand[C]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ResolvedCollectionCommand.html"><span class="name">ResolvedCollectionCommand</span></a><span class="tparams">[<span name="C">C &lt;: <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a></span>]</span><span class="params">(<span name="collection">collection: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="command">command: <span class="extype" name="reactivemongo.api.commands.ResolvedCollectionCommand.C">C</span></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@ResolvedCollectionCommand[C&lt;:reactivemongo.api.commands.CollectionCommand]extendsCommandwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.UpdateCommand" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="UpdateCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]"></a>
+      <a id="UpdateCommand[P&lt;:SerializationPack]:UpdateCommand[P]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="UpdateCommand.html"><span class="name">UpdateCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.UpdateCommand.P">P</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@UpdateCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.UpdateWriteResult" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UpdateWriteResultextendsExceptionwithWriteResultwithProductwithSerializable"></a>
+      <a id="UpdateWriteResult:UpdateWriteResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="UpdateWriteResult.html"><span class="name">UpdateWriteResult</span></a><span class="params">(<span name="ok">ok: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="n">n: <span class="extype" name="scala.Int">Int</span></span>, <span name="nModified">nModified: <span class="extype" name="scala.Int">Int</span></span>, <span name="upserted">upserted: <span class="extype" name="scala.Seq">Seq</span>[<a href="Upserted.html" class="extype" name="reactivemongo.api.commands.Upserted">Upserted</a>]</span>, <span name="writeErrors">writeErrors: <span class="extype" name="scala.Seq">Seq</span>[<a href="WriteError.html" class="extype" name="reactivemongo.api.commands.WriteError">WriteError</a>]</span>, <span name="writeConcernError">writeConcernError: <span class="extype" name="scala.Option">Option</span>[<a href="WriteConcernError.html" class="extype" name="reactivemongo.api.commands.WriteConcernError">WriteConcernError</a>]</span>, <span name="code">code: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="errmsg">errmsg: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@UpdateWriteResultextendsExceptionwithWriteResultwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.Upserted" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UpsertedextendsProductwithSerializable"></a>
+      <a id="Upserted:Upserted"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Upserted.html"><span class="name">Upserted</span></a><span class="params">(<span name="index">index: <span class="extype" name="scala.Int">Int</span></span>, <span name="_id">_id: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@UpsertedextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.WriteConcern" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="WriteConcern=reactivemongo.api.commands.GetLastError"></a>
+      <a id="WriteConcern:WriteConcern"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">WriteConcern</span><span class="result"> = <a href="GetLastError.html" class="extype" name="reactivemongo.api.commands.GetLastError">GetLastError</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@WriteConcern=reactivemongo.api.commands.GetLastError" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.WriteConcernError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="WriteConcernErrorextendsProductwithSerializable"></a>
+      <a id="WriteConcernError:WriteConcernError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="WriteConcernError.html"><span class="name">WriteConcernError</span></a><span class="params">(<span name="code">code: <span class="extype" name="scala.Int">Int</span></span>, <span name="errmsg">errmsg: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@WriteConcernErrorextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.WriteError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="WriteErrorextendsProductwithSerializable"></a>
+      <a id="WriteError:WriteError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="WriteError.html"><span class="name">WriteError</span></a><span class="params">(<span name="index">index: <span class="extype" name="scala.Int">Int</span></span>, <span name="code">code: <span class="extype" name="scala.Int">Int</span></span>, <span name="errmsg">errmsg: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@WriteErrorextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.WriteResult" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="WriteResultextendsExceptionwithDatabaseExceptionwithNoStackTrace"></a>
+      <a id="WriteResult:WriteResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="WriteResult.html"><span class="name">WriteResult</span></a><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="../../core/errors/DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a> with <span class="extype" name="scala.util.control.NoStackTrace">NoStackTrace</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@WriteResultextendsExceptionwithDatabaseExceptionwithNoStackTrace" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="reactivemongo.api.commands.Command" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Command"></a>
+      <a id="Command:Command"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Command$.html"><span class="name">Command</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@Command" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.Drop" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Drop"></a>
+      <a id="Drop:Drop"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Drop$.html"><span class="name">Drop</span></a><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@Drop" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.DropDatabase" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DropDatabase"></a>
+      <a id="DropDatabase:DropDatabase"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="DropDatabase$.html"><span class="name">DropDatabase</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@DropDatabase" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.EmptyCapped" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="EmptyCapped"></a>
+      <a id="EmptyCapped:EmptyCapped"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="EmptyCapped$.html"><span class="name">EmptyCapped</span></a><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@EmptyCapped" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.GetLastError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GetLastError"></a>
+      <a id="GetLastError:GetLastError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="GetLastError$.html"><span class="name">GetLastError</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@GetLastError" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.ListCollectionNames" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ListCollectionNames"></a>
+      <a id="ListCollectionNames:ListCollectionNames"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ListCollectionNames$.html"><span class="name">ListCollectionNames</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="CollectionNames.html" class="extype" name="reactivemongo.api.commands.CollectionNames">CollectionNames</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@ListCollectionNames" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">List the names of DB collections.</p>
+    </li><li name="reactivemongo.api.commands.MultiBulkWriteResult" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MultiBulkWriteResult"></a>
+      <a id="MultiBulkWriteResult:MultiBulkWriteResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MultiBulkWriteResult$.html"><span class="name">MultiBulkWriteResult</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@MultiBulkWriteResult" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.UnitBox" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UnitBox"></a>
+      <a id="UnitBox:UnitBox"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="UnitBox$.html"><span class="name">UnitBox</span></a><span class="result"> extends <a href="BoxedAnyVal.html" class="extype" name="reactivemongo.api.commands.BoxedAnyVal">BoxedAnyVal</a>[<span class="extype" name="scala.Unit">Unit</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@UnitBox" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands#WriteConcern" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="WriteConcern:reactivemongo.api.commands.GetLastError.type"></a>
+      <a id="WriteConcern:GetLastError.type"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">WriteConcern</span><span class="result">: <a href="GetLastError$.html" class="extype" name="reactivemongo.api.commands.GetLastError">GetLastError</a>.type</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@WriteConcern:reactivemongo.api.commands.GetLastError.type" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="bson"></a>
+      <a id="bson:bson"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="bson/package.html"><span class="name">bson</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@bson" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.tst2" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="tst2"></a>
+      <a id="tst2:tst2"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="tst2$.html"><span class="name">tst2</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@tst2" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

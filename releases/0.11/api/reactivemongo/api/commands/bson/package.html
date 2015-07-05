@@ -1,0 +1,580 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>bson - ReactiveMongo API 0.11.1 - reactivemongo.api.commands.bson</title>
+          <meta name="description" content="bson - ReactiveMongo API 0.11.1 - reactivemongo.api.commands.bson" />
+          <meta name="keywords" content="bson ReactiveMongo API 0.11.1 reactivemongo.api.commands.bson" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../index.html';
+            var hash = 'reactivemongo.api.commands.bson.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../../package.html" class="extype" name="reactivemongo.api">api</a>.<a href="../package.html" class="extype" name="reactivemongo.api.commands">commands</a></p>
+        <h1>bson</h1><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bson</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="reactivemongo.api.commands.bson.BSONCommandError" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="BSONCommandErrorextendsExceptionwithCommandError"></a>
+      <a id="BSONCommandError:BSONCommandError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONCommandError.html"><span class="name">BSONCommandError</span></a><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="../CommandError.html" class="extype" name="reactivemongo.api.commands.CommandError">CommandError</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONCommandErrorextendsExceptionwithCommandError" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.DefaultBSONCommandError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DefaultBSONCommandErrorextendsExceptionwithBSONCommandErrorwithProductwithSerializable"></a>
+      <a id="DefaultBSONCommandError:DefaultBSONCommandError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="DefaultBSONCommandError.html"><span class="name">DefaultBSONCommandError</span></a><span class="params">(<span name="code">code: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="errmsg">errmsg: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="originalDocument">originalDocument: <a href="../../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="BSONCommandError.html" class="extype" name="reactivemongo.api.commands.bson.BSONCommandError">BSONCommandError</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@DefaultBSONCommandErrorextendsExceptionwithBSONCommandErrorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="reactivemongo.api.commands.bson.BSONCollStatsImplicits" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONCollStatsImplicits"></a>
+      <a id="BSONCollStatsImplicits:BSONCollStatsImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONCollStatsImplicits$.html"><span class="name">BSONCollStatsImplicits</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONCollStatsImplicits" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONCommonWriteCommandsImplicits" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONCommonWriteCommandsImplicits"></a>
+      <a id="BSONCommonWriteCommandsImplicits:BSONCommonWriteCommandsImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONCommonWriteCommandsImplicits$.html"><span class="name">BSONCommonWriteCommandsImplicits</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONCommonWriteCommandsImplicits" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONConvertToCappedImplicits" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONConvertToCappedImplicits"></a>
+      <a id="BSONConvertToCappedImplicits:BSONConvertToCappedImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONConvertToCappedImplicits$.html"><span class="name">BSONConvertToCappedImplicits</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONConvertToCappedImplicits" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONCountCommand" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONCountCommand"></a>
+      <a id="BSONCountCommand:BSONCountCommand"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONCountCommand$.html"><span class="name">BSONCountCommand</span></a><span class="result"> extends <a href="../CountCommand.html" class="extype" name="reactivemongo.api.commands.CountCommand">CountCommand</a>[<a href="../../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONCountCommand" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONCountCommandImplicits" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONCountCommandImplicits"></a>
+      <a id="BSONCountCommandImplicits:BSONCountCommandImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONCountCommandImplicits$.html"><span class="name">BSONCountCommandImplicits</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONCountCommandImplicits" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONCreateImplicits" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONCreateImplicits"></a>
+      <a id="BSONCreateImplicits:BSONCreateImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONCreateImplicits$.html"><span class="name">BSONCreateImplicits</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONCreateImplicits" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONCreateIndexesImplicits" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONCreateIndexesImplicits"></a>
+      <a id="BSONCreateIndexesImplicits:BSONCreateIndexesImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONCreateIndexesImplicits$.html"><span class="name">BSONCreateIndexesImplicits</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONCreateIndexesImplicits" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONDeleteCommand" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONDeleteCommand"></a>
+      <a id="BSONDeleteCommand:BSONDeleteCommand"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONDeleteCommand$.html"><span class="name">BSONDeleteCommand</span></a><span class="result"> extends <a href="../DeleteCommand.html" class="extype" name="reactivemongo.api.commands.DeleteCommand">DeleteCommand</a>[<a href="../../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONDeleteCommand" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONDeleteCommandImplicits" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONDeleteCommandImplicits"></a>
+      <a id="BSONDeleteCommandImplicits:BSONDeleteCommandImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONDeleteCommandImplicits$.html"><span class="name">BSONDeleteCommandImplicits</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONDeleteCommandImplicits" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONDropDatabaseImplicits" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONDropDatabaseImplicits"></a>
+      <a id="BSONDropDatabaseImplicits:BSONDropDatabaseImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONDropDatabaseImplicits$.html"><span class="name">BSONDropDatabaseImplicits</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONDropDatabaseImplicits" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONDropImplicits" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONDropImplicits"></a>
+      <a id="BSONDropImplicits:BSONDropImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONDropImplicits$.html"><span class="name">BSONDropImplicits</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONDropImplicits" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONDropIndexesImplicits" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONDropIndexesImplicits"></a>
+      <a id="BSONDropIndexesImplicits:BSONDropIndexesImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONDropIndexesImplicits$.html"><span class="name">BSONDropIndexesImplicits</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONDropIndexesImplicits" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONEmptyCappedImplicits" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONEmptyCappedImplicits"></a>
+      <a id="BSONEmptyCappedImplicits:BSONEmptyCappedImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONEmptyCappedImplicits$.html"><span class="name">BSONEmptyCappedImplicits</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONEmptyCappedImplicits" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONFindAndModifyCommand" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONFindAndModifyCommand"></a>
+      <a id="BSONFindAndModifyCommand:BSONFindAndModifyCommand"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONFindAndModifyCommand$.html"><span class="name">BSONFindAndModifyCommand</span></a><span class="result"> extends <a href="../FindAndModifyCommand.html" class="extype" name="reactivemongo.api.commands.FindAndModifyCommand">FindAndModifyCommand</a>[<a href="../../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONFindAndModifyCommand" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONFindAndModifyImplicits" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONFindAndModifyImplicits"></a>
+      <a id="BSONFindAndModifyImplicits:BSONFindAndModifyImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONFindAndModifyImplicits$.html"><span class="name">BSONFindAndModifyImplicits</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONFindAndModifyImplicits" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONGetLastErrorImplicits" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONGetLastErrorImplicits"></a>
+      <a id="BSONGetLastErrorImplicits:BSONGetLastErrorImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONGetLastErrorImplicits$.html"><span class="name">BSONGetLastErrorImplicits</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONGetLastErrorImplicits" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONInsertCommand" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONInsertCommand"></a>
+      <a id="BSONInsertCommand:BSONInsertCommand"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONInsertCommand$.html"><span class="name">BSONInsertCommand</span></a><span class="result"> extends <a href="../InsertCommand.html" class="extype" name="reactivemongo.api.commands.InsertCommand">InsertCommand</a>[<a href="../../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONInsertCommand" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONInsertCommandImplicits" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONInsertCommandImplicits"></a>
+      <a id="BSONInsertCommandImplicits:BSONInsertCommandImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONInsertCommandImplicits$.html"><span class="name">BSONInsertCommandImplicits</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONInsertCommandImplicits" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONIsMasterCommand" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONIsMasterCommand"></a>
+      <a id="BSONIsMasterCommand:BSONIsMasterCommand"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONIsMasterCommand$.html"><span class="name">BSONIsMasterCommand</span></a><span class="result"> extends <a href="../IsMasterCommand.html" class="extype" name="reactivemongo.api.commands.IsMasterCommand">IsMasterCommand</a>[<a href="../../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONIsMasterCommand" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONIsMasterCommandImplicits" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONIsMasterCommandImplicits"></a>
+      <a id="BSONIsMasterCommandImplicits:BSONIsMasterCommandImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONIsMasterCommandImplicits$.html"><span class="name">BSONIsMasterCommandImplicits</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONIsMasterCommandImplicits" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONListCollectionNamesImplicits" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONListCollectionNamesImplicits"></a>
+      <a id="BSONListCollectionNamesImplicits:BSONListCollectionNamesImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONListCollectionNamesImplicits$.html"><span class="name">BSONListCollectionNamesImplicits</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONListCollectionNamesImplicits" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONListIndexesImplicits" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONListIndexesImplicits"></a>
+      <a id="BSONListIndexesImplicits:BSONListIndexesImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONListIndexesImplicits$.html"><span class="name">BSONListIndexesImplicits</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONListIndexesImplicits" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONRenameCollectionImplicits" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONRenameCollectionImplicits"></a>
+      <a id="BSONRenameCollectionImplicits:BSONRenameCollectionImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONRenameCollectionImplicits$.html"><span class="name">BSONRenameCollectionImplicits</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONRenameCollectionImplicits" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONUpdateCommand" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONUpdateCommand"></a>
+      <a id="BSONUpdateCommand:BSONUpdateCommand"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONUpdateCommand$.html"><span class="name">BSONUpdateCommand</span></a><span class="result"> extends <a href="../UpdateCommand.html" class="extype" name="reactivemongo.api.commands.UpdateCommand">UpdateCommand</a>[<a href="../../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONUpdateCommand" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.BSONUpdateCommandImplicits" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONUpdateCommandImplicits"></a>
+      <a id="BSONUpdateCommandImplicits:BSONUpdateCommandImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONUpdateCommandImplicits$.html"><span class="name">BSONUpdateCommandImplicits</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@BSONUpdateCommandImplicits" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.bson.CommonImplicits" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CommonImplicits"></a>
+      <a id="CommonImplicits:CommonImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="CommonImplicits$.html"><span class="name">CommonImplicits</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.package@CommonImplicits" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>
