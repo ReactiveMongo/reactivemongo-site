@@ -1,4 +1,5 @@
 ---
+redirect_from: "/releases/0.11.0/documentation/tutorial/play2.html"
 layout: default
 title: ReactiveMongo 0.11.1 - Integration with Play Framework
 ---
