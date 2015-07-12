@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ReactiveMongo 0.11.1 - Setup
+title: ReactiveMongo 0.11.2 - Setup
 ---
 
 ## Starting ReactiveMongo
@@ -39,6 +39,7 @@ val connection = driver.connection(List("localhost"), options = conOpts)
 The following options can be used with `MongoConnectionOptions` to configure the connection behaviour.
 
 - `authSource`: The database source for authentication credentials.
+- `authMode`: The authentication mode. By default, it's the backward compatible [MONGODB-CR](http://docs.mongodb.org/manual/core/authentication/#mongodb-cr-authentication) which is used. If this options is set to `scram-sha1`, then the [SCRAM-SHA-1](http://docs.mongodb.org/manual/core/authentication/#scram-sha-1-authentication) authentication will be selected.
 - `connectTimeoutMS`: The number of milliseconds to wait for a connection to be established before giving up.
 - `sslEnabled`: It enables the SSL support for the connection.
 - `sslAllowsInvalidCert`: If `sslEnabled` is true, this one indicates whether to accept invalid certificates (e.g. self-signed).

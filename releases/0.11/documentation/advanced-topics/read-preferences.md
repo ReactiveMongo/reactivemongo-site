@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ReactiveMongo 0.11.1 - Read Preferences
+title: ReactiveMongo 0.11.2 - Read Preferences
 ---
 
 ## Use Read Preferences

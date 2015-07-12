@@ -1,7 +1,6 @@
 ---
-redirect_from: "/releases/0.11.0/documentation/tutorial/bson-typeclasses.html"
 layout: default
-title: ReactiveMongo 0.11.1 - BSON readers & writers
+title: ReactiveMongo 0.11.2 - BSON readers & writers
 ---
 
 ## BSON readers and writers

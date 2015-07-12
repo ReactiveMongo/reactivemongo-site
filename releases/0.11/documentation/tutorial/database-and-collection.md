@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ReactiveMongo 0.11.1 - Setup
+title: ReactiveMongo 0.11.2 - Setup
 ---
 
 ## Database and Collection

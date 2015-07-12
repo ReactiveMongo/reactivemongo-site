@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Authenticate - ReactiveMongo API 0.11.1 - reactivemongo.core.commands.Authenticate</title>
-          <meta name="description" content="Authenticate - ReactiveMongo API 0.11.1 - reactivemongo.core.commands.Authenticate" />
-          <meta name="keywords" content="Authenticate ReactiveMongo API 0.11.1 reactivemongo.core.commands.Authenticate" />
+          <title>ScramSha1Authenticating - ReactiveMongo API 0.11.2 - reactivemongo.core.nodeset.ScramSha1Authenticating</title>
+          <meta name="description" content="ScramSha1Authenticating - ReactiveMongo API 0.11.2 - reactivemongo.core.nodeset.ScramSha1Authenticating" />
+          <meta name="keywords" content="ScramSha1Authenticating ReactiveMongo API 0.11.2 reactivemongo.core.nodeset.ScramSha1Authenticating" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -16,7 +16,7 @@
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
-            var hash = 'reactivemongo.core.commands.Authenticate';
+            var hash = 'reactivemongo.core.nodeset.ScramSha1Authenticating';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -28,14 +28,12 @@
         </head>
         <body class="type">
       <div id="definition">
-        <a href="Authenticate$.html" title="See companion object"><img src="../../../lib/class_to_object_big.png" /></a>
-        <p id="owner"><a href="../../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../package.html" class="extype" name="reactivemongo.core">core</a>.<a href="package.html" class="extype" name="reactivemongo.core.commands">commands</a></p>
-        <h1><a href="Authenticate$.html" title="See companion object">Authenticate</a></h1><h3><span class="morelinks"><div>
-            Related Docs:
-            <a href="Authenticate$.html" title="See companion object">object Authenticate</a>
-            | <a href="package.html" class="extype" name="reactivemongo.core.commands">package commands</a>
+        <img src="../../../lib/class_big.png" />
+        <p id="owner"><a href="../../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../package.html" class="extype" name="reactivemongo.core">core</a>.<a href="package.html" class="extype" name="reactivemongo.core.nodeset">nodeset</a></p>
+        <h1>ScramSha1Authenticating</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="reactivemongo.core.nodeset">package nodeset</a>
           </div></span></h3><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -47,15 +45,13 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">Authenticate</span><span class="params">(<span name="user">user: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="password">password: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="nonce">nonce: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<a href="SuccessfulAuthentication.html" class="extype" name="reactivemongo.core.commands.SuccessfulAuthentication">SuccessfulAuthentication</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">ScramSha1Authenticating</span><span class="params">(<span name="db">db: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="user">user: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="password">password: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="randomPrefix">randomPrefix: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="saslStart">saslStart: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="conversationId">conversationId: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>] = <span class="symbol">None</span></span>, <span name="serverSignature">serverSignature: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]] = <span class="symbol">None</span></span>, <span name="step">step: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>)</span><span class="result"> extends <a href="Authenticating.html" class="extype" name="reactivemongo.core.nodeset.Authenticating">Authenticating</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Authenticate Command.
-</p></div><dl class="paramcmts block"><dt class="param">user</dt><dd class="cmt"><p>username</p></dd><dt class="param">password</dt><dd class="cmt"><p>user's password</p></dd><dt class="param">nonce</dt><dd class="cmt"><p>the previous nonce given by the server
-</p></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<a href="SuccessfulAuthentication.html" class="extype" name="reactivemongo.core.commands.SuccessfulAuthentication">SuccessfulAuthentication</a>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="Authenticating.html" class="extype" name="reactivemongo.core.nodeset.Authenticating">Authenticating</a>, <a href="Authentication.html" class="extype" name="reactivemongo.core.nodeset.Authentication">Authentication</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -73,7 +69,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="reactivemongo.core.commands.Authenticate"><span>Authenticate</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="reactivemongo.core.commands.Command"><span>Command</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="reactivemongo.core.nodeset.ScramSha1Authenticating"><span>ScramSha1Authenticating</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="reactivemongo.core.nodeset.Authenticating"><span>Authenticating</span></li><li class="in" name="reactivemongo.core.nodeset.Authentication"><span>Authentication</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
                 <span class="filtertype">Implicitly<br />
@@ -98,24 +94,23 @@
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="reactivemongo.core.commands.Authenticate#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(user:String,password:String,nonce:String):reactivemongo.core.commands.Authenticate"></a>
-      <a id="&lt;init&gt;:Authenticate"></a>
+              <ol><li name="reactivemongo.core.nodeset.ScramSha1Authenticating#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(db:String,user:String,password:String,randomPrefix:String,saslStart:String,conversationId:Option[Int],serverSignature:Option[Array[Byte]],step:Int):reactivemongo.core.nodeset.ScramSha1Authenticating"></a>
+      <a id="&lt;init&gt;:ScramSha1Authenticating"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">Authenticate</span><span class="params">(<span name="user">user: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="password">password: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="nonce">nonce: <span class="extype" name="scala.Predef.String">String</span></span>)</span>
+        <span class="name">ScramSha1Authenticating</span><span class="params">(<span name="db">db: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="user">user: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="password">password: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="randomPrefix">randomPrefix: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="saslStart">saslStart: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="conversationId">conversationId: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>] = <span class="symbol">None</span></span>, <span name="serverSignature">serverSignature: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]] = <span class="symbol">None</span></span>, <span name="step">step: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@&lt;init&gt;(user:String,password:String,nonce:String):reactivemongo.core.commands.Authenticate" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@&lt;init&gt;(db:String,user:String,password:String,randomPrefix:String,saslStart:String,conversationId:Option[Int],serverSignature:Option[Array[Byte]],step:Int):reactivemongo.core.nodeset.ScramSha1Authenticating" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">user</dt><dd class="cmt"><p>username</p></dd><dt class="param">password</dt><dd class="cmt"><p>user's password</p></dd><dt class="param">nonce</dt><dd class="cmt"><p>the previous nonce given by the server
-</p></dd></dl></div>
+      
     </li></ol>
             </div>
 
@@ -137,7 +132,7 @@
         <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@!=(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -154,7 +149,7 @@
         <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@##():Int" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@##():Int" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -171,34 +166,34 @@
         <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@+(other:String):String" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@+(other:String):String" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a> to
-            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a>] performed by method any2stringadd in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a> to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a>] performed by method any2stringadd in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="-&gt;[B](y:B):(A,B)"></a>
-      <a id="-&gt;[B](B):(Authenticate,B)"></a>
+      <a id="-&gt;[B](B):(ScramSha1Authenticating,B)"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a> to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a>] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a>] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -216,48 +211,11 @@
         <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@==(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@==(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="reactivemongo.core.commands.Authenticate#ResultMaker" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ResultMaker:reactivemongo.core.commands.Authenticate.type"></a>
-      <a id="ResultMaker:Authenticate.type"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">ResultMaker</span><span class="result">: <a href="Authenticate$.html" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a>.type</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@ResultMaker:reactivemongo.core.commands.Authenticate.type" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Deserializer for this command's result.</p><div class="fullcomment"><div class="comment cmt"><p>Deserializer for this command's result.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a> → <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a></dd></dl></div>
-    </li><li name="reactivemongo.core.commands.Command#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="apply(db:String):reactivemongo.core.commands.MakableCommand"></a>
-      <a id="apply(String):MakableCommand"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">apply</span><span class="params">(<span name="db">db: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="MakableCommand.html" class="extype" name="reactivemongo.core.commands.MakableCommand">MakableCommand</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@apply(db:String):reactivemongo.core.commands.MakableCommand" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Produces a <a href="MakableCommand.html" class="extype" name="reactivemongo.core.commands.MakableCommand">reactivemongo.core.commands.MakableCommand</a> instance of this command.</p><div class="fullcomment"><div class="comment cmt"><p>Produces a <a href="MakableCommand.html" class="extype" name="reactivemongo.core.commands.MakableCommand">reactivemongo.core.commands.MakableCommand</a> instance of this command.
-</p></div><dl class="paramcmts block"><dt class="param">db</dt><dd class="cmt"><p>name of the target database.
-</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -270,7 +228,7 @@
         <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@asInstanceOf[T0]:T0" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -287,7 +245,7 @@
         <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@clone():Object" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@clone():Object" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -298,88 +256,122 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="reactivemongo.core.nodeset.ScramSha1Authenticating#conversationId" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="conversationId:Option[Int]"></a>
+      <a id="conversationId:Option[Int]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">conversationId</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@conversationId:Option[Int]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.core.nodeset.ScramSha1Authenticating#db" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="db:String"></a>
+      <a id="db:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">db</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@db:String" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a> → <a href="Authentication.html" class="extype" name="reactivemongo.core.nodeset.Authentication">Authentication</a></dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
-      <a id="ensuring((Authenticate)⇒Boolean,⇒Any):Authenticate"></a>
+      <a id="ensuring((ScramSha1Authenticating)⇒Boolean,⇒Any):ScramSha1Authenticating"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a>] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean):A"></a>
-      <a id="ensuring((Authenticate)⇒Boolean):Authenticate"></a>
+      <a id="ensuring((ScramSha1Authenticating)⇒Boolean):ScramSha1Authenticating"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a>] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
-      <a id="ensuring(Boolean,⇒Any):Authenticate"></a>
+      <a id="ensuring(Boolean,⇒Any):ScramSha1Authenticating"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a>] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:Boolean):A"></a>
-      <a id="ensuring(Boolean):Authenticate"></a>
+      <a id="ensuring(Boolean):ScramSha1Authenticating"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@ensuring(cond:Boolean):A" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@ensuring(cond:Boolean):A" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a>] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -394,7 +386,7 @@
         <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -411,7 +403,7 @@
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@finalize():Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@finalize():Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -434,13 +426,13 @@
         <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@formatted(fmtstr:String):String" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@formatted(fmtstr:String):String" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a> to
-            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a>] performed by method StringFormat in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a> to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a>] performed by method StringFormat in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -458,7 +450,7 @@
         <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@getClass():Class[_]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@getClass():Class[_]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -475,46 +467,11 @@
         <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="reactivemongo.core.commands.Authenticate#key" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="key:String"></a>
-      <a id="key:String"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">lazy val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">key</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@key:String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">the digest of the tuple (<i>nonce</i>, <i>user</i>, <i>pwdDigest</i>)</p>
-    </li><li name="reactivemongo.core.commands.Authenticate#makeDocuments" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="makeDocuments:reactivemongo.bson.BSONDocument"></a>
-      <a id="makeDocuments:BSONDocument"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">makeDocuments</span><span class="result">: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@makeDocuments:reactivemongo.bson.BSONDocument" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Makes the <code>BSONDocument</code> for documents that will be send as body of this command's query.</p><div class="fullcomment"><div class="comment cmt"><p>Makes the <code>BSONDocument</code> for documents that will be send as body of this command's query.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a> → <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -527,29 +484,11 @@
         <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="reactivemongo.core.commands.Authenticate#nonce" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="nonce:String"></a>
-      <a id="nonce:String"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">nonce</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@nonce:String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">the previous nonce given by the server
-</p>
     </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <a id="notify():Unit"></a>
@@ -562,7 +501,7 @@
         <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@notify():Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@notify():Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -579,12 +518,12 @@
         <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@notifyAll():Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@notifyAll():Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="reactivemongo.core.commands.Authenticate#password" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="reactivemongo.core.nodeset.ScramSha1Authenticating#password" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="password:String"></a>
       <a id="password:String"></a>
       <h4 class="signature">
@@ -596,46 +535,79 @@
         <span class="name">password</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@password:String" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@password:String" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">user's password</p>
-    </li><li name="reactivemongo.core.commands.Authenticate#pwdDigest" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="pwdDigest:String"></a>
-      <a id="pwdDigest:String"></a>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a> → <a href="Authenticating.html" class="extype" name="reactivemongo.core.nodeset.Authenticating">Authenticating</a></dd></dl></div>
+    </li><li name="reactivemongo.core.nodeset.ScramSha1Authenticating#randomPrefix" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="randomPrefix:String"></a>
+      <a id="randomPrefix:String"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">lazy val</span>
+        <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">pwdDigest</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+        <span class="name">randomPrefix</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@pwdDigest:String" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@randomPrefix:String" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">the computed digest of the password</p>
-    </li><li name="reactivemongo.core.commands.Command#slaveOk" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="slaveOk:Boolean"></a>
-      <a id="slaveOk:Boolean"></a>
+      
+    </li><li name="reactivemongo.core.nodeset.ScramSha1Authenticating#saslStart" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="saslStart:String"></a>
+      <a id="saslStart:String"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">def</span>
+        <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">slaveOk</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">saslStart</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@slaveOk:Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@saslStart:String" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">States if this command can be run on secondaries.</p><div class="fullcomment"><div class="comment cmt"><p>States if this command can be run on secondaries.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a></dd></dl></div>
+      
+    </li><li name="reactivemongo.core.nodeset.ScramSha1Authenticating#serverSignature" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="serverSignature:Option[Array[Byte]]"></a>
+      <a id="serverSignature:Option[Array[Byte]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">serverSignature</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@serverSignature:Option[Array[Byte]]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.core.nodeset.ScramSha1Authenticating#step" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="step:Int"></a>
+      <a id="step:Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">step</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@step:Int" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -648,12 +620,12 @@
         <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="reactivemongo.core.commands.Authenticate#user" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="reactivemongo.core.nodeset.ScramSha1Authenticating#user" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="user:String"></a>
       <a id="user:String"></a>
       <h4 class="signature">
@@ -665,11 +637,11 @@
         <span class="name">user</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@user:String" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@user:String" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">username</p>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a> → <a href="Authentication.html" class="extype" name="reactivemongo.core.nodeset.Authentication">Authentication</a></dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -682,7 +654,7 @@
         <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@wait():Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@wait():Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -705,7 +677,7 @@
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -728,7 +700,7 @@
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@wait(x$1:Long):Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@wait(x$1:Long):Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -741,23 +713,23 @@
         </dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="→[B](y:B):(A,B)"></a>
-      <a id="→[B](B):(Authenticate,B)"></a>
+      <a id="→[B](B):(ScramSha1Authenticating,B)"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.Authenticate@→[B](y:B):(A,B)" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ScramSha1Authenticating@→[B](y:B):(A,B)" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a> to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a>] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a>] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
     </li></ol>
@@ -777,8 +749,10 @@
               <h3>Inherited from <span class="extype" name="scala.Product">Product</span></h3>
             </div><div class="parent" name="scala.Equals">
               <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
-            </div><div class="parent" name="reactivemongo.core.commands.Command">
-              <h3>Inherited from <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<a href="SuccessfulAuthentication.html" class="extype" name="reactivemongo.core.commands.SuccessfulAuthentication">SuccessfulAuthentication</a>]</h3>
+            </div><div class="parent" name="reactivemongo.core.nodeset.Authenticating">
+              <h3>Inherited from <a href="Authenticating.html" class="extype" name="reactivemongo.core.nodeset.Authenticating">Authenticating</a></h3>
+            </div><div class="parent" name="reactivemongo.core.nodeset.Authentication">
+              <h3>Inherited from <a href="Authentication.html" class="extype" name="reactivemongo.core.nodeset.Authentication">Authentication</a></h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">
@@ -786,19 +760,19 @@
             </div>
         <div class="conversion" name="scala.Predef.any2stringadd">
               <h3>Inherited by implicit conversion any2stringadd from
-                <a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a>]
+                <a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a>]
               </h3>
             </div><div class="conversion" name="scala.Predef.StringFormat">
               <h3>Inherited by implicit conversion StringFormat from
-                <a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a>]
+                <a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a>]
               </h3>
             </div><div class="conversion" name="scala.Predef.Ensuring">
               <h3>Inherited by implicit conversion Ensuring from
-                <a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a>]
+                <a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a>]
               </h3>
             </div><div class="conversion" name="scala.Predef.ArrowAssoc">
               <h3>Inherited by implicit conversion ArrowAssoc from
-                <a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.core.commands.Authenticate">Authenticate</a>]
+                <a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.core.nodeset.ScramSha1Authenticating">ScramSha1Authenticating</a>]
               </h3>
             </div>
         </div>

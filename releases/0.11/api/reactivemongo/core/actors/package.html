@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>actors - ReactiveMongo API 0.11.1 - reactivemongo.core.actors</title>
-          <meta name="description" content="actors - ReactiveMongo API 0.11.1 - reactivemongo.core.actors" />
-          <meta name="keywords" content="actors ReactiveMongo API 0.11.1 reactivemongo.core.actors" />
+          <title>actors - ReactiveMongo API 0.11.2 - reactivemongo.core.actors</title>
+          <meta name="description" content="actors - ReactiveMongo API 0.11.2 - reactivemongo.core.actors" />
+          <meta name="keywords" content="actors ReactiveMongo API 0.11.2 reactivemongo.core.actors" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -122,13 +122,30 @@
 It holds a promise that will be completed by the MongoDBSystem actor.
 The future can be used to get the error or the successful response.
 </p></div></div>
-    </li><li name="reactivemongo.core.actors.MongoDBSystem" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="reactivemongo.core.actors.LegacyDBSystem" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LegacyDBSystemextendsMongoDBSystemwithMongoCrAuthentication"></a>
+      <a id="LegacyDBSystem:LegacyDBSystem"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="LegacyDBSystem.html"><span class="name">LegacyDBSystem</span></a><span class="result"> extends <a href="MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> with <span class="extype" name="reactivemongo.core.actors.MongoCrAuthentication">MongoCrAuthentication</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.actors.package@LegacyDBSystemextendsMongoDBSystemwithMongoCrAuthentication" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.core.actors.MongoDBSystem" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="MongoDBSystemextendsActor"></a>
       <a id="MongoDBSystem:MongoDBSystem"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">class</span>
+        <span class="kind">trait</span>
       </span>
       <span class="symbol">
         <a href="MongoDBSystem.html"><span class="name">MongoDBSystem</span></a><span class="result"> extends <span class="extype" name="akka.actor.Actor">Actor</span></span>
@@ -188,6 +205,23 @@ The future can be used to get the error or the successful response.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.actors.package@SetAvailableextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.core.actors.StandardDBSystem" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="StandardDBSystemextendsMongoDBSystemwithMongoScramSha1Authentication"></a>
+      <a id="StandardDBSystem:StandardDBSystem"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="StandardDBSystem.html"><span class="name">StandardDBSystem</span></a><span class="result"> extends <a href="MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> with <span class="extype" name="reactivemongo.core.actors.MongoScramSha1Authentication">MongoScramSha1Authentication</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.actors.package@StandardDBSystemextendsMongoDBSystemwithMongoScramSha1Authentication" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>

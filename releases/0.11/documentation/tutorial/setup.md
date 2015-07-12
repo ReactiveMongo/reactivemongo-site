@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ReactiveMongo 0.11.1 - Setup
+title: ReactiveMongo 0.11.2 - Setup
 ---
 
 ## Setup your project
@@ -25,9 +25,11 @@ If you use SBT, you just have to edit `build.sbt` and add the following:
 resolvers += "Typesafe repository releases" at "http://repo.typesafe.com/typesafe/releases/"
 
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "reactivemongo" % "0.11.1"
+  "org.reactivemongo" %% "reactivemongo" % "0.11.2"
 )
 {% endhighlight %}
+
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.11/)
 
 Or if you want to be on the bleeding edge using snapshots:
 

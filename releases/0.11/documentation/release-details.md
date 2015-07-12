@@ -1,14 +1,11 @@
 ---
-redirect_from: "/releases/0.11.0/documentation/release-details.html"
 layout: default
-title: ReactiveMongo 0.11.1 - Release details
+title: ReactiveMongo 0.11.2 - Release details
 ---
 
-## ReactiveMongo 0.11.1 – Release details
+## ReactiveMongo 0.11.2 – Release details
 
-This is a minor release including mostly bugfixes and some enhancements.
-
-### What's new?
+**What's new?**
 
 Enhancements:
 

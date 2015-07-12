@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ReactiveMongo 0.11.1 - Find Documents
+title: ReactiveMongo 0.11.2 - Find Documents
 ---
 
 ## Find documents

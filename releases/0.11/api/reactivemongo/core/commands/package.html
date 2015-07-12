@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>commands - ReactiveMongo API 0.11.1 - reactivemongo.core.commands</title>
-          <meta name="description" content="commands - ReactiveMongo API 0.11.1 - reactivemongo.core.commands" />
-          <meta name="keywords" content="commands ReactiveMongo API 0.11.1 reactivemongo.core.commands" />
+          <title>commands - ReactiveMongo API 0.11.2 - reactivemongo.core.commands</title>
+          <meta name="description" content="commands - ReactiveMongo API 0.11.2 - reactivemongo.core.commands" />
+          <meta name="keywords" content="commands ReactiveMongo API 0.11.2 reactivemongo.core.commands" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -162,25 +162,6 @@ http://docs.mongodb.org/manual/applications/aggregation/
       </a>
     </span>
       
-    </li><li name="reactivemongo.core.commands.Authenticate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="AuthenticateextendsCommand[reactivemongo.core.commands.SuccessfulAuthentication]withProductwithSerializable"></a>
-      <a id="Authenticate:Authenticate"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a href="Authenticate.html"><span class="name">Authenticate</span></a><span class="params">(<span name="user">user: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="password">password: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="nonce">nonce: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<a href="SuccessfulAuthentication.html" class="extype" name="reactivemongo.core.commands.SuccessfulAuthentication">SuccessfulAuthentication</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.package@AuthenticateextendsCommand[reactivemongo.core.commands.SuccessfulAuthentication]withProductwithSerializable" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Authenticate Command.</p><div class="fullcomment"><div class="comment cmt"><p>Authenticate Command.
-</p></div><dl class="paramcmts block"><dt class="param">user</dt><dd class="cmt"><p>username</p></dd><dt class="param">password</dt><dd class="cmt"><p>user's password</p></dd><dt class="param">nonce</dt><dd class="cmt"><p>the previous nonce given by the server
-</p></dd></dl></div>
     </li><li name="reactivemongo.core.commands.AuthenticationResult" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="AuthenticationResultextendsAnyRef"></a>
       <a id="AuthenticationResult:AuthenticationResult"></a>
@@ -340,6 +321,25 @@ and gives back one document as a result.
       <p class="shortcomment cmt">Handler for deserializing commands results.</p><div class="fullcomment"><div class="comment cmt"><p>Handler for deserializing commands results.
 </p></div><dl class="paramcmts block"><dt class="tparam">Result</dt><dd class="cmt"><p>The result type of this command.
 </p></dd></dl></div>
+    </li><li name="reactivemongo.core.commands.CrAuthenticate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="CrAuthenticateextendsCommand[reactivemongo.core.commands.SuccessfulAuthentication]withProductwithSerializable"></a>
+      <a id="CrAuthenticate:CrAuthenticate"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="CrAuthenticate.html"><span class="name">CrAuthenticate</span></a><span class="params">(<span name="user">user: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="password">password: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="nonce">nonce: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<a href="SuccessfulAuthentication.html" class="extype" name="reactivemongo.core.commands.SuccessfulAuthentication">SuccessfulAuthentication</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.commands.package@CrAuthenticateextendsCommand[reactivemongo.core.commands.SuccessfulAuthentication]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Mongo CR authenticate Command.</p><div class="fullcomment"><div class="comment cmt"><p>Mongo CR authenticate Command.
+</p></div><dl class="paramcmts block"><dt class="param">user</dt><dd class="cmt"><p>username</p></dd><dt class="param">password</dt><dd class="cmt"><p>user's password</p></dd><dt class="param">nonce</dt><dd class="cmt"><p>the previous nonce given by the server
+</p></dd></dl></div>
     </li><li name="reactivemongo.core.commands.DefaultCommandError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="DefaultCommandErrorextendsExceptionwithBSONCommandError"></a>
       <a id="DefaultCommandError:DefaultCommandError"></a>
@@ -383,7 +383,7 @@ and gives back one document as a result.
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="FailedAuthentication.html"><span class="name">FailedAuthentication</span></a><span class="params">(<span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="originalDocument">originalDocument: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="BSONCommandError.html" class="extype" name="reactivemongo.core.commands.BSONCommandError">BSONCommandError</a> with <a href="AuthenticationResult.html" class="extype" name="reactivemongo.core.commands.AuthenticationResult">AuthenticationResult</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="FailedAuthentication.html"><span class="name">FailedAuthentication</span></a><span class="params">(<span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="originalDocument">originalDocument: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="BSONCommandError.html" class="extype" name="reactivemongo.core.commands.BSONCommandError">BSONCommandError</a> with <a href="AuthenticationResult.html" class="extype" name="reactivemongo.core.commands.AuthenticationResult">AuthenticationResult</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.package@FailedAuthenticationextendsExceptionwithBSONCommandErrorwithAuthenticationResultwithProductwithSerializable" title="Permalink" target="_top">
@@ -686,6 +686,97 @@ http://docs.mongodb.org/manual/reference/aggregation/project/#_S_project</p></di
       </a>
     </span>
       
+    </li><li name="reactivemongo.core.commands.ScramSha1Challenge" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ScramSha1ChallengeextendsProductwithSerializable"></a>
+      <a id="ScramSha1Challenge:ScramSha1Challenge"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ScramSha1Challenge.html"><span class="name">ScramSha1Challenge</span></a><span class="params">(<span name="conversationId">conversationId: <span class="extype" name="scala.Int">Int</span></span>, <span name="payload">payload: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.commands.package@ScramSha1ChallengeextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.core.commands.ScramSha1FinalNegociation" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ScramSha1FinalNegociationextendsCommand[reactivemongo.core.commands.SuccessfulAuthentication]withProductwithSerializable"></a>
+      <a id="ScramSha1FinalNegociation:ScramSha1FinalNegociation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ScramSha1FinalNegociation.html"><span class="name">ScramSha1FinalNegociation</span></a><span class="params">(<span name="conversationId">conversationId: <span class="extype" name="scala.Int">Int</span></span>, <span name="payload">payload: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<a href="SuccessfulAuthentication.html" class="extype" name="reactivemongo.core.commands.SuccessfulAuthentication">SuccessfulAuthentication</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.commands.package@ScramSha1FinalNegociationextendsCommand[reactivemongo.core.commands.SuccessfulAuthentication]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">conversationId</dt><dd class="cmt"><p>the ID of the SCRAM-SHA1 conversation
+</p></dd></dl></div>
+    </li><li name="reactivemongo.core.commands.ScramSha1Initiate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ScramSha1InitiateextendsCommand[reactivemongo.core.commands.ScramSha1Challenge]withProductwithSerializable"></a>
+      <a id="ScramSha1Initiate:ScramSha1Initiate"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ScramSha1Initiate.html"><span class="name">ScramSha1Initiate</span></a><span class="params">(<span name="user">user: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<a href="ScramSha1Challenge.html" class="extype" name="reactivemongo.core.commands.ScramSha1Challenge">ScramSha1Challenge</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.commands.package@ScramSha1InitiateextendsCommand[reactivemongo.core.commands.ScramSha1Challenge]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Command to start with Mongo SCRAM-SHA1 authentication.</p><div class="fullcomment"><div class="comment cmt"><p>Command to start with Mongo SCRAM-SHA1 authentication.
+</p></div><dl class="paramcmts block"><dt class="param">user</dt><dd class="cmt"><p>username
+</p></dd></dl></div>
+    </li><li name="reactivemongo.core.commands.ScramSha1Negociation" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ScramSha1NegociationextendsProductwithSerializable"></a>
+      <a id="ScramSha1Negociation:ScramSha1Negociation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ScramSha1Negociation.html"><span class="name">ScramSha1Negociation</span></a><span class="params">(<span name="serverSignature">serverSignature: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>, <span name="request">request: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.commands.package@ScramSha1NegociationextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">serverSignature</dt><dd class="cmt"><p>the SCRAM-SHA1 signature for the MongoDB server</p></dd><dt class="param">request</dt><dd class="cmt"><p>the next client request for the SCRAM-SHA1 authentication
+</p></dd></dl></div>
+    </li><li name="reactivemongo.core.commands.ScramSha1StartNegociation" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ScramSha1StartNegociationextendsCommand[Either[reactivemongo.core.commands.SuccessfulAuthentication,Array[Byte]]]withProductwithSerializable"></a>
+      <a id="ScramSha1StartNegociation:ScramSha1StartNegociation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ScramSha1StartNegociation.html"><span class="name">ScramSha1StartNegociation</span></a><span class="params">(<span name="user">user: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="password">password: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="conversationId">conversationId: <span class="extype" name="scala.Int">Int</span></span>, <span name="payload">payload: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>, <span name="randomPrefix">randomPrefix: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="startMessage">startMessage: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Either">Either</span>[<a href="SuccessfulAuthentication.html" class="extype" name="reactivemongo.core.commands.SuccessfulAuthentication">SuccessfulAuthentication</a>, <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]]] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.commands.package@ScramSha1StartNegociationextendsCommand[Either[reactivemongo.core.commands.SuccessfulAuthentication,Array[Byte]]]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Command to continue with Mongo SCRAM-SHA1 authentication.</p><div class="fullcomment"><div class="comment cmt"><p>Command to continue with Mongo SCRAM-SHA1 authentication.
+</p></div><dl class="paramcmts block"><dt class="param">user</dt><dd class="cmt"><p>the name of the user</p></dd><dt class="param">password</dt><dd class="cmt"><p>the user password</p></dd><dt class="param">conversationId</dt><dd class="cmt"></dd><dt class="param">payload</dt><dd class="cmt"><p>the initial payload</p></dd><dt class="param">randomPrefix</dt><dd class="cmt"></dd><dt class="param">startMessage</dt><dd class="cmt"><p>
+</p></dd></dl></div>
     </li><li name="reactivemongo.core.commands.Skip" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="SkipextendsPipelineOperatorwithProductwithSerializable"></a>
       <a id="Skip:Skip"></a>
@@ -1178,23 +1269,6 @@ This command will return only when the previous operation is complete and matche
       </a>
     </span>
       
-    </li><li name="reactivemongo.core.commands.Authenticate" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="Authenticate"></a>
-      <a id="Authenticate:Authenticate"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="Authenticate$.html"><span class="name">Authenticate</span></a><span class="result"> extends <a href="BSONCommandResultMaker.html" class="extype" name="reactivemongo.core.commands.BSONCommandResultMaker">BSONCommandResultMaker</a>[<a href="SuccessfulAuthentication.html" class="extype" name="reactivemongo.core.commands.SuccessfulAuthentication">SuccessfulAuthentication</a>] with <span class="extype" name="scala.Serializable">Serializable</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.package@Authenticate" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Authentication command's response deserializer.</p>
     </li><li name="reactivemongo.core.commands.CollStatsResult" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="CollStatsResult"></a>
       <a id="CollStatsResult:CollStatsResult"></a>
@@ -1229,23 +1303,40 @@ This command will return only when the previous operation is complete and matche
       </a>
     </span>
       
-    </li><li name="reactivemongo.core.commands.Getnonce" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="Getnonce"></a>
-      <a id="Getnonce:Getnonce"></a>
+    </li><li name="reactivemongo.core.commands.CrAuthenticate" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CrAuthenticate"></a>
+      <a id="CrAuthenticate:CrAuthenticate"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="Getnonce$.html"><span class="name">Getnonce</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+        <a href="CrAuthenticate$.html"><span class="name">CrAuthenticate</span></a><span class="result"> extends <a href="BSONCommandResultMaker.html" class="extype" name="reactivemongo.core.commands.BSONCommandResultMaker">BSONCommandResultMaker</a>[<a href="SuccessfulAuthentication.html" class="extype" name="reactivemongo.core.commands.SuccessfulAuthentication">SuccessfulAuthentication</a>] with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.package@Getnonce" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.commands.package@CrAuthenticate" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">Getnonce Command.</p><div class="fullcomment"><div class="comment cmt"><p>Getnonce Command.</p><p>Gets a nonce for authentication token.
+      <p class="shortcomment cmt">Authentication command's response deserializer.</p>
+    </li><li name="reactivemongo.core.commands.GetCrNonce" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="GetCrNonce"></a>
+      <a id="GetCrNonce:GetCrNonce"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="GetCrNonce$.html"><span class="name">GetCrNonce</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.commands.package@GetCrNonce" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Getnonce Command for Mongo CR authentication.</p><div class="fullcomment"><div class="comment cmt"><p>Getnonce Command for Mongo CR authentication.</p><p>Gets a nonce for authentication token.
 </p></div></div>
     </li><li name="reactivemongo.core.commands.GroupFunction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="GroupFunction"></a>
@@ -1282,6 +1373,74 @@ This command will return only when the previous operation is complete and matche
     </span>
       <p class="shortcomment cmt">ReplSetGetStatus Command.</p><div class="fullcomment"><div class="comment cmt"><p>ReplSetGetStatus Command.</p><p>Returns the state of the Replica Set from the target server's point of view.
 </p></div></div>
+    </li><li name="reactivemongo.core.commands.ScramSha1FinalNegociation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ScramSha1FinalNegociation"></a>
+      <a id="ScramSha1FinalNegociation:ScramSha1FinalNegociation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ScramSha1FinalNegociation$.html"><span class="name">ScramSha1FinalNegociation</span></a><span class="result"> extends <a href="BSONCommandResultMaker.html" class="extype" name="reactivemongo.core.commands.BSONCommandResultMaker">BSONCommandResultMaker</a>[<a href="SuccessfulAuthentication.html" class="extype" name="reactivemongo.core.commands.SuccessfulAuthentication">SuccessfulAuthentication</a>] with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.commands.package@ScramSha1FinalNegociation" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.core.commands.ScramSha1Initiate" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ScramSha1Initiate"></a>
+      <a id="ScramSha1Initiate:ScramSha1Initiate"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ScramSha1Initiate$.html"><span class="name">ScramSha1Initiate</span></a><span class="result"> extends <a href="BSONCommandResultMaker.html" class="extype" name="reactivemongo.core.commands.BSONCommandResultMaker">BSONCommandResultMaker</a>[<a href="ScramSha1Challenge.html" class="extype" name="reactivemongo.core.commands.ScramSha1Challenge">ScramSha1Challenge</a>] with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.commands.package@ScramSha1Initiate" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.core.commands.ScramSha1Negociation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ScramSha1Negociation"></a>
+      <a id="ScramSha1Negociation:ScramSha1Negociation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ScramSha1Negociation$.html"><span class="name">ScramSha1Negociation</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.commands.package@ScramSha1Negociation" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.core.commands.ScramSha1StartNegociation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ScramSha1StartNegociation"></a>
+      <a id="ScramSha1StartNegociation:ScramSha1StartNegociation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ScramSha1StartNegociation$.html"><span class="name">ScramSha1StartNegociation</span></a><span class="result"> extends <a href="BSONCommandResultMaker.html" class="extype" name="reactivemongo.core.commands.BSONCommandResultMaker">BSONCommandResultMaker</a>[<span class="extype" name="scala.Either">Either</span>[<a href="SuccessfulAuthentication.html" class="extype" name="reactivemongo.core.commands.SuccessfulAuthentication">SuccessfulAuthentication</a>, <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]]] with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.commands.package@ScramSha1StartNegociation" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="reactivemongo.core.commands.SilentSuccessfulAuthentication" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="SilentSuccessfulAuthentication"></a>
       <a id="SilentSuccessfulAuthentication:SilentSuccessfulAuthentication"></a>
