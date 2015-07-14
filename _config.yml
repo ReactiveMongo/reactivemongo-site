@@ -5,6 +5,3 @@ url: http://reactivemongo.org/
 markdown: kramdown
 latest_major_release: 0.11
 latest_release: 0.11.2
-
-gems:
-  - jekyll-redirect-from

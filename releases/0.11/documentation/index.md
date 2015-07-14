@@ -33,8 +33,8 @@ The documentation of the plugin for the **Play Framework** can is [available onl
 
 ### Advanced Topics
 
-1. [The Collection API Design](advanced-topics/collection-api-design.html)
-2. [Running Commands](advanced-topics/commands.html)
+1. [The Collection API Design](advanced-topics/collection-api.html)
+2. [The Command API](advanced-topics/commands.html)
 3. [FailoverStrategy](advanced-topics/failoverstrategy.html)
 4. [ReadPreferences](advanced-topics/read-preferences.html)
 5. [GridFS](advanced-topics/gridfs.html)
