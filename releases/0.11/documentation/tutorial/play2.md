@@ -100,7 +100,7 @@ object Foo {
 }
 {% endhighlight %}
 
-**Multiple databases**
+**Multiple pools**
 
 In your Play application, you can use ReactiveMongo with multiple connection pools (possibly with different replica set).
 
@@ -123,7 +123,7 @@ object MongoEnv {
   // ensure the given driver will be closed on app shutdown
   def registerDriverShutdownHook(mongoDriver: MongoDriver): MongoDriver = {
     current.injector.instanceOf[ApplicationLifecycle].
-      addStopHook { () => mongoDriver.close() }
+      addStopHook { () => Future(mongoDriver.close()) }
     mongoDriver
   }
 }
