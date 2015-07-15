@@ -5,17 +5,23 @@ title: ReactiveMongo 0.11.2 - Write Documents
 
 ## Classic Write Operations
 
+MongoDB offer different kinds of write operation: insertion, update or removal. Data can be written asynchronously using ReactiveMongo.
+
 ### Insert a document
 
-Insertions are done with the `insert()` method, which returns a `Future[LastError]`.
+Insertions are done with the [`insert()`](../../api/index.html#reactivemongo.api.collections.GenericCollection@insert[T]%28document:T,writeConcern:reactivemongo.api.commands.WriteConcern%29%28implicitwriter:GenericCollection.this.pack.Writer[T],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.commands.WriteResult]) method.
 
 {% highlight scala %}
+import scala.concurrent.Future
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.commands.WriteResult
+
 val document = BSONDocument(
   "firstName" -> "Stephane",
   "lastName" -> "Godbillon",
   "age" -> 29)
 
-val future = collection.insert(document)
+val future: Future[WriteResult] = collection.insert(document)
 
 future.onComplete {
   case Failure(e) => throw e
@@ -24,11 +30,13 @@ future.onComplete {
 }
 {% endhighlight %}
 
-#### What does WriteResult mean?
+> The type `Future[LastError]` previously returned by the write operations is replaced by `Future[WriteResult]` in the new API.
+
+### What does WriteResult mean?
 
 A [`WriteResult`](../../api/index.html#reactivemongo.api.commands.WriteResult) is a special document that contains information about the write operation, like the number of documents where updated for example, or the description of the error if an error happened. If the write result actually indicates an error, the `Future` will be in a `failed` state.
 
-Like all the other operations in the `GenericCollection` trait, you can give any object to `insert()`, provided that you have a `BSONDocumentWriter` for its type in the implicit scope. So, with the `Person` case class:
+Like all the other operations in the [`GenericCollection`](../../api/index.html#reactivemongo.api.collections.GenericCollection) trait, you can give any object to `insert()`, provided that you have a [`BSONDocumentWriter`](../../api/index.html#reactivemongo.bson.BSONDocumentWriter) for its type in the implicit scope. So, with the `Person` case class:
 
 {% highlight scala %}
 val person = Person(
@@ -44,6 +52,20 @@ future.onComplete {
   case Success(writeResult) => {
     println(s"successfully inserted document: $writeResult")
   }
+}
+{% endhighlight %}
+
+When calling a write operation, it's possible to handle some specific error case by testing the result.
+
+{% highlight scala %}
+val future: Future[WriteResult] = collection.insert(person)
+
+val end: Future[Unit] = future.flatMap {
+  case writeResult if (writeResult.code contains 11000) =>
+    // if the result is defined with the error code 11000 (duplicate error)
+    println("Just a warning")
+
+  case _ => ()
 }
 {% endhighlight %}
 
@@ -72,7 +94,7 @@ val bulkResult = collection.bulkInsert(ordered = true)(bulkDocs: _*)
 
 ### Update a document
 
-The updates are done with the `update()` method, which follow the same logic as `insert()`.
+The updates are done with the [`update()`](../../api/index.html#reactivemongo.api.collections.GenericCollection@update[S,U]%28selector:S,update:U,writeConcern:reactivemongo.api.commands.WriteConcern,upsert:Boolean,multi:Boolean%29%28implicitselectorWriter:GenericCollection.this.pack.Writer[S],implicitupdateWriter:GenericCollection.this.pack.Writer[U],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.commands.WriteResult]) method, which follow the same logic as `insert()`.
 
 {% highlight scala %}
 val selector = BSONDocument("name" -> "Jack")
@@ -114,7 +136,7 @@ futureRemove.onComplete {
 }
 {% endhighlight %}
 
-By default, `remove()` deletes all the documents that match the `selector`. You can change this behavior by setting the `firstMatchOnly` parameter to `true`:
+By default, [`remove()`](../../api/index.html#reactivemongo.api.collections.GenericCollection@remove[T]%28query:T,writeConcern:reactivemongo.api.commands.WriteConcern,firstMatchOnly:Boolean%29%28implicitwriter:GenericCollection.this.pack.Writer[T],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.commands.WriteResult]) deletes all the documents that match the `selector`. You can change this behavior by setting the `firstMatchOnly` parameter to `true`:
 
 {% highlight scala %}
 val futureRemove = collection.remove(selector, firstMatchOnly = true)
