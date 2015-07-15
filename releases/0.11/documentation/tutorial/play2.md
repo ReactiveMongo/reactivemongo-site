@@ -45,10 +45,18 @@ libraryDependencies ++= Seq(
 
 **ReactiveMongoPlugin is deprecated, long live to ReactiveMongoModule and ReactiveMongoApi**.
 
-Play has deprecated plugins in version 2.4. Therefore it is recommended to remove it from your project and replace it by
-ReactiveMongoModule which configures dependency injection and ReactiveMongoApi which is the interface to MongoDB.
+Play has deprecated plugins in version 2.4. Therefore it is recommended to remove it from your project and replace it by ReactiveMongoModule and ReactiveMongoApi which is the interface to MongoDB.
 
-Add following line to `application.conf`:
+{% highlight scala %}
+trait ReactiveMongoApi {
+  def driver: MongoDriver
+  def connection: MongoConnection
+  def db: DB
+}
+{% endhighlight %}
+
+Thus, the dependency injection can be configured, so that the your controllers are given the new ReactiveMongo API.
+First, Add the line bellow to `application.conf`:
 
 {% highlight scala %}
 play.modules.enabled += "play.modules.reactivemongo.ReactiveMongoModule"
@@ -57,7 +65,7 @@ play.modules.enabled += "play.modules.reactivemongo.ReactiveMongoModule"
 Then use Play's dependency injection mechanism to resolve instance of `ReactiveMongoApi` which is the interface to MongoDB. Example:
 
 {% highlight scala %}
-class MyRepository @Inject() (val reactiveMongoApi: ReactiveMongoApi) {
+class MyController @Inject() (val reactiveMongoApi: ReactiveMongoApi) {
   ...
   lazy val db = reactiveMongoApi.db
   ...
@@ -77,15 +85,51 @@ class MyController @Inject() (val reactiveMongoApi: ReactiveMongoApi)
 
 > When using Play dependency injection for a controller, the [injected routes need to be enabled](https://www.playframework.com/documentation/2.4.0/ScalaRouting#Dependency-Injection) by adding `routesGenerator := InjectedRoutesGenerator` to your build.
 
-The trait `ReactiveMongoApi` is defined as below.
+It's also possible to get the injected ReactiveMongo API outside of the controllers, using the `injector` of the current Play application.
 
 {% highlight scala %}
-trait ReactiveMongoApi {
-  def driver: MongoDriver
-  def connection: MongoConnection
-  def db: DB
+import play.api.Play.current
+import play.modules.reactivemongo.ReactiveMongoApi
+import play.modules.reactivemongo.json.collection.JSONCollection
+
+object Foo {
+  lazy val reactiveMongoApi = current.injector.instanceOf[ReactiveMongoApi]
+
+  def collection(name: String): JSONCollection =
+    reactiveMongoApi.db.collection[JSONCollection](name)
 }
 {% endhighlight %}
+
+**Multiple databases**
+
+In your Play application, you can use ReactiveMongo with multiple connection pools (possibly with different replica set).
+
+{% highlight scala %}
+import reactivemongo.api.{ MongoConnection, MongoDriver }
+
+import play.api.Play.current
+import play.api.inject.ApplicationLifecycle
+
+object MongoEnv {
+  val driver1 = registerDriverShutdownHook(MongoDriver()) // first pool
+  val driver2 = registerDriverShutdownHook(MongoDriver()) // second pool
+
+  // Pick a connection from the first pool
+  def connection1 = driver1.connection(List("localhost:27017"))
+
+  // Pick a connection from the second pool
+  def connection1 = driver2.connection(List("remotehost:27017"))
+
+  // ensure the given driver will be closed on app shutdown
+  def registerDriverShutdownHook(mongoDriver: MongoDriver): MongoDriver = {
+    current.injector.instanceOf[ApplicationLifecycle].
+      addStopHook { () => mongoDriver.close() }
+    mongoDriver
+  }
+}
+{% endhighlight %}
+
+> Such custom management also work with ReactiveMongo in a Play application, without the module.
 
 ### Play 2.3
 
