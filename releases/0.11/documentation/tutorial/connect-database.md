@@ -41,13 +41,19 @@ The following options can be used with `MongoConnectionOptions` to configure the
 - `authSource`: The database source for authentication credentials.
 - `authMode`: The authentication mode. By default, it's the backward compatible [MONGODB-CR](http://docs.mongodb.org/manual/core/authentication/#mongodb-cr-authentication) which is used. If this options is set to `scram-sha1`, then the [SCRAM-SHA-1](http://docs.mongodb.org/manual/core/authentication/#scram-sha-1-authentication) authentication will be selected.
 - `connectTimeoutMS`: The number of milliseconds to wait for a connection to be established before giving up.
-- `sslEnabled`: It enables the SSL support for the connection.
+- `sslEnabled`: It enables the SSL support for the connection (`true|false`).
 - `sslAllowsInvalidCert`: If `sslEnabled` is true, this one indicates whether to accept invalid certificates (e.g. self-signed).
-- `rm.tcpNoDelay`: TCPNoDelay flag.
-- `rm.keepAlive`: TCP KeepAlive flag.
+- `rm.tcpNoDelay`: TCPNoDelay boolean flag (`true|false`).
+- `rm.keepAlive`: TCP KeepAlive boolean flag (`true|false`).
 - `rm.nbChannelsPerNode`: Number of channels (connections) per node.
 
 > The option `sslEnabled` is needed if the MongoDB server is requiring SSL (`mongod --sslMode requireSSL`). The related option `sslAllowsInvalidCert` is required is the server allows invalid certificate (`mongod --sslAllowInvalidCertificates`).
+
+If the connection pool is defined by an URI, then the options can be given after the `?` separator:
+
+{% highlight scala %}
+mongodb.uri = "mongodb://user:pass@host1:27017,host2:27018,host3:27019/mydatabase?authMode=scram-sha1&rm.tcpNoDelay=true"
+{% endhighlight %}
 
 Getting a database and a collection is pretty easy:
 
