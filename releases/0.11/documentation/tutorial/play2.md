@@ -118,7 +118,7 @@ object MongoEnv {
   def connection1 = driver1.connection(List("localhost:27017"))
 
   // Pick a connection from the second pool
-  def connection1 = driver2.connection(List("remotehost:27017"))
+  def connection2 = driver2.connection(List("remotehost:27017"))
 
   // ensure the given driver will be closed on app shutdown
   def registerDriverShutdownHook(mongoDriver: MongoDriver): MongoDriver = {
