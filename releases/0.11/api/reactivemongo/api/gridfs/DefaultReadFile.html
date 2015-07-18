@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>DefaultReadFile - ReactiveMongo API 0.11.2 - reactivemongo.api.gridfs.DefaultReadFile</title>
-          <meta name="description" content="DefaultReadFile - ReactiveMongo API 0.11.2 - reactivemongo.api.gridfs.DefaultReadFile" />
-          <meta name="keywords" content="DefaultReadFile ReactiveMongo API 0.11.2 reactivemongo.api.gridfs.DefaultReadFile" />
+          <title>DefaultReadFile - ReactiveMongo API 0.11.3 - reactivemongo.api.gridfs.DefaultReadFile</title>
+          <meta name="description" content="DefaultReadFile - ReactiveMongo API 0.11.3 - reactivemongo.api.gridfs.DefaultReadFile" />
+          <meta name="keywords" content="DefaultReadFile ReactiveMongo API 0.11.3 reactivemongo.api.gridfs.DefaultReadFile" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -45,7 +45,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">DefaultReadFile</span><span class="params">(<span name="id">id: <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>, <span name="contentType">contentType: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="filename">filename: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="uploadDate">uploadDate: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>]</span>, <span name="chunkSize">chunkSize: <span class="extype" name="scala.Int">Int</span></span>, <span name="length">length: <span class="extype" name="scala.Long">Long</span></span>, <span name="md5">md5: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="metadata">metadata: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>, <span name="original">original: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span><span class="result"> extends <a href="ReadFile.html" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<a href="../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type, <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">DefaultReadFile</span><span class="params">(<span name="id">id: <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>, <span name="contentType">contentType: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="filename">filename: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="uploadDate">uploadDate: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>]</span>, <span name="chunkSize">chunkSize: <span class="extype" name="scala.Int">Int</span></span>, <span name="length">length: <span class="extype" name="scala.Long">Long</span></span>, <span name="md5">md5: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="metadata">metadata: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>, <span name="original">original: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span><span class="result"> extends <a href="ReadFile.html" class="extype" name="reactivemongo.api.gridfs.ReadFile">ReadFile</a>[<a href="../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type, <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
@@ -95,7 +95,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="reactivemongo.api.gridfs.DefaultReadFile#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(id:reactivemongo.bson.BSONValue,contentType:Option[String],filename:String,uploadDate:Option[Long],chunkSize:Int,length:Long,md5:Option[String],metadata:reactivemongo.bson.BSONDocument,original:reactivemongo.bson.BSONDocument):reactivemongo.api.gridfs.DefaultReadFile"></a>
+      <a id="&lt;init&gt;(id:reactivemongo.bson.BSONValue,contentType:Option[String],filename:Option[String],uploadDate:Option[Long],chunkSize:Int,length:Long,md5:Option[String],metadata:reactivemongo.bson.BSONDocument,original:reactivemongo.bson.BSONDocument):reactivemongo.api.gridfs.DefaultReadFile"></a>
       <a id="&lt;init&gt;:DefaultReadFile"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -103,10 +103,10 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">DefaultReadFile</span><span class="params">(<span name="id">id: <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>, <span name="contentType">contentType: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="filename">filename: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="uploadDate">uploadDate: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>]</span>, <span name="chunkSize">chunkSize: <span class="extype" name="scala.Int">Int</span></span>, <span name="length">length: <span class="extype" name="scala.Long">Long</span></span>, <span name="md5">md5: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="metadata">metadata: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>, <span name="original">original: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span>
+        <span class="name">DefaultReadFile</span><span class="params">(<span name="id">id: <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>, <span name="contentType">contentType: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="filename">filename: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="uploadDate">uploadDate: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>]</span>, <span name="chunkSize">chunkSize: <span class="extype" name="scala.Int">Int</span></span>, <span name="length">length: <span class="extype" name="scala.Long">Long</span></span>, <span name="md5">md5: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="metadata">metadata: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>, <span name="original">original: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.gridfs.DefaultReadFile@&lt;init&gt;(id:reactivemongo.bson.BSONValue,contentType:Option[String],filename:String,uploadDate:Option[Long],chunkSize:Int,length:Long,md5:Option[String],metadata:reactivemongo.bson.BSONDocument,original:reactivemongo.bson.BSONDocument):reactivemongo.api.gridfs.DefaultReadFile" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.gridfs.DefaultReadFile@&lt;init&gt;(id:reactivemongo.bson.BSONValue,contentType:Option[String],filename:Option[String],uploadDate:Option[Long],chunkSize:Int,length:Long,md5:Option[String],metadata:reactivemongo.bson.BSONDocument,original:reactivemongo.bson.BSONDocument):reactivemongo.api.gridfs.DefaultReadFile" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -392,18 +392,18 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="reactivemongo.api.gridfs.DefaultReadFile#filename" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="filename:String"></a>
-      <a id="filename:String"></a>
+      <a id="filename:Option[String]"></a>
+      <a id="filename:Option[String]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">filename</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+        <span class="name">filename</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.gridfs.DefaultReadFile@filename:String" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.gridfs.DefaultReadFile@filename:Option[String]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
