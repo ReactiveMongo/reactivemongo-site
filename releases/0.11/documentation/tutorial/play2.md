@@ -241,6 +241,8 @@ trait MyController extends MongoController {
 }
 {% endhighlight %}
 
+> The maximum size of upload using the GridFS provided by a `MongoController` can be configured by the Play [`DefaultMaxDiskLength`](https://www.playframework.com/documentation/2.4.0/api/scala/index.html#play.api.mvc.BodyParsers$parse$@DefaultMaxDiskLength:Long).
+
 ### JSON cursors
 
 ReactiveMongo for Play Framework provides some extensions of the result cursors, as `.jsArray()` to read underlying data as a JSON array.
