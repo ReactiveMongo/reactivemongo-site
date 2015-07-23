@@ -38,14 +38,27 @@ val connection = driver.connection(List("localhost"), options = conOpts)
 
 The following options can be used with `MongoConnectionOptions` to configure the connection behaviour.
 
-- `authSource`: The database source for authentication credentials.
-- `authMode`: The authentication mode. By default, it's the backward compatible [MONGODB-CR](http://docs.mongodb.org/manual/core/authentication/#mongodb-cr-authentication) which is used. If this options is set to `scram-sha1`, then the [SCRAM-SHA-1](http://docs.mongodb.org/manual/core/authentication/#scram-sha-1-authentication) authentication will be selected.
-- `connectTimeoutMS`: The number of milliseconds to wait for a connection to be established before giving up.
-- `sslEnabled`: It enables the SSL support for the connection (`true|false`).
-- `sslAllowsInvalidCert`: If `sslEnabled` is true, this one indicates whether to accept invalid certificates (e.g. self-signed).
-- `rm.tcpNoDelay`: TCPNoDelay boolean flag (`true|false`).
-- `rm.keepAlive`: TCP KeepAlive boolean flag (`true|false`).
-- `rm.nbChannelsPerNode`: Number of channels (connections) per node.
+- **authSource**: The database source for authentication credentials.
+- **authMode**: The authentication mode. By default, it's the backward compatible [MONGODB-CR](http://docs.mongodb.org/manual/core/authentication/#mongodb-cr-authentication) which is used. If this options is set to `scram-sha1`, then the [SCRAM-SHA-1](http://docs.mongodb.org/manual/core/authentication/#scram-sha-1-authentication) authentication will be selected.
+- **connectTimeoutMS**: The number of milliseconds to wait for a connection to be established before giving up.
+- **sslEnabled**: It enables the SSL support for the connection (`true|false`).
+- **sslAllowsInvalidCert**: If `sslEnabled` is true, this one indicates whether to accept invalid certificates (e.g. self-signed).
+- **rm.tcpNoDelay**: TCPNoDelay boolean flag (`true|false`).
+- **rm.keepAlive**: TCP KeepAlive boolean flag (`true|false`).
+- **rm.nbChannelsPerNode**: Number of channels (connections) per node.
+- **writeConcern**: The default [write concern](http://docs.mongodb.org/manual/reference/write-concern/) (default: `acknowledged`).
+  - **unacknowledged**: Option `w` set to 0, journaling off (`j`), `fsync` off, no timeout.
+  - **acknowledged**: Option `w` set to 0, journaling off, `fsync` off, no timeout.
+  - **journaled**: Option `w` set to 0, journaling on, `fsync` off, no timeout.
+- **writeConcernW**: The [option `w`](http://docs.mongodb.org/manual/reference/write-concern/#w-option) for the default write concern. If `writeConcern` is specified, its `w` will be replaced by this `writeConcernW`.
+  - `majority`: The write operations have to be propagated to the majority of voting nodes.
+  - `0`: Disable the acknowledgment.
+  - `1`: Acknowledgment from the standalone server or primary one.
+  - *positive integer*: Acknowledgment by at least the specified number of replica set members.
+  - [tag](http://docs.mongodb.org/manual/tutorial/configure-replica-set-tag-sets/#replica-set-configuration-tag-sets): Acknowledgment by the member of the replica set matching the given tag.
+- **writeConcernJ**: Toggle [journaling](http://docs.mongodb.org/manual/reference/write-concern/#j-option) on the default write concern. Of `writeConcern` is specified, its `j` will be replaced by this `writeConcernJ` boolean flag (`true|false`).
+- **writeConcernTimeout**: The [time limit](http://docs.mongodb.org/manual/reference/write-concern/#wtimeout) (in milliseconds) for the default write concern. If `writeConcern` is specified, its timeout is replaced by this one.
+- **readPreference**: The default read preference (`primary|primaryPreferred|secondary|secondaryPreferred|nearest`) (default is `primary`).
 
 > The option `sslEnabled` is needed if the MongoDB server is requiring SSL (`mongod --sslMode requireSSL`). The related option `sslAllowsInvalidCert` is required is the server allows invalid certificate (`mongod --sslAllowInvalidCertificates`).
 
