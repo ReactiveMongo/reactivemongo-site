@@ -1,22 +1,22 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Aggregate - ReactiveMongo API 0.11.3 - reactivemongo.api.commands.AggregationFramework.Aggregate</title>
-          <meta name="description" content="Aggregate - ReactiveMongo API 0.11.3 - reactivemongo.api.commands.AggregationFramework.Aggregate" />
-          <meta name="keywords" content="Aggregate ReactiveMongo API 0.11.3 reactivemongo.api.commands.AggregationFramework.Aggregate" />
+          <title>AggregationResultReader - ReactiveMongo API 0.11.4 - reactivemongo.api.commands.bson.BSONAggregationImplicits.AggregationResultReader</title>
+          <meta name="description" content="AggregationResultReader - ReactiveMongo API 0.11.4 - reactivemongo.api.commands.bson.BSONAggregationImplicits.AggregationResultReader" />
+          <meta name="keywords" content="AggregationResultReader ReactiveMongo API 0.11.4 reactivemongo.api.commands.bson.BSONAggregationImplicits.AggregationResultReader" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
-      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
-      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
-      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
-      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
-      <script type="text/javascript" src="../../../lib/template.js"></script>
-      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../lib/diagrams.js" id="diagrams-js"></script>
+      <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../../lib/diagrams.js" id="diagrams-js"></script>
       <script type="text/javascript">
          if(top === self) {
-            var url = '../../../index.html';
-            var hash = 'reactivemongo.api.commands.AggregationFramework$Aggregate$';
+            var url = '../../../../index.html';
+            var hash = 'reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -28,32 +28,30 @@
         </head>
         <body class="value">
       <div id="definition">
-        <a href="AggregationFramework$Aggregate.html" title="See companion class"><img src="../../../lib/object_to_class_big.png" /></a>
-        <p id="owner"><a href="../../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../package.html" class="extype" name="reactivemongo.api">api</a>.<a href="package.html" class="extype" name="reactivemongo.api.commands">commands</a>.<a href="AggregationFramework.html" class="extype" name="reactivemongo.api.commands.AggregationFramework">AggregationFramework</a></p>
-        <h1><a href="AggregationFramework$Aggregate.html" title="See companion class">Aggregate</a></h1><h3><span class="morelinks"><div>
-            Related Docs:
-            <a href="AggregationFramework$Aggregate.html" title="See companion class">class Aggregate</a>
-            | <a href="AggregationFramework.html" class="extype" name="reactivemongo.api.commands.AggregationFramework">package AggregationFramework</a>
+        <img src="../../../../lib/object_big.png" />
+        <p id="owner"><a href="../../../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../../package.html" class="extype" name="reactivemongo.api">api</a>.<a href="../package.html" class="extype" name="reactivemongo.api.commands">commands</a>.<a href="package.html" class="extype" name="reactivemongo.api.commands.bson">bson</a>.<a href="BSONAggregationImplicits$.html" class="extype" name="reactivemongo.api.commands.bson.BSONAggregationImplicits">BSONAggregationImplicits</a></p>
+        <h1>AggregationResultReader</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="BSONAggregationImplicits$.html" class="extype" name="reactivemongo.api.commands.bson.BSONAggregationImplicits">package BSONAggregationImplicits</a>
           </div></span></h3><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate$" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       </div>
 
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
-        <span class="modifier"></span>
+        <span class="modifier">implicit </span>
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">Aggregate</span><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">AggregationResultReader</span><span class="result"> extends <span class="extype" name="reactivemongo.api.commands.bson.DealingWithGenericCommandErrorsReader">DealingWithGenericCommandErrorsReader</span>[<a href="BSONAggregationFramework$.html#AggregationResultextendsProductwithSerializable" class="extmbr" name="reactivemongo.api.commands.AggregationFramework.AggregationResult">BSONAggregationFramework.AggregationResult</a>]</span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="reactivemongo.api.commands.bson.DealingWithGenericCommandErrorsReader">DealingWithGenericCommandErrorsReader</span>[<a href="BSONAggregationFramework$.html#AggregationResultextendsProductwithSerializable" class="extmbr" name="reactivemongo.api.commands.AggregationFramework.AggregationResult">BSONAggregationFramework.AggregationResult</a>], <a href="../../../bson/BSONDocumentReader.html" class="extype" name="reactivemongo.bson.BSONDocumentReader">BSONDocumentReader</a>[<a href="BSONAggregationFramework$.html#AggregationResultextendsProductwithSerializable" class="extmbr" name="reactivemongo.api.commands.AggregationFramework.AggregationResult">BSONAggregationFramework.AggregationResult</a>], <a href="../../../bson/BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[<a href="../../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>, <a href="BSONAggregationFramework$.html#AggregationResultextendsProductwithSerializable" class="extmbr" name="reactivemongo.api.commands.AggregationFramework.AggregationResult">BSONAggregationFramework.AggregationResult</a>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -71,7 +69,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="reactivemongo.api.commands.AggregationFramework.Aggregate"><span>Aggregate</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="reactivemongo.api.commands.bson.BSONAggregationImplicits.AggregationResultReader"><span>AggregationResultReader</span></li><li class="in" name="reactivemongo.api.commands.bson.DealingWithGenericCommandErrorsReader"><span>DealingWithGenericCommandErrorsReader</span></li><li class="in" name="reactivemongo.bson.BSONDocumentReader"><span>BSONDocumentReader</span></li><li class="in" name="reactivemongo.bson.BSONReader"><span>BSONReader</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -109,8 +107,8 @@
         <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate$@!=(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -126,8 +124,8 @@
         <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate$@##():Int" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@##():Int" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -143,45 +141,11 @@
         <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate$@==(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="reactivemongo.api.commands.AggregationFramework.Aggregate#apply" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="apply(cursorOptions:Option[AggregationFramework.this.AggregateCursorOptions],stages:AggregationFramework.this.PipelineStageDocumentProducer*):AggregationFramework.this.Aggregate"></a>
-      <a id="apply(Option[AggregateCursorOptions],PipelineStageDocumentProducer*):Aggregate"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">apply</span><span class="params">(<span name="cursorOptions">cursorOptions: <span class="extype" name="scala.Option">Option</span>[<a href="AggregationFramework$AggregateCursorOptions.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.AggregateCursorOptions">AggregateCursorOptions</a>]</span>, <span name="stages">stages: <a href="AggregationFramework$PipelineStageDocumentProducer.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineStageDocumentProducer">PipelineStageDocumentProducer</a>*</span>)</span><span class="result">: <a href="AggregationFramework$Aggregate.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Aggregate">Aggregate</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate$@apply(cursorOptions:Option[AggregationFramework.this.AggregateCursorOptions],stages:AggregationFramework.this.PipelineStageDocumentProducer*):AggregationFramework.this.Aggregate" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      
-    </li><li name="reactivemongo.api.commands.AggregationFramework.Aggregate#apply" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="apply(stages:AggregationFramework.this.PipelineStageDocumentProducer*):AggregationFramework.this.Aggregate"></a>
-      <a id="apply(PipelineStageDocumentProducer*):Aggregate"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">apply</span><span class="params">(<span name="stages">stages: <a href="AggregationFramework$PipelineStageDocumentProducer.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineStageDocumentProducer">PipelineStageDocumentProducer</a>*</span>)</span><span class="result">: <a href="AggregationFramework$Aggregate.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Aggregate">Aggregate</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate$@apply(stages:AggregationFramework.this.PipelineStageDocumentProducer*):AggregationFramework.this.Aggregate" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -194,8 +158,8 @@
         <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate$@asInstanceOf[T0]:T0" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -211,11 +175,11 @@
         <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate$@clone():Object" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
       <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
@@ -234,8 +198,8 @@
         <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate$@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -251,8 +215,8 @@
         <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate$@equals(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -268,11 +232,11 @@
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate$@finalize():Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
       <span class="symbol">classOf[java.lang.Throwable]</span>
@@ -291,8 +255,8 @@
         <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate$@getClass():Class[_]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -308,8 +272,8 @@
         <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate$@hashCode():Int" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -325,8 +289,8 @@
         <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate$@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -342,8 +306,8 @@
         <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate$@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -359,8 +323,8 @@
         <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate$@notify():Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -376,11 +340,81 @@
         <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate$@notifyAll():Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="reactivemongo.api.commands.bson.DealingWithGenericCommandErrorsReader#read" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="read(doc:reactivemongo.bson.BSONDocument):A"></a>
+      <a id="read(BSONDocument):BSONAggregationFramework.AggregationResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">read</span><span class="params">(<span name="doc">doc: <a href="../../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span><span class="result">: <a href="BSONAggregationFramework$.html#AggregationResultextendsProductwithSerializable" class="extmbr" name="reactivemongo.api.commands.AggregationFramework.AggregationResult">BSONAggregationFramework.AggregationResult</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@read(doc:reactivemongo.bson.BSONDocument):A" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Reads a BSON value and produce an instance of <code>T</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Reads a BSON value and produce an instance of <code>T</code>.</p><p>This method may throw exceptions at runtime.
+If used outside a reader, one should consider <code>readTry(bson: B): Try[T]</code> or <code>readOpt(bson: B): Option[T]</code>.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd>DealingWithGenericCommandErrorsReader → <a href="../../../bson/BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONReader#readOpt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="readOpt(bson:B):Option[T]"></a>
+      <a id="readOpt(BSONDocument):Option[BSONAggregationFramework.AggregationResult]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">readOpt</span><span class="params">(<span name="bson">bson: <a href="../../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="BSONAggregationFramework$.html#AggregationResultextendsProductwithSerializable" class="extmbr" name="reactivemongo.api.commands.AggregationFramework.AggregationResult">BSONAggregationFramework.AggregationResult</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@readOpt(bson:B):Option[T]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tries to produce an instance of <code>T</code> from the <code>bson</code> value, returns <code>None</code> if an error occurred.</p><div class="fullcomment"><div class="comment cmt"><p>Tries to produce an instance of <code>T</code> from the <code>bson</code> value, returns <code>None</code> if an error occurred.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../../bson/BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.bson.BSONAggregationImplicits.AggregationResultReader#readResult" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="readResult(doc:reactivemongo.bson.BSONDocument):reactivemongo.api.commands.bson.BSONAggregationFramework.AggregationResult"></a>
+      <a id="readResult(BSONDocument):BSONAggregationFramework.AggregationResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">readResult</span><span class="params">(<span name="doc">doc: <a href="../../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span><span class="result">: <a href="BSONAggregationFramework$.html#AggregationResultextendsProductwithSerializable" class="extmbr" name="reactivemongo.api.commands.AggregationFramework.AggregationResult">BSONAggregationFramework.AggregationResult</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@readResult(doc:reactivemongo.bson.BSONDocument):reactivemongo.api.commands.bson.BSONAggregationFramework.AggregationResult" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.commands.bson.BSONAggregationImplicits.AggregationResultReader">AggregationResultReader</a> → DealingWithGenericCommandErrorsReader</dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONReader#readTry" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="readTry(bson:B):scala.util.Try[T]"></a>
+      <a id="readTry(BSONDocument):Try[BSONAggregationFramework.AggregationResult]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">readTry</span><span class="params">(<span name="bson">bson: <a href="../../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span><span class="result">: <span class="extype" name="scala.util.Try">Try</span>[<a href="BSONAggregationFramework$.html#AggregationResultextendsProductwithSerializable" class="extmbr" name="reactivemongo.api.commands.AggregationFramework.AggregationResult">BSONAggregationFramework.AggregationResult</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@readTry(bson:B):scala.util.Try[T]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tries to produce an instance of <code>T</code> from the <code>bson</code> value.</p><div class="fullcomment"><div class="comment cmt"><p>Tries to produce an instance of <code>T</code> from the <code>bson</code> value.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../../bson/BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -393,8 +427,8 @@
         <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate$@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -410,8 +444,8 @@
         <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate$@toString():String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@toString():String" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -427,8 +461,8 @@
         <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate$@wait():Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -450,8 +484,8 @@
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate$@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -473,8 +507,8 @@
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate$@wait(x$1:Long):Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+      <a href="../../../../index.html#reactivemongo.api.commands.bson.BSONAggregationImplicits$$AggregationResultReader$@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -493,10 +527,12 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="scala.Serializable">
-              <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
-            </div><div class="parent" name="java.io.Serializable">
-              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
+        <div class="parent" name="reactivemongo.api.commands.bson.DealingWithGenericCommandErrorsReader">
+              <h3>Inherited from <span class="extype" name="reactivemongo.api.commands.bson.DealingWithGenericCommandErrorsReader">DealingWithGenericCommandErrorsReader</span>[<a href="BSONAggregationFramework$.html#AggregationResultextendsProductwithSerializable" class="extmbr" name="reactivemongo.api.commands.AggregationFramework.AggregationResult">BSONAggregationFramework.AggregationResult</a>]</h3>
+            </div><div class="parent" name="reactivemongo.bson.BSONDocumentReader">
+              <h3>Inherited from <a href="../../../bson/BSONDocumentReader.html" class="extype" name="reactivemongo.bson.BSONDocumentReader">BSONDocumentReader</a>[<a href="BSONAggregationFramework$.html#AggregationResultextendsProductwithSerializable" class="extmbr" name="reactivemongo.api.commands.AggregationFramework.AggregationResult">BSONAggregationFramework.AggregationResult</a>]</h3>
+            </div><div class="parent" name="reactivemongo.bson.BSONReader">
+              <h3>Inherited from <a href="../../../bson/BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[<a href="../../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>, <a href="BSONAggregationFramework$.html#AggregationResultextendsProductwithSerializable" class="extmbr" name="reactivemongo.api.commands.AggregationFramework.AggregationResult">BSONAggregationFramework.AggregationResult</a>]</h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">

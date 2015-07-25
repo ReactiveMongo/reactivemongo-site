@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>ReactiveMongo API 0.11.3</title>
-          <meta name="description" content="ReactiveMongo API 0.11.3" />
-          <meta name="keywords" content="ReactiveMongo API 0.11.3" />
+          <title>ReactiveMongo API 0.11.4</title>
+          <meta name="description" content="ReactiveMongo API 0.11.4" />
+          <meta name="keywords" content="ReactiveMongo API 0.11.4" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../lib/ref-index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -90,7 +90,7 @@
       <div class="occurrences"><a href="../reactivemongo/api/collections/BatchCommands.html" class="extype" name="reactivemongo.api.collections.BatchCommands">BatchCommands</a> <a href="../reactivemongo/api/collections/bson/BSONBatchCommands$.html" class="extype" name="reactivemongo.api.collections.bson.BSONBatchCommands">BSONBatchCommands</a> <a href="../reactivemongo/api/commands/bson/BSONDeleteCommandImplicits$.html" class="extype" name="reactivemongo.api.commands.bson.BSONDeleteCommandImplicits">BSONDeleteCommandImplicits</a> </div>
     </div><div class="entry">
       <div class="name">Descending</div>
-      <div class="occurrences"><a href="../reactivemongo/api/SortOrder$.html" class="extype" name="reactivemongo.api.SortOrder">SortOrder</a> <a href="../reactivemongo/api/indexes/IndexType$.html" class="extype" name="reactivemongo.api.indexes.IndexType">IndexType</a> <a href="../reactivemongo/core/commands/package.html" class="extype" name="reactivemongo.core.commands">commands</a> </div>
+      <div class="occurrences"><a href="../reactivemongo/api/commands/AggregationFramework.html" class="extype" name="reactivemongo.api.commands.AggregationFramework">AggregationFramework</a> <a href="../reactivemongo/api/indexes/IndexType$.html" class="extype" name="reactivemongo.api.indexes.IndexType">IndexType</a> <a href="../reactivemongo/core/commands/package.html" class="extype" name="reactivemongo.core.commands">commands</a> </div>
     </div><div class="entry">
       <div class="name">DetailedDatabaseException</div>
       <div class="occurrences"><a href="../reactivemongo/core/errors/package.html" class="extype" name="reactivemongo.core.errors">errors</a> </div>
@@ -103,12 +103,6 @@
     </div><div class="entry">
       <div class="name">DocumentKeyNotFound</div>
       <div class="occurrences"><a href="../reactivemongo/bson/exceptions/package.html" class="extype" name="reactivemongo.bson.exceptions">exceptions</a> </div>
-    </div><div class="entry">
-      <div class="name">DocumentStage</div>
-      <div class="occurrences"><a href="../reactivemongo/api/commands/AggregationFramework.html" class="extype" name="reactivemongo.api.commands.AggregationFramework">AggregationFramework</a> </div>
-    </div><div class="entry">
-      <div class="name">DocumentStageCompanion</div>
-      <div class="occurrences"><a href="../reactivemongo/api/commands/AggregationFramework.html" class="extype" name="reactivemongo.api.commands.AggregationFramework">AggregationFramework</a> </div>
     </div><div class="entry">
       <div class="name">Done</div>
       <div class="occurrences"><a href="../reactivemongo/api/Cursor$.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a> </div>
@@ -161,6 +155,9 @@
       <div class="name">defaultCursorProducer</div>
       <div class="occurrences"><a href="../reactivemongo/api/CursorProducer$.html" class="extype" name="reactivemongo.api.CursorProducer">CursorProducer</a> </div>
     </div><div class="entry">
+      <div class="name">defaultReadPreference</div>
+      <div class="occurrences"><a href="../reactivemongo/api/DB.html" class="extype" name="reactivemongo.api.DB">DB</a> <a href="../reactivemongo/api/gridfs/GridFS.html" class="extype" name="reactivemongo.api.gridfs.GridFS">GridFS</a> </div>
+    </div><div class="entry">
       <div class="name">delayFactor</div>
       <div class="occurrences"><a href="../reactivemongo/api/FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> </div>
     </div><div class="entry">
@@ -176,6 +173,12 @@
       <div class="name">discard</div>
       <div class="occurrences"><a href="../reactivemongo/bson/buffer/ArrayReadableBuffer.html" class="extype" name="reactivemongo.bson.buffer.ArrayReadableBuffer">ArrayReadableBuffer</a> <a href="../reactivemongo/bson/buffer/ReadableBuffer.html" class="extype" name="reactivemongo.bson.buffer.ReadableBuffer">ReadableBuffer</a> <a href="../reactivemongo/core/netty/ChannelBufferReadableBuffer.html" class="extype" name="reactivemongo.core.netty.ChannelBufferReadableBuffer">ChannelBufferReadableBuffer</a> </div>
     </div><div class="entry">
+      <div class="name">distanceField</div>
+      <div class="occurrences"><a href="../reactivemongo/api/commands/AggregationFramework$GeoNear.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.GeoNear">GeoNear</a> </div>
+    </div><div class="entry">
+      <div class="name">distanceMultiplier</div>
+      <div class="occurrences"><a href="../reactivemongo/api/commands/AggregationFramework$GeoNear.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.GeoNear">GeoNear</a> </div>
+    </div><div class="entry">
       <div class="name">doc</div>
       <div class="occurrences"><a href="../reactivemongo/api/commands/CountCommand$HintDocument.html" class="extype" name="reactivemongo.api.commands.CountCommand.HintDocument">HintDocument</a> <a href="../reactivemongo/core/netty/package$$BSONDocumentNettyWritable.html" class="extype" name="reactivemongo.core.netty.BSONDocumentNettyWritable">BSONDocumentNettyWritable</a> </div>
     </div><div class="entry">
@@ -183,13 +186,16 @@
       <div class="occurrences"><a href="../reactivemongo/api/commands/CountCommand$Hint$.html" class="extype" name="reactivemongo.api.commands.CountCommand.Hint">Hint</a> </div>
     </div><div class="entry">
       <div class="name">document</div>
-      <div class="occurrences"><a href="../reactivemongo/api/commands/AggregationFramework$DocumentStage.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.DocumentStage">DocumentStage</a> <a href="../reactivemongo/api/commands/AggregationFramework$GeoNear.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.GeoNear">GeoNear</a> <a href="../reactivemongo/api/commands/AggregationFramework$Group.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Group">Group</a> <a href="../reactivemongo/api/commands/AggregationFramework$Match.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Match">Match</a> <a href="../reactivemongo/api/commands/AggregationFramework$Project.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Project">Project</a> <a href="../reactivemongo/api/commands/AggregationFramework$Redact.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Redact">Redact</a> <a href="../reactivemongo/api/commands/AggregationFramework$Sort.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Sort">Sort</a> <a href="../reactivemongo/api/commands/Command$$CommandWithPackRunner$RawCommand.html" class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.RawCommand">RawCommand</a> <a href="../reactivemongo/bson/package.html" class="extype" name="reactivemongo.bson">bson</a> </div>
+      <div class="occurrences"><a href="../reactivemongo/api/commands/Command$$CommandWithPackRunner$RawCommand.html" class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.RawCommand">RawCommand</a> <a href="../reactivemongo/bson/package.html" class="extype" name="reactivemongo.bson">bson</a> </div>
     </div><div class="entry">
       <div class="name">documentSize</div>
       <div class="occurrences"><a href="../reactivemongo/bson/buffer/BSONIterator.html" class="extype" name="reactivemongo.bson.buffer.BSONIterator">BSONIterator</a> </div>
     </div><div class="entry">
       <div class="name">documents</div>
-      <div class="occurrences"><a href="../reactivemongo/api/commands/InsertCommand$Insert.html" class="extype" name="reactivemongo.api.commands.InsertCommand.Insert">Insert</a> <a href="../reactivemongo/api/commands/UpdateCommand$Update.html" class="extype" name="reactivemongo.api.commands.UpdateCommand.Update">Update</a> <a href="../reactivemongo/core/protocol/CheckedWriteRequest.html" class="extype" name="reactivemongo.core.protocol.CheckedWriteRequest">CheckedWriteRequest</a> <a href="../reactivemongo/core/protocol/Request.html" class="extype" name="reactivemongo.core.protocol.Request">Request</a> <a href="../reactivemongo/core/protocol/RequestMaker.html" class="extype" name="reactivemongo.core.protocol.RequestMaker">RequestMaker</a> <a href="../reactivemongo/core/protocol/Response.html" class="extype" name="reactivemongo.core.protocol.Response">Response</a> </div>
+      <div class="occurrences"><a href="../reactivemongo/api/commands/AggregationFramework$AggregationResult.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.AggregationResult">AggregationResult</a> <a href="../reactivemongo/api/commands/InsertCommand$Insert.html" class="extype" name="reactivemongo.api.commands.InsertCommand.Insert">Insert</a> <a href="../reactivemongo/api/commands/UpdateCommand$Update.html" class="extype" name="reactivemongo.api.commands.UpdateCommand.Update">Update</a> <a href="../reactivemongo/core/protocol/CheckedWriteRequest.html" class="extype" name="reactivemongo.core.protocol.CheckedWriteRequest">CheckedWriteRequest</a> <a href="../reactivemongo/core/protocol/Request.html" class="extype" name="reactivemongo.core.protocol.Request">Request</a> <a href="../reactivemongo/core/protocol/RequestMaker.html" class="extype" name="reactivemongo.core.protocol.RequestMaker">RequestMaker</a> <a href="../reactivemongo/core/protocol/Response.html" class="extype" name="reactivemongo.core.protocol.Response">Response</a> </div>
+    </div><div class="entry">
+      <div class="name">doubleValue</div>
+      <div class="occurrences"><a href="../reactivemongo/api/commands/AggregationFramework.html" class="extype" name="reactivemongo.api.commands.AggregationFramework">AggregationFramework</a> <a href="../reactivemongo/api/commands/bson/BSONAggregationFramework$.html" class="extype" name="reactivemongo.api.commands.bson.BSONAggregationFramework">BSONAggregationFramework</a> </div>
     </div><div class="entry">
       <div class="name">drop</div>
       <div class="occurrences"><a href="../reactivemongo/api/CollectionMetaCommands.html" class="extype" name="reactivemongo.api.CollectionMetaCommands">CollectionMetaCommands</a> <a href="../reactivemongo/api/DBMetaCommands.html" class="extype" name="reactivemongo.api.DBMetaCommands">DBMetaCommands</a> <a href="../reactivemongo/api/indexes/CollectionIndexesManager.html" class="extype" name="reactivemongo.api.indexes.CollectionIndexesManager">CollectionIndexesManager</a> <a href="../reactivemongo/api/indexes/DefaultIndexesManager.html" class="extype" name="reactivemongo.api.indexes.DefaultIndexesManager">DefaultIndexesManager</a> <a href="../reactivemongo/api/indexes/IndexesManager.html" class="extype" name="reactivemongo.api.indexes.IndexesManager">IndexesManager</a> <a href="../reactivemongo/api/indexes/LegacyIndexesManager.html" class="extype" name="reactivemongo.api.indexes.LegacyIndexesManager">LegacyIndexesManager</a> </div>

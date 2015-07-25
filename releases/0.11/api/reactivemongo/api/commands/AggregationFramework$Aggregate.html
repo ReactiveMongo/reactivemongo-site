@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Aggregate - ReactiveMongo API 0.11.3 - reactivemongo.api.commands.AggregationFramework.Aggregate</title>
-          <meta name="description" content="Aggregate - ReactiveMongo API 0.11.3 - reactivemongo.api.commands.AggregationFramework.Aggregate" />
-          <meta name="keywords" content="Aggregate ReactiveMongo API 0.11.3 reactivemongo.api.commands.AggregationFramework.Aggregate" />
+          <title>Aggregate - ReactiveMongo API 0.11.4 - reactivemongo.api.commands.AggregationFramework.Aggregate</title>
+          <meta name="description" content="Aggregate - ReactiveMongo API 0.11.4 - reactivemongo.api.commands.AggregationFramework.Aggregate" />
+          <meta name="keywords" content="Aggregate ReactiveMongo API 0.11.4 reactivemongo.api.commands.AggregationFramework.Aggregate" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,12 +28,10 @@
         </head>
         <body class="type">
       <div id="definition">
-        <a href="AggregationFramework$Aggregate$.html" title="See companion object"><img src="../../../lib/class_to_object_big.png" /></a>
+        <img src="../../../lib/class_big.png" />
         <p id="owner"><a href="../../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../package.html" class="extype" name="reactivemongo.api">api</a>.<a href="package.html" class="extype" name="reactivemongo.api.commands">commands</a>.<a href="AggregationFramework.html" class="extype" name="reactivemongo.api.commands.AggregationFramework">AggregationFramework</a></p>
-        <h1><a href="AggregationFramework$Aggregate$.html" title="See companion object">Aggregate</a></h1><h3><span class="morelinks"><div>
-            Related Docs:
-            <a href="AggregationFramework$Aggregate$.html" title="See companion object">object Aggregate</a>
-            | <a href="AggregationFramework.html" class="extype" name="reactivemongo.api.commands.AggregationFramework">package AggregationFramework</a>
+        <h1>Aggregate</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="AggregationFramework.html" class="extype" name="reactivemongo.api.commands.AggregationFramework">package AggregationFramework</a>
           </div></span></h3><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
@@ -47,13 +45,14 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">Aggregate</span><span class="params">(<span name="pipeline">pipeline: <span class="extype" name="scala.Stream">Stream</span>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>]</span>, <span name="cursorOptions">cursorOptions: <span class="extype" name="scala.Option">Option</span>[<a href="AggregationFramework$AggregateCursorOptions.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.AggregateCursorOptions">AggregateCursorOptions</a>] = <span class="symbol">Some(AggregateCursorOptions())</span></span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithPack.html" class="extype" name="reactivemongo.api.commands.CommandWithPack">CommandWithPack</a>[<span class="extype" name="reactivemongo.api.commands.AggregationFramework.P">P</span>] with <a href="CursorCommand.html" class="extype" name="reactivemongo.api.commands.CursorCommand">CursorCommand</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">Aggregate</span><span class="params">(<span name="pipeline">pipeline: <span class="extype" name="scala.Seq">Seq</span>[<a href="AggregationFramework$PipelineOperator.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineOperator">PipelineOperator</a>]</span>, <span name="explain">explain: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="allowDiskUse">allowDiskUse: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="cursor">cursor: <span class="extype" name="scala.Option">Option</span>[<a href="AggregationFramework$Cursor.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Cursor">Cursor</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithPack.html" class="extype" name="reactivemongo.api.commands.CommandWithPack">CommandWithPack</a>[<a href="AggregationFramework.html#pack:P" class="extmbr" name="reactivemongo.api.commands.AggregationFramework#pack">pack</a>.type] with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="AggregationFramework$AggregationResult.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.AggregationResult">AggregationResult</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">pipeline</dt><dd class="cmt"><p>the sequence of MongoDB aggregation operations</p></dd><dt class="param">explain</dt><dd class="cmt"><p>specifies to return the information on the processing of the pipeline</p></dd><dt class="param">allowDiskUse</dt><dd class="cmt"><p>enables writing to temporary files</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>the cursor object for aggregation
+</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="CursorCommand.html" class="extype" name="reactivemongo.api.commands.CursorCommand">CursorCommand</a>, <a href="CommandWithPack.html" class="extype" name="reactivemongo.api.commands.CommandWithPack">CommandWithPack</a>[<span class="extype" name="reactivemongo.api.commands.AggregationFramework.P">P</span>], <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a>, <a href="AbstractCommand.html" class="extype" name="reactivemongo.api.commands.AbstractCommand">AbstractCommand</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="AggregationFramework$AggregationResult.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.AggregationResult">AggregationResult</a>], <a href="CommandWithPack.html" class="extype" name="reactivemongo.api.commands.CommandWithPack">CommandWithPack</a>[<a href="AggregationFramework.html#pack:P" class="extmbr" name="reactivemongo.api.commands.AggregationFramework#pack">AggregationFramework.pack</a>.type], <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a>, <a href="AbstractCommand.html" class="extype" name="reactivemongo.api.commands.AbstractCommand">AbstractCommand</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -71,7 +70,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="reactivemongo.api.commands.AggregationFramework.Aggregate"><span>Aggregate</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="reactivemongo.api.commands.CursorCommand"><span>CursorCommand</span></li><li class="in" name="reactivemongo.api.commands.CommandWithPack"><span>CommandWithPack</span></li><li class="in" name="reactivemongo.api.commands.CollectionCommand"><span>CollectionCommand</span></li><li class="in" name="reactivemongo.api.commands.AbstractCommand"><span>AbstractCommand</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="reactivemongo.api.commands.AggregationFramework.Aggregate"><span>Aggregate</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="reactivemongo.api.commands.CommandWithResult"><span>CommandWithResult</span></li><li class="in" name="reactivemongo.api.commands.CommandWithPack"><span>CommandWithPack</span></li><li class="in" name="reactivemongo.api.commands.CollectionCommand"><span>CollectionCommand</span></li><li class="in" name="reactivemongo.api.commands.AbstractCommand"><span>AbstractCommand</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
                 <span class="filtertype">Implicitly<br />
@@ -96,8 +95,8 @@
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="reactivemongo.api.commands.AggregationFramework.Aggregate#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(pipeline:Stream[P#Document],cursorOptions:Option[AggregationFramework.this.AggregateCursorOptions]):AggregationFramework.this.Aggregate"></a>
+              <ol><li name="reactivemongo.api.commands.AggregationFramework.Aggregate#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="&lt;init&gt;(pipeline:Seq[AggregationFramework.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,cursor:Option[AggregationFramework.this.Cursor]):AggregationFramework.this.Aggregate"></a>
       <a id="&lt;init&gt;:Aggregate"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -105,14 +104,15 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">Aggregate</span><span class="params">(<span name="pipeline">pipeline: <span class="extype" name="scala.Stream">Stream</span>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>]</span>, <span name="cursorOptions">cursorOptions: <span class="extype" name="scala.Option">Option</span>[<a href="AggregationFramework$AggregateCursorOptions.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.AggregateCursorOptions">AggregateCursorOptions</a>] = <span class="symbol">Some(AggregateCursorOptions())</span></span>)</span>
+        <span class="name">Aggregate</span><span class="params">(<span name="pipeline">pipeline: <span class="extype" name="scala.Seq">Seq</span>[<a href="AggregationFramework$PipelineOperator.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineOperator">PipelineOperator</a>]</span>, <span name="explain">explain: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="allowDiskUse">allowDiskUse: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="cursor">cursor: <span class="extype" name="scala.Option">Option</span>[<a href="AggregationFramework$Cursor.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Cursor">Cursor</a>] = <span class="symbol">None</span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate@&lt;init&gt;(pipeline:Stream[P#Document],cursorOptions:Option[AggregationFramework.this.AggregateCursorOptions]):AggregationFramework.this.Aggregate" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate@&lt;init&gt;(pipeline:Seq[AggregationFramework.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,cursor:Option[AggregationFramework.this.Cursor]):AggregationFramework.this.Aggregate" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">pipeline</dt><dd class="cmt"><p>the sequence of MongoDB aggregation operations</p></dd><dt class="param">explain</dt><dd class="cmt"><p>specifies to return the information on the processing of the pipeline</p></dd><dt class="param">allowDiskUse</dt><dd class="cmt"><p>enables writing to temporary files</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>the cursor object for aggregation
+</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -218,6 +218,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="reactivemongo.api.commands.AggregationFramework.Aggregate#allowDiskUse" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="allowDiskUse:Boolean"></a>
+      <a id="allowDiskUse:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">allowDiskUse</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate@allowDiskUse:Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">enables writing to temporary files</p>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -258,23 +275,24 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="reactivemongo.api.commands.AggregationFramework.Aggregate#cursorOptions" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="cursorOptions:Option[AggregationFramework.this.AggregateCursorOptions]"></a>
-      <a id="cursorOptions:Option[AggregateCursorOptions]"></a>
+    </li><li name="reactivemongo.api.commands.AggregationFramework.Aggregate#cursor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="cursor:Option[AggregationFramework.this.Cursor]"></a>
+      <a id="cursor:Option[Cursor]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">cursorOptions</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="AggregationFramework$AggregateCursorOptions.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.AggregateCursorOptions">AggregateCursorOptions</a>]</span>
+        <span class="name">cursor</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="AggregationFramework$Cursor.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Cursor">Cursor</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate@cursorOptions:Option[AggregationFramework.this.AggregateCursorOptions]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate@cursor:Option[AggregationFramework.this.Cursor]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">the cursor object for aggregation
+</p>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
       <a id="ensuring((Aggregate)⇒Boolean,⇒Any):Aggregate"></a>
@@ -376,6 +394,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="reactivemongo.api.commands.AggregationFramework.Aggregate#explain" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="explain:Boolean"></a>
+      <a id="explain:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">explain</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate@explain:Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">specifies to return the information on the processing of the pipeline</p>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <a id="finalize():Unit"></a>
@@ -474,23 +509,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="reactivemongo.api.commands.AggregationFramework.Aggregate#needsCursor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="needsCursor:Boolean"></a>
-      <a id="needsCursor:Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">final </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">needsCursor</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate@needsCursor:Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.commands.AggregationFramework.Aggregate">Aggregate</a> → <a href="CursorCommand.html" class="extype" name="reactivemongo.api.commands.CursorCommand">CursorCommand</a></dd></dl></div>
     </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <a id="notify():Unit"></a>
@@ -526,22 +544,22 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="reactivemongo.api.commands.AggregationFramework.Aggregate#pipeline" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="pipeline:Stream[P#Document]"></a>
-      <a id="pipeline:Stream[P.Document]"></a>
+      <a id="pipeline:Seq[AggregationFramework.this.PipelineOperator]"></a>
+      <a id="pipeline:Seq[PipelineOperator]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">pipeline</span><span class="result">: <span class="extype" name="scala.Stream">Stream</span>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>]</span>
+        <span class="name">pipeline</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="AggregationFramework$PipelineOperator.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineOperator">PipelineOperator</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate@pipeline:Stream[P#Document]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate@pipeline:Seq[AggregationFramework.this.PipelineOperator]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">the sequence of MongoDB aggregation operations</p>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -666,10 +684,10 @@
               <h3>Inherited from <span class="extype" name="scala.Product">Product</span></h3>
             </div><div class="parent" name="scala.Equals">
               <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
-            </div><div class="parent" name="reactivemongo.api.commands.CursorCommand">
-              <h3>Inherited from <a href="CursorCommand.html" class="extype" name="reactivemongo.api.commands.CursorCommand">CursorCommand</a></h3>
+            </div><div class="parent" name="reactivemongo.api.commands.CommandWithResult">
+              <h3>Inherited from <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="AggregationFramework$AggregationResult.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.AggregationResult">AggregationResult</a>]</h3>
             </div><div class="parent" name="reactivemongo.api.commands.CommandWithPack">
-              <h3>Inherited from <a href="CommandWithPack.html" class="extype" name="reactivemongo.api.commands.CommandWithPack">CommandWithPack</a>[<span class="extype" name="reactivemongo.api.commands.AggregationFramework.P">P</span>]</h3>
+              <h3>Inherited from <a href="CommandWithPack.html" class="extype" name="reactivemongo.api.commands.CommandWithPack">CommandWithPack</a>[<a href="AggregationFramework.html#pack:P" class="extmbr" name="reactivemongo.api.commands.AggregationFramework#pack">AggregationFramework.pack</a>.type]</h3>
             </div><div class="parent" name="reactivemongo.api.commands.CollectionCommand">
               <h3>Inherited from <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a></h3>
             </div><div class="parent" name="reactivemongo.api.commands.AbstractCommand">

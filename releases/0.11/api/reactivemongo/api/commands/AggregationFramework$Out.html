@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Out - ReactiveMongo API 0.11.3 - reactivemongo.api.commands.AggregationFramework.Out</title>
-          <meta name="description" content="Out - ReactiveMongo API 0.11.3 - reactivemongo.api.commands.AggregationFramework.Out" />
-          <meta name="keywords" content="Out ReactiveMongo API 0.11.3 reactivemongo.api.commands.AggregationFramework.Out" />
+          <title>Out - ReactiveMongo API 0.11.4 - reactivemongo.api.commands.AggregationFramework.Out</title>
+          <meta name="description" content="Out - ReactiveMongo API 0.11.4 - reactivemongo.api.commands.AggregationFramework.Out" />
+          <meta name="keywords" content="Out ReactiveMongo API 0.11.4 reactivemongo.api.commands.AggregationFramework.Out" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -45,13 +45,15 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">Out</span><span class="params">(<span name="collection">collection: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="AggregationFramework$PipelineStage.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineStage">PipelineStage</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">Out</span><span class="params">(<span name="collection">collection: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="AggregationFramework$PipelineOperator.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineOperator">PipelineOperator</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Takes the documents returned by the aggregation pipeline and writes them to a specified collection
+http://docs.mongodb.org/manual/reference/operator/aggregation/out/#pipe._S_out</p></div><dl class="paramcmts block"><dt class="param">collection</dt><dd class="cmt"><p>the name of the output collection
+</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="AggregationFramework$PipelineStage.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineStage">PipelineStage</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="AggregationFramework$PipelineOperator.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineOperator">PipelineOperator</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -69,7 +71,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="reactivemongo.api.commands.AggregationFramework.Out"><span>Out</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="reactivemongo.api.commands.AggregationFramework.PipelineStage"><span>PipelineStage</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="reactivemongo.api.commands.AggregationFramework.Out"><span>Out</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="reactivemongo.api.commands.AggregationFramework.PipelineOperator"><span>PipelineOperator</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
                 <span class="filtertype">Implicitly<br />
@@ -94,7 +96,7 @@
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="reactivemongo.api.commands.AggregationFramework.Out#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+              <ol><li name="reactivemongo.api.commands.AggregationFramework.Out#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="&lt;init&gt;(collection:String):AggregationFramework.this.Out"></a>
       <a id="&lt;init&gt;:Out"></a>
       <h4 class="signature">
@@ -110,7 +112,8 @@
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">collection</dt><dd class="cmt"><p>the name of the output collection
+</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -272,7 +275,8 @@
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">the name of the output collection
+</p>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
       <a id="ensuring((Out)⇒Boolean,⇒Any):Out"></a>
@@ -455,23 +459,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="reactivemongo.api.commands.AggregationFramework.Out#name" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="name:String"></a>
-      <a id="name:String"></a>
+    </li><li name="reactivemongo.api.commands.AggregationFramework.Out#makePipe" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="makePipe:AggregationFramework.this.pack.Document"></a>
+      <a id="makePipe:P.Document"></a>
       <h4 class="signature">
       <span class="modifier_kind">
-        <span class="modifier">final </span>
+        <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">name</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+        <span class="name">makePipe</span><span class="result">: <span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Out@name:String" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Out@makePipe:AggregationFramework.this.pack.Document" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.commands.AggregationFramework.Out">Out</a> → <a href="AggregationFramework$PipelineStage.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineStage">PipelineStage</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.commands.AggregationFramework.Out">Out</a> → <a href="AggregationFramework$PipelineOperator.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineOperator">PipelineOperator</a></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -647,8 +651,8 @@
               <h3>Inherited from <span class="extype" name="scala.Product">Product</span></h3>
             </div><div class="parent" name="scala.Equals">
               <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
-            </div><div class="parent" name="reactivemongo.api.commands.AggregationFramework.PipelineStage">
-              <h3>Inherited from <a href="AggregationFramework$PipelineStage.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineStage">PipelineStage</a></h3>
+            </div><div class="parent" name="reactivemongo.api.commands.AggregationFramework.PipelineOperator">
+              <h3>Inherited from <a href="AggregationFramework$PipelineOperator.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineOperator">PipelineOperator</a></h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">

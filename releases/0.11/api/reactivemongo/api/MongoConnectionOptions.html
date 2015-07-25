@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>MongoConnectionOptions - ReactiveMongo API 0.11.3 - reactivemongo.api.MongoConnectionOptions</title>
-          <meta name="description" content="MongoConnectionOptions - ReactiveMongo API 0.11.3 - reactivemongo.api.MongoConnectionOptions" />
-          <meta name="keywords" content="MongoConnectionOptions ReactiveMongo API 0.11.3 reactivemongo.api.MongoConnectionOptions" />
+          <title>MongoConnectionOptions - ReactiveMongo API 0.11.4 - reactivemongo.api.MongoConnectionOptions</title>
+          <meta name="description" content="MongoConnectionOptions - ReactiveMongo API 0.11.4 - reactivemongo.api.MongoConnectionOptions" />
+          <meta name="keywords" content="MongoConnectionOptions ReactiveMongo API 0.11.4 reactivemongo.api.MongoConnectionOptions" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -45,12 +45,12 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">MongoConnectionOptions</span><span class="params">(<span name="connectTimeoutMS">connectTimeoutMS: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="authSource">authSource: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="sslEnabled">sslEnabled: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="sslAllowsInvalidCert">sslAllowsInvalidCert: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="authMode">authMode: <a href="AuthenticationMode.html" class="extype" name="reactivemongo.api.AuthenticationMode">AuthenticationMode</a> = <span class="symbol"><span class="name"><a href="CrAuthentication$.html">CrAuthentication</a></span></span></span>, <span name="tcpNoDelay">tcpNoDelay: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="keepAlive">keepAlive: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">10</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">MongoConnectionOptions</span><span class="params">(<span name="connectTimeoutMS">connectTimeoutMS: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="authSource">authSource: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="sslEnabled">sslEnabled: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="sslAllowsInvalidCert">sslAllowsInvalidCert: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="authMode">authMode: <a href="AuthenticationMode.html" class="extype" name="reactivemongo.api.AuthenticationMode">AuthenticationMode</a> = <span class="symbol"><span class="name"><a href="CrAuthentication$.html">CrAuthentication</a></span></span></span>, <span name="tcpNoDelay">tcpNoDelay: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="keepAlive">keepAlive: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">10</span></span>, <span name="writeConcern">writeConcern: <a href="commands/package.html#WriteConcern=reactivemongo.api.commands.GetLastError" class="extmbr" name="reactivemongo.api.commands.WriteConcern">WriteConcern</a> = <span class="symbol"><span class="name"><a href="../package.html">WriteConcern.Default</a></span></span></span>, <span name="readPreference">readPreference: <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> = <span class="symbol"><span class="name"><a href="ReadPreference$.html">ReadPreference.primary</a></span></span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Options for MongoConnection.
-</p></div><dl class="paramcmts block"><dt class="param">connectTimeoutMS</dt><dd class="cmt"><p>The number of milliseconds to wait for a connection to be established before giving up.</p></dd><dt class="param">authSource</dt><dd class="cmt"><p>The database source for authentication credentials.</p></dd><dt class="param">sslEnabled</dt><dd class="cmt"><p>Enable SSL connection (required to be accepted on server-side).</p></dd><dt class="param">sslAllowsInvalidCert</dt><dd class="cmt"><p>If <code>sslEnabled</code> is true, this one indicates whether to accept invalid certificates (e.g. self-signed).</p></dd><dt class="param">authMode</dt><dd class="cmt"><p>Either <a href="CrAuthentication$.html" class="extype" name="reactivemongo.api.CrAuthentication">CrAuthentication</a> or <a href="ScramSha1Authentication$.html" class="extype" name="reactivemongo.api.ScramSha1Authentication">ScramSha1Authentication</a></p></dd><dt class="param">tcpNoDelay</dt><dd class="cmt"><p>TCPNoDelay flag (ReactiveMongo-specific option). The default value is false (see <a href="http://docs.oracle.com/javase/8/docs/api/java/net/StandardSocketOptions.html#TCP_NODELAY" target="_blank">TCP_NODELAY</a>).</p></dd><dt class="param">keepAlive</dt><dd class="cmt"><p>TCP KeepAlive flag (ReactiveMongo-specific option). The default value is false (see <a href="http://docs.oracle.com/javase/8/docs/api/java/net/StandardSocketOptions.html#SO_KEEPALIVE" target="_blank">SO_KEEPALIVE</a>).</p></dd><dt class="param">nbChannelsPerNode</dt><dd class="cmt"><p>Number of channels (connections) per node (ReactiveMongo-specific option).
+</p></div><dl class="paramcmts block"><dt class="param">connectTimeoutMS</dt><dd class="cmt"><p>The number of milliseconds to wait for a connection to be established before giving up.</p></dd><dt class="param">authSource</dt><dd class="cmt"><p>The database source for authentication credentials.</p></dd><dt class="param">sslEnabled</dt><dd class="cmt"><p>Enable SSL connection (required to be accepted on server-side).</p></dd><dt class="param">sslAllowsInvalidCert</dt><dd class="cmt"><p>If <code>sslEnabled</code> is true, this one indicates whether to accept invalid certificates (e.g. self-signed).</p></dd><dt class="param">authMode</dt><dd class="cmt"><p>Either <a href="CrAuthentication$.html" class="extype" name="reactivemongo.api.CrAuthentication">CrAuthentication</a> or <a href="ScramSha1Authentication$.html" class="extype" name="reactivemongo.api.ScramSha1Authentication">ScramSha1Authentication</a></p></dd><dt class="param">tcpNoDelay</dt><dd class="cmt"><p>TCPNoDelay flag (ReactiveMongo-specific option). The default value is false (see <a href="http://docs.oracle.com/javase/8/docs/api/java/net/StandardSocketOptions.html#TCP_NODELAY" target="_blank">TCP_NODELAY</a>).</p></dd><dt class="param">keepAlive</dt><dd class="cmt"><p>TCP KeepAlive flag (ReactiveMongo-specific option). The default value is false (see <a href="http://docs.oracle.com/javase/8/docs/api/java/net/StandardSocketOptions.html#SO_KEEPALIVE" target="_blank">SO_KEEPALIVE</a>).</p></dd><dt class="param">nbChannelsPerNode</dt><dd class="cmt"><p>Number of channels (connections) per node (ReactiveMongo-specific option).</p></dd><dt class="param">writeConcern</dt><dd class="cmt"><p>the default write concern</p></dd><dt class="param">readPreference</dt><dd class="cmt"><p>the default read preference
 </p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
@@ -97,7 +97,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="reactivemongo.api.MongoConnectionOptions#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(connectTimeoutMS:Int,authSource:Option[String],sslEnabled:Boolean,sslAllowsInvalidCert:Boolean,authMode:reactivemongo.api.AuthenticationMode,tcpNoDelay:Boolean,keepAlive:Boolean,nbChannelsPerNode:Int):reactivemongo.api.MongoConnectionOptions"></a>
+      <a id="&lt;init&gt;(connectTimeoutMS:Int,authSource:Option[String],sslEnabled:Boolean,sslAllowsInvalidCert:Boolean,authMode:reactivemongo.api.AuthenticationMode,tcpNoDelay:Boolean,keepAlive:Boolean,nbChannelsPerNode:Int,writeConcern:reactivemongo.api.commands.WriteConcern,readPreference:reactivemongo.api.ReadPreference):reactivemongo.api.MongoConnectionOptions"></a>
       <a id="&lt;init&gt;:MongoConnectionOptions"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -105,14 +105,14 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">MongoConnectionOptions</span><span class="params">(<span name="connectTimeoutMS">connectTimeoutMS: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="authSource">authSource: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="sslEnabled">sslEnabled: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="sslAllowsInvalidCert">sslAllowsInvalidCert: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="authMode">authMode: <a href="AuthenticationMode.html" class="extype" name="reactivemongo.api.AuthenticationMode">AuthenticationMode</a> = <span class="symbol"><span class="name"><a href="CrAuthentication$.html">CrAuthentication</a></span></span></span>, <span name="tcpNoDelay">tcpNoDelay: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="keepAlive">keepAlive: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">10</span></span>)</span>
+        <span class="name">MongoConnectionOptions</span><span class="params">(<span name="connectTimeoutMS">connectTimeoutMS: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="authSource">authSource: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="sslEnabled">sslEnabled: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="sslAllowsInvalidCert">sslAllowsInvalidCert: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="authMode">authMode: <a href="AuthenticationMode.html" class="extype" name="reactivemongo.api.AuthenticationMode">AuthenticationMode</a> = <span class="symbol"><span class="name"><a href="CrAuthentication$.html">CrAuthentication</a></span></span></span>, <span name="tcpNoDelay">tcpNoDelay: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="keepAlive">keepAlive: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">10</span></span>, <span name="writeConcern">writeConcern: <a href="commands/package.html#WriteConcern=reactivemongo.api.commands.GetLastError" class="extmbr" name="reactivemongo.api.commands.WriteConcern">WriteConcern</a> = <span class="symbol"><span class="name"><a href="../package.html">WriteConcern.Default</a></span></span></span>, <span name="readPreference">readPreference: <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> = <span class="symbol"><span class="name"><a href="ReadPreference$.html">ReadPreference.primary</a></span></span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.MongoConnectionOptions@&lt;init&gt;(connectTimeoutMS:Int,authSource:Option[String],sslEnabled:Boolean,sslAllowsInvalidCert:Boolean,authMode:reactivemongo.api.AuthenticationMode,tcpNoDelay:Boolean,keepAlive:Boolean,nbChannelsPerNode:Int):reactivemongo.api.MongoConnectionOptions" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.MongoConnectionOptions@&lt;init&gt;(connectTimeoutMS:Int,authSource:Option[String],sslEnabled:Boolean,sslAllowsInvalidCert:Boolean,authMode:reactivemongo.api.AuthenticationMode,tcpNoDelay:Boolean,keepAlive:Boolean,nbChannelsPerNode:Int,writeConcern:reactivemongo.api.commands.WriteConcern,readPreference:reactivemongo.api.ReadPreference):reactivemongo.api.MongoConnectionOptions" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">connectTimeoutMS</dt><dd class="cmt"><p>The number of milliseconds to wait for a connection to be established before giving up.</p></dd><dt class="param">authSource</dt><dd class="cmt"><p>The database source for authentication credentials.</p></dd><dt class="param">sslEnabled</dt><dd class="cmt"><p>Enable SSL connection (required to be accepted on server-side).</p></dd><dt class="param">sslAllowsInvalidCert</dt><dd class="cmt"><p>If <code>sslEnabled</code> is true, this one indicates whether to accept invalid certificates (e.g. self-signed).</p></dd><dt class="param">authMode</dt><dd class="cmt"><p>Either <a href="CrAuthentication$.html" class="extype" name="reactivemongo.api.CrAuthentication">CrAuthentication</a> or <a href="ScramSha1Authentication$.html" class="extype" name="reactivemongo.api.ScramSha1Authentication">ScramSha1Authentication</a></p></dd><dt class="param">tcpNoDelay</dt><dd class="cmt"><p>TCPNoDelay flag (ReactiveMongo-specific option). The default value is false (see <a href="http://docs.oracle.com/javase/8/docs/api/java/net/StandardSocketOptions.html#TCP_NODELAY" target="_blank">TCP_NODELAY</a>).</p></dd><dt class="param">keepAlive</dt><dd class="cmt"><p>TCP KeepAlive flag (ReactiveMongo-specific option). The default value is false (see <a href="http://docs.oracle.com/javase/8/docs/api/java/net/StandardSocketOptions.html#SO_KEEPALIVE" target="_blank">SO_KEEPALIVE</a>).</p></dd><dt class="param">nbChannelsPerNode</dt><dd class="cmt"><p>Number of channels (connections) per node (ReactiveMongo-specific option).
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">connectTimeoutMS</dt><dd class="cmt"><p>The number of milliseconds to wait for a connection to be established before giving up.</p></dd><dt class="param">authSource</dt><dd class="cmt"><p>The database source for authentication credentials.</p></dd><dt class="param">sslEnabled</dt><dd class="cmt"><p>Enable SSL connection (required to be accepted on server-side).</p></dd><dt class="param">sslAllowsInvalidCert</dt><dd class="cmt"><p>If <code>sslEnabled</code> is true, this one indicates whether to accept invalid certificates (e.g. self-signed).</p></dd><dt class="param">authMode</dt><dd class="cmt"><p>Either <a href="CrAuthentication$.html" class="extype" name="reactivemongo.api.CrAuthentication">CrAuthentication</a> or <a href="ScramSha1Authentication$.html" class="extype" name="reactivemongo.api.ScramSha1Authentication">ScramSha1Authentication</a></p></dd><dt class="param">tcpNoDelay</dt><dd class="cmt"><p>TCPNoDelay flag (ReactiveMongo-specific option). The default value is false (see <a href="http://docs.oracle.com/javase/8/docs/api/java/net/StandardSocketOptions.html#TCP_NODELAY" target="_blank">TCP_NODELAY</a>).</p></dd><dt class="param">keepAlive</dt><dd class="cmt"><p>TCP KeepAlive flag (ReactiveMongo-specific option). The default value is false (see <a href="http://docs.oracle.com/javase/8/docs/api/java/net/StandardSocketOptions.html#SO_KEEPALIVE" target="_blank">SO_KEEPALIVE</a>).</p></dd><dt class="param">nbChannelsPerNode</dt><dd class="cmt"><p>Number of channels (connections) per node (ReactiveMongo-specific option).</p></dd><dt class="param">writeConcern</dt><dd class="cmt"><p>the default write concern</p></dd><dt class="param">readPreference</dt><dd class="cmt"><p>the default read preference
 </p></dd></dl></div>
     </li></ol>
             </div>
@@ -577,6 +577,24 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="reactivemongo.api.MongoConnectionOptions#readPreference" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="readPreference:reactivemongo.api.ReadPreference"></a>
+      <a id="readPreference:ReadPreference"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">readPreference</span><span class="result">: <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.MongoConnectionOptions@readPreference:reactivemongo.api.ReadPreference" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">the default read preference
+</p>
     </li><li name="reactivemongo.api.MongoConnectionOptions#sslAllowsInvalidCert" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sslAllowsInvalidCert:Boolean"></a>
       <a id="sslAllowsInvalidCert:Boolean"></a>
@@ -714,6 +732,23 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="reactivemongo.api.MongoConnectionOptions#writeConcern" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="writeConcern:reactivemongo.api.commands.WriteConcern"></a>
+      <a id="writeConcern:WriteConcern"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">writeConcern</span><span class="result">: <a href="commands/package.html#WriteConcern=reactivemongo.api.commands.GetLastError" class="extmbr" name="reactivemongo.api.commands.WriteConcern">WriteConcern</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.MongoConnectionOptions@writeConcern:reactivemongo.api.commands.WriteConcern" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">the default write concern</p>
     </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="→[B](y:B):(A,B)"></a>
       <a id="→[B](B):(MongoConnectionOptions,B)"></a>

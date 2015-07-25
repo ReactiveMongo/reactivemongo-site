@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>commands - ReactiveMongo API 0.11.3 - reactivemongo.core.commands</title>
-          <meta name="description" content="commands - ReactiveMongo API 0.11.3 - reactivemongo.core.commands" />
-          <meta name="keywords" content="commands ReactiveMongo API 0.11.3 reactivemongo.core.commands" />
+          <title>commands - ReactiveMongo API 0.11.4 - reactivemongo.core.commands</title>
+          <meta name="description" content="commands - ReactiveMongo API 0.11.4 - reactivemongo.core.commands" />
+          <meta name="keywords" content="commands ReactiveMongo API 0.11.4 reactivemongo.core.commands" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -123,28 +123,6 @@
       </a>
     </span>
       <p class="shortcomment cmt">A command that targets the <i>admin</i> database only (administrative commands).</p>
-    </li><li name="reactivemongo.core.commands.Aggregate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="AggregateextendsCommand[Stream[reactivemongo.bson.BSONDocument]]withProductwithSerializable"></a>
-      <a id="Aggregate:Aggregate"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a href="Aggregate.html"><span class="name">Aggregate</span></a><span class="params">(<span name="collectionName">collectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="pipeline">pipeline: <span class="extype" name="scala.Seq">Seq</span>[<a href="PipelineOperator.html" class="extype" name="reactivemongo.core.commands.PipelineOperator">PipelineOperator</a>]</span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Stream">Stream</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.commands.package@AggregateextendsCommand[Stream[reactivemongo.bson.BSONDocument]]withProductwithSerializable" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Implements the &quot;aggregation&quot; command, otherwise known as the &quot;Aggregation Framework.&quot;
-http://docs.mongodb.org/manual/applications/aggregation/
-</p><div class="fullcomment"><div class="comment cmt"><p>Implements the &quot;aggregation&quot; command, otherwise known as the &quot;Aggregation Framework.&quot;
-http://docs.mongodb.org/manual/applications/aggregation/
-</p></div><dl class="paramcmts block"><dt class="param">collectionName</dt><dd class="cmt"><p>Collection to aggregate against</p></dd><dt class="param">pipeline</dt><dd class="cmt"><p>Sequence of MongoDB aggregation operations.
-</p></dd></dl></div>
     </li><li name="reactivemongo.core.commands.Ascending" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="AscendingextendsSortOrderwithProductwithSerializable"></a>
       <a id="Ascending:Ascending"></a>
@@ -924,6 +902,31 @@ http://docs.mongodb.org/manual/reference/aggregation/unwind/#_S_unwind</p></div>
       <p class="shortcomment cmt">A verbose successful authentication result (MongoDB &gt;= 2.2).</p><div class="fullcomment"><div class="comment cmt"><p>A verbose successful authentication result (MongoDB &gt;= 2.2).</p><p>Previous versions of MongoDB only return ok = BSONDouble(1.0).
 </p></div><dl class="paramcmts block"><dt class="param">db</dt><dd class="cmt"><p>database name</p></dd><dt class="param">user</dt><dd class="cmt"><p>username</p></dd><dt class="param">readOnly</dt><dd class="cmt"><p>states if the authentication gives us only the right to read from the database.
 </p></dd></dl></div>
+    </li><li name="reactivemongo.core.commands.Aggregate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="AggregateextendsCommand[Stream[reactivemongo.bson.BSONDocument]]withProductwithSerializable"></a>
+      <a id="Aggregate:Aggregate"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Aggregate.html"><span class="name deprecated" title="Deprecated: (Since version 0.11.4) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@5be2485a">Aggregate</span></a><span class="params">(<span name="collectionName">collectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="pipeline">pipeline: <span class="extype" name="scala.Seq">Seq</span>[<a href="PipelineOperator.html" class="extype" name="reactivemongo.core.commands.PipelineOperator">PipelineOperator</a>]</span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Stream">Stream</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.commands.package@AggregateextendsCommand[Stream[reactivemongo.bson.BSONDocument]]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Implements the &quot;aggregation&quot; command, otherwise known as the &quot;Aggregation Framework.&quot;
+http://docs.mongodb.org/manual/applications/aggregation/
+</p><div class="fullcomment"><div class="comment cmt"><p>Implements the &quot;aggregation&quot; command, otherwise known as the &quot;Aggregation Framework.&quot;
+http://docs.mongodb.org/manual/applications/aggregation/
+</p></div><dl class="paramcmts block"><dt class="param">collectionName</dt><dd class="cmt"><p>Collection to aggregate against</p></dd><dt class="param">pipeline</dt><dd class="cmt"><p>Sequence of MongoDB aggregation operations.
+</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.4)</i> Use <a href="../../api/collections/bson/BSONCollection.html#aggregate(firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,cursor:Option[GenericCollection.this.BatchCommands.AggregationFramework.Cursor])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[GenericCollection.this.BatchCommands.AggregationFramework.AggregationResult]" class="extmbr" name="reactivemongo.api.collections.bson.BSONCollection#aggregate">reactivemongo.api.collections.bson.BSONCollection.aggregate</a></p></dd></dl></div>
     </li><li name="reactivemongo.core.commands.CollStats" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="CollStatsextendsCommand[reactivemongo.core.commands.CollStatsResult]"></a>
       <a id="CollStats:CollStats"></a>
