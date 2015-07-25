@@ -14,13 +14,12 @@ ReactiveMongo can be used with several streaming frameworks: [Play Iteratees](ht
 The Play Iteratee library can work with document stream as following.
 
 - Get an `Enumerator` of documents from ReactiveMongo. This is a producer of data.
-- Apply an `Iteratee` (that we build for this purpose), which will consume data and eventually produce a result.
+- Run an `Iteratee` (that we build for this purpose), which will consume data and eventually produce a result.
 
 {% highlight scala %}
 import play.api.libs.iteratee._
 
-// result type is Enumerator[BSONDocument]
-val enumeratorOfPeople =
+val enumeratorOfPeople: Enumerator[BSONDocument] =
   collection.
     find(query).
     cursor[BSONDocument].
@@ -33,7 +32,7 @@ val processDocuments: Iteratee[BSONDocument, Unit] =
     println(s"found $lastName: $prettyBson")
   }
 
-enumeratorOfPeople.apply(processDocuments) // returns Future[Unit]
+val result: Future[Unit] = enumeratorOfPeople.run(processDocuments)
 {% endhighlight %}
 
 The method `cursor.enumerate()` returns an `Enumerator[T]`. In this case, we get a producer of documents (of type `BSONDocument`).
@@ -65,9 +64,9 @@ found Hemingway: {
 }
 {% endhighlight %}
 
-The line `enumeratorOfPeople.apply(processDocuments)` returns a `Future[Unit]`; it will eventually return the final value of the iteratee, which is `Unit` in our case.
+The line `enumeratorOfPeople.run(processDocuments)` returns a `Future[Unit]`; it will eventually return the final value of the iteratee, which is `Unit` in our case.
 
-> The `apply` method on `Enumerator` has an operator alias, `|>>>`. So we can rewrite the last line like this: `enumeratorOfPeople |>>> processDocuments`.
+> The `run` method on `Enumerator` has an operator alias, `|>>>`. So we can rewrite the last line like this: `enumeratorOfPeople |>>> processDocuments`.
 
 Obviously, we may use a pure `Iteratee` that performs some computation:
 
@@ -78,16 +77,15 @@ val cumulateAge: Iteratee[BSONDocument, (Int, Int)] =
     (cumulatedAge + age, n + 1)
   }
 
-val cumulated = enumeratorOfPeople |>>> cumulateAge // Future[(Int, Int)]
+val cumulated: Future[(Int, Int)] = enumeratorOfPeople |>>> cumulateAge
 
-val meanAge =
+val meanAge: Future[Float] =
   cumulated.map { case (cumulatedAge, n) =>
     if(n == 0)
       0
     else cumulatedAge / n
   }
 
-// meanAge is of type Future[Float]
 {% endhighlight %}
 
 At each step, this Iteratee will extract the age from the document and add it to the current result; it also counts the number of documents processed. It eventually produces a tuple of two integers; in our case `(173, 3)`. When the `cumulated` future is completed, we divide the cumulated age by the number of documents to get the mean age.
