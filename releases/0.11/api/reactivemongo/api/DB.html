@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>DB - ReactiveMongo API 0.11.3 - reactivemongo.api.DB</title>
-          <meta name="description" content="DB - ReactiveMongo API 0.11.3 - reactivemongo.api.DB" />
-          <meta name="keywords" content="DB ReactiveMongo API 0.11.3 reactivemongo.api.DB" />
+          <title>DB - ReactiveMongo API 0.11.4 - reactivemongo.api.DB</title>
+          <meta name="description" content="DB - ReactiveMongo API 0.11.4 - reactivemongo.api.DB" />
+          <meta name="keywords" content="DB ReactiveMongo API 0.11.4 reactivemongo.api.DB" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -358,6 +358,26 @@
       <p class="shortcomment cmt">Gets a <a href="Collection.html" class="extype" name="reactivemongo.api.Collection">reactivemongo.api.Collection</a> from this database.</p><div class="fullcomment"><div class="comment cmt"><p>Gets a <a href="Collection.html" class="extype" name="reactivemongo.api.Collection">reactivemongo.api.Collection</a> from this database.
 </p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>The name of the collection to open.
 </p></dd></dl></div>
+    </li><li name="reactivemongo.api.DB#defaultReadPreference" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="defaultReadPreference:reactivemongo.api.ReadPreference"></a>
+      <a id="defaultReadPreference:ReadPreference"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">defaultReadPreference</span><span class="result">: <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.DB@defaultReadPreference:reactivemongo.api.ReadPreference" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
       <a id="ensuring((DB)⇒Boolean,⇒Any):DB"></a>
@@ -782,7 +802,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.11.0) consider using reactivemongo.api.commands along with GenericDB.runCommand methods">command</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="command">command: <a href="../core/commands/Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="reactivemongo.api.DB.command.T">T</span>]</span>, <span name="readPreference">readPreference: <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> = <span class="symbol"><span class="name"><a href="ReadPreference$.html">ReadPreference.primary</a></span></span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="reactivemongo.api.DB.command.T">T</span>]</span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.0) consider using reactivemongo.api.commands along with GenericDB.runCommand methods">command</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="command">command: <a href="../core/commands/Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="reactivemongo.api.DB.command.T">T</span>]</span>, <span name="readPreference">readPreference: <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> = <span class="symbol"><span class="name"><a href="#defaultReadPreference:reactivemongo.api.ReadPreference">defaultReadPreference</a></span></span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="reactivemongo.api.DB.command.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.DB@command[T](command:reactivemongo.core.commands.Command[T],readPreference:reactivemongo.api.ReadPreference)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[T]" title="Permalink" target="_top">
@@ -790,7 +810,7 @@
       </a>
     </span>
       <p class="shortcomment cmt">Sends a command and get the future result of the command.</p><div class="fullcomment"><div class="comment cmt"><p>Sends a command and get the future result of the command.
-</p></div><dl class="paramcmts block"><dt class="param">command</dt><dd class="cmt"><p>The command to send.</p></dd><dt class="param">readPreference</dt><dd class="cmt"><p>The ReadPreference to use for this command (defaults to ReadPreference.primary).
+</p></div><dl class="paramcmts block"><dt class="param">command</dt><dd class="cmt"><p>The command to send.</p></dd><dt class="param">readPreference</dt><dd class="cmt"><p>The ReadPreference to use for this command (defaults to <a href="MongoConnectionOptions.html#readPreference:reactivemongo.api.ReadPreference" class="extmbr" name="reactivemongo.api.MongoConnectionOptions#readPreference">MongoConnectionOptions.readPreference</a>).
 </p></dd><dt>returns</dt><dd class="cmt"><p>a future containing the result of the command.
 </p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
