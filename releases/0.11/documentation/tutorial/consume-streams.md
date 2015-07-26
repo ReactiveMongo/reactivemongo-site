@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ReactiveMongo 0.11.4 - Consume Streams of Documents
+title: ReactiveMongo 0.11 - Consume Streams of Documents
 ---
 
 ## Consume streams of documents

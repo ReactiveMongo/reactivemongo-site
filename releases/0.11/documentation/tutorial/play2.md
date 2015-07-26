@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ReactiveMongo 0.11.4 - Integration with Play Framework
+title: ReactiveMongo 0.11 - Integration with Play Framework
 ---
 
 A ReactiveMongo plugin is available for [Play Framework](https://playframework.com/), providing a reactive, asynchronous and non-blocking Scala driver for MongoDB to develop your application.
@@ -12,7 +12,7 @@ The latest version of this plugin is for Play 2.4, and can be enabled by adding 
 {% highlight scala %}
 // only for Play 2.4.x
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.4.play24"
+  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._0_11_latest_minor}}.play24"
 )
 {% endhighlight %}
 
@@ -20,12 +20,12 @@ libraryDependencies ++= Seq(
 
 > As for Play 2.4 itself, this ReactiveMongo plugin requires a JVM 1.8+.
 
-If you are looking for a stable version for Play 2.3, please consider using the 0.11.4.play23 version:
+If you are looking for a stable version for Play 2.3, please consider using the {{site._0_11_latest_minor}}.play23 version:
 
 {% highlight scala %}
 // Only for Play 2.3.x
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.4.play23"
+  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._0_11_latest_minor}}.play23"
 )
 {% endhighlight %}
 
@@ -133,7 +133,7 @@ object MongoEnv {
 
 ### Play 2.3
 
-The version `0.11.2.play23` of this plugin is available for Play 2.3.
+The version `{{site._0_11_latest_minor}}.play23` of this plugin is available for Play 2.3.
 
 Add to your `conf/play.plugins`:
 
