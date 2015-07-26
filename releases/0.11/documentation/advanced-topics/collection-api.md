@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ReactiveMongo 0.11.2 - The Collection API
+title: ReactiveMongo 0.11 - The Collection API
 ---
 
 ## The Collection API

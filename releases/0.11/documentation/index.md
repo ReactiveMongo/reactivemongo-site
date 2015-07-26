@@ -1,14 +1,14 @@
 ---
 layout: default
-title: ReactiveMongo 0.11.3 - Documentation
+title: ReactiveMongo 0.11 - Documentation
 ---
 
-## ReactiveMongo 0.11.3
+## ReactiveMongo {{site._0_11_latest_minor}}
 
 * You can read the [release notes](release-details.html) to know what is included in this release.
 * The [Scaladoc for the API](../api/index.html) can be browsed [here](../api/index.html).
 
-The dependency can be added in your SBT project as following: `"org.reactivemongo" %% "reactivemongo" % "0.11.3"`
+The dependency can be added in your SBT project as following: `"org.reactivemongo" %% "reactivemongo" % "{{site._0_11_latest_minor}}"`
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.11/)
 

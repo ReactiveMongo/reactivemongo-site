@@ -5,3 +5,5 @@ url: http://reactivemongo.org/
 markdown: kramdown
 latest_major_release: 0.11
 latest_release: 0.11.4
+
+_0_11_latest_minor: 0.11.4

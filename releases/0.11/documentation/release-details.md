@@ -1,9 +1,9 @@
 ---
 layout: default
-title: ReactiveMongo 0.11.3 - Release details
+title: ReactiveMongo 0.11 - Release details
 ---
 
-## ReactiveMongo 0.11.3 – Release details
+## ReactiveMongo {{site._0_11_latest_minor}} – Release details
 
 **What's new?**
 

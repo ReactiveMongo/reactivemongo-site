@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ReactiveMongo 0.11.4 - Setup
+title: ReactiveMongo 0.11 - Setup
 ---
 
 ## Starting ReactiveMongo

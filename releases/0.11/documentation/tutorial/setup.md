@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ReactiveMongo 0.11.2 - Setup
+title: ReactiveMongo 0.11 - Setup
 ---
 
 ## Setup your project
@@ -25,7 +25,7 @@ If you use SBT, you just have to edit `build.sbt` and add the following:
 resolvers += "Typesafe repository releases" at "http://repo.typesafe.com/typesafe/releases/"
 
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "reactivemongo" % "0.11.2"
+  "org.reactivemongo" %% "reactivemongo" % "{{site._0_11_latest_minor}}"
 )
 {% endhighlight %}
 

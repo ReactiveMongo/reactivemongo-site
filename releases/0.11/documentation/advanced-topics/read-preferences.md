@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ReactiveMongo 0.11.2 - Read Preferences
+title: ReactiveMongo 0.11 - Read Preferences
 ---
 
 ## Use Read Preferences
@@ -24,6 +24,8 @@ collection.
   cursor(ReadPreferences.secondaryPrefered).
   collect[List]()
 {% endhighlight %}
+
+> The default read preference can be set in the [connection options](../tutorial/connect-database.html).
 
 ## Tag support
 
