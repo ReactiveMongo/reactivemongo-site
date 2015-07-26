@@ -301,3 +301,7 @@ def custom(
   col.runCommand(Custom(name, query))
 }
 {% endhighlight %}
+
+**See also:**
+
+- [The Aggregation Framework](aggregation.html)
