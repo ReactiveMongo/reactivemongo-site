@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>commands - ReactiveMongo API 0.11.4 - reactivemongo.api.commands</title>
-          <meta name="description" content="commands - ReactiveMongo API 0.11.4 - reactivemongo.api.commands" />
-          <meta name="keywords" content="commands ReactiveMongo API 0.11.4 reactivemongo.api.commands" />
+          <title>commands - ReactiveMongo API 0.11.5 - reactivemongo.api.commands</title>
+          <meta name="description" content="commands - ReactiveMongo API 0.11.5 - reactivemongo.api.commands" />
+          <meta name="keywords" content="commands ReactiveMongo API 0.11.5 reactivemongo.api.commands" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -562,7 +562,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="LastError.html"><span class="name">LastError</span></a><span class="params">(<span name="ok">ok: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="err">err: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="code">code: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="lastOp">lastOp: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>]</span>, <span name="n">n: <span class="extype" name="scala.Int">Int</span></span>, <span name="singleShard">singleShard: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="updatedExisting">updatedExisting: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="upserted">upserted: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONObjectID.html" class="extype" name="reactivemongo.bson.BSONObjectID">BSONObjectID</a>]</span>, <span name="wnote">wnote: <span class="extype" name="scala.Option">Option</span>[<a href="GetLastError$$W.html" class="extype" name="reactivemongo.api.commands.GetLastError.W">W</a>]</span>, <span name="wtimeout">wtimeout: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="waited">waited: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="wtime">wtime: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="LastError.html"><span class="name">LastError</span></a><span class="params">(<span name="ok">ok: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="err">err: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="code">code: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="lastOp">lastOp: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>]</span>, <span name="n">n: <span class="extype" name="scala.Int">Int</span></span>, <span name="singleShard">singleShard: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="updatedExisting">updatedExisting: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="upserted">upserted: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]</span>, <span name="wnote">wnote: <span class="extype" name="scala.Option">Option</span>[<a href="GetLastError$$W.html" class="extype" name="reactivemongo.api.commands.GetLastError.W">W</a>]</span>, <span name="wtimeout">wtimeout: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="waited">waited: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="wtime">wtime: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.package@LastErrorextendsExceptionwithWriteResultwithProductwithSerializable" title="Permalink" target="_top">
@@ -640,6 +640,44 @@
       </a>
     </span>
       
+    </li><li name="reactivemongo.api.commands.ReplSetMember" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ReplSetMemberextendsProductwithSerializable"></a>
+      <a id="ReplSetMember:ReplSetMember"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ReplSetMember.html"><span class="name">ReplSetMember</span></a><span class="params">(<span name="_id">_id: <span class="extype" name="scala.Long">Long</span></span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="health">health: <span class="extype" name="scala.Int">Int</span></span>, <span name="state">state: <span class="extype" name="scala.Int">Int</span></span>, <span name="stateStr">stateStr: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="uptime">uptime: <span class="extype" name="scala.Long">Long</span></span>, <span name="optime">optime: <span class="extype" name="scala.Long">Long</span></span>, <span name="lastHeartbeat">lastHeartbeat: <span class="extype" name="scala.Long">Long</span></span>, <span name="lastHeartbeatRecv">lastHeartbeatRecv: <span class="extype" name="scala.Long">Long</span></span>, <span name="lastHeartbeatMessage">lastHeartbeatMessage: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="electionTime">electionTime: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>]</span>, <span name="self">self: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="pingMs">pingMs: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>]</span>, <span name="syncingTo">syncingTo: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="configVersion">configVersion: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@ReplSetMemberextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Replica set member.</p><div class="fullcomment"><div class="comment cmt"><p>Replica set member.
+</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the member name (e.g. &quot;host:port&quot;)</p></dd><dt class="param">health</dt><dd class="cmt"><p>the health indicator for this member</p></dd><dt class="param">state</dt><dd class="cmt"><p>the <a href="http://docs.mongodb.org/manual/reference/replica-states/" target="_blank">state code</a> of the member</p></dd><dt class="param">stateStr</dt><dd class="cmt"><p>the string representation of the state</p></dd><dt class="param">uptime</dt><dd class="cmt"><p>the number of seconds that this member has been online</p></dd><dt class="param">optime</dt><dd class="cmt"><p>information regarding the last operation from the operation log that this member has applied</p></dd><dt class="param">lastHeartbeat</dt><dd class="cmt"><p>the time of the transmission time of last heartbeat received from this member</p></dd><dt class="param">lastHeartbeatRecv</dt><dd class="cmt"><p>the time that the last heartbeat was received from this member</p></dd><dt class="param">lastHeartbeatMessage</dt><dd class="cmt"><p>an optional message from the last heartbeat</p></dd><dt class="param">electionTime</dt><dd class="cmt"><p>if the member is the primary, the time it was elected as</p></dd><dt class="param">self</dt><dd class="cmt"><p>indicates which replica set member processed the replSetGetStatus command</p></dd><dt class="param">pingMs</dt><dd class="cmt"><p>the number of milliseconds (ms) that a round-trip packet takes to travel between the remote member and the local instance (does not appear for the member that returns the <code>rs.status()</code> data)</p></dd><dt class="param">syncingTo</dt><dd class="cmt"><p>the hostname of the member from which this instance is syncing (only present on the output of <code>rs.status()</code> on secondary and recovering members)</p></dd><dt class="param">configVersion</dt><dd class="cmt"><p>the configuration version (since MongoDB 3.0)
+</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.ReplSetStatus" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ReplSetStatusextendsProductwithSerializable"></a>
+      <a id="ReplSetStatus:ReplSetStatus"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ReplSetStatus.html"><span class="name">ReplSetStatus</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="time">time: <span class="extype" name="scala.Long">Long</span></span>, <span name="myState">myState: <span class="extype" name="scala.Int">Int</span></span>, <span name="members">members: <span class="extype" name="scala.List">List</span>[<a href="ReplSetMember.html" class="extype" name="reactivemongo.api.commands.ReplSetMember">ReplSetMember</a>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@ReplSetStatusextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Result from the <a href="http://docs.mongodb.org/manual/reference/command/replSetGetStatus/" target="_blank">replSetGetStatus</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Result from the <a href="http://docs.mongodb.org/manual/reference/command/replSetGetStatus/" target="_blank">replSetGetStatus</a>.
+</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the name of the replica set</p></dd><dt class="param">time</dt><dd class="cmt"><p>the current server time</p></dd><dt class="param">members</dt><dd class="cmt"><p>the list of the members of this replicate set
+</p></dd></dl></div>
     </li><li name="reactivemongo.api.commands.ResolvedCollectionCommand" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ResolvedCollectionCommand[C&lt;:reactivemongo.api.commands.CollectionCommand]extendsCommandwithProductwithSerializable"></a>
       <a id="ResolvedCollectionCommand[C&lt;:CollectionCommand]:ResolvedCollectionCommand[C]"></a>
@@ -658,6 +696,40 @@
     </span>
       <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">collection</dt><dd class="cmt"><p>the name of the collection against which the command is executed</p></dd><dt class="param">command</dt><dd class="cmt"><p>the executed command
 </p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.ServerProcess" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ServerProcessextendsAnyRef"></a>
+      <a id="ServerProcess:ServerProcess"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ServerProcess.html"><span class="name">ServerProcess</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@ServerProcessextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.ServerStatusResult" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ServerStatusResultextendsProductwithSerializable"></a>
+      <a id="ServerStatusResult:ServerStatusResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ServerStatusResult.html"><span class="name">ServerStatusResult</span></a><span class="params">(<span name="host">host: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="version">version: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="process">process: <a href="ServerProcess.html" class="extype" name="reactivemongo.api.commands.ServerProcess">ServerProcess</a></span>, <span name="pid">pid: <span class="extype" name="scala.Long">Long</span></span>, <span name="uptime">uptime: <span class="extype" name="scala.Long">Long</span></span>, <span name="uptimeMillis">uptimeMillis: <span class="extype" name="scala.Long">Long</span></span>, <span name="uptimeEstimate">uptimeEstimate: <span class="extype" name="scala.Long">Long</span></span>, <span name="localTime">localTime: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@ServerStatusResultextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="reactivemongo.api.commands.UpdateCommand" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="UpdateCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]"></a>
       <a id="UpdateCommand[P&lt;:SerializationPack]:UpdateCommand[P]"></a>
@@ -701,7 +773,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="Upserted.html"><span class="name">Upserted</span></a><span class="params">(<span name="index">index: <span class="extype" name="scala.Int">Int</span></span>, <span name="_id">_id: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="Upserted.html"><span class="name">Upserted</span></a><span class="params">(<span name="index">index: <span class="extype" name="scala.Int">Int</span></span>, <span name="_id">_id: <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.package@UpsertedextendsProductwithSerializable" title="Permalink" target="_top">
@@ -886,6 +958,40 @@
       </a>
     </span>
       <p class="shortcomment cmt">List the names of DB collections.</p>
+    </li><li name="reactivemongo.api.commands.MongodProcess" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MongodProcess"></a>
+      <a id="MongodProcess:MongodProcess"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MongodProcess$.html"><span class="name">MongodProcess</span></a><span class="result"> extends <a href="ServerProcess.html" class="extype" name="reactivemongo.api.commands.ServerProcess">ServerProcess</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@MongodProcess" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands.MongosProcess" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MongosProcess"></a>
+      <a id="MongosProcess:MongosProcess"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MongosProcess$.html"><span class="name">MongosProcess</span></a><span class="result"> extends <a href="ServerProcess.html" class="extype" name="reactivemongo.api.commands.ServerProcess">ServerProcess</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@MongosProcess" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="reactivemongo.api.commands.MultiBulkWriteResult" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="MultiBulkWriteResult"></a>
       <a id="MultiBulkWriteResult:MultiBulkWriteResult"></a>
@@ -903,6 +1009,41 @@
       </a>
     </span>
       
+    </li><li name="reactivemongo.api.commands.ReplSetGetStatus" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ReplSetGetStatus"></a>
+      <a id="ReplSetGetStatus:ReplSetGetStatus"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ReplSetGetStatus$.html"><span class="name">ReplSetGetStatus</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="ReplSetStatus.html" class="extype" name="reactivemongo.api.commands.ReplSetStatus">ReplSetStatus</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@ReplSetGetStatus" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The command <a href="http://docs.mongodb.org/manual/reference/command/replSetGetStatus/" target="_blank">replSetGetStatus]]
+</a></p>
+    </li><li name="reactivemongo.api.commands.ServerStatus" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ServerStatus"></a>
+      <a id="ServerStatus:ServerStatus"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ServerStatus$.html"><span class="name">ServerStatus</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="ServerStatusResult.html" class="extype" name="reactivemongo.api.commands.ServerStatusResult">ServerStatusResult</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@ServerStatus" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Server <a href="http://docs.mongodb.org/manual/reference/server-status/" target="_blank">status</a></p>
     </li><li name="reactivemongo.api.commands.UnitBox" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="UnitBox"></a>
       <a id="UnitBox:UnitBox"></a>
