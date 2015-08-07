@@ -142,3 +142,33 @@ pre {
 #sponsors img {
   max-width: 100px;
 }
+
+/* bson typeclasses */
+#provided-handlers ~ table {
+  margin: 2px;
+  width: 98%;
+}
+
+#provided-handlers ~ table th {
+  text-align: left;
+  background: #59b25b;
+  color: #fff;
+}
+
+#provided-handlers ~ table,
+#provided-handlers ~ table tr,
+#provided-handlers ~ table td,
+#provided-handlers ~ table th {
+  border: 1px #376a39 solid;
+  border-collapse: collapse;
+}
+
+#provided-handlers ~ table td,
+#provided-handlers ~ table th {
+  padding: .3em;
+  width: 50%;
+}
+
+#provided-handlers ~ table td {
+  background: #fff
+}
