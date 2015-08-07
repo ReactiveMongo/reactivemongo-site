@@ -7,7 +7,7 @@ title: ReactiveMongo 0.11 - BSON readers & writers
 
 In order to get and store data with MongoDB, ReactiveMongo provides an extensible API to define appropriate readers and writers.
 
-As long as you are working with [`BSONValue`s](../../api/index.html#reactivemongo.bson.BSONValue), some default implementations of readers and writers are provided by the following import.
+As long as you are working with [`BSONValue`s](../../api/index.html#reactivemongo.bson.BSONValue), some [default implementations of readers and writers](#provided-handlers) are provided by the following import.
 
 {% highlight scala %}
 import reactivemongo.bson._
@@ -15,7 +15,17 @@ import reactivemongo.bson._
 
 ### Custom reader
 
-Of course it also possible to read values of custom types. To do so, a custom instance of [`BSONReader`](../../api/index.html#reactivemongo.bson.BSONReader), or of [`BSONDocumentReader`](../../api/index.html#reactivemongo.bson.BSONDocumentReader), must be resolved (in the implicit scope).
+Getting values follow the same principle using `getAs(String)` method. This method is parametrized with a type that can be transformed into a `BSONValue` using a `BSONReader` instance that is implicitly available in the scope (again, the default readers are already imported if you imported `reactivemongo.bson._`.) If the value could not be found, or if the reader could not deserialize it (often because the type did not match), `None` will be returned.
+
+{% highlight scala %}
+val albumTitle2 = album2.getAs[String]("title")
+// Some("Everybody Knows this is Nowhere")
+
+val albumTitle3 = album2.getAs[BSONString]("title")
+// Some(BSONString("Everybody Knows this is Nowhere"))
+{% endhighlight %}
+
+In order to read values of custom types. To do so, a custom instance of [`BSONReader`](../../api/index.html#reactivemongo.bson.BSONReader), or of [`BSONDocumentReader`](../../api/index.html#reactivemongo.bson.BSONDocumentReader), must be resolved (in the implicit scope).
 
 *A `BSONReader` for a custom value class:*
 
@@ -68,7 +78,7 @@ def findPerson(personCollection: BSONCollection, name: String)(implicit ec: Exec
 
 ### Custom writer
 
-In order to write a value of a custom type, a custom instance of [`BSONWriter`](../../api/index.html#reactivemongo.bson.BSONWriter), or of [`BSONDocumentWriter`](../../api/index.html#reactivemongo.bson.BSONDocumentWriter) must be available.
+Of course it also possible to write a value of a custom type, a custom instance of [`BSONWriter`](../../api/index.html#reactivemongo.bson.BSONWriter), or of [`BSONDocumentWriter`](../../api/index.html#reactivemongo.bson.BSONDocumentWriter) must be available.
 
 {% highlight scala %}
 class Score(val value: Float) extends AnyVal
@@ -83,7 +93,15 @@ implicit object ScoreWriter extends BSONWriter[Score, BSONDouble] {
 // for compatibility with MongoDB numeric values
 {% endhighlight %}
 
-Once a custom `BSONWriter` (or `BSONDocumentWriter`) is defined, it can be used to set a document property as in `BSONDocument("score" -> Score(21F))`.
+Each value that can be written using a `BSONWriter` can be used directly when calling a `BSONDocument` constructor.
+
+{% highlight scala %}
+val album2 = BSONDocument(
+  "title" -> "Everybody Knows this is Nowhere",
+  "releaseYear" -> 1969)
+{% endhighlight %}
+
+Note that this does _not_ use implicit conversions, but rather implicit type classes.
 
 {% highlight scala %}
 case class Person(name: String, age: Int)
@@ -134,7 +152,40 @@ implicit val personWriter: BSONDocumentWriter[Person] = Macros.writer[Person]
 
 > A [`BSONHandler`](../../api/index.html#reactivemongo.bson.BSONHandler) gathers both `BSONDocumentReader` and `BSONDocumentWriter` traits.
 
+### Provided handlers
+
+The following handlers are provided by ReactiveMongo, to read and write the [BSON values](../../api/index.html#reactivemongo.bson.package).
+
+| BSON type    | Value type     |
+| ------------ | -------------- |
+| BSONArray    | Any collection |
+| BSONString   | String         |
+| BSONBinary   | Array[Byte]    |
+| BSONBoolean  | Boolean        |
+| BSONInteger  | Int            |
+| BSONLong     | Long           |
+| BSONDouble   | Double         |
+| BSONDateTime | java.util.Date |
+
+Using [`BSONBooleanLike`](../../api/index.html#reactivemongo.bson.BSONBooleanLike), it is possible to read the following BSON values as boolean.
+
+| BSON type     | Rule           |
+| ------------- | -------------- |
+| BSONInteger   | `true` if > 0  |
+| BSONDouble    | `true` if > 0  |
+| BSONNull      | always `false` |
+| BSONUndefined | always `false` |
+
+Using [`BSONNumberLike`](../../api/index.html#reactivemongo.bson.BSONNumberLike), it is possible to read the following BSON values as number.
+
+- [`BSONInteger`](../../api/index.html#reactivemongo.bson.BSONInteger)
+- [`BSONLong`](../../api/index.html#reactivemongo.bson.BSONLong)
+- [`BSONDouble`](../../api/index.html#reactivemongo.bson.BSONDouble)
+- [`BSONDateTime`](../../api/index.html#reactivemongo.bson.BSONDateTime): the number of milliseconds since epoch.
+- [`BSONTimestamp`](../../api/index.html#reactivemongo.bson.BSONTimestamp): the number of milliseconds since epoch.
+
 ### Concrete examples
 
 - [BigDecimal](example-bigdecimal.html)
 - [Map](example-maps.html)
+- [Document](example-document.html)

@@ -21,15 +21,16 @@ The documentation of the plugin for the **Play Framework** can is [available onl
 3. [Open database and collections](tutorial/database-and-collection.html)
 4. [Write documents (`insert`, `update`, `remove`)](tutorial/write-documents.html)
 5. [Find documents](tutorial/find-documents.html)
-6. [BSON readers & writers](bson/typeclasses.html)
-7. [Consume streams of documents](tutorial/consume-streams.html)
+6. [Consume streams of documents](tutorial/consume-streams.html)
 
 ### BSON Manipulation
 
 1. [Overview of the ReactiveMongo BSON library](bson/overview.html)
 2. [Using the ReactiveMongo BSON library](bson/usage.html)
-3. [Concrete Example: Maps De/Serialization](bson/example-maps.html)
-4. [Concrete Example: BigDecimal and BigInteger De/Serialization](bson/example-bigdecimal.html)
+3. [Readers & writers](bson/typeclasses.html)
+   - [Concrete Example: Maps De/Serialization](bson/example-maps.html)
+   - [Concrete Example: BigDecimal and BigInteger De/Serialization](bson/example-bigdecimal.html)
+   - [Concrete example: Documents](bson/example-document.html)
 
 ### Advanced Topics
 
