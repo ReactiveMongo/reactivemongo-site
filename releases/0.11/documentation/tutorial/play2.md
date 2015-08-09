@@ -151,43 +151,13 @@ You can use the URI syntax to point to your MongoDB:
 mongodb.uri = "mongodb://someuser:somepasswd@localhost:27017/your_db_name"
 {% endhighlight %}
 
-or, alternatively:
-
-{% highlight text %}
-mongodb = {
-  db = "your_db_name"
-  servers = [ "localhost:27017" ]
-  credentials = {
-    username = "someuser"
-    password = "somepasswd"
-  }
-}
-{% endhighlight %}
-
 This is especially helpful on platforms like Heroku, where add-ons publish the connection URI in a single environment variable. The URI syntax supports the following format: `mongodb://[username:password@]host1[:port1][,hostN[:portN]]/dbName?option1=value1&option2=value2`
 
 A more complete example:
 
 {% highlight text %}
-# Either the URI form (preferred)
 mongodb.uri = "mongodb://someuser:somepasswd@host1:27017,host2:27017,host3:27017/your_db_name?authSource=authdb&rm.nbChannelsPerNode=10"
-
-# Or, the legacy way:
-mongodb = {
-  db = "your_db_name"
-  servers = [ "host1:27017", "host2:27017", "host3:27017" ]
-  options = {
-    nbChannelsPerNode = 10
-    authSource = "authdb"
-  }
-  credentials = {
-    username = "someuser"
-    password = "somepasswd"
-  }
-}
 {% endhighlight %}
-
-> If both are present, only the URI form will be parsed.
 
 ### Configure underlying akka system
 
