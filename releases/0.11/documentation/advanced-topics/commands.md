@@ -55,7 +55,7 @@ Actually, the MongoDB console sends a document that is a little bit more complex
 var command =
   {
     "aggregate": "orders", // name of the collection on which we run this command
-    "$pipeling": [
+    "pipeline": [
       { $match: { status: "A" } },
       { $group: { _id: "$cust_id", total: { $sum: "$amount" } } },
       { $sort: { total: -1 } }
@@ -76,7 +76,7 @@ import reactivemongo.api.commands.Command
 val commandDoc =
   BSONDocument(
     "aggregate" -> "orders", // we aggregate on collection `orders`
-    "$pipeline" -> BSONArray(
+    "pipeline" -> BSONArray(
       BSONDocument("$match" -> BSONDocument("status" -> "A")),
       BSONDocument(
         "$group" -> BSONDocument(
