@@ -14,20 +14,28 @@ The collection command can be executed with [`collection.runCommand(<command>)`]
 The return type of `.runCommand` operations depends on the kind of command you gave it as a parameter; for example, with `Count` it would return `Future[Int]`:
 
 {% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
 // BSON implementation of the count command
 import reactivemongo.api.commands.bson.BSONCountCommand.{ Count, CountResult }
 
 // BSON serialization-deserialization for the count arguments and result
 import reactivemongo.api.commands.bson.BSONCountCommandImplicits._
 
-// count the number of documents which tag equals "closed"
-val query = BSONDocument("tag" -> "closed")
-val command = Count("collectionName", Some(query))
-val result: Future[CountResult] = bsonCollection.runCommand(command)
+def run1(collection: BSONCollection) = {
+  // count the number of documents which tag equals "closed"
+  val query = BSONDocument("tag" -> "closed")
+  val command = Count(query)
+  val result: Future[CountResult] = collection.runCommand(command)
 
-result.map { res =>
-  val numberOfDocs: Int = res.value
-  // do something with this number
+  result.map { res =>
+    val numberOfDocs: Int = res.value
+    // do something with this number
+  }
 }
 {% endhighlight %}
 
@@ -69,9 +77,13 @@ db.runCommand(command)
 We do exactly the same thing with `RawCommand`, by making a `BSONDocument` that contains the same fieds:
 
 {% highlight scala %}
+import scala.concurrent.ExecutionContext.Implicits.global
+
 import reactivemongo.bson.{ BSONArray, BSONDocument }
 import reactivemongo.api.BSONSerializationPack
 import reactivemongo.api.commands.Command
+
+def db: reactivemongo.api.DefaultDB = ???
 
 val commandDoc =
   BSONDocument(
@@ -106,6 +118,8 @@ It's possible to define not yet implemented or custom command using the command 
 Considering a database command executed in the Shell using `db.runCommand({ "custom": name, "query": { ... } })`, with a result like `{ "count": int, "matching": [ "value1", "value2", ..., "valueN" ] }`, it can be defined as following.
 
 {% highlight scala %}
+package customcmd
+
 import reactivemongo.api.SerializationPack
 import reactivemongo.api.commands.{
   Command,
@@ -129,13 +143,18 @@ It specifies what is the command input (arguments), and what kind of result will
 The next step is to implement the custom command.
 
 {% highlight scala %}
+package customcmd
+package bson1
+
 import reactivemongo.api.BSONSerializationPack
 
 object BSONCustomCommand extends CustomCommand[BSONSerializationPack.type] {
   val pack = BSONSerializationPack
 
   object Implicits {
-    import reactivemongo.bson.{ BSONDocument, BSONDocumentWriter }
+    import reactivemongo.bson.{
+      BSONDocument, BSONDocumentReader, BSONDocumentWriter, BSONNumberLike
+    }
 
     implicit object BSONWriter extends BSONDocumentWriter[Custom] {
       def write(custom: Custom): BSONDocument = {
@@ -161,6 +180,9 @@ A command can be implemented with various serialization pack. *e.g. It can also 
 It's also possible to gather the command definition and implementation, if only one kind of serialization is needed.
 
 {% highlight scala %}
+package customcmd
+package bson2
+
 import reactivemongo.api.BSONSerializationPack
 
 import reactivemongo.api.commands.{
@@ -183,7 +205,9 @@ object BSONCustomCommand
   case class CustomResult(count: Int, matching: List[String])
 
   object Implicits {
-    import reactivemongo.bson.{ BSONDocument, BSONDocumentWriter }
+    import reactivemongo.bson.{
+      BSONDocument, BSONDocumentReader, BSONDocumentWriter, BSONNumberLike
+    }
 
     implicit object BSONWriter extends BSONDocumentWriter[Custom] {
       def write(custom: Custom): BSONDocument = {
@@ -205,18 +229,22 @@ object BSONCustomCommand
 Once the command is implemented, it can be executed on the database.
 
 {% highlight scala %}
+package customcmd.bson2
+
 import scala.concurrent.{ ExecutionContext, Future }
-import reactivemongo.api.GenericDB
-import BSONCustomCommand._
 
-def custom(
-  db: GenericDB[BSONSerializationPack.type],
-  name: String,
-  query: BSONDocument)(implicit ec: ExecutionContext): Future[CustomResult] = {
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.{ BSONSerializationPack, GenericDB }
 
+object MyRunner {
+  import BSONCustomCommand._
   import BSONCustomCommand.Implicits._
 
-  db.runCommand(Custom(name, query))
+  def custom(
+    db: GenericDB[BSONSerializationPack.type],
+    name: String,
+    query: BSONDocument)(implicit ec: ExecutionContext): Future[CustomResult] =
+    db.runCommand(Custom(name, query))
 }
 {% endhighlight %}
 
@@ -256,7 +284,9 @@ object BSONCustomCommand extends CustomCommand[BSONSerializationPack.type] {
 
   object Implicits {
     import reactivemongo.api.commands.ResolvedCollectionCommand
-    import reactivemongo.bson.{ BSONDocument, BSONDocumentWriter }
+    import reactivemongo.bson.{
+      BSONDocument, BSONDocumentReader, BSONDocumentWriter, BSONNumberLike
+    }
 
     implicit object BSONWriter
         extends BSONDocumentWriter[ResolvedCollectionCommand[Custom]] {
@@ -288,6 +318,8 @@ Then the collection command can be executed using `runCommand`.
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
+
+import reactivemongo.bson.BSONDocument
 import reactivemongo.api.collections.bson.BSONCollection
 import BSONCustomCommand._
 

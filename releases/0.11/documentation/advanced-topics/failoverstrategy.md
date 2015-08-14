@@ -16,6 +16,10 @@ The other causes (business errors, normal database errors, fatal errors, etc.) a
 `FailoverStartegy` is a case class defined as follows:
 
 {% highlight scala %}
+package api
+
+import scala.concurrent.duration._
+
 /**
  * A failover strategy for sending requests.
  *
@@ -32,6 +36,10 @@ case class FailoverStrategy(
 The default `FailoverStrategy` retries 5 times, with 500 ms between each attempt. Let's say that we want to define a `FailoverStrategy` that waits more time before a new attempt:
 
 {% highlight scala %}
+import scala.concurrent.duration._
+
+import reactivemongo.api.FailoverStrategy
+
 val strategy =
   FailoverStrategy(
     initialDelay = 500 milliseconds,
@@ -52,6 +60,11 @@ This strategy retries at most 5 times, waiting for `initialDelay * ( 1 + attempt
 You can specify a strategy by giving it as a parameter to `connection.db` or `db.collection`:
 
 {% highlight scala %}
+import scala.concurrent.duration._
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.api.FailoverStrategy
+
 val defaultStrategy = FailoverStrategy()
 
 val customStrategy =
@@ -62,10 +75,12 @@ val customStrategy =
       attemptNumber => 1 + attemptNumber * 0.5
   )
 
+def connection1: reactivemongo.api.MongoConnection = ???
+
 // database-wide strategy
-val db = connection.db("dbname", customStrategy)
+val db1 = connection1.db("dbname", customStrategy)
 
 // collection-wide strategy
-val db = connection.db("dbname", defaultStrategy)
-val collection = db.collection("collname", customStrategy)
+val db2 = connection1.db("dbname", defaultStrategy)
+val collection = db2.collection("collname", customStrategy)
 {% endhighlight %}

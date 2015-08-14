@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ReactiveMongo – Community
+title: ReactiveMongo - Community
 ---
 
 ## Community

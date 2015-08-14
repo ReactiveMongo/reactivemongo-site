@@ -1,6 +1,12 @@
 language: ruby
-rvm: 1.9.3
-before_install:
-- gem install jekyll
-script: jekyll build
 sudo: false
+rvm: 1.9.3
+addons:
+  apt:
+    packages:
+    - oracle-java8-installer
+before_install:
+  - gem install jekyll
+  - mkdir -p $HOME/.sbt/launchers/0.13.8/
+  - curl -L -o $HOME/.sbt/launchers/0.13.8/sbt-launch.jar http://dl.bintray.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/0.13.8/sbt-launch.jar
+script: ./validate.sh

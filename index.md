@@ -46,7 +46,7 @@ This will start a standalone MongoDB instance that stores its data in the `data`
 
 ReactiveMongo is available on [Maven Central](http://search.maven.org/#browse%7C1306790). If you use SBT, you just have to edit `build.sbt` and add the following:
 
-{% highlight scala %}
+{% highlight ocaml %}
 libraryDependencies ++= Seq(
   "org.reactivemongo" %% "reactivemongo" % "{{site.latest_release}}"
 )
@@ -54,7 +54,7 @@ libraryDependencies ++= Seq(
 
 Or if you want to be on the bleeding edge using snapshots:
 
-{% highlight scala %}
+{% highlight ocaml %}
 resolvers += "Sonatype Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
 
 libraryDependencies ++= Seq(
@@ -67,10 +67,10 @@ libraryDependencies ++= Seq(
 You can get a connection to a server (or a replica set) like this:
 
 {% highlight scala %}
-def connect() {
-  import reactivemongo.api._
-  import scala.concurrent.ExecutionContext.Implicits.global
+import reactivemongo.api._
+import scala.concurrent.ExecutionContext.Implicits.global
 
+def connect() {
   // gets an instance of the driver
   // (creates an actor system)
   val driver = new MongoDriver
@@ -133,15 +133,23 @@ def listDocs(collection: BSONCollection) = {
 The above code deserves some explanations. First, let's take a look to the `collection.find` signature:
 
 {% highlight scala %}
-// Considering `collection` is a `BSONCollection`,
-// with its `pack` being a `BSONSerializationPack`.
+package simplifiedapi
 
-def find[S](selector: S)(implicit swriter: pack.Writer[S]): GenericQueryBuilder[pack.type]
+import reactivemongo.api.SerializationPack
+import reactivemongo.api.collections.GenericQueryBuilder
+
+trait GenericCollection {
+  val pack: SerializationPack
+
+  def find[S](selector: S)(implicit swriter: pack.Writer[S]): GenericQueryBuilder[pack.type]
+}
 {% endhighlight %}
 
 The find method allows you to pass any query selector of type `S`, provided that there is an implicit `BSONDocumentWriter[S]` in the scope. `BSONDocumentWriter[S]` is a typeclass which instances implement a `write(document: S)` function that returns a `BSONDocument`. It can be described as follows:
 
 {% highlight scala %}
+import reactivemongo.bson.BSONDocument
+
 trait BSONDocumentWriter[DocumentType] {
   def write(document: DocumentType): BSONDocument
 }
@@ -154,6 +162,8 @@ The find method returns a `GenericQueryBuilder` – the query is therefore not p
 When your query is ready to be sent to MongoDB, you may just call the `cursor` method on it. This method is parametrized with the type which the response documents will be deserialized to. A `BSONDocumentReader[T]` must be implicitly available in the scope for that type. As opposed to `BSONDocumentWriter[T]`, a reader is typically a deserializer that takes a `BSONDocument` and returns an instance of `T`:
 
 {% highlight scala %}
+import reactivemongo.bson.BSONDocument
+
 trait BSONDocumentReader[DocumentType] {
   def read(buffer: BSONDocument): DocumentType
 }
@@ -190,9 +200,17 @@ That's where the [streaming API](releases/{{site.latest_major_release}}/document
 Let's consider the following statement:
 
 {% highlight scala %}
-cursor.enumerate().apply(Iteratee.foreach { doc =>
-  println(s"found document: ${BSONDocument pretty doc}")
-})
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.Cursor
+
+import play.api.libs.iteratee.Iteratee
+
+def streaming(cursor: Cursor[BSONDocument]) =
+  cursor.enumerate().apply(Iteratee.foreach { doc =>
+    println(s"found document: ${BSONDocument pretty doc}")
+  })
 {% endhighlight %}
 
 The method `cursor.enumerate()` returns an `Enumerator[T]`. Enumerators can be seen as _producers_ of data: their job is to give chunks of data when data is available. In this case, we get a producer of documents, which source is a future cursor.

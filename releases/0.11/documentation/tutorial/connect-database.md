@@ -8,21 +8,23 @@ title: ReactiveMongo 0.11 - Setup
 The first thing you need to do is to create a new `Driver` instance.
 
 {% highlight scala %}
-import reactivemongo.api.MongoDriver
-
-val driver = new MongoDriver
+val driver1 = new reactivemongo.api.MongoDriver
 {% endhighlight %}
 
 Without any parameter, `MongoDriver` uses the default configuration. Obviously, you may want to indicate a specific configuration.
 
 {% highlight scala %}
-val driver = new MongoDriver(Some(typesafeConfig))
+def typesafeConfig: com.typesafe.config.Config = ???
+
+val driver2 = new reactivemongo.api.MongoDriver(Some(typesafeConfig))
 {% endhighlight %}
 
 Then you can connect to a MongoDB server.
 
 {% highlight scala %}
-val connection = driver.connection(List("localhost"))
+def driver3: reactivemongo.api.MongoDriver = ???
+
+val connection3 = driver3.connection(List("localhost"))
 {% endhighlight %}
 
 A `MongoDriver` instance manages an actor system; A connection manages a pool of connections. In general, a `MongoDriver` or a `MongoConnection` is never instantiated more than once. You can provide a list of one or more servers; the driver will guess if it's a standalone server or a replica set configuration. Even with one replica node, the driver will probe for other nodes and add them automatically.
@@ -32,8 +34,10 @@ Some options can be provided while creating a connection.
 {% highlight scala %}
 import reactivemongo.api.MongoConnectionOptions
 
+def driver4: reactivemongo.api.MongoDriver = ???
+
 val conOpts = MongoConnectionOptions(/* connection options */)
-val connection = driver.connection(List("localhost"), options = conOpts)
+val connection4 = driver4.connection(List("localhost"), options = conOpts)
 {% endhighlight %}
 
 The following options can be used with `MongoConnectionOptions` to configure the connection behaviour.
@@ -64,15 +68,19 @@ The following options can be used with `MongoConnectionOptions` to configure the
 
 If the connection pool is defined by an URI, then the options can be given after the `?` separator:
 
-{% highlight scala %}
+{% highlight javascript %}
 mongodb.uri = "mongodb://user:pass@host1:27017,host2:27018,host3:27019/mydatabase?authMode=scram-sha1&rm.tcpNoDelay=true"
 {% endhighlight %}
 
 Getting a database and a collection is pretty easy:
 
 {% highlight scala %}
-val db = connection.db("somedatabase")
-val collection = db.collection("somecollection")
+import scala.concurrent.ExecutionContext.Implicits.global
+
+def connection5: reactivemongo.api.MongoConnection = ???
+
+val db5 = connection5.db("somedatabase")
+val collection5 = db5.collection("somecollection")
 {% endhighlight %}
 
 ## Connecting to a replica set
@@ -86,8 +94,10 @@ ReactiveMongo provides support for Replica Sets. That means the following:
 Connecting to a Replica Set is pretty much the same as connecting to a unique server. You may have notice that the argument to `driver.connection()` method is a `List[String]`; you can also give more than one node in the replica set.
 
 {% highlight scala %}
-val servers = List("server1:27017", "server2:27017", "server3:27017")
-val connection = driver.connection(servers)
+def driver6: reactivemongo.api.MongoDriver = ???
+
+val servers6 = List("server1:27017", "server2:27017", "server3:27017")
+val connection6 = driver6.connection(servers6)
 {% endhighlight %}
 
 There is no obligation to give all the nodes in the replica set – actually, just one of them is required. ReactiveMongo will ask the nodes it can reach for the addresses of the other nodes in the replica set. Obviously it is better to give at least 2 or more nodes, in case of unavailablity of one node at the start of the application.
@@ -97,11 +107,15 @@ There is no obligation to give all the nodes in the replica set – actually, ju
 In some (rare) cases it is perfectly viable to create as many `MongoConnection` instances you need with one `MongoDriver` instance – in that case, you will get different connection pools. This is useful when your application has to connect to two or more independent MongoDB nodes (i.e. that do not belong to the same ReplicaSet), or different Replica Sets.
 
 {% highlight scala %}
-val serversReplicaSet1 = List("rs11", "rs12", "rs13")
-val connectionReplicaSet1 = driver.connection(serversReplicaSet1)
+object WithReplicaSet {
+  def driver: reactivemongo.api.MongoDriver = ???
 
-val serversReplicaSet2 = List("rs21", "rs22", "rs23")
-val connectionReplicaSet2 = driver.connection(serversReplicaSet2)
+  val serversReplicaSet1 = List("rs11", "rs12", "rs13")
+  val connectionReplicaSet1 = driver.connection(serversReplicaSet1)
+
+  val serversReplicaSet2 = List("rs21", "rs22", "rs23")
+  val connectionReplicaSet2 = driver.connection(serversReplicaSet2)
+}
 {% endhighlight %}
 
 ### Handling Authentication
@@ -113,20 +127,34 @@ There are two ways to give ReactiveMongo your credentials.
 {% highlight scala %}
 import reactivemongo.core.nodeset.Authenticate
 
-val dbName = "somedatabase"
-val userName = "username"
-val password = "password"
-val credentials = List(Authenticate(dbName, userName, password))
-val connection = driver.connection(servers, nbChannelsPerNode = 5, authentications = credentials))
+object WithAuth1 {
+  def driver: reactivemongo.api.MongoDriver = ???
+  def servers: List[String] = List("server1", "server2")
+
+  val dbName = "somedatabase"
+  val userName = "username"
+  val password = "password"
+  val credentials = List(Authenticate(dbName, userName, password))
+  val connection = driver.connection(servers, authentications = credentials)
+}
 {% endhighlight %}
 
 - Using the `db.authenticate()` method
 
 {% highlight scala %}
-val futureAuthenticated = db.authenticate(username, password)
+import scala.concurrent.ExecutionContext.Implicits.global
 
-futureAuthenticated.map { _ =>
-  // doSomething
+object WithAuth2 {
+  def db: reactivemongo.api.DefaultDB = ???
+  def username: String = ???
+  def password: String = ???
+  implicit def authTimeout: scala.concurrent.duration.FiniteDuration = ???
+
+  val futureAuthenticated = db.authenticate(username, password)
+
+  futureAuthenticated.map { _ =>
+    // doSomething
+  }
 }
 {% endhighlight %}
 
@@ -141,13 +169,18 @@ You can also give the connection information as a [URI](http://docs.mongodb.org/
 If credentials and the database name are included in the URI, ReactiveMongo will authenticate the connections on that database.
 
 {% highlight scala %}
+import scala.util.Try
+import reactivemongo.api.MongoConnection
+
 // connect to the replica set composed of `host1:27018`, `host2:27019` and `host3:27020`
 // and authenticate on the database `somedb` with user `user123` and password `passwd123`
 val uri = "mongodb://user123:passwd123@host1:27018,host2:27019,host3:27020/somedb"
 
-val connection: Try[MongoConnection] =
+def driver7: reactivemongo.api.MongoDriver = ???
+
+val connection7: Try[MongoConnection] =
   MongoConnection.parseURI(uri).map { parsedUri =>
-    driver.connection(parsedUri)
+    driver7.connection(parsedUri)
   }
 {% endhighlight %}
 
@@ -158,7 +191,10 @@ val connection: Try[MongoConnection] =
 Do not get confused here. A `MongoConnection` is a _logical_ connection, not a physical one; it is actually a _connection pool_. By default, a `MongoConnection` creates 10 _physical_ connections to each node in the replica set (or to the single node if it is not a replica set.) You can tune this by setting the `nbChannelsPerNode` parameter.
 
 {% highlight scala %}
-val connection = driver.connection(servers, nbChannelsPerNode = 5)
+def driver8: reactivemongo.api.MongoDriver = ???
+def servers8: List[String] = List("host1", "host2")
+
+val connection8 = driver1.connection(servers8)
 {% endhighlight %}
 
 #### Why are `MongoDriver` and `MongoConnection` distinct?
