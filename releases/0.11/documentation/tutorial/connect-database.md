@@ -58,7 +58,7 @@ The following options can be used with `MongoConnectionOptions` to configure the
   - [tag](http://docs.mongodb.org/manual/tutorial/configure-replica-set-tag-sets/#replica-set-configuration-tag-sets): Acknowledgment by the member of the replica set matching the given tag.
 - **writeConcernJ**: Toggle [journaling](http://docs.mongodb.org/manual/reference/write-concern/#j-option) on the default write concern. Of `writeConcern` is specified, its `j` will be replaced by this `writeConcernJ` boolean flag (`true|false`).
 - **writeConcernTimeout**: The [time limit](http://docs.mongodb.org/manual/reference/write-concern/#wtimeout) (in milliseconds) for the default write concern. If `writeConcern` is specified, its timeout is replaced by this one.
-- **readPreference**: The default read preference (`primary|primaryPreferred|secondary|secondaryPreferred|nearest`) (default is `primary`).
+- **readPreference**: The default [read preference](../advanced-topics/read-preferences.html) (`primary|primaryPreferred|secondary|secondaryPreferred|nearest`) (default is `primary`).
 
 > The option `sslEnabled` is needed if the MongoDB server is requiring SSL (`mongod --sslMode requireSSL`). The related option `sslAllowsInvalidCert` is required is the server allows invalid certificate (`mongod --sslAllowInvalidCertificates`).
 
