@@ -31,6 +31,7 @@ title: ReactiveMongo - Documentation
     * [Play Reactive Mongo application with KnockoutJS frontend](http://www.typesafe.com/activator/template/play-mongo-knockout)
     * [Play Framework with REST, ReactiveMongo and Polymer](http://www.typesafe.com/activator/template/play-reactivemongo-polymer)
     * [Full Web Application featuring basic CRUD operations and GridFS streaming](https://github.com/sgodbillon/reactivemongo-demo-app)
+    * [Generic Play 2.4 CRUD with ReactiveMongo](http://www.typesafe.com/activator/template/play-2.4-crud-with-reactive-mongo)
 * Screencasts
     * [ReactiveMongo](http://yobriefca.se/screencasts/004-reactivemongo) (by James Hughes)
     * [ReactiveMongo Play Plugin](http://yobriefca.se/screencasts/005-play-reactivemongo) (by James Hughes)
