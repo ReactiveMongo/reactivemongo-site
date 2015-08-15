@@ -17,22 +17,26 @@ The Play Iteratee library can work with document stream as following.
 - Run an `Iteratee` (that we build for this purpose), which will consume data and eventually produce a result.
 
 {% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
 import play.api.libs.iteratee._
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
 
-val enumeratorOfPeople: Enumerator[BSONDocument] =
-  collection.
-    find(query).
-    cursor[BSONDocument].
-    enumerate()
+def processPerson1(collection: BSONCollection, query: BSONDocument): Future[Unit] = {
+  val enumeratorOfPeople: Enumerator[BSONDocument] =
+    collection.find(query).cursor[BSONDocument].enumerate()
 
-val processDocuments: Iteratee[BSONDocument, Unit] =
-  Iteratee.foreach { person =>
-    val lastName = person.getAs[String]("lastName")
-    val prettyBson = BSONDocument.pretty(person)
-    println(s"found $lastName: $prettyBson")
-  }
+  val processDocuments: Iteratee[BSONDocument, Unit] =
+    Iteratee.foreach { person =>
+      val lastName = person.getAs[String]("lastName")
+      val prettyBson = BSONDocument.pretty(person)
+      println(s"found $lastName: $prettyBson")
+    }
 
-val result: Future[Unit] = enumeratorOfPeople.run(processDocuments)
+  enumeratorOfPeople.run(processDocuments)
+}
 {% endhighlight %}
 
 The method `cursor.enumerate()` returns an `Enumerator[T]`. In this case, we get a producer of documents (of type `BSONDocument`).
@@ -43,7 +47,7 @@ Here, we build an `Iteratee[BSONDocument, Unit]` that takes `BSONDocument` as an
 
 When this snippet is run, we get the following:
 
-{% highlight scala %}
+{% highlight javascript %}
 found London: {
   _id: BSONObjectID("4f899e7eaf527324ab25c56b"),
   firstName: BSONString(Jack),
@@ -71,21 +75,30 @@ The line `enumeratorOfPeople.run(processDocuments)` returns a `Future[Unit]`; it
 Obviously, we may use a pure `Iteratee` that performs some computation:
 
 {% highlight scala %}
-val cumulateAge: Iteratee[BSONDocument, (Int, Int)] =
-  Iteratee.fold( 0 -> 0 ) { case ( (cumulatedAge, n), doc) =>
-    val age = person.getAs[Int]("age").getOrElse(0)
-    (cumulatedAge + age, n + 1)
-  }
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
 
-val cumulated: Future[(Int, Int)] = enumeratorOfPeople |>>> cumulateAge
+import play.api.libs.iteratee._
+import reactivemongo.bson.BSONDocument
 
-val meanAge: Future[Float] =
-  cumulated.map { case (cumulatedAge, n) =>
-    if(n == 0)
-      0
-    else cumulatedAge / n
-  }
+def processPerson2(enumeratorOfPeople: Enumerator[BSONDocument]) = {
+  val cumulateAge: Iteratee[BSONDocument, (Int, Int)] =
+    Iteratee.fold(0 -> 0) {
+      case ((cumulatedAge, n), doc) =>
+        val age = doc.getAs[Int]("age").getOrElse(0)
+        (cumulatedAge + age, n + 1)
+    }
 
+  val cumulated: Future[(Int, Int)] = enumeratorOfPeople |>>> cumulateAge
+
+  val meanAge: Future[Float] =
+    cumulated.map { case (cumulatedAge, n) =>
+      if (n == 0) 0
+      else cumulatedAge / n
+    }
+
+  meanAge
+}
 {% endhighlight %}
 
 At each step, this Iteratee will extract the age from the document and add it to the current result; it also counts the number of documents processed. It eventually produces a tuple of two integers; in our case `(173, 3)`. When the `cumulated` future is completed, we divide the cumulated age by the number of documents to get the mean age.
@@ -96,6 +109,8 @@ ReactiveMongo streaming is based on the function `Cursor.foldWhile[A]`, which al
 
 {% highlight scala %}
 import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
 import reactivemongo.api.Cursor
 
 def streaming(c: Cursor[String]): Future[List[String]] =
@@ -107,7 +122,7 @@ def streaming(c: Cursor[String]): Future[List[String]] =
     },
     { (ls, err) => // handle failure
       err match {
-        case SkipException(_) => Cursor.Cont(ls) // Skip error, continue
+        case e: RuntimeException => Cursor.Cont(ls) // Skip error, continue
         case _ => Cursor.Fail(err) // Stop with current failure -> Future.failed
       }
     })

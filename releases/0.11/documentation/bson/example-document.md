@@ -12,6 +12,10 @@ title: ReactiveMongo 0.11 - Handle documents with the BSON Library
 You can write your own writers and readers for your models. Let's define a model for `Album`, and its `BSONWriter` and `BSONReader`.
 
 {% highlight scala %}
+import reactivemongo.bson.{
+  BSONDocument, BSONDocumentWriter, BSONDocumentReader
+}
+
 case class SimpleAlbum(
   title: String,
   releaseYear: Int,
@@ -42,6 +46,8 @@ You should have noted that our reader and writer extend `BSONDocumentReader[T]` 
 OK, now, what if I want to store all the tracks names of the album? Or, in other words, how can we deal with collections? First of all, you can safely infer that all seqs and sets can be serialized as `BSONArray`s. Using `BSONArray` follows the same patterns as `BSONDocument`.
 
 {% highlight scala %}
+import reactivemongo.bson.{ BSONArray, BSONDocument }
+
 val album4 = BSONDocument(
   "title" -> "Everybody Knows this is Nowhere",
   "releaseYear" -> 1969,
@@ -70,6 +76,8 @@ Using `BSONArray` does what we want, but this code is pretty verbose. Would it n
 Here again, there is a converter for `Traversable`s of types that can be transformed into `BSONValue`s. For example, if you have a `List[Something]`, if there is an implicit `BSONWriter` of `Something` to some `BSONValue` in the scope, you can use it as is, without giving explicitly a `BSONArray`. The same logic applies for reading `BSONArray` values.
 
 {% highlight scala %}
+import reactivemongo.bson.BSONDocument
+
 val album5 = BSONDocument(
   "title" -> "Everybody Knows this is Nowhere",
   "releaseYear" -> 1969,
@@ -91,6 +99,10 @@ val tracksOfAlbum5 = album5.getAs[List[String]]("tracks")
 So, now we can rewrite our reader and writer for albums including tracks.
 
 {% highlight scala %}
+import reactivemongo.bson.{
+  BSONDocument, BSONDocumentReader, BSONDocumentWriter
+}
+
 case class Album(
   title: String,
   releaseYear: Int,
@@ -120,6 +132,12 @@ implicit object AlbumReader extends BSONDocumentReader[Album] {
 Obviously, you can combine these readers and writers to de/serialize more complex object graphs. Let's write an Artist model, containing a list of Albums.
 
 {% highlight scala %}
+import reactivemongo.bson.{
+  BSON, BSONDocument, BSONHandler, BSONDocumentReader, BSONDocumentWriter
+}
+
+implicit def albumHandler: BSONHandler[BSONDocument, Album] = ???
+
 case class Artist(
   name: String,
   albums: List[Album])
@@ -159,5 +177,9 @@ val neilYoungDoc = BSON.write(neilYoung)
 Here, we get an "ambiguous implicits" problem, which is normal because we have more than one Reader of `BSONDocument`s available in our scope (`SimpleArtistReader`, `ArtistReader`, `AlbumReader`, etc.). So we have to explicitly give the type of the instance we want to get from the document.
 
 {% highlight scala %}
+import reactivemongo.bson.BSON
+
+implicit def artistReader: reactivemongo.bson.BSONDocumentReader[Artist] = ???
+
 val neilYoungAgain = BSON.readDocument[Artist](neilYoungDoc)
 {% endhighlight %}

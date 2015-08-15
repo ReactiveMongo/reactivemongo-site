@@ -10,13 +10,21 @@ title: ReactiveMongo 0.11 - Setup
 You can get a `DB` reference using the method `db` on a `MongoConnection`:
 
 {% highlight scala %}
-val database = connection.db("mydatabase")
+import scala.concurrent.ExecutionContext.Implicits.global
+
+def connection1: reactivemongo.api.MongoConnection = ???
+
+val database1 = connection1.db("mydatabase")
 {% endhighlight %}
 
 There is an `apply` method on `MongoConnection` that is an alias for `db()`, so you can also do this:
 
 {% highlight scala %}
-val database = connection("mydatabase")
+import scala.concurrent.ExecutionContext.Implicits.global
+
+def db2: reactivemongo.api.DefaultDB = ???
+
+val database2 = db2.connection("mydatabase")
 {% endhighlight %}
 
 [`DB`](../../api/index.html#reactivemongo.api.DB) is just a trait. Both `MongoConnection.db()` and `MongoConnection.apply()` return a default implementation, [`DefaultDB`](../../api/index.html#reactivemongo.api.DefaultDB), which defines other useful methods (like `drop()`, `sister()`, …)
@@ -26,25 +34,39 @@ val database = connection("mydatabase")
 It works the same way as for databases, thanks to the `collection` method on a `Database`.
 
 {% highlight scala %}
-import reactivemongo.api.collections.default.BSONCollection
+import reactivemongo.api.collections.bson.BSONCollection
 
-val collection = database.collection[BSONCollection]("acollection")
+def db3: reactivemongo.api.DefaultDB = ???
+
+val collection3 = db3.collection[BSONCollection]("acollection")
 {% endhighlight %}
 
 Or, with the `apply()` alias:
 
 {% highlight scala %}
-import reactivemongo.api.collections.default.BSONCollection
+import reactivemongo.api.collections.bson.BSONCollection
 
-val collection = database[BSONCollection]("acollection")
+def db4: reactivemongo.api.DefaultDB = ???
+
+val collection4 = db4[BSONCollection]("acollection")
 {% endhighlight %}
 
-Both return a [`BSONCollection`](../../api/index.html#reactivemongo.api.collections.default.BSONCollection), which implements the basic [`Collection`](../../api/index.html#reactivemongo.api.Collection) trait.
+Both return a [`BSONCollection`](../../api/index.html#reactivemongo.api.collections.bson.BSONCollection), which implements the basic [`Collection`](../../api/index.html#reactivemongo.api.Collection) trait.
 
 The `Collection` trait itself is almost empty. It is not meant to be used as is. Let's take a look to the `DB.collection` method signature:
 
 {% highlight scala %}
-def collection[C <: Collection](name: String, failoverStrategy: FailoverStrategy = failoverStrategy)(implicit producer: CollectionProducer[C] = collections.bson.BSONCollectionProducer): C
+package api
+
+trait db {
+  import reactivemongo.api.{
+    Collection, CollectionProducer, FailoverStrategy
+  }
+  import reactivemongo.api.collections.bson.BSONCollectionProducer
+
+  def collection[C <: Collection](name: String, failoverStrategy: FailoverStrategy)(implicit producer: CollectionProducer[C] = BSONCollectionProducer): C
+
+}
 {% endhighlight %}
 
 When you call this method, there must be an implicit `CollectionProducer` instance in the scope. Then the actual type of the return `Collection` will be the type parameter of the implicit producer.

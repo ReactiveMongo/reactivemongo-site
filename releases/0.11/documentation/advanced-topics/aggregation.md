@@ -75,14 +75,20 @@ Then when calling `populatedStates(theZipCodeCol)`, the asynchronous result will
 As for the other commands in ReactiveMongo, it's possible to return the aggregation result as custom types (see [BSON readers](../bson/typeclasses.html)), rather than generic documents, for example considering a class `State` as bellow.
 
 {% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
 import reactivemongo.bson.Macros
+import reactivemongo.api.collections.bson.BSONCollection
 
 case class State(name: String, population: Long)
 
 implicit val reader = Macros.reader[State]
 
-// res: Future[AggregationResult]
-val states: Future[List[State]] = res.map(_.result[State])
+def aggregate(col: BSONCollection): Future[col.BatchCommands.AggregationFramework.AggregationResult] = ???
+
+def states(col: BSONCollection): Future[List[State]] =
+  aggregate(col).map(_.result[State])
 {% endhighlight %}
 
 **Average city population by state**

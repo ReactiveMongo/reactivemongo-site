@@ -9,7 +9,7 @@ A ReactiveMongo plugin is available for [Play Framework](https://playframework.c
 
 The latest version of this plugin is for Play 2.4, and can be enabled by adding the following dependency in your `project/Build.scala` (or `build.sbt`).
 
-{% highlight scala %}
+{% highlight ocaml %}
 // only for Play 2.4.x
 libraryDependencies ++= Seq(
   "org.reactivemongo" %% "play2-reactivemongo" % "{{site._0_11_latest_minor}}.play24"
@@ -22,7 +22,7 @@ libraryDependencies ++= Seq(
 
 If you are looking for a stable version for Play 2.3, please consider using the {{site._0_11_latest_minor}}.play23 version:
 
-{% highlight scala %}
+{% highlight ocaml %}
 // Only for Play 2.3.x
 libraryDependencies ++= Seq(
   "org.reactivemongo" %% "play2-reactivemongo" % "{{site._0_11_latest_minor}}.play23"
@@ -31,7 +31,7 @@ libraryDependencies ++= Seq(
 
 If you want to use the latest snapshot, add the following instead (only for play > 2.4):
 
-{% highlight scala %}
+{% highlight ocaml %}
 resolvers += "Sonatype Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
 
 libraryDependencies ++= Seq(
@@ -45,9 +45,13 @@ libraryDependencies ++= Seq(
 
 **ReactiveMongoPlugin is deprecated, long live to ReactiveMongoModule and ReactiveMongoApi**.
 
-Play has deprecated plugins in version 2.4. Therefore it is recommended to remove it from your project and replace it by ReactiveMongoModule and ReactiveMongoApi which is the interface to MongoDB.
+Play has deprecated plugins in version 2.4. Therefore it is recommended to remove it from your project and replace it by `ReactiveMongoModule` and `ReactiveMongoApi` which is the interface to MongoDB.
 
 {% highlight scala %}
+package api
+
+import reactivemongo.api.{ DB, MongoConnection, MongoDriver }
+
 trait ReactiveMongoApi {
   def driver: MongoDriver
   def connection: MongoConnection
@@ -58,17 +62,22 @@ trait ReactiveMongoApi {
 Thus, the dependency injection can be configured, so that the your controllers are given the new ReactiveMongo API.
 First, Add the line bellow to `application.conf`:
 
-{% highlight scala %}
+{% highlight ocaml %}
 play.modules.enabled += "play.modules.reactivemongo.ReactiveMongoModule"
 {% endhighlight %}
 
 Then use Play's dependency injection mechanism to resolve instance of `ReactiveMongoApi` which is the interface to MongoDB. Example:
 
 {% highlight scala %}
-class MyController @Inject() (val reactiveMongoApi: ReactiveMongoApi) {
-  ...
-  lazy val db = reactiveMongoApi.db
-  ...
+import javax.inject.Inject
+
+import play.api.mvc.Controller
+import play.modules.reactivemongo._
+
+class MyController @Inject() (val reactiveMongoApi: ReactiveMongoApi)
+  extends Controller with MongoController with ReactiveMongoComponents {
+
+  // ...
 }
 {% endhighlight %}
 
@@ -77,8 +86,11 @@ The trait `ReactiveMongoComponents` can be used for [compile-time dependency inj
 {% highlight scala %}
 import javax.inject.Inject
 
+import play.api.mvc.Controller
+import play.modules.reactivemongo._
+
 class MyController @Inject() (val reactiveMongoApi: ReactiveMongoApi)
-    extends Controller with MongoController with ReactiveMongoComponents {
+  extends Controller with MongoController with ReactiveMongoComponents {
 
 }
 {% endhighlight %}
@@ -88,7 +100,11 @@ class MyController @Inject() (val reactiveMongoApi: ReactiveMongoApi)
 It's also possible to get the injected ReactiveMongo API outside of the controllers, using the `injector` of the current Play application.
 
 {% highlight scala %}
+import scala.concurrent.Future
+
 import play.api.Play.current
+import play.api.libs.concurrent.Execution.Implicits.defaultContext
+
 import play.modules.reactivemongo.ReactiveMongoApi
 import play.modules.reactivemongo.json.collection.JSONCollection
 
@@ -105,6 +121,9 @@ object Foo {
 In your Play application, you can use ReactiveMongo with multiple connection pools (possibly with different replica set).
 
 {% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
 import reactivemongo.api.{ MongoConnection, MongoDriver }
 
 import play.api.Play.current
@@ -189,18 +208,32 @@ Play2-ReactiveMongo makes it easy to serve and store files in a complete non-blo
 It provides a body parser for handling file uploads, and a method to serve files from a GridFS store.
 
 {% highlight scala %}
+import scala.concurrent.Future
+
+import play.api.mvc.{ Action, Controller }
+import play.api.libs.concurrent.Execution.Implicits.defaultContext
+import play.api.libs.json._
+
 import reactivemongo.api.gridfs.{ // ReactiveMongo GridFS
   DefaultFileToSave, FileToSave, GridFS, ReadFile
 }
 
-import play.modules.reactivemongo.MongoController
+import play.modules.reactivemongo.{ MongoController, ReactiveMongoComponents }
+import play.modules.reactivemongo.json._
 
-trait MyController extends MongoController {
+trait MyController extends Controller
+  with MongoController with ReactiveMongoComponents {
+
   // gridFSBodyParser from `MongoController`
+  import MongoController.readFileReads
+
+  val fsParser = gridFSBodyParser(reactiveMongoApi.gridFS)
   
-  def upload = Action(gridFSBodyParser(gridFS)) { request =>
+  def upload = Action.async(fsParser) { request =>
     // here is the future file!
-    val futureFile: Future[ReadFile[BSONValue]] = request.body.files.head.ref
+    val futureFile: Future[ReadFile[JSONSerializationPack.type, JsValue]] = 
+      request.body.files.head.ref
+
     futureFile.map { file =>
       // do something
       Ok
@@ -218,7 +251,15 @@ trait MyController extends MongoController {
 ReactiveMongo for Play Framework provides some extensions of the result cursors, as `.jsArray()` to read underlying data as a JSON array.
 
 {% highlight scala %}
-import play.modules.reactivemongo.json.collection.JsCursor._
+import play.api.libs.json._
+import play.api.libs.concurrent.Execution.Implicits.defaultContext
+
+import play.modules.reactivemongo.json._
+import play.modules.reactivemongo.json.collection.{
+  JSONCollection, JsCursor
+}, JsCursor._
+
+def jsonCollection: JSONCollection = ???
 
 type ResultType = JsObject // any type which is provided a `Writes[T]`
 
@@ -332,7 +373,7 @@ class Application @Inject() (val reactiveMongoApi: ReactiveMongoApi)
 
     // transform the list into a JsArray
     val futurePersonsJsonArray: Future[JsArray] =
-      futurePersonsList.map { persons => Json.arr(persons: _*) }
+      futurePersonsList.map { persons => Json.arr(persons) }
 
     // everything's ok! Let's reply with the array
     futurePersonsJsonArray.map { persons =>

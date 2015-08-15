@@ -10,19 +10,25 @@ title: ReactiveMongo 0.11 - Read Preferences
 The following Read Preferences are supported:
 
 - `Primary`: read only from the primary. This is the default choice;
-- `PrimaryPrefered`: read from the primary if it is available, or secondaries if it is not;
+- `PrimaryPreferred`: read from the primary if it is available, or secondaries if it is not;
 - `Secondary`: read only from any secondary;
-- `SecondaryPrefered`: read from any secondary, or from the primary if they are not available;
+- `SecondaryPreferred`: read from any secondary, or from the primary if they are not available;
 - `Nearest`: read from the faster node (ie the node which replies faster than all others), regardless its status (primary or secondary.)
 
 Read preference are given to `GenericQueryBuilder.cursor()` and `GenericQueryBuilder.one()`:
 
 {% highlight scala %}
-collection.
-  find(BSONDocument("city" -> "San Francisco")).
-  // read from any secondary whenever possible
-  cursor(ReadPreferences.secondaryPrefered).
-  collect[List]()
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.ReadPreference
+import reactivemongo.api.collections.bson.BSONCollection
+
+def readFromSecondary1(collection: BSONCollection) = 
+  collection.find(BSONDocument("city" -> "San Francisco")).
+    // read from any secondary whenever possible
+    cursor[BSONDocument](ReadPreference.secondaryPreferred).
+    collect[List]()
 {% endhighlight %}
 
 > The default read preference can be set in the [connection options](../tutorial/connect-database.html).
@@ -72,8 +78,15 @@ Let's suppose that the replica set is configured that way:
 Then we can tell ReactiveMongo to query only from the nodes that are tagged with `dc: "NYC"`:
 
 {% highlight scala %}
-collection.
-  find(BSONDocument("city" -> "San Francisco")).
-  // read from any secondary tagged with `dc: "NYC"`
-  one(ReadPreference.secondaryPrefered(BSONDocument("dc" -> "NYC")))
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.ReadPreference
+import reactivemongo.api.collections.bson.BSONCollection
+
+def readFromSecondary2(collection: BSONCollection) = 
+  collection.find(BSONDocument("city" -> "San Francisco")).
+    // read from any secondary tagged with `dc: "NYC"`
+    one[BSONDocument](ReadPreference.secondaryPreferred(
+      BSONDocument("dc" -> "NYC")))
 {% endhighlight %}

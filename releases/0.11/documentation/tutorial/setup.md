@@ -20,7 +20,7 @@ ReactiveMongo is available on [Maven Central](http://search.maven.org/#browse%7C
 
 If you use SBT, you just have to edit `build.sbt` and add the following:
 
-{% highlight scala %}
+{% highlight ocaml %}
 // you may also want to add the typesafe repository
 resolvers += "Typesafe repository releases" at "http://repo.typesafe.com/typesafe/releases/"
 
@@ -33,7 +33,7 @@ libraryDependencies ++= Seq(
 
 Or if you want to be on the bleeding edge using snapshots:
 
-{% highlight scala %}
+{% highlight ocaml %}
 resolvers += "Sonatype Snapshots" at "http://oss.sonatype.org/content/repositories/snapshots/"
 
 libraryDependencies ++= Seq(

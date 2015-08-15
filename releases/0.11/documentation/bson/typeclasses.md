@@ -18,6 +18,8 @@ import reactivemongo.bson._
 Getting values follow the same principle using `getAs(String)` method. This method is parametrized with a type that can be transformed into a `BSONValue` using a `BSONReader` instance that is implicitly available in the scope (again, the default readers are already imported if you imported `reactivemongo.bson._`.) If the value could not be found, or if the reader could not deserialize it (often because the type did not match), `None` will be returned.
 
 {% highlight scala %}
+import reactivemongo.bson.BSONString
+
 val albumTitle2 = album2.getAs[String]("title")
 // Some("Everybody Knows this is Nowhere")
 
@@ -30,12 +32,15 @@ In order to read values of custom types. To do so, a custom instance of [`BSONRe
 *A `BSONReader` for a custom value class:*
 
 {% highlight scala %}
-class Score(val value: Float) extends AnyVal
+package object custom {
+  class Score(val value: Float) extends AnyVal
 
-import reactivemongo.bson._
+  import reactivemongo.bson._
 
-implicit object ScoreReader extends BSONReader[BSONValue, Score] {
-  def read(bson: BSONValue): Score = new Score(bson.as[BSONNumberLike].toFloat)
+  implicit object ScoreReader extends BSONReader[BSONValue, Score] {
+    def read(bson: BSONValue): Score =
+      new Score(bson.as[BSONNumberLike].toFloat)
+  }
 }
 {% endhighlight %}
 
@@ -46,8 +51,6 @@ Once a custom `BSONReader` (or `BSONDocumentReader`) is defined, it can be used 
 *A `BSONDocumentReader` for a custom case class:*
 
 {% highlight scala %}
-case class Person(name: String, age: Int)
-
 import reactivemongo.bson._
 
 implicit object PersonReader extends BSONDocumentReader[Person] {
@@ -65,11 +68,12 @@ implicit object PersonReader extends BSONDocumentReader[Person] {
 Once a custom `BSONDocumentReader` can be resolved, it can be used when working with a query result.
 
 {% highlight scala %}
-// Provided the `Person` case class is defined,
-// with its `BSONDocumentReader`
-
 import scala.concurrent.{ ExecutionContext, Future }
+import reactivemongo.bson.{ BSONDocument, BSONDocumentReader }
 import reactivemongo.api.collections.bson.BSONCollection
+
+// Provided the `Person` case class is defined, with its `BSONDocumentReader`
+implicit def personReader: BSONDocumentReader[Person] = ???
 
 def findPerson(personCollection: BSONCollection, name: String)(implicit ec: ExecutionContext): Future[Option[Person]] = personCollection.find(BSONDocument("fullName" -> name)).one[Person]
 {% endhighlight %}
@@ -81,9 +85,9 @@ def findPerson(personCollection: BSONCollection, name: String)(implicit ec: Exec
 Of course it also possible to write a value of a custom type, a custom instance of [`BSONWriter`](../../api/index.html#reactivemongo.bson.BSONWriter), or of [`BSONDocumentWriter`](../../api/index.html#reactivemongo.bson.BSONDocumentWriter) must be available.
 
 {% highlight scala %}
-class Score(val value: Float) extends AnyVal
-
 import reactivemongo.bson._
+
+case class Score(value: Float)
 
 implicit object ScoreWriter extends BSONWriter[Score, BSONDouble] {
   def write(score: Score): BSONDouble = BSONDouble(score.value)
@@ -96,7 +100,7 @@ implicit object ScoreWriter extends BSONWriter[Score, BSONDouble] {
 Each value that can be written using a `BSONWriter` can be used directly when calling a `BSONDocument` constructor.
 
 {% highlight scala %}
-val album2 = BSONDocument(
+val album2 = reactivemongo.bson.BSONDocument(
   "title" -> "Everybody Knows this is Nowhere",
   "releaseYear" -> 1969)
 {% endhighlight %}
@@ -104,8 +108,6 @@ val album2 = BSONDocument(
 Note that this does _not_ use implicit conversions, but rather implicit type classes.
 
 {% highlight scala %}
-case class Person(name: String, age: Int)
-
 import reactivemongo.bson._
 
 implicit object PersonWriter extends BSONDocumentWriter[Person] {
@@ -117,12 +119,14 @@ implicit object PersonWriter extends BSONDocumentWriter[Person] {
 Once a `BSONDocumentWriter` is available, an instance of the custom class can be inserted or updated to the MongoDB.
 
 {% highlight scala %}
-// Provided the `Person` case class is defined,
-// with its `BSONDocumentWriter`
-
 import scala.concurrent.{ ExecutionContext, Future }
+
+import reactivemongo.bson.BSONDocumentWriter
 import reactivemongo.api.collections.bson.BSONCollection
 import reactivemongo.api.commands.WriteResult
+
+// Provided the `Person` case class is defined, with its `BSONDocumentWriter`
+implicit def personWriter: BSONDocumentWriter[Person] = ???
 
 def create(personCollection: BSONCollection, person: Person)(implicit ec: ExecutionContext): Future[Unit] = {
   val writeResult = personCollection.insert(person)
