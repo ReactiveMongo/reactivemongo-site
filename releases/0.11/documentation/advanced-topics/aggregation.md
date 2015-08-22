@@ -1,9 +1,9 @@
 ---
 layout: default
-title: ReactiveMongo 0.11 - The Aggregation Framework
+title: ReactiveMongo 0.11 - Aggregation Framework
 ---
 
-## The Aggregation Framework
+## Aggregation Framework
 
 The [MongoDB Aggregation Framework](http://docs.mongodb.org/manual/reference/operator/aggregation/) is available through ReactiveMongo.
 
