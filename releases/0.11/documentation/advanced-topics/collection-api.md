@@ -1,9 +1,9 @@
 ---
 layout: default
-title: ReactiveMongo 0.11 - The Collection API
+title: ReactiveMongo 0.11 - Collection API
 ---
 
-## The Collection API
+## Collection API
 
 The Collection API is designed to be very extensible, allowing the use of third-party libraries for building documents (ie use something else than the embedded BSON library), including specific serializers and deserializers. For example, that's the case of the [ReactiveMongo Play plugin](https://github.com/ReactiveMongo/Play-ReactiveMongo), which relies on the [Play JSON library](http://www.playframework.com/documentation/2.3.x/ScalaJson) instead.
 

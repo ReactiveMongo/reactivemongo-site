@@ -30,6 +30,8 @@ libraryDependencies ++= Seq(
 
 > The minimal Play version for {{site._0_11_latest_minor}} is 2.3.9.
 
+The [API of this Play module](../../play-api/index.html) can be browsed online.
+
 If you want to use the latest snapshot, add the following instead (only for play > 2.4):
 
 {% highlight ocaml %}
@@ -534,3 +536,13 @@ class ApplicationUsingJsonReadersWriters @Inject() (
   }
 }
 {% endhighlight %}
+
+## Resources
+
+**Samples:**
+
+{% include play-samples.md %}
+
+**Screencasts:**
+
+* [ReactiveMongo Play Plugin](http://yobriefca.se/screencasts/005-play-reactivemongo) (by James Hughes)

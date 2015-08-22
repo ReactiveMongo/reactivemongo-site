@@ -1,9 +1,9 @@
 ---
 layout: default
-title: ReactiveMongo 0.11 - The Command API
+title: ReactiveMongo 0.11 - Command API
 ---
 
-## The Command API
+## Command API
 
 A MongoDB Command is a special query that returns at most one document. It is executed at the database level (`db.runCommand` in the MongoDB shell), or at the collection level (`db.aCol.runCommand` in the shell).
 
