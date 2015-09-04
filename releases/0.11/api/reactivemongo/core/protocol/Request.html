@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Request - ReactiveMongo API 0.11.5 - reactivemongo.core.protocol.Request</title>
-          <meta name="description" content="Request - ReactiveMongo API 0.11.5 - reactivemongo.core.protocol.Request" />
-          <meta name="keywords" content="Request ReactiveMongo API 0.11.5 reactivemongo.core.protocol.Request" />
+          <title>Request - ReactiveMongo API 0.11.7 - reactivemongo.core.protocol.Request</title>
+          <meta name="description" content="Request - ReactiveMongo API 0.11.7 - reactivemongo.core.protocol.Request" />
+          <meta name="keywords" content="Request ReactiveMongo API 0.11.7 reactivemongo.core.protocol.Request" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body class="type">
       <div id="definition">
-        <a href="Request$.html" title="See companion object"><img src="../../../lib/class_to_object_big.png" /></a>
+        <a href="Request$.html" title="See companion object"><img alt="Class/Object" src="../../../lib/class_to_object_big.png" /></a>
         <p id="owner"><a href="../../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../package.html" class="extype" name="reactivemongo.core">core</a>.<a href="package.html" class="extype" name="reactivemongo.core.protocol">protocol</a></p>
         <h1><a href="Request$.html" title="See companion object">Request</a></h1><h3><span class="morelinks"><div>
             Related Docs:
@@ -36,7 +36,7 @@
             | <a href="package.html" class="extype" name="reactivemongo.core.protocol">package protocol</a>
           </div></span></h3><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       </div>
@@ -52,8 +52,7 @@
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Request message.
-</p></div><dl class="paramcmts block"><dt class="param">requestID</dt><dd class="cmt"><p>id of this request, so that the response may be identifiable. Should be strictly positive.</p></dd><dt class="param">op</dt><dd class="cmt"><p>request operation.</p></dd><dt class="param">documents</dt><dd class="cmt"><p>body of this request, a <a href="http://static.netty.io/3.5/api/org/jboss/netty/buffer/ChannelBuffer.html" target="_blank">ChannelBuffer</a> containing 0, 1, or many documents.</p></dd><dt class="param">channelIdHint</dt><dd class="cmt"><p>a hint for sending this request on a particular channel.
-</p></dd></dl><div class="toggleContainer block">
+</p></div><dl class="paramcmts block"><dt class="param">requestID</dt><dd class="cmt"><p>id of this request, so that the response may be identifiable. Should be strictly positive.</p></dd><dt class="param">op</dt><dd class="cmt"><p>request operation.</p></dd><dt class="param">documents</dt><dd class="cmt"><p>body of this request, a <a href="http://static.netty.io/3.5/api/org/jboss/netty/buffer/ChannelBuffer.html" target="_blank">ChannelBuffer</a> containing 0, 1, or many documents.</p></dd><dt class="param">channelIdHint</dt><dd class="cmt"><p>a hint for sending this request on a particular channel.</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="ChannelBufferWritable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferWritable">ChannelBufferWritable</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -86,7 +85,6 @@
               <li class="hideall out"><span>Hide All</span></li>
               <li class="showall in"><span>Show all</span></li>
             </ol>
-            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
           </div>
         <div id="visbl">
             <span class="filtertype">Visibility</span>
@@ -111,11 +109,10 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@&lt;init&gt;(requestID:Int,responseTo:Int,op:reactivemongo.core.protocol.RequestOp,documents:reactivemongo.core.netty.BufferSequence,readPreference:reactivemongo.api.ReadPreference,channelIdHint:Option[Int]):reactivemongo.core.protocol.Request" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">requestID</dt><dd class="cmt"><p>id of this request, so that the response may be identifiable. Should be strictly positive.</p></dd><dt class="param">op</dt><dd class="cmt"><p>request operation.</p></dd><dt class="param">documents</dt><dd class="cmt"><p>body of this request, a <a href="http://static.netty.io/3.5/api/org/jboss/netty/buffer/ChannelBuffer.html" target="_blank">ChannelBuffer</a> containing 0, 1, or many documents.</p></dd><dt class="param">channelIdHint</dt><dd class="cmt"><p>a hint for sending this request on a particular channel.
-</p></dd></dl></div>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">requestID</dt><dd class="cmt"><p>id of this request, so that the response may be identifiable. Should be strictly positive.</p></dd><dt class="param">op</dt><dd class="cmt"><p>request operation.</p></dd><dt class="param">documents</dt><dd class="cmt"><p>body of this request, a <a href="http://static.netty.io/3.5/api/org/jboss/netty/buffer/ChannelBuffer.html" target="_blank">ChannelBuffer</a> containing 0, 1, or many documents.</p></dd><dt class="param">channelIdHint</dt><dd class="cmt"><p>a hint for sending this request on a particular channel.</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -138,7 +135,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@!=(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -155,7 +152,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@##():Int" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -172,7 +169,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@+(other:String):String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
@@ -193,7 +190,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
@@ -217,7 +214,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@==(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -234,7 +231,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@asInstanceOf[T0]:T0" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -251,7 +248,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@channelIdHint:Option[Int]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">a hint for sending this request on a particular channel.</p>
@@ -268,7 +265,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@clone():Object" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -291,7 +288,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@documents:reactivemongo.core.netty.BufferSequence" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">body of this request, a <a href="http://static.netty.io/3.5/api/org/jboss/netty/buffer/ChannelBuffer.html" target="_blank">ChannelBuffer</a> containing 0, 1, or many documents.</p>
@@ -308,7 +305,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
@@ -329,7 +326,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
@@ -350,7 +347,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
@@ -371,7 +368,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@ensuring(cond:Boolean):A" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
@@ -392,7 +389,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -409,7 +406,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@finalize():Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -432,7 +429,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@formatted(fmtstr:String):String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
@@ -456,7 +453,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@getClass():Class[_]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -473,7 +470,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@header:reactivemongo.core.protocol.MessageHeader" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Header of this request</p>
@@ -490,7 +487,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -507,7 +504,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -524,7 +521,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@notify():Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -541,7 +538,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@notifyAll():Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -558,7 +555,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@op:reactivemongo.core.protocol.RequestOp" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">request operation.</p>
@@ -575,7 +572,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@readPreference:reactivemongo.api.ReadPreference" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       
@@ -592,7 +589,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@requestID:Int" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">id of this request, so that the response may be identifiable.</p><div class="fullcomment"><div class="comment cmt"><p>id of this request, so that the response may be identifiable. Should be strictly positive.</p></div></div>
@@ -609,7 +606,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@responseTo:Int" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       
@@ -626,7 +623,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@size:Int" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Size of the content that would be written.</p><div class="fullcomment"><div class="comment cmt"><p>Size of the content that would be written.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.core.protocol.Request">Request</a> → <a href="ChannelBufferWritable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferWritable">ChannelBufferWritable</a></dd></dl></div>
@@ -643,7 +640,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -660,7 +657,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@wait():Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -683,7 +680,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -706,7 +703,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@wait(x$1:Long):Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -729,7 +726,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@writeTo:org.jboss.netty.buffer.ChannelBuffer=&gt;Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Write this instance into the given <a href="http://static.netty.io/3.5/api/org/jboss/netty/buffer/ChannelBuffer.html" target="_blank">ChannelBuffer</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Write this instance into the given <a href="http://static.netty.io/3.5/api/org/jboss/netty/buffer/ChannelBuffer.html" target="_blank">ChannelBuffer</a>.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.core.protocol.Request">Request</a> → <a href="ChannelBufferWritable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferWritable">ChannelBufferWritable</a></dd></dl></div>
@@ -746,7 +743,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Request@→[B](y:B):(A,B)" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>

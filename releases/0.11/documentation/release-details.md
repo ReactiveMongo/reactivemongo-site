@@ -21,7 +21,7 @@ There is also a new version of the [Play Framework plugin](tutorial/play2.html).
 
 ### Documentation
 
-The [documentation](index.html) is also available and deprecates the old wiki. And of course, you can browse the [Scaladoc](../api/index.html).
+The documentation is available [online](index.html). You can also browse the [Scaladoc](../api/index.html).
 
 ### Migration notes
 

@@ -1,9 +1,9 @@
 ---
 layout: default
-title: ReactiveMongo 0.11 - Setup
+title: ReactiveMongo 0.11 - Database and collections
 ---
 
-## Database and Collection
+## Database and collections
 
 ### Get a `DB` reference
 
@@ -100,6 +100,4 @@ Many of these methods take `BSONDocument` instances as a parameter. But they can
 
 Such a design enables third-party libraries to provide their own collection API. And by extending the `GenericCollection` trait, one can implement a collection that deals with any other structure (like JSON, or even another BSON library). There is one example of that in the [ReactiveMongo Play Plugin](https://github.com/ReactiveMongo/Play-ReactiveMongo): `JSONCollection` is an implementation of `GenericCollection` that deals with Play's JSON library, using its own de/serializations type classes (`Reads[T]` and `Writes[T]`).
 
-
-
-
+[Next: Write documents](./write-documents.html)

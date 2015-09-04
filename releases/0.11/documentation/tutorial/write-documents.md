@@ -233,3 +233,5 @@ def removedPerson(collection: BSONCollection, name: String)(implicit ec: Executi
   collection.findAndRemove(BSONDocument("name" -> name)).
     map(_.result[Person])
 {% endhighlight %}
+
+[Next: Find documents](./find-documents.html)

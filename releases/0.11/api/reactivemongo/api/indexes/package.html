@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>indexes - ReactiveMongo API 0.11.5 - reactivemongo.api.indexes</title>
-          <meta name="description" content="indexes - ReactiveMongo API 0.11.5 - reactivemongo.api.indexes" />
-          <meta name="keywords" content="indexes ReactiveMongo API 0.11.5 reactivemongo.api.indexes" />
+          <title>indexes - ReactiveMongo API 0.11.7 - reactivemongo.api.indexes</title>
+          <meta name="description" content="indexes - ReactiveMongo API 0.11.7 - reactivemongo.api.indexes" />
+          <meta name="keywords" content="indexes ReactiveMongo API 0.11.7 reactivemongo.api.indexes" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,11 +28,11 @@
         </head>
         <body class="value">
       <div id="definition">
-        <img src="../../../lib/package_big.png" />
+        <img alt="Package" src="../../../lib/package_big.png" />
         <p id="owner"><a href="../../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../package.html" class="extype" name="reactivemongo.api">api</a></p>
         <h1>indexes</h1><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.indexes.package" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       </div>
@@ -79,7 +79,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.indexes.package@CollectionIndexesManagerextendsAnyRef" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       
@@ -96,7 +96,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.indexes.package@DefaultIndexesManagerextendsIndexesManager" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">A helper class to manage the indexes on a Mongo 3.x database.</p>
@@ -113,12 +113,11 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.indexes.package@IndexextendsProductwithSerializable" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">A MongoDB index (excluding the namespace).</p><div class="fullcomment"><div class="comment cmt"><p>A MongoDB index (excluding the namespace).</p><p>Consider reading <a href="http://www.mongodb.org/display/DOCS/Indexes" target="_blank">the documentation about indexes in MongoDB</a>.
-</p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>The index key (it can be composed of multiple fields). This list should not be empty!</p></dd><dt class="param">name</dt><dd class="cmt"><p>The name of this index. If you provide none, a name will be computed for you.</p></dd><dt class="param">unique</dt><dd class="cmt"><p>Enforces uniqueness.</p></dd><dt class="param">background</dt><dd class="cmt"><p>States if this index should be built in background. You should read <a href="http://www.mongodb.org/display/DOCS/Indexes#Indexes-background%3Atrue" target="_blank">the documentation about background indexing</a> before using it.</p></dd><dt class="param">dropDups</dt><dd class="cmt"><p>States if duplicates should be discarded (if unique = true). Warning: you should read <a href="http://www.mongodb.org/display/DOCS/Indexes#Indexes-dropDups%3Atrue" target="_blank">the documentation</a>.</p></dd><dt class="param">sparse</dt><dd class="cmt"><p>States if the index to build should only consider the documents that have the indexed fields. See <a href="http://www.mongodb.org/display/DOCS/Indexes#Indexes-sparse%3Atrue" target="_blank">the documentation</a> on the consequences of such an index.</p></dd><dt class="param">version</dt><dd class="cmt"><p>Indicates the <a href="http://www.mongodb.org/display/DOCS/Index+Versions" target="_blank">version</a> of the index (1 for &gt;= 2.0, else 0). You should let MongoDB decide.</p></dd><dt class="param">options</dt><dd class="cmt"><p>Optional parameters for this index (typically specific to an IndexType like Geo2D).
-</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>The index key (it can be composed of multiple fields). This list should not be empty!</p></dd><dt class="param">name</dt><dd class="cmt"><p>The name of this index. If you provide none, a name will be computed for you.</p></dd><dt class="param">unique</dt><dd class="cmt"><p>Enforces uniqueness.</p></dd><dt class="param">background</dt><dd class="cmt"><p>States if this index should be built in background. You should read <a href="http://www.mongodb.org/display/DOCS/Indexes#Indexes-background%3Atrue" target="_blank">the documentation about background indexing</a> before using it.</p></dd><dt class="param">dropDups</dt><dd class="cmt"><p>States if duplicates should be discarded (if unique = true). Warning: you should read <a href="http://www.mongodb.org/display/DOCS/Indexes#Indexes-dropDups%3Atrue" target="_blank">the documentation</a>.</p></dd><dt class="param">sparse</dt><dd class="cmt"><p>States if the index to build should only consider the documents that have the indexed fields. See <a href="http://www.mongodb.org/display/DOCS/Indexes#Indexes-sparse%3Atrue" target="_blank">the documentation</a> on the consequences of such an index.</p></dd><dt class="param">version</dt><dd class="cmt"><p>Indicates the <a href="http://www.mongodb.org/display/DOCS/Index+Versions" target="_blank">version</a> of the index (1 for &gt;= 2.0, else 0). You should let MongoDB decide.</p></dd><dt class="param">options</dt><dd class="cmt"><p>Optional parameters for this index (typically specific to an IndexType like Geo2D).</p></dd></dl></div>
     </li><li name="reactivemongo.api.indexes.IndexType" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="IndexTypeextendsAnyRef"></a>
       <a id="IndexType:IndexType"></a>
@@ -132,7 +131,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.indexes.package@IndexTypeextendsAnyRef" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Type of Index</p>
@@ -149,7 +148,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.indexes.package@IndexesManagerextendsAnyRef" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Indexes manager at database level.</p>
@@ -166,7 +165,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.indexes.package@LegacyIndexesManagerextendsIndexesManager" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">A helper class to manage the indexes on a Mongo 2.x database.</p>
@@ -183,13 +182,12 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.indexes.package@NSIndexextendsProductwithSerializable" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">A MongoDB namespaced index.</p><div class="fullcomment"><div class="comment cmt"><p>A MongoDB namespaced index.
 A MongoDB index is composed with the namespace (the fully qualified collection name) and the other fields of <a href="Index.html" class="extype" name="reactivemongo.api.indexes.Index">reactivemongo.api.indexes.Index</a>.</p><p>Consider reading <a href="http://www.mongodb.org/display/DOCS/Indexes" target="_blank">the documentation about indexes in MongoDB</a>.
-</p></div><dl class="paramcmts block"><dt class="param">namespace</dt><dd class="cmt"><p>The fully qualified name of the indexed collection.</p></dd><dt class="param">index</dt><dd class="cmt"><p>The other fields of the index.
-</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">namespace</dt><dd class="cmt"><p>The fully qualified name of the indexed collection.</p></dd><dt class="param">index</dt><dd class="cmt"><p>The other fields of the index.</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -210,7 +208,7 @@ A MongoDB index is composed with the namespace (the fully qualified collection n
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.indexes.package@CollectionIndexesManager" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Factory for indexes manager scoped with a specified collection.</p>
@@ -227,7 +225,7 @@ A MongoDB index is composed with the namespace (the fully qualified collection n
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.indexes.package@IndexType" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       
@@ -244,7 +242,7 @@ A MongoDB index is composed with the namespace (the fully qualified collection n
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.indexes.package@IndexesManager" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       
