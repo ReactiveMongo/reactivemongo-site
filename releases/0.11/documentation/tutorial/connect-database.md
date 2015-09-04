@@ -1,9 +1,9 @@
 ---
 layout: default
-title: ReactiveMongo 0.11 - Setup
+title: ReactiveMongo 0.11 - Connect to the database
 ---
 
-## Starting ReactiveMongo
+## Connect to the database
 
 The first thing you need to do is to create a new `Driver` instance.
 
@@ -206,3 +206,5 @@ They manage two different things. `MongoDriver` holds the actor system, and `Mon
 `MongoDriver` and `MongoConnection` involve creation costs –  the driver may create a new `ActorSystem`, and the connection, well, will connect to the servers. It is also a good idea to store the driver and the connection to reuse them.
 
 On the contrary, `db` and `collection` are just plain objects that store references and nothing else. It is virtually free to create new instances; calling `connection.db()` or `db.collection()` may be done many times without any performance hit.
+
+[Next: Database and collections](./database-and-collection.html)

@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>FindAndModify - ReactiveMongo API 0.11.5 - reactivemongo.core.commands.FindAndModify</title>
-          <meta name="description" content="FindAndModify - ReactiveMongo API 0.11.5 - reactivemongo.core.commands.FindAndModify" />
-          <meta name="keywords" content="FindAndModify ReactiveMongo API 0.11.5 reactivemongo.core.commands.FindAndModify" />
+          <title>FindAndModify - ReactiveMongo API 0.11.7 - reactivemongo.core.commands.FindAndModify</title>
+          <meta name="description" content="FindAndModify - ReactiveMongo API 0.11.7 - reactivemongo.core.commands.FindAndModify" />
+          <meta name="keywords" content="FindAndModify ReactiveMongo API 0.11.7 reactivemongo.core.commands.FindAndModify" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body class="type">
       <div id="definition">
-        <a href="FindAndModify$.html" title="See companion object"><img src="../../../lib/class_to_object_big.png" /></a>
+        <a href="FindAndModify$.html" title="See companion object"><img alt="Class/Object" src="../../../lib/class_to_object_big.png" /></a>
         <p id="owner"><a href="../../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../package.html" class="extype" name="reactivemongo.core">core</a>.<a href="package.html" class="extype" name="reactivemongo.core.commands">commands</a></p>
         <h1><a href="FindAndModify$.html" title="See companion object">FindAndModify</a></h1><h3><span class="morelinks"><div>
             Related Docs:
@@ -36,7 +36,7 @@
             | <a href="package.html" class="extype" name="reactivemongo.core.commands">package commands</a>
           </div></span></h3><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       </div>
@@ -53,8 +53,7 @@
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>FindAndModify command.</p><p>This command allows to perform a modify operation (update/remove) matching a query, without the extra requests.
 It returns the old document by default.
-</p></div><dl class="paramcmts block"><dt class="param">collection</dt><dd class="cmt"><p>the target collection name</p></dd><dt class="param">query</dt><dd class="cmt"><p>the filter for this command</p></dd><dt class="param">modify</dt><dd class="cmt"><p>the <a href="Modify.html" class="extype" name="reactivemongo.core.commands.Modify">reactivemongo.core.commands.Modify</a> operation to do</p></dd><dt class="param">upsert</dt><dd class="cmt"><p>states if a new document should be inserted if no match</p></dd><dt class="param">sort</dt><dd class="cmt"><p>the sort document</p></dd><dt class="param">fields</dt><dd class="cmt"><p>retrieve only a subset of the returned document
-</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+</p></div><dl class="paramcmts block"><dt class="param">collection</dt><dd class="cmt"><p>the target collection name</p></dd><dt class="param">query</dt><dd class="cmt"><p>the filter for this command</p></dd><dt class="param">modify</dt><dd class="cmt"><p>the <a href="Modify.html" class="extype" name="reactivemongo.core.commands.Modify">reactivemongo.core.commands.Modify</a> operation to do</p></dd><dt class="param">upsert</dt><dd class="cmt"><p>states if a new document should be inserted if no match</p></dd><dt class="param">sort</dt><dd class="cmt"><p>the sort document</p></dd><dt class="param">fields</dt><dd class="cmt"><p>retrieve only a subset of the returned document</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
         </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.0)</i> consider using reactivemongo.api.commands.FindAndModifyCommand instead</p></dd></dl><div class="toggleContainer block">
@@ -90,7 +89,6 @@ It returns the old document by default.
               <li class="hideall out"><span>Hide All</span></li>
               <li class="showall in"><span>Show all</span></li>
             </ol>
-            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
           </div>
         <div id="visbl">
             <span class="filtertype">Visibility</span>
@@ -115,11 +113,10 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@&lt;init&gt;(collection:String,query:reactivemongo.bson.BSONDocument,modify:reactivemongo.core.commands.Modify,upsert:Boolean,sort:Option[reactivemongo.bson.BSONDocument],fields:Option[reactivemongo.bson.BSONDocument]):reactivemongo.core.commands.FindAndModify" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">collection</dt><dd class="cmt"><p>the target collection name</p></dd><dt class="param">query</dt><dd class="cmt"><p>the filter for this command</p></dd><dt class="param">modify</dt><dd class="cmt"><p>the <a href="Modify.html" class="extype" name="reactivemongo.core.commands.Modify">reactivemongo.core.commands.Modify</a> operation to do</p></dd><dt class="param">upsert</dt><dd class="cmt"><p>states if a new document should be inserted if no match</p></dd><dt class="param">sort</dt><dd class="cmt"><p>the sort document</p></dd><dt class="param">fields</dt><dd class="cmt"><p>retrieve only a subset of the returned document
-</p></dd></dl></div>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">collection</dt><dd class="cmt"><p>the target collection name</p></dd><dt class="param">query</dt><dd class="cmt"><p>the filter for this command</p></dd><dt class="param">modify</dt><dd class="cmt"><p>the <a href="Modify.html" class="extype" name="reactivemongo.core.commands.Modify">reactivemongo.core.commands.Modify</a> operation to do</p></dd><dt class="param">upsert</dt><dd class="cmt"><p>states if a new document should be inserted if no match</p></dd><dt class="param">sort</dt><dd class="cmt"><p>the sort document</p></dd><dt class="param">fields</dt><dd class="cmt"><p>retrieve only a subset of the returned document</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -142,7 +139,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@!=(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -159,7 +156,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@##():Int" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -176,7 +173,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@+(other:String):String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
@@ -197,7 +194,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
@@ -221,7 +218,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@==(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -238,7 +235,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@ResultMaker:reactivemongo.core.commands.FindAndModify.type" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Deserializer for this command's result.</p><div class="fullcomment"><div class="comment cmt"><p>Deserializer for this command's result.
@@ -256,12 +253,11 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@apply(db:String):reactivemongo.core.commands.MakableCommand" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Produces a <a href="MakableCommand.html" class="extype" name="reactivemongo.core.commands.MakableCommand">reactivemongo.core.commands.MakableCommand</a> instance of this command.</p><div class="fullcomment"><div class="comment cmt"><p>Produces a <a href="MakableCommand.html" class="extype" name="reactivemongo.core.commands.MakableCommand">reactivemongo.core.commands.MakableCommand</a> instance of this command.
-</p></div><dl class="paramcmts block"><dt class="param">db</dt><dd class="cmt"><p>name of the target database.
-</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">db</dt><dd class="cmt"><p>name of the target database.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -275,7 +271,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@asInstanceOf[T0]:T0" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -292,7 +288,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@clone():Object" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -315,7 +311,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@collection:String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">the target collection name</p>
@@ -332,7 +328,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
@@ -353,7 +349,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
@@ -374,7 +370,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
@@ -395,7 +391,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@ensuring(cond:Boolean):A" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
@@ -416,7 +412,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -433,11 +429,10 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@fields:Option[reactivemongo.bson.BSONDocument]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">retrieve only a subset of the returned document
-</p>
+      <p class="shortcomment cmt">retrieve only a subset of the returned document</p>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <a id="finalize():Unit"></a>
@@ -451,7 +446,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@finalize():Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -474,7 +469,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@formatted(fmtstr:String):String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
@@ -498,7 +493,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@getClass():Class[_]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -515,7 +510,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -532,7 +527,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@makeDocuments:reactivemongo.bson.BSONDocument" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Makes the <code>BSONDocument</code> for documents that will be send as body of this command's query.</p><div class="fullcomment"><div class="comment cmt"><p>Makes the <code>BSONDocument</code> for documents that will be send as body of this command's query.
@@ -550,7 +545,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@modify:reactivemongo.core.commands.Modify" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">the <a href="Modify.html" class="extype" name="reactivemongo.core.commands.Modify">reactivemongo.core.commands.Modify</a> operation to do</p>
@@ -567,7 +562,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -584,7 +579,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@notify():Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -601,7 +596,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@notifyAll():Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -618,7 +613,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@query:reactivemongo.bson.BSONDocument" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">the filter for this command</p>
@@ -635,7 +630,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@slaveOk:Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">States if this command can be run on secondaries.</p><div class="fullcomment"><div class="comment cmt"><p>States if this command can be run on secondaries.
@@ -653,7 +648,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@sort:Option[reactivemongo.bson.BSONDocument]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">the sort document</p>
@@ -670,7 +665,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -687,7 +682,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@upsert:Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">states if a new document should be inserted if no match</p>
@@ -704,7 +699,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@wait():Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -727,7 +722,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -750,7 +745,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@wait(x$1:Long):Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -773,7 +768,7 @@ It returns the old document by default.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.FindAndModify@→[B](y:B):(A,B)" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" />
+        <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>

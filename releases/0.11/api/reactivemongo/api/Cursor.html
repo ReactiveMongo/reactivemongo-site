@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Cursor - ReactiveMongo API 0.11.5 - reactivemongo.api.Cursor</title>
-          <meta name="description" content="Cursor - ReactiveMongo API 0.11.5 - reactivemongo.api.Cursor" />
-          <meta name="keywords" content="Cursor ReactiveMongo API 0.11.5 reactivemongo.api.Cursor" />
+          <title>Cursor - ReactiveMongo API 0.11.7 - reactivemongo.api.Cursor</title>
+          <meta name="description" content="Cursor - ReactiveMongo API 0.11.7 - reactivemongo.api.Cursor" />
+          <meta name="keywords" content="Cursor ReactiveMongo API 0.11.7 reactivemongo.api.Cursor" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body class="type">
       <div id="definition">
-        <a href="Cursor$.html" title="See companion object"><img src="../../lib/trait_to_object_big.png" /></a>
+        <a href="Cursor$.html" title="See companion object"><img alt="Trait/Object" src="../../lib/trait_to_object_big.png" /></a>
         <p id="owner"><a href="../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="package.html" class="extype" name="reactivemongo.api">api</a></p>
         <h1><a href="Cursor$.html" title="See companion object">Cursor</a></h1><h3><span class="morelinks"><div>
             Related Docs:
@@ -36,7 +36,7 @@
             | <a href="package.html" class="extype" name="reactivemongo.api">package api</a>
           </div></span></h3><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       </div>
@@ -87,7 +87,6 @@
               <li class="hideall out"><span>Hide All</span></li>
               <li class="showall in"><span>Show all</span></li>
             </ol>
-            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
           </div>
         <div id="visbl">
             <span class="filtertype">Visibility</span>
@@ -116,7 +115,7 @@
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@collect[M[_]](upTo:Int,stopOnError:Boolean)(implicitcbf:scala.collection.generic.CanBuildFrom[M[_],T,M[T]],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[M[T]]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Collects all the documents into a collection of type <code>M[T]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Collects all the documents into a collection of type <code>M[T]</code>.
@@ -124,7 +123,8 @@ Given the <code>stopOnError</code> parameter (which defaults to true), the resul
 non-fatal exception occurs. If set to false, all the documents that caused exceptions are skipped.
 Up to <code>maxDocs</code> returned by the database may be processed. If <code>stopOnError</code> is false, then documents that cause error
 are dropped, so the result may contain a little less than <code>maxDocs</code> even if <code>maxDocs</code> documents were processed.
-</p></div><dl class="paramcmts block"><dt class="param">upTo</dt><dd class="cmt"><p>Collect up to <code>upTo</code> documents.</p></dd><dt class="param">stopOnError</dt><dd class="cmt"><p>States if the Future should fail if any non-fatal exception occurs.</p><p>Example:</p><pre><span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument]
+</p></div><dl class="paramcmts block"><dt class="param">upTo</dt><dd class="cmt"><p>Collect up to <code>upTo</code> documents.</p></dd><dt class="param">stopOnError</dt><dd class="cmt"><p>States if the Future should fail if any non-fatal exception occurs.
+Example:</p><pre><span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument]
 <span class="cmt">// return the 3 first documents in a Vector[BSONDocument].</span>
 <span class="kw">val</span> vector = cursor.collect[Vector](<span class="num">3</span>)</pre></dd></dl></div>
     </li><li name="reactivemongo.api.Cursor#enumerate" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
@@ -140,16 +140,14 @@ are dropped, so the result may contain a little less than <code>maxDocs</code> e
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@enumerate(maxDocs:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[T]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Produces an Enumerator of documents.</p><div class="fullcomment"><div class="comment cmt"><p>Produces an Enumerator of documents.
 Given the <code>stopOnError</code> parameter, this Enumerator may stop on any non-fatal exception, or skip and continue.
 The returned enumerator may process up to <code>maxDocs</code>. If <code>stopOnError</code> is false, then documents that cause error
 are dropped, so the enumerator may emit a little less than <code>maxDocs</code> even if it processes <code>maxDocs</code> documents.
-</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>Enumerate up to <code>maxDocs</code> documents.</p></dd><dt class="param">stopOnError</dt><dd class="cmt"><p>States if the produced Enumerator may stop on non-fatal exception.
-</p></dd><dt>returns</dt><dd class="cmt"><p>an Enumerator of documents.
-</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>Enumerate up to <code>maxDocs</code> documents.</p></dd><dt class="param">stopOnError</dt><dd class="cmt"><p>States if the produced Enumerator may stop on non-fatal exception.</p></dd><dt>returns</dt><dd class="cmt"><p>an Enumerator of documents.</p></dd></dl></div>
     </li><li name="reactivemongo.api.Cursor#enumerateBulks" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="enumerateBulks(maxDocs:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[Iterator[T]]"></a>
       <a id="enumerateBulks(Int,Boolean)(ExecutionContext):Enumerator[Iterator[T]]"></a>
@@ -163,14 +161,12 @@ are dropped, so the enumerator may emit a little less than <code>maxDocs</code> 
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@enumerateBulks(maxDocs:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[Iterator[T]]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Produces an Enumerator of Iterator of documents.</p><div class="fullcomment"><div class="comment cmt"><p>Produces an Enumerator of Iterator of documents.
 Given the <code>stopOnError</code> parameter, this Enumerator may stop on any non-fatal exception, or skip and continue.
-</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>Enumerate up to <code>maxDocs</code> documents.</p></dd><dt class="param">stopOnError</dt><dd class="cmt"><p>States if the produced Enumerator may stop on non-fatal exception.
-</p></dd><dt>returns</dt><dd class="cmt"><p>an Enumerator of Iterators of documents.
-</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>Enumerate up to <code>maxDocs</code> documents.</p></dd><dt class="param">stopOnError</dt><dd class="cmt"><p>States if the produced Enumerator may stop on non-fatal exception.</p></dd><dt>returns</dt><dd class="cmt"><p>an Enumerator of Iterators of documents.</p></dd></dl></div>
     </li><li name="reactivemongo.api.Cursor#enumerateResponses" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="enumerateResponses(maxDocs:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[reactivemongo.core.protocol.Response]"></a>
       <a id="enumerateResponses(Int,Boolean)(ExecutionContext):Enumerator[Response]"></a>
@@ -184,14 +180,12 @@ Given the <code>stopOnError</code> parameter, this Enumerator may stop on any no
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@enumerateResponses(maxDocs:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[reactivemongo.core.protocol.Response]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Produces an Enumerator of responses from the database.</p><div class="fullcomment"><div class="comment cmt"><p>Produces an Enumerator of responses from the database.
 Given the <code>stopOnError</code> parameter, this Enumerator may stop on any non-fatal exception, or skip and continue.
-</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>Enumerate up to <code>maxDocs</code> documents.</p></dd><dt class="param">stopOnError</dt><dd class="cmt"><p>States if the produced Enumerator may stop on non-fatal exception.
-</p></dd><dt>returns</dt><dd class="cmt"><p>an Enumerator of Responses.
-</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>Enumerate up to <code>maxDocs</code> documents.</p></dd><dt class="param">stopOnError</dt><dd class="cmt"><p>States if the produced Enumerator may stop on non-fatal exception.</p></dd><dt>returns</dt><dd class="cmt"><p>an Enumerator of Responses.</p></dd></dl></div>
     </li><li name="reactivemongo.api.Cursor#foldBulks" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="foldBulks[A](z:=&gt;A,maxDocs:Int)(suc:(A,Iterator[T])=&gt;reactivemongo.api.Cursor.State[A],err:(A,Throwable)=&gt;reactivemongo.api.Cursor.State[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
       <a id="foldBulks[A](⇒A,Int)((A,Iterator[T])⇒State[A],(A,Throwable)⇒State[A])(ExecutionContext):Future[A]"></a>
@@ -205,14 +199,13 @@ Given the <code>stopOnError</code> parameter, this Enumerator may stop on any no
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@foldBulks[A](z:=&gt;A,maxDocs:Int)(suc:(A,Iterator[T])=&gt;reactivemongo.api.Cursor.State[A],err:(A,Throwable)=&gt;reactivemongo.api.Cursor.State[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Applies a binary operator to a start value and all bulks of documents
 retrieved by this cursor, going first to last.</p><div class="fullcomment"><div class="comment cmt"><p>Applies a binary operator to a start value and all bulks of documents
 retrieved by this cursor, going first to last.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the result type of the binary operator.</p></dd><dt class="param">z</dt><dd class="cmt"><p>the start value.</p></dd><dt class="param">maxDocs</dt><dd class="cmt"><p>the maximum number of documents to be read.</p></dd><dt class="param">suc</dt><dd class="cmt"><p>the binary operator to be applied when the next response is successfully read.</p></dd><dt class="param">err</dt><dd class="cmt"><p>the binary operator to be applied when failing to get the next response.
-</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the result type of the binary operator.</p></dd><dt class="param">z</dt><dd class="cmt"><p>the start value.</p></dd><dt class="param">maxDocs</dt><dd class="cmt"><p>the maximum number of documents to be read.</p></dd><dt class="param">suc</dt><dd class="cmt"><p>the binary operator to be applied when the next response is successfully read.</p></dd><dt class="param">err</dt><dd class="cmt"><p>the binary operator to be applied when failing to get the next response.</p></dd></dl></div>
     </li><li name="reactivemongo.api.Cursor#foldResponses" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="foldResponses[A](z:=&gt;A,maxDocs:Int)(suc:(A,reactivemongo.core.protocol.Response)=&gt;reactivemongo.api.Cursor.State[A],err:(A,Throwable)=&gt;reactivemongo.api.Cursor.State[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
       <a id="foldResponses[A](⇒A,Int)((A,Response)⇒State[A],(A,Throwable)⇒State[A])(ExecutionContext):Future[A]"></a>
@@ -226,14 +219,13 @@ retrieved by this cursor, going first to last.
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@foldResponses[A](z:=&gt;A,maxDocs:Int)(suc:(A,reactivemongo.core.protocol.Response)=&gt;reactivemongo.api.Cursor.State[A],err:(A,Throwable)=&gt;reactivemongo.api.Cursor.State[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Applies a binary operator to a start value and all responses handled
 by this cursor, going first to last.</p><div class="fullcomment"><div class="comment cmt"><p>Applies a binary operator to a start value and all responses handled
 by this cursor, going first to last.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the result type of the binary operator.</p></dd><dt class="param">z</dt><dd class="cmt"><p>the start value.</p></dd><dt class="param">maxDocs</dt><dd class="cmt"><p>the maximum number of documents to be read.</p></dd><dt class="param">suc</dt><dd class="cmt"><p>the binary operator to be applied when the next response is successfully read.</p></dd><dt class="param">err</dt><dd class="cmt"><p>the binary operator to be applied when failing to get the next response.
-</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the result type of the binary operator.</p></dd><dt class="param">z</dt><dd class="cmt"><p>the start value.</p></dd><dt class="param">maxDocs</dt><dd class="cmt"><p>the maximum number of documents to be read.</p></dd><dt class="param">suc</dt><dd class="cmt"><p>the binary operator to be applied when the next response is successfully read.</p></dd><dt class="param">err</dt><dd class="cmt"><p>the binary operator to be applied when failing to get the next response.</p></dd></dl></div>
     </li><li name="reactivemongo.api.Cursor#foldWhile" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="foldWhile[A](z:=&gt;A,maxDocs:Int)(suc:(A,T)=&gt;reactivemongo.api.Cursor.State[A],err:(A,Throwable)=&gt;reactivemongo.api.Cursor.State[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
       <a id="foldWhile[A](⇒A,Int)((A,T)⇒State[A],(A,Throwable)⇒State[A])(ExecutionContext):Future[A]"></a>
@@ -247,7 +239,7 @@ by this cursor, going first to last.
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@foldWhile[A](z:=&gt;A,maxDocs:Int)(suc:(A,T)=&gt;reactivemongo.api.Cursor.State[A],err:(A,Throwable)=&gt;reactivemongo.api.Cursor.State[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Applies a binary operator to a start value and all elements retrieved
@@ -268,15 +260,13 @@ by this cursor, going first to last.
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@rawEnumerateResponses(maxDocs:Int)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[reactivemongo.core.protocol.Response]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Produces an Enumerator of responses from the database.</p><div class="fullcomment"><div class="comment cmt"><p>Produces an Enumerator of responses from the database.
 An Enumeratee for error handling should be used to prevent silent failures.
 Consider using <code>enumerateResponses</code> instead.
-</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>Enumerate up to <code>maxDocs</code> documents.
-</p></dd><dt>returns</dt><dd class="cmt"><p>an Enumerator of Responses.
-</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>Enumerate up to <code>maxDocs</code> documents.</p></dd><dt>returns</dt><dd class="cmt"><p>an Enumerator of Responses.</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -295,7 +285,7 @@ Consider using <code>enumerateResponses</code> instead.
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@!=(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -312,7 +302,7 @@ Consider using <code>enumerateResponses</code> instead.
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@##():Int" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -329,7 +319,7 @@ Consider using <code>enumerateResponses</code> instead.
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@+(other:String):String" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
@@ -350,7 +340,7 @@ Consider using <code>enumerateResponses</code> instead.
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
@@ -374,7 +364,7 @@ Consider using <code>enumerateResponses</code> instead.
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@==(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -391,7 +381,7 @@ Consider using <code>enumerateResponses</code> instead.
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@asInstanceOf[T0]:T0" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -408,7 +398,7 @@ Consider using <code>enumerateResponses</code> instead.
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@clone():Object" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -431,7 +421,7 @@ Consider using <code>enumerateResponses</code> instead.
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
@@ -452,7 +442,7 @@ Consider using <code>enumerateResponses</code> instead.
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
@@ -473,7 +463,7 @@ Consider using <code>enumerateResponses</code> instead.
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
@@ -494,7 +484,7 @@ Consider using <code>enumerateResponses</code> instead.
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@ensuring(cond:Boolean):A" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
@@ -515,7 +505,7 @@ Consider using <code>enumerateResponses</code> instead.
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -532,7 +522,7 @@ Consider using <code>enumerateResponses</code> instead.
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@equals(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -549,7 +539,7 @@ Consider using <code>enumerateResponses</code> instead.
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@finalize():Unit" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -572,7 +562,7 @@ Consider using <code>enumerateResponses</code> instead.
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@formatted(fmtstr:String):String" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
@@ -596,7 +586,7 @@ Consider using <code>enumerateResponses</code> instead.
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@getClass():Class[_]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -613,7 +603,7 @@ Consider using <code>enumerateResponses</code> instead.
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@hashCode():Int" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -630,7 +620,7 @@ Consider using <code>enumerateResponses</code> instead.
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@headOption(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[Option[T]]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Gets the first document matching the query, if any.</p><div class="fullcomment"><div class="comment cmt"><p>Gets the first document matching the query, if any.
@@ -650,7 +640,7 @@ The resulting Future may fail if any exception occurs (for example, while deseri
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -667,7 +657,7 @@ The resulting Future may fail if any exception occurs (for example, while deseri
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -684,7 +674,7 @@ The resulting Future may fail if any exception occurs (for example, while deseri
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@notify():Unit" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -701,7 +691,7 @@ The resulting Future may fail if any exception occurs (for example, while deseri
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@notifyAll():Unit" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -718,7 +708,7 @@ The resulting Future may fail if any exception occurs (for example, while deseri
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -735,7 +725,7 @@ The resulting Future may fail if any exception occurs (for example, while deseri
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@toString():String" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -752,7 +742,7 @@ The resulting Future may fail if any exception occurs (for example, while deseri
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@wait():Unit" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -775,7 +765,7 @@ The resulting Future may fail if any exception occurs (for example, while deseri
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -798,7 +788,7 @@ The resulting Future may fail if any exception occurs (for example, while deseri
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@wait(x$1:Long):Unit" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -821,7 +811,7 @@ The resulting Future may fail if any exception occurs (for example, while deseri
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@→[B](y:B):(A,B)" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
@@ -849,13 +839,14 @@ The resulting Future may fail if any exception occurs (for example, while deseri
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor@toList(upTo:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[List[T]]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Collects all the documents into a <code>List[T]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Collects all the documents into a <code>List[T]</code>.
 Given the <code>stopOnError</code> parameter (which defaults to true), the resulting Future may fail if any
 non-fatal exception occurs. If set to false, all the documents that caused exceptions are skipped.
-</p></div><dl class="paramcmts block"><dt class="param">upTo</dt><dd class="cmt"><p>Collect up to <code>maxDocs</code> documents.</p></dd><dt class="param">stopOnError</dt><dd class="cmt"><p>States if the Future should fail if any non-fatal exception occurs.</p><p>Example:</p><pre><span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument]
+</p></div><dl class="paramcmts block"><dt class="param">upTo</dt><dd class="cmt"><p>Collect up to <code>maxDocs</code> documents.</p></dd><dt class="param">stopOnError</dt><dd class="cmt"><p>States if the Future should fail if any non-fatal exception occurs.
+Example:</p><pre><span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument]
 <span class="cmt">// return the 3 first documents in a list.</span>
 <span class="kw">val</span> list = cursor.toList(<span class="num">3</span>)</pre></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>

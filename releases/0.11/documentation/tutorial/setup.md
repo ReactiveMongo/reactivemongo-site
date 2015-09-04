@@ -40,3 +40,5 @@ libraryDependencies ++= Seq(
   "org.reactivemongo" %% "reactivemongo" % "0.12.0-SNAPSHOT"
 )
 {% endhighlight %}
+
+[Next: Connect to the database](./connect-database.html)

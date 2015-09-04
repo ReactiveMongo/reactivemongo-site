@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Macros - ReactiveMongo API 0.11.5 - reactivemongo.bson.Macros</title>
-          <meta name="description" content="Macros - ReactiveMongo API 0.11.5 - reactivemongo.bson.Macros" />
-          <meta name="keywords" content="Macros ReactiveMongo API 0.11.5 reactivemongo.bson.Macros" />
+          <title>Macros - ReactiveMongo API 0.11.7 - reactivemongo.bson.Macros</title>
+          <meta name="description" content="Macros - ReactiveMongo API 0.11.7 - reactivemongo.bson.Macros" />
+          <meta name="keywords" content="Macros ReactiveMongo API 0.11.7 reactivemongo.bson.Macros" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,13 +28,13 @@
         </head>
         <body class="value">
       <div id="definition">
-        <img src="../../lib/object_big.png" />
+        <img alt="Object" src="../../lib/object_big.png" />
         <p id="owner"><a href="../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="package.html" class="extype" name="reactivemongo.bson">bson</a></p>
         <h1>Macros</h1><h3><span class="morelinks"><div>Related Doc:
             <a href="package.html" class="extype" name="reactivemongo.bson">package bson</a>
           </div></span></h3><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       </div>
@@ -84,8 +84,7 @@ Example</p><pre><span class="kw">sealed</span> <span class="kw">trait</span> Tre
 <span class="kw">object</span> Tree {
   <span class="kw">import</span> Macros.Options._
   <span class="kw">implicit</span> <span class="kw">val</span> bson: Handler[Tree] = Macros.handlerOpts[Tree, UnionType[Node \/ Leaf]]
-}</pre></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p>Macros.Options for specific options
-</p></span></dd></dl><div class="toggleContainer block">
+}</pre></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p>Macros.Options for specific options</p></span></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -113,7 +112,6 @@ Example</p><pre><span class="kw">sealed</span> <span class="kw">trait</span> Tre
               <li class="hideall out"><span>Hide All</span></li>
               <li class="showall in"><span>Show all</span></li>
             </ol>
-            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
           </div>
         <div id="visbl">
             <span class="filtertype">Visibility</span>
@@ -144,7 +142,7 @@ Example</p><pre><span class="kw">sealed</span> <span class="kw">trait</span> Tre
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@!=(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -161,7 +159,7 @@ Example</p><pre><span class="kw">sealed</span> <span class="kw">trait</span> Tre
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@##():Int" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -178,7 +176,7 @@ Example</p><pre><span class="kw">sealed</span> <span class="kw">trait</span> Tre
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@==(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -195,7 +193,7 @@ Example</p><pre><span class="kw">sealed</span> <span class="kw">trait</span> Tre
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@Annotations" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Annotations to use on case classes that are being processed by macros
@@ -213,7 +211,7 @@ Example</p><pre><span class="kw">sealed</span> <span class="kw">trait</span> Tre
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@Options" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Methods with 'Opts' postfix will take additional options in the form of
@@ -231,7 +229,7 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@asInstanceOf[T0]:T0" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -248,7 +246,7 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@clone():Object" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -271,7 +269,7 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -288,7 +286,7 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@equals(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -305,7 +303,7 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@finalize():Unit" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -328,7 +326,7 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@getClass():Class[_]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -345,7 +343,7 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@handler[A]:reactivemongo.bson.BSONDocumentReader[A]withreactivemongo.bson.BSONDocumentWriter[A]withreactivemongo.bson.BSONHandler[reactivemongo.bson.BSONDocument,A]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Creates an instance of BSONReader and BSONWriter for case class A</p>
@@ -362,7 +360,7 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@handlerOpts[A,Opts&lt;:reactivemongo.bson.Macros.Options.Default]:reactivemongo.bson.BSONDocumentReader[A]withreactivemongo.bson.BSONDocumentWriter[A]withreactivemongo.bson.BSONHandler[reactivemongo.bson.BSONDocument,A]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Creates an instance of BSONReader and BSONWriter for case class A and takes additional options</p>
@@ -379,7 +377,7 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@hashCode():Int" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -396,7 +394,7 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -413,7 +411,7 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -430,7 +428,7 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@notify():Unit" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -447,7 +445,7 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@notifyAll():Unit" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -464,11 +462,10 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@reader[A]:reactivemongo.bson.BSONDocumentReader[A]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Creates an instance of BSONReader for case class A</p><div class="fullcomment"><div class="comment cmt"><p>Creates an instance of BSONReader for case class A</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p>Macros
-</p></span></dd></dl></div>
+      <p class="shortcomment cmt">Creates an instance of BSONReader for case class A</p><div class="fullcomment"><div class="comment cmt"><p>Creates an instance of BSONReader for case class A</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p>Macros</p></span></dd></dl></div>
     </li><li name="reactivemongo.bson.Macros#readerOpts" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="readerOpts[A,Opts&lt;:reactivemongo.bson.Macros.Options.Default]:reactivemongo.bson.BSONDocumentReader[A]"></a>
       <a id="readerOpts[A,Opts&lt;:Default]:BSONDocumentReader[A]"></a>
@@ -482,7 +479,7 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@readerOpts[A,Opts&lt;:reactivemongo.bson.Macros.Options.Default]:reactivemongo.bson.BSONDocumentReader[A]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Creates an instance of BSONReader for case class A and takes additional options</p>
@@ -499,7 +496,7 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -516,7 +513,7 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@toString():String" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -533,7 +530,7 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@wait():Unit" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -556,7 +553,7 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -579,7 +576,7 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@wait(x$1:Long):Unit" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -602,7 +599,7 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@writer[A]:reactivemongo.bson.BSONDocumentWriter[A]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Creates an instance of BSONWriter for case class A</p>
@@ -619,7 +616,7 @@ type parameters that will customize behavior of the macros during compilation.</
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.Macros$@writerOpts[A,Opts&lt;:reactivemongo.bson.Macros.Options.Default]:reactivemongo.bson.BSONDocumentWriter[A]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" />
+        <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Creates an instance of BSONWriter for case class A and takes additional options</p>
