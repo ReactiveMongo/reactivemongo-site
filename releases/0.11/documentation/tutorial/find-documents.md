@@ -37,12 +37,35 @@ import reactivemongo.api.collections.bson.BSONCollection
 def findOlder2(collection: BSONCollection) = {
   val query = BSONDocument("age" -> BSONDocument("$gt" -> 27))
 
-  collection.find(query).cursor[BSONDocument].
+  collection.find(query).cursor[BSONDocument]().
     collect[List](25) // get up to 25 documents
 }
 {% endhighlight %}
 
-The `find` method returns a [`BSONQueryBuilder`](../../api/index.html#reactivemongo.api.collections.default.BSONQueryBuilder) – the query is therefore not performed yet. It gives you the opportunity to add options to the query, like a sort order, projection, flags... When your query is ready to be sent to MongoDB, you may just call one of the following methods:
+The `find` method returns a [`BSONQueryBuilder`](../../api/index.html#reactivemongo.api.collections.default.BSONQueryBuilder) – the query is therefore not performed yet. It gives you the opportunity to add options to the query, like a sort order, projection, flags...
+
+{% highlight scala %}
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+
+import reactivemongo.api.QueryOpts
+import reactivemongo.api.collections.bson.BSONCollection
+
+def findNOlder(collection: BSONCollection, limit: Int) = {
+  val querybuilder =
+    collection.find(BSONDocument("age" -> BSONDocument("$gt" -> 27)))
+
+  // Sets options before executing the query
+  querybuilder.options(QueryOpts().batchSize(limit)).
+    cursor[BSONDocument]().collect[List](10)
+ 
+}
+{% endhighlight %}
+
+The class [`QueryOpts`](../../api/index.html#reactivemongo.api.QueryOpts) is used to prepared the query options.
+
+When your query is ready to be sent to MongoDB, you may just call one of the following methods:
 * `cursor` which returns a [`Cursor[BSONDocument]`](../../api/index.html#reactivemongo.api.Cursor)
 * `one` wich returns a `Future[Option[BSONDocument]]` (the first document that matches the query, if any)
 
