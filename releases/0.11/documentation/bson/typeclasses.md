@@ -154,7 +154,9 @@ implicit val personWriter: BSONDocumentWriter[Person] = Macros.writer[Person]
 */
 {% endhighlight %}
 
-> A [`BSONHandler`](../../api/index.html#reactivemongo.bson.BSONHandler) gathers both `BSONDocumentReader` and `BSONDocumentWriter` traits.
+A [`BSONHandler`](../../api/index.html#reactivemongo.bson.BSONHandler) gathers both `BSONDocumentReader` and `BSONDocumentWriter` traits.
+
+> The macros are currently limited to case classes whose constructor doesn't take more than 22 parameters (due to Scala not generating `apply` and `unapply` in these cases).
 
 ### Provided handlers
 
