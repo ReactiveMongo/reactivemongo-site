@@ -17,7 +17,7 @@ Enhancements:
 
 There is also a new version of the [Play Framework plugin](tutorial/play2.html).
 
-> MongoDB versions older than 2.6 are not longer supported by ReactiveMongo, as the End of Life for MongoDB 2.4 was reached in [April 2015](https://www.mongodb.com/support-policy).
+> MongoDB versions older than 2.6 are not longer supported by ReactiveMongo.
 
 ### Documentation
 
