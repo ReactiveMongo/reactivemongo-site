@@ -18,7 +18,9 @@ libraryDependencies ++= Seq(
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/play2-reactivemongo_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/play2-reactivemongo_2.11/)
 
-> As for Play 2.4 itself, this ReactiveMongo plugin requires a JVM 1.8+.
+> When the dependency to the Play plugin is used, no separate dependency to the ReactiveMongo driver must be declared, as it will be resolved in appropriate version by the transitive dependency mechanism.
+
+As for Play 2.4 itself, this ReactiveMongo plugin requires a JVM 1.8+.
 
 If you are looking for a stable version for Play 2.3.x, please consider using the {{site._0_11_latest_minor}}.play23 version:
 
