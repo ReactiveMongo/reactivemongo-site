@@ -17,6 +17,7 @@ title: ReactiveMongo 0.10 - Release details
 8. Migration to SBT 0.13.1
 9. … and many bugfixes :)
 
+> The supported MongoDB versions are from 2.4 to 2.6.
 
 ### Documentation
 

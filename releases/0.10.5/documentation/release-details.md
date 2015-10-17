@@ -7,6 +7,8 @@ title: ReactiveMongo 0.10.5 - Release details
 
 This is a minor release including mostly bugfixes and some enhancements.
 
+> The supported MongoDB versions are from 2.4 to 2.6.
+
 ### What's new?
 
 1. Two Releases:
