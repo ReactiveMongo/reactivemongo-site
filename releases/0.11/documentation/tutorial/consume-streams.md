@@ -5,13 +5,13 @@ title: ReactiveMongo 0.11 - Consume streams of documents
 
 ## Consume streams of documents
 
-Instead of accumulating documents in memory like in the two previous examples, we can process them in a streaming way.
+Instead of accumulating documents in memory like in the two previous examples, we can process them as a stream.
 
-ReactiveMongo can be used with several streaming frameworks: [Play Iteratees](http://www.playframework.com/documentation/2.3.x/Iteratees), [Akka Streams](http://akka.io/docs/), custom using `foldWhile`.
+ReactiveMongo can be used with several streaming frameworks: [Play Iteratees](http://www.playframework.com/documentation/2.3.x/Iteratees), [Akka Streams](http://akka.io/docs/), or with custom processors using `foldWhile`.
 
 ### Play Iteratee
 
-The Play Iteratee library can work with document stream as following.
+The Play Iteratee library can work with document streams as follows.
 
 - Get an `Enumerator` of documents from ReactiveMongo. This is a producer of data.
 - Run an `Iteratee` (that we build for this purpose), which will consume data and eventually produce a result.
@@ -105,7 +105,7 @@ At each step, this Iteratee will extract the age from the document and add it to
 
 ### Custom streaming
 
-ReactiveMongo streaming is based on the function `Cursor.foldWhile[A]`, which also allows to implement your custom streaming.
+ReactiveMongo streaming is based on the function `Cursor.foldWhile[A]`, which also allows you to implement a custom stream processor.
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -128,7 +128,7 @@ def streaming(c: Cursor[String]): Future[List[String]] =
     })
 {% endhighlight %}
 
-At each streaming step, for each new value or error, you choose how you want to go on, using cases `Cursor.{ Cont, Done, Fail }`.
+At each streaming step, for each new value or error, you choose how you want to proceed, using the cases `Cursor.{ Cont, Done, Fail }`.
 
 - `Cont`: Continue processing.
 - `Done`: End processing, without error; A `Future.successful[T](t)` will be returned by `foldWhile[T]`.
