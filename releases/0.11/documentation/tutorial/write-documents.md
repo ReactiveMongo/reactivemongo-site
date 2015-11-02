@@ -5,7 +5,7 @@ title: ReactiveMongo 0.11 - Write Documents
 
 ## Classic Write Operations
 
-MongoDB offer different kinds of write operation: insertion, update or removal. Data can be written asynchronously using ReactiveMongo.
+MongoDB offers different kinds of write operations: insertion, update or removal. Data can be written asynchronously using ReactiveMongo.
 
 ### Insert a document
 
@@ -38,7 +38,7 @@ future1.onComplete {
 
 ### What does WriteResult mean?
 
-A [`WriteResult`](../../api/index.html#reactivemongo.api.commands.WriteResult) is a special document that contains information about the write operation, like the number of documents where updated for example, or the description of the error if an error happened. If the write result actually indicates an error, the `Future` will be in a `failed` state.
+A [`WriteResult`](../../api/index.html#reactivemongo.api.commands.WriteResult) is a special document that contains information about the write operation, like the number of documents that were updated, for example, or the description of the error if an error occurred. If the write result actually indicates an error, the `Future` will be in a `failed` state.
 
 Like all the other operations in the [`GenericCollection`](../../api/index.html#reactivemongo.api.collections.GenericCollection) trait, you can give any object to `insert()`, provided that you have a [`BSONDocumentWriter`](../../api/index.html#reactivemongo.bson.BSONDocumentWriter) for its type in the implicit scope. So, with the `Person` case class:
 
@@ -79,7 +79,7 @@ val end: Future[Unit] = future.map {
 
 ### Insert multiple document
 
-The operation [`bulkInsert`](../../api/index.html#reactivemongo.api.collections.GenericCollection@bulkInsert%28ordered:Boolean%29%28documents:GenericCollection.this.ImplicitlyDocumentProducer*%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.commands.MultiBulkWriteResult]) make it possible to insert multiple document.
+The operation [`bulkInsert`](../../api/index.html#reactivemongo.api.collections.GenericCollection@bulkInsert%28ordered:Boolean%29%28documents:GenericCollection.this.ImplicitlyDocumentProducer*%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.commands.MultiBulkWriteResult]) makes it possible to insert multiple documents.
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -109,7 +109,7 @@ val bulkResult2 = collection.bulkInsert(ordered = true)(bulkDocs: _*)
 
 ### Update a document
 
-The updates are done with the [`update()`](../../api/index.html#reactivemongo.api.collections.GenericCollection@update[S,U]%28selector:S,update:U,writeConcern:reactivemongo.api.commands.WriteConcern,upsert:Boolean,multi:Boolean%29%28implicitselectorWriter:GenericCollection.this.pack.Writer[S],implicitupdateWriter:GenericCollection.this.pack.Writer[U],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.commands.WriteResult]) method, which follow the same logic as `insert()`.
+Updates are done with the [`update()`](../../api/index.html#reactivemongo.api.collections.GenericCollection@update[S,U]%28selector:S,update:U,writeConcern:reactivemongo.api.commands.WriteConcern,upsert:Boolean,multi:Boolean%29%28implicitselectorWriter:GenericCollection.this.pack.Writer[S],implicitupdateWriter:GenericCollection.this.pack.Writer[U],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.commands.WriteResult]) method, which follows the same logic as `insert()`.
 
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -128,7 +128,7 @@ val modifier = BSONDocument(
 val futureUpdate1 = collection.update(selector, modifier)
 {% endhighlight %}
 
-You can also specify whether if the update should concern all the documents that match `selector`.
+You can also specify that the update should be applied to all the documents that match a `selector`.
 
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -137,7 +137,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 val futureUpdate2 = collection.update(selector, modifier, multi = true)
 {% endhighlight %}
 
-It's possible to automatically insert data if there is no existing document matching the update, using the `upsert` flag.
+It's possible to automatically insert data if there is no existing document matching the update using the `upsert` flag.
 
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -173,7 +173,7 @@ def selector2: reactivemongo.bson.BSONDocument = ???
 val futureRemove2 = collection.remove(selector2, firstMatchOnly = true)
 {% endhighlight %}
 
-> The instances of a custom class can be directly store with ReactiveMongo, by defining a [custom writer](../bson/typeclasses.html#custom-writer).
+> ReactiveMongo can even store instances of a custom class directly by defining a [custom writer](../bson/typeclasses.html#custom-writer).
 
 ### Find and modify
 
@@ -203,7 +203,7 @@ def update(collection: BSONCollection, age: Int): Future[Option[Person]] = {
 }
 {% endhighlight %}
 
-As on simple update, it's possible to insert a new document when there is no existing one.
+As on simple update, it's possible to insert a new document when one does not already exist. 
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -217,7 +217,7 @@ implicit val writer = Macros.writer[Person]
 def result(col: BSONCollection): Future[col.BatchCommands.FindAndModifyCommand.FindAndModifyResult] = collection.findAndUpdate(
   BSONDocument("name" -> "James"),
   Person(name = "Foo", age = 25),
-  upsert = true) // insert a new document if no existing one is matching
+  upsert = true) // insert a new document if a matching one does not already exist
 
 {% endhighlight %}
 
