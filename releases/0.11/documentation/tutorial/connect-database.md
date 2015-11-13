@@ -52,8 +52,8 @@ The following options can be used with `MongoConnectionOptions` to configure the
 - **rm.nbChannelsPerNode**: Number of channels (connections) per node.
 - **writeConcern**: The default [write concern](http://docs.mongodb.org/manual/reference/write-concern/) (default: `acknowledged`).
   - **unacknowledged**: Option `w` set to 0, journaling off (`j`), `fsync` off, no timeout.
-  - **acknowledged**: Option `w` set to 0, journaling off, `fsync` off, no timeout.
-  - **journaled**: Option `w` set to 0, journaling on, `fsync` off, no timeout.
+  - **acknowledged**: Option `w` set to 1, journaling off, `fsync` off, no timeout.
+  - **journaled**: Option `w` set to 1, journaling on, `fsync` off, no timeout.
 - **writeConcernW**: The [option `w`](http://docs.mongodb.org/manual/reference/write-concern/#w-option) for the default write concern. If `writeConcern` is specified, its `w` will be replaced by this `writeConcernW`.
   - `majority`: The write operations have to be propagated to the majority of voting nodes.
   - `0`: Disable the acknowledgment.
