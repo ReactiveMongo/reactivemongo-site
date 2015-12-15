@@ -66,12 +66,14 @@ def findNOlder(collection: BSONCollection, limit: Int) = {
 The class [`QueryOpts`](../../api/index.html#reactivemongo.api.QueryOpts) is used to prepared the query options.
 
 When your query is ready to be sent to MongoDB, you may just call one of the following methods:
-* `cursor` which returns a [`Cursor[BSONDocument]`](../../api/index.html#reactivemongo.api.Cursor)
-* `one` wich returns a `Future[Option[BSONDocument]]` (the first document that matches the query, if any)
+
+- `cursor` which returns a [`Cursor[BSONDocument]`](../../api/index.html#reactivemongo.api.Cursor)
+- `one` wich returns a `Future[Option[BSONDocument]]` (the first document that matches the query, if any)
 
 On a cursor, there are two interesting methods you can use to collect the results:
-* `collect[List]()` which returns a future list of documents
-* `enumerate()` which returns an `Enumerator` of documents (more on that later.)
+
+- `collect[List]()` which returns a future list of documents
+- `enumerate()` which returns an `Enumerator` of documents (more on that later.)
 
 The `collect` method must be given a Scala collection type, like `List` or `Vector`. It accumulates all the results in memory, as opposed to `enumerate`.
 
