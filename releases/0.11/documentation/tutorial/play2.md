@@ -12,7 +12,7 @@ The latest version of this plugin is for Play 2.4, and can be enabled by adding 
 {% highlight ocaml %}
 // only for Play 2.4.x
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._0_11_latest_minor}}.play24"
+  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._0_11_latest_minor}}"
 )
 {% endhighlight %}
 
@@ -22,11 +22,11 @@ libraryDependencies ++= Seq(
 
 As for Play 2.4 itself, this ReactiveMongo plugin requires a JVM 1.8+.
 
-If you are looking for a stable version for Play 2.3.x, please consider using the {{site._0_11_latest_minor}}.play23 version:
+If you are looking for a stable version for Play 2.3.x, please consider using the 0.11.7.play23 version:
 
 {% highlight ocaml %}
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._0_11_latest_minor}}.play23"
+  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.7.play23"
 )
 {% endhighlight %}
 
@@ -43,6 +43,18 @@ libraryDependencies ++= Seq(
   "org.reactivemongo" %% "play2-reactivemongo" % "0.12.0-SNAPSHOT"
 )
 {% endhighlight %}
+
+## Simple Play JSON support for ReactiveMongo
+
+The serialization pack based Play JSON for ReactiveMongo can be enabled without the complete Play pluging, by adding the following dependency in your `project/Build.scala` (or `build.sbt`).
+
+{% highlight ocaml %}
+libraryDependencies ++= Seq(
+  "org.reactivemongo" %% "reactivemongo-play-json" % "{{site._0_11_latest_minor}}"
+)
+{% endhighlight %}
+
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-play-json_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-play-json_2.11/)
 
 ## Setup
 
@@ -157,7 +169,7 @@ object MongoEnv {
 
 ### Play 2.3
 
-The version `{{site._0_11_latest_minor}}.play23` of this plugin is available for Play 2.3.
+The version `0.11.7.play23` of this plugin is available for Play 2.3.
 
 Add to your `conf/play.plugins`:
 
