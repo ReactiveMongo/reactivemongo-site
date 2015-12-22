@@ -32,7 +32,7 @@ No Json serializer as JsObject found for type play.api.libs.json.JsObject.
 Try to implement an implicit OWrites or OFormat for this type.
 {% endhighlight %}
 
-When using the **[Play Framework module](tutorial/play2.html)**, if the previous error occurs, it necessary to make sure `import play.modules.reactivemongo.json._` is used, to import default BSON/JSON conversions.
+When using the **[Play Framework module](tutorial/play2.html)**, if the previous error occurs, it necessary to make sure `import reactivemongo.play.json._` is used, to import default BSON/JSON conversions.
 
 ### Stats
 

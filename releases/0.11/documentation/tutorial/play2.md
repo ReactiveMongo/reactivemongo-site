@@ -236,7 +236,7 @@ import reactivemongo.api.gridfs.{ // ReactiveMongo GridFS
 }
 
 import play.modules.reactivemongo.{ MongoController, ReactiveMongoComponents }
-import play.modules.reactivemongo.json._
+import reactivemongo.play.json._
 
 trait MyController extends Controller
   with MongoController with ReactiveMongoComponents {
@@ -271,7 +271,7 @@ ReactiveMongo for Play Framework provides some extensions of the result cursors,
 import play.api.libs.json._
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 
-import play.modules.reactivemongo.json._
+import reactivemongo.play.json._
 import play.modules.reactivemongo.json.collection.{
   JSONCollection, JsCursor
 }, JsCursor._
@@ -310,7 +310,7 @@ import play.modules.reactivemongo.{ // ReactiveMongo Play2 plugin
 }
 
 // BSON-JSON conversions/collection
-import play.modules.reactivemongo.json._
+import reactivemongo.play.json._
 import play.modules.reactivemongo.json.collection._
 
 /*
@@ -437,7 +437,7 @@ object JsonFormats {
 > The following import is recommanded to make sure JSON/BSON convertions are available.
 
 {% highlight scala %}
-import play.modules.reactivemongo.json._
+import reactivemongo.play.json._
 {% endhighlight %}
 
 Then, the controller which uses the ability of the `JSONCollection` to handle JSON's `Reads` and `Writes`:
@@ -464,7 +464,7 @@ import play.modules.reactivemongo.{ // ReactiveMongo Play2 plugin
 }
 
 // BSON-JSON conversions/collection
-import play.modules.reactivemongo.json._
+import reactivemongo.play.json._
 import play.modules.reactivemongo.json.collection._
 
 /*
