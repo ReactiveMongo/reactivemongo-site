@@ -43,7 +43,7 @@ import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import play.api.libs.json._
-import play.modules.reactivemongo.json._
+import reactivemongo.play.json._
 import play.modules.reactivemongo.json.collection.JSONCollection
 
 def db2: reactivemongo.api.DefaultDB = ???
