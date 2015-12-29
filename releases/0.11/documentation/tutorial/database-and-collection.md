@@ -90,7 +90,7 @@ and some commands that operate on the collection itself:
 - `rename`
 - `drop`
 
-It also include a helper to manage indexes, called `indexesManager`.
+It also includes a helper to manage indexes, called `indexesManager`.
 
 Many of these methods take `BSONDocument` instances as a parameter. But they can take anything actually, provided that there exists a special transformer called `BSONDocumentWriter` in the implicit scope. The results from the database themselves can be turned into an object of some arbitrary class, if there is a `BSONDocumentReader` for this type in the implicit scope. It is a very handy to deal with the database without having to transform explicitely all you models into `BSONDocument`.
 
