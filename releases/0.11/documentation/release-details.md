@@ -10,7 +10,7 @@ title: ReactiveMongo 0.11 - Release details
 Enhancements:
 
 - New APIs, for the [commands](advanced-topics/commands.html) and [streaming](tutorial/consume-streams.html)
-- Compatibility with MongoDB 3
+- Compatibility with MongoDB 3.2
 - [SSL support](tutorial/connect-database.html)
 - Builtin micro-DSL for BSON
 - Convenient operations on a collection (`.count`, `.runCommand`)
