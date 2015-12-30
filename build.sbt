@@ -7,7 +7,7 @@ lazy val `reactivemongo-site` = (project in file("."))
     highlightEndToken in ThisBuild := "{% endhighlight %}",
     scalaVersion := "2.11.7",
     libraryDependencies ++= Seq(
-      "org.reactivemongo" %% "reactivemongo" % "0.11.7",
+      "org.reactivemongo" %% "reactivemongo" % "0.11.9",
       "com.typesafe.play" %% "play-iteratees" % "2.3.5"),
     resolvers ++= Seq(
       "Typesafe releases" at "http://repo.typesafe.com/typesafe/releases/"))

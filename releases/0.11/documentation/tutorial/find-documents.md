@@ -18,11 +18,12 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import reactivemongo.bson._
 import reactivemongo.api.collections.bson.BSONCollection
 
-def findOlder1(collection: BSONCollection): Future[List[BSONDocument]] = {
+def findOlder1(collection: BSONCollection): Future[Option[BSONDocument]] = {
   // { "age": { "$gt": 27 } }
   val query = BSONDocument("age" -> BSONDocument("$gt" -> 27))
 
-  collection.find(query).cursor[BSONDocument].collect[List]()
+  // MongoDB .findOne
+  collection.find(query).one[BSONDocument]
 }
 {% endhighlight %}
 
