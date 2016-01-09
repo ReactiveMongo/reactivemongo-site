@@ -12,10 +12,13 @@ The dependency can be added in your SBT project as following: `"org.reactivemong
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.11/)
 
-The documentation of the module for the **Play Framework** can is [available online](tutorial/play2.html).
-The API for this module can be [browsed online](../play-api/index.html).
-
 > MongoDB versions older than 2.6 are not longer supported by ReactiveMongo, as the End of Life for MongoDB 2.4 was reached in [April 2015](https://www.mongodb.com/support-policy).
+
+**Play Framework**
+
+The documentation of the module for the Play Framework can is [available online](tutorial/play2.html).
+
+The API for this module can be [browsed online](../play-api/index.html).
 
 ### Tutorial
 
@@ -34,6 +37,10 @@ The API for this module can be [browsed online](../play-api/index.html).
    - [Concrete Example: Maps De/Serialization](bson/example-maps.html)
    - [Concrete Example: BigDecimal and BigInteger De/Serialization](bson/example-bigdecimal.html)
    - [Concrete example: Documents](bson/example-document.html)
+
+### JSON Manipulation
+
+[Overview of the Play JSON library](json/overview.html)
 
 ### Advanced Topics
 
