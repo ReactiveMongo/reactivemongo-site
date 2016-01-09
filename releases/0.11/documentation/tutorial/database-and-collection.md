@@ -98,6 +98,8 @@ Many of these methods take `BSONDocument` instances as a parameter. But they can
 
 `BSONCollection` extends a trait called [`GenericCollection`](../../api/index.html#reactivemongo.api.collections.GenericCollection). Actually, it is this trait that provides most of its methods. Moreover, it works with a structure type (which is `BSONDocument` in `BSONCollection`) and de/serialization type classes (which are `BSONDocumentReader[T]` and `BSONDocumentWriter[T]` in `BSONCollection`).
 
-Such a design enables third-party libraries to provide their own collection API. And by extending the `GenericCollection` trait, one can implement a collection that deals with any other structure (like JSON, or even another BSON library). There is one example of that in the [ReactiveMongo Play Plugin](https://github.com/ReactiveMongo/Play-ReactiveMongo): `JSONCollection` is an implementation of `GenericCollection` that deals with Play's JSON library, using its own de/serializations type classes (`Reads[T]` and `Writes[T]`).
+Such a design enables third-party libraries to provide their own collection API. And by extending the `GenericCollection` trait, one can implement a collection that deals with any other structure (like JSON, or even another BSON library).
+
+There is one example of that in the [Play JSON serialization pack](../json/overview.html): `JSONCollection` is an implementation of `GenericCollection` that deals with Play JSON library, using its own de/serializations type classes (`Reads[T]` and `Writes[T]`).
 
 [Next: Write documents](./write-documents.html)

@@ -175,7 +175,7 @@ object BSONCustomCommand extends CustomCommand[BSONSerializationPack.type] {
 
 In the previous example, the custom command is implemented using the BSON serialization, providing the [writers and readers](../bson/typeclasses.html) for the command input and result.
 
-A command can be implemented with various serialization pack. *e.g. It can also be implemented using the JSON serialization provided by the [Play module](../tutorial/play2.html).*
+A command can be implemented with various serialization pack. *e.g. It can also be implemented using the JSON serialization provided by the [Play JSON support](../json/overview.html).*
 
 It's also possible to gather the command definition and implementation, if only one kind of serialization is needed.
 

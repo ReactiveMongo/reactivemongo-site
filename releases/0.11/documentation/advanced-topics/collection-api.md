@@ -5,7 +5,9 @@ title: ReactiveMongo 0.11 - Collection API
 
 ## Collection API
 
-The Collection API is designed to be very extensible, allowing the use of third-party libraries for building documents (ie use something else than the embedded BSON library), including specific serializers and deserializers. For example, that's the case of the [ReactiveMongo Play plugin](https://github.com/ReactiveMongo/Play-ReactiveMongo), which relies on the [Play JSON library](http://www.playframework.com/documentation/2.3.x/ScalaJson) instead.
+The Collection API is designed to be very extensible, allowing the use of third-party libraries for building documents (ie use something else than the embedded BSON library), including specific serializers and deserializers.
+
+For example, that's the case of the [support of Play JSON](https://github.com/reactivemongo/reactivemongo-play-json), which relies on the [Play JSON library](http://www.playframework.com/documentation/latest/ScalaJson) instead.
 
 {% highlight scala %}
 // using the default Collection implementation
@@ -132,4 +134,4 @@ TODO
 ### Examples
 
 - The default implementation in ReactiveMongo, `BSONCollection`. It relies on the embedded BSON library, with `BSONCollection` as the `Structure`, and `BSONDocumentReader` and `BSONDocumentWriter` as the de/serializer typeclasses.
-- The implementation in the Play plugin, `JSONCollection`. It uses `JsObject` (a JSON object), and the de/serializer typeclasses `Writes` and `Reads`.
+- The implementation in the Play JSON support, `JSONCollection`. It uses `JsObject` (a JSON object), and the de/serializer typeclasses `Writes` and `Reads`.

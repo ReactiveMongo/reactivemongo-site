@@ -5,6 +5,8 @@ title: ReactiveMongo 0.11 - Integration with Play Framework
 
 A ReactiveMongo plugin is available for [Play Framework](https://playframework.com/), providing a reactive, asynchronous and non-blocking Scala driver for MongoDB to develop your application.
 
+This module is based on the [Play JSON serialization](../json/overview.md).
+
 ## Add Play2-ReactiveMongo to your dependencies
 
 The latest version of this plugin is for Play 2.4, and can be enabled by adding the following dependency in your `project/Build.scala` (or `build.sbt`).
@@ -41,18 +43,6 @@ libraryDependencies ++= Seq(
   "org.reactivemongo" %% "play2-reactivemongo" % "0.12.0-SNAPSHOT"
 )
 {% endhighlight %}
-
-## Simple Play JSON support for ReactiveMongo
-
-The serialization pack based Play JSON for ReactiveMongo can be enabled without the complete Play pluging, by adding the following dependency in your `project/Build.scala` (or `build.sbt`).
-
-{% highlight ocaml %}
-libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "reactivemongo-play-json" % "{{site._0_11_latest_minor}}"
-)
-{% endhighlight %}
-
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-play-json_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-play-json_2.11/)
 
 ## Setup
 
@@ -209,14 +199,6 @@ mongo-async-driver {
 
 ## Main features
 
-### JSON <-> BSON conversion
-
-With Play2-ReactiveMongo, you can use directly the embedded JSON library in Play >= 2.1. There is a specialized collection called `JSONCollection` that deals naturally with `JSValue` and `JSObject` instead of ReactiveMongo's `BSONDocument`.
-
-The JSON lib has been completely refactored and is now the most powerful one in the Scala world. Thanks to it, you can now fetch documents from MongoDB in the JSON format, transform them by removing and/or adding some properties, and send them to the client. Even better, when a client sends a JSON document, you can validate it and transform it before saving it into a MongoDB collection.
-
-Another advantage to use this plugin is to be capable of using JSON documents for querying MongoDB.
-
 ### Helpers for GridFS
 
 Play2-ReactiveMongo makes it easy to serve and store files in a complete non-blocking manner.
@@ -260,26 +242,6 @@ trait MyController extends Controller
 {% endhighlight %}
 
 > The maximum size of upload using the GridFS provided by a `MongoController` can be configured by the Play [`DefaultMaxDiskLength`](https://www.playframework.com/documentation/2.4.0/api/scala/index.html#play.api.mvc.BodyParsers$parse$@DefaultMaxDiskLength:Long).
-
-### JSON cursors
-
-ReactiveMongo for Play Framework provides some extensions of the result cursors, as `.jsArray()` to read underlying data as a JSON array.
-
-{% highlight scala %}
-import play.api.libs.json._
-import play.api.libs.concurrent.Execution.Implicits.defaultContext
-
-import reactivemongo.play.json._
-import play.modules.reactivemongo.json.collection.{
-  JSONCollection, JsCursor
-}, JsCursor._
-
-def jsonCollection: JSONCollection = ???
-
-type ResultType = JsObject // any type which is provided a `Writes[T]`
-
-jsonCollection.find(Json.obj()).cursor[ResultType].jsArray()
-{% endhighlight %}
 
 ## Code samples
 
