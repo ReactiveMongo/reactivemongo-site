@@ -167,12 +167,17 @@ p code {
 }
 
 /* bson typeclasses */
+#documents-and-values ~ table th,
 #provided-handlers ~ table th {
   text-align: left;
   background: #59b25b;
   color: #fff;
 }
 
+#documents-and-values ~ table,
+#documents-and-values ~ table tr,
+#documents-and-values ~ table td,
+#documents-and-values ~ table th,
 #provided-handlers ~ table,
 #provided-handlers ~ table tr,
 #provided-handlers ~ table td,
@@ -181,12 +186,15 @@ p code {
   border-collapse: collapse;
 }
 
+#documents-and-values ~ table td,
+#documents-and-values ~ table th,
 #provided-handlers ~ table td,
 #provided-handlers ~ table th {
   padding: .3em;
   width: 50%;
 }
 
+#documents-and-values ~ table td,
 #provided-handlers ~ table td {
   background: #fff
 }
