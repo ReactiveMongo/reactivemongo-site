@@ -255,7 +255,6 @@ For a collection command `db.aCollection.runCommand({ "custom": name, "query": {
 {% highlight scala %}
 import reactivemongo.api.SerializationPack
 import reactivemongo.api.commands.{
-  Command,
   CollectionCommand,
   CommandWithPack,
   CommandWithResult,

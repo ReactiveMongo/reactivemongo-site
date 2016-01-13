@@ -6,6 +6,7 @@ lazy val `reactivemongo-site` = (project in file("."))
     highlightStartToken in ThisBuild := "{% highlight scala %}",
     highlightEndToken in ThisBuild := "{% endhighlight %}",
     scalaVersion := "2.11.7",
+    scalacOptions in ThisBuild ++= Seq("-Ywarn-unused-import", "-unchecked"),
     libraryDependencies ++= Seq(
       "org.reactivemongo" %% "reactivemongo" % "0.11.9",
       "com.typesafe.play" %% "play-iteratees" % "2.3.5"),
