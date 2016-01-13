@@ -70,7 +70,7 @@ This trait is almost empty.
 {% highlight scala %}
 package simplified.api
 
-import reactivemongo.api.{ CollectionProducer, DB, FailoverStrategy }
+import reactivemongo.api.DB
 
 // simplified for the sake of readability
 trait Collection {
