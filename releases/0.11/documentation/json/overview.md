@@ -33,7 +33,7 @@ All these JSON types extend [`JsValue`](https://www.playframework.com/documentat
 | [BSONDateTime](../../api/reactivemongo/bson/BSONDateTime.html) | `JsObject` with a `$date` `JsNumber` field with the timestamp (milliseconds) as value |
 | [BSONDouble](../../api/reactivemongo/bson/BSONDouble.html) | [JsNumber](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.JsNumber) |
 | [BSONInteger](../../api/reactivemongo/bson/BSONInteger.html) | `JsNumber` |
-| [BSONJavaScript](../../api/reactivemongo/bson/BSONJavaScript.html) | *No JSON type* |
+| [BSONJavaScript](../../api/reactivemongo/bson/BSONJavaScript.html) | `JsObject` with a `$javascript` `JsString` value representing the [JavaScript code](../../api/reactivemongo/bson/BSONJavaScript.html@value:String) |
 | [BSONLong](../../api/reactivemongo/bson/BSONLong.html) | `JsNumber` |
 | [BSONMaxKey](../../api/reactivemongo/bson/BSONMaxKey$.html) | *No JSON type* |
 [BSONMinKey](../../api/reactivemongo/bson/BSONMinKey$.html) | *No JSON type* |
