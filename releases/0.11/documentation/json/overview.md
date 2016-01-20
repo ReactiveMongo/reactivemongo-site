@@ -17,6 +17,12 @@ libraryDependencies ++= Seq(
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-play-json_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-play-json_2.11/)
 
+Then, the following code enables this JSON serialization pack.
+
+{% highlight scala %}
+import reactivemongo.play.json._
+{% endhighlight %}
+
 ## Documents and values
 
 There is one Play JSON class for most of the BSON types, all in the [`play.api.libs.json` package](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.package):
