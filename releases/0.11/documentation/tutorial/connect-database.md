@@ -79,8 +79,8 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 def connection5: reactivemongo.api.MongoConnection = ???
 
-val db5 = connection5.db("somedatabase")
-val collection5 = db5.collection("somecollection")
+val db5 = connection5.database("somedatabase")
+val collection5 = db5.map(_.collection("somecollection"))
 {% endhighlight %}
 
 ## Connecting to a replica set
@@ -184,6 +184,31 @@ val connection7: Try[MongoConnection] =
   }
 {% endhighlight %}
 
+### More examples
+
+The following example is a complete one.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+import reactivemongo.api.{ MongoDriver, MongoConnection }
+
+val mongoUri = "mongodb://host:port/db"
+
+val driver = new MongoDriver
+
+val database = for {
+  uri <- Future.fromTry(MongoConnection.parseURI(mongoUri))
+  con = driver.connection(uri)
+  dn <- Future(uri.db.get)
+  db <- con.database(dn)
+} yield db
+
+database.onComplete {
+  case resolution => println(s"DB resolution: $resolution")
+}
+{% endhighlight %}
+
 ### Notes
 
 #### A `MongoConnection` stands for a pool of connections
@@ -205,6 +230,6 @@ They manage two different things. `MongoDriver` holds the actor system, and `Mon
 
 `MongoDriver` and `MongoConnection` involve creation costs –  the driver may create a new `ActorSystem`, and the connection, well, will connect to the servers. It is also a good idea to store the driver and the connection to reuse them.
 
-On the contrary, `db` and `collection` are just plain objects that store references and nothing else. It is virtually free to create new instances; calling `connection.db()` or `db.collection()` may be done many times without any performance hit.
+On the contrary, `db` and `collection` are just plain objects that store references and nothing else. It is virtually free to create new instances; calling `connection.database()` or `db.collection()` may be done many times without any performance hit.
 
 [Next: Database and collections](./database-and-collection.html)
