@@ -197,3 +197,5 @@ Using [`BSONNumberLike`](../../api/index.html#reactivemongo.bson.BSONNumberLike)
 - [BigDecimal](example-bigdecimal.html)
 - [Map](example-maps.html)
 - [Document](example-document.html)
+
+[Previous: Overview of the ReactiveMongo BSON library](overview.html)

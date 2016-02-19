@@ -13,7 +13,7 @@ The BSON library of ReactiveMongo implements the [BSON protocol](http://bsonspec
 
 ### Documents and values
 
-There is one Scala class for each BSON type, all in the [`reactivemongo.bson` package](../../api/reactivemongo/bson/package.html):
+There is one Scala class for each BSON type, all in the [`reactivemongo.bson` package](../../api/reactivemongo/bson/package.html).
 
 [BSONDocument](../../api/reactivemongo/bson/BSONDocument.html): set of key-value pairs
 
@@ -38,7 +38,7 @@ val arr2 = BSONArray("lorem", "ipsum")
 val arrField = BSONDocument("array_field" -> List("written", "values"))
 {% endhighlight %}
 
-> As for `BSONDocument`, any type with a `BSONWriter` can be added to a `BSONArray` (see `arr2` in the previous example).
+> As for `BSONDocument`, any type with a `BSONWriter` (see [provided handlers](./typeclasses.html#provided-handlers)) can be added to a `BSONArray` (see `arr2` in the previous example).
 > Moreover, a [`Traversable[T]`](http://www.scala-lang.org/api/current/index.html#scala.collection.Traversable) whose element type `T` has a `BSONWriter[T, _]` can be used a BSON array (see `arrField` in the previous example).
 
 [BSONBinary](../../api/reactivemongo/bson/BSONBinary.html): binary data
@@ -81,6 +81,21 @@ All these classes extend [BSONValue](../../api/reactivemongo/bson/BSONValue.html
 
 A document is represented by `BSONDocument`. A `BSONDocument` is basically an immutable list of key-value pairs. Since it is the most used BSON type, one of the main focuses of the ReactiveMongo BSON library is to make manipulations of BSONDocuments as easy as possible.
 
-Furthermore, the whole library is articulated around the concept of `BSONDocumentWriter` and `BSONDocumentReader`. These are type classes which purpose is to serialize/deserialize objects of arbitraty types into/from BSON. This makes usage of MongoDB much less verbose and more natural.
+{% highlight scala %}
+import reactivemongo.bson._
 
-[Next: Using the ReactiveMongo BSON library](usage.html)
+val album = BSONDocument(
+  "title" -> BSONString("Everybody Knows this is Nowhere"),
+  "releaseYear" -> BSONInteger(1969))
+
+val albumTitle = album.getAs[String]("title")
+albumTitle match {
+  case Some(title) => println(s"The title of this album is $title")
+  case _           => println("this document does not contain a title (or title is not a BSONString)")
+}
+{% endhighlight %}
+
+Furthermore, the whole library is articulated around the concept of [`BSONDocumentWriter`](../../api/reactivemongo/bson/BSONDocumentWriter.html) and [`BSONDocumentReader`](../../api/reactivemongo/bson/BSONDocumentReader.html).
+These are type classes which purpose is to serialize/deserialize objects of arbitraty types into/from BSON. This makes usage of MongoDB much less verbose and more natural.
+
+[Next: The readers and writers](typeclasses.html)
