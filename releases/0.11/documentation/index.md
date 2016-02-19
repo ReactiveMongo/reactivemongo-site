@@ -32,8 +32,7 @@ The API for this module can be [browsed online](../play-api/index.html).
 ### BSON Manipulation
 
 1. [Overview of the ReactiveMongo BSON library](bson/overview.html)
-2. [Using the ReactiveMongo BSON library](bson/usage.html)
-3. [Readers & writers](bson/typeclasses.html)
+2. [Readers & writers](bson/typeclasses.html)
    - [Concrete Example: Maps De/Serialization](bson/example-maps.html)
    - [Concrete Example: BigDecimal and BigInteger De/Serialization](bson/example-bigdecimal.html)
    - [Concrete example: Documents](bson/example-document.html)
