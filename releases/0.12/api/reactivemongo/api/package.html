@@ -1,0 +1,874 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>api - ReactiveMongo API 0.11.7 - reactivemongo.api</title>
+          <meta name="description" content="api - ReactiveMongo API 0.11.7 - reactivemongo.api" />
+          <meta name="keywords" content="api ReactiveMongo API 0.11.7 reactivemongo.api" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'reactivemongo.api.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../lib/package_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="reactivemongo">reactivemongo</a></p>
+        <h1>api</h1><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">api</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="reactivemongo.api"><span>api</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="reactivemongo.api.AuthenticationMode" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="AuthenticationModeextendsAnyRef"></a>
+      <a id="AuthenticationMode:AuthenticationMode"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="AuthenticationMode.html"><span class="name">AuthenticationMode</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@AuthenticationModeextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Then mode of authentication against the replica set.</p>
+    </li><li name="reactivemongo.api.Collection" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="CollectionextendsAnyRef"></a>
+      <a id="Collection:Collection"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Collection.html"><span class="name">Collection</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@CollectionextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A MongoDB Collection.</p><div class="fullcomment"><div class="comment cmt"><p>A MongoDB Collection. You should consider the default BSON implementation.</p><p>Example using the default implementation:</p><pre><span class="kw">import</span> reactivemongo.bson._
+<span class="kw">import</span> reactivemongo.api.collections.bson.BSONCollection
+
+<span class="kw">object</span> Samples {
+
+  <span class="kw">val</span> connection = MongoConnection(<span class="std">List</span>(<span class="lit">"localhost"</span>))
+
+  <span class="cmt">// Gets a reference to the database "plugin"</span>
+  <span class="kw">val</span> db = connection(<span class="lit">"plugin"</span>)
+
+  <span class="cmt">// Gets a reference to the collection "acoll"</span>
+  <span class="cmt">// By default, you get a BSONCollection.</span>
+  <span class="kw">val</span> collection = db[BSONCollection](<span class="lit">"acoll"</span>)
+
+  <span class="kw">def</span> listDocs() = {
+    <span class="cmt">// Select only the documents which field 'firstName' equals 'Jack'</span>
+    <span class="kw">val</span> query = BSONDocument(<span class="lit">"firstName"</span> -&gt; <span class="lit">"Jack"</span>)
+    <span class="cmt">// select only the field 'lastName'</span>
+    <span class="kw">val</span> filter = BSONDocument(
+      <span class="lit">"lastName"</span> -&gt; <span class="num">1</span>,
+      <span class="lit">"_id"</span> -&gt; <span class="num">0</span>)
+
+    <span class="cmt">// Get a cursor of BSONDocuments</span>
+    <span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument]
+    <span class="cmt">// Let's enumerate this cursor and print a readable representation of each document in the response</span>
+    cursor.enumerate().apply(Iteratee.foreach { doc <span class="kw">=&gt;</span>
+      println(<span class="lit">"found document: "</span> + BSONDocument.pretty(doc))
+    })
+
+    <span class="cmt">// Or, the same with getting a list</span>
+    <span class="kw">val</span> cursor2 = collection.find(query, filter).cursor[BSONDocument]
+    <span class="kw">val</span> futureList = cursor.collect[<span class="std">List</span>]()
+    futureList.map { list <span class="kw">=&gt;</span>
+      list.foreach { doc <span class="kw">=&gt;</span>
+        println(<span class="lit">"found document: "</span> + BSONDocument.pretty(doc))
+      }
+    }
+  }
+}</pre></div></div>
+    </li><li name="reactivemongo.api.CollectionMetaCommands" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CollectionMetaCommandsextendsAnyRef"></a>
+      <a id="CollectionMetaCommands:CollectionMetaCommands"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CollectionMetaCommands.html"><span class="name">CollectionMetaCommands</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@CollectionMetaCommandsextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A mixin that provides commands about this Collection itself.</p>
+    </li><li name="reactivemongo.api.CollectionProducer" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="CollectionProducer[+C&lt;:reactivemongo.api.Collection]extendsAnyRef"></a>
+      <a id="CollectionProducer[+C&lt;:Collection]:CollectionProducer[C]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CollectionProducer.html"><span class="name">CollectionProducer</span></a><span class="tparams">[<span name="C">+C &lt;: <a href="Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a></span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@CollectionProducer[+C&lt;:reactivemongo.api.Collection]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A Producer of <a href="Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a> implementation.</p><div class="fullcomment"><div class="comment cmt"><p>A Producer of <a href="Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a> implementation.</p><p>This is used to get an implementation implicitly when getting a reference of a <a href="Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a>.
+</p></div></div>
+    </li><li name="reactivemongo.api.Cursor" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="Cursor[T]extendsAnyRef"></a>
+      <a id="Cursor[T]:Cursor[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Cursor.html"><span class="name">Cursor</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@Cursor[T]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.CursorFlattener" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CursorFlattener[C[_]&lt;:reactivemongo.api.Cursor[_]]extendsAnyRef"></a>
+      <a id="CursorFlattener[C[_]&lt;:Cursor[_]]:CursorFlattener[C]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CursorFlattener.html"><span class="name">CursorFlattener</span></a><span class="tparams">[<span name="C">C<span class="tparams">[<span name="_">_</span>]</span> &lt;: <a href="Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a>[_]</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@CursorFlattener[C[_]&lt;:reactivemongo.api.Cursor[_]]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Flattening strategy for cursor.</p>
+    </li><li name="reactivemongo.api.CursorProducer" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CursorProducer[T]extendsAnyRef"></a>
+      <a id="CursorProducer[T]:CursorProducer[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CursorProducer.html"><span class="name">CursorProducer</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@CursorProducer[T]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Allows to enrich a base cursor.</p>
+    </li><li name="reactivemongo.api.DB" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="DBextendsAnyRef"></a>
+      <a id="DB:DB"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="DB.html"><span class="name">DB</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@DBextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A Mongo Database.</p><div class="fullcomment"><div class="comment cmt"><p>A Mongo Database.</p><p>Example:</p><pre><span class="kw">import</span> reactivemongo.api._
+
+<span class="kw">val</span> connection = MongoConnection( <span class="std">List</span>( <span class="lit">"localhost:27016"</span> ) )
+<span class="kw">val</span> db = connection(<span class="lit">"plugin"</span>)
+<span class="kw">val</span> collection = db(<span class="lit">"acoll"</span>)
+
+<span class="cmt">// more explicit way</span>
+<span class="kw">val</span> db2 = connection.db(<span class="lit">"plugin"</span>)
+<span class="kw">val</span> collection2 = db2.collection(<span class="lit">"plugin"</span>)</pre></div></div>
+    </li><li name="reactivemongo.api.DBMetaCommands" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="DBMetaCommandsextendsAnyRef"></a>
+      <a id="DBMetaCommands:DBMetaCommands"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="DBMetaCommands.html"><span class="name">DBMetaCommands</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@DBMetaCommandsextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A mixin that provides commands about this database itself.</p>
+    </li><li name="reactivemongo.api.DefaultDB" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DefaultDBextendsDBwithDBMetaCommandswithGenericDB[reactivemongo.api.BSONSerializationPack.type]withProductwithSerializable"></a>
+      <a id="DefaultDB:DefaultDB"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="DefaultDB.html"><span class="name">DefaultDB</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="connection">connection: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol">FailoverStrategy()</span></span>)</span><span class="result"> extends <a href="DB.html" class="extype" name="reactivemongo.api.DB">DB</a> with <a href="DBMetaCommands.html" class="extype" name="reactivemongo.api.DBMetaCommands">DBMetaCommands</a> with <a href="GenericDB.html" class="extype" name="reactivemongo.api.GenericDB">GenericDB</a>[<a href="BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@DefaultDBextendsDBwithDBMetaCommandswithGenericDB[reactivemongo.api.BSONSerializationPack.type]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The default DB implementation, that mixes in the database traits.</p>
+    </li><li name="reactivemongo.api.Failover" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Failover[T]extendsAnyRef"></a>
+      <a id="Failover[T]:Failover[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Failover.html"><span class="name">Failover</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@Failover[T]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A helper that sends the given message to the given actor, following a failover strategy.</p><div class="fullcomment"><div class="comment cmt"><p>A helper that sends the given message to the given actor, following a failover strategy.
+This helper holds a future reference that is completed with a response, after 1 or more attempts (specified in the given strategy).
+If the all the tryouts configured by the given strategy were unsuccessful, the future reference is completed with a Throwable.</p><p>Should not be used directly for most use cases.
+</p></div><dl class="paramcmts block"><dt class="tparam">T</dt><dd class="cmt"><p>Type of the message to send.</p></dd></dl></div>
+    </li><li name="reactivemongo.api.Failover2" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Failover2[A]extendsAnyRef"></a>
+      <a id="Failover2[A]:Failover2[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Failover2.html"><span class="name">Failover2</span></a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@Failover2[A]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.FailoverStrategy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="FailoverStrategyextendsProductwithSerializable"></a>
+      <a id="FailoverStrategy:FailoverStrategy"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="FailoverStrategy.html"><span class="name">FailoverStrategy</span></a><span class="params">(<span name="initialDelay">initialDelay: <span class="extype" name="scala.concurrent.duration.FiniteDuration">FiniteDuration</span> = <span class="symbol">500 milliseconds</span></span>, <span name="retries">retries: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">5</span></span>, <span name="delayFactor">delayFactor: (<span class="extype" name="scala.Int">Int</span>) ⇒ <span class="extype" name="scala.Double">Double</span> = <span class="symbol">n =&gt; 1</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@FailoverStrategyextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A failover strategy for sending requests.</p><div class="fullcomment"><div class="comment cmt"><p>A failover strategy for sending requests.
+</p></div><dl class="paramcmts block"><dt class="param">initialDelay</dt><dd class="cmt"><p>the initial delay between the first failed attempt and the next one.</p></dd><dt class="param">retries</dt><dd class="cmt"><p>the number of retries to do before giving up.</p></dd><dt class="param">delayFactor</dt><dd class="cmt"><p>a function that takes the current iteration and returns a factor to be applied to the initialDelay.</p></dd></dl></div>
+    </li><li name="reactivemongo.api.FlattenedCursor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FlattenedCursor[T]extendsCursor[T]"></a>
+      <a id="FlattenedCursor[T]:FlattenedCursor[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="FlattenedCursor.html"><span class="name">FlattenedCursor</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a>[<span class="extype" name="reactivemongo.api.FlattenedCursor.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@FlattenedCursor[T]extendsCursor[T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.GenericDB" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="GenericDB[P&lt;:reactivemongo.api.SerializationPackwithSingleton]extendsAnyRef"></a>
+      <a id="GenericDB[P&lt;:SerializationPackwithSingleton]:GenericDB[P]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="GenericDB.html"><span class="name">GenericDB</span></a><span class="tparams">[<span name="P">P &lt;: <a href="SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a> with <span class="extype" name="scala.Singleton">Singleton</span></span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@GenericDB[P&lt;:reactivemongo.api.SerializationPackwithSingleton]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.MongoConnection" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MongoConnectionextendsAnyRef"></a>
+      <a id="MongoConnection:MongoConnection"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="MongoConnection.html"><span class="name">MongoConnection</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@MongoConnectionextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A Mongo Connection.</p><div class="fullcomment"><div class="comment cmt"><p>A Mongo Connection.</p><p>This is a wrapper around a reference to a <a href="../core/actors/MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">reactivemongo.core.actors.MongoDBSystem</a> Actor.
+Connection here does not mean that there is one open channel to the server.
+Behind the scene, many connections (channels) are open on all the available servers in the replica set.</p><p>Example:</p><pre><span class="kw">import</span> reactivemongo.api._
+
+<span class="kw">val</span> connection = MongoConnection( <span class="std">List</span>( <span class="lit">"localhost"</span> ) )
+<span class="kw">val</span> db = connection(<span class="lit">"plugin"</span>)
+<span class="kw">val</span> collection = db(<span class="lit">"acoll"</span>)
+
+<span class="cmt">// more explicit way</span>
+<span class="kw">val</span> db2 = connection.db(<span class="lit">"plugin"</span>)
+<span class="kw">val</span> collection2 = db2.collection(<span class="lit">"plugin"</span>)</pre></div></div>
+    </li><li name="reactivemongo.api.MongoConnectionOptions" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MongoConnectionOptionsextendsProductwithSerializable"></a>
+      <a id="MongoConnectionOptions:MongoConnectionOptions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="MongoConnectionOptions.html"><span class="name">MongoConnectionOptions</span></a><span class="params">(<span name="connectTimeoutMS">connectTimeoutMS: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="authSource">authSource: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="sslEnabled">sslEnabled: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="sslAllowsInvalidCert">sslAllowsInvalidCert: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="authMode">authMode: <a href="AuthenticationMode.html" class="extype" name="reactivemongo.api.AuthenticationMode">AuthenticationMode</a> = <span class="symbol"><span class="name"><a href="CrAuthentication$.html">CrAuthentication</a></span></span></span>, <span name="tcpNoDelay">tcpNoDelay: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="keepAlive">keepAlive: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">10</span></span>, <span name="writeConcern">writeConcern: <a href="commands/package.html#WriteConcern=reactivemongo.api.commands.GetLastError" class="extmbr" name="reactivemongo.api.commands.WriteConcern">WriteConcern</a> = <span class="symbol"><span class="name"><a href="../package.html">WriteConcern.Default</a></span></span></span>, <span name="readPreference">readPreference: <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> = <span class="symbol"><span class="name"><a href="ReadPreference$.html">ReadPreference.primary</a></span></span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@MongoConnectionOptionsextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Options for MongoConnection.</p><div class="fullcomment"><div class="comment cmt"><p>Options for MongoConnection.
+</p></div><dl class="paramcmts block"><dt class="param">connectTimeoutMS</dt><dd class="cmt"><p>The number of milliseconds to wait for a connection to be established before giving up.</p></dd><dt class="param">authSource</dt><dd class="cmt"><p>The database source for authentication credentials.</p></dd><dt class="param">sslEnabled</dt><dd class="cmt"><p>Enable SSL connection (required to be accepted on server-side).</p></dd><dt class="param">sslAllowsInvalidCert</dt><dd class="cmt"><p>If <code>sslEnabled</code> is true, this one indicates whether to accept invalid certificates (e.g. self-signed).</p></dd><dt class="param">authMode</dt><dd class="cmt"><p>Either <a href="CrAuthentication$.html" class="extype" name="reactivemongo.api.CrAuthentication">CrAuthentication</a> or <a href="ScramSha1Authentication$.html" class="extype" name="reactivemongo.api.ScramSha1Authentication">ScramSha1Authentication</a></p></dd><dt class="param">tcpNoDelay</dt><dd class="cmt"><p>TCPNoDelay flag (ReactiveMongo-specific option). The default value is false (see <a href="http://docs.oracle.com/javase/8/docs/api/java/net/StandardSocketOptions.html#TCP_NODELAY" target="_blank">TCP_NODELAY</a>).</p></dd><dt class="param">keepAlive</dt><dd class="cmt"><p>TCP KeepAlive flag (ReactiveMongo-specific option). The default value is false (see <a href="http://docs.oracle.com/javase/8/docs/api/java/net/StandardSocketOptions.html#SO_KEEPALIVE" target="_blank">SO_KEEPALIVE</a>).</p></dd><dt class="param">nbChannelsPerNode</dt><dd class="cmt"><p>Number of channels (connections) per node (ReactiveMongo-specific option).</p></dd><dt class="param">writeConcern</dt><dd class="cmt"><p>the default write concern</p></dd><dt class="param">readPreference</dt><dd class="cmt"><p>the default read preference</p></dd></dl></div>
+    </li><li name="reactivemongo.api.MongoDriver" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MongoDriverextendsAnyRef"></a>
+      <a id="MongoDriver:MongoDriver"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="MongoDriver.html"><span class="name">MongoDriver</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@MongoDriverextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.QueryOpts" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="QueryOptsextendsProductwithSerializable"></a>
+      <a id="QueryOpts:QueryOpts"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="QueryOpts.html"><span class="name">QueryOpts</span></a><span class="params">(<span name="skipN">skipN: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="batchSizeN">batchSizeN: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="flagsN">flagsN: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@QueryOptsextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A helper to make the query options.</p><div class="fullcomment"><div class="comment cmt"><p>A helper to make the query options.</p><p>You may use the methods to set the fields of this class, or set them directly.
+</p></div><dl class="paramcmts block"><dt class="param">skipN</dt><dd class="cmt"><p>The number of documents to skip.</p></dd><dt class="param">batchSizeN</dt><dd class="cmt"><p>The upper limit on the number of documents to retrieve per batch.</p></dd><dt class="param">flagsN</dt><dd class="cmt"><p>The query flags.</p></dd></dl></div>
+    </li><li name="reactivemongo.api.ReadPreference" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ReadPreferenceextendsAnyRef"></a>
+      <a id="ReadPreference:ReadPreference"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ReadPreference.html"><span class="name">ReadPreference</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@ReadPreferenceextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">MongoDB Read Preferences enable to read from primary or secondaries
+with a predefined strategy.</p>
+    </li><li name="reactivemongo.api.SerializationPack" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SerializationPackextendsAnyRef"></a>
+      <a id="SerializationPack:SerializationPack"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="SerializationPack.html"><span class="name">SerializationPack</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@SerializationPackextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.SerializationPackObject" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SerializationPackObject=reactivemongo.api.SerializationPackwithSingleton"></a>
+      <a id="SerializationPackObject:SerializationPackObject"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">SerializationPackObject</span><span class="result"> = <a href="SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a> with <span class="extype" name="scala.Singleton">Singleton</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@SerializationPackObject=reactivemongo.api.SerializationPackwithSingleton" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.WrappedCursor" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="WrappedCursor[T]extendsCursor[T]"></a>
+      <a id="WrappedCursor[T]:WrappedCursor[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="WrappedCursor.html"><span class="name">WrappedCursor</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a>[<span class="extype" name="reactivemongo.api.WrappedCursor.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@WrappedCursor[T]extendsCursor[T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Cursor wrapper, to help to define custom cursor classes.</p><div class="fullcomment"><div class="comment cmt"><p>Cursor wrapper, to help to define custom cursor classes.</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p>CursorProducer</p></span></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="reactivemongo.api.BSONSerializationPack" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONSerializationPack"></a>
+      <a id="BSONSerializationPack:BSONSerializationPack"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONSerializationPack$.html"><span class="name">BSONSerializationPack</span></a><span class="result"> extends <a href="SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@BSONSerializationPack" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The default serialization pack.</p>
+    </li><li name="reactivemongo.api.CrAuthentication" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CrAuthentication"></a>
+      <a id="CrAuthentication:CrAuthentication"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="CrAuthentication$.html"><span class="name">CrAuthentication</span></a><span class="result"> extends <a href="AuthenticationMode.html" class="extype" name="reactivemongo.api.AuthenticationMode">AuthenticationMode</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@CrAuthentication" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">MongoDB-CR authentication</p>
+    </li><li name="reactivemongo.api.Cursor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Cursor"></a>
+      <a id="Cursor:Cursor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Cursor$.html"><span class="name">Cursor</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@Cursor" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.CursorFlattener" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CursorFlattener"></a>
+      <a id="CursorFlattener:CursorFlattener"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="CursorFlattener$.html"><span class="name">CursorFlattener</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@CursorFlattener" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Flatteners helper</p>
+    </li><li name="reactivemongo.api.CursorProducer" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CursorProducer"></a>
+      <a id="CursorProducer:CursorProducer"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="CursorProducer$.html"><span class="name">CursorProducer</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@CursorProducer" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.DB" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DB"></a>
+      <a id="DB:DB"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="DB$.html"><span class="name">DB</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@DB" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.DefaultCursor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DefaultCursor"></a>
+      <a id="DefaultCursor:DefaultCursor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="DefaultCursor$.html"><span class="name">DefaultCursor</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@DefaultCursor" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.Failover" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Failover"></a>
+      <a id="Failover:Failover"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Failover$.html"><span class="name">Failover</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@Failover" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.Failover2" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Failover2"></a>
+      <a id="Failover2:Failover2"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Failover2$.html"><span class="name">Failover2</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@Failover2" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.MongoConnection" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MongoConnection"></a>
+      <a id="MongoConnection:MongoConnection"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MongoConnection$.html"><span class="name">MongoConnection</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@MongoConnection" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.MongoDriver" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MongoDriver"></a>
+      <a id="MongoDriver:MongoDriver"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MongoDriver$.html"><span class="name">MongoDriver</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@MongoDriver" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.ReadPreference" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ReadPreference"></a>
+      <a id="ReadPreference:ReadPreference"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ReadPreference$.html"><span class="name">ReadPreference</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@ReadPreference" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.ScramSha1Authentication" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ScramSha1Authentication"></a>
+      <a id="ScramSha1Authentication:ScramSha1Authentication"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ScramSha1Authentication$.html"><span class="name">ScramSha1Authentication</span></a><span class="result"> extends <a href="AuthenticationMode.html" class="extype" name="reactivemongo.api.AuthenticationMode">AuthenticationMode</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@ScramSha1Authentication" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">SCRAM-SHA-1 authentication (see MongoDB 3.0)</p>
+    </li><li name="reactivemongo.api.collections" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="collections"></a>
+      <a id="collections:collections"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="collections/package.html"><span class="name">collections</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@collections" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.commands" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="commands"></a>
+      <a id="commands:commands"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="commands/package.html"><span class="name">commands</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@commands" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.gridfs" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="gridfs"></a>
+      <a id="gridfs:gridfs"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="gridfs/package.html"><span class="name">gridfs</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@gridfs" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.indexes" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="indexes"></a>
+      <a id="indexes:indexes"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="indexes/package.html"><span class="name">indexes</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@indexes" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>
