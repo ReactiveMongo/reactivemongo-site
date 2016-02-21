@@ -25,6 +25,12 @@ The documentation is available [online](index.html). You can also browse the [Sc
 
 ### Migration notes
 
+The package `reactivemongo.api.collections.default` has been refactored as the package [`reactivemongo.api.collections.bson`](http://reactivemongo.org/releases/0.11/api/index.html#reactivemongo.api.collections.bson.package).
+If you get a compilation error like the following one, you need to update the corresponding imports.
+
+    object default is not a member of package reactivemongo.api.collections
+    [error] import reactivemongo.api.collections.default.BSONCollection
+
 The **`.save`** operation on a BSON collection has been removed, and must be replaced by `.update(selectorDoc, updateDoc, upsert = true)`. This is to make the ReactiveMongo API more coherent, and benefit from the upsert semantic of the MongoDB update command.
 
 {% highlight text %}
