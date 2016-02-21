@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Collection - ReactiveMongo API 0.11.7 - reactivemongo.api.Collection</title>
-          <meta name="description" content="Collection - ReactiveMongo API 0.11.7 - reactivemongo.api.Collection" />
-          <meta name="keywords" content="Collection ReactiveMongo API 0.11.7 reactivemongo.api.Collection" />
+          <title>Collection - ReactiveMongo API 0.12.0-SNAPSHOT - reactivemongo.api.Collection</title>
+          <meta name="description" content="Collection - ReactiveMongo API 0.12.0 - SNAPSHOT - reactivemongo.api.Collection" />
+          <meta name="keywords" content="Collection ReactiveMongo API 0.12.0 SNAPSHOT reactivemongo.api.Collection" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -49,7 +49,9 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A MongoDB Collection. You should consider the default BSON implementation.</p><p>Example using the default implementation:</p><pre><span class="kw">import</span> reactivemongo.bson._
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A MongoDB Collection.
+You should consider the generic API (<span class="extype" name="api.GenericCollection">api.GenericCollection</span>)
+and the default BSON implementation.</p><p>Example using the default implementation:</p><pre><span class="kw">import</span> reactivemongo.bson._
 <span class="kw">import</span> reactivemongo.api.collections.bson.BSONCollection
 
 <span class="kw">object</span> Samples {
@@ -93,7 +95,11 @@
         </div><div class="toggleContainer block">
             <span class="toggle">Known Subclasses</span>
             <div class="subClasses hiddenContent"><a href="collections/bson/BSONCollection.html" class="extype" name="reactivemongo.api.collections.bson.BSONCollection">BSONCollection</a>, <a href="collections/GenericCollection.html" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a></div>
-          </div></div>
+          </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+                <span class="toggle diagram-link">Type Hierarchy</span>
+                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 144.00 155.00" height="155pt" width="144pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 151)" class="graph" id="graph0"><polygon points="-4,4 -4,-151 140,-151 140,4 -4,4" stroke="none" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this trait" id="graph1_0"><g id="a_this trait|graph1_0"><a xlink:title="reactivemongo.api.Collection (this trait)" xlink:href="#inheritance-diagram"><polygon points="112,-86 24,-86 24,-61 112,-61 112,-86" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-80.5" x="34" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-70.5" x="55" text-anchor="start">Collection</text></a></g></g><!-- node1 --><g class="node trait" id="graph1_1"><g id="a_trait|graph1_1"><a xlink:title="reactivemongo.api.collections.GenericCollection" xlink:href="collections/GenericCollection.html#inheritance-diagram"><polygon points="135.5,-25 0.5,-25 0.5,-0 135.5,-0 135.5,-25" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-19.5" x="11" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-9.5" x="32" text-anchor="start">GenericCollection[P]</text></a></g></g><!-- node0&#45;&gt;node1 --><g class="edge inheritance" id="graph1_0_1"><g id="a_inheritance|graph1_0_1"><a xlink:title="GenericCollection[P] is a subtype of Collection"><path d="M68,-55.6874C68,-45.9173 68,-33.8534 68,-25.1323" stroke="#d4d4d4" fill="none"></path><polygon points="66.2501,-55.8435 68,-60.8435 69.7501,-55.8435 66.2501,-55.8435" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node class" id="graph1_2"><g id="a_class|graph1_2"><a xlink:title="scala.AnyRef"><polygon points="106.5,-147 29.5,-147 29.5,-122 106.5,-122 106.5,-147" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-141.5" x="40" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-131.5" x="61" text-anchor="start">AnyRef</text></a></g></g><!-- node2&#45;&gt;node0 --><g class="edge inheritance" id="graph1_2_0"><g id="a_inheritance|graph1_2_0"><a xlink:title="Collection is a subtype of AnyRef"><path d="M68,-116.687C68,-106.917 68,-94.8534 68,-86.1323" stroke="#d4d4d4" fill="none"></path><polygon points="66.2501,-116.843 68,-121.843 69.7501,-116.844 66.2501,-116.843" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
         
 
       <div id="mbrsel">

@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Aggregate - ReactiveMongo API 0.11.7 - reactivemongo.api.commands.AggregationFramework.Aggregate</title>
-          <meta name="description" content="Aggregate - ReactiveMongo API 0.11.7 - reactivemongo.api.commands.AggregationFramework.Aggregate" />
-          <meta name="keywords" content="Aggregate ReactiveMongo API 0.11.7 reactivemongo.api.commands.AggregationFramework.Aggregate" />
+          <title>Aggregate - ReactiveMongo API 0.12.0-SNAPSHOT - reactivemongo.api.commands.AggregationFramework.Aggregate</title>
+          <meta name="description" content="Aggregate - ReactiveMongo API 0.12.0 - SNAPSHOT - reactivemongo.api.commands.AggregationFramework.Aggregate" />
+          <meta name="keywords" content="Aggregate ReactiveMongo API 0.12.0 SNAPSHOT reactivemongo.api.commands.AggregationFramework.Aggregate" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -45,14 +45,18 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">Aggregate</span><span class="params">(<span name="pipeline">pipeline: <span class="extype" name="scala.Seq">Seq</span>[<a href="AggregationFramework$PipelineOperator.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineOperator">PipelineOperator</a>]</span>, <span name="explain">explain: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="allowDiskUse">allowDiskUse: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="cursor">cursor: <span class="extype" name="scala.Option">Option</span>[<a href="AggregationFramework$Cursor.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Cursor">Cursor</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithPack.html" class="extype" name="reactivemongo.api.commands.CommandWithPack">CommandWithPack</a>[<a href="AggregationFramework.html#pack:P" class="extmbr" name="reactivemongo.api.commands.AggregationFramework#pack">pack</a>.type] with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="AggregationFramework$AggregationResult.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.AggregationResult">AggregationResult</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">Aggregate</span><span class="params">(<span name="pipeline">pipeline: <span class="extype" name="scala.Seq">Seq</span>[<a href="AggregationFramework$PipelineOperator.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineOperator">PipelineOperator</a>]</span>, <span name="explain">explain: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="allowDiskUse">allowDiskUse: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="cursor">cursor: <span class="extype" name="scala.Option">Option</span>[<a href="AggregationFramework$Cursor.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Cursor">Cursor</a>]</span>, <span name="wireVersion">wireVersion: <a href="../../core/protocol/MongoWireVersion.html" class="extype" name="reactivemongo.core.protocol.MongoWireVersion">MongoWireVersion</a></span>, <span name="bypassDocumentValidation">bypassDocumentValidation: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="readConcern">readConcern: <span class="extype" name="scala.Option">Option</span>[<a href="../ReadConcern.html" class="extype" name="reactivemongo.api.ReadConcern">ReadConcern</a>]</span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithPack.html" class="extype" name="reactivemongo.api.commands.CommandWithPack">CommandWithPack</a>[<a href="AggregationFramework.html#pack:P" class="extmbr" name="reactivemongo.api.commands.AggregationFramework#pack">pack</a>.type] with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="AggregationFramework$AggregationResult.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.AggregationResult">AggregationResult</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">pipeline</dt><dd class="cmt"><p>the sequence of MongoDB aggregation operations</p></dd><dt class="param">explain</dt><dd class="cmt"><p>specifies to return the information on the processing of the pipeline</p></dd><dt class="param">allowDiskUse</dt><dd class="cmt"><p>enables writing to temporary files</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>the cursor object for aggregation</p></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">pipeline</dt><dd class="cmt"><p>the sequence of MongoDB aggregation operations</p></dd><dt class="param">explain</dt><dd class="cmt"><p>specifies to return the information on the processing of the pipeline</p></dd><dt class="param">allowDiskUse</dt><dd class="cmt"><p>enables writing to temporary files</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>the cursor object for aggregation</p></dd><dt class="param">bypassDocumentValidation</dt><dd class="cmt"><p>available only if you specify the $out aggregation operator</p></dd><dt class="param">readConcern</dt><dd class="cmt"><p>the read concern (since MongoDB 3.2)</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="AggregationFramework$AggregationResult.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.AggregationResult">AggregationResult</a>], <a href="CommandWithPack.html" class="extype" name="reactivemongo.api.commands.CommandWithPack">CommandWithPack</a>[<a href="AggregationFramework.html#pack:P" class="extmbr" name="reactivemongo.api.commands.AggregationFramework#pack">AggregationFramework.pack</a>.type], <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a>, <a href="AbstractCommand.html" class="extype" name="reactivemongo.api.commands.AbstractCommand">AbstractCommand</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
-        </div></div>
+        </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+                <span class="toggle diagram-link">Type Hierarchy</span>
+                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 798.00 118.00" height="118pt" width="798pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 114)" class="graph" id="graph0"><polygon points="-4,4 -4,-114 794,-114 794,4 -4,4" stroke="none" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this class" id="graph1_0"><g id="a_this class|graph1_0"><a xlink:title="reactivemongo.api.commands.AggregationFramework.Aggregate (this class)" xlink:href="#inheritance-diagram"><polygon points="510,-49 420,-49 420,-24 510,-24 510,-49" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-43.5" x="430" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-33.5" x="451" text-anchor="start">Aggregate</text></a></g></g><!-- node1 --><g class="node trait" id="graph1_1"><g id="a_trait|graph1_1"><a xlink:title="reactivemongo.api.commands.CollectionCommand" xlink:href="CollectionCommand.html#inheritance-diagram"><polygon points="134,-110 0,-110 0,-85 134,-85 134,-110" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-104.5" x="10" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.5" x="31" text-anchor="start">CollectionCommand</text></a></g></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph1_1_0"><g id="a_inheritance|graph1_1_0"><a xlink:title="Aggregate is a subtype of CollectionCommand"><path d="M139.156,-85.5749C140.447,-85.3816 141.73,-85.1898 143,-85 241.781,-70.2406 357.654,-53.219 419.93,-44.0946" stroke="#d4d4d4" fill="none"></path><polygon points="138.82,-83.8557 134.135,-86.3276 139.339,-87.317 138.82,-83.8557" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node trait" id="graph1_2"><g id="a_trait|graph1_2"><a xlink:title="reactivemongo.api.commands.CommandWithPack" xlink:href="CommandWithPack.html#inheritance-diagram"><polygon points="333.5,-110 152.5,-110 152.5,-85 333.5,-85 333.5,-110" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-104.5" x="163" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.5" x="184" text-anchor="start">CommandWithPack[pack.type]</text></a></g></g><!-- node2&#45;&gt;node0 --><g class="edge inheritance" id="graph1_2_0"><g id="a_inheritance|graph1_2_0"><a xlink:title="Aggregate is a subtype of CommandWithPack[pack.type]"><path d="M291.454,-83.6226C330.187,-73.3286 384.005,-59.0257 421.4,-49.0875" stroke="#d4d4d4" fill="none"></path><polygon points="290.714,-82.0085 286.331,-84.9841 291.613,-85.3911 290.714,-82.0085" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node3 --><g class="node trait" id="graph1_3"><g id="a_trait|graph1_3"><a xlink:title="reactivemongo.api.commands.CommandWithResult" xlink:href="CommandWithResult.html#inheritance-diagram"><polygon points="578.5,-110 351.5,-110 351.5,-85 578.5,-85 578.5,-110" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-104.5" x="362" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.5" x="383" text-anchor="start">CommandWithResult[AggregationResult]</text></a></g></g><!-- node3&#45;&gt;node0 --><g class="edge inheritance" id="graph1_3_0"><g id="a_inheritance|graph1_3_0"><a xlink:title="Aggregate is a subtype of CommandWithResult[AggregationResult]"><path d="M465,-79.6874C465,-69.9173 465,-57.8534 465,-49.1323" stroke="#d4d4d4" fill="none"></path><polygon points="463.25,-79.8435 465,-84.8435 466.75,-79.8435 463.25,-79.8435" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node4 --><g class="node trait" id="graph1_4"><g id="a_trait|graph1_4"><a xlink:title="scala.Product"><polygon points="675.5,-110 596.5,-110 596.5,-85 675.5,-85 675.5,-110" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-104.5" x="607" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.5" x="628" text-anchor="start">Product</text></a></g></g><!-- node4&#45;&gt;node0 --><g class="edge inheritance" id="graph1_4_0"><g id="a_inheritance|graph1_4_0"><a xlink:title="Aggregate is a subtype of Product"><path d="M597.576,-83.2427C567.829,-72.979 527.035,-58.904 498.584,-49.0875" stroke="#d4d4d4" fill="none"></path><polygon points="597.326,-85.0076 602.624,-84.9841 598.468,-81.699 597.326,-85.0076" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node5 --><g class="node trait" id="graph1_5"><g id="a_trait|graph1_5"><a xlink:title="scala.Serializable"><polygon points="790,-110 694,-110 694,-85 790,-85 790,-110" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-104.5" x="704" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.5" x="725" text-anchor="start">Serializable</text></a></g></g><!-- node5&#45;&gt;node0 --><g class="edge inheritance" id="graph1_5_0"><g id="a_inheritance|graph1_5_0"><a xlink:title="Aggregate is a subtype of Serializable"><path d="M688.826,-85.1742C637.086,-74.1538 559.318,-57.5894 510.402,-47.1704" stroke="#d4d4d4" fill="none"></path><polygon points="688.495,-86.8929 693.75,-86.223 689.225,-83.4697 688.495,-86.8929" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
         
 
       <div id="mbrsel">
@@ -94,7 +98,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="reactivemongo.api.commands.AggregationFramework.Aggregate#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(pipeline:Seq[AggregationFramework.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,cursor:Option[AggregationFramework.this.Cursor]):AggregationFramework.this.Aggregate"></a>
+      <a id="&lt;init&gt;(pipeline:Seq[AggregationFramework.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,cursor:Option[AggregationFramework.this.Cursor],wireVersion:reactivemongo.core.protocol.MongoWireVersion,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern]):AggregationFramework.this.Aggregate"></a>
       <a id="&lt;init&gt;:Aggregate"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -102,14 +106,14 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">Aggregate</span><span class="params">(<span name="pipeline">pipeline: <span class="extype" name="scala.Seq">Seq</span>[<a href="AggregationFramework$PipelineOperator.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineOperator">PipelineOperator</a>]</span>, <span name="explain">explain: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="allowDiskUse">allowDiskUse: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="cursor">cursor: <span class="extype" name="scala.Option">Option</span>[<a href="AggregationFramework$Cursor.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Cursor">Cursor</a>] = <span class="symbol">None</span></span>)</span>
+        <span class="name">Aggregate</span><span class="params">(<span name="pipeline">pipeline: <span class="extype" name="scala.Seq">Seq</span>[<a href="AggregationFramework$PipelineOperator.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineOperator">PipelineOperator</a>]</span>, <span name="explain">explain: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="allowDiskUse">allowDiskUse: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="cursor">cursor: <span class="extype" name="scala.Option">Option</span>[<a href="AggregationFramework$Cursor.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Cursor">Cursor</a>]</span>, <span name="wireVersion">wireVersion: <a href="../../core/protocol/MongoWireVersion.html" class="extype" name="reactivemongo.core.protocol.MongoWireVersion">MongoWireVersion</a></span>, <span name="bypassDocumentValidation">bypassDocumentValidation: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="readConcern">readConcern: <span class="extype" name="scala.Option">Option</span>[<a href="../ReadConcern.html" class="extype" name="reactivemongo.api.ReadConcern">ReadConcern</a>]</span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate@&lt;init&gt;(pipeline:Seq[AggregationFramework.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,cursor:Option[AggregationFramework.this.Cursor]):AggregationFramework.this.Aggregate" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate@&lt;init&gt;(pipeline:Seq[AggregationFramework.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,cursor:Option[AggregationFramework.this.Cursor],wireVersion:reactivemongo.core.protocol.MongoWireVersion,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern]):AggregationFramework.this.Aggregate" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">pipeline</dt><dd class="cmt"><p>the sequence of MongoDB aggregation operations</p></dd><dt class="param">explain</dt><dd class="cmt"><p>specifies to return the information on the processing of the pipeline</p></dd><dt class="param">allowDiskUse</dt><dd class="cmt"><p>enables writing to temporary files</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>the cursor object for aggregation</p></dd></dl></div>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">pipeline</dt><dd class="cmt"><p>the sequence of MongoDB aggregation operations</p></dd><dt class="param">explain</dt><dd class="cmt"><p>specifies to return the information on the processing of the pipeline</p></dd><dt class="param">allowDiskUse</dt><dd class="cmt"><p>enables writing to temporary files</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>the cursor object for aggregation</p></dd><dt class="param">bypassDocumentValidation</dt><dd class="cmt"><p>available only if you specify the $out aggregation operator</p></dd><dt class="param">readConcern</dt><dd class="cmt"><p>the read concern (since MongoDB 3.2)</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -249,6 +253,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="reactivemongo.api.commands.AggregationFramework.Aggregate#bypassDocumentValidation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="bypassDocumentValidation:Boolean"></a>
+      <a id="bypassDocumentValidation:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bypassDocumentValidation</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate@bypassDocumentValidation:Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">available only if you specify the $out aggregation operator</p>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
       <a id="clone():AnyRef"></a>
@@ -556,6 +577,23 @@
       </a>
     </span>
       <p class="shortcomment cmt">the sequence of MongoDB aggregation operations</p>
+    </li><li name="reactivemongo.api.commands.AggregationFramework.Aggregate#readConcern" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="readConcern:Option[reactivemongo.api.ReadConcern]"></a>
+      <a id="readConcern:Option[ReadConcern]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">readConcern</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../ReadConcern.html" class="extype" name="reactivemongo.api.ReadConcern">ReadConcern</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate@readConcern:Option[reactivemongo.api.ReadConcern]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">the read concern (since MongoDB 3.2)</p>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -642,6 +680,23 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="reactivemongo.api.commands.AggregationFramework.Aggregate#wireVersion" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="wireVersion:reactivemongo.core.protocol.MongoWireVersion"></a>
+      <a id="wireVersion:MongoWireVersion"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wireVersion</span><span class="result">: <a href="../../core/protocol/MongoWireVersion.html" class="extype" name="reactivemongo.core.protocol.MongoWireVersion">MongoWireVersion</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Aggregate@wireVersion:reactivemongo.core.protocol.MongoWireVersion" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="→[B](y:B):(A,B)"></a>
       <a id="→[B](B):(Aggregate,B)"></a>

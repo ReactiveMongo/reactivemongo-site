@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>GridFS - ReactiveMongo API 0.11.7 - reactivemongo.api.gridfs.GridFS</title>
-          <meta name="description" content="GridFS - ReactiveMongo API 0.11.7 - reactivemongo.api.gridfs.GridFS" />
-          <meta name="keywords" content="GridFS ReactiveMongo API 0.11.7 reactivemongo.api.gridfs.GridFS" />
+          <title>GridFS - ReactiveMongo API 0.12.0-SNAPSHOT - reactivemongo.api.gridfs.GridFS</title>
+          <meta name="description" content="GridFS - ReactiveMongo API 0.12.0 - SNAPSHOT - reactivemongo.api.gridfs.GridFS" />
+          <meta name="keywords" content="GridFS ReactiveMongo API 0.12.0 SNAPSHOT reactivemongo.api.gridfs.GridFS" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -51,10 +51,14 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A GridFS store.</p></div><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A GridFS store.</p></div><dl class="attributes block"> <dt>Self Type</dt><dd><a href="" class="extype" name="reactivemongo.api.gridfs.GridFS">GridFS</a>[<span class="extype" name="reactivemongo.api.gridfs.GridFS.P">P</span>]</dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
-        </div></div>
+        </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+                <span class="toggle diagram-link">Type Hierarchy</span>
+                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 144.00 118.00" height="118pt" width="144pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 114)" class="graph" id="graph0"><polygon points="-4,4 -4,-114 140,-114 140,4 -4,4" stroke="none" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this class" id="graph1_0"><g id="a_this class|graph1_0"><a xlink:title="reactivemongo.api.gridfs.GridFS (this class)" xlink:href="#inheritance-diagram"><polygon points="112,-49 24,-49 24,-24 112,-24 112,-49" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-43.5" x="34" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-33.5" x="55" text-anchor="start">GridFS[P]</text></a></g></g><!-- node1 --><g class="node class" id="graph1_1"><g id="a_class|graph1_1"><a xlink:title="scala.AnyRef"><polygon points="106.5,-110 29.5,-110 29.5,-85 106.5,-85 106.5,-110" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-104.5" x="40" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.5" x="61" text-anchor="start">AnyRef</text></a></g></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph1_1_0"><g id="a_inheritance|graph1_1_0"><a xlink:title="GridFS[P] is a subtype of AnyRef"><path d="M68,-79.6874C68,-69.9173 68,-57.8534 68,-49.1323" stroke="#d4d4d4" fill="none"></path><polygon points="66.2501,-79.8435 68,-84.8435 69.7501,-79.8435 66.2501,-79.8435" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
         
 
       <div id="mbrsel">
@@ -396,7 +400,7 @@
             <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.gridfs.GridFS">GridFS</a>[<span class="extype" name="reactivemongo.api.gridfs.GridFS.P">P</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
-    </li><li name="reactivemongo.api.gridfs.GridFS#enumerate" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="reactivemongo.api.gridfs.GridFS#enumerate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="enumerate[Id&lt;:GridFS.this.pack.Value](file:reactivemongo.api.gridfs.ReadFile[P,Id])(implicitctx:scala.concurrent.ExecutionContext,implicitidProducer:reactivemongo.api.gridfs.IdProducer[Id]):play.api.libs.iteratee.Enumerator[Array[Byte]]"></a>
       <a id="enumerate[Id&lt;:P.Value](ReadFile[P,Id])(ExecutionContext,IdProducer[Id]):Enumerator[Array[Byte]]"></a>
       <h4 class="signature">
@@ -412,7 +416,10 @@
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Produces an enumerator of chunks of bytes from the <code>chunks</code> collection matching the given file metadata.</p>
+      <p class="shortcomment cmt">Produces an enumerator of chunks of bytes from the <code>chunks</code> collection
+matching the given file metadata.</p><div class="fullcomment"><div class="comment cmt"><p>Produces an enumerator of chunks of bytes from the <code>chunks</code> collection
+matching the given file metadata.
+</p></div><dl class="paramcmts block"><dt class="param">file</dt><dd class="cmt"><p>the file to be read</p></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
