@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>DetailedDatabaseException - ReactiveMongo API 0.11.7 - reactivemongo.core.errors.DetailedDatabaseException</title>
-          <meta name="description" content="DetailedDatabaseException - ReactiveMongo API 0.11.7 - reactivemongo.core.errors.DetailedDatabaseException" />
-          <meta name="keywords" content="DetailedDatabaseException ReactiveMongo API 0.11.7 reactivemongo.core.errors.DetailedDatabaseException" />
+          <title>DetailedDatabaseException - ReactiveMongo API 0.12.0-SNAPSHOT - reactivemongo.core.errors.DetailedDatabaseException</title>
+          <meta name="description" content="DetailedDatabaseException - ReactiveMongo API 0.12.0 - SNAPSHOT - reactivemongo.core.errors.DetailedDatabaseException" />
+          <meta name="keywords" content="DetailedDatabaseException ReactiveMongo API 0.12.0 SNAPSHOT reactivemongo.core.errors.DetailedDatabaseException" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -45,14 +45,18 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">DetailedDatabaseException</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a></span>
+        <span class="name">DetailedDatabaseException</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a> with <span class="extype" name="scala.util.control.NoStackTrace">NoStackTrace</span></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>An error thrown by a MongoDB node (containing the original document of the error).</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a>, <a href="ReactiveMongoException.html" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>, <span class="extype" name="java.lang.Exception">Exception</span>, <span class="extype" name="java.lang.Throwable">Throwable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
-        </div></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.util.control.NoStackTrace">NoStackTrace</span>, <a href="DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a>, <a href="ReactiveMongoException.html" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>, <span class="extype" name="java.lang.Exception">Exception</span>, <span class="extype" name="java.lang.Throwable">Throwable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+                <span class="toggle diagram-link">Type Hierarchy</span>
+                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 488.00 125.00" height="125pt" width="488pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 121)" class="graph" id="graph0"><polygon points="-4,4 -4,-121 484,-121 484,4 -4,4" stroke="none" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust3"></g><g class="cluster" id="clust2"></g><!-- node4 --><g class="node implicit-outgoing class" id="graph1_4"><g id="a_implicit-outgoing class|graph1_4"><a xlink:title="reactivemongo.core.errors.DetailedDatabaseException can be implicitly converted to RichException by the implicit method RichException in object scala.Predef"><polygon points="132,-49 24,-49 24,-24 132,-24 132,-49" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-43.5" x="34" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-33.5" x="55" text-anchor="start">RichException</text></a></g></g><!-- node0 --><g class="node this class" id="graph1_0"><g id="a_this class|graph1_0"><a xlink:title="reactivemongo.core.errors.DetailedDatabaseException (this class)" xlink:href="#inheritance-diagram"><polygon points="372,-49 204,-49 204,-24 372,-24 372,-49" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-43.5" x="214" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-33.5" x="235" text-anchor="start">DetailedDatabaseException</text></a></g></g><!-- node0&#45;&gt;node4 --><g class="edge implicit-outgoing" id="0_4"><g id="a_implicit-outgoing|0_4"><a xlink:title="DetailedDatabaseException can be implicitly converted to RichException"><path d="M196.077,-36.5C178.882,-36.5 161.213,-36.5 144.951,-36.5" stroke="#d4d4d4" fill="none"></path><polygon points="144.714,-34.7501 139.714,-36.5 144.714,-38.2501 144.714,-34.7501" stroke="#d4d4d4" fill="#d4d4d4"></polygon></a></g><text fill="#aaaaaa" font-size="10.00" font-family="Arial" y="-42.5" x="168" text-anchor="middle">implicitly</text></g><!-- node1 --><g class="node class" id="graph1_1"><g id="a_class|graph1_1"><a xlink:title="java.lang.Exception"><polygon points="204,-117 116,-117 116,-92 204,-92 204,-117" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-111.5" x="126" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-101.5" x="147" text-anchor="start">Exception</text></a></g></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph1_1_0"><g id="a_inheritance|graph1_1_0"><a xlink:title="DetailedDatabaseException is a subtype of Exception"><path d="M187.121,-89.5155C210.477,-77.4726 243.78,-60.3008 265.637,-49.0311" stroke="#d4d4d4" fill="none"></path><polygon points="186.231,-88.0055 182.589,-91.8525 187.835,-91.1164 186.231,-88.0055" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node trait" id="graph1_2"><g id="a_trait|graph1_2"><a xlink:title="reactivemongo.core.errors.DatabaseException" xlink:href="DatabaseException.html#inheritance-diagram"><polygon points="353.5,-117 222.5,-117 222.5,-92 353.5,-92 353.5,-117" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-111.5" x="233" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-101.5" x="254" text-anchor="start">DatabaseException</text></a></g></g><!-- node2&#45;&gt;node0 --><g class="edge inheritance" id="graph1_2_0"><g id="a_inheritance|graph1_2_0"><a xlink:title="DetailedDatabaseException is a subtype of DatabaseException"><path d="M288,-86.6005C288,-74.8849 288,-59.583 288,-49.1973" stroke="#d4d4d4" fill="none"></path><polygon points="286.25,-86.7005 288,-91.7005 289.75,-86.7006 286.25,-86.7005" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node3 --><g class="node trait" id="graph1_3"><g id="a_trait|graph1_3"><a xlink:title="scala.util.control.NoStackTrace"><polygon points="480,-117 372,-117 372,-92 480,-92 480,-117" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-111.5" x="382" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-101.5" x="403" text-anchor="start">NoStackTrace</text></a></g></g><!-- node3&#45;&gt;node0 --><g class="edge inheritance" id="graph1_3_0"><g id="a_inheritance|graph1_3_0"><a xlink:title="DetailedDatabaseException is a subtype of NoStackTrace"><path d="M397.074,-89.6658C371.878,-77.6158 335.772,-60.3477 312.111,-49.0311" stroke="#d4d4d4" fill="none"></path><polygon points="396.38,-91.2739 401.646,-91.8525 397.89,-88.1164 396.38,-91.2739" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
         
 
       <div id="mbrsel">
@@ -69,7 +73,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="reactivemongo.core.errors.DetailedDatabaseException"><span>DetailedDatabaseException</span></li><li class="in" name="reactivemongo.core.errors.DatabaseException"><span>DatabaseException</span></li><li class="in" name="reactivemongo.core.errors.ReactiveMongoException"><span>ReactiveMongoException</span></li><li class="in" name="java.lang.Exception"><span>Exception</span></li><li class="in" name="java.lang.Throwable"><span>Throwable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="reactivemongo.core.errors.DetailedDatabaseException"><span>DetailedDatabaseException</span></li><li class="in" name="scala.util.control.NoStackTrace"><span>NoStackTrace</span></li><li class="in" name="reactivemongo.core.errors.DatabaseException"><span>DatabaseException</span></li><li class="in" name="reactivemongo.core.errors.ReactiveMongoException"><span>ReactiveMongoException</span></li><li class="in" name="java.lang.Exception"><span>Exception</span></li><li class="in" name="java.lang.Throwable"><span>Throwable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
                 <span class="filtertype">Implicitly<br />
@@ -407,7 +411,7 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="java.lang.Throwable#fillInStackTrace" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="scala.util.control.NoStackTrace#fillInStackTrace" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="fillInStackTrace():Throwable"></a>
       <a id="fillInStackTrace():Throwable"></a>
       <h4 class="signature">
@@ -416,14 +420,14 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">fillInStackTrace</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Throwable">Throwable</span></span>
+        <span class="name">fillInStackTrace</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Throwable">Throwable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.errors.DetailedDatabaseException@fillInStackTrace():Throwable" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Throwable</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>NoStackTrace → Throwable</dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <a id="finalize():Unit"></a>
@@ -971,7 +975,9 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="reactivemongo.core.errors.DatabaseException">
+        <div class="parent" name="scala.util.control.NoStackTrace">
+              <h3>Inherited from <span class="extype" name="scala.util.control.NoStackTrace">NoStackTrace</span></h3>
+            </div><div class="parent" name="reactivemongo.core.errors.DatabaseException">
               <h3>Inherited from <a href="DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a></h3>
             </div><div class="parent" name="reactivemongo.core.errors.ReactiveMongoException">
               <h3>Inherited from <a href="ReactiveMongoException.html" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a></h3>

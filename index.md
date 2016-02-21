@@ -46,6 +46,8 @@ This will start a standalone MongoDB instance that stores its data in the `data`
 
 ReactiveMongo is available on [Maven Central](http://search.maven.org/#browse%7C1306790). If you use SBT, you just have to edit `build.sbt` and add the following:
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.11/)
+
 {% highlight ocaml %}
 libraryDependencies ++= Seq(
   "org.reactivemongo" %% "reactivemongo" % "{{site.latest_release}}"

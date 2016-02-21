@@ -24,11 +24,11 @@ libraryDependencies ++= Seq(
 
 As for Play 2.4 itself, this ReactiveMongo plugin requires a JVM 1.8+.
 
-If you are looking for a stable version for Play 2.3.x, please consider using the 0.11.7.play23 version:
+If you are looking for a stable version for Play 2.3.x, please consider using the 0.11.10.play23 version:
 
 {% highlight ocaml %}
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.7.play23"
+  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.10.play23"
 )
 {% endhighlight %}
 
@@ -157,7 +157,7 @@ object MongoEnv {
 
 ### Play 2.3
 
-The version `0.11.7.play23` of this plugin is available for Play 2.3.
+The version `0.11.10.play23` of this plugin is available for Play 2.3.
 
 Add to your `conf/play.plugins`:
 
