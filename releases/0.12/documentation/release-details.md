@@ -7,7 +7,35 @@ title: ReactiveMongo 0.12 - Release details
 
 **What's new?**
 
-- TODO
+TODO:
+
+- #349: BSONTimestamp improvements & tests: `.time` and `.ordinal` extracted from the raw value
+- collection.{ findAndModify, findAndUpdate, findAndUpdate, aggregate }
+- redact pipeline op
+- geoNear pipeline op
+- out pipeline op
+- default read pref, write concern in conf
+- update netty
+- Play Formatter instances
+- Play PathBindable instances
+- Upserted _id from BSONObjectID to BSONValue (accept any kind of _id)
+- BSON handler for java.util.Date
+- #399 In the trait [`reactivemongo.api.collections.GenericQueryBuilder`](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder), the field `maxTimeMsOption` is added.
+- Netty dependency excluded from the Play module (as provided by Play)
+- Distinct command
+- $sample aggregation stage
+- Separate Play JSON module
+- collection.drop doesn't fail if not exist
+- replace log4j by slf4j
+- Explain mode on query builder
+- Resync admin command
+- BSONJavaScript JSON conversion
+- Cursor from aggregation result (aggregate1)
+- MongoConnection.database instead of .db (or .apply)
+- Separate Iteratee module
+- WriteResult no longer an exception, see LastError
+- For the type `reactivemongo.api.commands.LastError`, the properties `writeErrors` and `writeConcernError` have been added.
+- In the case class `reactivemongo.api.commands.CollStatsResult`, the field `maxSize` has been added.
 
 > MongoDB versions older than 2.6 are not longer supported by ReactiveMongo.
 
@@ -102,19 +130,3 @@ For the current 0.12 release, it has detected the following breaking changes.
   * see [`reactivemongo.core.commands.CrAuthenticate`](../api/index.html#reactivemongo.core.commands.CrAuthenticate) (only for the legacy MongoDB CR authentication)
 - The class [`reactivemongo.core.actors.MongoDBSystem`](../api/index.html#reactivemongo.core.actors.MongoDBSystem) has changed to a trait.
 - The declaration of class [`reactivemongo.core.nodeset.Authenticating`](../api/index.html#reactivemongo.core.nodeset.Authenticating) has changed to a sealed trait.
-
-### Stats
-
-Here is the list of the commits included in this release (since 0.11, the top commit is the most recent one):
-
-~~~
-$ git shortlog -s -n refs/tags/0.11.0..0.12.0
-   129  Cédric Chantepie
-     2  Maris Ruskulis
-     2  Claudio Bley
-     1  Alois Cochard
-     1  Sam Rottenberg
-     1  Thibault Duplessis
-     1  Viktor Taranenko
-     1  Francisco José Canedo Dominguez
-~~~
