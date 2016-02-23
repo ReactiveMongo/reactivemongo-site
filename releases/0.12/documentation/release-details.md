@@ -34,6 +34,7 @@ TODO:
 - MongoConnection.database instead of .db (or .apply)
 - Separate Iteratee module
 - WriteResult no longer an exception, see LastError
+- Use `ErrorHandler` with the `Cursor` functions, instead of `stopOnError: Boolean`
 - For the type `reactivemongo.api.commands.LastError`, the properties `writeErrors` and `writeConcernError` have been added.
 - In the case class `reactivemongo.api.commands.CollStatsResult`, the field `maxSize` has been added.
 
