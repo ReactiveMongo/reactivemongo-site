@@ -7,52 +7,40 @@ title: ReactiveMongo 0.12 - Release details
 
 **What's new?**
 
+> **Documentation**: The documentation is available [online](index.html). You can also browse the [API](../api/index.html).
+
 TODO:
 
-- #349: BSONTimestamp improvements & tests: `.time` and `.ordinal` extracted from the raw value
+- Compatibility from MongoDB 2.6 up to 3.2
+- MongoConnection.database instead of .db (or .apply)
+
 - collection.{ findAndModify, findAndUpdate, findAndUpdate, aggregate }
+- Distinct command and collection.distinct
+- $sample aggregation stage
 - redact pipeline op
 - geoNear pipeline op
 - out pipeline op
+
 - default read pref, write concern in conf
-- update netty
+- update netty (will be shaded); To avoid conflict (dependency hell), the netty dependency excluded from the Play module (as provided by Play)
 - Play Formatter instances
 - Play PathBindable instances
-- Upserted _id from BSONObjectID to BSONValue (accept any kind of _id)
+
 - BSON handler for java.util.Date
+- BSON readers & writers combinators (AbstractMethodError if using custom lib pull older BSON dependency)
+- #349: BSONTimestamp improvements & tests: `.time` and `.ordinal` extracted from the raw value
+
 - #399 In the trait [`reactivemongo.api.collections.GenericQueryBuilder`](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder), the field `maxTimeMsOption` is added.
-- Netty dependency excluded from the Play module (as provided by Play)
-- Distinct command
-- $sample aggregation stage
-- Separate Play JSON module
 - collection.drop doesn't fail if not exist
-- replace log4j by slf4j
 - Explain mode on query builder
 - Resync admin command
-- BSONJavaScript JSON conversion
-- Cursor from aggregation result (aggregate1)
-- MongoConnection.database instead of .db (or .apply)
-- Separate Iteratee module
-- WriteResult no longer an exception, see LastError
-- Use `ErrorHandler` with the `Cursor` functions, instead of `stopOnError: Boolean`
-- For the type `reactivemongo.api.commands.LastError`, the properties `writeErrors` and `writeConcernError` have been added.
-- In the case class `reactivemongo.api.commands.CollStatsResult`, the field `maxSize` has been added.
 
-> MongoDB versions older than 2.6 are not longer supported by ReactiveMongo.
+**Playframework**
 
-**Documentation**
-
-The documentation is available [online](index.html). You can also browse the [Scaladoc](../api/index.html).
-
-### Migration notes
-
-The package `reactivemongo.api.collections.default` has been refactored as the package [`reactivemongo.api.collections.bson`](http://reactivemongo.org/releases/0.11/api/index.html#reactivemongo.api.collections.bson.package).
-If you get a compilation error like the following one, you need to update the corresponding imports.
-
-{% highlight text %}
-object default is not a member of package reactivemongo.api.collections
-[error] import reactivemongo.api.collections.default.BSONCollection
-{% endhighlight %}
+- Separate Play JSON module: serialization pack without the Play module
+- JSON conversions
+  - BSONJavaScript
+  - BSONUndefined
 
 When using the **[support for Play JSON](json/overview.html)**, if the following error occurs, it's necessary to make sure `import reactivemongo.play.json._` is used, to import default BSON/JSON conversions.
 
@@ -60,6 +48,20 @@ When using the **[support for Play JSON](json/overview.html)**, if the following
 No Json serializer as JsObject found for type play.api.libs.json.JsObject.
 Try to implement an implicit OWrites or OFormat for this type.
 {% endhighlight %}
+
+**Result Cursor**
+
+- Cursor from aggregation result (aggregate1)
+- Use `ErrorHandler` with the `Cursor` functions, instead of `stopOnError: Boolean`
+
+- Separate Iteratee module
+
+- For the type `reactivemongo.api.commands.LastError`, the properties `writeErrors` and `writeConcernError` have been added.
+- In the case class `reactivemongo.api.commands.CollStatsResult`, the field `maxSize` has been added.
+
+- Log4J is replaced by [SLF4J](http://www.slf4j.org/) (see the [documentation](./index.html#logging))
+
+> MongoDB versions older than 2.6 are not longer supported by ReactiveMongo.
 
 ### Breaking changes
 
@@ -75,6 +77,15 @@ For the current 0.12 release, it has detected the following breaking changes.
   * method `ask(reactivemongo.core.protocol.CheckedWriteRequest)` is removed
   * method `ask(reactivemongo.core.protocol.RequestMaker,Boolean)` is removed
   * method `waitForPrimary(scala.concurrent.duration.FiniteDuration)` is removed
+
+Since [release 0.11](../../0.11/documentation/release-details.html), the package [`reactivemongo.api.collections.default`](http://reactivemongo.org/releases/0.10/api/index.html#reactivemongo.api.collections.default.package) has been refactored as the package [`reactivemongo.api.collections.bson`](http://reactivemongo.org/releases/0.11/api/index.html#reactivemongo.api.collections.bson.package).
+If you get a compilation error like the following one, you need to update the corresponding imports.
+
+{% highlight text %}
+object default is not a member of package reactivemongo.api.collections
+[error] import reactivemongo.api.collections.default.BSONCollection
+{% endhighlight %}
+
 
 **Operation results**
 

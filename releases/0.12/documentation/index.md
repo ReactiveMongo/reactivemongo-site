@@ -49,3 +49,9 @@ The API for this module can be [browsed online](../play-api/index.html).
 - [FailoverStrategy](advanced-topics/failoverstrategy.html)
 - [ReadPreferences](advanced-topics/read-preferences.html)
 - [GridFS](advanced-topics/gridfs.html)
+
+### Logging
+
+[SLF4J](http://www.slf4j.org/) is used for the logging in ReactiveMongo. As soon as an appropriate binding is available at runtime, it will be used.
+
+In a Play application, the [Playframework logging](https://www.playframework.com/documentation/2.4.x/ScalaLoggin) will be used.
