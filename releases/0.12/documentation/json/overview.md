@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ReactiveMongo 0.12 - Play JSON support
+title: ReactiveMongo 0.11 - Play JSON support
 ---
 
 This [Play JSON library](https://github.com/reactivemongo/reactivemongo-play-json) provides a JSON serialization pack for ReactiveMongo, based on [Play Framework JSON library](https://www.playframework.com/documentation/latest/ScalaJson).
@@ -11,11 +11,11 @@ You can setup this serialization pack by adding the following dependency in your
 
 {% highlight ocaml %}
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "reactivemongo-play-json" % "{{site._0_12_latest_minor}}"
+  "org.reactivemongo" %% "reactivemongo-play-json" % "{{site._0_11_latest_minor}}"
 )
 {% endhighlight %}
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-play-json_2.12/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-play-json_2.12/)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-play-json_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-play-json_2.11/)
 
 Then, the following code enables this JSON serialization pack.
 
