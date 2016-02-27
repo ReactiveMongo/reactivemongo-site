@@ -11,36 +11,139 @@ title: ReactiveMongo 0.12 - Release details
 
 TODO:
 
-- Compatibility from MongoDB 2.6 up to 3.2
-- MongoConnection.database instead of .db (or .apply)
+The [MongoDB] compatibility is now from 2.6 up to 3.2.
 
+A new better [DB resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) is available (see [connection tutorial](tutorial/connect-database.html)).
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.api.{ DefaultDB, MongoConnection }
+
+def resolve(con: MongoConnection, name: String): Future[DefaultDB] =
+  con.database(name)
+{% endhighlight %}
+
+Some default [read preference](https://docs.mongodb.org/manual/core/read-preference/) and default [write concern](https://docs.mongodb.org/manual/reference/write-concern/) can be set in the [connection configuration](tutorial/connect-database.html).
+
+{% highlight scala %}
+// TODO: Code sample
+{% endhighlight %}
+
+**Aggregation**
+
+- Newly supported [Pipeline Aggregation Stages](https://docs.mongodb.org/manual/reference/operator/aggregation-pipeline/);
+  - [$geoNear](https://docs.mongodb.org/manual/reference/operator/aggregation/geoNear/#pipe._S_geoNear): Returns an ordered stream of documents based on the proximity to a geospatial point.
+  - [$out](https://docs.mongodb.org/manual/reference/operator/aggregation/out/#pipe._S_out): Takes the documents returned by the aggregation pipeline and writes them to a specified collection.
+  - [$redact](https://docs.mongodb.org/manual/reference/operator/aggregation/redact/#pipe._S_redact): Reshapes each document in the stream by restricting the content for each document based on information stored in the documents themselves..
+  - [$sample](https://docs.mongodb.org/manual/reference/operator/aggregation/sample/) aggregation stage only (only since MongoDB 3.2): Randomly selects the specified number of documents from its input.
 - collection.{ findAndModify, findAndUpdate, findAndUpdate, aggregate }
-- Distinct command and collection.distinct
-- $sample aggregation stage
-- redact pipeline op
-- geoNear pipeline op
-- out pipeline op
 
-- default read pref, write concern in conf
-- update netty (will be shaded); To avoid conflict (dependency hell), the netty dependency excluded from the Play module (as provided by Play)
-- Play Formatter instances
-- Play PathBindable instances
+The [`distinct`](https://docs.mongodb.org/manual/reference/command/distinct/) command, to find the distinct values for a specified field across a single collection, is now provided as a [collection operation](../api/index.html#reactivemongo.api.collections.GenericCollection@distinct[T]%28key:String,selector:Option[GenericCollection.this.pack.Document],readConcern:reactivemongo.api.ReadConcern%29%28implicitreader:GenericCollection.this.pack.NarrowValueReader[T],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[scala.collection.immutable.ListSet[T]]).
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+def distinctStates(col: BSONCollection): Future[Set[String]] =
+  col.distinct[String]("state")
+{% endhighlight %}
+
+**Dependencies**
+
+- The [Netty](http://netty.io/) dependency has been updated to the version 3.10.4. To avoid conflict ([dependency hell](https://en.wikipedia.org/wiki/Dependency_hell)), this dependency has also been excluded from the Play module (as provided by Play). The Netty dependency will be shaded in a next release.
+- Log4J is replaced by [SLF4J](http://www.slf4j.org/) (see the [logging documentation](./index.html#logging))
 
 - BSON handler for java.util.Date
 - BSON readers & writers combinators (AbstractMethodError if using custom lib pull older BSON dependency)
 - #349: BSONTimestamp improvements & tests: `.time` and `.ordinal` extracted from the raw value
 
-- #399 In the trait [`reactivemongo.api.collections.GenericQueryBuilder`](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder), the field `maxTimeMsOption` is added.
-- collection.drop doesn't fail if not exist
-- Explain mode on query builder
-- Resync admin command
+**Query**
+
+- Cursor from aggregation result ([aggregate1](../api/index.html#reactivemongo.api.collections.GenericCollection@aggregate1[T]%28firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],cursor:GenericCollection.this.BatchCommands.AggregationFramework.Cursor,explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference%29%28implicitec:scala.concurrent.ExecutionContext,implicitr:GenericCollection.this.pack.Reader[T]%29:scala.concurrent.Future[reactivemongo.api.Cursor[T]]))
+- Use `ErrorHandler` with the `Cursor` functions, instead of `stopOnError: Boolean`
+
+The field [`maxTimeMs`](https://docs.mongodb.org/manual/reference/method/cursor.maxTimeMS/) is supported by the [query builder](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@maxTimeMs%28p:Long%29:GenericQueryBuilder.this.Self), to specifies a cumulative time limit in milliseconds for processing operations.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+def withMaxTimeMs(col: BSONCollection): Future[List[BSONDocument]] = 
+  col.find(BSONDocument("foo" -> "bar")).maxTimeMs(1234L).
+  cursor[BSONDocument]().collect[List]()
+{% endhighlight %}
+
+The [`explain`](https://docs.mongodb.org/manual/reference/explain-results/) operation is now supported, to get information on the query plan.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+// If using the Play JSON support
+import play.api.libs.json.{ Json, JsObject }
+import reactivemongo.play.json._, collection.JSONCollection
+
+def bsonExplain(col: BSONCollection): Future[Option[BSONDocument]] =
+  col.find(BSONDocument.empty).explain().one[BSONDocument]
+
+def jsonExplain(col: JSONCollection): Future[Option[JsObject]] =
+  col.find(Json.obj()).explain().one[JsObject]
+{% endhighlight %}
+
+[See the API for query builder](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder)
+
+**Administration**
+  
+The new [`drop`](../api/index.html#reactivemongo.api.collections.GenericCollection@drop%28failIfNotFound:Boolean%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[Boolean]) operation no longer fails if the collection doesn't exist. The previous behaviour is still available.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+// Doesn't fail if the collection represented by `col` doesn't exists,
+// but return Future(false)
+def dropNotFail(col: BSONCollection): Future[Boolean] = col.drop(false)
+
+// Fails if the collection represented by `col` doesn't exists,
+// as in the previous behaviour
+def dropFail(col: BSONCollection): Future[Unit] = col.drop(true).map(_ => {})
+
+def deprecatedDrop(col: BSONCollection): Future[Unit] = col.drop()
+{% endhighlight %}
+
+The replication command [`resync`](https://docs.mongodb.org/manual/reference/command/resync/) is now provided.
+
+{% highlight scala %}
+// TODO: Code sample
+{% endhighlight %}
+
+In the case class `reactivemongo.api.commands.CollStatsResult`, the field `maxSize` has been added.
+
+{% highlight scala %}
+// TODO: Code sample
+{% endhighlight %}
 
 **Playframework**
 
-- Separate Play JSON module: serialization pack without the Play module
-- JSON conversions
-  - BSONJavaScript
-  - BSONUndefined
+The [integration with Playframework](./tutorial/play2.html) is still easy.
+
+- Separate [Play JSON library](./json/overview.html): serialization pack without the Play module
+  - [BSONJavaScript](../../api/reactivemongo/bson/BSONJavaScript.html)
+  - [BSONUndefined](../../api/reactivemongo/bson/BSONUndefined$.html)
 
 When using the **[support for Play JSON](json/overview.html)**, if the following error occurs, it's necessary to make sure `import reactivemongo.play.json._` is used, to import default BSON/JSON conversions.
 
@@ -49,17 +152,25 @@ No Json serializer as JsObject found for type play.api.libs.json.JsObject.
 Try to implement an implicit OWrites or OFormat for this type.
 {% endhighlight %}
 
-**Result Cursor**
+Play Formatter instances
 
-- Cursor from aggregation result (aggregate1)
-- Use `ErrorHandler` with the `Cursor` functions, instead of `stopOnError: Boolean`
+{% highlight scala %}
+// TODO: Code sample
+{% endhighlight %}
 
-- Separate Iteratee module
+Play PathBindable instances
+
+{% highlight scala %}
+// TODO: Code sample
+{% endhighlight %}
+
+Separate Iteratee module
+
+{% highlight scala %}
+// TODO: Code sample
+{% endhighlight %}
 
 - For the type `reactivemongo.api.commands.LastError`, the properties `writeErrors` and `writeConcernError` have been added.
-- In the case class `reactivemongo.api.commands.CollStatsResult`, the field `maxSize` has been added.
-
-- Log4J is replaced by [SLF4J](http://www.slf4j.org/) (see the [documentation](./index.html#logging))
 
 > MongoDB versions older than 2.6 are not longer supported by ReactiveMongo.
 
@@ -85,7 +196,6 @@ If you get a compilation error like the following one, you need to update the co
 object default is not a member of package reactivemongo.api.collections
 [error] import reactivemongo.api.collections.default.BSONCollection
 {% endhighlight %}
-
 
 **Operation results**
 

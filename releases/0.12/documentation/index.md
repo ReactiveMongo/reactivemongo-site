@@ -7,18 +7,13 @@ title: ReactiveMongo 0.12 - Documentation
 
 * You can read the [release notes](release-details.html) to know what is included in this release.
 * The Scaladoc for the Driver API can be browsed [here](../api/index.html).
+The API for this module can be [browsed online](../play-api/index.html).
 
 The dependency can be added in your SBT project as following: `"org.reactivemongo" %% "reactivemongo" % "{{site._0_12_latest_minor}}"`
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.12/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.12/)
 
 > MongoDB versions older than 2.6 are not longer supported by ReactiveMongo, as the End of Life for MongoDB 2.4 was reached in [April 2015](https://www.mongodb.com/support-policy).
-
-**Play Framework**
-
-The documentation of the module for the Play Framework can is [available online](tutorial/play2.html).
-
-The API for this module can be [browsed online](../play-api/index.html).
 
 ### Tutorial
 
@@ -37,9 +32,10 @@ The API for this module can be [browsed online](../play-api/index.html).
    - [Concrete Example: BigDecimal and BigInteger De/Serialization](bson/example-bigdecimal.html)
    - [Concrete example: Documents](bson/example-document.html)
 
-### JSON Manipulation
+### Play Framework
 
-[Overview of the Play JSON library](json/overview.html)
+- [Overview of the Play JSON library](json/overview.html): the standalone library to support JSON serialization.
+- [Integration with Play Framework](tutorial/play2.html): the complete Play plugin (also using the previous JSON library).
 
 ### Advanced Topics
 
