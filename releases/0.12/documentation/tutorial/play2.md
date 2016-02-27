@@ -518,3 +518,5 @@ class ApplicationUsingJsonReadersWriters @Inject() (
 **Screencasts:**
 
 * [ReactiveMongo Play Plugin](http://yobriefca.se/screencasts/005-play-reactivemongo) (by James Hughes)
+
+[Previous: Play JSON support](../json/overview.html)
