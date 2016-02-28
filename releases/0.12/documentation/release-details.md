@@ -11,7 +11,7 @@ title: ReactiveMongo 0.12 - Release details
 
 TODO:
 
-The [MongoDB] compatibility is now from 2.6 up to 3.2.
+The [MongoDB](https://www.mongodb.org/) compatibility is now from 2.6 up to 3.2.
 
 A new better [DB resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) is available (see [connection tutorial](tutorial/connect-database.html)).
 
@@ -64,8 +64,34 @@ def distinctStates(col: BSONCollection): Future[Set[String]] =
 
 **Query**
 
-- Cursor from aggregation result ([aggregate1](../api/index.html#reactivemongo.api.collections.GenericCollection@aggregate1[T]%28firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],cursor:GenericCollection.this.BatchCommands.AggregationFramework.Cursor,explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference%29%28implicitec:scala.concurrent.ExecutionContext,implicitr:GenericCollection.this.pack.Reader[T]%29:scala.concurrent.Future[reactivemongo.api.Cursor[T]]))
-- Use `ErrorHandler` with the `Cursor` functions, instead of `stopOnError: Boolean`
+The results from the new [aggregation operation](../api/index.html#reactivemongo.api.collections.GenericCollection@aggregate1[T]%28firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],cursor:GenericCollection.this.BatchCommands.AggregationFramework.Cursor,explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference%29%28implicitec:scala.concurrent.ExecutionContext,implicitr:GenericCollection.this.pack.Reader[T]%29:scala.concurrent.Future[reactivemongo.api.Cursor[T]]) can be processed in a streaming way, using the [cursor option](https://docs.mongodb.org/manual/reference/command/aggregate/).
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson._
+import reactivemongo.api.Cursor
+import reactivemongo.api.collections.bson.BSONCollection
+
+def populatedStates(cities: BSONCollection): Future[Cursor[BSONDocument]] = {
+  import cities.BatchCommands.AggregationFramework
+  import AggregationFramework.{ Cursor => AggCursor, Group, Match, SumField }
+
+  val cursor = AggCursor(batchSize = 1) // initial batch size
+
+  cities.aggregate1[BSONDocument](Group(BSONString("$state"))(
+    "totalPop" -> SumField("population")), List(
+    Match(document("totalPop" -> document("$gte" -> 10000000L)))),
+    cursor)
+}
+{% endhighlight %}
+
+An [`ErrorHandler`](../api/index.html#reactivemongo.api.Cursor$@ErrorHandler[A]=%28A,Throwable%29=%3Ereactivemongo.api.Cursor.State[A]) can be used with the [`Cursor`](../api/index.html#reactivemongo.api.Cursor), instead of the limited `stopOnError` flag.
+
+{% highlight scala %}
+// TODO: Code sample
+{% endhighlight %}
 
 The field [`maxTimeMs`](https://docs.mongodb.org/manual/reference/method/cursor.maxTimeMS/) is supported by the [query builder](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@maxTimeMs%28p:Long%29:GenericQueryBuilder.this.Self), to specifies a cumulative time limit in milliseconds for processing operations.
 
@@ -105,7 +131,7 @@ def jsonExplain(col: JSONCollection): Future[Option[JsObject]] =
 
 **Administration**
   
-The new [`drop`](../api/index.html#reactivemongo.api.collections.GenericCollection@drop%28failIfNotFound:Boolean%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[Boolean]) operation no longer fails if the collection doesn't exist. The previous behaviour is still available.
+The new [`drop`](../api/index.html#reactivemongo.api.collections.GenericCollection@drop%28failIfNotFound:Boolean%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[Boolean]) operation can try, without failing if the collection doesn't exist. The previous behaviour is still available.
 
 {% highlight scala %}
 import scala.concurrent.Future
