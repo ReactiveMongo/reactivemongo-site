@@ -9,8 +9,6 @@ title: ReactiveMongo 0.12 - Release details
 
 > **Documentation**: The documentation is available [online](index.html). You can also browse the [API](../api/index.html).
 
-TODO:
-
 The [MongoDB](https://www.mongodb.org/) compatibility is now from 2.6 up to 3.2.
 
 A new better [DB resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) is available (see [connection tutorial](tutorial/connect-database.html)).
@@ -53,14 +51,56 @@ def distinctStates(col: BSONCollection): Future[Set[String]] =
   col.distinct[String]("state")
 {% endhighlight %}
 
+**BSON**
+
+A [BSON handler](../api/index.html#reactivemongo.bson.BSONHandler) is provided to respectively, read a [`java.util.Date`](http://docs.oracle.com/javase/8/docs/api/java/util/Date.html) from a [`BSONDateTime`](../api/reactivemongo/bson/BSONDateTime.html), and write a `Date` as `BSONDateTime`.
+
+{% highlight scala %}
+import java.util.Date
+import reactivemongo.bson._
+
+def foo(doc: BSONDocument): Option[Date] = doc.getAs[Date]("aBsonDateTime")
+
+def bar(date: Date): BSONDocument = BSONDocument("aBsonDateTime" -> date)
+{% endhighlight %}
+
+The traits [`BSONReader`](../api/index.html#reactivemongo.bson.BSONReader) and [`BSONWriter`](../api/index.html#reactivemongo.bson.BSONWriter) have new combinator, so new instances can be easily defined using the existing one.
+
+{% highlight scala %}
+import reactivemongo.bson._
+
+sealed trait MyEnum
+object EnumValA extends MyEnum
+object EnumValB extends MyEnum
+
+implicit def MyEnumReader(implicit underlying: BSONReader[BSONString, String]): BSONReader[BSONString, MyEnum] = underlying.afterRead {
+  case "A" => EnumValA
+  case "B" => EnumValB
+  case v => sys.error(s"unexpected value: $v")
+}
+
+implicit def MyEnumWriter(implicit underlying: BSONWriter[String, BSONString]): BSONWriter[MyEnum, BSONString] = underlying.beforeWrite[MyEnum] {
+  case EnumValA => "A"
+  case _ => "B"
+}
+{% endhighlight %}
+
+The instances of [`BSONTimestamp`](../api/index.html#reactivemongo.bson.BSONTimestamp) can be now created from a raw numeric value, with the `time` and `ordinal` properties being extracted.
+
+{% highlight scala %}
+import reactivemongo.bson.BSONTimestamp
+
+def foo(raw: Long) = BSONTimestamp(raw)
+
+// or...
+def bar(time: Long, ordinal: Int) = BSONTimestamp(time, ordinal)
+{% endhighlight %}
+
 **Dependencies**
 
-- The [Netty](http://netty.io/) dependency has been updated to the version 3.10.4. To avoid conflict ([dependency hell](https://en.wikipedia.org/wiki/Dependency_hell)), this dependency has also been excluded from the Play module (as provided by Play). The Netty dependency will be shaded in a next release.
-- Log4J is replaced by [SLF4J](http://www.slf4j.org/) (see the [logging documentation](./index.html#logging))
+The [Netty](http://netty.io/) dependency has been updated to the version 3.10.4. To avoid conflict ([dependency hell](https://en.wikipedia.org/wiki/Dependency_hell)), this dependency has also been excluded from the Play module (as provided by Play). The Netty dependency will be shaded in a next release.
 
-- BSON handler for java.util.Date
-- BSON readers & writers combinators (AbstractMethodError if using custom lib pull older BSON dependency)
-- #349: BSONTimestamp improvements & tests: `.time` and `.ordinal` extracted from the raw value
+Concerning the [logging](./index.html#logging), Log4J is replaced by [SLF4J](http://www.slf4j.org/).
 
 **Query**
 
