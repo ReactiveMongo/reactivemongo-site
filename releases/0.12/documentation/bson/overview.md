@@ -41,41 +41,28 @@ val arrField = BSONDocument("array_field" -> List("written", "values"))
 > As for `BSONDocument`, any type with a `BSONWriter` (see [provided handlers](./typeclasses.html#provided-handlers)) can be added to a `BSONArray` (see `arr2` in the previous example).
 > Moreover, a [`Traversable[T]`](http://www.scala-lang.org/api/current/index.html#scala.collection.Traversable) whose element type `T` has a `BSONWriter[T, _]` can be used a BSON array (see `arrField` in the previous example).
 
-[BSONBinary](../../api/reactivemongo/bson/BSONBinary.html): binary data
+| BSON | Description | JVM type |
+| ---- | ----------- | -------- |
+| [BSONBinary](../../api/reactivemongo/bson/BSONBinary.html) | binary data | `Array[Byte]` |
+| [BSONBoolean](../../api/reactivemongo/bson/BSONBoolean.html) | boolean | `Boolean` |
+| [BSONDBPointer](../../api/reactivemongo/bson/BSONDBPointer.html) | _deprecated in the protocol_ | _None_ |
+| [BSONDateTime](../../api/reactivemongo/bson/BSONDateTime.html) | UTC Date Time | `java.util.Date` |
+| [BSONDouble](../../api/reactivemongo/bson/BSONDouble.html) | 64-bit IEEE 754 floating point | `Double` |
+| [BSONInteger](../../api/reactivemongo/bson/BSONInteger.html) | 32-bit integer | `Int` |
+| [BSONJavaScript](../../api/reactivemongo/bson/BSONJavaScript.html) | Javascript code | _None_ |
+| [BSONJavaScriptWS](../../api/reactivemongo/bson/BSONJavaScriptWS.html) | Javascript scoped code | _None_ |
+| [BSONLong](../../api/reactivemongo/bson/BSONLong.html) | 64-bit integer | `Long` |
+| [BSONMaxKey](../../api/reactivemongo/bson/BSONMaxKey$.html) | max key | _None_ |
+| [BSONMinKey](../../api/reactivemongo/bson/BSONMinKey$.html) | min key | _None_ |
+| [BSONNull](../../api/reactivemongo/bson/BSONNull$.html) | null | _None_ |
+| [BSONObjectID](../../api/reactivemongo/bson/BSONObjectID.html) | [12-bytes default id type in MongoDB](http://docs.mongodb.org/manual/reference/object-id/) | _None_ |
+| [BSONRegex](../../api/reactivemongo/bson/BSONRegex.html) | regular expression | _None_ |
+| [BSONString](../../api/reactivemongo/bson/BSONString.html) | UTF-8 string | `String` |
+| [BSONSymbol](../../api/reactivemongo/bson/BSONSymbol.html) | _deprecated in the protocol_ | _None_ |
+| [BSONTimestamp](../../api/reactivemongo/bson/BSONTimestamp.html) | special date type used in MongoDB internals | _None_ |
+| [BSONUndefined](../../api/reactivemongo/bson/BSONUndefined$.html) | _deprecated in the protocol_ | _None_ |
 
-[BSONBoolean](../../api/reactivemongo/bson/BSONBoolean.html): boolean
-
-[BSONDBPointer](../../api/reactivemongo/bson/BSONDBPointer.html): _deprecated in the protocol_
-
-[BSONDateTime](../../api/reactivemongo/bson/BSONDateTime.html): UTC Date Time
-
-[BSONDouble](../../api/reactivemongo/bson/BSONDouble.html): 64-bit IEEE 754 floating point
-
-[BSONInteger](../../api/reactivemongo/bson/BSONInteger.html): 32-bit integer
-
-[BSONJavaScript](../../api/reactivemongo/bson/BSONJavaScript.html): javascript code
-
-[BSONJavaScriptWS](../../api/reactivemongo/bson/BSONJavaScriptWS.html): javascript scoped code
-
-[BSONLong](../../api/reactivemongo/bson/BSONLong.html): 64-bit integer
-
-[BSONMaxKey](../../api/reactivemongo/bson/BSONMaxKey$.html): max key
-
-[BSONMinKey](../../api/reactivemongo/bson/BSONMinKey$.html): min key
-
-[BSONNull](../../api/reactivemongo/bson/BSONNull$.html): null
-
-[BSONObjectID](../../api/reactivemongo/bson/BSONObjectID.html): [12-bytes default id type in MongoDB](http://docs.mongodb.org/manual/reference/object-id/)
-
-[BSONRegex](../../api/reactivemongo/bson/BSONRegex.html): regular expression
-
-[BSONString](../../api/reactivemongo/bson/BSONString.html): UTF-8 string
-
-[BSONSymbol](../../api/reactivemongo/bson/BSONSymbol.html): _deprecated in the protocol_
-
-[BSONTimestamp](../../api/reactivemongo/bson/BSONTimestamp.html): special date type used in MongoDB internals
-
-[BSONUndefined](../../api/reactivemongo/bson/BSONUndefined$.html): _deprecated in the protocol_
+(See also [BSONNumberLike](../../api/reactivemongo/bson/BSONNumberLike.html) and [BSONBooleanLike](../../api/reactivemongo/bson/BSONBooleanLike.html)
 
 All these classes extend [BSONValue](../../api/reactivemongo/bson/BSONValue.html).
 
