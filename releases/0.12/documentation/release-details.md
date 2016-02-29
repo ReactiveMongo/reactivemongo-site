@@ -26,10 +26,18 @@ def resolve(con: MongoConnection, name: String): Future[DefaultDB] =
 Some default [read preference](https://docs.mongodb.org/manual/core/read-preference/) and default [write concern](https://docs.mongodb.org/manual/reference/write-concern/) can be set in the [connection configuration](tutorial/connect-database.html).
 
 {% highlight scala %}
-// TODO: Code sample
+import reactivemongo.api._, commands.WriteConcern
+
+def connection(driver: MongoDriver) =
+  driver.connection(List("localhost"), options = MongoConnectionOptions(
+    readPreference = ReadPreference.primary,
+    writeConcern = WriteConcern.Default
+  ))
 {% endhighlight %}
 
 **Aggregation**
+
+TODO: Convenient collection.aggregate
 
 - Newly supported [Pipeline Aggregation Stages](https://docs.mongodb.org/manual/reference/operator/aggregation-pipeline/);
   - [$geoNear](https://docs.mongodb.org/manual/reference/operator/aggregation/geoNear/#pipe._S_geoNear): Returns an ordered stream of documents based on the proximity to a geospatial point.
