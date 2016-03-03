@@ -13,4 +13,5 @@ libraryDependencies ++= Seq(
   "io.netty" % "netty" % "3.10.4.Final" % "provided")
 
 resolvers ++= Seq(
-  "Typesafe releases" at "http://repo.typesafe.com/typesafe/releases/")
+  "Typesafe releases" at "http://repo.typesafe.com/typesafe/releases/",
+  "Typesafe snapshots" at "http://repo.typesafe.com/typesafe/snapshots/")

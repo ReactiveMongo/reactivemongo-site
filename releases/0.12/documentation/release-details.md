@@ -104,12 +104,6 @@ def foo(raw: Long) = BSONTimestamp(raw)
 def bar(time: Long, ordinal: Int) = BSONTimestamp(time, ordinal)
 {% endhighlight %}
 
-**Dependencies**
-
-The [Netty](http://netty.io/) dependency has been updated to the version 3.10.4. To avoid conflict ([dependency hell](https://en.wikipedia.org/wiki/Dependency_hell)), this dependency has also been excluded from the Play module (as provided by Play). The Netty dependency will be shaded in a next release.
-
-Concerning the [logging](./index.html#logging), Log4J is replaced by [SLF4J](http://www.slf4j.org/).
-
 **Query**
 
 The results from the new [aggregation operation](../api/index.html#reactivemongo.api.collections.GenericCollection@aggregate1[T]%28firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],cursor:GenericCollection.this.BatchCommands.AggregationFramework.Cursor,explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference%29%28implicitec:scala.concurrent.ExecutionContext,implicitr:GenericCollection.this.pack.Reader[T]%29:scala.concurrent.Future[reactivemongo.api.Cursor[T]]) can be processed in a streaming way, using the [cursor option](https://docs.mongodb.org/manual/reference/command/aggregate/).
@@ -245,6 +239,26 @@ Separate Iteratee module
 {% endhighlight %}
 
 - For the type `reactivemongo.api.commands.LastError`, the properties `writeErrors` and `writeConcernError` have been added.
+
+**Logging**
+
+Log4J is still required for backward compatibility (by deprecated code), but is replaced by [SLF4J](http://www.slf4j.org/) for the [ReactiveMongo logging](./index.html#logging).
+
+If you see the following message, please make sure you have a Log4J framework available.
+
+{% highlight text %}
+ERROR StatusLogger No log4j2 configuration file found. Using default configuration: logging only errors to the console.
+{% endhighlight %}
+
+As for SLF4J is now used, the following error is raised, please make sure to provide a [SLF4J binding](http://www.slf4j.org/manual.html#swapping) (e.g. `slf4j-simple`).
+
+{% highlight text %}
+NoClassDefFoundError: : org/slf4j/LoggerFactory
+{% endhighlight %}
+
+**Dependencies**
+
+The [Netty](http://netty.io/) dependency has been updated to the version 3.10.4. To avoid conflict ([dependency hell](https://en.wikipedia.org/wiki/Dependency_hell)), this dependency has also been excluded from the Play module (as provided by Play). The Netty dependency will be shaded in a next release.
 
 > MongoDB versions older than 2.6 are not longer supported by ReactiveMongo.
 
