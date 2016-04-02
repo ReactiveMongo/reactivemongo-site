@@ -72,6 +72,7 @@ The following options can be used with `MongoConnectionOptions` to configure the
       - *delay*: The [initial delay](../../api/index.html#reactivemongo.api.FailoverStrategy@initialDelay:scala.concurrent.duration.FiniteDuration) as a finite duration string accepted by the [`Duration` factory](http://www.scala-lang.org/api/current/index.html#scala.concurrent.duration.Duration$@apply(s:String):scala.concurrent.duration.Duration).
       - *retries*: The number of retry (`Int`).
       - *factor*: The `Double` value to multiply the retry counter with, to define the delay factor (`retryCount * factor`).
+- **rm.monitorRefreshMS**: The interval (in milliseconds) used by the ReactiveMongo monitor to refresh the node set.
 
 > The option `sslEnabled` is needed if the MongoDB server is requiring SSL (`mongod --sslMode requireSSL`). The related option `sslAllowsInvalidCert` is required is the server allows invalid certificate (`mongod --sslAllowInvalidCertificates`).
 
