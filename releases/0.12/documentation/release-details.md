@@ -45,6 +45,15 @@ val options = MongoConnectionOptions(
   failoverStrategy = FailoverStrategy(retries = 10))
 {% endhighlight %}
 
+The interval used by the ReactiveMongo monitor to refresh the information about the MongoDB node can be configured in the [connection options](tutorial/connect-database.html). The default is interval is 2000ms.
+
+{% highlight scala %}
+import reactivemongo.api.MongoConnectionOptions
+
+val options = MongoConnectionOptions(
+  monitorRefreshMS = 5000 /* 5s */)
+{% endhighlight %}
+
 **Aggregation**
 
 TODO: Convenient collection.aggregate
