@@ -36,6 +36,15 @@ def connection(driver: MongoDriver) =
   ))
 {% endhighlight %}
 
+The default [failover strategy](../../api/index.html#reactivemongo.api.FailoverStrategy) can be defined in the [connection options](tutorial/connect-database.html).
+
+{% highlight scala %}
+import reactivemongo.api.MongoConnectionOptions
+
+val options = MongoConnectionOptions(
+  failoverStrategy = FailoverStrategy(retries = 10))
+{% endhighlight %}
+
 **Aggregation**
 
 TODO: Convenient collection.aggregate
