@@ -173,7 +173,9 @@ The following handlers are provided by ReactiveMongo, to read and write the [BSO
 | BSONDouble   | Double         |
 | BSONDateTime | java.util.Date |
 
-> An optional value can be added to a document using the `Option` type (e.g. for an optional string, `Option[String]`).
+#### Optional value
+
+An optional value can be added to a document using the [`Option` type](http://www.scala-lang.org/api/current/index.html#scala.Option) (e.g. for an optional string, `Option[String]`).
 
 Using [`BSONBooleanLike`](../../api/index.html#reactivemongo.bson.BSONBooleanLike), it is possible to read the following BSON values as boolean.
 

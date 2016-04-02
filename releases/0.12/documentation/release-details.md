@@ -57,7 +57,7 @@ import reactivemongo.bson.BSONDocument
 import reactivemongo.api.collections.bson.BSONCollection
 
 def distinctStates(col: BSONCollection): Future[Set[String]] =
-  col.distinct[String]("state")
+  col.distinct[String, Set]("state")
 {% endhighlight %}
 
 **BSON**

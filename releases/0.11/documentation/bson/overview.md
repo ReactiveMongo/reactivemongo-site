@@ -77,6 +77,8 @@ val arrField = BSONDocument("array_field" -> List("written", "values"))
 
 [BSONUndefined](../../api/reactivemongo/bson/BSONUndefined$.html): _deprecated in the protocol_
 
+> See how to handle the [optional values](./typeclasses.html#optional-value).
+
 All these classes extend [BSONValue](../../api/reactivemongo/bson/BSONValue.html).
 
 A document is represented by `BSONDocument`. A `BSONDocument` is basically an immutable list of key-value pairs. Since it is the most used BSON type, one of the main focuses of the ReactiveMongo BSON library is to make manipulations of BSONDocuments as easy as possible.

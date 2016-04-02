@@ -173,8 +173,6 @@ The following handlers are provided by ReactiveMongo, to read and write the [BSO
 | BSONDouble   | Double         |
 | BSONDateTime | java.util.Date |
 
-> An optional value can be added to a document using the `Option` type (e.g. for an optional string, `Option[String]`).
-
 Using [`BSONBooleanLike`](../../api/index.html#reactivemongo.bson.BSONBooleanLike), it is possible to read the following BSON values as boolean.
 
 | BSON type     | Rule           |
@@ -191,6 +189,10 @@ Using [`BSONNumberLike`](../../api/index.html#reactivemongo.bson.BSONNumberLike)
 - [`BSONDouble`](../../api/index.html#reactivemongo.bson.BSONDouble)
 - [`BSONDateTime`](../../api/index.html#reactivemongo.bson.BSONDateTime): the number of milliseconds since epoch.
 - [`BSONTimestamp`](../../api/index.html#reactivemongo.bson.BSONTimestamp): the number of milliseconds since epoch.
+
+#### Optional value
+
+An optional value can be added to a document using the [`Option` type](http://www.scala-lang.org/api/current/index.html#scala.Option) (e.g. for an optional string, `Option[String]`).
 
 ### Concrete examples
 

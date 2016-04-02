@@ -49,3 +49,7 @@ The API for this module can be [browsed online](../play-api/index.html).
 - [FailoverStrategy](advanced-topics/failoverstrategy.html)
 - [ReadPreferences](advanced-topics/read-preferences.html)
 - [GridFS](advanced-topics/gridfs.html)
+
+### Samples
+
+{% include samples.md %}

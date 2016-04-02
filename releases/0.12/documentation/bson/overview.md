@@ -62,9 +62,11 @@ val arrField = BSONDocument("array_field" -> List("written", "values"))
 | [BSONTimestamp](../../api/reactivemongo/bson/BSONTimestamp.html) | special date type used in MongoDB internals | _None_ |
 | [BSONUndefined](../../api/reactivemongo/bson/BSONUndefined$.html) | _deprecated in the protocol_ | _None_ |
 
-(See also [BSONNumberLike](../../api/reactivemongo/bson/BSONNumberLike.html) and [BSONBooleanLike](../../api/reactivemongo/bson/BSONBooleanLike.html)
+The traits [BSONNumberLike](../../api/reactivemongo/bson/BSONNumberLike.html) and [BSONBooleanLike](../../api/reactivemongo/bson/BSONBooleanLike.html) can be used to generalize the handling of numerical and boolean values.
 
 All these classes extend [BSONValue](../../api/reactivemongo/bson/BSONValue.html).
+
+> See how to handle the [optional values](./typeclasses.html#optional-value).
 
 A document is represented by `BSONDocument`. A `BSONDocument` is basically an immutable list of key-value pairs. Since it is the most used BSON type, one of the main focuses of the ReactiveMongo BSON library is to make manipulations of BSONDocuments as easy as possible.
 
