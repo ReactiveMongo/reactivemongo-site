@@ -7,7 +7,8 @@ title: ReactiveMongo 0.12 - Release details
 
 **What's new?**
 
-> **Documentation**: The documentation is available [online](index.html). You can also browse the [API](../api/index.html).
+The documentation is available [online](index.html), and its code samples are compiled to make sure it's up-to-date.
+You can also browse the [API](../api/index.html).
 
 The [MongoDB](https://www.mongodb.org/) compatibility is now from 2.6 up to 3.2.
 
@@ -56,7 +57,7 @@ import reactivemongo.bson.BSONDocument
 import reactivemongo.api.collections.bson.BSONCollection
 
 def distinctStates(col: BSONCollection): Future[Set[String]] =
-  col.distinct[String]("state")
+  col.distinct[String, Set]("state")
 {% endhighlight %}
 
 **BSON**

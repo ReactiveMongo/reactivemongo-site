@@ -53,3 +53,7 @@ The dependency can be added in your SBT project as following: `"org.reactivemong
 > Log4J is still required by the deprecated code, but is not used by ReactiveMongo.
 
 In a Play application, the [Playframework logging](https://www.playframework.com/documentation/2.4.x/ScalaLoggin) will be used.
+
+### Samples
+
+{% include samples.md %}
