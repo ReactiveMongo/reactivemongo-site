@@ -46,7 +46,8 @@ The following options can be used with `MongoConnectionOptions` to configure the
 
 - **authSource**: The database source for authentication credentials.
 - **authMode**: The authentication mode. By default, it's the backward compatible [MONGODB-CR](http://docs.mongodb.org/manual/core/authentication/#mongodb-cr-authentication) which is used. If this options is set to `scram-sha1`, then the [SCRAM-SHA-1](http://docs.mongodb.org/manual/core/authentication/#scram-sha-1-authentication) authentication will be selected.
-- **connectTimeoutMS**: The number of milliseconds to wait for a connection to be established before giving up.
+- **connectTimeoutMS**: The [number of milliseconds](https://docs.mongodb.org/manual/reference/connection-string/#urioption.connectTimeoutMS) to wait for a connection to be established before giving up.
+- **socketTimeoutMS**: The [time in milliseconds](https://docs.mongodb.org/manual/reference/connection-string/#urioption.socketTimeoutMS) to attempt a send or receive on a socket before the attempt times out.
 - **sslEnabled**: It enables the SSL support for the connection (`true|false`).
 - **sslAllowsInvalidCert**: If `sslEnabled` is true, this one indicates whether to accept invalid certificates (e.g. self-signed).
 - **rm.tcpNoDelay**: TCPNoDelay boolean flag (`true|false`).
@@ -72,7 +73,7 @@ The following options can be used with `MongoConnectionOptions` to configure the
       - *delay*: The [initial delay](../../api/index.html#reactivemongo.api.FailoverStrategy@initialDelay:scala.concurrent.duration.FiniteDuration) as a finite duration string accepted by the [`Duration` factory](http://www.scala-lang.org/api/current/index.html#scala.concurrent.duration.Duration$@apply(s:String):scala.concurrent.duration.Duration).
       - *retries*: The number of retry (`Int`).
       - *factor*: The `Double` value to multiply the retry counter with, to define the delay factor (`retryCount * factor`).
-- **rm.monitorRefreshMS**: The interval (in milliseconds) used by the ReactiveMongo monitor to refresh the node set.
+- **rm.monitorRefreshMS**: The interval (in milliseconds) used by the ReactiveMongo monitor to refresh the node set (default: 10s); The minimal value is 100ms.
 
 > The option `sslEnabled` is needed if the MongoDB server is requiring SSL (`mongod --sslMode requireSSL`). The related option `sslAllowsInvalidCert` is required is the server allows invalid certificate (`mongod --sslAllowInvalidCertificates`).
 

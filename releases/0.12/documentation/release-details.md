@@ -45,13 +45,20 @@ val options = MongoConnectionOptions(
   failoverStrategy = FailoverStrategy(retries = 10))
 {% endhighlight %}
 
-The interval used by the ReactiveMongo monitor to refresh the information about the MongoDB node can be configured in the [connection options](tutorial/connect-database.html). The default is interval is 2000ms.
+The option [`socketTimeoutMS`](https://docs.mongodb.org/manual/reference/connection-string/#urioption.socketTimeoutMS) is no supported. The default value is 0 (no timeout).
 
 {% highlight scala %}
 import reactivemongo.api.MongoConnectionOptions
 
-val options = MongoConnectionOptions(
-  monitorRefreshMS = 5000 /* 5s */)
+val options = MongoConnectionOptions(socketTimeoutMS = 2000 /* 2s */)
+{% endhighlight %}
+
+The interval used by the ReactiveMongo monitor to refresh the information about the MongoDB node can be configured in the [connection options](tutorial/connect-database.html). The default is interval is 10s.
+
+{% highlight scala %}
+import reactivemongo.api.MongoConnectionOptions
+
+val options = MongoConnectionOptions(monitorRefreshMS = 5000 /* 5s */)
 {% endhighlight %}
 
 **Aggregation**
