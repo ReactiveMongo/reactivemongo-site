@@ -39,9 +39,9 @@ def connection(driver: MongoDriver) =
 The default [failover strategy](../../api/index.html#reactivemongo.api.FailoverStrategy) can be defined in the [connection options](tutorial/connect-database.html).
 
 {% highlight scala %}
-import reactivemongo.api.MongoConnectionOptions
+import reactivemongo.api.{ FailoverStrategy, MongoConnectionOptions }
 
-val options = MongoConnectionOptions(
+val options1 = MongoConnectionOptions(
   failoverStrategy = FailoverStrategy(retries = 10))
 {% endhighlight %}
 
@@ -50,7 +50,7 @@ The option [`socketTimeoutMS`](https://docs.mongodb.org/manual/reference/connect
 {% highlight scala %}
 import reactivemongo.api.MongoConnectionOptions
 
-val options = MongoConnectionOptions(socketTimeoutMS = 2000 /* 2s */)
+val options2 = MongoConnectionOptions(socketTimeoutMS = 2000 /* 2s */)
 {% endhighlight %}
 
 The interval used by the ReactiveMongo monitor to refresh the information about the MongoDB node can be configured in the [connection options](tutorial/connect-database.html). The default is interval is 10s.
@@ -58,7 +58,7 @@ The interval used by the ReactiveMongo monitor to refresh the information about 
 {% highlight scala %}
 import reactivemongo.api.MongoConnectionOptions
 
-val options = MongoConnectionOptions(monitorRefreshMS = 5000 /* 5s */)
+val options3 = MongoConnectionOptions(monitorRefreshMS = 5000 /* 5s */)
 {% endhighlight %}
 
 **Aggregation**
@@ -265,6 +265,12 @@ Separate Iteratee module
 {% endhighlight %}
 
 - For the type `reactivemongo.api.commands.LastError`, the properties `writeErrors` and `writeConcernError` have been added.
+
+For Play > 2.4, if you still have a file `conf/play.plugins`, it's important to make sure this file no longer mentions `ReactiveMongoPlugin`, which is replaced by `ReactiveMongoModule`. With such deprecated configuration, the following error can be raised.
+
+    ConfigurationException: Guice configuration errors: 1) Could not find a suitable constructor in play.modules.reactivemongo.ReactiveMongoPlugin.
+
+As for Play 2.5, due to the [Streams Migration](https://playframework.com/documentation/2.5.x/StreamsMigration25), a `akka.stream.Materializer` is required (see the following error).
 
 **Logging**
 

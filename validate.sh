@@ -5,8 +5,8 @@ export SBT_OPTS="-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:Max
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 export PATH="$JAVA_HOME/bin:$PATH"
 
-java $SBT_OPTS -jar "$HOME/.sbt/launchers/0.13.8/sbt-launch.jar" compile && \
-  jekyll build
+(java $SBT_OPTS -jar "$HOME/.sbt/launchers/0.13.8/sbt-launch.jar" compile && \
+  jekyll build) || exit 1
 
 echo "# Documentation built"
 
