@@ -178,17 +178,13 @@ import reactivemongo.api.MongoConnection
 // and authenticate on the database `somedb` with user `user123` and password `passwd123`
 val uri = "mongodb://user123:passwd123@host1:27018,host2:27019,host3:27020/somedb"
 
-def driver7: reactivemongo.api.MongoDriver = ???
-
-val connection7: Try[MongoConnection] =
+def connection7(driver: reactivemongo.api.MongoDriver): Try[MongoConnection] =
   MongoConnection.parseURI(uri).map { parsedUri =>
-    driver7.connection(parsedUri)
+    driver.connection(parsedUri)
   }
 {% endhighlight %}
 
-### More examples
-
-The following example is a complete one.
+The following example is using a connection to asynchronously resolve a database.
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -207,7 +203,9 @@ val database = for {
 } yield db
 
 database.onComplete {
-  case resolution => println(s"DB resolution: $resolution")
+  case resolution =>
+    println(s"DB resolution: $resolution")
+    driver.close()
 }
 {% endhighlight %}
 
