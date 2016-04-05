@@ -9,12 +9,17 @@ This module is based on the [Play JSON serialization](../json/overview.html).
 
 ## Add Play2-ReactiveMongo to your dependencies
 
-The latest version of this plugin is for Play 2.4, and can be enabled by adding the following dependency in your `project/Build.scala` (or `build.sbt`).
+The latest version of this plugin is for Play 2.4+, and can be enabled by adding the following dependency in your `project/Build.scala` (or `build.sbt`).
 
 {% highlight ocaml %}
-// only for Play 2.4.x
+// only for Play 2.5.x
 libraryDependencies ++= Seq(
   "org.reactivemongo" %% "play2-reactivemongo" % "{{site._0_12_latest_minor}}"
+)
+
+// only for Play 2.4.x
+libraryDependencies ++= Seq(
+  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._0_12_latest_minor}}-play23"
 )
 {% endhighlight %}
 
