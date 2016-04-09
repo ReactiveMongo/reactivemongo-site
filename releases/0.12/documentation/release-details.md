@@ -12,7 +12,7 @@ You can also browse the [API](../api/index.html).
 
 The [MongoDB](https://www.mongodb.org/) compatibility is now from 2.6 up to 3.2.
 
-A new better [DB resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) is available (see [connection tutorial](tutorial/connect-database.html)).
+A new better [DB resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) is available (see [connection tutorial](tutorial/connect-database.html)). It's greatly recommanded to use `connection.database(..)` instead of the former `connection(..)`.
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -23,6 +23,8 @@ import reactivemongo.api.{ DefaultDB, MongoConnection }
 def resolve(con: MongoConnection, name: String): Future[DefaultDB] =
   con.database(name)
 {% endhighlight %}
+
+Consequently to this resolution change, error such as `ConnectionNotInitialized` can be raise when calling database or collection operations (e.g. `collection.find(..)`), if the *deprecated database resolution is still used*.
 
 Some default [read preference](https://docs.mongodb.org/manual/core/read-preference/) and default [write concern](https://docs.mongodb.org/manual/reference/write-concern/) can be set in the [connection configuration](tutorial/connect-database.html).
 

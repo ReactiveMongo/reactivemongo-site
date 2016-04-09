@@ -232,4 +232,8 @@ They manage two different things. `MongoDriver` holds the actor system, and `Mon
 
 On the contrary, `db` and `collection` are just plain objects that store references and nothing else. It is virtually free to create new instances; calling `connection.database()` or `db.collection()` may be done many times without any performance hit.
 
+#### Virtual Private Network (VPN)
+
+When connecting to a MongoDB replica set over a VPN, if using IP addresses instead of hostnames to configure the connection nodes, then it's possible that the nodes are discovered with hostnames that are local to the remote network and not usable from the client side.
+
 [Next: Database and collections](./database-and-collection.html)
