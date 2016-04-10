@@ -12,7 +12,7 @@ You can also browse the [API](../api/index.html).
 
 The [MongoDB](https://www.mongodb.org/) compatibility is now from 2.6 up to 3.2.
 
-A new better [DB resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) is available (see [connection tutorial](tutorial/connect-database.html)). It's greatly recommanded to use `connection.database(..)` instead of the former `connection(..)`.
+A new better [DB resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) is available (see [connection tutorial](tutorial/connect-database.html)). It's greatly recommanded to use `connection.database(..)` instead of the former `connection(..)` (or its alias `connection.db(..)`).
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -23,6 +23,8 @@ import reactivemongo.api.{ DefaultDB, MongoConnection }
 def resolve(con: MongoConnection, name: String): Future[DefaultDB] =
   con.database(name)
 {% endhighlight %}
+
+Similarly the function `.db` of the [Play module](./tutorial/play2.html) must be replaced by its `.database` equivalent.
 
 Consequently to this resolution change, error such as `ConnectionNotInitialized` can be raise when calling database or collection operations (e.g. `collection.find(..)`), if the *deprecated database resolution is still used*.
 
@@ -72,7 +74,7 @@ TODO: Convenient collection.aggregate
   - [$out](https://docs.mongodb.org/manual/reference/operator/aggregation/out/#pipe._S_out): Takes the documents returned by the aggregation pipeline and writes them to a specified collection.
   - [$redact](https://docs.mongodb.org/manual/reference/operator/aggregation/redact/#pipe._S_redact): Reshapes each document in the stream by restricting the content for each document based on information stored in the documents themselves..
   - [$sample](https://docs.mongodb.org/manual/reference/operator/aggregation/sample/) aggregation stage only (only since MongoDB 3.2): Randomly selects the specified number of documents from its input.
-- collection.{ findAndModify, findAndUpdate, findAndUpdate, aggregate }
+- TODO: collection.{ findAndModify, findAndUpdate, findAndUpdate, aggregate }
 
 The [`distinct`](https://docs.mongodb.org/manual/reference/command/distinct/) command, to find the distinct values for a specified field across a single collection, is now provided as a [collection operation](../api/index.html#reactivemongo.api.collections.GenericCollection@distinct[T]%28key:String,selector:Option[GenericCollection.this.pack.Document],readConcern:reactivemongo.api.ReadConcern%29%28implicitreader:GenericCollection.this.pack.NarrowValueReader[T],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[scala.collection.immutable.ListSet[T]]).
 
@@ -126,7 +128,7 @@ The instances of [`BSONTimestamp`](../api/index.html#reactivemongo.bson.BSONTime
 {% highlight scala %}
 import reactivemongo.bson.BSONTimestamp
 
-def foo(raw: Long) = BSONTimestamp(raw)
+def foo(millis: Long) = BSONTimestamp(millis)
 
 // or...
 def bar(time: Long, ordinal: Int) = BSONTimestamp(time, ordinal)
@@ -227,7 +229,7 @@ The replication command [`resync`](https://docs.mongodb.org/manual/reference/com
 // TODO: Code sample
 {% endhighlight %}
 
-In the case class `reactivemongo.api.commands.CollStatsResult`, the field `maxSize` has been added.
+In the case class [`reactivemongo.api.commands.CollStatsResult`](../api/index.html#reactivemongo.api.commands.CollStatsResult), the field `maxSize` has been added.
 
 {% highlight scala %}
 // TODO: Code sample
@@ -237,11 +239,21 @@ In the case class `reactivemongo.api.commands.CollStatsResult`, the field `maxSi
 
 The [integration with Playframework](./tutorial/play2.html) is still easy.
 
-- Separate [Play JSON library](./json/overview.html): serialization pack without the Play module
-  - [BSONJavaScript](../../api/reactivemongo/bson/BSONJavaScript.html)
-  - [BSONUndefined](../../api/reactivemongo/bson/BSONUndefined$.html)
+This is now a separate [Play JSON library](./json/overview.html), providing a serialization pack without the Play module.
 
-When using the **[support for Play JSON](json/overview.html)**, if the following error occurs, it's necessary to make sure `import reactivemongo.play.json._` is used, to import default BSON/JSON conversions.
+This new library increases the JSON support to handle the following BSON types.
+
+- [BSONJavaScript](../../api/reactivemongo/bson/BSONJavaScript.html)
+- [BSONUndefined](../../api/reactivemongo/bson/BSONUndefined$.html)
+
+To use this JSON library, it's necessary to make sure the right imports are there.
+
+{% highlight scala %}
+import reactivemongo.play.json._
+// import the default BSON/JSON conversions
+{% endhighlight %}
+
+Without these imports, the following error can occur.
 
 {% highlight text %}
 No Json serializer as JsObject found for type play.api.libs.json.JsObject.
@@ -266,7 +278,7 @@ Separate Iteratee module
 // TODO: Code sample
 {% endhighlight %}
 
-- For the type `reactivemongo.api.commands.LastError`, the properties `writeErrors` and `writeConcernError` have been added.
+- For the type [`reactivemongo.api.commands.LastError`](../api/index.html#reactivemongo.api.commands.LastError), the properties `writeErrors` and `writeConcernError` have been added.
 
 For Play > 2.4, if you still have a file `conf/play.plugins`, it's important to make sure this file no longer mentions `ReactiveMongoPlugin`, which is replaced by `ReactiveMongoModule`. With such deprecated configuration, the following error can be raised.
 
@@ -321,8 +333,17 @@ object default is not a member of package reactivemongo.api.collections
 
 **Operation results**
 
-- The type hierarchy of the trait [`reactivemongo.api.commands.WriteResult`](../api/index.html#reactivemongo.api.commands.WriteResult) has changed in new version. It's no longer an `Exception`, and no longer inherits from [`reactivemongo.core.errors.DatabaseException`](../api/index.html#reactivemongo.core.errors.DatabaseException), `scala.util.control.NoStackTrace`, `reactivemongo.core.errors.ReactiveMongoException`
-- The type hierarchy of the classes [`reactivemongo.api.commands.DefaultWriteResult`](../api/index.html#reactivemongo.api.commands.DefaultWriteResult) and [`reactivemongo.api.commands.UpdateWriteResult`](../api/index.html#reactivemongo.api.commands.UpdateWriteResult) have changed in new version; no longer inherits from `java.lang.Exception`.
+The type hierarchy of the trait [`reactivemongo.api.commands.WriteResult`](../api/index.html#reactivemongo.api.commands.WriteResult) has changed in new version. It's no longer an `Exception`, and no longer inherits from [`reactivemongo.core.errors.DatabaseException`](../api/index.html#reactivemongo.core.errors.DatabaseException), `scala.util.control.NoStackTrace`, `reactivemongo.core.errors.ReactiveMongoException`.
+
+The extractor function [`WriteResult.lastError`](../api/index.html#reactivemongo.api.commands.WriteResult$@lastError(result:reactivemongo.api.commands.WriteResult):Option[reactivemongo.api.commands.LastError]) allows to get the error details, if the result is not a success.
+
+{% highlight scala %}
+import reactivemongo.api.commands.{ LastError, WriteResult }
+
+def foo(r: WriteResult): Option[LastError] = WriteResult.lastError(r)
+{% endhighlight %}
+
+The type hierarchy of the classes [`reactivemongo.api.commands.DefaultWriteResult`](../api/index.html#reactivemongo.api.commands.DefaultWriteResult) and [`reactivemongo.api.commands.UpdateWriteResult`](../api/index.html#reactivemongo.api.commands.UpdateWriteResult) have changed in new version; no longer inherits from `java.lang.Exception`.
   * method `fillInStackTrace()` is removed
   * method `isUnauthorized()` is removed
   * method `getMessage()` is removed
