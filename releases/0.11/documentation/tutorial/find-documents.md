@@ -38,10 +38,15 @@ import reactivemongo.api.collections.bson.BSONCollection
 def findOlder2(collection: BSONCollection) = {
   val query = BSONDocument("age" -> BSONDocument("$gt" -> 27))
 
-  collection.find(query).cursor[BSONDocument]().
+  // only fetch the name field for the result documents
+  val projection = BSONDocument("name" -> 1)
+
+  collection.find(query, projection).cursor[BSONDocument]().
     collect[List](25) // get up to 25 documents
 }
 {% endhighlight %}
+
+> When using a serialization pack other than the BSON default one, then the appropriate document type must be used to define query (e.g. [`JsObject`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.JsObject) for the [JSON serialization](../json/overview.html)).
 
 The `find` method returns a [`BSONQueryBuilder`](../../api/index.html#reactivemongo.api.collections.default.BSONQueryBuilder) – the query is therefore not performed yet. It gives you the opportunity to add options to the query, like a sort order, projection, flags...
 

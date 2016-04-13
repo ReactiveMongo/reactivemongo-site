@@ -237,7 +237,7 @@ In the case class [`reactivemongo.api.commands.CollStatsResult`](../api/index.ht
 
 **Playframework**
 
-The [integration with Playframework](./tutorial/play2.html) is still easy.
+The [integration with Playframework](./tutorial/play.html) is still easy.
 
 This is now a separate [Play JSON library](./json/overview.html), providing a serialization pack without the Play module.
 
