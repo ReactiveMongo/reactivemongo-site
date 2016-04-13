@@ -235,7 +235,7 @@ In the case class `reactivemongo.api.commands.CollStatsResult`, the field `maxSi
 
 **Playframework**
 
-The [integration with Playframework](./tutorial/play2.html) is still easy.
+The [integration with Playframework](./tutorial/play.html) is still easy.
 
 - Separate [Play JSON library](./json/overview.html): serialization pack without the Play module
   - [BSONJavaScript](../../api/reactivemongo/bson/BSONJavaScript.html)

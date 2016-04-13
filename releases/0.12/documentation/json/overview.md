@@ -81,4 +81,4 @@ type ResultType = JsObject // any type which is provided a `Writes[T]`
 jsonCollection.find(Json.obj()).cursor[ResultType].jsArray()
 {% endhighlight %}
 
-[Next: Integration with Play Framework](../tutorial/play2.html)
+[Next: Integration with Play Framework](../tutorial/play.html)

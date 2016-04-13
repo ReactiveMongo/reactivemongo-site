@@ -35,7 +35,7 @@ The dependency can be added in your SBT project as following: `"org.reactivemong
 ### Play Framework
 
 - [Overview of the Play JSON library](json/overview.html): the standalone library to support JSON serialization.
-- [Integration with Play Framework](tutorial/play2.html): the complete Play plugin (also using the previous JSON library).
+- [Integration with Play Framework](tutorial/play.html): the complete Play plugin (also using the previous JSON library).
 
 ### Advanced Topics
 
