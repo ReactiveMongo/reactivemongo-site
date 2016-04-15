@@ -91,6 +91,31 @@ def states(col: BSONCollection): Future[List[State]] =
   aggregate(col).map(_.result[State])
 {% endhighlight %}
 
+*Using cursor:*
+
+The alternative [`aggregate1`](../api/index.html#reactivemongo.api.collections.GenericCollection@aggregate1[T]%28firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],cursor:GenericCollection.this.BatchCommands.AggregationFramework.Cursor,explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference%29%28implicitec:scala.concurrent.ExecutionContext,implicitr:GenericCollection.this.pack.Reader[T]%29:scala.concurrent.Future[reactivemongo.api.Cursor[T]]) operation can be used, to process the aggregation result with a [`Cursor`](../api/index.html#reactivemongo.api.Cursor).
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson._
+import reactivemongo.api.Cursor
+import reactivemongo.api.collections.bson.BSONCollection
+
+def populatedStatesCursor(cities: BSONCollection): Future[Cursor[BSONDocument]] = {
+  import cities.BatchCommands.AggregationFramework
+  import AggregationFramework.{ Cursor => AggCursor, Group, Match, SumField }
+
+  val cursor = AggCursor(batchSize = 1) // initial batch size
+
+  cities.aggregate1[BSONDocument](Group(BSONString("$state"))(
+    "totalPop" -> SumField("population")), List(
+    Match(document("totalPop" -> document("$gte" -> 10000000L)))),
+    cursor)
+}
+{% endhighlight %}
+
 **Average city population by state**
 
 The Aggregation Framework can be used to find [the average population of the cities by state](http://docs.mongodb.org/manual/tutorial/aggregation-zip-code-data-set/#return-average-city-population-by-state).
@@ -213,4 +238,54 @@ List(
     smallestCity = City(name = "AOGASHIMA", population = 200L)))
 {% endhighlight %}
 
-The operators available to define an aggregation pipeline are documented in the [API reference](../../api/index.html#reactivemongo.api.commands.AggregationFramework).
+**Find documents using text indexing**
+
+Consider the following [text indexes](https://docs.mongodb.org/manual/core/index-text/) is maintained for the fields `city` and `state` of the `zipcodes` collection.
+
+{% highlight javascript %}
+db.zipcodes.ensureIndex({ city: "text", state: "text" })
+{% endhighlight %}
+
+Then it's possible to find documents using the [`$text` operator](https://docs.mongodb.org/v3.0/reference/operator/query/text/#op._S_text), and also the results can be [sorted](https://docs.mongodb.org/v3.0/reference/operator/aggregation/sort/#metadata-sort) according the [text scores](https://docs.mongodb.org/v3.0/reference/operator/query/text/#text-operator-text-score).
+
+For example to find the documents matching the text `"JP"`, and sort according the text score, the following query can be executed in the MongoDB shell.
+
+{% highlight javascript %}
+db.users.aggregate([
+   { $match: { $text: { $search: "JP" } } },
+   { $sort: { score: { $meta: "textScore" } } }
+])
+{% endhighlight %}
+
+A ReactiveMongo function can be written as bellow.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+def textFind(coll: BSONCollection): Future[List[BSONDocument]] = {
+  import coll.BatchCommands.AggregationFramework
+  import AggregationFramework.{
+    Cursor,
+    Match,
+    MetadataSort,
+    Sort,
+    TextScore
+  }
+
+  val firstOp = Match(BSONDocument(
+    "$text" -> BSONDocument("$search" -> "JP")))
+
+  val pipeline = List(Sort(MetadataSort("score", TextScore)))
+
+  coll.aggregate1[BSONDocument](
+    firstOp, pipeline, Cursor(1)).flatMap(_.collect[List]())
+}
+{% endhighlight %}
+
+This will return the sorted documents for the cities `TOKYO` and `AOGASHIMA`.
+
+*More:* The operators available to define an aggregation pipeline are documented in the [API reference](../../api/index.html#reactivemongo.api.commands.AggregationFramework).
