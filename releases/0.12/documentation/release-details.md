@@ -74,6 +74,40 @@ TODO: Convenient collection.aggregate
   - [$out](https://docs.mongodb.org/manual/reference/operator/aggregation/out/#pipe._S_out): Takes the documents returned by the aggregation pipeline and writes them to a specified collection.
   - [$redact](https://docs.mongodb.org/manual/reference/operator/aggregation/redact/#pipe._S_redact): Reshapes each document in the stream by restricting the content for each document based on information stored in the documents themselves..
   - [$sample](https://docs.mongodb.org/manual/reference/operator/aggregation/sample/) aggregation stage only (only since MongoDB 3.2): Randomly selects the specified number of documents from its input.
+
+When the [`$text` operator](https://docs.mongodb.org/v3.0/reference/operator/query/text/#op._S_text) is used in an aggregation pipeline, then new the results can be [sorted](https://docs.mongodb.org/v3.0/reference/operator/aggregation/sort/#metadata-sort) according the [text scores](https://docs.mongodb.org/v3.0/reference/operator/query/text/#text-operator-text-score).
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+/**
+ * 1. Find the documents matching the text `"JP"`,
+ * 2. and sort according the (metadata) text score.
+ */
+def textFind(coll: BSONCollection): Future[List[BSONDocument]] = {
+  import coll.BatchCommands.AggregationFramework
+  import AggregationFramework.{
+    Cursor,
+    Match,
+    MetadataSort,
+    Sort,
+    TextScore
+  }
+
+  val firstOp = Match(BSONDocument(
+    "$text" -> BSONDocument("$search" -> "JP")))
+
+  val pipeline = List(Sort(MetadataSort("score", TextScore)))
+
+  coll.aggregate1[BSONDocument](
+    firstOp, pipeline, Cursor(1)).flatMap(_.collect[List]())
+}
+{% endhighlight %}
+
 - TODO: collection.{ findAndModify, findAndUpdate, findAndUpdate, aggregate }
 
 The [`distinct`](https://docs.mongodb.org/manual/reference/command/distinct/) command, to find the distinct values for a specified field across a single collection, is now provided as a [collection operation](../api/index.html#reactivemongo.api.collections.GenericCollection@distinct[T]%28key:String,selector:Option[GenericCollection.this.pack.Document],readConcern:reactivemongo.api.ReadConcern%29%28implicitreader:GenericCollection.this.pack.NarrowValueReader[T],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[scala.collection.immutable.ListSet[T]]).
