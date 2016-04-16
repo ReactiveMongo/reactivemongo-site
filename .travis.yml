@@ -9,5 +9,6 @@ cache:
   directories:
   - $HOME/.ivy2
   - $HOME/.sbt
+  - $HOME/.gem
 before_install: ./.travis_scripts/beforeInstall.sh 0.13.9
 script: ./.travis_scripts/validate.sh 0.13.9

@@ -15,13 +15,11 @@ The [MongoDB](https://www.mongodb.org/) compatibility is now from 2.6 up to 3.2.
 A new better [DB resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) is available (see [connection tutorial](tutorial/connect-database.html)). It's greatly recommanded to use `connection.database(..)` instead of the former `connection(..)` (or its alias `connection.db(..)`).
 
 {% highlight scala %}
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.{ DefaultDB, MongoConnection }
 
-def resolve(con: MongoConnection, name: String): Future[DefaultDB] =
-  con.database(name)
+def resolve(con: MongoConnection, name: String)(implicit ec: ExecutionContext): Future[DefaultDB] = con.database(name)
 {% endhighlight %}
 
 Similarly the function `.db` of the [Play module](./tutorial/play2.html) must be replaced by its `.database` equivalent.
@@ -67,7 +65,27 @@ val options3 = MongoConnectionOptions(monitorRefreshMS = 5000 /* 5s */)
 
 **Aggregation**
 
-TODO: Convenient collection.aggregate
+The ReactiveMongo collections now has the convenient operation [`.aggregate`](../../api/index.html#reactivemongo.api.collections.GenericCollection@aggregate%28firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,cursor:Option[GenericCollection.this.BatchCommands.AggregationFramework.Cursor]%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[GenericCollection.this.BatchCommands.AggregationFramework.AggregationResult]).
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.{ BSONDocument, BSONString }
+import reactivemongo.api.collections.bson.BSONCollection
+
+def populatedStates(col: BSONCollection): Future[List[BSONDocument]] = {
+  import col.BatchCommands.AggregationFramework.{
+    AggregationResult, Group, Match, SumField
+  }
+
+  val res: Future[AggregationResult] = col.aggregate(
+    Group(BSONString("$state"))( "totalPop" -> SumField("population")),
+    List(Match(BSONDocument("totalPop" -> BSONDocument("$gte" -> 10000000L)))))
+
+  res.map(_.documents)
+}
+{% endhighlight %}
 
 - Newly supported [Pipeline Aggregation Stages](https://docs.mongodb.org/manual/reference/operator/aggregation-pipeline/);
   - [$geoNear](https://docs.mongodb.org/manual/reference/operator/aggregation/geoNear/#pipe._S_geoNear): Returns an ordered stream of documents based on the proximity to a geospatial point.
@@ -78,8 +96,7 @@ TODO: Convenient collection.aggregate
 When the [`$text` operator](https://docs.mongodb.org/v3.0/reference/operator/query/text/#op._S_text) is used in an aggregation pipeline, then new the results can be [sorted](https://docs.mongodb.org/v3.0/reference/operator/aggregation/sort/#metadata-sort) according the [text scores](https://docs.mongodb.org/v3.0/reference/operator/query/text/#text-operator-text-score).
 
 {% highlight scala %}
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson.BSONDocument
 import reactivemongo.api.collections.bson.BSONCollection
@@ -88,7 +105,7 @@ import reactivemongo.api.collections.bson.BSONCollection
  * 1. Find the documents matching the text `"JP"`,
  * 2. and sort according the (metadata) text score.
  */
-def textFind(coll: BSONCollection): Future[List[BSONDocument]] = {
+def textFind(coll: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
   import coll.BatchCommands.AggregationFramework
   import AggregationFramework.{
     Cursor,
@@ -108,19 +125,21 @@ def textFind(coll: BSONCollection): Future[List[BSONDocument]] = {
 }
 {% endhighlight %}
 
-- TODO: collection.{ findAndModify, findAndUpdate, findAndUpdate, aggregate }
+TODO: collection.findAndModify
+
+TODO: collection.findAndUpdate
+
+TODO: collection.findAndRemove
 
 The [`distinct`](https://docs.mongodb.org/manual/reference/command/distinct/) command, to find the distinct values for a specified field across a single collection, is now provided as a [collection operation](../api/index.html#reactivemongo.api.collections.GenericCollection@distinct[T]%28key:String,selector:Option[GenericCollection.this.pack.Document],readConcern:reactivemongo.api.ReadConcern%29%28implicitreader:GenericCollection.this.pack.NarrowValueReader[T],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[scala.collection.immutable.ListSet[T]]).
 
 {% highlight scala %}
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson.BSONDocument
 import reactivemongo.api.collections.bson.BSONCollection
 
-def distinctStates(col: BSONCollection): Future[Set[String]] =
-  col.distinct[String, Set]("state")
+def distinctStates(col: BSONCollection)(implicit ec: ExecutionContext): Future[Set[String]] = col.distinct[String, Set]("state")
 {% endhighlight %}
 
 **BSON**
@@ -173,14 +192,13 @@ def bar(time: Long, ordinal: Int) = BSONTimestamp(time, ordinal)
 The results from the new [aggregation operation](../api/index.html#reactivemongo.api.collections.GenericCollection@aggregate1[T]%28firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],cursor:GenericCollection.this.BatchCommands.AggregationFramework.Cursor,explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference%29%28implicitec:scala.concurrent.ExecutionContext,implicitr:GenericCollection.this.pack.Reader[T]%29:scala.concurrent.Future[reactivemongo.api.Cursor[T]]) can be processed in a streaming way, using the [cursor option](https://docs.mongodb.org/manual/reference/command/aggregate/).
 
 {% highlight scala %}
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson._
 import reactivemongo.api.Cursor
 import reactivemongo.api.collections.bson.BSONCollection
 
-def populatedStates(cities: BSONCollection): Future[Cursor[BSONDocument]] = {
+def populatedStates(cities: BSONCollection)(implicit ec: ExecutionContext): Future[Cursor[BSONDocument]] = {
   import cities.BatchCommands.AggregationFramework
   import AggregationFramework.{ Cursor => AggCursor, Group, Match, SumField }
 
@@ -202,15 +220,12 @@ An [`ErrorHandler`](../api/index.html#reactivemongo.api.Cursor$@ErrorHandler[A]=
 The field [`maxTimeMs`](https://docs.mongodb.org/manual/reference/method/cursor.maxTimeMS/) is supported by the [query builder](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@maxTimeMs%28p:Long%29:GenericQueryBuilder.this.Self), to specifies a cumulative time limit in milliseconds for processing operations.
 
 {% highlight scala %}
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson.BSONDocument
 import reactivemongo.api.collections.bson.BSONCollection
 
-def withMaxTimeMs(col: BSONCollection): Future[List[BSONDocument]] = 
-  col.find(BSONDocument("foo" -> "bar")).maxTimeMs(1234L).
-  cursor[BSONDocument]().collect[List]()
+def withMaxTimeMs(col: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = col.find(BSONDocument("foo" -> "bar")).maxTimeMs(1234L).cursor[BSONDocument]().collect[List]()
 {% endhighlight %}
 
 The [`explain`](https://docs.mongodb.org/manual/reference/explain-results/) operation is now supported, to get information on the query plan.
@@ -260,14 +275,14 @@ def deprecatedDrop(col: BSONCollection): Future[Unit] = col.drop()
 The replication command [`resync`](https://docs.mongodb.org/manual/reference/command/resync/) is now provided.
 
 {% highlight scala %}
-// TODO: Code sample
+import scala.concurrent.{ ExecutionContext, Future }
+import reactivemongo.api.MongoConnection
+import reactivemongo.api.commands.{ Resync, bson }, bson.BSONResyncImplicits._
+
+def resyncDatabase(con: MongoConnection)(implicit ec: ExecutionContext): Future[Unit] = con.database("admin").flatMap(_.runCommand(Resync)).map(_ => {})
 {% endhighlight %}
 
 In the case class [`reactivemongo.api.commands.CollStatsResult`](../api/index.html#reactivemongo.api.commands.CollStatsResult), the field `maxSize` has been added.
-
-{% highlight scala %}
-// TODO: Code sample
-{% endhighlight %}
 
 **Playframework**
 
