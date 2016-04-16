@@ -96,14 +96,13 @@ def states(col: BSONCollection): Future[List[State]] =
 The alternative [`aggregate1`](../api/index.html#reactivemongo.api.collections.GenericCollection@aggregate1[T]%28firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],cursor:GenericCollection.this.BatchCommands.AggregationFramework.Cursor,explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference%29%28implicitec:scala.concurrent.ExecutionContext,implicitr:GenericCollection.this.pack.Reader[T]%29:scala.concurrent.Future[reactivemongo.api.Cursor[T]]) operation can be used, to process the aggregation result with a [`Cursor`](../api/index.html#reactivemongo.api.Cursor).
 
 {% highlight scala %}
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson._
 import reactivemongo.api.Cursor
 import reactivemongo.api.collections.bson.BSONCollection
 
-def populatedStatesCursor(cities: BSONCollection): Future[Cursor[BSONDocument]] = {
+def populatedStatesCursor(cities: BSONCollection)(implicit ec: ExecutionContext): Future[Cursor[BSONDocument]] = {
   import cities.BatchCommands.AggregationFramework
   import AggregationFramework.{ Cursor => AggCursor, Group, Match, SumField }
 
@@ -135,13 +134,12 @@ db.zipcodes.aggregate([
 Using ReactiveMongo, it can be written as bellow.
 
 {% highlight scala %}
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson.{ BSONDocument, BSONString }
 import reactivemongo.api.collections.bson.BSONCollection
 
-def avgPopByState(col: BSONCollection): Future[List[BSONDocument]] = {
+def avgPopByState(col: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
   import col.BatchCommands.AggregationFramework.{
     AggregationResult, Avg, Group, Match, SumField
   }
