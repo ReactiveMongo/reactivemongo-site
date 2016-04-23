@@ -79,11 +79,11 @@ def connect() {
   val connection = driver.connection(List("localhost"))
 
   // Gets a reference to the database "plugin"
-  val db = connection("plugin")
+  val db = connection.database("plugin")
 
   // Gets a reference to the collection "acoll"
-  // By default, you get a BSONCollection.
-  val collection = db("acoll")
+  // By default, you get a Future[BSONCollection].
+  val collection = db.map(_("acoll"))
 }
 {% endhighlight %}
 
