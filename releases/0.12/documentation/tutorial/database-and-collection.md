@@ -5,33 +5,11 @@ title: ReactiveMongo 0.12 - Database and collections
 
 ## Database and collections
 
-### Get a `DB` reference
-
-You can get a `DB` reference using the method `db` on a `MongoConnection`:
-
-{% highlight scala %}
-import scala.concurrent.ExecutionContext.Implicits.global
-
-def connection1: reactivemongo.api.MongoConnection = ???
-
-val database1 = connection1.db("mydatabase")
-{% endhighlight %}
-
-There is an `apply` method on `MongoConnection` that is an alias for `db()`, so you can also do this:
-
-{% highlight scala %}
-import scala.concurrent.ExecutionContext.Implicits.global
-
-def db2: reactivemongo.api.DefaultDB = ???
-
-val database2 = db2.connection("mydatabase")
-{% endhighlight %}
-
-[`DB`](../../api/index.html#reactivemongo.api.DB) is just a trait. Both `MongoConnection.db()` and `MongoConnection.apply()` return a default implementation, [`DefaultDB`](../../api/index.html#reactivemongo.api.DefaultDB), which defines other useful methods (like `drop()`, `sister()`, …)
+Once you have a connection and [resolved the database](./connect-database.html), the collections of the database can be referenced.
 
 ### Get a `Collection` reference
 
-It works the same way as for databases, thanks to the `collection` method on a `Database`.
+A collection can be resolved from the database, thanks to the `collection`.
 
 {% highlight scala %}
 import reactivemongo.api.collections.bson.BSONCollection
@@ -102,4 +80,4 @@ Such a design enables third-party libraries to provide their own collection API.
 
 There is one example of that in the [Play JSON serialization pack](../json/overview.html): `JSONCollection` is an implementation of `GenericCollection` that deals with Play JSON library, using its own de/serializations type classes (`Reads[T]` and `Writes[T]`).
 
-[Next: Write documents](./write-documents.html)
+[Previous: Connect to the database](./connect-database.html) | [Next: Write documents](./write-documents.html)
