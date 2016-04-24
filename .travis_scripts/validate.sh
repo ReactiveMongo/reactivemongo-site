@@ -5,15 +5,15 @@ SBT_VER="$1"
 export SBT_OPTS="-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
 
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
-export PATH="$JAVA_HOME/bin:$HOME/.gem/ruby/1.9.1/bin:$PATH"
-export GEM_PATH="$HOME/.gem/ruby/1.9.1:$GEM_PATH"
+export PATH="$JAVA_HOME/bin:$HOME/.gem/ruby/2.2.0/bin:$PATH"
+export GEM_PATH="$HOME/.gem/ruby/2.2.0:$GEM_PATH"
 
-JEKYLL_VER=`jekyll -v | sed -e 's/^jekyll[ \t]*//'`
-
-if [ ! "x$JEKYLL_VER" = "x2.5.3" ]; then
-  echo "Unexpected Jekyll version: $JEKYLL_VER"
-  exit 1
-fi
+#JEKYLL_VER=`jekyll -v | sed -e 's/^jekyll[ \t]*//'`
+#
+#if [ ! "x$JEKYLL_VER" = "x2.5.3" ]; then
+#  echo "Unexpected Jekyll version: $JEKYLL_VER"
+#  exit 1
+#fi
 
 (java $SBT_OPTS -jar "$HOME/.sbt/launchers/$SBT_VER/sbt-launch.jar" compile && \
   jekyll build) || exit 2

@@ -1,6 +1,6 @@
 language: ruby
 sudo: false
-rvm: 1.9.3
+rvm: 2.2
 addons:
   apt:
     packages:
@@ -10,5 +10,6 @@ cache:
   - $HOME/.ivy2
   - $HOME/.sbt
   - $HOME/.gem
+  - $HOME/.local
 before_install: ./.travis_scripts/beforeInstall.sh 0.13.9
 script: ./.travis_scripts/validate.sh 0.13.9
