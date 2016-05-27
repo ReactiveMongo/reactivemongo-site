@@ -12,7 +12,7 @@ You can also browse the [API](../api/index.html).
 
 The [MongoDB](https://www.mongodb.org/) compatibility is now from 2.6 up to 3.2.
 
-A new better [DB resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) is available (see [connection tutorial](tutorial/connect-database.html)). It's greatly recommanded to use `connection.database(..)` instead of the former `connection(..)` (or its alias `connection.db(..)`).
+A new better [DB resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) is available (see [connection tutorial](tutorial/connect-database.html)). The new `connection.database(..)` should be used instead of the former `connection(..)` (or its alias `connection.db(..)`).
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
@@ -173,6 +173,27 @@ implicit def MyEnumReader(implicit underlying: BSONReader[BSONString, String]): 
 implicit def MyEnumWriter(implicit underlying: BSONWriter[String, BSONString]): BSONWriter[MyEnum, BSONString] = underlying.beforeWrite[MyEnum] {
   case EnumValA => "A"
   case _ => "B"
+}
+{% endhighlight %}
+
+Companion objects for [`BSONDocumentReader`](../api/index.html#reactivemongo.bson.BSONDocumentReader) and [`BSONDocumentWriter`](../api/index.html#reactivemongo.bson.BSONDocumentWriter) provides new factories.
+
+{% highlight scala %}
+import reactivemongo.bson.{
+  BSONDocument, BSONDocumentReader, BSONDocumentWriter, BSONNumberLike
+}
+
+case class Foo(bar: String, lorem: Int)
+
+val w1 = BSONDocumentWriter[Foo] { foo =>
+  BSONDocument("_bar" -> foo.bar, "ipsum" -> foo.lorem)
+}
+
+val r1 = BSONDocumentReader[Foo] { doc =>
+  (for {
+    bar <- doc.getAsTry[String]("_bar")
+    lorem <- doc.getAsTry[BSONNumberLike]("ipsum").map(_.toInt)
+  } yield Foo(bar, lorem)).get
 }
 {% endhighlight %}
 
@@ -392,15 +413,19 @@ import reactivemongo.api.commands.{ LastError, WriteResult }
 def foo(r: WriteResult): Option[LastError] = WriteResult.lastError(r)
 {% endhighlight %}
 
-The type hierarchy of the classes [`reactivemongo.api.commands.DefaultWriteResult`](../api/index.html#reactivemongo.api.commands.DefaultWriteResult) and [`reactivemongo.api.commands.UpdateWriteResult`](../api/index.html#reactivemongo.api.commands.UpdateWriteResult) have changed in new version; no longer inherits from `java.lang.Exception`.
-  * method `fillInStackTrace()` is removed
-  * method `isUnauthorized()` is removed
-  * method `getMessage()` is removed
-  * method `isNotAPrimaryError()` is removed
-- In class [`reactivemongo.api.commands.Upserted`](../api/index.html#reactivemongo.api.commands.Upserted);
-  * The constructor has changed; was `(Int, java.lang.Object)`, is now: `(Int, reactivemongo.bson.BSONValue)`.
-  * The field `_id`  has now a different result type; was: `java.lang.Object`, is now: `reactivemongo.bson.BSONValue`.
-- In the case class [`reactivemongo.api.commands.GetLastError.TagSet`](reactivemongo.api.commands.GetLastError$$TagSet), the field `s`  is renamed to `tag`.
+The type hierarchy of the classes [`reactivemongo.api.commands.DefaultWriteResult`](../api/index.html#reactivemongo.api.commands.DefaultWriteResult) and [`reactivemongo.api.commands.UpdateWriteResult`](../api/index.html#reactivemongo.api.commands.UpdateWriteResult) have changed in new version; no longer inherits from `java.lang.Exception`:
+
+- method `fillInStackTrace()` is removed
+- method `isUnauthorized()` is removed
+- method `getMessage()` is removed
+- method `isNotAPrimaryError()` is removed
+
+In the class [`reactivemongo.api.commands.Upserted`](../api/index.html#reactivemongo.api.commands.Upserted);
+
+- The constructor has changed; was `(Int, java.lang.Object)`, is now: `(Int, reactivemongo.bson.BSONValue)`.
+- The field `_id`  has now a different result type; was: `java.lang.Object`, is now: `reactivemongo.bson.BSONValue`.
+
+In the case class [`reactivemongo.api.commands.GetLastError.TagSet`](reactivemongo.api.commands.GetLastError$$TagSet), the field `s`  is renamed to `tag`.
 
 **Aggregation framework**
 
