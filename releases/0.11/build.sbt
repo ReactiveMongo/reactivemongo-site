@@ -7,7 +7,7 @@ version := "0.11"
 scalaVersion := "2.11.7"
 
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.11-play24",
+  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.12-play24",
   "com.typesafe.play" %% "play" % "2.4.6")
 
 resolvers ++= Seq(
