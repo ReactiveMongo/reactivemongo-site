@@ -1,5 +1,8 @@
 #! /bin/sh
 
+set -e
+
+SCRIPT_DIR=`dirname $0 | sed -e "s|^\./|$PWD/|"`
 SBT_VER="$1"
 
 export SBT_OPTS="-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
@@ -8,12 +11,8 @@ export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 export PATH="$JAVA_HOME/bin:$HOME/.gem/ruby/2.2.0/bin:$PATH"
 export GEM_PATH="$HOME/.gem/ruby/2.2.0:$GEM_PATH"
 
-#JEKYLL_VER=`jekyll -v | sed -e 's/^jekyll[ \t]*//'`
-#
-#if [ ! "x$JEKYLL_VER" = "x2.5.3" ]; then
-#  echo "Unexpected Jekyll version: $JEKYLL_VER"
-#  exit 1
-#fi
+# Sonatype staging (avoid Central sync delay)
+perl -pe "s|resolvers |resolvers in ThisBuild += \"Sonatype Staging\" at \"https://oss.sonatype.org/content/repositories/staging/\",\r\nresolvers |" < "$SCRIPT_DIR/../build.sbt" > /tmp/build.sbt && mv /tmp/build.sbt "$SCRIPT_DIR/../build.sbt"
 
 (java $SBT_OPTS -jar "$HOME/.sbt/launchers/$SBT_VER/sbt-launch.jar" compile && \
   jekyll build) || exit 2

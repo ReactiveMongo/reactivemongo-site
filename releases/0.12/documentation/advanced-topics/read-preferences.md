@@ -88,5 +88,5 @@ def readFromSecondary2(collection: BSONCollection) =
   collection.find(BSONDocument("city" -> "San Francisco")).
     // read from any secondary tagged with `dc: "NYC"`
     one[BSONDocument](ReadPreference.secondaryPreferred(
-      BSONDocument("dc" -> "NYC")))
+      tag = BSONDocument("dc" -> "NYC")))
 {% endhighlight %}

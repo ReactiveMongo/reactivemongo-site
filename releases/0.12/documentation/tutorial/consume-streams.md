@@ -5,9 +5,9 @@ title: ReactiveMongo 0.12 - Consume streams of documents
 
 ## Consume streams of documents
 
-Instead of accumulating documents in memory like in the two previous examples, we can process them as a stream.
+Instead of accumulating documents in memory like in the two previous examples, we can process them as a stream, using a reactive [Cursor](../../api/index.html#reactivemongo.api.Cursor).
 
-ReactiveMongo can be used with several streaming frameworks: [Play Iteratees](http://www.playframework.com/documentation/latest/Iteratees), [Akka Streams](http://akka.io/docs/), or with custom processors using `foldWhile`.
+ReactiveMongo can be used with several streaming frameworks: [Play Iteratees](http://www.playframework.com/documentation/latest/Iteratees), [Akka Streams](http://akka.io/docs/), or with custom processors using [`foldWhile`](../../api/index.html#reactivemongo.api.Cursor@foldWhile[A](z:=%3EA,maxDocs:Int)(suc:(A,T)=%3Ereactivemongo.api.Cursor.State[A],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]) (and the other similar operations).
 
 ### Play Iteratee
 
@@ -133,3 +133,5 @@ At each streaming step, for each new value or error, you choose how you want to 
 - `Cont`: Continue processing.
 - `Done`: End processing, without error; A `Future.successful[T](t)` will be returned by `foldWhile[T]`.
 - `Stop`: Stop processing on an error; A `Future.failed` will be returned by `foldWhile[T]`.
+
+Each fold operations (`foldResponses`, `foldBulks` or `foldWhile`) have variants working with a function returning a `Future[State[T]]` (instead of a synchronous `State[T]`).

@@ -12,7 +12,7 @@ You can also browse the [API](../api/index.html).
 
 The [MongoDB](https://www.mongodb.org/) compatibility is now from 2.6 up to 3.2.
 
-A new better [DB resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) is available (see [connection tutorial](tutorial/connect-database.html)). The new `connection.database(..)` should be used instead of the former `connection(..)` (or its alias `connection.db(..)`).
+A new better [DB resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) is available (see [connection tutorial](tutorial/connect-database.html)). The new `connection.database(..)` returns a `Future[DefaultDB]`, and should be used instead of the former `connection(..)` (or its alias `connection.db(..)`).
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
