@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Secondary - ReactiveMongo API 0.11.7 - reactivemongo.api.ReadPreference.Secondary</title>
-          <meta name="description" content="Secondary - ReactiveMongo API 0.11.7 - reactivemongo.api.ReadPreference.Secondary" />
-          <meta name="keywords" content="Secondary ReactiveMongo API 0.11.7 reactivemongo.api.ReadPreference.Secondary" />
+          <title>Secondary - ReactiveMongo API 0.11.12 - reactivemongo.api.ReadPreference.Secondary</title>
+          <meta name="description" content="Secondary - ReactiveMongo API 0.11.12 - reactivemongo.api.ReadPreference.Secondary" />
+          <meta name="keywords" content="Secondary ReactiveMongo API 0.11.12 reactivemongo.api.ReadPreference.Secondary" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../lib/template.js"></script>
       <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../index.html';
@@ -28,10 +28,12 @@
         </head>
         <body class="type">
       <div id="definition">
-        <img alt="Class" src="../../lib/class_big.png" />
+        <a href="ReadPreference$$Secondary$.html" title="See companion object"><img alt="Class/Object" src="../../lib/class_to_object_big.png" /></a>
         <p id="owner"><a href="../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="package.html" class="extype" name="reactivemongo.api">api</a>.<a href="ReadPreference$.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a></p>
-        <h1>Secondary</h1><h3><span class="morelinks"><div>Related Doc:
-            <a href="ReadPreference$.html" class="extype" name="reactivemongo.api.ReadPreference">package ReadPreference</a>
+        <h1><a href="ReadPreference$$Secondary$.html" title="See companion object">Secondary</a></h1><h3><span class="morelinks"><div>
+            Related Docs:
+            <a href="ReadPreference$$Secondary$.html" title="See companion object">object Secondary</a>
+            | <a href="ReadPreference$.html" class="extype" name="reactivemongo.api.ReadPreference">package ReadPreference</a>
           </div></span></h3><span class="permalink">
       <a href="../../index.html#reactivemongo.api.ReadPreference$$Secondary" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
@@ -42,16 +44,16 @@
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">case class</span>
+        <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">Secondary</span><span class="params">(<span name="filterTag">filterTag: <span class="extype" name="scala.Option">Option</span>[(<a href="../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span>]</span>)</span><span class="result"> extends <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">Secondary</span><span class="result"> extends <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> with <a href="ReadPreference$$Taggable.html" class="extype" name="reactivemongo.api.ReadPreference.Taggable">Taggable</a></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Read only from any secondary.</p></div><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Reads only from any secondary.</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="ReadPreference$$Taggable.html" class="extype" name="reactivemongo.api.ReadPreference.Taggable">Taggable</a>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -69,7 +71,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="reactivemongo.api.ReadPreference.Secondary"><span>Secondary</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="reactivemongo.api.ReadPreference"><span>ReadPreference</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="reactivemongo.api.ReadPreference.Secondary"><span>Secondary</span></li><li class="in" name="reactivemongo.api.ReadPreference.Taggable"><span>Taggable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="reactivemongo.api.ReadPreference"><span>ReadPreference</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
                 <span class="filtertype">Implicitly<br />
@@ -93,7 +95,7 @@
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="reactivemongo.api.ReadPreference.Secondary#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+              <ol><li name="reactivemongo.api.ReadPreference.Secondary#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="&lt;init&gt;(filterTag:Option[reactivemongo.bson.BSONDocument=&gt;Boolean]):reactivemongo.api.ReadPreference.Secondary"></a>
       <a id="&lt;init&gt;:Secondary"></a>
       <h4 class="signature">
@@ -102,14 +104,17 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">Secondary</span><span class="params">(<span name="filterTag">filterTag: <span class="extype" name="scala.Option">Option</span>[(<a href="../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span>]</span>)</span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.12) Use secondary(List)">Secondary</span><span class="params">(<span name="filterTag">filterTag: <span class="extype" name="scala.Option">Option</span>[(<a href="../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span>]</span>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.ReadPreference$$Secondary@&lt;init&gt;(filterTag:Option[reactivemongo.bson.BSONDocument=&gt;Boolean]):reactivemongo.api.ReadPreference.Secondary" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.12)</i> Use <code>secondary(List)</code></p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -232,6 +237,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="reactivemongo.api.ReadPreference.Taggable#canEqual" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="canEqual(that:Any):Boolean"></a>
+      <a id="canEqual(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">canEqual</span><span class="params">(<span name="that">that: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$$Secondary@canEqual(that:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReadPreference$$Taggable.html" class="extype" name="reactivemongo.api.ReadPreference.Taggable">Taggable</a> → Equals</dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
       <a id="clone():AnyRef"></a>
@@ -255,6 +277,23 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="reactivemongo.api.ReadPreference.Secondary#copy" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="copy(filter:Option[reactivemongo.bson.BSONDocument=&gt;Boolean]):reactivemongo.api.ReadPreference.Secondary"></a>
+      <a id="copy(Option[(BSONDocument)⇒Boolean]):Secondary"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">copy</span><span class="params">(<span name="filter">filter: <span class="extype" name="scala.Option">Option</span>[(<a href="../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span>]</span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.ReadPreference.Secondary">Secondary</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$$Secondary@copy(filter:Option[reactivemongo.bson.BSONDocument=&gt;Boolean]):reactivemongo.api.ReadPreference.Secondary" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
       <a id="ensuring((Secondary)⇒Boolean,⇒Any):Secondary"></a>
@@ -356,6 +395,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$$Secondary@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="reactivemongo.api.ReadPreference.Secondary#filterTag" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="filterTag:Option[reactivemongo.bson.BSONDocument=&gt;Boolean]"></a>
       <a id="filterTag:Option[(BSONDocument)⇒Boolean]"></a>
@@ -437,6 +493,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$$Secondary@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -505,6 +578,74 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="reactivemongo.api.ReadPreference.Taggable#productArity" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="productArity:Int"></a>
+      <a id="productArity:Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">productArity</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$$Secondary@productArity:Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReadPreference$$Taggable.html" class="extype" name="reactivemongo.api.ReadPreference.Taggable">Taggable</a> → Product</dd></dl></div>
+    </li><li name="reactivemongo.api.ReadPreference.Taggable#productElement" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="productElement(n:Int):Any"></a>
+      <a id="productElement(Int):Any"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">productElement</span><span class="params">(<span name="n">n: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Any">Any</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$$Secondary@productElement(n:Int):Any" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReadPreference$$Taggable.html" class="extype" name="reactivemongo.api.ReadPreference.Taggable">Taggable</a> → Product</dd></dl></div>
+    </li><li name="scala.Product#productIterator" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="productIterator:Iterator[Any]"></a>
+      <a id="productIterator:Iterator[Any]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">productIterator</span><span class="result">: <span class="extype" name="scala.Iterator">Iterator</span>[<span class="extype" name="scala.Any">Any</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$$Secondary@productIterator:Iterator[Any]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Product</dd></dl></div>
+    </li><li name="scala.Product#productPrefix" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="productPrefix:String"></a>
+      <a id="productPrefix:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">productPrefix</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$$Secondary@productPrefix:String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Product</dd></dl></div>
     </li><li name="reactivemongo.api.ReadPreference#slaveOk" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="slaveOk:Boolean"></a>
       <a id="slaveOk:Boolean"></a>
@@ -521,7 +662,7 @@
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a></dd></dl></div>
+      <p class="shortcomment cmt">Indicates whether a slave member is ok.</p><div class="fullcomment"><div class="comment cmt"><p>Indicates whether a slave member is ok.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -539,6 +680,40 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="reactivemongo.api.ReadPreference.Secondary#tags" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="tags:List[Map[String,String]]"></a>
+      <a id="tags:List[Map[String,String]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">tags</span><span class="result">: <span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$$Secondary@tags:List[Map[String,String]]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the tags to be used.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the tags to be used.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.ReadPreference.Secondary">Secondary</a> → <a href="ReadPreference$$Taggable.html" class="extype" name="reactivemongo.api.ReadPreference.Taggable">Taggable</a></dd></dl></div>
+    </li><li name="reactivemongo.api.ReadPreference.Secondary#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString:String"></a>
+      <a id="toString:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$$Secondary@toString:String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.ReadPreference.Secondary">Secondary</a> → AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -638,14 +813,16 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="scala.Serializable">
-              <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
-            </div><div class="parent" name="java.io.Serializable">
-              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
+        <div class="parent" name="reactivemongo.api.ReadPreference.Taggable">
+              <h3>Inherited from <a href="ReadPreference$$Taggable.html" class="extype" name="reactivemongo.api.ReadPreference.Taggable">Taggable</a></h3>
             </div><div class="parent" name="scala.Product">
               <h3>Inherited from <span class="extype" name="scala.Product">Product</span></h3>
             </div><div class="parent" name="scala.Equals">
               <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
+            </div><div class="parent" name="scala.Serializable">
+              <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="java.io.Serializable">
+              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
             </div><div class="parent" name="reactivemongo.api.ReadPreference">
               <h3>Inherited from <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a></h3>
             </div><div class="parent" name="scala.AnyRef">

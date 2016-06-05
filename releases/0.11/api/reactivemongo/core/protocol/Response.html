@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Response - ReactiveMongo API 0.11.7 - reactivemongo.core.protocol.Response</title>
-          <meta name="description" content="Response - ReactiveMongo API 0.11.7 - reactivemongo.core.protocol.Response" />
-          <meta name="keywords" content="Response ReactiveMongo API 0.11.7 reactivemongo.core.protocol.Response" />
+          <title>Response - ReactiveMongo API 0.11.12 - reactivemongo.core.protocol.Response</title>
+          <meta name="description" content="Response - ReactiveMongo API 0.11.12 - reactivemongo.core.protocol.Response" />
+          <meta name="keywords" content="Response ReactiveMongo API 0.11.12 reactivemongo.core.protocol.Response" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../../lib/template.js"></script>
       <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -47,7 +47,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">Response</span><span class="params">(<span name="header">header: <a href="MessageHeader.html" class="extype" name="reactivemongo.core.protocol.MessageHeader">MessageHeader</a></span>, <span name="reply">reply: <a href="Reply.html" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a></span>, <span name="documents">documents: <span class="extype" name="org.jboss.netty.buffer.ChannelBuffer">ChannelBuffer</span></span>, <span name="info">info: <a href="ResponseInfo.html" class="extype" name="reactivemongo.core.protocol.ResponseInfo">ResponseInfo</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">Response</span><span class="params">(<span name="header">header: <a href="MessageHeader.html" class="extype" name="reactivemongo.core.protocol.MessageHeader">MessageHeader</a></span>, <span name="reply">reply: <a href="Reply.html" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a></span>, <span name="documents">documents: <span class="extype" name="shaded.netty.buffer.ChannelBuffer">ChannelBuffer</span></span>, <span name="info">info: <a href="ResponseInfo.html" class="extype" name="reactivemongo.core.protocol.ResponseInfo">ResponseInfo</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
@@ -97,7 +97,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="reactivemongo.core.protocol.Response#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(header:reactivemongo.core.protocol.MessageHeader,reply:reactivemongo.core.protocol.Reply,documents:org.jboss.netty.buffer.ChannelBuffer,info:reactivemongo.core.protocol.ResponseInfo):reactivemongo.core.protocol.Response"></a>
+      <a id="&lt;init&gt;(header:reactivemongo.core.protocol.MessageHeader,reply:reactivemongo.core.protocol.Reply,documents:shaded.netty.buffer.ChannelBuffer,info:reactivemongo.core.protocol.ResponseInfo):reactivemongo.core.protocol.Response"></a>
       <a id="&lt;init&gt;:Response"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -105,10 +105,10 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">Response</span><span class="params">(<span name="header">header: <a href="MessageHeader.html" class="extype" name="reactivemongo.core.protocol.MessageHeader">MessageHeader</a></span>, <span name="reply">reply: <a href="Reply.html" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a></span>, <span name="documents">documents: <span class="extype" name="org.jboss.netty.buffer.ChannelBuffer">ChannelBuffer</span></span>, <span name="info">info: <a href="ResponseInfo.html" class="extype" name="reactivemongo.core.protocol.ResponseInfo">ResponseInfo</a></span>)</span>
+        <span class="name">Response</span><span class="params">(<span name="header">header: <a href="MessageHeader.html" class="extype" name="reactivemongo.core.protocol.MessageHeader">MessageHeader</a></span>, <span name="reply">reply: <a href="Reply.html" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a></span>, <span name="documents">documents: <span class="extype" name="shaded.netty.buffer.ChannelBuffer">ChannelBuffer</span></span>, <span name="info">info: <a href="ResponseInfo.html" class="extype" name="reactivemongo.core.protocol.ResponseInfo">ResponseInfo</a></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.protocol.Response@&lt;init&gt;(header:reactivemongo.core.protocol.MessageHeader,reply:reactivemongo.core.protocol.Reply,documents:org.jboss.netty.buffer.ChannelBuffer,info:reactivemongo.core.protocol.ResponseInfo):reactivemongo.core.protocol.Response" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.protocol.Response@&lt;init&gt;(header:reactivemongo.core.protocol.MessageHeader,reply:reactivemongo.core.protocol.Reply,documents:shaded.netty.buffer.ChannelBuffer,info:reactivemongo.core.protocol.ResponseInfo):reactivemongo.core.protocol.Response" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -259,7 +259,7 @@
               
         </dd></dl></div>
     </li><li name="reactivemongo.core.protocol.Response#documents" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="documents:org.jboss.netty.buffer.ChannelBuffer"></a>
+      <a id="documents:shaded.netty.buffer.ChannelBuffer"></a>
       <a id="documents:ChannelBuffer"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -267,10 +267,10 @@
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">documents</span><span class="result">: <span class="extype" name="org.jboss.netty.buffer.ChannelBuffer">ChannelBuffer</span></span>
+        <span class="name">documents</span><span class="result">: <span class="extype" name="shaded.netty.buffer.ChannelBuffer">ChannelBuffer</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.protocol.Response@documents:org.jboss.netty.buffer.ChannelBuffer" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.protocol.Response@documents:shaded.netty.buffer.ChannelBuffer" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>

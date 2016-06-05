@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Failover - ReactiveMongo API 0.11.7 - reactivemongo.api.Failover</title>
-          <meta name="description" content="Failover - ReactiveMongo API 0.11.7 - reactivemongo.api.Failover" />
-          <meta name="keywords" content="Failover ReactiveMongo API 0.11.7 reactivemongo.api.Failover" />
+          <title>Failover - ReactiveMongo API 0.11.12 - reactivemongo.api.Failover</title>
+          <meta name="description" content="Failover - ReactiveMongo API 0.11.12 - reactivemongo.api.Failover" />
+          <meta name="keywords" content="Failover ReactiveMongo API 0.11.12 reactivemongo.api.Failover" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../lib/template.js"></script>
       <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../index.html';
@@ -51,9 +51,12 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A helper that sends the given message to the given actor, following a failover strategy.
-This helper holds a future reference that is completed with a response, after 1 or more attempts (specified in the given strategy).
-If the all the tryouts configured by the given strategy were unsuccessful, the future reference is completed with a Throwable.</p><p>Should not be used directly for most use cases.
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A helper that sends the given message to the given actor,
+following a failover strategy.
+This helper holds a future reference that is completed with a response,
+after 1 or more attempts (specified in the given strategy).
+If the all the tryouts configured by the given strategy were unsuccessful,
+the future reference is completed with a Throwable.</p><p>Should not be used directly for most use cases.
 </p></div><dl class="paramcmts block"><dt class="tparam">T</dt><dd class="cmt"><p>Type of the message to send.</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>

@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>CollectionMetaCommands - ReactiveMongo API 0.11.7 - reactivemongo.api.CollectionMetaCommands</title>
-          <meta name="description" content="CollectionMetaCommands - ReactiveMongo API 0.11.7 - reactivemongo.api.CollectionMetaCommands" />
-          <meta name="keywords" content="CollectionMetaCommands ReactiveMongo API 0.11.7 reactivemongo.api.CollectionMetaCommands" />
+          <title>CollectionMetaCommands - ReactiveMongo API 0.11.12 - reactivemongo.api.CollectionMetaCommands</title>
+          <meta name="description" content="CollectionMetaCommands - ReactiveMongo API 0.11.12 - reactivemongo.api.CollectionMetaCommands" />
+          <meta name="keywords" content="CollectionMetaCommands ReactiveMongo API 0.11.12 reactivemongo.api.CollectionMetaCommands" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../lib/template.js"></script>
       <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../index.html';
@@ -293,22 +293,24 @@
       <p class="shortcomment cmt">Creates this collection as a capped one.</p><div class="fullcomment"><div class="comment cmt"><p>Creates this collection as a capped one.</p><p>The returned future will be completed with an error if this collection already exists.
 </p></div><dl class="paramcmts block"><dt class="param">size</dt><dd class="cmt"><p>the byte size of the collections.</p></dd><dt class="param">maxDocuments</dt><dd class="cmt"><p>the maximum number of documents.</p></dd><dt class="param">autoIndexId</dt><dd class="cmt"><p>States if should automatically add an index on the _id field. By default, capped collections will NOT have an indexed _id field, in contrast to regular collections.</p></dd></dl></div>
     </li><li name="reactivemongo.api.CollectionMetaCommands#drop" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="drop()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a>
-      <a id="drop()(ExecutionContext):Future[Unit]"></a>
+      <a id="drop(failIfNotFound:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Boolean]"></a>
+      <a id="drop(Boolean)(ExecutionContext):Future[Boolean]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">drop</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
+        <span class="name">drop</span><span class="params">(<span name="failIfNotFound">failIfNotFound: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.CollectionMetaCommands@drop()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.CollectionMetaCommands@drop(failIfNotFound:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Boolean]" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Drops this collection.</p><div class="fullcomment"><div class="comment cmt"><p>Drops this collection.</p><p>The returned future will be completed with an error if this collection does not exist.
+      <p class="shortcomment cmt">Drops this collection.</p><div class="fullcomment"><div class="comment cmt"><p>Drops this collection.</p><p>If the collection existed and is successfully dropped,
+the returned future will be completed with true.</p><p>If <code>failIfNotFound</code> is false and the collection doesn't exist,
+the returned future will be completed with false.</p><p>Otherwise in case, the future will be completed with the encountered error.
 </p></div></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
@@ -778,7 +780,29 @@
 
         <div id="values" class="values members">
               <h3>Deprecated Value Members</h3>
-              <ol><li name="reactivemongo.api.CollectionMetaCommands#emptyCapped" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+              <ol><li name="reactivemongo.api.CollectionMetaCommands#drop" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="drop()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a>
+      <a id="drop()(ExecutionContext):Future[Unit]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use drop(Boolean)">drop</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Unit">Unit</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.CollectionMetaCommands@drop()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Drops this collection.</p><div class="fullcomment"><div class="comment cmt"><p>Drops this collection.</p><p>The returned future will be completed with an error
+if this collection does not exist.
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Use <code>drop(Boolean)</code></p></dd></dl></div>
+    </li><li name="reactivemongo.api.CollectionMetaCommands#emptyCapped" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="emptyCapped()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a>
       <a id="emptyCapped()(ExecutionContext):Future[Unit]"></a>
       <h4 class="signature">

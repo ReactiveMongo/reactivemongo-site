@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>AggregationFramework - ReactiveMongo API 0.11.7 - reactivemongo.api.commands.AggregationFramework</title>
-          <meta name="description" content="AggregationFramework - ReactiveMongo API 0.11.7 - reactivemongo.api.commands.AggregationFramework" />
-          <meta name="keywords" content="AggregationFramework ReactiveMongo API 0.11.7 reactivemongo.api.commands.AggregationFramework" />
+          <title>AggregationFramework - ReactiveMongo API 0.11.12 - reactivemongo.api.commands.AggregationFramework</title>
+          <meta name="description" content="AggregationFramework - ReactiveMongo API 0.11.12 - reactivemongo.api.commands.AggregationFramework" />
+          <meta name="keywords" content="AggregationFramework ReactiveMongo API 0.11.12 reactivemongo.api.commands.AggregationFramework" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../../lib/template.js"></script>
       <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -125,15 +125,15 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="AggregationFramework$Aggregate.html"><span class="name">Aggregate</span></a><span class="params">(<span name="pipeline">pipeline: <span class="extype" name="scala.Seq">Seq</span>[<a href="AggregationFramework$PipelineOperator.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineOperator">PipelineOperator</a>]</span>, <span name="explain">explain: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="allowDiskUse">allowDiskUse: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="cursor">cursor: <span class="extype" name="scala.Option">Option</span>[<a href="AggregationFramework$Cursor.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Cursor">Cursor</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithPack.html" class="extype" name="reactivemongo.api.commands.CommandWithPack">CommandWithPack</a>[<a href="#pack:P" class="extmbr" name="reactivemongo.api.commands.AggregationFramework#pack">pack</a>.type] with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="AggregationFramework$AggregationResult.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.AggregationResult">AggregationResult</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="AggregationFramework$Aggregate.html"><span class="name">Aggregate</span></a><span class="params">(<span name="pipeline">pipeline: <span class="extype" name="scala.Seq">Seq</span>[<a href="AggregationFramework$PipelineOperator.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineOperator">PipelineOperator</a>]</span>, <span name="explain">explain: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="allowDiskUse">allowDiskUse: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="cursor">cursor: <span class="extype" name="scala.Option">Option</span>[<a href="AggregationFramework$Cursor.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Cursor">Cursor</a>]</span>, <span name="wireVersion">wireVersion: <a href="../../core/protocol/MongoWireVersion.html" class="extype" name="reactivemongo.core.protocol.MongoWireVersion">MongoWireVersion</a></span>, <span name="bypassDocumentValidation">bypassDocumentValidation: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="readConcern">readConcern: <span class="extype" name="scala.Option">Option</span>[<a href="../ReadConcern.html" class="extype" name="reactivemongo.api.ReadConcern">ReadConcern</a>]</span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithPack.html" class="extype" name="reactivemongo.api.commands.CommandWithPack">CommandWithPack</a>[<a href="#pack:P" class="extmbr" name="reactivemongo.api.commands.AggregationFramework#pack">pack</a>.type] with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="AggregationFramework$AggregationResult.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.AggregationResult">AggregationResult</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework@AggregateextendsCollectionCommandwithCommandWithPack[AggregationFramework.this.pack.type]withCommandWithResult[AggregationFramework.this.AggregationResult]withProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">pipeline</dt><dd class="cmt"><p>the sequence of MongoDB aggregation operations</p></dd><dt class="param">explain</dt><dd class="cmt"><p>specifies to return the information on the processing of the pipeline</p></dd><dt class="param">allowDiskUse</dt><dd class="cmt"><p>enables writing to temporary files</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>the cursor object for aggregation</p></dd></dl></div>
-    </li><li name="reactivemongo.api.commands.AggregationFramework.AggregationResult" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">pipeline</dt><dd class="cmt"><p>the sequence of MongoDB aggregation operations</p></dd><dt class="param">explain</dt><dd class="cmt"><p>specifies to return the information on the processing of the pipeline</p></dd><dt class="param">allowDiskUse</dt><dd class="cmt"><p>enables writing to temporary files</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>the cursor object for aggregation</p></dd><dt class="param">bypassDocumentValidation</dt><dd class="cmt"><p>available only if you specify the $out aggregation operator</p></dd><dt class="param">readConcern</dt><dd class="cmt"><p>the read concern (since MongoDB 3.2)</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.AggregationFramework.AggregationResult" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="AggregationResultextendsProductwithSerializable"></a>
       <a id="AggregationResult:AggregationResult"></a>
       <h4 class="signature">
@@ -142,14 +142,14 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="AggregationFramework$AggregationResult.html"><span class="name">AggregationResult</span></a><span class="params">(<span name="documents">documents: <span class="extype" name="scala.List">List</span>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="AggregationFramework$AggregationResult.html"><span class="name">AggregationResult</span></a><span class="params">(<span name="firstBatch">firstBatch: <span class="extype" name="scala.List">List</span>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>]</span>, <span name="cursor">cursor: <span class="extype" name="scala.Option">Option</span>[<a href="ResultCursor.html" class="extype" name="reactivemongo.api.commands.ResultCursor">ResultCursor</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework@AggregationResultextendsProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">firstBatch</dt><dd class="cmt"><p>the documents of the first batch</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>the cursor from the result, if any</p></dd></dl><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p><a href="AggregationFramework$Cursor.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Cursor">Cursor</a></p></span></dd></dl></div>
     </li><li name="reactivemongo.api.commands.AggregationFramework.Ascending" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="AscendingextendsAggregationFramework.this.SortOrderwithProductwithSerializable"></a>
       <a id="Ascending:Ascending"></a>
@@ -418,6 +418,41 @@ http://docs.mongodb.org/manual/reference/aggregation/match/#_S_match</p></div><d
       </a>
     </span>
       
+    </li><li name="reactivemongo.api.commands.AggregationFramework.MetadataKeyword" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="MetadataKeywordextendsAnyRef"></a>
+      <a id="MetadataKeyword:MetadataKeyword"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="AggregationFramework$MetadataKeyword.html"><span class="name">MetadataKeyword</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework@MetadataKeywordextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"><a href="https://docs.mongodb.org/v3.0/reference/operator/aggregation/meta/#exp._S_meta" target="_blank">Keyword of metadata</a>.</p>
+    </li><li name="reactivemongo.api.commands.AggregationFramework.MetadataSort" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MetadataSortextendsAggregationFramework.this.SortOrderwithProductwithSerializable"></a>
+      <a id="MetadataSort:MetadataSort"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="AggregationFramework$MetadataSort.html"><span class="name">MetadataSort</span></a><span class="params">(<span name="field">field: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="keyword">keyword: <a href="AggregationFramework$MetadataKeyword.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.MetadataKeyword">MetadataKeyword</a></span>)</span><span class="result"> extends <a href="AggregationFramework$SortOrder.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.SortOrder">SortOrder</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework@MetadataSortextendsAggregationFramework.this.SortOrderwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"><a href="https://docs.mongodb.org/v3.0/reference/operator/aggregation/sort/#sort-pipeline-metadata" target="_blank">Metadata sort</a> order.</p><div class="fullcomment"><div class="comment cmt"><p><a href="https://docs.mongodb.org/v3.0/reference/operator/aggregation/sort/#sort-pipeline-metadata" target="_blank">Metadata sort</a> order.
+</p></div><dl class="paramcmts block"><dt class="param">keyword</dt><dd class="cmt"><p>the metadata keyword to sort by</p></dd></dl></div>
     </li><li name="reactivemongo.api.commands.AggregationFramework.Min" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="MinextendsAggregationFramework.this.GroupFunctionwithProductwithSerializable"></a>
       <a id="Min:Min"></a>
@@ -545,6 +580,24 @@ Also uses <a href="http://docs.mongodb.org/manual/reference/aggregation/project/
     </span>
       <p class="shortcomment cmt">Restricts the contents of the documents based on information stored in the documents themselves.</p><div class="fullcomment"><div class="comment cmt"><p>Restricts the contents of the documents based on information stored in the documents themselves.
 http://docs.mongodb.org/manual/reference/operator/aggregation/redact/#pipe._S_redact Redact</p></div><dl class="paramcmts block"><dt class="param">expression</dt><dd class="cmt"><p>the redact expression</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.AggregationFramework.Sample" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SampleextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable"></a>
+      <a id="Sample:Sample"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="AggregationFramework$Sample.html"><span class="name">Sample</span></a><span class="params">(<span name="size">size: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <a href="AggregationFramework$PipelineOperator.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineOperator">PipelineOperator</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework@SampleextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Randomly selects the specified number of documents from its input.</p><div class="fullcomment"><div class="comment cmt"><p>Randomly selects the specified number of documents from its input.
+https://docs.mongodb.org/master/reference/operator/aggregation/sample/</p></div><dl class="paramcmts block"><dt class="param">size</dt><dd class="cmt"><p>the number of documents to return</p></dd></dl></div>
     </li><li name="reactivemongo.api.commands.AggregationFramework.Skip" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="SkipextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable"></a>
       <a id="Skip:Skip"></a>
@@ -580,7 +633,7 @@ http://docs.mongodb.org/manual/reference/aggregation/skip/#_S_skip</p></div><dl 
       </a>
     </span>
       <p class="shortcomment cmt">Sorts the stream based on the given fields.</p><div class="fullcomment"><div class="comment cmt"><p>Sorts the stream based on the given fields.
-http://docs.mongodb.org/manual/reference/aggregation/sort/#_S_sort</p></div><dl class="paramcmts block"><dt class="param">fields</dt><dd class="cmt"><p>Fields to sort by.</p></dd></dl></div>
+http://docs.mongodb.org/manual/reference/aggregation/sort/#_S_sort</p></div><dl class="paramcmts block"><dt class="param">fields</dt><dd class="cmt"><p>the fields to sort by</p></dd></dl></div>
     </li><li name="reactivemongo.api.commands.AggregationFramework.SortOrder" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="SortOrderextendsAnyRef"></a>
       <a id="SortOrder:SortOrder"></a>
@@ -930,6 +983,23 @@ http://docs.mongodb.org/manual/reference/aggregation/unwind/#_S_unwind</p></div>
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.AggregationFramework.TextScore" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TextScore"></a>
+      <a id="TextScore:TextScore"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="AggregationFramework$TextScore$.html"><span class="name">TextScore</span></a><span class="result"> extends <a href="AggregationFramework$MetadataKeyword.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.MetadataKeyword">MetadataKeyword</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework@TextScore" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">References the score associated with the corresponding <a href="https://docs.mongodb.org/v3.0/reference/operator/query/text/#op._S_text" target="_blank"><code>$text</code></a> query for each matching document.</p>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>

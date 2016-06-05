@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>LastError - ReactiveMongo API 0.11.7 - reactivemongo.api.commands.LastError</title>
-          <meta name="description" content="LastError - ReactiveMongo API 0.11.7 - reactivemongo.api.commands.LastError" />
-          <meta name="keywords" content="LastError ReactiveMongo API 0.11.7 reactivemongo.api.commands.LastError" />
+          <title>LastError - ReactiveMongo API 0.11.12 - reactivemongo.api.commands.LastError</title>
+          <meta name="description" content="LastError - ReactiveMongo API 0.11.12 - reactivemongo.api.commands.LastError" />
+          <meta name="keywords" content="LastError ReactiveMongo API 0.11.12 reactivemongo.api.commands.LastError" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../../lib/template.js"></script>
       <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -45,13 +45,13 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">LastError</span><span class="params">(<span name="ok">ok: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="err">err: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="code">code: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="lastOp">lastOp: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>]</span>, <span name="n">n: <span class="extype" name="scala.Int">Int</span></span>, <span name="singleShard">singleShard: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="updatedExisting">updatedExisting: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="upserted">upserted: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]</span>, <span name="wnote">wnote: <span class="extype" name="scala.Option">Option</span>[<a href="GetLastError$$W.html" class="extype" name="reactivemongo.api.commands.GetLastError.W">W</a>]</span>, <span name="wtimeout">wtimeout: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="waited">waited: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="wtime">wtime: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">LastError</span><span class="params">(<span name="ok">ok: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="errmsg">errmsg: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="code">code: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="lastOp">lastOp: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>]</span>, <span name="n">n: <span class="extype" name="scala.Int">Int</span></span>, <span name="singleShard">singleShard: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="updatedExisting">updatedExisting: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="upserted">upserted: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]</span>, <span name="wnote">wnote: <span class="extype" name="scala.Option">Option</span>[<a href="GetLastError$$W.html" class="extype" name="reactivemongo.api.commands.GetLastError.W">W</a>]</span>, <span name="wtimeout">wtimeout: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="waited">waited: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="wtime">wtime: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="writeErrors">writeErrors: <span class="extype" name="scala.Seq">Seq</span>[<a href="WriteError.html" class="extype" name="reactivemongo.api.commands.WriteError">WriteError</a>] = <span class="symbol">Nil</span></span>, <span name="writeConcernError">writeConcernError: <span class="extype" name="scala.Option">Option</span>[<a href="WriteConcernError.html" class="extype" name="reactivemongo.api.commands.WriteConcernError">WriteConcernError</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="../../core/errors/DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a> with <a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a> with <span class="extype" name="scala.util.control.NoStackTrace">NoStackTrace</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a>, <span class="extype" name="scala.util.control.NoStackTrace">NoStackTrace</span>, <a href="../../core/errors/DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a>, <a href="../../core/errors/ReactiveMongoException.html" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>, <span class="extype" name="java.lang.Exception">Exception</span>, <span class="extype" name="java.lang.Throwable">Throwable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <span class="extype" name="scala.util.control.NoStackTrace">NoStackTrace</span>, <a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a>, <a href="../../core/errors/DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a>, <a href="../../core/errors/ReactiveMongoException.html" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>, <span class="extype" name="java.lang.Exception">Exception</span>, <span class="extype" name="java.lang.Throwable">Throwable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -69,7 +69,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="reactivemongo.api.commands.LastError"><span>LastError</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="reactivemongo.api.commands.WriteResult"><span>WriteResult</span></li><li class="in" name="scala.util.control.NoStackTrace"><span>NoStackTrace</span></li><li class="in" name="reactivemongo.core.errors.DatabaseException"><span>DatabaseException</span></li><li class="in" name="reactivemongo.core.errors.ReactiveMongoException"><span>ReactiveMongoException</span></li><li class="in" name="java.lang.Exception"><span>Exception</span></li><li class="in" name="java.lang.Throwable"><span>Throwable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="reactivemongo.api.commands.LastError"><span>LastError</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.util.control.NoStackTrace"><span>NoStackTrace</span></li><li class="in" name="reactivemongo.api.commands.WriteResult"><span>WriteResult</span></li><li class="in" name="reactivemongo.core.errors.DatabaseException"><span>DatabaseException</span></li><li class="in" name="reactivemongo.core.errors.ReactiveMongoException"><span>ReactiveMongoException</span></li><li class="in" name="java.lang.Exception"><span>Exception</span></li><li class="in" name="java.lang.Throwable"><span>Throwable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
                 <span class="filtertype">Implicitly<br />
@@ -94,7 +94,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="reactivemongo.api.commands.LastError#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(ok:Boolean,err:Option[String],code:Option[Int],lastOp:Option[Long],n:Int,singleShard:Option[String],updatedExisting:Boolean,upserted:Option[reactivemongo.bson.BSONValue],wnote:Option[reactivemongo.api.commands.WriteConcern.W],wtimeout:Boolean,waited:Option[Int],wtime:Option[Int]):reactivemongo.api.commands.LastError"></a>
+      <a id="&lt;init&gt;(ok:Boolean,errmsg:Option[String],code:Option[Int],lastOp:Option[Long],n:Int,singleShard:Option[String],updatedExisting:Boolean,upserted:Option[reactivemongo.bson.BSONValue],wnote:Option[reactivemongo.api.commands.WriteConcern.W],wtimeout:Boolean,waited:Option[Int],wtime:Option[Int],writeErrors:Seq[reactivemongo.api.commands.WriteError],writeConcernError:Option[reactivemongo.api.commands.WriteConcernError]):reactivemongo.api.commands.LastError"></a>
       <a id="&lt;init&gt;:LastError"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -102,10 +102,10 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">LastError</span><span class="params">(<span name="ok">ok: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="err">err: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="code">code: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="lastOp">lastOp: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>]</span>, <span name="n">n: <span class="extype" name="scala.Int">Int</span></span>, <span name="singleShard">singleShard: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="updatedExisting">updatedExisting: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="upserted">upserted: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]</span>, <span name="wnote">wnote: <span class="extype" name="scala.Option">Option</span>[<a href="GetLastError$$W.html" class="extype" name="reactivemongo.api.commands.GetLastError.W">W</a>]</span>, <span name="wtimeout">wtimeout: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="waited">waited: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="wtime">wtime: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>)</span>
+        <span class="name">LastError</span><span class="params">(<span name="ok">ok: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="errmsg">errmsg: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="code">code: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="lastOp">lastOp: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>]</span>, <span name="n">n: <span class="extype" name="scala.Int">Int</span></span>, <span name="singleShard">singleShard: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="updatedExisting">updatedExisting: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="upserted">upserted: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]</span>, <span name="wnote">wnote: <span class="extype" name="scala.Option">Option</span>[<a href="GetLastError$$W.html" class="extype" name="reactivemongo.api.commands.GetLastError.W">W</a>]</span>, <span name="wtimeout">wtimeout: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="waited">waited: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="wtime">wtime: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="writeErrors">writeErrors: <span class="extype" name="scala.Seq">Seq</span>[<a href="WriteError.html" class="extype" name="reactivemongo.api.commands.WriteError">WriteError</a>] = <span class="symbol">Nil</span></span>, <span name="writeConcernError">writeConcernError: <span class="extype" name="scala.Option">Option</span>[<a href="WriteConcernError.html" class="extype" name="reactivemongo.api.commands.WriteConcernError">WriteConcernError</a>] = <span class="symbol">None</span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.LastError@&lt;init&gt;(ok:Boolean,err:Option[String],code:Option[Int],lastOp:Option[Long],n:Int,singleShard:Option[String],updatedExisting:Boolean,upserted:Option[reactivemongo.bson.BSONValue],wnote:Option[reactivemongo.api.commands.WriteConcern.W],wtimeout:Boolean,waited:Option[Int],wtime:Option[Int]):reactivemongo.api.commands.LastError" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.LastError@&lt;init&gt;(ok:Boolean,errmsg:Option[String],code:Option[Int],lastOp:Option[Long],n:Int,singleShard:Option[String],updatedExisting:Boolean,upserted:Option[reactivemongo.bson.BSONValue],wnote:Option[reactivemongo.api.commands.WriteConcern.W],wtimeout:Boolean,waited:Option[Int],wtime:Option[Int],writeErrors:Seq[reactivemongo.api.commands.WriteError],writeConcernError:Option[reactivemongo.api.commands.WriteConcernError]):reactivemongo.api.commands.LastError" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -288,7 +288,7 @@
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">error code</p><div class="fullcomment"><div class="comment cmt"><p>error code</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.commands.LastError">LastError</a> → <a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a> → <a href="../../core/errors/DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a></dd></dl></div>
+      <p class="shortcomment cmt">The result code</p><div class="fullcomment"><div class="comment cmt"><p>The result code</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.commands.LastError">LastError</a> → <a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a> → <a href="../../core/errors/DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a></dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
       <a id="ensuring((LastError)⇒Boolean,⇒Any):LastError"></a>
@@ -390,30 +390,13 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="reactivemongo.api.commands.LastError#err" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="err:Option[String]"></a>
-      <a id="err:Option[String]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">err</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.LastError@err:Option[String]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="reactivemongo.api.commands.LastError#errmsg" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="errmsg:Option[String]"></a>
       <a id="errmsg:Option[String]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">def</span>
+        <span class="kind">val</span>
       </span>
       <span class="symbol">
         <span class="name">errmsg</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
@@ -423,7 +406,7 @@
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.commands.LastError">LastError</a> → <a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a></dd></dl></div>
+      <p class="shortcomment cmt">If the result is a failure, the error message</p><div class="fullcomment"><div class="comment cmt"><p>If the result is a failure, the error message</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.commands.LastError">LastError</a> → <a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a></dd></dl></div>
     </li><li name="scala.util.control.NoStackTrace#fillInStackTrace" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="fillInStackTrace():Throwable"></a>
       <a id="fillInStackTrace():Throwable"></a>
@@ -725,7 +708,7 @@
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">explanation message</p><div class="fullcomment"><div class="comment cmt"><p>explanation message</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a> → <a href="../../core/errors/ReactiveMongoException.html" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a></dd></dl></div>
+      <p class="shortcomment cmt">Returns either the <a href="WriteResult.html#errmsg:Option[String]" class="extmbr" name="reactivemongo.api.commands.WriteResult#errmsg">errmsg</a> or <code>&lt;none&gt;</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns either the <a href="WriteResult.html#errmsg:Option[String]" class="extmbr" name="reactivemongo.api.commands.WriteResult#errmsg">errmsg</a> or <code>&lt;none&gt;</code>.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a></dd></dl></div>
     </li><li name="reactivemongo.api.commands.LastError#n" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="n:Int"></a>
       <a id="n:Int"></a>
@@ -812,22 +795,22 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.commands.LastError">LastError</a> → <a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a></dd></dl></div>
     </li><li name="reactivemongo.api.commands.WriteResult#originalDocument" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="originalDocument:None.type"></a>
-      <a id="originalDocument:None.type"></a>
+      <a id="originalDocument:Option[reactivemongo.bson.BSONDocument]"></a>
+      <a id="originalDocument:Option[BSONDocument]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">originalDocument</span><span class="result">: <span class="extype" name="scala.None">None</span>.type</span>
+        <span class="name">originalDocument</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.LastError@originalDocument:None.type" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.LastError@originalDocument:Option[reactivemongo.bson.BSONDocument]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">original document of this error</p><div class="fullcomment"><div class="comment cmt"><p>original document of this error</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a> → <a href="../../core/errors/DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a></dd></dl></div>
     </li><li name="java.lang.Throwable#printStackTrace" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="printStackTrace(x$1:java.io.PrintWriter):Unit"></a>
       <a id="printStackTrace(PrintWriter):Unit"></a>
@@ -1090,7 +1073,7 @@
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">def</span>
+        <span class="kind">val</span>
       </span>
       <span class="symbol">
         <span class="name">writeConcernError</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="WriteConcernError.html" class="extype" name="reactivemongo.api.commands.WriteConcernError">WriteConcernError</a>]</span>
@@ -1107,7 +1090,7 @@
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">def</span>
+        <span class="kind">val</span>
       </span>
       <span class="symbol">
         <span class="name">writeErrors</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="WriteError.html" class="extype" name="reactivemongo.api.commands.WriteError">WriteError</a>]</span>
@@ -1180,7 +1163,27 @@
 
         <div id="values" class="values members">
               <h3>Deprecated Value Members</h3>
-              <ol><li name="scala.Predef.RichException#getStackTraceString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+              <ol><li name="reactivemongo.api.commands.LastError#err" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="err:Option[String]"></a>
+      <a id="err:Option[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@422d58b5">err</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.LastError@err:Option[String]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Use <a href="#errmsg:Option[String]" class="extmbr" name="reactivemongo.api.commands.LastError#errmsg">errmsg</a></p></dd></dl></div>
+    </li><li name="scala.Predef.RichException#getStackTraceString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getStackTraceString:String"></a>
       <a id="getStackTraceString:String"></a>
       <h4 class="signature">
@@ -1215,10 +1218,10 @@
               <h3>Inherited from <span class="extype" name="scala.Product">Product</span></h3>
             </div><div class="parent" name="scala.Equals">
               <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
-            </div><div class="parent" name="reactivemongo.api.commands.WriteResult">
-              <h3>Inherited from <a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a></h3>
             </div><div class="parent" name="scala.util.control.NoStackTrace">
               <h3>Inherited from <span class="extype" name="scala.util.control.NoStackTrace">NoStackTrace</span></h3>
+            </div><div class="parent" name="reactivemongo.api.commands.WriteResult">
+              <h3>Inherited from <a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a></h3>
             </div><div class="parent" name="reactivemongo.core.errors.DatabaseException">
               <h3>Inherited from <a href="../../core/errors/DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a></h3>
             </div><div class="parent" name="reactivemongo.core.errors.ReactiveMongoException">

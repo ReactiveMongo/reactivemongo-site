@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Aggregate - ReactiveMongo API 0.11.7 - reactivemongo.core.commands.Aggregate</title>
-          <meta name="description" content="Aggregate - ReactiveMongo API 0.11.7 - reactivemongo.core.commands.Aggregate" />
-          <meta name="keywords" content="Aggregate ReactiveMongo API 0.11.7 reactivemongo.core.commands.Aggregate" />
+          <title>Aggregate - ReactiveMongo API 0.11.12 - reactivemongo.core.commands.Aggregate</title>
+          <meta name="description" content="Aggregate - ReactiveMongo API 0.11.12 - reactivemongo.core.commands.Aggregate" />
+          <meta name="keywords" content="Aggregate ReactiveMongo API 0.11.12 reactivemongo.core.commands.Aggregate" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../../lib/template.js"></script>
       <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -47,7 +47,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.11.4) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@2339e8f0">Aggregate</span><span class="params">(<span name="collectionName">collectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="pipeline">pipeline: <span class="extype" name="scala.Seq">Seq</span>[<a href="PipelineOperator.html" class="extype" name="reactivemongo.core.commands.PipelineOperator">PipelineOperator</a>]</span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Stream">Stream</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.4) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@7a0a9f28">Aggregate</span><span class="params">(<span name="collectionName">collectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="pipeline">pipeline: <span class="extype" name="scala.Seq">Seq</span>[<a href="PipelineOperator.html" class="extype" name="reactivemongo.core.commands.PipelineOperator">PipelineOperator</a>]</span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Stream">Stream</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
@@ -56,7 +56,7 @@ http://docs.mongodb.org/manual/applications/aggregation/
 </p></div><dl class="paramcmts block"><dt class="param">collectionName</dt><dd class="cmt"><p>Collection to aggregate against</p></dd><dt class="param">pipeline</dt><dd class="cmt"><p>Sequence of MongoDB aggregation operations.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.4)</i> Use <a href="../../api/collections/bson/BSONCollection.html#aggregate(firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,cursor:Option[GenericCollection.this.BatchCommands.AggregationFramework.Cursor])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[GenericCollection.this.BatchCommands.AggregationFramework.AggregationResult]" class="extmbr" name="reactivemongo.api.collections.bson.BSONCollection#aggregate">reactivemongo.api.collections.bson.BSONCollection.aggregate</a></p></dd></dl><div class="toggleContainer block">
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.4)</i> Use <a href="../../api/collections/bson/BSONCollection.html#aggregate(firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[GenericCollection.this.BatchCommands.AggregationFramework.AggregationResult]" class="extmbr" name="reactivemongo.api.collections.bson.BSONCollection#aggregate">reactivemongo.api.collections.bson.BSONCollection.aggregate</a></p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Stream">Stream</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>

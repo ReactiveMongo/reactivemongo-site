@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>NodeSet - ReactiveMongo API 0.11.7 - reactivemongo.core.nodeset.NodeSet</title>
-          <meta name="description" content="NodeSet - ReactiveMongo API 0.11.7 - reactivemongo.core.nodeset.NodeSet" />
-          <meta name="keywords" content="NodeSet ReactiveMongo API 0.11.7 reactivemongo.core.nodeset.NodeSet" />
+          <title>NodeSet - ReactiveMongo API 0.11.12 - reactivemongo.core.nodeset.NodeSet</title>
+          <meta name="description" content="NodeSet - ReactiveMongo API 0.11.12 - reactivemongo.core.nodeset.NodeSet" />
+          <meta name="keywords" content="NodeSet ReactiveMongo API 0.11.12 reactivemongo.core.nodeset.NodeSet" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../../lib/template.js"></script>
       <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -45,7 +45,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">NodeSet</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="version">version: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>]</span>, <span name="nodes">nodes: <span class="extype" name="scala.Vector">Vector</span>[<a href="Node.html" class="extype" name="reactivemongo.core.nodeset.Node">Node</a>]</span>, <span name="authenticates">authenticates: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">NodeSet</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="version">version: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>]</span>, <span name="nodes">nodes: <span class="extype" name="scala.Vector">Vector</span>[<a href="Node.html" class="extype" name="reactivemongo.core.nodeset.Node">Node</a>]</span>, <span name="authenticates">authenticates: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
@@ -94,7 +94,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="reactivemongo.core.nodeset.NodeSet#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(name:Option[String],version:Option[Long],nodes:Vector[reactivemongo.core.nodeset.Node],authenticates:Set[reactivemongo.core.nodeset.Authenticate]):reactivemongo.core.nodeset.NodeSet"></a>
+      <a id="&lt;init&gt;(name:Option[String],version:Option[Long],nodes:Vector[reactivemongo.core.nodeset.Node],authenticates:scala.collection.immutable.Set[reactivemongo.core.nodeset.Authenticate]):reactivemongo.core.nodeset.NodeSet"></a>
       <a id="&lt;init&gt;:NodeSet"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -102,10 +102,10 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">NodeSet</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="version">version: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>]</span>, <span name="nodes">nodes: <span class="extype" name="scala.Vector">Vector</span>[<a href="Node.html" class="extype" name="reactivemongo.core.nodeset.Node">Node</a>]</span>, <span name="authenticates">authenticates: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>]</span>)</span>
+        <span class="name">NodeSet</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="version">version: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>]</span>, <span name="nodes">nodes: <span class="extype" name="scala.Vector">Vector</span>[<a href="Node.html" class="extype" name="reactivemongo.core.nodeset.Node">Node</a>]</span>, <span name="authenticates">authenticates: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>]</span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.nodeset.NodeSet@&lt;init&gt;(name:Option[String],version:Option[Long],nodes:Vector[reactivemongo.core.nodeset.Node],authenticates:Set[reactivemongo.core.nodeset.Authenticate]):reactivemongo.core.nodeset.NodeSet" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.NodeSet@&lt;init&gt;(name:Option[String],version:Option[Long],nodes:Vector[reactivemongo.core.nodeset.Node],authenticates:scala.collection.immutable.Set[reactivemongo.core.nodeset.Authenticate]):reactivemongo.core.nodeset.NodeSet" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -233,7 +233,7 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="reactivemongo.core.nodeset.NodeSet#authenticates" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="authenticates:Set[reactivemongo.core.nodeset.Authenticate]"></a>
+      <a id="authenticates:scala.collection.immutable.Set[reactivemongo.core.nodeset.Authenticate]"></a>
       <a id="authenticates:Set[Authenticate]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -241,10 +241,10 @@
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">authenticates</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>]</span>
+        <span class="name">authenticates</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.nodeset.NodeSet@authenticates:Set[reactivemongo.core.nodeset.Authenticate]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.NodeSet@authenticates:scala.collection.immutable.Set[reactivemongo.core.nodeset.Authenticate]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -504,7 +504,7 @@
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">The <code>mongos</code> node, if any.</p>
     </li><li name="reactivemongo.core.nodeset.NodeSet#name" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="name:Option[String]"></a>
       <a id="name:Option[String]"></a>
@@ -555,7 +555,7 @@
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">The first node from the <a href="#nearestGroup:reactivemongo.core.nodeset.RoundRobiner[reactivemongo.core.nodeset.Node,scala.collection.immutable.Vector]" class="extmbr" name="reactivemongo.core.nodeset.NodeSet#nearestGroup">nearestGroup</a>.</p>
     </li><li name="reactivemongo.core.nodeset.NodeSet#nearestGroup" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="nearestGroup:reactivemongo.core.nodeset.RoundRobiner[reactivemongo.core.nodeset.Node,scala.collection.immutable.Vector]"></a>
       <a id="nearestGroup:RoundRobiner[Node,Vector]"></a>
@@ -572,7 +572,7 @@
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">See the <a href="https://docs.mongodb.com/manual/reference/read-preference/#nearest" target="_blank">nearest</a> read preference.</p>
     </li><li name="reactivemongo.core.nodeset.NodeSet#nodes" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="nodes:Vector[reactivemongo.core.nodeset.Node]"></a>
       <a id="nodes:Vector[Node]"></a>
@@ -708,7 +708,7 @@
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">The node which is the current primary one.</p>
     </li><li name="reactivemongo.core.nodeset.NodeSet#protocolMetadata" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="protocolMetadata:reactivemongo.core.nodeset.ProtocolMetadata"></a>
       <a id="protocolMetadata:ProtocolMetadata"></a>

@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>PrimaryUnavailableException - ReactiveMongo API 0.11.7 - reactivemongo.core.actors.Exceptions.PrimaryUnavailableException</title>
-          <meta name="description" content="PrimaryUnavailableException - ReactiveMongo API 0.11.7 - reactivemongo.core.actors.Exceptions.PrimaryUnavailableException" />
-          <meta name="keywords" content="PrimaryUnavailableException ReactiveMongo API 0.11.7 reactivemongo.core.actors.Exceptions.PrimaryUnavailableException" />
+          <title>PrimaryUnavailableException - ReactiveMongo API 0.11.12 - reactivemongo.core.actors.Exceptions.PrimaryUnavailableException</title>
+          <meta name="description" content="PrimaryUnavailableException - ReactiveMongo API 0.11.12 - reactivemongo.core.actors.Exceptions.PrimaryUnavailableException" />
+          <meta name="keywords" content="PrimaryUnavailableException ReactiveMongo API 0.11.12 reactivemongo.core.actors.Exceptions.PrimaryUnavailableException" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../../lib/template.js"></script>
       <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -45,13 +45,13 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">PrimaryUnavailableException</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="../errors/DriverException.html" class="extype" name="reactivemongo.core.errors.DriverException">DriverException</a></span>
+        <span class="name">PrimaryUnavailableException</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="../errors/DriverException.html" class="extype" name="reactivemongo.core.errors.DriverException">DriverException</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>An exception thrown when a request needs a non available primary.</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="../errors/DriverException.html" class="extype" name="reactivemongo.core.errors.DriverException">DriverException</a>, <a href="../errors/ReactiveMongoException.html" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>, <span class="extype" name="java.lang.Exception">Exception</span>, <span class="extype" name="java.lang.Throwable">Throwable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="../errors/DriverException.html" class="extype" name="reactivemongo.core.errors.DriverException">DriverException</a>, <a href="../errors/ReactiveMongoException.html" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>, <span class="extype" name="java.lang.Exception">Exception</span>, <span class="extype" name="java.lang.Throwable">Throwable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -69,7 +69,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="reactivemongo.core.actors.Exceptions.PrimaryUnavailableException"><span>PrimaryUnavailableException</span></li><li class="in" name="reactivemongo.core.errors.DriverException"><span>DriverException</span></li><li class="in" name="reactivemongo.core.errors.ReactiveMongoException"><span>ReactiveMongoException</span></li><li class="in" name="java.lang.Exception"><span>Exception</span></li><li class="in" name="java.lang.Throwable"><span>Throwable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="reactivemongo.core.actors.Exceptions.PrimaryUnavailableException"><span>PrimaryUnavailableException</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="reactivemongo.core.errors.DriverException"><span>DriverException</span></li><li class="in" name="reactivemongo.core.errors.ReactiveMongoException"><span>ReactiveMongoException</span></li><li class="in" name="java.lang.Exception"><span>Exception</span></li><li class="in" name="java.lang.Throwable"><span>Throwable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -378,23 +378,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Throwable</dd></dl></div>
-    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="hashCode():Int"></a>
-      <a id="hashCode():Int"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.actors.Exceptions$$PrimaryUnavailableException$@hashCode():Int" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="java.lang.Throwable#initCause" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="initCause(x$1:Throwable):Throwable"></a>
       <a id="initCause(Throwable):Throwable"></a>
@@ -677,7 +660,13 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="reactivemongo.core.errors.DriverException">
+        <div class="parent" name="scala.Serializable">
+              <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="scala.Product">
+              <h3>Inherited from <span class="extype" name="scala.Product">Product</span></h3>
+            </div><div class="parent" name="scala.Equals">
+              <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
+            </div><div class="parent" name="reactivemongo.core.errors.DriverException">
               <h3>Inherited from <a href="../errors/DriverException.html" class="extype" name="reactivemongo.core.errors.DriverException">DriverException</a></h3>
             </div><div class="parent" name="reactivemongo.core.errors.ReactiveMongoException">
               <h3>Inherited from <a href="../errors/ReactiveMongoException.html" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a></h3>

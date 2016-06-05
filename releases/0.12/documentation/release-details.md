@@ -91,7 +91,10 @@ def populatedStates(col: BSONCollection): Future[List[BSONDocument]] = {
   - [$geoNear](https://docs.mongodb.org/manual/reference/operator/aggregation/geoNear/#pipe._S_geoNear): Returns an ordered stream of documents based on the proximity to a geospatial point.
   - [$out](https://docs.mongodb.org/manual/reference/operator/aggregation/out/#pipe._S_out): Takes the documents returned by the aggregation pipeline and writes them to a specified collection.
   - [$redact](https://docs.mongodb.org/manual/reference/operator/aggregation/redact/#pipe._S_redact): Reshapes each document in the stream by restricting the content for each document based on information stored in the documents themselves..
-  - [$sample](https://docs.mongodb.org/manual/reference/operator/aggregation/sample/) aggregation stage only (only since MongoDB 3.2): Randomly selects the specified number of documents from its input.
+
+The [$sample](https://docs.mongodb.org/manual/reference/operator/aggregation/sample/) aggregation stage only (only since MongoDB 3.2): Randomly selects the specified number of documents from its input.
+
+TODO: `$sample` example
 
 When the [`$text` operator](https://docs.mongodb.org/v3.0/reference/operator/query/text/#op._S_text) is used in an aggregation pipeline, then new the results can be [sorted](https://docs.mongodb.org/v3.0/reference/operator/aggregation/sort/#metadata-sort) according the [text scores](https://docs.mongodb.org/v3.0/reference/operator/query/text/#text-operator-text-score).
 
@@ -235,8 +238,28 @@ def populatedStates(cities: BSONCollection)(implicit ec: ExecutionContext): Futu
 An [`ErrorHandler`](../api/index.html#reactivemongo.api.Cursor$@ErrorHandler[A]=%28A,Throwable%29=%3Ereactivemongo.api.Cursor.State[A]) can be used with the [`Cursor`](../api/index.html#reactivemongo.api.Cursor), instead of the limited `stopOnError` flag.
 
 {% highlight scala %}
-// TODO: Code sample
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.api.Cursor
+
+def foldStrings(cursor: Cursor[String]): Future[Seq[String]] = {
+  val handler: Cursor.ErrorHandler[Seq[String]] =
+    { (last: Seq[String], error: Throwable) =>
+      println(s"Encounter error: $error")
+
+      if (last.isEmpty) { // continue, skip error if no previous value
+        Cursor.Cont(last)
+      } else Cursor.Fail(error)
+    }
+
+  cursor.foldWhile(Seq.empty[String])({ (agg, str) =>
+    Cursor.Cont(agg :+ str)
+  }, handler)
+}
 {% endhighlight %}
+
+> The convenient handlers [`ContOnError`](../api/index.html#reactivemongo.api.Cursor$@ContOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]) (skip all errors), [`DoneOnError`](../api/index.html#reactivemongo.api.Cursor$@DoneOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]) (stop quietly on the first error), and [`FailOnError`](../api/index.html#reactivemongo.api.Cursor$@FailOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]) (fail on the first error).
 
 The field [`maxTimeMs`](https://docs.mongodb.org/manual/reference/method/cursor.maxTimeMS/) is supported by the [query builder](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@maxTimeMs%28p:Long%29:GenericQueryBuilder.this.Self), to specifies a cumulative time limit in milliseconds for processing operations.
 
