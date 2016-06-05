@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>commands - ReactiveMongo API 0.11.7 - reactivemongo.core.commands</title>
-          <meta name="description" content="commands - ReactiveMongo API 0.11.7 - reactivemongo.core.commands" />
-          <meta name="keywords" content="commands ReactiveMongo API 0.11.7 reactivemongo.core.commands" />
+          <title>commands - ReactiveMongo API 0.11.12 - reactivemongo.core.commands</title>
+          <meta name="description" content="commands - ReactiveMongo API 0.11.12 - reactivemongo.core.commands" />
+          <meta name="keywords" content="commands ReactiveMongo API 0.11.12 reactivemongo.core.commands" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../../lib/template.js"></script>
       <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -892,7 +892,7 @@ http://docs.mongodb.org/manual/reference/aggregation/unwind/#_S_unwind</p></div>
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="Aggregate.html"><span class="name deprecated" title="Deprecated: (Since version 0.11.4) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@3a638e49">Aggregate</span></a><span class="params">(<span name="collectionName">collectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="pipeline">pipeline: <span class="extype" name="scala.Seq">Seq</span>[<a href="PipelineOperator.html" class="extype" name="reactivemongo.core.commands.PipelineOperator">PipelineOperator</a>]</span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Stream">Stream</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="Aggregate.html"><span class="name deprecated" title="Deprecated: (Since version 0.11.4) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@7fc81278">Aggregate</span></a><span class="params">(<span name="collectionName">collectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="pipeline">pipeline: <span class="extype" name="scala.Seq">Seq</span>[<a href="PipelineOperator.html" class="extype" name="reactivemongo.core.commands.PipelineOperator">PipelineOperator</a>]</span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Stream">Stream</span>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.package@AggregateextendsCommand[Stream[reactivemongo.bson.BSONDocument]]withProductwithSerializable" title="Permalink" target="_top">
@@ -906,7 +906,27 @@ http://docs.mongodb.org/manual/applications/aggregation/
 </p></div><dl class="paramcmts block"><dt class="param">collectionName</dt><dd class="cmt"><p>Collection to aggregate against</p></dd><dt class="param">pipeline</dt><dd class="cmt"><p>Sequence of MongoDB aggregation operations.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.4)</i> Use <a href="../../api/collections/bson/BSONCollection.html#aggregate(firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,cursor:Option[GenericCollection.this.BatchCommands.AggregationFramework.Cursor])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[GenericCollection.this.BatchCommands.AggregationFramework.AggregationResult]" class="extmbr" name="reactivemongo.api.collections.bson.BSONCollection#aggregate">reactivemongo.api.collections.bson.BSONCollection.aggregate</a></p></dd></dl></div>
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.4)</i> Use <a href="../../api/collections/bson/BSONCollection.html#aggregate(firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[GenericCollection.this.BatchCommands.AggregationFramework.AggregationResult]" class="extmbr" name="reactivemongo.api.collections.bson.BSONCollection#aggregate">reactivemongo.api.collections.bson.BSONCollection.aggregate</a></p></dd></dl></div>
+    </li><li name="reactivemongo.core.commands.Authenticate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="AuthenticateextendsCommand[reactivemongo.core.commands.SuccessfulAuthentication]withProductwithSerializable"></a>
+      <a id="Authenticate:Authenticate"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Authenticate.html"><span class="name deprecated" title="Deprecated: (Since version 0.11.10) See scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@2c970253">Authenticate</span></a><span class="params">(<span name="user">user: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="password">password: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="nonce">nonce: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<a href="SuccessfulAuthentication.html" class="extype" name="reactivemongo.core.commands.SuccessfulAuthentication">SuccessfulAuthentication</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.commands.package@AuthenticateextendsCommand[reactivemongo.core.commands.SuccessfulAuthentication]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.10)</i> See <a href="CrAuthenticate.html" class="extype" name="reactivemongo.core.commands.CrAuthenticate">CrAuthenticate</a></p></dd></dl></div>
     </li><li name="reactivemongo.core.commands.CollStats" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="CollStatsextendsCommand[reactivemongo.core.commands.CollStatsResult]"></a>
       <a id="CollStats:CollStats"></a>
@@ -1169,7 +1189,7 @@ This command will return only when the previous operation is complete and matche
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="RawCommand.html"><span class="name deprecated" title="Deprecated: (Since version 0.11.0) consider using reactivemongo.api.commands.RawCommand instead">RawCommand</span></a><span class="params">(<span name="bson">bson: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="RawCommand.html"><span class="name deprecated" title="Deprecated: (Since version 0.11.0) consider using rawCommand on scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@1d3a8800 instead">RawCommand</span></a><span class="params">(<span name="bson">bson: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.commands.package@RawCommandextendsCommand[reactivemongo.bson.BSONDocument]withProductwithSerializable" title="Permalink" target="_top">
@@ -1179,7 +1199,7 @@ This command will return only when the previous operation is complete and matche
       <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.0)</i> consider using reactivemongo.api.commands.RawCommand instead</p></dd></dl></div>
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.0)</i> consider using <code>rawCommand</code> on <a href="../../api/collections/GenericCollection.html#runner:reactivemongo.api.commands.Command.CommandWithPackRunner[GenericCollectionWithCommands.this.pack.type]" class="extmbr" name="reactivemongo.api.collections.GenericCollection#runner">reactivemongo.api.collections.GenericCollection.runner</a> instead</p></dd></dl></div>
     </li><li name="reactivemongo.core.commands.RenameCollection" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="RenameCollectionextendsAdminCommand[Boolean]"></a>
       <a id="RenameCollection:RenameCollection"></a>
@@ -1465,6 +1485,26 @@ This command will return only when the previous operation is complete and matche
                 <span class="name">@deprecated</span>
               
         </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.0)</i> consider using reactivemongo.api.commands.FindAndModifyCommand instead</p></dd></dl></div>
+    </li><li name="reactivemongo.core.commands.Getnonce" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Getnonce"></a>
+      <a id="Getnonce:Getnonce"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Getnonce$.html"><span class="name deprecated" title="Deprecated: (Since version 0.11.10) See scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@7bd0d051">Getnonce</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.commands.package@Getnonce" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.10)</i> See <a href="GetCrNonce$.html" class="extype" name="reactivemongo.core.commands.GetCrNonce">GetCrNonce</a></p></dd></dl></div>
     </li><li name="reactivemongo.core.commands.IsMaster" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="IsMaster"></a>
       <a id="IsMaster:IsMaster"></a>

@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>errors - ReactiveMongo API 0.11.7 - reactivemongo.core.errors</title>
-          <meta name="description" content="errors - ReactiveMongo API 0.11.7 - reactivemongo.core.errors" />
-          <meta name="keywords" content="errors ReactiveMongo API 0.11.7 reactivemongo.core.errors" />
+          <title>errors - ReactiveMongo API 0.11.12 - reactivemongo.core.errors</title>
+          <meta name="description" content="errors - ReactiveMongo API 0.11.12 - reactivemongo.core.errors" />
+          <meta name="keywords" content="errors ReactiveMongo API 0.11.12 reactivemongo.core.errors" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../../lib/template.js"></script>
       <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -118,7 +118,7 @@
     </span>
       <p class="shortcomment cmt">An error thrown by a MongoDB node.</p>
     </li><li name="reactivemongo.core.errors.DetailedDatabaseException" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="DetailedDatabaseExceptionextendsExceptionwithDatabaseException"></a>
+      <a id="DetailedDatabaseExceptionextendsExceptionwithDatabaseExceptionwithNoStackTrace"></a>
       <a id="DetailedDatabaseException:DetailedDatabaseException"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -126,10 +126,10 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="DetailedDatabaseException.html"><span class="name">DetailedDatabaseException</span></a><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a></span>
+        <a href="DetailedDatabaseException.html"><span class="name">DetailedDatabaseException</span></a><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a> with <span class="extype" name="scala.util.control.NoStackTrace">NoStackTrace</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.errors.package@DetailedDatabaseExceptionextendsExceptionwithDatabaseException" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.errors.package@DetailedDatabaseExceptionextendsExceptionwithDatabaseExceptionwithNoStackTrace" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -169,7 +169,7 @@
     </span>
       <p class="shortcomment cmt">A generic error thrown by a MongoDB node.</p>
     </li><li name="reactivemongo.core.errors.GenericDriverException" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="GenericDriverExceptionextendsExceptionwithDriverExceptionwithProductwithSerializable"></a>
+      <a id="GenericDriverExceptionextendsExceptionwithDriverExceptionwithNoStackTracewithProductwithSerializable"></a>
       <a id="GenericDriverException:GenericDriverException"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -177,10 +177,10 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="GenericDriverException.html"><span class="name">GenericDriverException</span></a><span class="params">(<span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="DriverException.html" class="extype" name="reactivemongo.core.errors.DriverException">DriverException</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="GenericDriverException.html"><span class="name">GenericDriverException</span></a><span class="params">(<span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="DriverException.html" class="extype" name="reactivemongo.core.errors.DriverException">DriverException</a> with <span class="extype" name="scala.util.control.NoStackTrace">NoStackTrace</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.errors.package@GenericDriverExceptionextendsExceptionwithDriverExceptionwithProductwithSerializable" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.errors.package@GenericDriverExceptionextendsExceptionwithDriverExceptionwithNoStackTracewithProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>

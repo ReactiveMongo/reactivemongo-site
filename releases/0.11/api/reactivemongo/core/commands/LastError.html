@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>LastError - ReactiveMongo API 0.11.7 - reactivemongo.core.commands.LastError</title>
-          <meta name="description" content="LastError - ReactiveMongo API 0.11.7 - reactivemongo.core.commands.LastError" />
-          <meta name="keywords" content="LastError ReactiveMongo API 0.11.7 reactivemongo.core.commands.LastError" />
+          <title>LastError - ReactiveMongo API 0.11.12 - reactivemongo.core.commands.LastError</title>
+          <meta name="description" content="LastError - ReactiveMongo API 0.11.12 - reactivemongo.core.commands.LastError" />
+          <meta name="keywords" content="LastError ReactiveMongo API 0.11.12 reactivemongo.core.commands.LastError" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../../lib/template.js"></script>
       <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -527,7 +527,7 @@
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>.</p><p>If the key is not found or the matching value cannot be deserialized, returns <code>None</code>.
+      <p class="shortcomment cmt">Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">reactivemongo.bson.BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">reactivemongo.bson.BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>.</p><p>If the key is not found or the matching value cannot be deserialized, returns <code>None</code>.
 </p></div></div>
     </li><li name="reactivemongo.core.commands.LastError#getAs" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getAs[T](s:String)(implicitreader:reactivemongo.bson.BSONReader[_&lt;:reactivemongo.bson.BSONValue,T]):Option[T]"></a>
@@ -545,8 +545,8 @@
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>,
-and converts it with the given implicit <a href="../../bson/BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>,
+      <p class="shortcomment cmt">Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">reactivemongo.bson.BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>,
+and converts it with the given implicit <a href="../../bson/BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">reactivemongo.bson.BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>,
 and converts it with the given implicit <a href="../../bson/BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>.</p><p>If there is no matching value, or the value could not be deserialized or converted, returns a <code>None</code>.
 </p></div></div>
     </li><li name="reactivemongo.core.commands.LastError#getAsTry" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -565,8 +565,8 @@ and converts it with the given implicit <a href="../../bson/BSONReader.html" cla
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>,
-and converts it with the given implicit <a href="../../bson/BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>,
+      <p class="shortcomment cmt">Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">reactivemongo.bson.BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>,
+and converts it with the given implicit <a href="../../bson/BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">reactivemongo.bson.BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>,
 and converts it with the given implicit <a href="../../bson/BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>.</p><p>If there is no matching value, or the value could not be deserialized or converted, returns a <code>Failure</code>.
 The <code>Failure</code> holds a <a href="../../bson/exceptions/DocumentKeyNotFound.html" class="extype" name="reactivemongo.bson.exceptions.DocumentKeyNotFound">DocumentKeyNotFound</a> if the key could not be found.
 </p></div></div>
@@ -586,8 +586,8 @@ The <code>Failure</code> holds a <a href="../../bson/exceptions/DocumentKeyNotFo
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>,
-and converts it with the given implicit <a href="../../bson/BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>,
+      <p class="shortcomment cmt">Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">reactivemongo.bson.BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>,
+and converts it with the given implicit <a href="../../bson/BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">reactivemongo.bson.BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>,
 and converts it with the given implicit <a href="../../bson/BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>.</p><p>If there is no matching value, returns a <code>Success</code> holding <code>None</code>.
 If the value could not be deserialized or converted, returns a <code>Failure</code>.
 </p></div></div>
@@ -709,7 +709,7 @@ If the value could not be deserialized or converted, returns a <code>Failure</co
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>.</p><p>If the key is not found or the matching value cannot be deserialized, returns a <code>Failure</code>.
+      <p class="shortcomment cmt">Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">reactivemongo.bson.BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">reactivemongo.bson.BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>.</p><p>If the key is not found or the matching value cannot be deserialized, returns a <code>Failure</code>.
 The <code>Failure</code> holds a <a href="../../bson/exceptions/DocumentKeyNotFound.html" class="extype" name="reactivemongo.bson.exceptions.DocumentKeyNotFound">DocumentKeyNotFound</a> if the key could not be found.
 </p></div></div>
     </li><li name="reactivemongo.core.commands.LastError#getUnflattenedTry" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -728,7 +728,7 @@ The <code>Failure</code> holds a <a href="../../bson/exceptions/DocumentKeyNotFo
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>.</p><p>If the key could not be found, the resulting option will be <code>None</code>.
+      <p class="shortcomment cmt">Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">reactivemongo.bson.BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the <a href="../../bson/BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">reactivemongo.bson.BSONValue</a> associated with the given <code>key</code> of the <a href="#originalDocument:Option[reactivemongo.bson.BSONDocument]" class="extmbr" name="reactivemongo.core.commands.LastError#originalDocument">originalDocument</a>.</p><p>If the key could not be found, the resulting option will be <code>None</code>.
 If the matching value could not be deserialized, returns a <code>Failure</code>.
 </p></div></div>
     </li><li name="reactivemongo.core.commands.LastError#inError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">

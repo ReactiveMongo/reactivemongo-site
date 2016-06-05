@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>FailoverStrategy - ReactiveMongo API 0.11.7 - reactivemongo.api.FailoverStrategy</title>
-          <meta name="description" content="FailoverStrategy - ReactiveMongo API 0.11.7 - reactivemongo.api.FailoverStrategy" />
-          <meta name="keywords" content="FailoverStrategy ReactiveMongo API 0.11.7 reactivemongo.api.FailoverStrategy" />
+          <title>FailoverStrategy - ReactiveMongo API 0.11.12 - reactivemongo.api.FailoverStrategy</title>
+          <meta name="description" content="FailoverStrategy - ReactiveMongo API 0.11.12 - reactivemongo.api.FailoverStrategy" />
+          <meta name="keywords" content="FailoverStrategy ReactiveMongo API 0.11.12 reactivemongo.api.FailoverStrategy" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../lib/template.js"></script>
       <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../index.html';
@@ -28,10 +28,12 @@
         </head>
         <body class="type">
       <div id="definition">
-        <img alt="Class" src="../../lib/class_big.png" />
+        <a href="FailoverStrategy$.html" title="See companion object"><img alt="Class/Object" src="../../lib/class_to_object_big.png" /></a>
         <p id="owner"><a href="../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="package.html" class="extype" name="reactivemongo.api">api</a></p>
-        <h1>FailoverStrategy</h1><h3><span class="morelinks"><div>Related Doc:
-            <a href="package.html" class="extype" name="reactivemongo.api">package api</a>
+        <h1><a href="FailoverStrategy$.html" title="See companion object">FailoverStrategy</a></h1><h3><span class="morelinks"><div>
+            Related Docs:
+            <a href="FailoverStrategy$.html" title="See companion object">object FailoverStrategy</a>
+            | <a href="package.html" class="extype" name="reactivemongo.api">package api</a>
           </div></span></h3><span class="permalink">
       <a href="../../index.html#reactivemongo.api.FailoverStrategy" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
@@ -45,11 +47,13 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">FailoverStrategy</span><span class="params">(<span name="initialDelay">initialDelay: <span class="extype" name="scala.concurrent.duration.FiniteDuration">FiniteDuration</span> = <span class="symbol">500 milliseconds</span></span>, <span name="retries">retries: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">5</span></span>, <span name="delayFactor">delayFactor: (<span class="extype" name="scala.Int">Int</span>) ⇒ <span class="extype" name="scala.Double">Double</span> = <span class="symbol">n =&gt; 1</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">FailoverStrategy</span><span class="params">(<span name="initialDelay">initialDelay: <span class="extype" name="scala.concurrent.duration.FiniteDuration">FiniteDuration</span> = <span class="symbol">FiniteDuration(100, &quot;ms&quot;)</span></span>, <span name="retries">retries: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">8</span></span>, <span name="delayFactor">delayFactor: (<span class="extype" name="scala.Int">Int</span>) ⇒ <span class="extype" name="scala.Double">Double</span> = <span class="symbol">_ * 1.25D</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A failover strategy for sending requests.
+The default uses 8 retries:
+125ms, 250ms, 375ms, 500ms, 625ms, 750ms, 875ms, 1s
 </p></div><dl class="paramcmts block"><dt class="param">initialDelay</dt><dd class="cmt"><p>the initial delay between the first failed attempt and the next one.</p></dd><dt class="param">retries</dt><dd class="cmt"><p>the number of retries to do before giving up.</p></dd><dt class="param">delayFactor</dt><dd class="cmt"><p>a function that takes the current iteration and returns a factor to be applied to the initialDelay.</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
@@ -103,7 +107,7 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">FailoverStrategy</span><span class="params">(<span name="initialDelay">initialDelay: <span class="extype" name="scala.concurrent.duration.FiniteDuration">FiniteDuration</span> = <span class="symbol">500 milliseconds</span></span>, <span name="retries">retries: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">5</span></span>, <span name="delayFactor">delayFactor: (<span class="extype" name="scala.Int">Int</span>) ⇒ <span class="extype" name="scala.Double">Double</span> = <span class="symbol">n =&gt; 1</span></span>)</span>
+        <span class="name">FailoverStrategy</span><span class="params">(<span name="initialDelay">initialDelay: <span class="extype" name="scala.concurrent.duration.FiniteDuration">FiniteDuration</span> = <span class="symbol">FiniteDuration(100, &quot;ms&quot;)</span></span>, <span name="retries">retries: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">8</span></span>, <span name="delayFactor">delayFactor: (<span class="extype" name="scala.Int">Int</span>) ⇒ <span class="extype" name="scala.Double">Double</span> = <span class="symbol">_ * 1.25D</span></span>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.FailoverStrategy@&lt;init&gt;(initialDelay:scala.concurrent.duration.FiniteDuration,retries:Int,delayFactor:Int=&gt;Double):reactivemongo.api.FailoverStrategy" title="Permalink" target="_top">

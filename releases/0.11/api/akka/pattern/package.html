@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>pattern - ReactiveMongo API 0.11.7 - akka.pattern</title>
-          <meta name="description" content="pattern - ReactiveMongo API 0.11.7 - akka.pattern" />
-          <meta name="keywords" content="pattern ReactiveMongo API 0.11.7 akka.pattern" />
+          <title>pattern - ReactiveMongo API 0.11.12 - akka.pattern</title>
+          <meta name="description" content="pattern - ReactiveMongo API 0.11.12 - akka.pattern" />
+          <meta name="keywords" content="pattern ReactiveMongo API 0.11.12 akka.pattern" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../lib/template.js"></script>
       <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../index.html';
@@ -89,7 +89,7 @@
         <div id="types" class="types members">
               <h3>Type Members</h3>
               <ol><li name="akka.pattern.PipeToSupport.PipeableFuture" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="PipeableFuture[T]extendsAnyRef"></a>
+      <a id="PipeableFuture[T&lt;:&lt;?&gt;]extendsAnyRef"></a>
       <a id="PipeableFuture[T]:PipeableFuture[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -113,7 +113,7 @@
         <div id="values" class="values members">
               <h3>Value Members</h3>
               <ol><li name="akka.pattern.FutureTimeoutSupport#after" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="after[T&lt;:&lt;?&gt;](duration:&lt;?&gt;,using:&lt;?&gt;)(value:&lt;?&gt;)(implicitec:&lt;?&gt;):scala.concurrent.Future[T]"></a>
+      <a id="after[T](duration:scala.concurrent.duration.FiniteDuration,using:akka.actor.Scheduler)(value:=&gt;scala.concurrent.Future[T])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[T]"></a>
       <a id="after[T](FiniteDuration,Scheduler)(⇒Future[T])(ExecutionContext):Future[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -215,7 +215,7 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>GracefulStopSupport</dd></dl></div>
     </li><li name="akka.pattern.PipeToSupport#pipe" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="pipe[T](future:scala.concurrent.Future[T])(implicitexecutionContext:scala.concurrent.ExecutionContext):PipeToSupport.this.PipeableFuture[T]"></a>
+      <a id="pipe[T&lt;:&lt;?&gt;](future:&lt;?&gt;)(implicitexecutionContext:&lt;?&gt;):PipeToSupport.this.PipeableFuture[T]"></a>
       <a id="pipe[T](Future[T])(ExecutionContext):PipeableFuture[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">

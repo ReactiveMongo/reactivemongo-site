@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>BSONDocument - ReactiveMongo API 0.11.7 - reactivemongo.bson.BSONDocument</title>
-          <meta name="description" content="BSONDocument - ReactiveMongo API 0.11.7 - reactivemongo.bson.BSONDocument" />
-          <meta name="keywords" content="BSONDocument ReactiveMongo API 0.11.7 reactivemongo.bson.BSONDocument" />
+          <title>BSONDocument - ReactiveMongo API 0.11.12 - reactivemongo.bson.BSONDocument</title>
+          <meta name="description" content="BSONDocument - ReactiveMongo API 0.11.12 - reactivemongo.bson.BSONDocument" />
+          <meta name="keywords" content="BSONDocument ReactiveMongo API 0.11.12 reactivemongo.bson.BSONDocument" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../lib/template.js"></script>
       <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../index.html';
@@ -53,8 +53,7 @@
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A <code>BSONDocument</code> structure (BSON type <code>0x03</code>).</p><p>A <code>BSONDocument</code> is basically a stream of tuples <code>(String, BSONValue)</code>.
 It is completely lazy. The stream it wraps is a <code>Stream[Try[(String, BSONValue)]]</code> since
-we cannot be sure that a not yet deserialized value will be processed without error.
-</p></div><div class="toggleContainer block">
+we cannot be sure that a not yet deserialized value will be processed without error.</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -214,7 +213,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
     </span>
       <p class="shortcomment cmt">Alias for <code>add(doc: BSONDocument): BSONDocument</code></p>
     </li><li name="reactivemongo.bson.BSONDocument#--" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="--(names:String*):reactivemongo.bson.BSONDocument"></a>
+      <a id="--(keys:String*):reactivemongo.bson.BSONDocument"></a>
       <a id="--(String*):BSONDocument"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -222,10 +221,10 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $minus$minus" class="name">--</span><span class="params">(<span name="names">names: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>
+        <span title="gt4s: $minus$minus" class="name">--</span><span class="params">(<span name="keys">keys: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.bson.BSONDocument@--(names:String*):reactivemongo.bson.BSONDocument" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.bson.BSONDocument@--(keys:String*):reactivemongo.bson.BSONDocument" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -446,13 +445,31 @@ we cannot be sure that a not yet deserialized value will be processed without er
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a> → <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONDocument#contains" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="contains(key:String):Boolean"></a>
+      <a id="contains(String):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">contains</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONDocument@contains(key:String):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Checks whether the given key is found in the document.</p><div class="fullcomment"><div class="comment cmt"><p>Checks whether the given key is found in the document.
+</p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>the key to be found in the document</p></dd><dt>returns</dt><dd class="cmt"><p>true if the key is found</p></dd></dl></div>
     </li><li name="reactivemongo.bson.BSONDocument#elements" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="elements:Stream[reactivemongo.bson.BSONElement]"></a>
       <a id="elements:Stream[BSONElement]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">def</span>
+        <span class="kind">lazy val</span>
       </span>
       <span class="symbol">
         <span class="name">elements</span><span class="result">: <span class="extype" name="scala.Stream">Stream</span>[<a href="package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
@@ -627,10 +644,11 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Returns the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> associated with the given <code>key</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> associated with the given <code>key</code>.</p><p>If the key is not found or the matching value cannot be deserialized, returns <code>None</code>.
-</p></div></div>
+      <p class="shortcomment cmt">Returns the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> associated with the given <code>key</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> associated with the given <code>key</code>.
+If the key is not found or the matching value cannot be deserialized, returns <code>None</code>.
+</p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>the key to be found in the document</p></dd></dl></div>
     </li><li name="reactivemongo.bson.BSONDocument#getAs" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getAs[T](s:String)(implicitreader:reactivemongo.bson.BSONReader[_&lt;:reactivemongo.bson.BSONValue,T]):Option[T]"></a>
+      <a id="getAs[T](key:String)(implicitreader:reactivemongo.bson.BSONReader[_&lt;:reactivemongo.bson.BSONValue,T]):Option[T]"></a>
       <a id="getAs[T](String)(BSONReader[_&lt;:BSONValue,T]):Option[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -638,17 +656,17 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getAs</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[_ &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>, <span class="extype" name="reactivemongo.bson.BSONDocument.getAs.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="reactivemongo.bson.BSONDocument.getAs.T">T</span>]</span>
+        <span class="name">getAs</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[_ &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>, <span class="extype" name="reactivemongo.bson.BSONDocument.getAs.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="reactivemongo.bson.BSONDocument.getAs.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.bson.BSONDocument@getAs[T](s:String)(implicitreader:reactivemongo.bson.BSONReader[_&lt;:reactivemongo.bson.BSONValue,T]):Option[T]" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.bson.BSONDocument@getAs[T](key:String)(implicitreader:reactivemongo.bson.BSONReader[_&lt;:reactivemongo.bson.BSONValue,T]):Option[T]" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Returns the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> associated with the given <code>key</code>, and converts it with the given implicit <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> associated with the given <code>key</code>, and converts it with the given implicit <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>.</p><p>If there is no matching value, or the value could not be deserialized or converted, returns a <code>None</code>.
-</p></div></div>
+</p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>the key to be found in the document</p></dd></dl><dl class="attributes block"> <dt>Note</dt><dd><span class="cmt"><p>When implementing a <a href="http://reactivemongo.org/releases/latest/documentation/bson/typeclasses.html" target="_blank">custom reader</a>, <a href="#getAsTry[T](key:String)(implicitreader:reactivemongo.bson.BSONReader[_&lt;:reactivemongo.bson.BSONValue,T]):scala.util.Try[T]" class="extmbr" name="reactivemongo.bson.BSONDocument#getAsTry">getAsTry</a> must be preferred.</p></span></dd></dl></div>
     </li><li name="reactivemongo.bson.BSONDocument#getAsTry" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getAsTry[T](s:String)(implicitreader:reactivemongo.bson.BSONReader[_&lt;:reactivemongo.bson.BSONValue,T]):scala.util.Try[T]"></a>
+      <a id="getAsTry[T](key:String)(implicitreader:reactivemongo.bson.BSONReader[_&lt;:reactivemongo.bson.BSONValue,T]):scala.util.Try[T]"></a>
       <a id="getAsTry[T](String)(BSONReader[_&lt;:BSONValue,T]):Try[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -656,18 +674,18 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getAsTry</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[_ &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>, <span class="extype" name="reactivemongo.bson.BSONDocument.getAsTry.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="reactivemongo.bson.BSONDocument.getAsTry.T">T</span>]</span>
+        <span class="name">getAsTry</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[_ &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>, <span class="extype" name="reactivemongo.bson.BSONDocument.getAsTry.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="reactivemongo.bson.BSONDocument.getAsTry.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.bson.BSONDocument@getAsTry[T](s:String)(implicitreader:reactivemongo.bson.BSONReader[_&lt;:reactivemongo.bson.BSONValue,T]):scala.util.Try[T]" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.bson.BSONDocument@getAsTry[T](key:String)(implicitreader:reactivemongo.bson.BSONReader[_&lt;:reactivemongo.bson.BSONValue,T]):scala.util.Try[T]" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Returns the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> associated with the given <code>key</code>, and converts it with the given implicit <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> associated with the given <code>key</code>, and converts it with the given implicit <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>.</p><p>If there is no matching value, or the value could not be deserialized or converted, returns a <code>Failure</code>.
 The <code>Failure</code> holds a <a href="exceptions/DocumentKeyNotFound.html" class="extype" name="reactivemongo.bson.exceptions.DocumentKeyNotFound">exceptions.DocumentKeyNotFound</a> if the key could not be found.
-</p></div></div>
+</p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>the key to be found in the document</p></dd></dl></div>
     </li><li name="reactivemongo.bson.BSONDocument#getAsUnflattenedTry" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getAsUnflattenedTry[T](s:String)(implicitreader:reactivemongo.bson.BSONReader[_&lt;:reactivemongo.bson.BSONValue,T]):scala.util.Try[Option[T]]"></a>
+      <a id="getAsUnflattenedTry[T](key:String)(implicitreader:reactivemongo.bson.BSONReader[_&lt;:reactivemongo.bson.BSONValue,T]):scala.util.Try[Option[T]]"></a>
       <a id="getAsUnflattenedTry[T](String)(BSONReader[_&lt;:BSONValue,T]):Try[Option[T]]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -675,10 +693,10 @@ The <code>Failure</code> holds a <a href="exceptions/DocumentKeyNotFound.html" c
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getAsUnflattenedTry</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[_ &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>, <span class="extype" name="reactivemongo.bson.BSONDocument.getAsUnflattenedTry.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="scala.Option">Option</span>[<span class="extype" name="reactivemongo.bson.BSONDocument.getAsUnflattenedTry.T">T</span>]]</span>
+        <span class="name">getAsUnflattenedTry</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[_ &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>, <span class="extype" name="reactivemongo.bson.BSONDocument.getAsUnflattenedTry.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="scala.Option">Option</span>[<span class="extype" name="reactivemongo.bson.BSONDocument.getAsUnflattenedTry.T">T</span>]]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.bson.BSONDocument@getAsUnflattenedTry[T](s:String)(implicitreader:reactivemongo.bson.BSONReader[_&lt;:reactivemongo.bson.BSONValue,T]):scala.util.Try[Option[T]]" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.bson.BSONDocument@getAsUnflattenedTry[T](key:String)(implicitreader:reactivemongo.bson.BSONReader[_&lt;:reactivemongo.bson.BSONValue,T]):scala.util.Try[Option[T]]" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -720,7 +738,7 @@ If the value could not be deserialized or converted, returns a <code>Failure</co
     </span>
       <p class="shortcomment cmt">Returns the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> associated with the given <code>key</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> associated with the given <code>key</code>.</p><p>If the key is not found or the matching value cannot be deserialized, returns a <code>Failure</code>.
 The <code>Failure</code> holds a <a href="exceptions/DocumentKeyNotFound.html" class="extype" name="reactivemongo.bson.exceptions.DocumentKeyNotFound">exceptions.DocumentKeyNotFound</a> if the key could not be found.
-</p></div></div>
+</p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>the key to be found in the document</p></dd></dl></div>
     </li><li name="reactivemongo.bson.BSONDocument#getUnflattenedTry" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getUnflattenedTry(key:String):scala.util.Try[Option[reactivemongo.bson.BSONValue]]"></a>
       <a id="getUnflattenedTry(String):Try[Option[BSONValue]]"></a>
@@ -739,7 +757,7 @@ The <code>Failure</code> holds a <a href="exceptions/DocumentKeyNotFound.html" c
     </span>
       <p class="shortcomment cmt">Returns the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> associated with the given <code>key</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> associated with the given <code>key</code>.</p><p>If the key could not be found, the resulting option will be <code>None</code>.
 If the matching value could not be deserialized, returns a <code>Failure</code>.
-</p></div></div>
+</p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>the key to be found in the document</p></dd></dl></div>
     </li><li name="reactivemongo.bson.BSONDocument#isEmpty" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="isEmpty:Boolean"></a>
       <a id="isEmpty:Boolean"></a>
@@ -826,7 +844,7 @@ If the matching value could not be deserialized, returns a <code>Failure</code>.
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="reactivemongo.bson.BSONDocument#remove" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="remove(names:String*):reactivemongo.bson.BSONDocument"></a>
+      <a id="remove(keys:String*):reactivemongo.bson.BSONDocument"></a>
       <a id="remove(String*):BSONDocument"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -834,14 +852,14 @@ If the matching value could not be deserialized, returns a <code>Failure</code>.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">remove</span><span class="params">(<span name="names">names: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>
+        <span class="name">remove</span><span class="params">(<span name="keys">keys: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.bson.BSONDocument@remove(names:String*):reactivemongo.bson.BSONDocument" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.bson.BSONDocument@remove(keys:String*):reactivemongo.bson.BSONDocument" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Creates a new <a href="" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a> without the elements corresponding the given <code>names</code>.</p>
+      <p class="shortcomment cmt">Creates a new <a href="" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a> without the elements corresponding the given <code>keys</code>.</p>
     </li><li name="reactivemongo.bson.BSONValue.ExtendedBSONValue#seeAsOpt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="seeAsOpt[T](implicitreader:reactivemongo.bson.BSONReader[_&lt;:reactivemongo.bson.BSONValue,T]):Option[T]"></a>
       <a id="seeAsOpt[T](BSONReader[_&lt;:BSONValue,T]):Option[T]"></a>

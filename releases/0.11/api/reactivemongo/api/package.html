@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>api - ReactiveMongo API 0.11.7 - reactivemongo.api</title>
-          <meta name="description" content="api - ReactiveMongo API 0.11.7 - reactivemongo.api" />
-          <meta name="keywords" content="api ReactiveMongo API 0.11.7 reactivemongo.api" />
+          <title>api - ReactiveMongo API 0.11.12 - reactivemongo.api</title>
+          <meta name="description" content="api - ReactiveMongo API 0.11.12 - reactivemongo.api" />
+          <meta name="keywords" content="api ReactiveMongo API 0.11.12 reactivemongo.api" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../lib/template.js"></script>
       <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../index.html';
@@ -121,7 +121,10 @@
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">A MongoDB Collection.</p><div class="fullcomment"><div class="comment cmt"><p>A MongoDB Collection. You should consider the default BSON implementation.</p><p>Example using the default implementation:</p><pre><span class="kw">import</span> reactivemongo.bson._
+      <p class="shortcomment cmt">A MongoDB Collection.</p><div class="fullcomment"><div class="comment cmt"><p>A MongoDB Collection.
+You should consider the generic API
+(<a href="collections/GenericCollection.html" class="extype" name="reactivemongo.api.collections.GenericCollection">reactivemongo.api.collections.GenericCollection</a>)
+and the default <a href="collections/bson/BSONCollection.html" class="extype" name="reactivemongo.api.collections.bson.BSONCollection">reactivemongo.api.collections.bson.BSONCollection</a>.</p><pre><span class="kw">import</span> reactivemongo.bson._
 <span class="kw">import</span> reactivemongo.api.collections.bson.BSONCollection
 
 <span class="kw">object</span> Samples {
@@ -195,7 +198,7 @@
     </span>
       <p class="shortcomment cmt">A Producer of <a href="Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a> implementation.</p><div class="fullcomment"><div class="comment cmt"><p>A Producer of <a href="Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a> implementation.</p><p>This is used to get an implementation implicitly when getting a reference of a <a href="Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a>.
 </p></div></div>
-    </li><li name="reactivemongo.api.Cursor" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+    </li><li name="reactivemongo.api.Cursor" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="Cursor[T]extendsAnyRef"></a>
       <a id="Cursor[T]:Cursor[T]"></a>
       <h4 class="signature">
@@ -211,7 +214,8 @@
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Cursor over results from MongoDB.</p><div class="fullcomment"><div class="comment cmt"><p>Cursor over results from MongoDB.
+</p></div><dl class="paramcmts block"><dt class="tparam">T</dt><dd class="cmt"><p>the type parsed from each result document</p></dd></dl></div>
     </li><li name="reactivemongo.api.CursorFlattener" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="CursorFlattener[C[_]&lt;:reactivemongo.api.Cursor[_]]extendsAnyRef"></a>
       <a id="CursorFlattener[C[_]&lt;:Cursor[_]]:CursorFlattener[C]"></a>
@@ -251,7 +255,7 @@
       <a id="DB:DB"></a>
       <h4 class="signature">
       <span class="modifier_kind">
-        <span class="modifier"></span>
+        <span class="modifier">sealed </span>
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
@@ -262,15 +266,11 @@
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">A Mongo Database.</p><div class="fullcomment"><div class="comment cmt"><p>A Mongo Database.</p><p>Example:</p><pre><span class="kw">import</span> reactivemongo.api._
+      <p class="shortcomment cmt">A Mongo Database.</p><div class="fullcomment"><div class="comment cmt"><p>A Mongo Database.</p><p>You should consider the provided <a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">reactivemongo.api.DefaultDB</a> implementation.</p><p>Example:</p><pre><span class="kw">import</span> reactivemongo.api._
 
 <span class="kw">val</span> connection = MongoConnection( <span class="std">List</span>( <span class="lit">"localhost:27016"</span> ) )
-<span class="kw">val</span> db = connection(<span class="lit">"plugin"</span>)
-<span class="kw">val</span> collection = db(<span class="lit">"acoll"</span>)
-
-<span class="cmt">// more explicit way</span>
-<span class="kw">val</span> db2 = connection.db(<span class="lit">"plugin"</span>)
-<span class="kw">val</span> collection2 = db2.collection(<span class="lit">"plugin"</span>)</pre></div></div>
+<span class="kw">val</span> db = connection.database(<span class="lit">"plugin"</span>)
+<span class="kw">val</span> collection = db(<span class="lit">"acoll"</span>)</pre></div></div>
     </li><li name="reactivemongo.api.DBMetaCommands" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="DBMetaCommandsextendsAnyRef"></a>
       <a id="DBMetaCommands:DBMetaCommands"></a>
@@ -297,7 +297,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="DefaultDB.html"><span class="name">DefaultDB</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="connection">connection: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol">FailoverStrategy()</span></span>)</span><span class="result"> extends <a href="DB.html" class="extype" name="reactivemongo.api.DB">DB</a> with <a href="DBMetaCommands.html" class="extype" name="reactivemongo.api.DBMetaCommands">DBMetaCommands</a> with <a href="GenericDB.html" class="extype" name="reactivemongo.api.GenericDB">GenericDB</a>[<a href="BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="DefaultDB.html"><span class="name">DefaultDB</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="connection">connection: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="FailoverStrategy$.html">FailoverStrategy()</a></span></span></span>)</span><span class="result"> extends <a href="DB.html" class="extype" name="reactivemongo.api.DB">DB</a> with <a href="DBMetaCommands.html" class="extype" name="reactivemongo.api.DBMetaCommands">DBMetaCommands</a> with <a href="GenericDB.html" class="extype" name="reactivemongo.api.GenericDB">GenericDB</a>[<a href="BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.package@DefaultDBextendsDBwithDBMetaCommandswithGenericDB[reactivemongo.api.BSONSerializationPack.type]withProductwithSerializable" title="Permalink" target="_top">
@@ -321,27 +321,14 @@
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">A helper that sends the given message to the given actor, following a failover strategy.</p><div class="fullcomment"><div class="comment cmt"><p>A helper that sends the given message to the given actor, following a failover strategy.
-This helper holds a future reference that is completed with a response, after 1 or more attempts (specified in the given strategy).
-If the all the tryouts configured by the given strategy were unsuccessful, the future reference is completed with a Throwable.</p><p>Should not be used directly for most use cases.
+      <p class="shortcomment cmt">A helper that sends the given message to the given actor,
+following a failover strategy.</p><div class="fullcomment"><div class="comment cmt"><p>A helper that sends the given message to the given actor,
+following a failover strategy.
+This helper holds a future reference that is completed with a response,
+after 1 or more attempts (specified in the given strategy).
+If the all the tryouts configured by the given strategy were unsuccessful,
+the future reference is completed with a Throwable.</p><p>Should not be used directly for most use cases.
 </p></div><dl class="paramcmts block"><dt class="tparam">T</dt><dd class="cmt"><p>Type of the message to send.</p></dd></dl></div>
-    </li><li name="reactivemongo.api.Failover2" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="Failover2[A]extendsAnyRef"></a>
-      <a id="Failover2[A]:Failover2[A]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">class</span>
-      </span>
-      <span class="symbol">
-        <a href="Failover2.html"><span class="name">Failover2</span></a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.package@Failover2[A]extendsAnyRef" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="reactivemongo.api.FailoverStrategy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="FailoverStrategyextendsProductwithSerializable"></a>
       <a id="FailoverStrategy:FailoverStrategy"></a>
@@ -351,7 +338,7 @@ If the all the tryouts configured by the given strategy were unsuccessful, the f
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="FailoverStrategy.html"><span class="name">FailoverStrategy</span></a><span class="params">(<span name="initialDelay">initialDelay: <span class="extype" name="scala.concurrent.duration.FiniteDuration">FiniteDuration</span> = <span class="symbol">500 milliseconds</span></span>, <span name="retries">retries: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">5</span></span>, <span name="delayFactor">delayFactor: (<span class="extype" name="scala.Int">Int</span>) ⇒ <span class="extype" name="scala.Double">Double</span> = <span class="symbol">n =&gt; 1</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="FailoverStrategy.html"><span class="name">FailoverStrategy</span></a><span class="params">(<span name="initialDelay">initialDelay: <span class="extype" name="scala.concurrent.duration.FiniteDuration">FiniteDuration</span> = <span class="symbol">FiniteDuration(100, &quot;ms&quot;)</span></span>, <span name="retries">retries: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">8</span></span>, <span name="delayFactor">delayFactor: (<span class="extype" name="scala.Int">Int</span>) ⇒ <span class="extype" name="scala.Double">Double</span> = <span class="symbol">_ * 1.25D</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.package@FailoverStrategyextendsProductwithSerializable" title="Permalink" target="_top">
@@ -359,6 +346,8 @@ If the all the tryouts configured by the given strategy were unsuccessful, the f
       </a>
     </span>
       <p class="shortcomment cmt">A failover strategy for sending requests.</p><div class="fullcomment"><div class="comment cmt"><p>A failover strategy for sending requests.
+The default uses 8 retries:
+125ms, 250ms, 375ms, 500ms, 625ms, 750ms, 875ms, 1s
 </p></div><dl class="paramcmts block"><dt class="param">initialDelay</dt><dd class="cmt"><p>the initial delay between the first failed attempt and the next one.</p></dd><dt class="param">retries</dt><dd class="cmt"><p>the number of retries to do before giving up.</p></dd><dt class="param">delayFactor</dt><dd class="cmt"><p>a function that takes the current iteration and returns a factor to be applied to the initialDelay.</p></dd></dl></div>
     </li><li name="reactivemongo.api.FlattenedCursor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="FlattenedCursor[T]extendsCursor[T]"></a>
@@ -410,17 +399,12 @@ If the all the tryouts configured by the given strategy were unsuccessful, the f
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">A Mongo Connection.</p><div class="fullcomment"><div class="comment cmt"><p>A Mongo Connection.</p><p>This is a wrapper around a reference to a <a href="../core/actors/MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">reactivemongo.core.actors.MongoDBSystem</a> Actor.
-Connection here does not mean that there is one open channel to the server.
-Behind the scene, many connections (channels) are open on all the available servers in the replica set.</p><p>Example:</p><pre><span class="kw">import</span> reactivemongo.api._
+      <p class="shortcomment cmt">A pool of MongoDB connections.</p><div class="fullcomment"><div class="comment cmt"><p>A pool of MongoDB connections.</p><p>Connection here does not mean that there is one open channel to the server:
+behind the scene, many connections (channels) are open on all the available servers in the replica set.</p><p>Example:</p><pre><span class="kw">import</span> reactivemongo.api._
 
-<span class="kw">val</span> connection = MongoConnection( <span class="std">List</span>( <span class="lit">"localhost"</span> ) )
-<span class="kw">val</span> db = connection(<span class="lit">"plugin"</span>)
-<span class="kw">val</span> collection = db(<span class="lit">"acoll"</span>)
-
-<span class="cmt">// more explicit way</span>
-<span class="kw">val</span> db2 = connection.db(<span class="lit">"plugin"</span>)
-<span class="kw">val</span> collection2 = db2.collection(<span class="lit">"plugin"</span>)</pre></div></div>
+<span class="kw">val</span> connection = MongoConnection(<span class="std">List</span>(<span class="lit">"localhost"</span>))
+<span class="kw">val</span> db = connection.database(<span class="lit">"plugin"</span>)
+<span class="kw">val</span> collection = db.map(_.(<span class="lit">"acoll"</span>))</pre></div></div>
     </li><li name="reactivemongo.api.MongoConnectionOptions" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="MongoConnectionOptionsextendsProductwithSerializable"></a>
       <a id="MongoConnectionOptions:MongoConnectionOptions"></a>
@@ -430,7 +414,7 @@ Behind the scene, many connections (channels) are open on all the available serv
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="MongoConnectionOptions.html"><span class="name">MongoConnectionOptions</span></a><span class="params">(<span name="connectTimeoutMS">connectTimeoutMS: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="authSource">authSource: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="sslEnabled">sslEnabled: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="sslAllowsInvalidCert">sslAllowsInvalidCert: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="authMode">authMode: <a href="AuthenticationMode.html" class="extype" name="reactivemongo.api.AuthenticationMode">AuthenticationMode</a> = <span class="symbol"><span class="name"><a href="CrAuthentication$.html">CrAuthentication</a></span></span></span>, <span name="tcpNoDelay">tcpNoDelay: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="keepAlive">keepAlive: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">10</span></span>, <span name="writeConcern">writeConcern: <a href="commands/package.html#WriteConcern=reactivemongo.api.commands.GetLastError" class="extmbr" name="reactivemongo.api.commands.WriteConcern">WriteConcern</a> = <span class="symbol"><span class="name"><a href="../package.html">WriteConcern.Default</a></span></span></span>, <span name="readPreference">readPreference: <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> = <span class="symbol"><span class="name"><a href="ReadPreference$.html">ReadPreference.primary</a></span></span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="MongoConnectionOptions.html"><span class="name">MongoConnectionOptions</span></a><span class="params">(<span name="connectTimeoutMS">connectTimeoutMS: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="authSource">authSource: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="sslEnabled">sslEnabled: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="sslAllowsInvalidCert">sslAllowsInvalidCert: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="authMode">authMode: <a href="AuthenticationMode.html" class="extype" name="reactivemongo.api.AuthenticationMode">AuthenticationMode</a> = <span class="symbol"><span class="name"><a href="CrAuthentication$.html">CrAuthentication</a></span></span></span>, <span name="tcpNoDelay">tcpNoDelay: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="keepAlive">keepAlive: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">10</span></span>, <span name="writeConcern">writeConcern: <a href="commands/package.html#WriteConcern=reactivemongo.api.commands.GetLastError" class="extmbr" name="reactivemongo.api.commands.WriteConcern">WriteConcern</a> = <span class="symbol"><span class="name"><a href="../package.html">WriteConcern.Default</a></span></span></span>, <span name="readPreference">readPreference: <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> = <span class="symbol"><span class="name"><a href="ReadPreference$.html">ReadPreference.primary</a></span></span></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="FailoverStrategy$.html">FailoverStrategy.default</a></span></span></span>, <span name="monitorRefreshMS">monitorRefreshMS: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">10000</span></span>, <span name="socketTimeoutMS">socketTimeoutMS: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.package@MongoConnectionOptionsextendsProductwithSerializable" title="Permalink" target="_top">
@@ -438,7 +422,7 @@ Behind the scene, many connections (channels) are open on all the available serv
       </a>
     </span>
       <p class="shortcomment cmt">Options for MongoConnection.</p><div class="fullcomment"><div class="comment cmt"><p>Options for MongoConnection.
-</p></div><dl class="paramcmts block"><dt class="param">connectTimeoutMS</dt><dd class="cmt"><p>The number of milliseconds to wait for a connection to be established before giving up.</p></dd><dt class="param">authSource</dt><dd class="cmt"><p>The database source for authentication credentials.</p></dd><dt class="param">sslEnabled</dt><dd class="cmt"><p>Enable SSL connection (required to be accepted on server-side).</p></dd><dt class="param">sslAllowsInvalidCert</dt><dd class="cmt"><p>If <code>sslEnabled</code> is true, this one indicates whether to accept invalid certificates (e.g. self-signed).</p></dd><dt class="param">authMode</dt><dd class="cmt"><p>Either <a href="CrAuthentication$.html" class="extype" name="reactivemongo.api.CrAuthentication">CrAuthentication</a> or <a href="ScramSha1Authentication$.html" class="extype" name="reactivemongo.api.ScramSha1Authentication">ScramSha1Authentication</a></p></dd><dt class="param">tcpNoDelay</dt><dd class="cmt"><p>TCPNoDelay flag (ReactiveMongo-specific option). The default value is false (see <a href="http://docs.oracle.com/javase/8/docs/api/java/net/StandardSocketOptions.html#TCP_NODELAY" target="_blank">TCP_NODELAY</a>).</p></dd><dt class="param">keepAlive</dt><dd class="cmt"><p>TCP KeepAlive flag (ReactiveMongo-specific option). The default value is false (see <a href="http://docs.oracle.com/javase/8/docs/api/java/net/StandardSocketOptions.html#SO_KEEPALIVE" target="_blank">SO_KEEPALIVE</a>).</p></dd><dt class="param">nbChannelsPerNode</dt><dd class="cmt"><p>Number of channels (connections) per node (ReactiveMongo-specific option).</p></dd><dt class="param">writeConcern</dt><dd class="cmt"><p>the default write concern</p></dd><dt class="param">readPreference</dt><dd class="cmt"><p>the default read preference</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">connectTimeoutMS</dt><dd class="cmt"><p>The number of milliseconds to wait for a connection to be established before giving up.</p></dd><dt class="param">authSource</dt><dd class="cmt"><p>The database source for authentication credentials.</p></dd><dt class="param">sslEnabled</dt><dd class="cmt"><p>Enable SSL connection (required to be accepted on server-side).</p></dd><dt class="param">sslAllowsInvalidCert</dt><dd class="cmt"><p>If <code>sslEnabled</code> is true, this one indicates whether to accept invalid certificates (e.g. self-signed).</p></dd><dt class="param">authMode</dt><dd class="cmt"><p>Either <a href="CrAuthentication$.html" class="extype" name="reactivemongo.api.CrAuthentication">CrAuthentication</a> or <a href="ScramSha1Authentication$.html" class="extype" name="reactivemongo.api.ScramSha1Authentication">ScramSha1Authentication</a></p></dd><dt class="param">tcpNoDelay</dt><dd class="cmt"><p>TCPNoDelay flag (ReactiveMongo-specific option). The default value is false (see <a href="http://docs.oracle.com/javase/8/docs/api/java/net/StandardSocketOptions.html#TCP_NODELAY" target="_blank">TCP_NODELAY</a>).</p></dd><dt class="param">keepAlive</dt><dd class="cmt"><p>TCP KeepAlive flag (ReactiveMongo-specific option). The default value is false (see <a href="http://docs.oracle.com/javase/8/docs/api/java/net/StandardSocketOptions.html#SO_KEEPALIVE" target="_blank">SO_KEEPALIVE</a>).</p></dd><dt class="param">nbChannelsPerNode</dt><dd class="cmt"><p>Number of channels (connections) per node (ReactiveMongo-specific option).</p></dd><dt class="param">writeConcern</dt><dd class="cmt"><p>the default write concern</p></dd><dt class="param">readPreference</dt><dd class="cmt"><p>the default read preference</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>the default failover strategy</p></dd><dt class="param">monitorRefreshMS</dt><dd class="cmt"><p>the interval in milliseconds used by monitor to refresh the node set (default: 10000)</p></dd><dt class="param">socketTimeoutMS</dt><dd class="cmt"><p>the time in milliseconds to attempt a send or receive on a socket before the attempt times out (default: 0 for no timeout)</p></dd></dl></div>
     </li><li name="reactivemongo.api.MongoDriver" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="MongoDriverextendsAnyRef"></a>
       <a id="MongoDriver:MongoDriver"></a>
@@ -455,7 +439,7 @@ Behind the scene, many connections (channels) are open on all the available serv
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt"></p>
     </li><li name="reactivemongo.api.QueryOpts" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="QueryOptsextendsProductwithSerializable"></a>
       <a id="QueryOpts:QueryOpts"></a>
@@ -472,8 +456,26 @@ Behind the scene, many connections (channels) are open on all the available serv
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">A helper to make the query options.</p><div class="fullcomment"><div class="comment cmt"><p>A helper to make the query options.</p><p>You may use the methods to set the fields of this class, or set them directly.
-</p></div><dl class="paramcmts block"><dt class="param">skipN</dt><dd class="cmt"><p>The number of documents to skip.</p></dd><dt class="param">batchSizeN</dt><dd class="cmt"><p>The upper limit on the number of documents to retrieve per batch.</p></dd><dt class="param">flagsN</dt><dd class="cmt"><p>The query flags.</p></dd></dl></div>
+      <p class="shortcomment cmt">A helper to make the query options.</p><div class="fullcomment"><div class="comment cmt"><p>A helper to make the query options.
+You may use the methods to set the fields of this class, or set them directly.
+</p></div><dl class="paramcmts block"><dt class="param">skipN</dt><dd class="cmt"><p>the number of documents to skip.</p></dd><dt class="param">batchSizeN</dt><dd class="cmt"><p>the upper limit on the number of documents to retrieve per batch.</p></dd><dt class="param">flagsN</dt><dd class="cmt"><p>the query flags</p></dd></dl></div>
+    </li><li name="reactivemongo.api.ReadConcern" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ReadConcernextendsAnyRef"></a>
+      <a id="ReadConcern:ReadConcern"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ReadConcern.html"><span class="name">ReadConcern</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@ReadConcernextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="reactivemongo.api.ReadPreference" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="ReadPreferenceextendsAnyRef"></a>
       <a id="ReadPreference:ReadPreference"></a>
@@ -543,6 +545,46 @@ with a predefined strategy.</p>
       </a>
     </span>
       <p class="shortcomment cmt">Cursor wrapper, to help to define custom cursor classes.</p><div class="fullcomment"><div class="comment cmt"><p>Cursor wrapper, to help to define custom cursor classes.</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p>CursorProducer</p></span></dd></dl></div>
+    </li><li name="reactivemongo.api.Failover2" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Failover2[A]extendsAnyRef"></a>
+      <a id="Failover2[A]:Failover2[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Failover2.html"><span class="name deprecated" title="Deprecated: (Since version 0.11.11) Will be made private">Failover2</span></a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@Failover2[A]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.11)</i> Will be made private</p></dd></dl></div>
+    </li><li name="reactivemongo.api.SortOrder" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="SortOrderextendsAnyRef"></a>
+      <a id="SortOrder:SortOrder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="SortOrder.html"><span class="name deprecated" title="Deprecated: (Since version 0.11.10) Will be removed">SortOrder</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@SortOrderextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.10)</i> Will be removed</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -600,7 +642,7 @@ with a predefined strategy.</p>
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Cursor companion object</p>
     </li><li name="reactivemongo.api.CursorFlattener" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="CursorFlattener"></a>
       <a id="CursorFlattener:CursorFlattener"></a>
@@ -669,23 +711,6 @@ with a predefined strategy.</p>
       </a>
     </span>
       
-    </li><li name="reactivemongo.api.Failover" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="Failover"></a>
-      <a id="Failover:Failover"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="Failover$.html"><span class="name">Failover</span></a>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.package@Failover" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="reactivemongo.api.Failover2" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Failover2"></a>
       <a id="Failover2:Failover2"></a>
@@ -699,6 +724,23 @@ with a predefined strategy.</p>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.package@Failover2" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.FailoverStrategy" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FailoverStrategy"></a>
+      <a id="FailoverStrategy:FailoverStrategy"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="FailoverStrategy$.html"><span class="name">FailoverStrategy</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@FailoverStrategy" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -733,6 +775,23 @@ with a predefined strategy.</p>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.package@MongoDriver" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.ReadConcern" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ReadConcern"></a>
+      <a id="ReadConcern:ReadConcern"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ReadConcern$.html"><span class="name">ReadConcern</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@ReadConcern" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -844,7 +903,50 @@ with a predefined strategy.</p>
 
         
 
-        
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="reactivemongo.api.Failover" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Failover"></a>
+      <a id="Failover:Failover"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Failover$.html"><span class="name deprecated" title="Deprecated: (Since version 0.11.10) Unused">Failover</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@Failover" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.10)</i> Unused</p></dd></dl></div>
+    </li><li name="reactivemongo.api.SortOrder" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SortOrder"></a>
+      <a id="SortOrder:SortOrder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SortOrder$.html"><span class="name deprecated" title="Deprecated: (Since version 0.11.10) Will be removed">SortOrder</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@SortOrder" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.10)</i> Will be removed</p></dd></dl></div>
+    </li></ol>
+            </div>
         </div>
 
         <div id="inheritedMembers">

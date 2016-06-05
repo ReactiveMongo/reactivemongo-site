@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>GenericQueryBuilder - ReactiveMongo API 0.11.7 - reactivemongo.api.collections.GenericQueryBuilder</title>
-          <meta name="description" content="GenericQueryBuilder - ReactiveMongo API 0.11.7 - reactivemongo.api.collections.GenericQueryBuilder" />
-          <meta name="keywords" content="GenericQueryBuilder ReactiveMongo API 0.11.7 reactivemongo.api.collections.GenericQueryBuilder" />
+          <title>GenericQueryBuilder - ReactiveMongo API 0.11.12 - reactivemongo.api.collections.GenericQueryBuilder</title>
+          <meta name="description" content="GenericQueryBuilder - ReactiveMongo API 0.11.12 - reactivemongo.api.collections.GenericQueryBuilder" />
+          <meta name="keywords" content="GenericQueryBuilder ReactiveMongo API 0.11.12 reactivemongo.api.collections.GenericQueryBuilder" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../../lib/template.js"></script>
       <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -652,6 +652,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="reactivemongo.api.collections.GenericQueryBuilder#explain" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="explain(flag:Boolean):GenericQueryBuilder.this.Self"></a>
+      <a id="explain(Boolean):Self"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">explain</span><span class="params">(<span name="flag">flag: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="#Self&lt;:reactivemongo.api.collections.GenericQueryBuilder[GenericQueryBuilder.this.pack.type]" class="extmbr" name="reactivemongo.api.collections.GenericQueryBuilder.Self">Self</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.collections.GenericQueryBuilder@explain(flag:Boolean):GenericQueryBuilder.this.Self" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Toggles <a href="https://docs.mongodb.org/manual/reference/method/cursor.explain/#cursor.explain" target="_blank">explain mode</a>.</p>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <a id="finalize():Unit"></a>
@@ -851,7 +868,8 @@
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Sends this query and gets a future <code>Option[T]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Sends this query and gets a future <code>Option[T]</code>.</p><p>An implicit <code>Reader[T]</code> must be present in the scope.
+      <p class="shortcomment cmt">Sends this query and gets a future <code>Option[T]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Sends this query and gets a future <code>Option[T]</code>.
+Alias for <code>.cursor[T](readPreference).headOption</code>.</p><p>An implicit <code>Reader[T]</code> must be present in the scope.
 </p></div><dl class="paramcmts block"><dt class="param">readPreference</dt><dd class="cmt"><p>The ReadPreference for this request. If the ReadPreference implies that this request might be run on a Secondary, the slaveOk flag will be set.</p></dd></dl></div>
     </li><li name="reactivemongo.api.collections.GenericQueryBuilder#one" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="one[T](implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Option[T]]"></a>
@@ -869,7 +887,8 @@
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Sends this query and gets a future <code>Option[T]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Sends this query and gets a future <code>Option[T]</code>.</p><p>An implicit <code>Reader[T]</code> must be present in the scope.
+      <p class="shortcomment cmt">Sends this query and gets a future <code>Option[T]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Sends this query and gets a future <code>Option[T]</code>.
+Alias for <code>.cursor[T]().headOption</code>.</p><p>An implicit <code>Reader[T]</code> must be present in the scope.
 </p></div></div>
     </li><li name="reactivemongo.api.collections.GenericQueryBuilder#options" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="options(options:reactivemongo.api.QueryOpts):GenericQueryBuilder.this.Self"></a>
@@ -974,7 +993,7 @@
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Toggles <a href="http://www.mongodb.org/display/DOCS/How+to+do+Snapshotted+Queries+in+the+Mongo+Database" target="_blank">snapshot mode</a>.</p>
+      <p class="shortcomment cmt">Toggles <a href="https://docs.mongodb.org/manual/faq/developers/#faq-developers-isolate-cursors" target="_blank">snapshot mode</a>.</p>
     </li><li name="reactivemongo.api.collections.GenericQueryBuilder#sort" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="sort(document:GenericQueryBuilder.this.pack.Document):GenericQueryBuilder.this.Self"></a>
       <a id="sort(P.Document):Self"></a>
@@ -1132,7 +1151,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.11.0) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@528fea60 function with read preference.">cursor</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">P.Reader</span>[<span class="extype" name="reactivemongo.api.collections.GenericQueryBuilder.cursor.T">T</span>]</span>, <span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>, <span name="cp">cp: <a href="../CursorProducer.html" class="extype" name="reactivemongo.api.CursorProducer">CursorProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericQueryBuilder.cursor.T">T</span>]</span>)</span><span class="result">: <a href="../CursorProducer.html#ProducedCursor&lt;:reactivemongo.api.Cursor[T]" class="extmbr" name="reactivemongo.api.CursorProducer.ProducedCursor">ProducedCursor</a></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.0) Use cursor function with read preference.">cursor</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">P.Reader</span>[<span class="extype" name="reactivemongo.api.collections.GenericQueryBuilder.cursor.T">T</span>]</span>, <span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>, <span name="cp">cp: <a href="../CursorProducer.html" class="extype" name="reactivemongo.api.CursorProducer">CursorProducer</a>[<span class="extype" name="reactivemongo.api.collections.GenericQueryBuilder.cursor.T">T</span>]</span>)</span><span class="result">: <a href="../CursorProducer.html#ProducedCursor&lt;:reactivemongo.api.Cursor[T]" class="extmbr" name="reactivemongo.api.CursorProducer.ProducedCursor">ProducedCursor</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.collections.GenericQueryBuilder@cursor[T](implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor" title="Permalink" target="_top">
@@ -1143,7 +1162,7 @@
 </p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.0)</i> Use <a href="#cursor[T](readPreference:reactivemongo.api.ReadPreference,isMongo26WriteOp:Boolean)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor" class="extmbr" name="reactivemongo.api.collections.GenericQueryBuilder#cursor">cursor</a> function with read preference.</p></dd></dl></div>
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.0)</i> Use <code>cursor</code> function with read preference.</p></dd></dl></div>
     </li></ol>
             </div>
         </div>

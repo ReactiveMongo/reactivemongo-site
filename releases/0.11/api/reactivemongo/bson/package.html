@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>bson - ReactiveMongo API 0.11.7 - reactivemongo.bson</title>
-          <meta name="description" content="bson - ReactiveMongo API 0.11.7 - reactivemongo.bson" />
-          <meta name="keywords" content="bson ReactiveMongo API 0.11.7 reactivemongo.bson" />
+          <title>bson - ReactiveMongo API 0.11.12 - reactivemongo.bson</title>
+          <meta name="description" content="bson - ReactiveMongo API 0.11.12 - reactivemongo.bson" />
+          <meta name="keywords" content="bson ReactiveMongo API 0.11.12 reactivemongo.bson" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../lib/template.js"></script>
       <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../index.html';
@@ -281,8 +281,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
     </span>
       <p class="shortcomment cmt">A <code>BSONDocument</code> structure (BSON type <code>0x03</code>).</p><div class="fullcomment"><div class="comment cmt"><p>A <code>BSONDocument</code> structure (BSON type <code>0x03</code>).</p><p>A <code>BSONDocument</code> is basically a stream of tuples <code>(String, BSONValue)</code>.
 It is completely lazy. The stream it wraps is a <code>Stream[Try[(String, BSONValue)]]</code> since
-we cannot be sure that a not yet deserialized value will be processed without error.
-</p></div></div>
+we cannot be sure that a not yet deserialized value will be processed without error.</p></div></div>
     </li><li name="reactivemongo.bson.BSONDocumentReader" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="BSONDocumentReader[T]extendsBSONReader[reactivemongo.bson.BSONDocument,T]"></a>
       <a id="BSONDocumentReader[T]:BSONDocumentReader[T]"></a>
@@ -698,6 +697,23 @@ we cannot be sure that a not yet deserialized value will be processed without er
       </a>
     </span>
       <p class="shortcomment cmt">Binary Subtype</p>
+    </li><li name="reactivemongo.bson.UnsafeBSONReader" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="UnsafeBSONReader[T]extendsAnyRef"></a>
+      <a id="UnsafeBSONReader[T]:UnsafeBSONReader[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="UnsafeBSONReader.html"><span class="name">UnsafeBSONReader</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.package@UnsafeBSONReader[T]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="reactivemongo.bson.VariantBSONDocumentReader" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="VariantBSONDocumentReader[+T]extendsVariantBSONReader[reactivemongo.bson.BSONDocument,T]"></a>
       <a id="VariantBSONDocumentReader[+T]:VariantBSONDocumentReader[T]"></a>
@@ -1045,6 +1061,40 @@ we cannot be sure that a not yet deserialized value will be processed without er
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DefaultBSONHandlers.html" class="extype" name="reactivemongo.bson.DefaultBSONHandlers">DefaultBSONHandlers</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONDocumentReader" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONDocumentReader"></a>
+      <a id="BSONDocumentReader:BSONDocumentReader"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONDocumentReader$.html"><span class="name">BSONDocumentReader</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.package@BSONDocumentReader" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.bson.BSONDocumentWriter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONDocumentWriter"></a>
+      <a id="BSONDocumentWriter:BSONDocumentWriter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONDocumentWriter$.html"><span class="name">BSONDocumentWriter</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.package@BSONDocumentWriter" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="reactivemongo.bson.DefaultBSONHandlers.BSONDoubleHandler" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="BSONDoubleHandler"></a>
       <a id="BSONDoubleHandler:BSONDoubleHandler"></a>
@@ -1317,6 +1367,23 @@ we cannot be sure that a not yet deserialized value will be processed without er
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DefaultBSONHandlers.html" class="extype" name="reactivemongo.bson.DefaultBSONHandlers">DefaultBSONHandlers</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONReader" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONReader"></a>
+      <a id="BSONReader:BSONReader"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONReader$.html"><span class="name">BSONReader</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.package@BSONReader" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="reactivemongo.bson.DefaultBSONHandlers.BSONRegexIdentity" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="BSONRegexIdentity"></a>
       <a id="BSONRegexIdentity:BSONRegexIdentity"></a>
@@ -1453,6 +1520,23 @@ we cannot be sure that a not yet deserialized value will be processed without er
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DefaultBSONHandlers.html" class="extype" name="reactivemongo.bson.DefaultBSONHandlers">DefaultBSONHandlers</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONWriter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONWriter"></a>
+      <a id="BSONWriter:BSONWriter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BSONWriter$.html"><span class="name">BSONWriter</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.package@BSONWriter" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="reactivemongo.bson.DefaultBSONHandlers" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="DefaultBSONHandlers"></a>
       <a id="DefaultBSONHandlers:DefaultBSONHandlers"></a>

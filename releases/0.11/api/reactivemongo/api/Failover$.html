@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Failover - ReactiveMongo API 0.11.7 - reactivemongo.api.Failover</title>
-          <meta name="description" content="Failover - ReactiveMongo API 0.11.7 - reactivemongo.api.Failover" />
-          <meta name="keywords" content="Failover ReactiveMongo API 0.11.7 reactivemongo.api.Failover" />
+          <title>Failover - ReactiveMongo API 0.11.12 - reactivemongo.api.Failover</title>
+          <meta name="description" content="Failover - ReactiveMongo API 0.11.12 - reactivemongo.api.Failover" />
+          <meta name="keywords" content="Failover ReactiveMongo API 0.11.12 reactivemongo.api.Failover" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../lib/template.js"></script>
       <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../index.html';
@@ -47,11 +47,14 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">Failover</span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.10) Unused">Failover</span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.10)</i> Unused</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -147,42 +150,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="reactivemongo.api.Failover#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="apply(requestMaker:reactivemongo.core.protocol.RequestMaker,connection:reactivemongo.api.MongoConnection,strategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext):reactivemongo.api.Failover[reactivemongo.core.protocol.RequestMaker]"></a>
-      <a id="apply(RequestMaker,MongoConnection,FailoverStrategy)(ExecutionContext):Failover[RequestMaker]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">apply</span><span class="params">(<span name="requestMaker">requestMaker: <a href="../core/protocol/RequestMaker.html" class="extype" name="reactivemongo.core.protocol.RequestMaker">RequestMaker</a></span>, <span name="connection">connection: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>, <span name="strategy">strategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="Failover.html" class="extype" name="reactivemongo.api.Failover">Failover</a>[<a href="../core/protocol/RequestMaker.html" class="extype" name="reactivemongo.core.protocol.RequestMaker">RequestMaker</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.Failover$@apply(requestMaker:reactivemongo.core.protocol.RequestMaker,connection:reactivemongo.api.MongoConnection,strategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext):reactivemongo.api.Failover[reactivemongo.core.protocol.RequestMaker]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Produces a <a href="Failover.html" class="extype" name="reactivemongo.api.Failover">reactivemongo.api.Failover</a> holding a future reference that is completed with a result, after 1 or more attempts (specified in the given strategy).</p><div class="fullcomment"><div class="comment cmt"><p>Produces a <a href="Failover.html" class="extype" name="reactivemongo.api.Failover">reactivemongo.api.Failover</a> holding a future reference that is completed with a result, after 1 or more attempts (specified in the given strategy).
-</p></div><dl class="paramcmts block"><dt class="param">requestMaker</dt><dd class="cmt"><p>The requestMaker to send to the given actor.</p></dd><dt class="param">connection</dt><dd class="cmt"><p>The reference to the MongoConnection actor the given message will be sent to.</p></dd><dt class="param">strategy</dt><dd class="cmt"><p>The Failover strategy.</p></dd></dl></div>
-    </li><li name="reactivemongo.api.Failover#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="apply(checkedWriteRequest:reactivemongo.core.protocol.CheckedWriteRequest,connection:reactivemongo.api.MongoConnection,strategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext):reactivemongo.api.Failover[reactivemongo.core.protocol.CheckedWriteRequest]"></a>
-      <a id="apply(CheckedWriteRequest,MongoConnection,FailoverStrategy)(ExecutionContext):Failover[CheckedWriteRequest]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">apply</span><span class="params">(<span name="checkedWriteRequest">checkedWriteRequest: <a href="../core/protocol/CheckedWriteRequest.html" class="extype" name="reactivemongo.core.protocol.CheckedWriteRequest">CheckedWriteRequest</a></span>, <span name="connection">connection: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>, <span name="strategy">strategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="Failover.html" class="extype" name="reactivemongo.api.Failover">Failover</a>[<a href="../core/protocol/CheckedWriteRequest.html" class="extype" name="reactivemongo.core.protocol.CheckedWriteRequest">CheckedWriteRequest</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.Failover$@apply(checkedWriteRequest:reactivemongo.core.protocol.CheckedWriteRequest,connection:reactivemongo.api.MongoConnection,strategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext):reactivemongo.api.Failover[reactivemongo.core.protocol.CheckedWriteRequest]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Produces a <a href="Failover.html" class="extype" name="reactivemongo.api.Failover">reactivemongo.api.Failover</a> holding a future reference that is completed with a result, after 1 or more attempts (specified in the given strategy).</p><div class="fullcomment"><div class="comment cmt"><p>Produces a <a href="Failover.html" class="extype" name="reactivemongo.api.Failover">reactivemongo.api.Failover</a> holding a future reference that is completed with a result, after 1 or more attempts (specified in the given strategy).
-</p></div><dl class="paramcmts block"><dt class="param">checkedWriteRequest</dt><dd class="cmt"><p>The checkedWriteRequest to send to the given actor.</p></dd><dt class="param">connection</dt><dd class="cmt"><p>The reference to the MongoConnection the given message will be sent to.</p></dd><dt class="param">strategy</dt><dd class="cmt"><p>The Failover strategy.</p></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -490,7 +457,52 @@
 
         
 
-        
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="reactivemongo.api.Failover#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply(requestMaker:reactivemongo.core.protocol.RequestMaker,connection:reactivemongo.api.MongoConnection,strategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext):reactivemongo.api.Failover[reactivemongo.core.protocol.RequestMaker]"></a>
+      <a id="apply(RequestMaker,MongoConnection,FailoverStrategy)(ExecutionContext):Failover[RequestMaker]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.10) Unused">apply</span><span class="params">(<span name="requestMaker">requestMaker: <a href="../core/protocol/RequestMaker.html" class="extype" name="reactivemongo.core.protocol.RequestMaker">RequestMaker</a></span>, <span name="connection">connection: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>, <span name="strategy">strategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="Failover.html" class="extype" name="reactivemongo.api.Failover">Failover</a>[<a href="../core/protocol/RequestMaker.html" class="extype" name="reactivemongo.core.protocol.RequestMaker">RequestMaker</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.Failover$@apply(requestMaker:reactivemongo.core.protocol.RequestMaker,connection:reactivemongo.api.MongoConnection,strategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext):reactivemongo.api.Failover[reactivemongo.core.protocol.RequestMaker]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Produces a <a href="Failover.html" class="extype" name="reactivemongo.api.Failover">reactivemongo.api.Failover</a> holding a future reference that is completed with a result, after 1 or more attempts (specified in the given strategy).</p><div class="fullcomment"><div class="comment cmt"><p>Produces a <a href="Failover.html" class="extype" name="reactivemongo.api.Failover">reactivemongo.api.Failover</a> holding a future reference that is completed with a result, after 1 or more attempts (specified in the given strategy).
+</p></div><dl class="paramcmts block"><dt class="param">requestMaker</dt><dd class="cmt"><p>The requestMaker to send to the given actor.</p></dd><dt class="param">connection</dt><dd class="cmt"><p>The reference to the MongoConnection actor the given message will be sent to.</p></dd><dt class="param">strategy</dt><dd class="cmt"><p>The Failover strategy.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.10)</i> Unused</p></dd></dl></div>
+    </li><li name="reactivemongo.api.Failover#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply(checkedWriteRequest:reactivemongo.core.protocol.CheckedWriteRequest,connection:reactivemongo.api.MongoConnection,strategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext):reactivemongo.api.Failover[reactivemongo.core.protocol.CheckedWriteRequest]"></a>
+      <a id="apply(CheckedWriteRequest,MongoConnection,FailoverStrategy)(ExecutionContext):Failover[CheckedWriteRequest]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.10) Unused">apply</span><span class="params">(<span name="checkedWriteRequest">checkedWriteRequest: <a href="../core/protocol/CheckedWriteRequest.html" class="extype" name="reactivemongo.core.protocol.CheckedWriteRequest">CheckedWriteRequest</a></span>, <span name="connection">connection: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>, <span name="strategy">strategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="Failover.html" class="extype" name="reactivemongo.api.Failover">Failover</a>[<a href="../core/protocol/CheckedWriteRequest.html" class="extype" name="reactivemongo.core.protocol.CheckedWriteRequest">CheckedWriteRequest</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.Failover$@apply(checkedWriteRequest:reactivemongo.core.protocol.CheckedWriteRequest,connection:reactivemongo.api.MongoConnection,strategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext):reactivemongo.api.Failover[reactivemongo.core.protocol.CheckedWriteRequest]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Produces a <a href="Failover.html" class="extype" name="reactivemongo.api.Failover">reactivemongo.api.Failover</a> holding a future reference that is completed with a result, after 1 or more attempts (specified in the given strategy).</p><div class="fullcomment"><div class="comment cmt"><p>Produces a <a href="Failover.html" class="extype" name="reactivemongo.api.Failover">reactivemongo.api.Failover</a> holding a future reference that is completed with a result, after 1 or more attempts (specified in the given strategy).
+</p></div><dl class="paramcmts block"><dt class="param">checkedWriteRequest</dt><dd class="cmt"><p>The checkedWriteRequest to send to the given actor.</p></dd><dt class="param">connection</dt><dd class="cmt"><p>The reference to the MongoConnection the given message will be sent to.</p></dd><dt class="param">strategy</dt><dd class="cmt"><p>The Failover strategy.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.10)</i> Unused</p></dd></dl></div>
+    </li></ol>
+            </div>
         </div>
 
         <div id="inheritedMembers">

@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>MongoConnection - ReactiveMongo API 0.11.7 - reactivemongo.api.MongoConnection</title>
-          <meta name="description" content="MongoConnection - ReactiveMongo API 0.11.7 - reactivemongo.api.MongoConnection" />
-          <meta name="keywords" content="MongoConnection ReactiveMongo API 0.11.7 reactivemongo.api.MongoConnection" />
+          <title>MongoConnection - ReactiveMongo API 0.11.12 - reactivemongo.api.MongoConnection</title>
+          <meta name="description" content="MongoConnection - ReactiveMongo API 0.11.12 - reactivemongo.api.MongoConnection" />
+          <meta name="keywords" content="MongoConnection ReactiveMongo API 0.11.12 reactivemongo.api.MongoConnection" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../lib/template.js"></script>
       <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../index.html';
@@ -51,17 +51,12 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A Mongo Connection.</p><p>This is a wrapper around a reference to a <a href="../core/actors/MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">reactivemongo.core.actors.MongoDBSystem</a> Actor.
-Connection here does not mean that there is one open channel to the server.
-Behind the scene, many connections (channels) are open on all the available servers in the replica set.</p><p>Example:</p><pre><span class="kw">import</span> reactivemongo.api._
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A pool of MongoDB connections.</p><p>Connection here does not mean that there is one open channel to the server:
+behind the scene, many connections (channels) are open on all the available servers in the replica set.</p><p>Example:</p><pre><span class="kw">import</span> reactivemongo.api._
 
-<span class="kw">val</span> connection = MongoConnection( <span class="std">List</span>( <span class="lit">"localhost"</span> ) )
-<span class="kw">val</span> db = connection(<span class="lit">"plugin"</span>)
-<span class="kw">val</span> collection = db(<span class="lit">"acoll"</span>)
-
-<span class="cmt">// more explicit way</span>
-<span class="kw">val</span> db2 = connection.db(<span class="lit">"plugin"</span>)
-<span class="kw">val</span> collection2 = db2.collection(<span class="lit">"plugin"</span>)</pre></div><div class="toggleContainer block">
+<span class="kw">val</span> connection = MongoConnection(<span class="std">List</span>(<span class="lit">"localhost"</span>))
+<span class="kw">val</span> db = connection.database(<span class="lit">"plugin"</span>)
+<span class="kw">val</span> collection = db.map(_.(<span class="lit">"acoll"</span>))</pre></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -121,7 +116,7 @@ Behind the scene, many connections (channels) are open on all the available serv
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">mongosystem</dt><dd class="cmt"><p>A reference to a <a href="../core/actors/MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">reactivemongo.core.actors.MongoDBSystem</a> Actor.</p></dd></dl></div>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">mongosystem</dt><dd class="cmt"><p>the reference to the internal <a href="../core/actors/MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">reactivemongo.core.actors.MongoDBSystem</a> Actor.</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -261,24 +256,6 @@ Behind the scene, many connections (channels) are open on all the available serv
       </a>
     </span>
       
-    </li><li name="reactivemongo.api.MongoConnection#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="apply(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitcontext:scala.concurrent.ExecutionContext):reactivemongo.api.DefaultDB"></a>
-      <a id="apply(String,FailoverStrategy)(ExecutionContext):DefaultDB"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">apply</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol">FailoverStrategy()</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="context">context: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">DefaultDB</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.MongoConnection@apply(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitcontext:scala.concurrent.ExecutionContext):reactivemongo.api.DefaultDB" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Returns a DefaultDB reference using this connection.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a DefaultDB reference using this connection.
-</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>The database name.</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>a failover strategy for sending requests.</p></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -296,42 +273,6 @@ Behind the scene, many connections (channels) are open on all the available serv
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="reactivemongo.api.MongoConnection#ask" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ask(checkedWriteRequest:reactivemongo.core.protocol.CheckedWriteRequest):scala.concurrent.Future[reactivemongo.core.protocol.Response]"></a>
-      <a id="ask(CheckedWriteRequest):Future[Response]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">ask</span><span class="params">(<span name="checkedWriteRequest">checkedWriteRequest: <a href="../core/protocol/CheckedWriteRequest.html" class="extype" name="reactivemongo.core.protocol.CheckedWriteRequest">CheckedWriteRequest</a></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../core/protocol/Response.html" class="extype" name="reactivemongo.core.protocol.Response">Response</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.MongoConnection@ask(checkedWriteRequest:reactivemongo.core.protocol.CheckedWriteRequest):scala.concurrent.Future[reactivemongo.core.protocol.Response]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Writes a checked write request and wait for a response.</p><div class="fullcomment"><div class="comment cmt"><p>Writes a checked write request and wait for a response.
-</p></div><dl class="paramcmts block"><dt class="param">checkedWriteRequest</dt><dd class="cmt"><p>The request maker.</p></dd><dt>returns</dt><dd class="cmt"><p>The future response.</p></dd></dl></div>
-    </li><li name="reactivemongo.api.MongoConnection#ask" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ask(message:reactivemongo.core.protocol.RequestMaker,isMongo26WriteOp:Boolean):scala.concurrent.Future[reactivemongo.core.protocol.Response]"></a>
-      <a id="ask(RequestMaker,Boolean):Future[Response]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">ask</span><span class="params">(<span name="message">message: <a href="../core/protocol/RequestMaker.html" class="extype" name="reactivemongo.core.protocol.RequestMaker">RequestMaker</a></span>, <span name="isMongo26WriteOp">isMongo26WriteOp: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../core/protocol/Response.html" class="extype" name="reactivemongo.core.protocol.Response">Response</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.MongoConnection@ask(message:reactivemongo.core.protocol.RequestMaker,isMongo26WriteOp:Boolean):scala.concurrent.Future[reactivemongo.core.protocol.Response]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Writes a request and wait for a response.</p><div class="fullcomment"><div class="comment cmt"><p>Writes a request and wait for a response.
-</p></div><dl class="paramcmts block"><dt class="param">message</dt><dd class="cmt"><p>The request maker.</p></dd><dt>returns</dt><dd class="cmt"><p>The future response.</p></dd></dl></div>
     </li><li name="reactivemongo.api.MongoConnection#askClose" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="askClose()(implicittimeout:scala.concurrent.duration.FiniteDuration):scala.concurrent.Future[_]"></a>
       <a id="askClose()(FiniteDuration):Future[_]"></a>
@@ -348,7 +289,7 @@ Behind the scene, many connections (channels) are open on all the available serv
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Closes this MongoConnection (closes all the channels and ends the actors)</p>
+      <p class="shortcomment cmt">Closes this MongoConnection (closes all the channels and ends the actors).</p>
     </li><li name="reactivemongo.api.MongoConnection#authenticate" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="authenticate(db:String,user:String,password:String):scala.concurrent.Future[reactivemongo.core.commands.SuccessfulAuthentication]"></a>
       <a id="authenticate(String,String,String):Future[SuccessfulAuthentication]"></a>
@@ -405,25 +346,29 @@ Behind the scene, many connections (channels) are open on all the available serv
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Closes this MongoConnection (closes all the channels and ends the actors)</p>
-    </li><li name="reactivemongo.api.MongoConnection#db" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="db(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitcontext:scala.concurrent.ExecutionContext):reactivemongo.api.DefaultDB"></a>
-      <a id="db(String,FailoverStrategy)(ExecutionContext):DefaultDB"></a>
+      <p class="shortcomment cmt">Closes this MongoConnection
+(closes all the channels and ends the actors)
+</p>
+    </li><li name="reactivemongo.api.MongoConnection#database" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="database(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitcontext:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DefaultDB]"></a>
+      <a id="database(String,FailoverStrategy)(ExecutionContext):Future[DefaultDB]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">db</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol">FailoverStrategy()</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="context">context: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">DefaultDB</a></span>
+        <span class="name">database</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="#options:reactivemongo.api.MongoConnectionOptions">options.failoverStrategy</a></span></span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="context">context: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">DefaultDB</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.MongoConnection@db(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitcontext:scala.concurrent.ExecutionContext):reactivemongo.api.DefaultDB" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.MongoConnection@database(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitcontext:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DefaultDB]" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Returns a DefaultDB reference using this connection (alias for the <code>apply</code> method).</p><div class="fullcomment"><div class="comment cmt"><p>Returns a DefaultDB reference using this connection (alias for the <code>apply</code> method).
-</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>The database name.</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>a failover strategy for sending requests.</p></dd></dl></div>
+      <p class="shortcomment cmt">Returns a DefaultDB reference using this connection.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a DefaultDB reference using this connection.
+The failover strategy is also used to wait for the node set to be ready,
+before returning an available DB.
+</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the database name</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>the failover strategy for sending requests.</p></dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
       <a id="ensuring((MongoConnection)⇒Boolean,⇒Any):MongoConnection"></a>
@@ -656,24 +601,7 @@ Behind the scene, many connections (channels) are open on all the available serv
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">A reference to a <a href="../core/actors/MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">reactivemongo.core.actors.MongoDBSystem</a> Actor.</p>
-    </li><li name="reactivemongo.api.MongoConnection#monitor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="monitor:akka.actor.ActorRef"></a>
-      <a id="monitor:ActorRef"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">monitor</span><span class="result">: <span class="extype" name="akka.actor.ActorRef">ActorRef</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.MongoConnection@monitor:akka.actor.ActorRef" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
+      <p class="shortcomment cmt">the reference to the internal <a href="../core/actors/MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">reactivemongo.core.actors.MongoDBSystem</a> Actor.</p>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -738,58 +666,6 @@ Behind the scene, many connections (channels) are open on all the available serv
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoConnection@options:reactivemongo.api.MongoConnectionOptions" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="reactivemongo.api.MongoConnection#send" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="send(message:reactivemongo.core.protocol.RequestMaker):Unit"></a>
-      <a id="send(RequestMaker):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">send</span><span class="params">(<span name="message">message: <a href="../core/protocol/RequestMaker.html" class="extype" name="reactivemongo.core.protocol.RequestMaker">RequestMaker</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.MongoConnection@send(message:reactivemongo.core.protocol.RequestMaker):Unit" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Writes a request and drop the response if any.</p><div class="fullcomment"><div class="comment cmt"><p>Writes a request and drop the response if any.
-</p></div><dl class="paramcmts block"><dt class="param">message</dt><dd class="cmt"><p>The request maker.</p></dd></dl></div>
-    </li><li name="reactivemongo.api.MongoConnection#sendExpectingResponse" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="sendExpectingResponse(requestMaker:reactivemongo.core.protocol.RequestMaker,isMongo26WriteOp:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.protocol.Response]"></a>
-      <a id="sendExpectingResponse(RequestMaker,Boolean)(ExecutionContext):Future[Response]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">sendExpectingResponse</span><span class="params">(<span name="requestMaker">requestMaker: <a href="../core/protocol/RequestMaker.html" class="extype" name="reactivemongo.core.protocol.RequestMaker">RequestMaker</a></span>, <span name="isMongo26WriteOp">isMongo26WriteOp: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../core/protocol/Response.html" class="extype" name="reactivemongo.core.protocol.Response">Response</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.MongoConnection@sendExpectingResponse(requestMaker:reactivemongo.core.protocol.RequestMaker,isMongo26WriteOp:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.protocol.Response]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="reactivemongo.api.MongoConnection#sendExpectingResponse" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="sendExpectingResponse(checkedWriteRequest:reactivemongo.core.protocol.CheckedWriteRequest)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.protocol.Response]"></a>
-      <a id="sendExpectingResponse(CheckedWriteRequest)(ExecutionContext):Future[Response]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">sendExpectingResponse</span><span class="params">(<span name="checkedWriteRequest">checkedWriteRequest: <a href="../core/protocol/CheckedWriteRequest.html" class="extype" name="reactivemongo.core.protocol.CheckedWriteRequest">CheckedWriteRequest</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../core/protocol/Response.html" class="extype" name="reactivemongo.core.protocol.Response">Response</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.MongoConnection@sendExpectingResponse(checkedWriteRequest:reactivemongo.core.protocol.CheckedWriteRequest)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.protocol.Response]" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -897,23 +773,6 @@ Behind the scene, many connections (channels) are open on all the available serv
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="reactivemongo.api.MongoConnection#waitForPrimary" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="waitForPrimary(implicitwaitForAvailability:scala.concurrent.duration.FiniteDuration):scala.concurrent.Future[_]"></a>
-      <a id="waitForPrimary(FiniteDuration):Future[_]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">waitForPrimary</span><span class="params">(<span class="implicit">implicit </span><span name="waitForAvailability">waitForAvailability: <span class="extype" name="scala.concurrent.duration.FiniteDuration">FiniteDuration</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[_]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.MongoConnection@waitForPrimary(implicitwaitForAvailability:scala.concurrent.duration.FiniteDuration):scala.concurrent.Future[_]" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Get a future that will be successful when a primary node is available or times out.</p>
     </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="→[B](y:B):(A,B)"></a>
       <a id="→[B](B):(MongoConnection,B)"></a>
@@ -940,7 +799,54 @@ Behind the scene, many connections (channels) are open on all the available serv
 
         
 
-        
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="reactivemongo.api.MongoConnection#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitcontext:scala.concurrent.ExecutionContext):reactivemongo.api.DefaultDB"></a>
+      <a id="apply(String,FailoverStrategy)(ExecutionContext):DefaultDB"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.8) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@1c9ce988">apply</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="#options:reactivemongo.api.MongoConnectionOptions">options.failoverStrategy</a></span></span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="context">context: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">DefaultDB</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.MongoConnection@apply(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitcontext:scala.concurrent.ExecutionContext):reactivemongo.api.DefaultDB" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a DefaultDB reference using this connection.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a DefaultDB reference using this connection.
+</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the database name</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>the failover strategy for sending requests.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.8)</i> Use <a href="#database(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitcontext:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DefaultDB]" class="extmbr" name="reactivemongo.api.MongoConnection#database">database</a></p></dd></dl></div>
+    </li><li name="reactivemongo.api.MongoConnection#db" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="db(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitcontext:scala.concurrent.ExecutionContext):reactivemongo.api.DefaultDB"></a>
+      <a id="db(String,FailoverStrategy)(ExecutionContext):DefaultDB"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.8) Must use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@6b67f304">db</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="#options:reactivemongo.api.MongoConnectionOptions">options.failoverStrategy</a></span></span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="context">context: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">DefaultDB</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.MongoConnection@db(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitcontext:scala.concurrent.ExecutionContext):reactivemongo.api.DefaultDB" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a DefaultDB reference using this connection
+(alias for the <code>apply</code> method).</p><div class="fullcomment"><div class="comment cmt"><p>Returns a DefaultDB reference using this connection
+(alias for the <code>apply</code> method).
+</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the database name</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>the failover strategy for sending requests.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.8)</i> Must use <a href="#apply(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitcontext:scala.concurrent.ExecutionContext):reactivemongo.api.DefaultDB" class="extmbr" name="reactivemongo.api.MongoConnection#apply">apply</a></p></dd></dl></div>
+    </li></ol>
+            </div>
         </div>
 
         <div id="inheritedMembers">

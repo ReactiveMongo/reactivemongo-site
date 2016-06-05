@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>AggregationResult - ReactiveMongo API 0.11.7 - reactivemongo.api.commands.AggregationFramework.AggregationResult</title>
-          <meta name="description" content="AggregationResult - ReactiveMongo API 0.11.7 - reactivemongo.api.commands.AggregationFramework.AggregationResult" />
-          <meta name="keywords" content="AggregationResult ReactiveMongo API 0.11.7 reactivemongo.api.commands.AggregationFramework.AggregationResult" />
+          <title>AggregationResult - ReactiveMongo API 0.11.12 - reactivemongo.api.commands.AggregationFramework.AggregationResult</title>
+          <meta name="description" content="AggregationResult - ReactiveMongo API 0.11.12 - reactivemongo.api.commands.AggregationFramework.AggregationResult" />
+          <meta name="keywords" content="AggregationResult ReactiveMongo API 0.11.12 reactivemongo.api.commands.AggregationFramework.AggregationResult" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../../lib/template.js"></script>
       <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -45,11 +45,11 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">AggregationResult</span><span class="params">(<span name="documents">documents: <span class="extype" name="scala.List">List</span>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">AggregationResult</span><span class="params">(<span name="firstBatch">firstBatch: <span class="extype" name="scala.List">List</span>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>]</span>, <span name="cursor">cursor: <span class="extype" name="scala.Option">Option</span>[<a href="ResultCursor.html" class="extype" name="reactivemongo.api.commands.ResultCursor">ResultCursor</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">firstBatch</dt><dd class="cmt"><p>the documents of the first batch</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>the cursor from the result, if any</p></dd></dl><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p><a href="AggregationFramework$Cursor.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Cursor">Cursor</a></p></span></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -93,8 +93,8 @@
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="reactivemongo.api.commands.AggregationFramework.AggregationResult#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(documents:List[AggregationFramework.this.pack.Document]):AggregationFramework.this.AggregationResult"></a>
+              <ol><li name="reactivemongo.api.commands.AggregationFramework.AggregationResult#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="&lt;init&gt;(firstBatch:List[AggregationFramework.this.pack.Document],cursor:Option[reactivemongo.api.commands.ResultCursor]):AggregationFramework.this.AggregationResult"></a>
       <a id="&lt;init&gt;:AggregationResult"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -102,14 +102,14 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">AggregationResult</span><span class="params">(<span name="documents">documents: <span class="extype" name="scala.List">List</span>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>]</span>)</span>
+        <span class="name">AggregationResult</span><span class="params">(<span name="firstBatch">firstBatch: <span class="extype" name="scala.List">List</span>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>]</span>, <span name="cursor">cursor: <span class="extype" name="scala.Option">Option</span>[<a href="ResultCursor.html" class="extype" name="reactivemongo.api.commands.ResultCursor">ResultCursor</a>] = <span class="symbol">None</span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$AggregationResult@&lt;init&gt;(documents:List[AggregationFramework.this.pack.Document]):AggregationFramework.this.AggregationResult" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$AggregationResult@&lt;init&gt;(firstBatch:List[AggregationFramework.this.pack.Document],cursor:Option[reactivemongo.api.commands.ResultCursor]):AggregationFramework.this.AggregationResult" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">firstBatch</dt><dd class="cmt"><p>the documents of the first batch</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>the cursor from the result, if any</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -255,23 +255,23 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="reactivemongo.api.commands.AggregationFramework.AggregationResult#documents" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="documents:List[AggregationFramework.this.pack.Document]"></a>
-      <a id="documents:List[P.Document]"></a>
+    </li><li name="reactivemongo.api.commands.AggregationFramework.AggregationResult#cursor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="cursor:Option[reactivemongo.api.commands.ResultCursor]"></a>
+      <a id="cursor:Option[ResultCursor]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">documents</span><span class="result">: <span class="extype" name="scala.List">List</span>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>]</span>
+        <span class="name">cursor</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="ResultCursor.html" class="extype" name="reactivemongo.api.commands.ResultCursor">ResultCursor</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$AggregationResult@documents:List[AggregationFramework.this.pack.Document]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$AggregationResult@cursor:Option[reactivemongo.api.commands.ResultCursor]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">the cursor from the result, if any</p>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
       <a id="ensuring((AggregationResult)⇒Boolean,⇒Any):AggregationResult"></a>
@@ -396,6 +396,23 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="reactivemongo.api.commands.AggregationFramework.AggregationResult#firstBatch" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="firstBatch:List[AggregationFramework.this.pack.Document]"></a>
+      <a id="firstBatch:List[P.Document]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">firstBatch</span><span class="result">: <span class="extype" name="scala.List">List</span>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$AggregationResult@firstBatch:List[AggregationFramework.this.pack.Document]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">the documents of the first batch</p>
     </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="formatted(fmtstr:String):String"></a>
       <a id="formatted(String):String"></a>
@@ -437,6 +454,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="reactivemongo.api.commands.AggregationFramework.AggregationResult#head" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="head[T](implicitreader:AggregationFramework.this.pack.Reader[T]):List[T]"></a>
+      <a id="head[T](P.Reader[T]):List[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">head</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">P.Reader</span>[<span class="extype" name="reactivemongo.api.commands.AggregationFramework.AggregationResult.head.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<span class="extype" name="reactivemongo.api.commands.AggregationFramework.AggregationResult.head.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$AggregationResult@head[T](implicitreader:AggregationFramework.this.pack.Reader[T]):List[T]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the first batch as a list, using the given <code>reader</code>.</p>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -505,23 +539,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="reactivemongo.api.commands.AggregationFramework.AggregationResult#result" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="result[T](implicitreader:AggregationFramework.this.pack.Reader[T]):List[T]"></a>
-      <a id="result[T](P.Reader[T]):List[T]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">result</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">P.Reader</span>[<span class="extype" name="reactivemongo.api.commands.AggregationFramework.AggregationResult.result.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<span class="extype" name="reactivemongo.api.commands.AggregationFramework.AggregationResult.result.T">T</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$AggregationResult@result[T](implicitreader:AggregationFramework.this.pack.Reader[T]):List[T]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -634,7 +651,50 @@
 
         
 
-        
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="reactivemongo.api.commands.AggregationFramework.AggregationResult#documents" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="documents:List[AggregationFramework.this.pack.Document]"></a>
+      <a id="documents:List[P.Document]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.10) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@5fad9cb6">documents</span><span class="result">: <span class="extype" name="scala.List">List</span>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$AggregationResult@documents:List[AggregationFramework.this.pack.Document]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.10)</i> Use <a href="#firstBatch:List[AggregationFramework.this.pack.Document]" class="extmbr" name="reactivemongo.api.commands.AggregationFramework.AggregationResult#firstBatch">firstBatch</a></p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.AggregationFramework.AggregationResult#result" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="result[T](implicitreader:AggregationFramework.this.pack.Reader[T]):List[T]"></a>
+      <a id="result[T](P.Reader[T]):List[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.10) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@53a61272">result</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">P.Reader</span>[<span class="extype" name="reactivemongo.api.commands.AggregationFramework.AggregationResult.result.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<span class="extype" name="reactivemongo.api.commands.AggregationFramework.AggregationResult.result.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$AggregationResult@result[T](implicitreader:AggregationFramework.this.pack.Reader[T]):List[T]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.10)</i> Use <a href="#head[T](implicitreader:AggregationFramework.this.pack.Reader[T]):List[T]" class="extmbr" name="reactivemongo.api.commands.AggregationFramework.AggregationResult#head">head</a></p></dd></dl></div>
+    </li></ol>
+            </div>
         </div>
 
         <div id="inheritedMembers">

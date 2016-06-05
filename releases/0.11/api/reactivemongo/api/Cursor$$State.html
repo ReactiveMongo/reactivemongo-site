@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>State - ReactiveMongo API 0.11.7 - reactivemongo.api.Cursor.State</title>
-          <meta name="description" content="State - ReactiveMongo API 0.11.7 - reactivemongo.api.Cursor.State" />
-          <meta name="keywords" content="State ReactiveMongo API 0.11.7 reactivemongo.api.Cursor.State" />
+          <title>State - ReactiveMongo API 0.11.12 - reactivemongo.api.Cursor.State</title>
+          <meta name="description" content="State - ReactiveMongo API 0.11.12 - reactivemongo.api.Cursor.State" />
+          <meta name="keywords" content="State ReactiveMongo API 0.11.12 reactivemongo.api.Cursor.State" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../lib/template.js"></script>
       <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../index.html';
@@ -45,7 +45,7 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">State</span><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <span class="name">State</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
       
@@ -98,10 +98,30 @@
 
         
 
-        
+        <div id="values" class="values members">
+              <h3>Abstract Value Members</h3>
+              <ol><li name="reactivemongo.api.Cursor.State#map" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="map[U](f:T=&gt;U):reactivemongo.api.Cursor.State[U]"></a>
+      <a id="map[U]((T)⇒U):State[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">map</span><span class="tparams">[<span name="U">U</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>) ⇒ <span class="extype" name="reactivemongo.api.Cursor.State.map.U">U</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.map.U">U</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.Cursor$$State@map[U](f:T=&gt;U):reactivemongo.api.Cursor.State[U]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
 
         <div id="values" class="values members">
-              <h3>Value Members</h3>
+              <h3>Concrete Value Members</h3>
               <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a>
       <a id="!=(Any):Boolean"></a>
@@ -153,20 +173,20 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>] to
-            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>]] performed by method any2stringadd in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>] to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>]] performed by method any2stringadd in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="-&gt;[B](y:B):(A,B)"></a>
-      <a id="-&gt;[B](B):(State[A],B)"></a>
+      <a id="-&gt;[B](B):(State[T],B)"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>], <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>], <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor$$State@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
@@ -174,8 +194,8 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>] to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>]] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>]] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -240,14 +260,14 @@
         </dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
-      <a id="ensuring((State[A])⇒Boolean,⇒Any):State[A]"></a>
+      <a id="ensuring((State[T])⇒Boolean,⇒Any):State[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor$$State@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -255,20 +275,20 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>] to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>]] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean):A"></a>
-      <a id="ensuring((State[A])⇒Boolean):State[A]"></a>
+      <a id="ensuring((State[T])⇒Boolean):State[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor$$State@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
@@ -276,20 +296,20 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>] to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>]] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
-      <a id="ensuring(Boolean,⇒Any):State[A]"></a>
+      <a id="ensuring(Boolean,⇒Any):State[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor$$State@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -297,20 +317,20 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>] to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>]] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:Boolean):A"></a>
-      <a id="ensuring(Boolean):State[A]"></a>
+      <a id="ensuring(Boolean):State[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor$$State@ensuring(cond:Boolean):A" title="Permalink" target="_top">
@@ -318,8 +338,8 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>] to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>]] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -396,8 +416,8 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>] to
-            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>]] performed by method StringFormat in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>] to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>]] performed by method StringFormat in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -610,14 +630,14 @@
         </dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="→[B](y:B):(A,B)"></a>
-      <a id="→[B](B):(State[A],B)"></a>
+      <a id="→[B](B):(State[T],B)"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>], <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>], <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.Cursor$$State@→[B](y:B):(A,B)" title="Permalink" target="_top">
@@ -625,8 +645,8 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>] to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>]] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>]] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
     </li></ol>
@@ -645,19 +665,19 @@
             </div>
         <div class="conversion" name="scala.Predef.any2stringadd">
               <h3>Inherited by implicit conversion any2stringadd from
-                <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>] to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>]]
+                <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>] to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.StringFormat">
               <h3>Inherited by implicit conversion StringFormat from
-                <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>] to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>]]
+                <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>] to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.Ensuring">
               <h3>Inherited by implicit conversion Ensuring from
-                <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>] to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>]]
+                <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>] to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.ArrowAssoc">
               <h3>Inherited by implicit conversion ArrowAssoc from
-                <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>] to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.A">A</span>]]
+                <a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>] to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.Cursor.State">State</a>[<span class="extype" name="reactivemongo.api.Cursor.State.T">T</span>]]
               </h3>
             </div>
         </div>

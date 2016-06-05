@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>SerializationPack - ReactiveMongo API 0.11.7 - reactivemongo.api.SerializationPack</title>
-          <meta name="description" content="SerializationPack - ReactiveMongo API 0.11.7 - reactivemongo.api.SerializationPack" />
-          <meta name="keywords" content="SerializationPack ReactiveMongo API 0.11.7 reactivemongo.api.SerializationPack" />
+          <title>SerializationPack - ReactiveMongo API 0.11.12 - reactivemongo.api.SerializationPack</title>
+          <meta name="description" content="SerializationPack - ReactiveMongo API 0.11.12 - reactivemongo.api.SerializationPack" />
+          <meta name="keywords" content="SerializationPack ReactiveMongo API 0.11.12 reactivemongo.api.SerializationPack" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../lib/template.js"></script>
       <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../index.html';
@@ -128,6 +128,23 @@
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.SerializationPack@ElementProducer" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.SerializationPack.NarrowValueReader" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="NarrowValueReader[A]"></a>
+      <a id="NarrowValueReader[A]:(SerializationPack.this)#NarrowValueReader[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">NarrowValueReader</span><span class="tparams">[<span name="A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.SerializationPack@NarrowValueReader[A]" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -273,6 +290,23 @@
       </a>
     </span>
       
+    </li><li name="reactivemongo.api.SerializationPack#readValue" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="readValue[A](value:SerializationPack.this.Value,reader:SerializationPack.this.WidenValueReader[A]):scala.util.Try[A]"></a>
+      <a id="readValue[A]((SerializationPack.this)#Value,(SerializationPack.this)#WidenValueReader[A]):Try[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">readValue</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="value">value: (<a href="" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a>.this)#<span class="extype" name="reactivemongo.api.SerializationPack.Value">Value</span></span>, <span name="reader">reader: (<a href="" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a>.this)#<span class="extype" name="reactivemongo.api.SerializationPack.WidenValueReader">WidenValueReader</span>[<span class="extype" name="reactivemongo.api.SerializationPack.readValue.A">A</span>]</span>)</span><span class="result">: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="reactivemongo.api.SerializationPack.readValue.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.SerializationPack@readValue[A](value:SerializationPack.this.Value,reader:SerializationPack.this.WidenValueReader[A]):scala.util.Try[A]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="reactivemongo.api.SerializationPack#serialize" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="serialize[A](a:A,writer:SerializationPack.this.Writer[A]):SerializationPack.this.Document"></a>
       <a id="serialize[A](A,(SerializationPack.this)#Writer[A]):(SerializationPack.this)#Document"></a>
@@ -286,6 +320,23 @@
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.SerializationPack@serialize[A](a:A,writer:SerializationPack.this.Writer[A]):SerializationPack.this.Document" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.api.SerializationPack#widenReader" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="widenReader[T](r:SerializationPack.this.NarrowValueReader[T]):SerializationPack.this.WidenValueReader[T]"></a>
+      <a id="widenReader[T]((SerializationPack.this)#NarrowValueReader[T]):(SerializationPack.this)#WidenValueReader[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">widenReader</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="r">r: (<a href="" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a>.this)#<span class="extype" name="reactivemongo.api.SerializationPack.NarrowValueReader">NarrowValueReader</span>[<span class="extype" name="reactivemongo.api.SerializationPack.widenReader.T">T</span>]</span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a>.this)#<span class="extype" name="reactivemongo.api.SerializationPack.WidenValueReader">WidenValueReader</span>[<span class="extype" name="reactivemongo.api.SerializationPack.widenReader.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.SerializationPack@widenReader[T](r:SerializationPack.this.NarrowValueReader[T]):SerializationPack.this.WidenValueReader[T]" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>

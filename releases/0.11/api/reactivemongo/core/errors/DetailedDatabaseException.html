@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>DetailedDatabaseException - ReactiveMongo API 0.11.7 - reactivemongo.core.errors.DetailedDatabaseException</title>
-          <meta name="description" content="DetailedDatabaseException - ReactiveMongo API 0.11.7 - reactivemongo.core.errors.DetailedDatabaseException" />
-          <meta name="keywords" content="DetailedDatabaseException ReactiveMongo API 0.11.7 reactivemongo.core.errors.DetailedDatabaseException" />
+          <title>DetailedDatabaseException - ReactiveMongo API 0.11.12 - reactivemongo.core.errors.DetailedDatabaseException</title>
+          <meta name="description" content="DetailedDatabaseException - ReactiveMongo API 0.11.12 - reactivemongo.core.errors.DetailedDatabaseException" />
+          <meta name="keywords" content="DetailedDatabaseException ReactiveMongo API 0.11.12 reactivemongo.core.errors.DetailedDatabaseException" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../../lib/template.js"></script>
       <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -45,13 +45,13 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">DetailedDatabaseException</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a></span>
+        <span class="name">DetailedDatabaseException</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a> with <span class="extype" name="scala.util.control.NoStackTrace">NoStackTrace</span></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>An error thrown by a MongoDB node (containing the original document of the error).</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a>, <a href="ReactiveMongoException.html" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>, <span class="extype" name="java.lang.Exception">Exception</span>, <span class="extype" name="java.lang.Throwable">Throwable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.util.control.NoStackTrace">NoStackTrace</span>, <a href="DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a>, <a href="ReactiveMongoException.html" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a>, <span class="extype" name="java.lang.Exception">Exception</span>, <span class="extype" name="java.lang.Throwable">Throwable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -69,7 +69,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="reactivemongo.core.errors.DetailedDatabaseException"><span>DetailedDatabaseException</span></li><li class="in" name="reactivemongo.core.errors.DatabaseException"><span>DatabaseException</span></li><li class="in" name="reactivemongo.core.errors.ReactiveMongoException"><span>ReactiveMongoException</span></li><li class="in" name="java.lang.Exception"><span>Exception</span></li><li class="in" name="java.lang.Throwable"><span>Throwable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="reactivemongo.core.errors.DetailedDatabaseException"><span>DetailedDatabaseException</span></li><li class="in" name="scala.util.control.NoStackTrace"><span>NoStackTrace</span></li><li class="in" name="reactivemongo.core.errors.DatabaseException"><span>DatabaseException</span></li><li class="in" name="reactivemongo.core.errors.ReactiveMongoException"><span>ReactiveMongoException</span></li><li class="in" name="java.lang.Exception"><span>Exception</span></li><li class="in" name="java.lang.Throwable"><span>Throwable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
                 <span class="filtertype">Implicitly<br />
@@ -407,7 +407,7 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="java.lang.Throwable#fillInStackTrace" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="scala.util.control.NoStackTrace#fillInStackTrace" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="fillInStackTrace():Throwable"></a>
       <a id="fillInStackTrace():Throwable"></a>
       <h4 class="signature">
@@ -416,14 +416,14 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">fillInStackTrace</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Throwable">Throwable</span></span>
+        <span class="name">fillInStackTrace</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Throwable">Throwable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.errors.DetailedDatabaseException@fillInStackTrace():Throwable" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Throwable</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>NoStackTrace → Throwable</dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <a id="finalize():Unit"></a>
@@ -971,7 +971,9 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="reactivemongo.core.errors.DatabaseException">
+        <div class="parent" name="scala.util.control.NoStackTrace">
+              <h3>Inherited from <span class="extype" name="scala.util.control.NoStackTrace">NoStackTrace</span></h3>
+            </div><div class="parent" name="reactivemongo.core.errors.DatabaseException">
               <h3>Inherited from <a href="DatabaseException.html" class="extype" name="reactivemongo.core.errors.DatabaseException">DatabaseException</a></h3>
             </div><div class="parent" name="reactivemongo.core.errors.ReactiveMongoException">
               <h3>Inherited from <a href="ReactiveMongoException.html" class="extype" name="reactivemongo.core.errors.ReactiveMongoException">ReactiveMongoException</a></h3>
