@@ -4,7 +4,7 @@ description: "The reactive Scala driver for MongoDB"
 url: http://reactivemongo.org/
 markdown: kramdown
 latest_major_release: 0.11
-latest_release: 0.11.12
+latest_release: 0.11.13
 
-_0_11_latest_minor: 0.11.12
+_0_11_latest_minor: 0.11.13
 _0_12_latest_minor: 0.12.0

@@ -9,13 +9,7 @@ title: ReactiveMongo 0.12 - Read Preferences
 
 The following Read Preferences are supported:
 
-- `Primary`: read only from the primary. This is the default choice;
-- `PrimaryPreferred`: read from the primary if it is available, or secondaries if it is not;
-- `Secondary`: read only from any secondary;
-- `SecondaryPreferred`: read from any secondary, or from the primary if they are not available;
-- `Nearest`: read from the faster node (ie the node which replies faster than all others), regardless its status (primary or secondary.)
-
-Read preference are given to `GenericQueryBuilder.cursor()` and `GenericQueryBuilder.one()`:
+The Read preference can be choosen globally using the [`MongoConnectionOptions`](../../api/index.html#reactivemongo.api.MongoConnectionOptions), or for each [cursor](../../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@cursor[T](readPreference:reactivemongo.api.ReadPreference,isMongo26WriteOp:Boolean)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor).
 
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -31,7 +25,7 @@ def readFromSecondary1(collection: BSONCollection) =
     collect[List]()
 {% endhighlight %}
 
-> The default read preference can be set in the [connection options](../tutorial/connect-database.html).
+> The default read preference can also be set in the [connection options](../tutorial/connect-database.html).
 
 ## Tag support
 
