@@ -328,6 +328,24 @@ def resyncDatabase(con: MongoConnection)(implicit ec: ExecutionContext): Future[
 
 In the case class [`reactivemongo.api.commands.CollStatsResult`](../api/index.html#reactivemongo.api.commands.CollStatsResult), the field `maxSize` has been added.
 
+In the case class [`reactivemongo.api.indexes.Index`](../api/index.html#reactivemongo.api.indexes.Index), the property `partialFilter` has been added to support MongoDB index with [`partialFilterExpression`](https://docs.mongodb.com/manual/core/index-partial/#partial-index-with-unique-constraints).
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.commands.WriteResult
+import reactivemongo.api.indexes.{ Index, IndexType }
+
+def createPartialIndex(col: BSONCollection): Future[WriteResult] = 
+  col.indexesManager.create(Index(
+    key = Seq("username" -> IndexType.Ascending),
+    unique = true,
+    partialFilter = Some(BSONDocument("age" -> BSONDocument("$gte" -> 21)))))
+{% endhighlight %}
+
 **Playframework**
 
 The [integration with Playframework](./tutorial/play.html) is still easy.
