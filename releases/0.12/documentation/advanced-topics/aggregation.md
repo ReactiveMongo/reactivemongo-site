@@ -286,4 +286,30 @@ def textFind(coll: BSONCollection): Future[List[BSONDocument]] = {
 
 This will return the sorted documents for the cities `TOKYO` and `AOGASHIMA`.
 
+**Random sample**
+
+The [$sample](https://docs.mongodb.org/manual/reference/operator/aggregation/sample/) aggregation stage can be used (since MongoDB 3.2), in order to randomly selects documents.
+
+In the MongoDB shell, it can be used as following to fetch a sample of 3 random documents.
+
+{% highlight javascript %}
+db.zipcodes.aggregate([
+  { $sample: { size: 3 } }
+])
+{% endhighlight %}
+
+With ReactiveMongo, the [Sample](../api/index.html#reactivemongo.api.commands.AggregationFramework@SampleextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable) stage can be used as follows.
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+def randomZipCodes(coll: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
+  import coll.BatchCommands.AggregationFramework
+
+  coll.aggregate(AggregationFramework.Sample(3)).map(_.head[BSONDocument])
+}
+{% endhighlight %}
+
 *More:* The operators available to define an aggregation pipeline are documented in the [API reference](../../api/index.html#reactivemongo.api.commands.AggregationFramework).
