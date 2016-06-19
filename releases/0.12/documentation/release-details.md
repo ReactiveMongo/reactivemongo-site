@@ -12,7 +12,16 @@ You can also browse the [API](../api/index.html).
 
 The [MongoDB](https://www.mongodb.org/) compatibility is now from 2.6 up to 3.2.
 
-A new better [DB resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) is available (see [connection tutorial](tutorial/connect-database.html)). The new `connection.database(..)` returns a `Future[DefaultDB]`, and should be used instead of the former `connection(..)` (or its alias `connection.db(..)`).
+A new better [DB resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) is available (see [connection tutorial](tutorial/connect-database.html)).
+
+The synchronous `.db` has been deprecated as it didn't offer sufficient guaranty that it can find an active connection in the `MongoConnection` pool.
+Indeed, it was assuming at least one connection is active as soon as the pool is started, which is not always the case as checking/discovering the ReplicaSet can take time, according the network speed/latency.
+
+That's similar in case the driver cannot join the nodes for some time (network interruption, nodes restarted, ...): some time can be needed so the nodes indicate they are back on line.
+
+The new `.database` resolution is asynchronous and reactive (as the majority of the driver operation). It uses a [`FailoverStrategy`](../api/index.html#reactivemongo.api.FailoverStrategy) to wait (or not) for an available connection (according the chosen [read preference](../api/index.html#reactivemongo.api.ReadPreference), ...).
+
+The new resolution returns a [`Future[DefaultDB]`](../api/index.html#reactivemongo.api.DefaultDB), and should be used instead of the former `connection(..)` (or its alias `connection.db(..)`).
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
@@ -92,9 +101,22 @@ def populatedStates(col: BSONCollection): Future[List[BSONDocument]] = {
   - [$out](https://docs.mongodb.org/manual/reference/operator/aggregation/out/#pipe._S_out): Takes the documents returned by the aggregation pipeline and writes them to a specified collection.
   - [$redact](https://docs.mongodb.org/manual/reference/operator/aggregation/redact/#pipe._S_redact): Reshapes each document in the stream by restricting the content for each document based on information stored in the documents themselves..
 
-The [$sample](https://docs.mongodb.org/manual/reference/operator/aggregation/sample/) aggregation stage only (only since MongoDB 3.2): Randomly selects the specified number of documents from its input.
+The [$sample](https://docs.mongodb.org/manual/reference/operator/aggregation/sample/) aggregation stage is also supported (only MongoDB >= 3.2). It randomly selects the specified number of documents from its input.
+With ReactiveMongo, the [Sample](../api/index.html#reactivemongo.api.commands.AggregationFramework@SampleextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable) stage can be used as follows.
 
-TODO: `$sample` example
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+def randomDocs(coll: BSONCollection, count: Int): Future[List[BSONDocument]] = {
+  import coll.BatchCommands.AggregationFramework
+
+  coll.aggregate(AggregationFramework.Sample(count)).map(_.head[BSONDocument])
+}
+{% endhighlight %}
 
 When the [`$text` operator](https://docs.mongodb.org/v3.0/reference/operator/query/text/#op._S_text) is used in an aggregation pipeline, then new the results can be [sorted](https://docs.mongodb.org/v3.0/reference/operator/aggregation/sort/#metadata-sort) according the [text scores](https://docs.mongodb.org/v3.0/reference/operator/query/text/#text-operator-text-score).
 
@@ -467,6 +489,24 @@ In the class [`reactivemongo.api.commands.Upserted`](../api/index.html#reactivem
 - The field `_id`  has now a different result type; was: `java.lang.Object`, is now: `reactivemongo.bson.BSONValue`.
 
 In the case class [`reactivemongo.api.commands.GetLastError.TagSet`](reactivemongo.api.commands.GetLastError$$TagSet), the field `s`  is renamed to `tag`.
+
+The exception case objects [`NodeSetNotReachable`](../api/index.html#reactivemongo.core.actors.Exceptions$@NodeSetNotReachable) and [`ClosedException`](../api/index.html#reactivemongo.core.actors.Exceptions$@ClosedException) have been refactored as sealed classes. When try to catch such exception the class type must be used, rather than the object patterns.
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+import reactivemongo.core.actors.Exceptions.{
+  ClosedException, NodeSetNotReachable
+}
+
+def handle(mongoOp: Future[String])(implicit ec: ExecutionContext) =
+  mongoOp.recover {
+    case err1: ClosedException => // rather than `case ClosedException`
+      "closed"
+  
+    case err2: NodeSetNotReachable => // rather than `case NodeSetNotReachable`
+      "notReachable"
+  }
+{% endhighlight %}
 
 **Aggregation framework**
 
