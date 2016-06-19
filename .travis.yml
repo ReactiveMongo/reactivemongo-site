@@ -11,5 +11,5 @@ cache:
   - $HOME/.sbt
   - $HOME/.gem
   - $HOME/.local
-before_install: ./.travis_scripts/beforeInstall.sh 0.13.9
-script: ./.travis_scripts/validate.sh 0.13.9
+before_install: ./.travis_scripts/beforeInstall.sh 0.13.11
+script: ./.travis_scripts/validate.sh 0.13.11
