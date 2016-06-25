@@ -9,7 +9,8 @@ scalaVersion := "2.11.7"
 libraryDependencies ++= Seq(
   "org.reactivemongo" %% "play2-reactivemongo" % "0.12.0-SNAPSHOT",
   "org.reactivemongo" %% "reactivemongo-play-json" % "0.12.0-SNAPSHOT",
-  "com.typesafe.play" %% "play" % "2.5.0")
+  "org.reactivemongo" %% "reactivemongo-iteratees" % "0.12.0-SNAPSHOT",
+  "com.typesafe.play" %% "play" % "2.5.4")
 
 resolvers ++= Seq(
   "Typesafe releases" at "http://repo.typesafe.com/typesafe/releases/",

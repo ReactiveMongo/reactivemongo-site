@@ -11,22 +11,28 @@ ReactiveMongo can be used with several streaming frameworks: [Play Iteratees](ht
 
 ### Play Iteratee
 
-The Play Iteratee library can work with document streams as follows.
+The [Play Iteratees](https://www.playframework.com/documentation/latest/Iteratees) library can work with streams of MongoDB documents.
 
-- Get an `Enumerator` of documents from ReactiveMongo. This is a producer of data.
+- Get an [`Enumerator`](../../api/index.html#reactivemongo.play.iteratees.PlayIterateesCursor@enumerator(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Unit])(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[T]) of documents from ReactiveMongo. This is a producer of data.
 - Run an `Iteratee` (that we build for this purpose), which will consume data and eventually produce a result.
+
+To use the Iteratees support for the ReactiveMongo cursors, [`reactivemongo.play.iteratees.cursorProducer`](../../api/index.html#reactivemongo.play.iteratees.package@cursorProducer[T]:reactivemongo.api.CursorProducer[T]{typeProducedCursor=reactivemongo.play.iteratees.PlayIterateesCursor[T]}) must be imported.
 
 {% highlight scala %}
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import play.api.libs.iteratee._
+
 import reactivemongo.bson.BSONDocument
 import reactivemongo.api.collections.bson.BSONCollection
 
+import reactivemongo.play.iteratees.cursorProducer
+// Provides the cursor producer with the Iteratees capabilities
+
 def processPerson1(collection: BSONCollection, query: BSONDocument): Future[Unit] = {
   val enumeratorOfPeople: Enumerator[BSONDocument] =
-    collection.find(query).cursor[BSONDocument].enumerate()
+    collection.find(query).cursor[BSONDocument].enumerator()
 
   val processDocuments: Iteratee[BSONDocument, Unit] =
     Iteratee.foreach { person =>
@@ -39,7 +45,7 @@ def processPerson1(collection: BSONCollection, query: BSONDocument): Future[Unit
 }
 {% endhighlight %}
 
-The method `cursor.enumerate()` returns an `Enumerator[T]`. In this case, we get a producer of documents (of type `BSONDocument`).
+The operation [`PlayIterateesCursor.enumerate`](../../api/index.html#reactivemongo.play.iteratees.PlayIterateesCursor@enumerator(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Unit])(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[T]) returns an `Enumerator[T]`. In this case, we get a producer of documents (of type `BSONDocument`).
 
 Now that we have the producer, we need to define how the documents are processed: that is the Iteratee's job. Iteratees, as the opposite of Enumerators, are consumers: they are fed in by enumerators and do some computation with the chunks they get.
 
@@ -102,6 +108,8 @@ def processPerson2(enumeratorOfPeople: Enumerator[BSONDocument]) = {
 {% endhighlight %}
 
 At each step, this Iteratee will extract the age from the document and add it to the current result; it also counts the number of documents processed. It eventually produces a tuple of two integers; in our case `(173, 3)`. When the `cumulated` future is completed, we divide the cumulated age by the number of documents to get the mean age.
+
+> The similar operations [`bulkEnumerator`](../../api/index.html#reactivemongo.play.iteratees.PlayIterateesCursor@bulkEnumerator(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Unit])(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[Iterator[T]]) and [`responseEnumerator`](../../api/index.html#reactivemongo.play.iteratees.PlayIterateesCursor@responseEnumerator(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Unit])(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[reactivemongo.core.protocol.Response]) are also provided, to respectively have `Enumerator` per MongoDB result batch or per response.
 
 ### Custom streaming
 

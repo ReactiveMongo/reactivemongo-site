@@ -370,9 +370,19 @@ def createPartialIndex(col: BSONCollection): Future[WriteResult] =
 
 **Playframework**
 
-The [integration with Playframework](./tutorial/play.html) is still easy.
+The [integration with Playframework](./tutorial/play.html) is still a priority for ReactiveMongo.
 
-This is now a separate [Play JSON library](./json/overview.html), providing a serialization pack without the Play module.
+For Play > 2.4, if you still have a file `conf/play.plugins`, it's important to make sure this file no longer mentions `ReactiveMongoPlugin`, which is replaced by `ReactiveMongoModule`. With such deprecated configuration, the following error can be raised.
+
+    ConfigurationException: Guice configuration errors: 1) Could not find a suitable constructor in play.modules.reactivemongo.ReactiveMongoPlugin.
+
+As for Play 2.5, due to the [Streams Migration](https://playframework.com/documentation/2.5.x/StreamsMigration25), a `akka.stream.Materializer` is required (see the following error).
+
+The Play support has also been modularized.
+
+**Play JSON**
+
+There is now a separate [Play JSON library](./json/overview.html), providing a serialization pack without the Play module.
 
 This new library increases the JSON support to handle the following BSON types.
 
@@ -405,19 +415,45 @@ Play PathBindable instances
 // TODO: Code sample
 {% endhighlight %}
 
-Separate Iteratee module
+**Play Iteratees**
+
+The [`enumerate`](../api/index.html#reactivemongo.api.Cursor@enumerate(maxDocs:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[T]) on the cursors is now deprecated, and the [Play Iteratees](https://www.playframework.com/documentation/latest/Iteratees) support has been moved to a separate module, with a new [`enumerator`](../api/index.html#reactivemongo.play.iteratees.PlayIterateesCursor@enumerator(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Unit])(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[T]) operation.
 
 {% highlight scala %}
-// TODO: Code sample
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import play.api.libs.iteratee.{ Enumerator, Iteratee }
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+def workWithIteratees(personColl: BSONCollection): Future[Int] = {
+  import reactivemongo.play.iteratees.cursorProducer
+  // Provides the cursor producer with the Iteratees capabilities
+
+  val cur = personColl.find(BSONDocument("plop" -> "plop")).
+    cursor[BSONDocument]() // can be seen as PlayIterateesCursor ...
+
+  // ... so the new `enumerator` operation is available
+  val source: Enumerator[BSONDocument] = cur.enumerator(10)
+
+  source |>>> Iteratee.fold(0) { (r, doc) => r + 1 }
+}
 {% endhighlight %}
 
-- For the type [`reactivemongo.api.commands.LastError`](../api/index.html#reactivemongo.api.commands.LastError), the properties `writeErrors` and `writeConcernError` have been added.
+To use the Iteratees support for the ReactiveMongo cursors, [`reactivemongo.play.iteratees.cursorProducer`](../api/index.html#reactivemongo.play.iteratees.package@cursorProducer[T]:reactivemongo.api.CursorProducer[T]{typeProducedCursor=reactivemongo.play.iteratees.PlayIterateesCursor[T]}) must be imported.
 
-For Play > 2.4, if you still have a file `conf/play.plugins`, it's important to make sure this file no longer mentions `ReactiveMongoPlugin`, which is replaced by `ReactiveMongoModule`. With such deprecated configuration, the following error can be raised.
+{% highlight scala %}
+import reactivemongo.play.iteratees.cursorProducer
+// Provides the cursor producer with the Iteratees capabilities
+{% endhighlight %}
 
-    ConfigurationException: Guice configuration errors: 1) Could not find a suitable constructor in play.modules.reactivemongo.ReactiveMongoPlugin.
+Without this import, the following error can occur.
 
-As for Play 2.5, due to the [Streams Migration](https://playframework.com/documentation/2.5.x/StreamsMigration25), a `akka.stream.Materializer` is required (see the following error).
+{% highlight text %}
+value enumerator is not a member of reactivemongo.api.CursorProducer[reactivemongo.bson.BSONDocument]#ProducedCursor
+{% endhighlight %}
 
 **Logging**
 
@@ -475,6 +511,8 @@ import reactivemongo.api.commands.{ LastError, WriteResult }
 
 def foo(r: WriteResult): Option[LastError] = WriteResult.lastError(r)
 {% endhighlight %}
+
+For the type [`reactivemongo.api.commands.LastError`](../api/index.html#reactivemongo.api.commands.LastError), the properties `writeErrors` and `writeConcernError` have been added.
 
 The type hierarchy of the classes [`reactivemongo.api.commands.DefaultWriteResult`](../api/index.html#reactivemongo.api.commands.DefaultWriteResult) and [`reactivemongo.api.commands.UpdateWriteResult`](../api/index.html#reactivemongo.api.commands.UpdateWriteResult) have changed in new version; no longer inherits from `java.lang.Exception`:
 
