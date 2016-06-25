@@ -60,6 +60,7 @@ def populatedStates(col: BSONCollection): Future[List[BSONDocument]] = {
 {% endhighlight %}
 
 > The local `import col.BatchCommands.AggregationFramework._` is required, and cannot be replaced by a global static `import reactivemongo.api.collections.BSONCollection.BatchCommands.AggregationFramework._`.
+> The type `.BatchCommands.AggregationFramework.AggregationResult` is a [dependent one](https://en.wikipedia.org/wiki/Dependent_type), used for the intermediary/MongoDB result, and must not be exposed as public return type in your application/API.
 
 Then when calling `populatedStates(theZipCodeCol)`, the asynchronous result will be as bellow.
 
