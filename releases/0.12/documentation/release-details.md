@@ -10,7 +10,9 @@ title: ReactiveMongo 0.12 - Release details
 The documentation is available [online](index.html), and its code samples are compiled to make sure it's up-to-date.
 You can also browse the [API](../api/index.html).
 
-The [MongoDB](https://www.mongodb.org/) compatibility is now from 2.6 up to 3.2.
+> The [MongoDB](https://www.mongodb.org/) compatibility is now from 2.6 up to 3.2.
+
+**Database connection**
 
 A new better [DB resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) is available (see [connection tutorial](tutorial/connect-database.html)).
 
@@ -33,7 +35,7 @@ def resolve(con: MongoConnection, name: String)(implicit ec: ExecutionContext): 
 
 Similarly the function `.db` of the [Play module](./tutorial/play2.html) must be replaced by its `.database` equivalent.
 
-Consequently to this resolution change, error such as `ConnectionNotInitialized` can be raise when calling database or collection operations (e.g. `collection.find(..)`), if the *deprecated database resolution is still used*.
+Consequently to this resolution change, error such as `ConnectionNotInitialized` can be raised when calling database or collection operations (e.g. `collection.find(..)`), if the *deprecated database resolution is still used*.
 
 Some default [read preference](https://docs.mongodb.org/manual/core/read-preference/) and default [write concern](https://docs.mongodb.org/manual/reference/write-concern/) can be set in the [connection configuration](tutorial/connect-database.html).
 
@@ -71,6 +73,8 @@ import reactivemongo.api.MongoConnectionOptions
 
 val options3 = MongoConnectionOptions(monitorRefreshMS = 5000 /* 5s */)
 {% endhighlight %}
+
+[More: Tutorial - Connect to the database](./tutorial/connect-database.html)
 
 **Aggregation**
 
@@ -316,65 +320,15 @@ def jsonExplain(col: JSONCollection): Future[Option[JsObject]] =
 
 [See the API for query builder](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder)
 
-**Administration**
-  
-The new [`drop`](../api/index.html#reactivemongo.api.collections.GenericCollection@drop%28failIfNotFound:Boolean%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[Boolean]) operation can try, without failing if the collection doesn't exist. The previous behaviour is still available.
-
-{% highlight scala %}
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
-
-import reactivemongo.bson.BSONDocument
-import reactivemongo.api.collections.bson.BSONCollection
-
-// Doesn't fail if the collection represented by `col` doesn't exists,
-// but return Future(false)
-def dropNotFail(col: BSONCollection): Future[Boolean] = col.drop(false)
-
-// Fails if the collection represented by `col` doesn't exists,
-// as in the previous behaviour
-def dropFail(col: BSONCollection): Future[Unit] = col.drop(true).map(_ => {})
-
-def deprecatedDrop(col: BSONCollection): Future[Unit] = col.drop()
-{% endhighlight %}
-
-The replication command [`resync`](https://docs.mongodb.org/manual/reference/command/resync/) is now provided.
-
-{% highlight scala %}
-import scala.concurrent.{ ExecutionContext, Future }
-import reactivemongo.api.MongoConnection
-import reactivemongo.api.commands.{ Resync, bson }, bson.BSONResyncImplicits._
-
-def resyncDatabase(con: MongoConnection)(implicit ec: ExecutionContext): Future[Unit] = con.database("admin").flatMap(_.runCommand(Resync)).map(_ => {})
-{% endhighlight %}
-
-In the case class [`reactivemongo.api.commands.CollStatsResult`](../api/index.html#reactivemongo.api.commands.CollStatsResult), the field `maxSize` has been added.
-
-In the case class [`reactivemongo.api.indexes.Index`](../api/index.html#reactivemongo.api.indexes.Index), the property `partialFilter` has been added to support MongoDB index with [`partialFilterExpression`](https://docs.mongodb.com/manual/core/index-partial/#partial-index-with-unique-constraints).
-
-{% highlight scala %}
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
-
-import reactivemongo.bson.BSONDocument
-import reactivemongo.api.collections.bson.BSONCollection
-import reactivemongo.api.commands.WriteResult
-import reactivemongo.api.indexes.{ Index, IndexType }
-
-def createPartialIndex(col: BSONCollection): Future[WriteResult] = 
-  col.indexesManager.create(Index(
-    key = Seq("username" -> IndexType.Ascending),
-    unique = true,
-    partialFilter = Some(BSONDocument("age" -> BSONDocument("$gte" -> 21)))))
-{% endhighlight %}
-
 **Playframework**
 
 The [integration with Playframework](./tutorial/play.html) is still a priority for ReactiveMongo.
 
 For Play > 2.4, if you still have a file `conf/play.plugins`, it's important to make sure this file no longer mentions `ReactiveMongoPlugin`, which is replaced by `ReactiveMongoModule`. With such deprecated configuration, the following error can be raised.
 
-    ConfigurationException: Guice configuration errors: 1) Could not find a suitable constructor in play.modules.reactivemongo.ReactiveMongoPlugin.
+    ConfigurationException: Guice configuration errors: 
+    1) Could not find a suitable constructor in 
+    play.modules.reactivemongo.ReactiveMongoPlugin.
 
 As for Play 2.5, due to the [Streams Migration](https://playframework.com/documentation/2.5.x/StreamsMigration25), a `akka.stream.Materializer` is required (see the following error).
 
@@ -455,21 +409,69 @@ Without this import, the following error can occur.
 value enumerator is not a member of reactivemongo.api.CursorProducer[reactivemongo.bson.BSONDocument]#ProducedCursor
 {% endhighlight %}
 
+**Administration**
+  
+The new [`drop`](../api/index.html#reactivemongo.api.collections.GenericCollection@drop%28failIfNotFound:Boolean%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[Boolean]) operation can try, without failing if the collection doesn't exist. The previous behaviour is still available.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+// Doesn't fail if the collection represented by `col` doesn't exists,
+// but return Future(false)
+def dropNotFail(col: BSONCollection): Future[Boolean] = col.drop(false)
+
+// Fails if the collection represented by `col` doesn't exists,
+// as in the previous behaviour
+def dropFail(col: BSONCollection): Future[Unit] = col.drop(true).map(_ => {})
+
+def deprecatedDrop(col: BSONCollection): Future[Unit] = col.drop()
+{% endhighlight %}
+
+The replication command [`resync`](https://docs.mongodb.org/manual/reference/command/resync/) is now provided.
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+import reactivemongo.api.MongoConnection
+import reactivemongo.api.commands.{ Resync, bson }, bson.BSONResyncImplicits._
+
+def resyncDatabase(con: MongoConnection)(implicit ec: ExecutionContext): Future[Unit] = con.database("admin").flatMap(_.runCommand(Resync)).map(_ => {})
+{% endhighlight %}
+
+In the case class [`reactivemongo.api.commands.CollStatsResult`](../api/index.html#reactivemongo.api.commands.CollStatsResult), the field `maxSize` has been added.
+
+In the case class [`reactivemongo.api.indexes.Index`](../api/index.html#reactivemongo.api.indexes.Index), the property `partialFilter` has been added to support MongoDB index with [`partialFilterExpression`](https://docs.mongodb.com/manual/core/index-partial/#partial-index-with-unique-constraints).
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.commands.WriteResult
+import reactivemongo.api.indexes.{ Index, IndexType }
+
+def createPartialIndex(col: BSONCollection): Future[WriteResult] = 
+  col.indexesManager.create(Index(
+    key = Seq("username" -> IndexType.Ascending),
+    unique = true,
+    partialFilter = Some(BSONDocument("age" -> BSONDocument("$gte" -> 21)))))
+{% endhighlight %}
+
 **Logging**
 
 Log4J is still required for backward compatibility (by deprecated code), but is replaced by [SLF4J](http://www.slf4j.org/) for the [ReactiveMongo logging](./index.html#logging).
 
 If you see the following message, please make sure you have a Log4J framework available.
 
-{% highlight text %}
-ERROR StatusLogger No log4j2 configuration file found. Using default configuration: logging only errors to the console.
-{% endhighlight %}
+    ERROR StatusLogger No log4j2 configuration file found. Using default configuration: logging only errors to the console.
 
-As for SLF4J is now used, the following error is raised, please make sure to provide a [SLF4J binding](http://www.slf4j.org/manual.html#swapping) (e.g. `slf4j-simple`).
+As for SLF4J is now used, the following error is raised, please make sure to provide a [SLF4J binding](http://www.slf4j.org/manual.html#swapping) (e.g. slf4j-simple).
 
-{% highlight text %}
-NoClassDefFoundError: : org/slf4j/LoggerFactory
-{% endhighlight %}
+    NoClassDefFoundError: : org/slf4j/LoggerFactory
 
 **Dependencies**
 

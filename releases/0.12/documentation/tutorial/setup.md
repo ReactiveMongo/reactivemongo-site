@@ -41,4 +41,49 @@ libraryDependencies ++= Seq(
 )
 {% endhighlight %}
 
+### Logging
+
+SLF4J is now used by the ReactiveMongo logging, so a [SLF4J binding](http://www.slf4j.org/manual.html#swapping) must be provided (e.g. slf4j-simple).
+
+In a Play application, the [Playframework logging](https://www.playframework.com/documentation/latest/ScalaLogging) will be used.
+
+*Example of logging configuration with the [Logback binding](http://logback.qos.ch):*
+
+{% highlight xml %}
+<configuration>
+  <conversionRule conversionWord="coloredLevel"
+    converterClass="play.api.Logger$ColoredLevel" />
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%date %coloredLevel %logger - [%level] %message%n%xException</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="reactivemongo" level="WARN" />
+
+  <root level="WARN">
+    <appender-ref ref="STDOUT" />
+  </root>
+</configuration>
+{% endhighlight %}
+
+As [akka](http://akka.io) is used, so it can be useful to also configure its [logging](http://doc.akka.io/docs/akka/2.4.7/scala/logging.html).
+
+{% highlight ocaml %}
+akka {
+  loglevel = "WARNING"
+}
+{% endhighlight %}
+
+**Troubleshooting:**
+
+If the following error is raised, you need to make sure to provide a [SLF4J binding](http://www.slf4j.org/manual.html#swapping) (e.g. [logback-classic](http://logback.qos.ch/)).
+
+    NoClassDefFoundError: : org/slf4j/LoggerFactory
+
+[Log4J](http://logging.apache.org/log4j/2.x/) is still required for backward compatibility (by deprecated code). If you see the following message, please make sure you have a Log4J framework available.
+
+    ERROR StatusLogger No log4j2 configuration file found. Using default configuration: logging only errors to the console.
+
 [Next: Connect to the database](./connect-database.html)
