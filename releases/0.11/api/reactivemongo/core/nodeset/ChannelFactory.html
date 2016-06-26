@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>ChannelFactory - ReactiveMongo API 0.11.12 - reactivemongo.core.nodeset.ChannelFactory</title>
-          <meta name="description" content="ChannelFactory - ReactiveMongo API 0.11.12 - reactivemongo.core.nodeset.ChannelFactory" />
-          <meta name="keywords" content="ChannelFactory ReactiveMongo API 0.11.12 reactivemongo.core.nodeset.ChannelFactory" />
+          <title>ChannelFactory - ReactiveMongo API 0.11.14 - reactivemongo.core.nodeset.ChannelFactory</title>
+          <meta name="description" content="ChannelFactory - ReactiveMongo API 0.11.14 - reactivemongo.core.nodeset.ChannelFactory" />
+          <meta name="keywords" content="ChannelFactory ReactiveMongo API 0.11.14 reactivemongo.core.nodeset.ChannelFactory" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -45,11 +45,14 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">ChannelFactory</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.14) Internal class: will be made private">ChannelFactory</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.14)</i> Internal class: will be made private</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -93,8 +96,8 @@
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="reactivemongo.core.nodeset.ChannelFactory#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(options:reactivemongo.api.MongoConnectionOptions,bossExecutor:java.util.concurrent.Executor,workerExecutor:java.util.concurrent.Executor):reactivemongo.core.nodeset.ChannelFactory"></a>
+              <ol><li name="reactivemongo.core.nodeset.ChannelFactory#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="&lt;init&gt;(opts:reactivemongo.api.MongoConnectionOptions,bossEx:java.util.concurrent.Executor,workerEx:java.util.concurrent.Executor):reactivemongo.core.nodeset.ChannelFactory"></a>
       <a id="&lt;init&gt;:ChannelFactory"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -102,14 +105,57 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">ChannelFactory</span><span class="params">(<span name="options">options: <a href="../../api/MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>, <span name="bossExecutor">bossExecutor: <span class="extype" name="java.util.concurrent.Executor">Executor</span> = <span class="symbol">Executors.newCachedThreadPool</span></span>, <span name="workerExecutor">workerExecutor: <span class="extype" name="java.util.concurrent.Executor">Executor</span> = <span class="symbol">Executors.newCachedThreadPool</span></span>)</span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.14) Initialize with related mongosystem">ChannelFactory</span><span class="params">(<span name="opts">opts: <a href="../../api/MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>, <span name="bossEx">bossEx: <span class="extype" name="java.util.concurrent.Executor">Executor</span></span>, <span name="workerEx">workerEx: <span class="extype" name="java.util.concurrent.Executor">Executor</span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.nodeset.ChannelFactory@&lt;init&gt;(options:reactivemongo.api.MongoConnectionOptions,bossExecutor:java.util.concurrent.Executor,workerExecutor:java.util.concurrent.Executor):reactivemongo.core.nodeset.ChannelFactory" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ChannelFactory@&lt;init&gt;(opts:reactivemongo.api.MongoConnectionOptions,bossEx:java.util.concurrent.Executor,workerEx:java.util.concurrent.Executor):reactivemongo.core.nodeset.ChannelFactory" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.14)</i> Initialize with related mongosystem</p></dd></dl></div>
+    </li><li name="reactivemongo.core.nodeset.ChannelFactory#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="&lt;init&gt;(opts:reactivemongo.api.MongoConnectionOptions,bossEx:java.util.concurrent.Executor):reactivemongo.core.nodeset.ChannelFactory"></a>
+      <a id="&lt;init&gt;:ChannelFactory"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.14) Initialize with related mongosystem">ChannelFactory</span><span class="params">(<span name="opts">opts: <a href="../../api/MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>, <span name="bossEx">bossEx: <span class="extype" name="java.util.concurrent.Executor">Executor</span></span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ChannelFactory@&lt;init&gt;(opts:reactivemongo.api.MongoConnectionOptions,bossEx:java.util.concurrent.Executor):reactivemongo.core.nodeset.ChannelFactory" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.14)</i> Initialize with related mongosystem</p></dd></dl></div>
+    </li><li name="reactivemongo.core.nodeset.ChannelFactory#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="&lt;init&gt;(opts:reactivemongo.api.MongoConnectionOptions):reactivemongo.core.nodeset.ChannelFactory"></a>
+      <a id="&lt;init&gt;:ChannelFactory"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.14) Initialize with related mongosystem">ChannelFactory</span><span class="params">(<span name="opts">opts: <a href="../../api/MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.nodeset.ChannelFactory@&lt;init&gt;(opts:reactivemongo.api.MongoConnectionOptions):reactivemongo.core.nodeset.ChannelFactory" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.14)</i> Initialize with related mongosystem</p></dd></dl></div>
     </li></ol>
             </div>
 

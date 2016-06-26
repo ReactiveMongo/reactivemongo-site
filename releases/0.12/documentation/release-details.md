@@ -74,8 +74,6 @@ import reactivemongo.api.MongoConnectionOptions
 val options3 = MongoConnectionOptions(monitorRefreshMS = 5000 /* 5s */)
 {% endhighlight %}
 
-[More: Tutorial - Connect to the database](./tutorial/connect-database.html)
-
 **Aggregation**
 
 The ReactiveMongo collections now has the convenient operation [`.aggregate`](../../api/index.html#reactivemongo.api.collections.GenericCollection@aggregate%28firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,cursor:Option[GenericCollection.this.BatchCommands.AggregationFramework.Cursor]%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[GenericCollection.this.BatchCommands.AggregationFramework.AggregationResult]).
@@ -239,6 +237,31 @@ def bar(time: Long, ordinal: Int) = BSONTimestamp(time, ordinal)
 
 **Query**
 
+The new streaming support is based on the function [`Cursor.foldWhileM[A]`](../api/index.html#reactivemongo.api.Cursor@foldWhileM[A](z:=%3EA,maxDocs:Int)(suc:(A,T)=%3Escala.concurrent.Future[reactivemongo.api.Cursor.State[A]],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]) (and its variants), which allows to implement custom stream processing.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.api.Cursor
+
+def streaming(c: Cursor[String]): Future[List[String]] =
+  c.foldWhile(List.empty[String], 1000/* optional: max doc */)(
+    { (ls, str) => // process next String value
+      if (str startsWith "#") Cursor.Cont(ls) // Skip: continue unchanged `ls`
+      else if (str == "_end") Cursor.Done(ls) // End processing
+      else Cursor.Cont(str :: ls) // Continue with updated `ls`
+    },
+    { (ls, err) => // handle failure
+      err match {
+        case e: RuntimeException => Cursor.Cont(ls) // Skip error, continue
+        case _ => Cursor.Fail(err) // Stop with current failure -> Future.failed
+      }
+    })
+{% endhighlight %}
+
+*[More: Consume streams of documents](./tutorial/consume-streams.html)*
+
 The results from the new [aggregation operation](../api/index.html#reactivemongo.api.collections.GenericCollection@aggregate1[T]%28firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],cursor:GenericCollection.this.BatchCommands.AggregationFramework.Cursor,explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference%29%28implicitec:scala.concurrent.ExecutionContext,implicitr:GenericCollection.this.pack.Reader[T]%29:scala.concurrent.Future[reactivemongo.api.Cursor[T]]) can be processed in a streaming way, using the [cursor option](https://docs.mongodb.org/manual/reference/command/aggregate/).
 
 {% highlight scala %}
@@ -318,7 +341,7 @@ def jsonExplain(col: JSONCollection): Future[Option[JsObject]] =
   col.find(Json.obj()).explain().one[JsObject]
 {% endhighlight %}
 
-[See the API for query builder](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder)
+*[More: The query builder API](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder)$
 
 **Playframework**
 
@@ -357,10 +380,26 @@ No Json serializer as JsObject found for type play.api.libs.json.JsObject.
 Try to implement an implicit OWrites or OFormat for this type.
 {% endhighlight %}
 
-Play Formatter instances
+Instances of [Play Formatter](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.data.format.Formatter) are provided for the [BSON values](./bson/overview.html).
 
 {% highlight scala %}
-// TODO: Code sample
+import play.api.data.format.Formatter
+import play.api.libs.json.Json
+
+import reactivemongo.bson.BSONValue
+
+import play.modules.reactivemongo.json._
+import play.modules.reactivemongo.Formatters._
+
+def playFormat[T <: BSONValue](bson: T)(implicit formatter: Formatter[T]) = {
+  val binding = Map("foo" -> Json.stringify(Json.toJson(bson)))
+
+  formatter.bind("foo", binding)
+  // must be Right(bson)
+
+  formatter.unbind("foo", bson)
+  // must == binding
+}
 {% endhighlight %}
 
 Play PathBindable instances

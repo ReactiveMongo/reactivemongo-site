@@ -113,7 +113,7 @@ At each step, this Iteratee will extract the age from the document and add it to
 
 ### Custom streaming
 
-ReactiveMongo streaming is based on the function `Cursor.foldWhile[A]`, which also allows you to implement a custom stream processor.
+ReactiveMongo streaming is based on the function [`Cursor.foldWhileM[A]`](../../api/index.html#reactivemongo.api.Cursor@foldWhileM[A](z:=%3EA,maxDocs:Int)(suc:(A,T)=%3Escala.concurrent.Future[reactivemongo.api.Cursor.State[A]],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]), which also allows you to implement a custom stream processor.
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -141,5 +141,12 @@ At each streaming step, for each new value or error, you choose how you want to 
 - `Cont`: Continue processing.
 - `Done`: End processing, without error; A `Future.successful[T](t)` will be returned by `foldWhile[T]`.
 - `Stop`: Stop processing on an error; A `Future.failed` will be returned by `foldWhile[T]`.
+
+There are convenient handler functions, that are helpful to implement a custom streaming: `Cursor.{ ContOnError, DoneOnError, FailOnError, Ignore }`.
+
+- [`ContOnError`](../../api/index.html#reactivemongo.api.Cursor$@ContOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]): Error handler skipping exception.
+- [`DoneOnError`](../../api/index.html#reactivemongo.api.Cursor$@DoneOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]): Error handler stopping successfully.
+- [`FailOnError`](../../api/index.html#reactivemongo.api.Cursor$@FailOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]): The default error handler, stopping with failure when an error is encountered.
+- [`Ignore`](../../api/index.html#reactivemongo.api.Cursor$@Ignore[A](callback:A=%3EUnit):(Unit,A)=%3Ereactivemongo.api.Cursor.State[Unit]): Consume all the results, but ignoring all the values as `Unit`.
 
 Each fold operations (`foldResponses`, `foldBulks` or `foldWhile`) have variants working with a function returning a `Future[State[T]]` (instead of a synchronous `State[T]`).
