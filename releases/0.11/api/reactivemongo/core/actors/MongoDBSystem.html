@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>MongoDBSystem - ReactiveMongo API 0.11.12 - reactivemongo.core.actors.MongoDBSystem</title>
-          <meta name="description" content="MongoDBSystem - ReactiveMongo API 0.11.12 - reactivemongo.core.actors.MongoDBSystem" />
-          <meta name="keywords" content="MongoDBSystem ReactiveMongo API 0.11.12 reactivemongo.core.actors.MongoDBSystem" />
+          <title>MongoDBSystem - ReactiveMongo API 0.11.14 - reactivemongo.core.actors.MongoDBSystem</title>
+          <meta name="description" content="MongoDBSystem - ReactiveMongo API 0.11.14 - reactivemongo.core.actors.MongoDBSystem" />
+          <meta name="keywords" content="MongoDBSystem ReactiveMongo API 0.11.14 reactivemongo.core.actors.MongoDBSystem" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -47,11 +47,14 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">MongoDBSystem</span><span class="result"> extends <span class="extype" name="akka.actor.Actor">Actor</span></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.14) Internal class: will be made private">MongoDBSystem</span><span class="result"> extends <span class="extype" name="akka.actor.Actor">Actor</span></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Main actor that processes the requests.</p></div><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Main actor that processes the requests.</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.14)</i> Internal class: will be made private</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="akka.actor.Actor">Actor</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
@@ -173,6 +176,23 @@
       </a>
     </span>
       <p class="shortcomment cmt">List of authenticate messages - all the nodes will be authenticated as soon they are connected.</p>
+    </li><li name="reactivemongo.core.actors.MongoDBSystem#name" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="name:String"></a>
+      <a id="name:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">name</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.actors.MongoDBSystem@name:String" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The name of the connection pool.</p>
     </li><li name="reactivemongo.core.actors.MongoDBSystem#options" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="options:reactivemongo.api.MongoConnectionOptions"></a>
       <a id="options:MongoConnectionOptions"></a>
@@ -225,6 +245,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+    </li><li name="reactivemongo.core.actors.MongoDBSystem#supervisor" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="supervisor:String"></a>
+      <a id="supervisor:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">supervisor</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.actors.MongoDBSystem@supervisor:String" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The name of the driver supervisor.</p>
     </li></ol>
             </div>
 

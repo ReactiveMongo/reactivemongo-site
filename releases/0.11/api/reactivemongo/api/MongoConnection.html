@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>MongoConnection - ReactiveMongo API 0.11.12 - reactivemongo.api.MongoConnection</title>
-          <meta name="description" content="MongoConnection - ReactiveMongo API 0.11.12 - reactivemongo.api.MongoConnection" />
-          <meta name="keywords" content="MongoConnection ReactiveMongo API 0.11.12 reactivemongo.api.MongoConnection" />
+          <title>MongoConnection - ReactiveMongo API 0.11.14 - reactivemongo.api.MongoConnection</title>
+          <meta name="description" content="MongoConnection - ReactiveMongo API 0.11.14 - reactivemongo.api.MongoConnection" />
+          <meta name="keywords" content="MongoConnection ReactiveMongo API 0.11.14 reactivemongo.api.MongoConnection" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -101,7 +101,7 @@ behind the scene, many connections (channels) are open on all the available serv
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="reactivemongo.api.MongoConnection#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(actorSystem:akka.actor.ActorSystem,mongosystem:akka.actor.ActorRef,options:reactivemongo.api.MongoConnectionOptions):reactivemongo.api.MongoConnection"></a>
+      <a id="&lt;init&gt;(supervisor:String,name:String,actorSystem:akka.actor.ActorSystem,mongosystem:akka.actor.ActorRef,options:reactivemongo.api.MongoConnectionOptions):reactivemongo.api.MongoConnection"></a>
       <a id="&lt;init&gt;:MongoConnection"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -109,14 +109,34 @@ behind the scene, many connections (channels) are open on all the available serv
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">MongoConnection</span><span class="params">(<span name="actorSystem">actorSystem: <span class="extype" name="akka.actor.ActorSystem">ActorSystem</span></span>, <span name="mongosystem">mongosystem: <span class="extype" name="akka.actor.ActorRef">ActorRef</span></span>, <span name="options">options: <a href="MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>)</span>
+        <span class="name">MongoConnection</span><span class="params">(<span name="supervisor">supervisor: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="actorSystem">actorSystem: <span class="extype" name="akka.actor.ActorSystem">ActorSystem</span></span>, <span name="mongosystem">mongosystem: <span class="extype" name="akka.actor.ActorRef">ActorRef</span></span>, <span name="options">options: <a href="MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.MongoConnection@&lt;init&gt;(actorSystem:akka.actor.ActorSystem,mongosystem:akka.actor.ActorRef,options:reactivemongo.api.MongoConnectionOptions):reactivemongo.api.MongoConnection" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.MongoConnection@&lt;init&gt;(supervisor:String,name:String,actorSystem:akka.actor.ActorSystem,mongosystem:akka.actor.ActorRef,options:reactivemongo.api.MongoConnectionOptions):reactivemongo.api.MongoConnection" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">mongosystem</dt><dd class="cmt"><p>the reference to the internal <a href="../core/actors/MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">reactivemongo.core.actors.MongoDBSystem</a> Actor.</p></dd></dl></div>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">supervisor</dt><dd class="cmt"><p>the name of the supervisor</p></dd><dt class="param">name</dt><dd class="cmt"><p>the unique name for the connection pool</p></dd><dt class="param">mongosystem</dt><dd class="cmt"><p>the reference to the internal <a href="../core/actors/MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">reactivemongo.core.actors.MongoDBSystem</a> Actor.</p></dd></dl></div>
+    </li><li name="reactivemongo.api.MongoConnection#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="&lt;init&gt;(actorSys:akka.actor.ActorSystem,mongoSys:akka.actor.ActorRef,opts:reactivemongo.api.MongoConnectionOptions):reactivemongo.api.MongoConnection"></a>
+      <a id="&lt;init&gt;:MongoConnection"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.14) Create with an explicit supervisor and connection names">MongoConnection</span><span class="params">(<span name="actorSys">actorSys: <span class="extype" name="akka.actor.ActorSystem">ActorSystem</span></span>, <span name="mongoSys">mongoSys: <span class="extype" name="akka.actor.ActorRef">ActorRef</span></span>, <span name="opts">opts: <a href="MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.MongoConnection@&lt;init&gt;(actorSys:akka.actor.ActorSystem,mongoSys:akka.actor.ActorRef,opts:reactivemongo.api.MongoConnectionOptions):reactivemongo.api.MongoConnection" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.14)</i> Create with an explicit supervisor and connection names</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -602,6 +622,23 @@ before returning an available DB.
       </a>
     </span>
       <p class="shortcomment cmt">the reference to the internal <a href="../core/actors/MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">reactivemongo.core.actors.MongoDBSystem</a> Actor.</p>
+    </li><li name="reactivemongo.api.MongoConnection#name" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="name:String"></a>
+      <a id="name:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">name</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.MongoConnection@name:String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">the unique name for the connection pool</p>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -670,6 +707,23 @@ before returning an available DB.
       </a>
     </span>
       
+    </li><li name="reactivemongo.api.MongoConnection#supervisor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="supervisor:String"></a>
+      <a id="supervisor:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">supervisor</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.MongoConnection@supervisor:String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">the name of the supervisor</p>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -810,7 +864,7 @@ before returning an available DB.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.11.8) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@1c9ce988">apply</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="#options:reactivemongo.api.MongoConnectionOptions">options.failoverStrategy</a></span></span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="context">context: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">DefaultDB</a></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.8) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@4c52fdf">apply</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="#options:reactivemongo.api.MongoConnectionOptions">options.failoverStrategy</a></span></span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="context">context: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">DefaultDB</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoConnection@apply(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitcontext:scala.concurrent.ExecutionContext):reactivemongo.api.DefaultDB" title="Permalink" target="_top">
@@ -831,7 +885,7 @@ before returning an available DB.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.11.8) Must use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@6b67f304">db</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="#options:reactivemongo.api.MongoConnectionOptions">options.failoverStrategy</a></span></span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="context">context: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">DefaultDB</a></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.8) Must use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@70aa047">db</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="#options:reactivemongo.api.MongoConnectionOptions">options.failoverStrategy</a></span></span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="context">context: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">DefaultDB</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoConnection@db(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitcontext:scala.concurrent.ExecutionContext):reactivemongo.api.DefaultDB" title="Permalink" target="_top">

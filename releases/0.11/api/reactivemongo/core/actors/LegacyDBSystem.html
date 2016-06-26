@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>LegacyDBSystem - ReactiveMongo API 0.11.12 - reactivemongo.core.actors.LegacyDBSystem</title>
-          <meta name="description" content="LegacyDBSystem - ReactiveMongo API 0.11.12 - reactivemongo.core.actors.LegacyDBSystem" />
-          <meta name="keywords" content="LegacyDBSystem ReactiveMongo API 0.11.12 reactivemongo.core.actors.LegacyDBSystem" />
+          <title>LegacyDBSystem - ReactiveMongo API 0.11.14 - reactivemongo.core.actors.LegacyDBSystem</title>
+          <meta name="description" content="LegacyDBSystem - ReactiveMongo API 0.11.14 - reactivemongo.core.actors.LegacyDBSystem" />
+          <meta name="keywords" content="LegacyDBSystem ReactiveMongo API 0.11.14 reactivemongo.core.actors.LegacyDBSystem" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -45,11 +45,14 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">LegacyDBSystem</span><span class="result"> extends <a href="MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> with <span class="extype" name="reactivemongo.core.actors.MongoCrAuthentication">MongoCrAuthentication</span></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.14) Internal class: will be made private">LegacyDBSystem</span><span class="result"> extends <a href="MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> with <span class="extype" name="reactivemongo.core.actors.MongoCrAuthentication">MongoCrAuthentication</span></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.14)</i> Internal class: will be made private</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="reactivemongo.core.actors.MongoCrAuthentication">MongoCrAuthentication</span>, <a href="MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a>, <span class="extype" name="akka.actor.Actor">Actor</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -93,8 +96,8 @@
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="reactivemongo.core.actors.LegacyDBSystem#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(seeds:Seq[String],initialAuthenticates:Seq[reactivemongo.core.nodeset.Authenticate],options:reactivemongo.api.MongoConnectionOptions)(channelFactory:reactivemongo.core.nodeset.ChannelFactory):reactivemongo.core.actors.LegacyDBSystem"></a>
+              <ol><li name="reactivemongo.core.actors.LegacyDBSystem#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="&lt;init&gt;(s:Seq[String],a:Seq[reactivemongo.core.nodeset.Authenticate],opts:reactivemongo.api.MongoConnectionOptions)(cf:reactivemongo.core.nodeset.ChannelFactory):reactivemongo.core.actors.LegacyDBSystem"></a>
       <a id="&lt;init&gt;:LegacyDBSystem"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -102,14 +105,37 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">LegacyDBSystem</span><span class="params">(<span name="seeds">seeds: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="initialAuthenticates">initialAuthenticates: <span class="extype" name="scala.Seq">Seq</span>[<a href="../nodeset/Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>]</span>, <span name="options">options: <a href="../../api/MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>)</span><span class="params">(<span name="channelFactory">channelFactory: <a href="../nodeset/ChannelFactory.html" class="extype" name="reactivemongo.core.nodeset.ChannelFactory">ChannelFactory</a> = <span class="symbol"><span class="name"><a href="../../package.html">new ChannelFactory(options)</a></span></span></span>)</span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.14) Initialize with an explicit supervisor and connection names">LegacyDBSystem</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="a">a: <span class="extype" name="scala.Seq">Seq</span>[<a href="../nodeset/Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>]</span>, <span name="opts">opts: <a href="../../api/MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>)</span><span class="params">(<span name="cf">cf: <a href="../nodeset/ChannelFactory.html" class="extype" name="reactivemongo.core.nodeset.ChannelFactory">ChannelFactory</a></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.actors.LegacyDBSystem@&lt;init&gt;(seeds:Seq[String],initialAuthenticates:Seq[reactivemongo.core.nodeset.Authenticate],options:reactivemongo.api.MongoConnectionOptions)(channelFactory:reactivemongo.core.nodeset.ChannelFactory):reactivemongo.core.actors.LegacyDBSystem" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.core.actors.LegacyDBSystem@&lt;init&gt;(s:Seq[String],a:Seq[reactivemongo.core.nodeset.Authenticate],opts:reactivemongo.api.MongoConnectionOptions)(cf:reactivemongo.core.nodeset.ChannelFactory):reactivemongo.core.actors.LegacyDBSystem" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.14)</i> Initialize with an explicit supervisor and connection names</p></dd></dl></div>
+    </li><li name="reactivemongo.core.actors.LegacyDBSystem#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="&lt;init&gt;(s:Seq[String],a:Seq[reactivemongo.core.nodeset.Authenticate],opts:reactivemongo.api.MongoConnectionOptions):reactivemongo.core.actors.LegacyDBSystem"></a>
+      <a id="&lt;init&gt;:LegacyDBSystem"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.14) Initialize with an explicit supervisor and connection names">LegacyDBSystem</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="a">a: <span class="extype" name="scala.Seq">Seq</span>[<a href="../nodeset/Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>]</span>, <span name="opts">opts: <a href="../../api/MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.actors.LegacyDBSystem@&lt;init&gt;(s:Seq[String],a:Seq[reactivemongo.core.nodeset.Authenticate],opts:reactivemongo.api.MongoConnectionOptions):reactivemongo.core.actors.LegacyDBSystem" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.14)</i> Initialize with an explicit supervisor and connection names</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -716,6 +742,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="reactivemongo.core.actors.LegacyDBSystem#name" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="name:String"></a>
+      <a id="name:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">name</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.actors.LegacyDBSystem@name:String" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The name of the connection pool.</p><div class="fullcomment"><div class="comment cmt"><p>The name of the connection pool.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.core.actors.LegacyDBSystem">LegacyDBSystem</a> → <a href="MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -976,6 +1019,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd></dl></div>
+    </li><li name="reactivemongo.core.actors.LegacyDBSystem#supervisor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="supervisor:String"></a>
+      <a id="supervisor:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">supervisor</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.actors.LegacyDBSystem@supervisor:String" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The name of the driver supervisor.</p><div class="fullcomment"><div class="comment cmt"><p>The name of the driver supervisor.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.core.actors.LegacyDBSystem">LegacyDBSystem</a> → <a href="MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a></dd></dl></div>
     </li><li name="akka.actor.Actor#supervisorStrategy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="supervisorStrategy:akka.actor.SupervisorStrategy"></a>
       <a id="supervisorStrategy:SupervisorStrategy"></a>

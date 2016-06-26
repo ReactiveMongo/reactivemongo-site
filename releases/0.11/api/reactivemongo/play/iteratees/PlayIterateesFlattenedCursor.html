@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>PlayIterateesFlattenedCursor - ReactiveMongo API 0.11.12 - reactivemongo.play.iteratees.PlayIterateesFlattenedCursor</title>
-          <meta name="description" content="PlayIterateesFlattenedCursor - ReactiveMongo API 0.11.12 - reactivemongo.play.iteratees.PlayIterateesFlattenedCursor" />
-          <meta name="keywords" content="PlayIterateesFlattenedCursor ReactiveMongo API 0.11.12 reactivemongo.play.iteratees.PlayIterateesFlattenedCursor" />
+          <title>PlayIterateesFlattenedCursor - ReactiveMongo API 0.11.14 - reactivemongo.play.iteratees.PlayIterateesFlattenedCursor</title>
+          <meta name="description" content="PlayIterateesFlattenedCursor - ReactiveMongo API 0.11.14 - reactivemongo.play.iteratees.PlayIterateesFlattenedCursor" />
+          <meta name="keywords" content="PlayIterateesFlattenedCursor ReactiveMongo API 0.11.14 reactivemongo.play.iteratees.PlayIterateesFlattenedCursor" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -290,11 +290,7 @@
       </a>
     </span>
       <p class="shortcomment cmt">Collects all the documents into a collection of type <code>M[T]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Collects all the documents into a collection of type <code>M[T]</code>.
-Given the <code>stopOnError</code> parameter (which defaults to true), the resulting Future may fail if any non-fatal exception occurs.
-If set to false, all the documents that caused exceptions are skipped.
-Up to <code>maxDocs</code> returned by the database may be processed. If <code>stopOnError</code> is false, then documents that cause error
-are dropped, so the result may contain a little less than <code>maxDocs</code> even if <code>maxDocs</code> documents were processed.
-</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>Collect up to <code>maxDocs</code> documents.</p></dd><dt class="param">err</dt><dd class="cmt"><p>The binary operator to be applied when failing to get the next response. Exception or <a href="../../api/Cursor$$Fail.html" class="extype" name="reactivemongo.api.Cursor.Fail">Fail</a> raised within the <code>suc</code> function cannot be recovered by this error handler.
+</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>The maximum number of documents to be retrieved.</p></dd><dt class="param">err</dt><dd class="cmt"><p>The binary operator to be applied when failing to get the next response. Exception or <a href="../../api/Cursor$$Fail.html" class="extype" name="reactivemongo.api.Cursor.Fail">Fail</a> raised within the <code>suc</code> function cannot be recovered by this error handler.
 Example:</p><pre><span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument]
 <span class="cmt">// return the 3 first documents in a Vector[BSONDocument].</span>
 <span class="kw">val</span> vector = cursor.collect[Vector](<span class="num">3</span>, Cursor.FailOnError())</pre></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd></dl></div>
@@ -315,11 +311,7 @@ Example:</p><pre><span class="kw">val</span> cursor = collection.find(query, fil
       </a>
     </span>
       <p class="shortcomment cmt">Collects all the documents into a collection of type <code>M[T]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Collects all the documents into a collection of type <code>M[T]</code>.
-Given the <code>stopOnError</code> parameter (which defaults to true), the resulting Future may fail if any
-non-fatal exception occurs. If set to false, all the documents that caused exceptions are skipped.
-Up to <code>maxDocs</code> returned by the database may be processed. If <code>stopOnError</code> is false, then documents that cause error
-are dropped, so the result may contain a little less than <code>maxDocs</code> even if <code>maxDocs</code> documents were processed.
-</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>Collect up to <code>maxDocs</code> documents.</p></dd><dt class="param">stopOnError</dt><dd class="cmt"><p>States if the Future should fail if any non-fatal exception occurs.
+</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>The maximum number of documents to be retrieved.</p></dd><dt class="param">stopOnError</dt><dd class="cmt"><p>States if may stop on non-fatal exception (default: true). If set to false, the exceptions are skipped, trying to get the next result..
 Example:</p><pre><span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument]
 <span class="cmt">// return the 3 first documents in a Vector[BSONDocument].</span>
 <span class="kw">val</span> vector = cursor.collect[Vector](<span class="num">3</span>)</pre></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd></dl></div>
@@ -340,6 +332,26 @@ Example:</p><pre><span class="kw">val</span> cursor = collection.find(query, fil
       </a>
     </span>
       
+    </li><li name="reactivemongo.api.FlattenedCursor#documentIterator" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="documentIterator(response:reactivemongo.core.protocol.Response)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Iterator[T]]"></a>
+      <a id="documentIterator(Response)(ExecutionContext):Future[Iterator[T]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">documentIterator</span><span class="params">(<span name="response">response: <a href="../../core/protocol/Response.html" class="extype" name="reactivemongo.core.protocol.Response">Response</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Iterator">Iterator</span>[<span class="extype" name="reactivemongo.play.iteratees.PlayIterateesFlattenedCursor.T">T</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.play.iteratees.PlayIterateesFlattenedCursor@documentIterator(response:reactivemongo.core.protocol.Response)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Iterator[T]]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns an iterator to read the response documents,
+according the provided read for the element type <code>T</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns an iterator to read the response documents,
+according the provided read for the element type <code>T</code>.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
       <a id="ensuring((PlayIterateesFlattenedCursor[T])⇒Boolean,⇒Any):PlayIterateesFlattenedCursor[T]"></a>
@@ -518,7 +530,7 @@ Example:</p><pre><span class="kw">val</span> cursor = collection.find(query, fil
       <p class="shortcomment cmt">Applies a binary operator to a start value and all elements retrieved
 by this cursor, going first to last.</p><div class="fullcomment"><div class="comment cmt"><p>Applies a binary operator to a start value and all elements retrieved
 by this cursor, going first to last.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the result type of the binary operator.</p></dd><dt class="param">z</dt><dd class="cmt"><p>the start value.</p></dd><dt class="param">maxDocs</dt><dd class="cmt"><p>the maximum number of documents to be read.</p></dd><dt class="param">suc</dt><dd class="cmt"><p>the binary operator to be applied when the next document is successfully read.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the result type of the binary operator.</p></dd><dt class="param">z</dt><dd class="cmt"><p>the initial value</p></dd><dt class="param">maxDocs</dt><dd class="cmt"><p>The maximum number of documents to be retrieved.</p></dd><dt class="param">suc</dt><dd class="cmt"><p>the binary operator to be applied when the next document is successfully read.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd></dl></div>
     </li><li name="reactivemongo.api.FlattenedCursor#foldBulks" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="foldBulks[A](z:=&gt;A,maxDocs:Int)(suc:(A,Iterator[T])=&gt;reactivemongo.api.Cursor.State[A],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
       <a id="foldBulks[A](⇒A,Int)((A,Iterator[T])⇒State[A],ErrorHandler[A])(ExecutionContext):Future[A]"></a>
@@ -538,7 +550,7 @@ by this cursor, going first to last.
       <p class="shortcomment cmt">Applies a binary operator to a start value and all bulks of documents
 retrieved by this cursor, going first to last.</p><div class="fullcomment"><div class="comment cmt"><p>Applies a binary operator to a start value and all bulks of documents
 retrieved by this cursor, going first to last.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the result type of the binary operator.</p></dd><dt class="param">z</dt><dd class="cmt"><p>the start value.</p></dd><dt class="param">maxDocs</dt><dd class="cmt"><p>the maximum number of documents to be read.</p></dd><dt class="param">suc</dt><dd class="cmt"><p>the binary operator to be applied when the next response is successfully read.</p></dd><dt class="param">err</dt><dd class="cmt"><p>the binary operator to be applied when failing to get the next response</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the result type of the binary operator.</p></dd><dt class="param">z</dt><dd class="cmt"><p>the initial value</p></dd><dt class="param">maxDocs</dt><dd class="cmt"><p>The maximum number of documents to be retrieved. The actual document count can exceed this, when this maximum devided by the batch size given a non-zero remainder.</p></dd><dt class="param">suc</dt><dd class="cmt"><p>the binary operator to be applied when the next response is successfully read.</p></dd><dt class="param">err</dt><dd class="cmt"><p>The binary operator to be applied when failing to get the next response. Exception or <a href="../../api/Cursor$$Fail.html" class="extype" name="reactivemongo.api.Cursor.Fail">Fail</a> raised within the <code>suc</code> function cannot be recovered by this error handler.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd></dl></div>
     </li><li name="reactivemongo.api.FlattenedCursor#foldBulksM" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="foldBulksM[A](z:=&gt;A,maxDocs:Int)(suc:(A,Iterator[T])=&gt;scala.concurrent.Future[reactivemongo.api.Cursor.State[A]],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
       <a id="foldBulksM[A](⇒A,Int)((A,Iterator[T])⇒Future[State[A]],ErrorHandler[A])(ExecutionContext):Future[A]"></a>
@@ -558,7 +570,7 @@ retrieved by this cursor, going first to last.
       <p class="shortcomment cmt">Applies a binary operator to a start value and all bulks of documents
 retrieved by this cursor, going first to last.</p><div class="fullcomment"><div class="comment cmt"><p>Applies a binary operator to a start value and all bulks of documents
 retrieved by this cursor, going first to last.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the result type of the binary operator.</p></dd><dt class="param">z</dt><dd class="cmt"><p>the start value.</p></dd><dt class="param">maxDocs</dt><dd class="cmt"><p>the maximum number of documents to be read.</p></dd><dt class="param">suc</dt><dd class="cmt"><p>the binary operator to be applied when the next response is successfully read. This must be safe, and any error must be returned as <code>Future.failed[State[A]]</code>.</p></dd><dt class="param">err</dt><dd class="cmt"><p>the binary operator to be applied when failing to get the next response</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the result type of the binary operator.</p></dd><dt class="param">z</dt><dd class="cmt"><p>the initial value</p></dd><dt class="param">maxDocs</dt><dd class="cmt"><p>The maximum number of documents to be retrieved. The actual document count can exceed this, when this maximum devided by the batch size given a non-zero remainder.</p></dd><dt class="param">suc</dt><dd class="cmt"><p>the binary operator to be applied when the next response is successfully read. This must be safe, and any error must be returned as <code>Future.failed[State[A]]</code>.</p></dd><dt class="param">err</dt><dd class="cmt"><p>The binary operator to be applied when failing to get the next response. Exception or <a href="../../api/Cursor$$Fail.html" class="extype" name="reactivemongo.api.Cursor.Fail">Fail</a> raised within the <code>suc</code> function cannot be recovered by this error handler.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd></dl></div>
     </li><li name="reactivemongo.api.FlattenedCursor#foldResponses" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="foldResponses[A](z:=&gt;A,maxDocs:Int)(suc:(A,reactivemongo.core.protocol.Response)=&gt;reactivemongo.api.Cursor.State[A],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
       <a id="foldResponses[A](⇒A,Int)((A,Response)⇒State[A],ErrorHandler[A])(ExecutionContext):Future[A]"></a>
@@ -578,7 +590,7 @@ retrieved by this cursor, going first to last.
       <p class="shortcomment cmt">Applies a binary operator to a start value and all responses handled
 by this cursor, going first to last.</p><div class="fullcomment"><div class="comment cmt"><p>Applies a binary operator to a start value and all responses handled
 by this cursor, going first to last.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the result type of the binary operator.</p></dd><dt class="param">z</dt><dd class="cmt"><p>the start value.</p></dd><dt class="param">maxDocs</dt><dd class="cmt"><p>the maximum number of documents to be read.</p></dd><dt class="param">suc</dt><dd class="cmt"><p>the binary operator to be applied when the next response is successfully read.</p></dd><dt class="param">err</dt><dd class="cmt"><p>The binary operator to be applied when failing to get the next response. Exception or <a href="../../api/Cursor$$Fail.html" class="extype" name="reactivemongo.api.Cursor.Fail">Fail</a> raised within the <code>suc</code> function cannot be recovered by this error handler.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the result type of the binary operator.</p></dd><dt class="param">z</dt><dd class="cmt"><p>the initial value</p></dd><dt class="param">maxDocs</dt><dd class="cmt"><p>The maximum number of documents to be retrieved. The actual document count can exceed this, when this maximum devided by the batch size given a non-zero remainder.</p></dd><dt class="param">suc</dt><dd class="cmt"><p>the binary operator to be applied when the next response is successfully read.</p></dd><dt class="param">err</dt><dd class="cmt"><p>The binary operator to be applied when failing to get the next response. Exception or <a href="../../api/Cursor$$Fail.html" class="extype" name="reactivemongo.api.Cursor.Fail">Fail</a> raised within the <code>suc</code> function cannot be recovered by this error handler.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd></dl></div>
     </li><li name="reactivemongo.api.FlattenedCursor#foldResponsesM" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="foldResponsesM[A](z:=&gt;A,maxDocs:Int)(suc:(A,reactivemongo.core.protocol.Response)=&gt;scala.concurrent.Future[reactivemongo.api.Cursor.State[A]],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
       <a id="foldResponsesM[A](⇒A,Int)((A,Response)⇒Future[State[A]],ErrorHandler[A])(ExecutionContext):Future[A]"></a>
@@ -598,7 +610,7 @@ by this cursor, going first to last.
       <p class="shortcomment cmt">Applies a binary operator to a start value and all responses handled
 by this cursor, going first to last.</p><div class="fullcomment"><div class="comment cmt"><p>Applies a binary operator to a start value and all responses handled
 by this cursor, going first to last.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the result type of the binary operator.</p></dd><dt class="param">z</dt><dd class="cmt"><p>the start value.</p></dd><dt class="param">maxDocs</dt><dd class="cmt"><p>the maximum number of documents to be read.</p></dd><dt class="param">suc</dt><dd class="cmt"><p>The binary operator to be applied when the next response is successfully read. This must be safe, and any error must be returned as <code>Future.failed[State[A]]</code>.</p></dd><dt class="param">err</dt><dd class="cmt"><p>The binary operator to be applied when failing to get the next response. Exception or <a href="../../api/Cursor$$Fail.html" class="extype" name="reactivemongo.api.Cursor.Fail">Fail</a> raised within the <code>suc</code> function cannot be recovered by this error handler.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the result type of the binary operator.</p></dd><dt class="param">z</dt><dd class="cmt"><p>the initial value</p></dd><dt class="param">maxDocs</dt><dd class="cmt"><p>The maximum number of documents to be retrieved. The actual document count can exceed this, when this maximum devided by the batch size given a non-zero remainder.</p></dd><dt class="param">suc</dt><dd class="cmt"><p>The binary operator to be applied when the next response is successfully read. This must be safe, and any error must be returned as <code>Future.failed[State[A]]</code>.</p></dd><dt class="param">err</dt><dd class="cmt"><p>The binary operator to be applied when failing to get the next response. Exception or <a href="../../api/Cursor$$Fail.html" class="extype" name="reactivemongo.api.Cursor.Fail">Fail</a> raised within the <code>suc</code> function cannot be recovered by this error handler.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd></dl></div>
     </li><li name="reactivemongo.api.FlattenedCursor#foldWhile" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="foldWhile[A](z:=&gt;A,maxDocs:Int)(suc:(A,T)=&gt;reactivemongo.api.Cursor.State[A],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
       <a id="foldWhile[A](⇒A,Int)((A,T)⇒State[A],ErrorHandler[A])(ExecutionContext):Future[A]"></a>
@@ -618,7 +630,7 @@ by this cursor, going first to last.
       <p class="shortcomment cmt">Applies a binary operator to a start value and all elements retrieved
 by this cursor, going first to last.</p><div class="fullcomment"><div class="comment cmt"><p>Applies a binary operator to a start value and all elements retrieved
 by this cursor, going first to last.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the result type of the binary operator.</p></dd><dt class="param">z</dt><dd class="cmt"><p>the start value.</p></dd><dt class="param">maxDocs</dt><dd class="cmt"><p>the maximum number of documents to be read.</p></dd><dt class="param">suc</dt><dd class="cmt"><p>The binary operator to be applied when the next document is successfully read.</p></dd><dt class="param">err</dt><dd class="cmt"><p>the binary operator to be applied when failing to read the next document.</p><pre>cursor.foldWhile(Nil: <span class="std">Seq</span>[Person])((s, p) <span class="kw">=&gt;</span> Cursor.Cont(s :+ p),
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the result type of the binary operator.</p></dd><dt class="param">z</dt><dd class="cmt"><p>the initial value</p></dd><dt class="param">maxDocs</dt><dd class="cmt"><p>The maximum number of documents to be retrieved.</p></dd><dt class="param">suc</dt><dd class="cmt"><p>The binary operator to be applied when the next document is successfully read.</p></dd><dt class="param">err</dt><dd class="cmt"><p>The binary operator to be applied when failing to get the next response. Exception or <a href="../../api/Cursor$$Fail.html" class="extype" name="reactivemongo.api.Cursor.Fail">Fail</a> raised within the <code>suc</code> function cannot be recovered by this error handler.</p><pre>cursor.foldWhile(Nil: <span class="std">Seq</span>[Person])((s, p) <span class="kw">=&gt;</span> Cursor.Cont(s :+ p),
   { (l, e) <span class="kw">=&gt;</span> println(<span class="lit">"last valid value: "</span> + l); Cursor.Fail(e) })</pre></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd></dl></div>
     </li><li name="reactivemongo.api.FlattenedCursor#foldWhileM" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="foldWhileM[A](z:=&gt;A,maxDocs:Int)(suc:(A,T)=&gt;scala.concurrent.Future[reactivemongo.api.Cursor.State[A]],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
@@ -639,8 +651,12 @@ by this cursor, going first to last.
       <p class="shortcomment cmt">Applies a binary operator to a start value and all elements retrieved
 by this cursor, going first to last.</p><div class="fullcomment"><div class="comment cmt"><p>Applies a binary operator to a start value and all elements retrieved
 by this cursor, going first to last.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the result type of the binary operator.</p></dd><dt class="param">z</dt><dd class="cmt"><p>the start value.</p></dd><dt class="param">maxDocs</dt><dd class="cmt"><p>the maximum number of documents to be read.</p></dd><dt class="param">suc</dt><dd class="cmt"><p>The binary operator to be applied when the next document is successfully read. This must be safe, and any error must be returned as <code>Future.failed[State[A]]</code>.</p></dd><dt class="param">err</dt><dd class="cmt"><p>the binary operator to be applied when failing to read the next document.</p><pre>cursor.foldWhile(Nil: <span class="std">Seq</span>[Person])((s, p) <span class="kw">=&gt;</span> Cursor.Cont(s :+ p),
-  { (l, e) <span class="kw">=&gt;</span> println(<span class="lit">"last valid value: "</span> + l); Cursor.Fail(e) })</pre></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the result type of the binary operator.</p></dd><dt class="param">z</dt><dd class="cmt"><p>the initial value</p></dd><dt class="param">maxDocs</dt><dd class="cmt"><p>The maximum number of documents to be retrieved.</p></dd><dt class="param">suc</dt><dd class="cmt"><p>The binary operator to be applied when the next document is successfully read. This must be safe, and any error must be returned as <code>Future.failed[State[A]]</code>.</p></dd><dt class="param">err</dt><dd class="cmt"><p>The binary operator to be applied when failing to get the next response. Exception or <a href="../../api/Cursor$$Fail.html" class="extype" name="reactivemongo.api.Cursor.Fail">Fail</a> raised within the <code>suc</code> function cannot be recovered by this error handler.</p><pre>cursor.foldWhileM(Nil: <span class="std">Seq</span>[Person])(
+  (s, p) <span class="kw">=&gt;</span> Future.successful(Cursor.Cont(s :+ p)),
+  { (l, e) <span class="kw">=&gt;</span> Future {
+    println(<span class="lit">"last valid value: "</span> + l)
+    Cursor.Fail(e)
+  })</pre></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd></dl></div>
     </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="formatted(fmtstr:String):String"></a>
       <a id="formatted(String):String"></a>
@@ -715,8 +731,7 @@ by this cursor, going first to last.
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Gets the first document matching the query, if any.</p><div class="fullcomment"><div class="comment cmt"><p>Gets the first document matching the query, if any.
-The resulting Future may fail if any exception occurs (for example, while deserializing the document).</p><p>Example:</p><pre><span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument]
+      <p class="shortcomment cmt">Returns the first document matching the query, if any.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the first document matching the query, if any.</p><p>Example:</p><pre><span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument]
 <span class="cmt">// return option of the first element.</span>
 <span class="kw">val</span> first: Future[<span class="std">Option</span>[BSONDocument]] = cursor.headOption</pre></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -752,7 +767,7 @@ The resulting Future may fail if any exception occurs (for example, while deseri
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd></dl></div>
+      <p class="shortcomment cmt">Sends the initial request.</p><div class="fullcomment"><div class="comment cmt"><p>Sends the initial request.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -990,7 +1005,7 @@ The resulting Future may fail if any exception occurs (for example, while deseri
 Given the <code>stopOnError</code> parameter, this Enumerator may stop on any non-fatal exception, or skip and continue.
 The returned enumerator may process up to <code>maxDocs</code>. If <code>stopOnError</code> is false, then documents that cause error
 are dropped, so the enumerator may emit a little less than <code>maxDocs</code> even if it processes <code>maxDocs</code> documents.
-</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>Enumerate up to <code>maxDocs</code> documents.</p></dd><dt class="param">stopOnError</dt><dd class="cmt"><p>States if the produced Enumerator may stop on non-fatal exception.</p></dd><dt>returns</dt><dd class="cmt"><p>an Enumerator of documents.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd><dt>Annotations</dt><dd>
+</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>The maximum number of documents to be retrieved.</p></dd><dt class="param">stopOnError</dt><dd class="cmt"><p>States if may stop on non-fatal exception (default: true). If set to false, the exceptions are skipped, trying to get the next result..</p></dd><dt>returns</dt><dd class="cmt"><p>an Enumerator of documents.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd><dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
         </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.10)</i> Use the Play Iteratee modules</p></dd></dl></div>
@@ -1012,7 +1027,7 @@ are dropped, so the enumerator may emit a little less than <code>maxDocs</code> 
     </span>
       <p class="shortcomment cmt">Produces an Enumerator of Iterator of documents.</p><div class="fullcomment"><div class="comment cmt"><p>Produces an Enumerator of Iterator of documents.
 Given the <code>stopOnError</code> parameter, this Enumerator may stop on any non-fatal exception, or skip and continue.
-</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>Enumerate up to <code>maxDocs</code> documents.</p></dd><dt class="param">stopOnError</dt><dd class="cmt"><p>States if the produced Enumerator may stop on non-fatal exception.</p></dd><dt>returns</dt><dd class="cmt"><p>an Enumerator of Iterators of documents.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd><dt>Annotations</dt><dd>
+</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>The maximum number of documents to be retrieved. The actual document count can exceed this, when this maximum devided by the batch size given a non-zero remainder.</p></dd><dt class="param">stopOnError</dt><dd class="cmt"><p>States if may stop on non-fatal exception (default: true). If set to false, the exceptions are skipped, trying to get the next result..</p></dd><dt>returns</dt><dd class="cmt"><p>an Enumerator of Iterators of documents.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd><dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
         </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.10)</i> Use the Play Iteratee modules</p></dd></dl></div>
@@ -1034,7 +1049,7 @@ Given the <code>stopOnError</code> parameter, this Enumerator may stop on any no
     </span>
       <p class="shortcomment cmt">Produces an Enumerator of responses from the database.</p><div class="fullcomment"><div class="comment cmt"><p>Produces an Enumerator of responses from the database.
 Given the <code>stopOnError</code> parameter, this Enumerator may stop on any non-fatal exception, or skip and continue.
-</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>Enumerate up to <code>maxDocs</code> documents.</p></dd><dt class="param">stopOnError</dt><dd class="cmt"><p>States if the produced Enumerator may stop on non-fatal exception.</p></dd><dt>returns</dt><dd class="cmt"><p>an Enumerator of Responses.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd><dt>Annotations</dt><dd>
+</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>The maximum number of documents to be retrieved. The actual document count can exceed this, when this maximum devided by the batch size given a non-zero remainder.</p></dd><dt class="param">stopOnError</dt><dd class="cmt"><p>States if may stop on non-fatal exception (default: true). If set to false, the exceptions are skipped, trying to get the next result..</p></dd><dt>returns</dt><dd class="cmt"><p>an Enumerator of Responses.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd><dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
         </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.10)</i> Use the Play Iteratee modules</p></dd></dl></div>
@@ -1057,7 +1072,7 @@ Given the <code>stopOnError</code> parameter, this Enumerator may stop on any no
       <p class="shortcomment cmt">Produces an Enumerator of responses from the database.</p><div class="fullcomment"><div class="comment cmt"><p>Produces an Enumerator of responses from the database.
 An Enumeratee for error handling should be used to prevent silent failures.
 Consider using <code>enumerateResponses</code> instead.
-</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>Enumerate up to <code>maxDocs</code> documents.</p></dd><dt>returns</dt><dd class="cmt"><p>an Enumerator of Responses.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd><dt>Annotations</dt><dd>
+</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>The maximum number of documents to be retrieved</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/FlattenedCursor.html" class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</a> → <a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd><dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
         </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.10)</i> Use the Play Iteratee modules</p></dd></dl></div>
@@ -1077,13 +1092,7 @@ Consider using <code>enumerateResponses</code> instead.
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Collects all the documents into a <code>List[T]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Collects all the documents into a <code>List[T]</code>.
-Given the <code>stopOnError</code> parameter (which defaults to true), the resulting Future may fail if any
-non-fatal exception occurs. If set to false, all the documents that caused exceptions are skipped.
-</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>Collect up to <code>maxDocs</code> documents.</p></dd><dt class="param">stopOnError</dt><dd class="cmt"><p>States if the Future should fail if any non-fatal exception occurs.
-Example:</p><pre><span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument]
-<span class="cmt">// return the 3 first documents in a list.</span>
-<span class="kw">val</span> list = cursor.toList(<span class="num">3</span>)</pre></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd><dt>Annotations</dt><dd>
+      <p class="shortcomment cmt">Returns the list of the matching documents.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the list of the matching documents.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../api/Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a></dd><dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
         </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.10.0)</i> consider using collect[List] instead</p></dd></dl></div>

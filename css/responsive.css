@@ -2,26 +2,35 @@ a {
   color: #59b25b;
   text-decoration: none;
 }
+
+html {
+  overflow-y: auto
+}
+
 html, body {
   /*color: green !important;*/
   width: 100%;
-  overflow: hidden;
   padding: 0;
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
 }
+
 body {
+  overflow: hidden;
   background: #f4f4f4;
 }
+
 #header {
   background: white; 
 }
+
 #header > div:after {
   content: "";
   display: block;
   float: none;
   clear: both;
 }
+
 #header > div > a > img {
   max-width: 200px;
   display: block;
@@ -29,6 +38,7 @@ body {
   padding: 0;
   float: left;
 }
+
 #header > div > div {
   float: right;
 }
@@ -62,9 +72,15 @@ h2 {
 h3 {
   font-size: 16px;
 }
-h2, h3, p, div.highlight {
+
+h2, h3, p, .highlight {
   padding: 0 5px;
 }
+
+.highlight {
+    margin: 0
+}
+
 pre {
   white-space: pre-wrap;
   overflow-x: auto;

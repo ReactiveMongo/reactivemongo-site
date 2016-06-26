@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>actors - ReactiveMongo API 0.11.12 - reactivemongo.core.actors</title>
-          <meta name="description" content="actors - ReactiveMongo API 0.11.12 - reactivemongo.core.actors" />
-          <meta name="keywords" content="actors ReactiveMongo API 0.11.12 reactivemongo.core.actors" />
+          <title>actors - ReactiveMongo API 0.11.14 - reactivemongo.core.actors</title>
+          <meta name="description" content="actors - ReactiveMongo API 0.11.14 - reactivemongo.core.actors" />
+          <meta name="keywords" content="actors ReactiveMongo API 0.11.14 reactivemongo.core.actors" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -121,40 +121,6 @@
 It holds a promise that will be completed by the MongoDBSystem actor.
 The future can be used to get the error or the successful response.
 </p></div></div>
-    </li><li name="reactivemongo.core.actors.LegacyDBSystem" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="LegacyDBSystemextendsMongoDBSystemwithMongoCrAuthentication"></a>
-      <a id="LegacyDBSystem:LegacyDBSystem"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">final </span>
-        <span class="kind">class</span>
-      </span>
-      <span class="symbol">
-        <a href="LegacyDBSystem.html"><span class="name">LegacyDBSystem</span></a><span class="result"> extends <a href="MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> with <span class="extype" name="reactivemongo.core.actors.MongoCrAuthentication">MongoCrAuthentication</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.actors.package@LegacyDBSystemextendsMongoDBSystemwithMongoCrAuthentication" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="reactivemongo.core.actors.MongoDBSystem" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="MongoDBSystemextendsActor"></a>
-      <a id="MongoDBSystem:MongoDBSystem"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">trait</span>
-      </span>
-      <span class="symbol">
-        <a href="MongoDBSystem.html"><span class="name">MongoDBSystem</span></a><span class="result"> extends <span class="extype" name="akka.actor.Actor">Actor</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.actors.package@MongoDBSystemextendsActor" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Main actor that processes the requests.</p>
     </li><li name="reactivemongo.core.actors.PrimaryAvailable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="PrimaryAvailableextendsProductwithSerializable"></a>
       <a id="PrimaryAvailable:PrimaryAvailable"></a>
@@ -207,7 +173,47 @@ The future can be used to get the error or the successful response.
       </a>
     </span>
       
-    </li><li name="reactivemongo.core.actors.StandardDBSystem" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="reactivemongo.core.actors.LegacyDBSystem" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="LegacyDBSystemextendsMongoDBSystemwithMongoCrAuthentication"></a>
+      <a id="LegacyDBSystem:LegacyDBSystem"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="LegacyDBSystem.html"><span class="name deprecated" title="Deprecated: (Since version 0.11.14) Internal class: will be made private">LegacyDBSystem</span></a><span class="result"> extends <a href="MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> with <span class="extype" name="reactivemongo.core.actors.MongoCrAuthentication">MongoCrAuthentication</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.actors.package@LegacyDBSystemextendsMongoDBSystemwithMongoCrAuthentication" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.14)</i> Internal class: will be made private</p></dd></dl></div>
+    </li><li name="reactivemongo.core.actors.MongoDBSystem" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="MongoDBSystemextendsActor"></a>
+      <a id="MongoDBSystem:MongoDBSystem"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="MongoDBSystem.html"><span class="name deprecated" title="Deprecated: (Since version 0.11.14) Internal class: will be made private">MongoDBSystem</span></a><span class="result"> extends <span class="extype" name="akka.actor.Actor">Actor</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.actors.package@MongoDBSystemextendsActor" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Main actor that processes the requests.</p><div class="fullcomment"><div class="comment cmt"><p>Main actor that processes the requests.</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.14)</i> Internal class: will be made private</p></dd></dl></div>
+    </li><li name="reactivemongo.core.actors.StandardDBSystem" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="StandardDBSystemextendsMongoDBSystemwithMongoScramSha1Authentication"></a>
       <a id="StandardDBSystem:StandardDBSystem"></a>
       <h4 class="signature">
@@ -216,14 +222,17 @@ The future can be used to get the error or the successful response.
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="StandardDBSystem.html"><span class="name">StandardDBSystem</span></a><span class="result"> extends <a href="MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> with <span class="extype" name="reactivemongo.core.actors.MongoScramSha1Authentication">MongoScramSha1Authentication</span></span>
+        <a href="StandardDBSystem.html"><span class="name deprecated" title="Deprecated: (Since version 0.11.14) Internal class: will be made private">StandardDBSystem</span></a><span class="result"> extends <a href="MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> with <span class="extype" name="reactivemongo.core.actors.MongoScramSha1Authentication">MongoScramSha1Authentication</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.actors.package@StandardDBSystemextendsMongoDBSystemwithMongoScramSha1Authentication" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.14)</i> Internal class: will be made private</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -318,23 +327,6 @@ The MongoDBSystem actor must not be used after this message has been sent.
       </a>
     </span>
       
-    </li><li name="reactivemongo.core.actors.MongoDBSystem" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="MongoDBSystem"></a>
-      <a id="MongoDBSystem:MongoDBSystem"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="MongoDBSystem$.html"><span class="name">MongoDBSystem</span></a>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.core.actors.package@MongoDBSystem" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="reactivemongo.core.actors.PrimaryUnavailable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="PrimaryUnavailable"></a>
       <a id="PrimaryUnavailable:PrimaryUnavailable"></a>
@@ -393,7 +385,27 @@ The MongoDBSystem actor must not be used after this message has been sent.
 
         <div id="values" class="values members">
               <h3>Deprecated Value Members</h3>
-              <ol><li name="reactivemongo.core.actors.WaitForPrimary" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+              <ol><li name="reactivemongo.core.actors.MongoDBSystem" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MongoDBSystem"></a>
+      <a id="MongoDBSystem:MongoDBSystem"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MongoDBSystem$.html"><span class="name deprecated" title="Deprecated: (Since version 0.11.14) Internal class: will be made private">MongoDBSystem</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.core.actors.package@MongoDBSystem" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.14)</i> Internal class: will be made private</p></dd></dl></div>
+    </li><li name="reactivemongo.core.actors.WaitForPrimary" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="WaitForPrimary"></a>
       <a id="WaitForPrimary:WaitForPrimary"></a>
       <h4 class="signature">
