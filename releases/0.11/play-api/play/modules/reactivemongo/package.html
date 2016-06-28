@@ -84,7 +84,7 @@
     </span>
       <p class="shortcomment cmt">Default implementation of ReactiveMongoApi.</p>
     </li><li name="play.modules.reactivemongo.JSONFileToSave" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="JSONFileToSaveextendsFileToSave[play.modules.reactivemongo.json.JSONSerializationPack.type,play.api.libs.json.JsValue]"></a>
+      <a id="JSONFileToSaveextendsFileToSave[reactivemongo.play.json.JSONSerializationPack.type,play.api.libs.json.JsValue]"></a>
       <a id="JSONFileToSave:JSONFileToSave"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -92,10 +92,10 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="JSONFileToSave.html"><span class="name">JSONFileToSave</span></a><span class="result"> extends <span class="extype" name="reactivemongo.api.gridfs.FileToSave">FileToSave</span>[<a href="json/JSONSerializationPack$.html" class="extype" name="play.modules.reactivemongo.json.JSONSerializationPack">JSONSerializationPack</a>.type, <span class="extype" name="play.api.libs.json.JsValue">JsValue</span>]</span>
+        <a href="JSONFileToSave.html"><span class="name">JSONFileToSave</span></a><span class="result"> extends <span class="extype" name="reactivemongo.api.gridfs.FileToSave">FileToSave</span>[<span class="extype" name="reactivemongo.play.json.JSONSerializationPack">JSONSerializationPack</span>.type, <span class="extype" name="play.api.libs.json.JsValue">JsValue</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#play.modules.reactivemongo.package@JSONFileToSaveextendsFileToSave[play.modules.reactivemongo.json.JSONSerializationPack.type,play.api.libs.json.JsValue]" title="Permalink" target="_top">
+      <a href="../../../index.html#play.modules.reactivemongo.package@JSONFileToSaveextendsFileToSave[reactivemongo.play.json.JSONSerializationPack.type,play.api.libs.json.JsValue]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -135,6 +135,50 @@
     </span>
       <p class="shortcomment cmt">MongoDB API
 </p>
+    </li><li name="play.modules.reactivemongo.ReactiveMongoApiComponents" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ReactiveMongoApiComponentsextendsAnyRef"></a>
+      <a id="ReactiveMongoApiComponents:ReactiveMongoApiComponents"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ReactiveMongoApiComponents.html"><span class="name">ReactiveMongoApiComponents</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#play.modules.reactivemongo.package@ReactiveMongoApiComponentsextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="play.modules.reactivemongo.ReactiveMongoApiFromContext" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ReactiveMongoApiFromContextextendsBuiltInComponentsFromContextwithReactiveMongoApiComponents"></a>
+      <a id="ReactiveMongoApiFromContext:ReactiveMongoApiFromContext"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ReactiveMongoApiFromContext.html"><span class="name">ReactiveMongoApiFromContext</span></a><span class="result"> extends <span class="extype" name="play.api.BuiltInComponentsFromContext">BuiltInComponentsFromContext</span> with <a href="ReactiveMongoApiComponents.html" class="extype" name="play.modules.reactivemongo.ReactiveMongoApiComponents">ReactiveMongoApiComponents</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#play.modules.reactivemongo.package@ReactiveMongoApiFromContextextendsBuiltInComponentsFromContextwithReactiveMongoApiComponents" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Can be used for a custom application loader.</p><div class="fullcomment"><div class="comment cmt"><p>Can be used for a custom application loader.</p><pre><span class="kw">import</span> play.api.ApplicationLoader
+
+<span class="kw">class</span> MyApplicationLoader <span class="kw">extends</span> ApplicationLoader {
+  <span class="kw">def</span> load(context: ApplicationLoader.Context) =
+    <span class="kw">new</span> MyComponents(context).application
+}
+
+<span class="kw">class</span> MyComponents(context: ApplicationLoader.Context)
+    <span class="kw">extends</span> ReactiveMongoApiFromContext(context) {
+  <span class="kw">lazy</span> <span class="kw">val</span> router = play.api.routing.Router.empty
+}</pre></div></div>
     </li><li name="play.modules.reactivemongo.ReactiveMongoComponents" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="ReactiveMongoComponentsextendsAnyRef"></a>
       <a id="ReactiveMongoComponents:ReactiveMongoComponents"></a>
@@ -190,27 +234,6 @@
       </a>
     </span>
       
-    </li><li name="play.modules.reactivemongo.ReactiveMongoPlugin" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ReactiveMongoPluginextendsPlugin"></a>
-      <a id="ReactiveMongoPlugin:ReactiveMongoPlugin"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">class</span>
-      </span>
-      <span class="symbol">
-        <a href="ReactiveMongoPlugin.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.1) Use ReactiveMongoModule and ReactiveMongoApi.">ReactiveMongoPlugin</span></a><span class="result"> extends <span class="extype" name="play.api.Plugin">api.Plugin</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#play.modules.reactivemongo.package@ReactiveMongoPluginextendsPlugin" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Deprecated since Play Framework 2.4 release.</p><div class="fullcomment"><div class="comment cmt"><p>Deprecated since Play Framework 2.4 release. Plugins should be modules
-</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
-                <span class="name">@deprecated</span>
-              
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.1)</i> Use ReactiveMongoModule and ReactiveMongoApi.</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -234,7 +257,7 @@
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Instances of <a href="https://www.playframework.com/documentation/2.4.0/api/scala/index.html#play.api.data.format.Formatter" target="_blank">Play Formatter</a> for the ReactiveMongo types.</p>
+      <p class="shortcomment cmt">Instances of <a href="https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.data.format.Formatter" target="_blank">Play Formatter</a> for the ReactiveMongo types.</p>
     </li><li name="play.modules.reactivemongo.JSONFileToSave" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="JSONFileToSave"></a>
       <a id="JSONFileToSave:JSONFileToSave"></a>
@@ -285,7 +308,7 @@
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Instances of <a href="https://www.playframework.com/documentation/2.4.0/api/scala/index.html#play.api.mvc.PathBindable" target="_blank">Play PathBindable</a> for the ReactiveMongo types.</p>
+      <p class="shortcomment cmt">Instances of <a href="https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.mvc.PathBindable" target="_blank">Play PathBindable</a> for the ReactiveMongo types.</p>
     </li><li name="play.modules.reactivemongo.json" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="json"></a>
       <a id="json:json"></a>
@@ -308,31 +331,7 @@
 
         
 
-        <div id="values" class="values members">
-              <h3>Deprecated Value Members</h3>
-              <ol><li name="play.modules.reactivemongo.ReactiveMongoPlugin" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ReactiveMongoPlugin"></a>
-      <a id="ReactiveMongoPlugin:ReactiveMongoPlugin"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="ReactiveMongoPlugin$.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.1) Use ReactiveMongoModule and ReactiveMongoApi.">ReactiveMongoPlugin</span></a>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#play.modules.reactivemongo.package@ReactiveMongoPlugin" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">MongoDB access methods.</p><div class="fullcomment"><div class="comment cmt"><p>MongoDB access methods.
-</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
-                <span class="name">@deprecated</span>
-              
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.1)</i> Use ReactiveMongoModule and ReactiveMongoApi.</p></dd></dl></div>
-    </li></ol>
-            </div>
+        
         </div>
 
         <div id="inheritedMembers">

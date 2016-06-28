@@ -9,6 +9,7 @@ title: ReactiveMongo - Documentation
   * [Release Notes](/releases/{{site.latest_major_release}}/documentation/release-details.html)
   * [Documentation](/releases/{{site.latest_major_release}}/documentation/index.html)
     * [Driver API](/releases/{{site.latest_major_release}}/api/index.html)
+    * [JSON API](/releases/{{site.latest_major_release}}/json-api/index.html)
     * [Play module API](/releases/{{site.latest_major_release}}/play-api/index.html)
 * Older releases
   * [0.10.5.0.akka23 / 0.10.5.0.akka22](/releases/0.10.5/documentation/index.html)
