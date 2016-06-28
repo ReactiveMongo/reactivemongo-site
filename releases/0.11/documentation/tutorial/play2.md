@@ -29,11 +29,11 @@ libraryDependencies ++= Seq(
 
 As for Play 2.4 itself, this ReactiveMongo plugin requires a JVM 1.8+.
 
-If you are looking for a stable version for Play 2.3.x, please consider using the 0.11.13-play23 version:
+If you are looking for a stable version for Play 2.3.x, please consider using the 0.11.14-play23 version:
 
 {% highlight ocaml %}
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.13-play23"
+  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.14-play23"
 )
 {% endhighlight %}
 
@@ -114,7 +114,7 @@ It's also possible to get the injected ReactiveMongo API outside of the controll
 {% highlight scala %}
 import scala.concurrent.Future
 
-import play.api.Play.current
+import play.api.Play.current // should be deprecated in favor of DI
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 
 import play.modules.reactivemongo.ReactiveMongoApi
@@ -123,8 +123,8 @@ import play.modules.reactivemongo.json.collection.JSONCollection
 object Foo {
   lazy val reactiveMongoApi = current.injector.instanceOf[ReactiveMongoApi]
 
-  def collection(name: String): JSONCollection =
-    reactiveMongoApi.db.collection[JSONCollection](name)
+  def collection(name: String): Future[JSONCollection] =
+    reactiveMongoApi.database.map(_.collection[JSONCollection](name))
 }
 {% endhighlight %}
 
@@ -164,7 +164,7 @@ object MongoEnv {
 
 ### Play 2.3
 
-The version `0.11.13-play23` of this plugin is available for Play 2.3.
+The version `0.11.14-play23` of this plugin is available for Play 2.3.
 
 Add to your `conf/play.plugins`:
 
