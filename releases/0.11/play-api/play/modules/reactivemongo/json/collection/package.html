@@ -60,7 +60,7 @@
               <ol>
                 
                 <li class="alpha in"><span>Alphabetic</span></li>
-                <li class="inherit out"><span>By inheritance</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
               </ol>
             </div>
         <div id="ancestors">
@@ -73,7 +73,7 @@
             <span class="filtertype"></span>
             <ol>
               <li class="hideall out"><span>Hide All</span></li>
-              <li class="showall in"><span>Show all</span></li>
+              <li class="showall in"><span>Show All</span></li>
             </ol>
           </div>
         <div id="visbl">
@@ -88,8 +88,8 @@
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="play.modules.reactivemongo.json.collection.JSONCollection" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="JSONCollectionextendsGenericCollection[play.modules.reactivemongo.json.JSONSerializationPack.type]withCollectionMetaCommandswithProductwithSerializable"></a>
+              <ol><li name="play.modules.reactivemongo.json.collection.JSONCollection" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="JSONCollectionextendsGenericCollection[reactivemongo.play.json.JSONSerializationPack.type]withCollectionMetaCommandswithProductwithSerializable"></a>
       <a id="JSONCollection:JSONCollection"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -97,16 +97,20 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="JSONCollection.html"><span class="name">JSONCollection</span></a><span class="params">(<span name="db">db: <span class="extype" name="reactivemongo.api.DB">DB</span></span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="failoverStrategy">failoverStrategy: <span class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</span></span>)</span><span class="result"> extends <span class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</span>[<a href="../JSONSerializationPack$.html" class="extype" name="play.modules.reactivemongo.json.JSONSerializationPack">JSONSerializationPack</a>.type] with <span class="extype" name="reactivemongo.api.CollectionMetaCommands">CollectionMetaCommands</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="JSONCollection.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@1d838699">JSONCollection</span></a><span class="params">(<span name="db">db: <span class="extype" name="reactivemongo.api.DB">DB</span></span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="failoverStrategy">failoverStrategy: <span class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</span></span>)</span><span class="result"> extends <span class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</span>[<span class="extype" name="reactivemongo.play.json.JSONSerializationPack">reactivemongo.play.json.JSONSerializationPack</span>.type] with <span class="extype" name="reactivemongo.api.CollectionMetaCommands">CollectionMetaCommands</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.package@JSONCollectionextendsGenericCollection[play.modules.reactivemongo.json.JSONSerializationPack.type]withCollectionMetaCommandswithProductwithSerializable" title="Permalink" target="_top">
+      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.package@JSONCollectionextendsGenericCollection[reactivemongo.play.json.JSONSerializationPack.type]withCollectionMetaCommandswithProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">A Collection that interacts with the Play JSON library, using <code>Reads</code> and <code>Writes</code>.</p>
-    </li><li name="play.modules.reactivemongo.json.collection.JSONQueryBuilder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="JSONQueryBuilderextendsGenericQueryBuilder[play.modules.reactivemongo.json.JSONSerializationPack.type]withProductwithSerializable"></a>
+      <p class="shortcomment cmt">A Collection that interacts with the Play JSON library, using <code>Reads</code> and <code>Writes</code>.</p><div class="fullcomment"><div class="comment cmt"><p>A Collection that interacts with the Play JSON library, using <code>Reads</code> and <code>Writes</code>.
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Use <span class="extype" name="reactivemongo.play.json.collection.JSONCollection">reactivemongo.play.json.collection.JSONCollection</span></p></dd></dl></div>
+    </li><li name="play.modules.reactivemongo.json.collection.JSONQueryBuilder" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="JSONQueryBuilderextendsGenericQueryBuilder[reactivemongo.play.json.JSONSerializationPack.type]withProductwithSerializable"></a>
       <a id="JSONQueryBuilder:JSONQueryBuilder"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -114,15 +118,18 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="JSONQueryBuilder.html"><span class="name">JSONQueryBuilder</span></a><span class="params">(<span name="collection">collection: <span class="extype" name="reactivemongo.api.Collection">Collection</span></span>, <span name="failover">failover: <span class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</span></span>, <span name="queryOption">queryOption: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="play.api.libs.json.JsObject">JsObject</span>] = <span class="symbol">None</span></span>, <span name="sortOption">sortOption: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="play.api.libs.json.JsObject">JsObject</span>] = <span class="symbol">None</span></span>, <span name="projectionOption">projectionOption: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="play.api.libs.json.JsObject">JsObject</span>] = <span class="symbol">None</span></span>, <span name="hintOption">hintOption: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="play.api.libs.json.JsObject">JsObject</span>] = <span class="symbol">None</span></span>, <span name="explainFlag">explainFlag: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="snapshotFlag">snapshotFlag: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="commentString">commentString: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="options">options: <span class="extype" name="reactivemongo.api.QueryOpts">QueryOpts</span> = <span class="symbol"><span class="name"><a href="../../../../../reactivemongo/package.html">QueryOpts()</a></span></span></span>, <span name="maxTimeMsOption">maxTimeMsOption: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <span class="extype" name="reactivemongo.api.collections.GenericQueryBuilder">GenericQueryBuilder</span>[<a href="../JSONSerializationPack$.html" class="extype" name="play.modules.reactivemongo.json.JSONSerializationPack">JSONSerializationPack</a>.type] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="JSONQueryBuilder.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@1194e0fb">JSONQueryBuilder</span></a><span class="params">(<span name="collection">collection: <span class="extype" name="reactivemongo.api.Collection">Collection</span></span>, <span name="failover">failover: <span class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</span></span>, <span name="queryOption">queryOption: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="play.api.libs.json.JsObject">JsObject</span>] = <span class="symbol">None</span></span>, <span name="sortOption">sortOption: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="play.api.libs.json.JsObject">JsObject</span>] = <span class="symbol">None</span></span>, <span name="projectionOption">projectionOption: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="play.api.libs.json.JsObject">JsObject</span>] = <span class="symbol">None</span></span>, <span name="hintOption">hintOption: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="play.api.libs.json.JsObject">JsObject</span>] = <span class="symbol">None</span></span>, <span name="explainFlag">explainFlag: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="snapshotFlag">snapshotFlag: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="commentString">commentString: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="options">options: <span class="extype" name="reactivemongo.api.QueryOpts">QueryOpts</span> = <span class="symbol"><span class="name"><a href="../../../../../reactivemongo/package.html">QueryOpts()</a></span></span></span>, <span name="maxTimeMsOption">maxTimeMsOption: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <span class="extype" name="reactivemongo.api.collections.GenericQueryBuilder">GenericQueryBuilder</span>[<span class="extype" name="reactivemongo.play.json.JSONSerializationPack">reactivemongo.play.json.JSONSerializationPack</span>.type] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.package@JSONQueryBuilderextendsGenericQueryBuilder[play.modules.reactivemongo.json.JSONSerializationPack.type]withProductwithSerializable" title="Permalink" target="_top">
+      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.package@JSONQueryBuilderextendsGenericQueryBuilder[reactivemongo.play.json.JSONSerializationPack.type]withProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="play.modules.reactivemongo.json.collection.JsCursor" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Use <span class="extype" name="reactivemongo.play.json.collection.JSONQueryBuilder">reactivemongo.play.json.collection.JSONQueryBuilder</span></p></dd></dl></div>
+    </li><li name="play.modules.reactivemongo.json.collection.JsCursor" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="JsCursor[T]extendsCursor[T]"></a>
       <a id="JsCursor[T]:JsCursor[T]"></a>
       <h4 class="signature">
@@ -131,15 +138,18 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="JsCursor.html"><span class="name">JsCursor</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="reactivemongo.api.Cursor">Cursor</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursor.T">T</span>]</span>
+        <a href="JsCursor.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@225041c5">JsCursor</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="reactivemongo.api.Cursor">Cursor</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursor.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.package@JsCursor[T]extendsCursor[T]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="play.modules.reactivemongo.json.collection.JsCursorImpl" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Use <span class="extype" name="reactivemongo.play.json.collection.JsCursor">reactivemongo.play.json.collection.JsCursor</span></p></dd></dl></div>
+    </li><li name="play.modules.reactivemongo.json.collection.JsCursorImpl" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="JsCursorImpl[T]extendsJsCursor[T]withWrappedCursor[T]"></a>
       <a id="JsCursorImpl[T]:JsCursorImpl[T]"></a>
       <h4 class="signature">
@@ -148,15 +158,18 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="JsCursorImpl.html"><span class="name">JsCursorImpl</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="JsCursor.html" class="extype" name="play.modules.reactivemongo.json.collection.JsCursor">JsCursor</a>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>] with <span class="extype" name="reactivemongo.api.WrappedCursor">WrappedCursor</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>]</span>
+        <a href="JsCursorImpl.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@30a33e64">JsCursorImpl</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="JsCursor.html" class="extype" name="play.modules.reactivemongo.json.collection.JsCursor">JsCursor</a>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>] with <span class="extype" name="reactivemongo.api.WrappedCursor">WrappedCursor</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.package@JsCursorImpl[T]extendsJsCursor[T]withWrappedCursor[T]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="play.modules.reactivemongo.json.collection.JsFlattenedCursor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Use <span class="extype" name="reactivemongo.play.json.collection.JsCursorImpl">reactivemongo.play.json.collection.JsCursorImpl</span></p></dd></dl></div>
+    </li><li name="play.modules.reactivemongo.json.collection.JsFlattenedCursor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="JsFlattenedCursor[T]extendsFlattenedCursor[T]withJsCursor[T]"></a>
       <a id="JsFlattenedCursor[T]:JsFlattenedCursor[T]"></a>
       <h4 class="signature">
@@ -165,10 +178,37 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="JsFlattenedCursor.html"><span class="name">JsFlattenedCursor</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsFlattenedCursor.T">T</span>] with <a href="JsCursor.html" class="extype" name="play.modules.reactivemongo.json.collection.JsCursor">JsCursor</a>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsFlattenedCursor.T">T</span>]</span>
+        <a href="JsFlattenedCursor.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@29251345">JsFlattenedCursor</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="reactivemongo.api.FlattenedCursor">FlattenedCursor</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsFlattenedCursor.T">T</span>] with <a href="JsCursor.html" class="extype" name="play.modules.reactivemongo.json.collection.JsCursor">JsCursor</a>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsFlattenedCursor.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.package@JsFlattenedCursor[T]extendsFlattenedCursor[T]withJsCursor[T]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Use <span class="extype" name="reactivemongo.play.json.collection.JsFlattenedCursor">reactivemongo.play.json.collection.JsFlattenedCursor</span></p></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="play.modules.reactivemongo.json.collection.JSONCollectionProducer" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="JSONCollectionProducer"></a>
+      <a id="JSONCollectionProducer:JSONCollectionProducer"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="package$$JSONCollectionProducer$.html"><span class="name">JSONCollectionProducer</span></a><span class="result"> extends <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</span>[<span class="extype" name="reactivemongo.play.json.JSONSerializationPack">reactivemongo.play.json.JSONSerializationPack</span>.type, <a href="JSONCollection.html" class="extype" name="play.modules.reactivemongo.json.collection.JSONCollection">JSONCollection</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.package@JSONCollectionProducer" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -179,8 +219,8 @@
         
 
         <div id="values" class="values members">
-              <h3>Value Members</h3>
-              <ol><li name="play.modules.reactivemongo.json.collection.JSONBatchCommands" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="play.modules.reactivemongo.json.collection.JSONBatchCommands" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="JSONBatchCommands"></a>
       <a id="JSONBatchCommands:JSONBatchCommands"></a>
       <h4 class="signature">
@@ -189,32 +229,18 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="JSONBatchCommands$.html"><span class="name">JSONBatchCommands</span></a><span class="result"> extends <span class="extype" name="reactivemongo.api.collections.BatchCommands">BatchCommands</span>[<a href="../JSONSerializationPack$.html" class="extype" name="play.modules.reactivemongo.json.JSONSerializationPack">JSONSerializationPack</a>.type]</span>
+        <a href="JSONBatchCommands$.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@4fead183">JSONBatchCommands</span></a><span class="result"> extends <span class="extype" name="reactivemongo.api.collections.BatchCommands">BatchCommands</span>[<span class="extype" name="reactivemongo.play.json.JSONSerializationPack">reactivemongo.play.json.JSONSerializationPack</span>.type]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.package@JSONBatchCommands" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="play.modules.reactivemongo.json.collection.JSONCollectionProducer" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="JSONCollectionProducer"></a>
-      <a id="JSONCollectionProducer:JSONCollectionProducer"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">implicit </span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="package$$JSONCollectionProducer$.html"><span class="name">JSONCollectionProducer</span></a><span class="result"> extends <span class="extype" name="reactivemongo.api.collections.GenericCollectionProducer">GenericCollectionProducer</span>[<a href="../JSONSerializationPack$.html" class="extype" name="play.modules.reactivemongo.json.JSONSerializationPack">JSONSerializationPack</a>.type, <a href="JSONCollection.html" class="extype" name="play.modules.reactivemongo.json.collection.JSONCollection">JSONCollection</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.package@JSONCollectionProducer" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="play.modules.reactivemongo.json.collection.JsCursor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Use <span class="extype" name="reactivemongo.play.json.collection.JSONBatchCommands">reactivemongo.play.json.collection.JSONBatchCommands</span></p></dd></dl></div>
+    </li><li name="play.modules.reactivemongo.json.collection.JsCursor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="JsCursor"></a>
       <a id="JsCursor:JsCursor"></a>
       <h4 class="signature">
@@ -223,20 +249,19 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="JsCursor$.html"><span class="name">JsCursor</span></a>
+        <a href="JsCursor$.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@2f1eee38">JsCursor</span></a>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.package@JsCursor" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Implicits of the JSON extensions for cursors.</p>
+      <p class="shortcomment cmt">Implicits of the JSON extensions for cursors.</p><div class="fullcomment"><div class="comment cmt"><p>Implicits of the JSON extensions for cursors.</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Use <span class="extype" name="reactivemongo.play.json.collection.JsCursor">reactivemongo.play.json.collection.JsCursor</span></p></dd></dl></div>
     </li></ol>
             </div>
-
-        
-
-        
         </div>
 
         <div id="inheritedMembers">

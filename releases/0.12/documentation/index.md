@@ -7,7 +7,8 @@ title: ReactiveMongo 0.12 - Documentation
 
 * You can read the [release notes](release-details.html) to know what is included in this release.
 * The Scaladoc for the Driver API can be browsed [here](../api/index.html).
-The API for this module can be [browsed online](../play-api/index.html).
+* The API for this module can be [browsed online](../play-api/index.html).
+* The API for the standalone JSON serialization is [also available](../json-api/index.html).
 
 The dependency can be added in your SBT project as following: `"org.reactivemongo" %% "reactivemongo" % "{{site._0_12_latest_minor}}"`
 

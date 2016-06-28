@@ -71,8 +71,11 @@ In a Play application, the [Playframework logging](https://www.playframework.com
 As [akka](http://akka.io) is used, so it can be useful to also configure its [logging](http://doc.akka.io/docs/akka/2.4.7/scala/logging.html).
 
 {% highlight ocaml %}
-akka {
-  loglevel = "WARNING"
+mongo-async-driver {
+  akka {
+    loggers = ["akka.event.slf4j.Slf4jLogger"]
+    loglevel = DEBUG
+  }
 }
 {% endhighlight %}
 

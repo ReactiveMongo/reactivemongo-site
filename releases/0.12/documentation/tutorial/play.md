@@ -39,6 +39,8 @@ libraryDependencies ++= Seq(
 
 The [API of this Play module](../../play-api/index.html) can be browsed online.
 
+The API for the standalone JSON serialization is [also available](../../json-api/index.html).
+
 If you want to use the latest snapshot, add the following instead (only for play > 2.4):
 
 {% highlight ocaml %}

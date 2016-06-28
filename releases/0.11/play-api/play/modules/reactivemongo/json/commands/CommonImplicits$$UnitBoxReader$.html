@@ -45,13 +45,13 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">UnitBoxReader</span><span class="result"> extends <span class="extype" name="play.api.libs.json.Reads">Reads</span>[<span class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</span>.type]</span>
+        <span class="name">UnitBoxReader</span><span class="result"> extends <span class="extype" name="play.modules.reactivemongo.json.commands.DealingWithGenericCommandErrorsReader">DealingWithGenericCommandErrorsReader</span>[<span class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</span>.type]</span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="play.api.libs.json.Reads">Reads</span>[<span class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</span>.type], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="play.modules.reactivemongo.json.commands.DealingWithGenericCommandErrorsReader">DealingWithGenericCommandErrorsReader</span>[<span class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</span>.type], <span class="extype" name="play.api.libs.json.Reads">Reads</span>[<span class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</span>.type], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -62,20 +62,20 @@
               <ol>
                 
                 <li class="alpha in"><span>Alphabetic</span></li>
-                <li class="inherit out"><span>By inheritance</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
               </ol>
             </div>
         <div id="ancestors">
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="play.modules.reactivemongo.json.commands.CommonImplicits.UnitBoxReader"><span>UnitBoxReader</span></li><li class="in" name="play.api.libs.json.Reads"><span>Reads</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="play.modules.reactivemongo.json.commands.CommonImplicits.UnitBoxReader"><span>UnitBoxReader</span></li><li class="in" name="play.modules.reactivemongo.json.commands.DealingWithGenericCommandErrorsReader"><span>DealingWithGenericCommandErrorsReader</span></li><li class="in" name="play.api.libs.json.Reads"><span>Reads</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
             <ol>
               <li class="hideall out"><span>Hide All</span></li>
-              <li class="showall in"><span>Show all</span></li>
+              <li class="showall in"><span>Show All</span></li>
             </ol>
           </div>
         <div id="visbl">
@@ -514,23 +514,40 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Reads</dd></dl></div>
-    </li><li name="play.modules.reactivemongo.json.commands.CommonImplicits.UnitBoxReader#reads" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="reads(doc:play.api.libs.json.JsValue):play.api.libs.json.JsResult[reactivemongo.api.commands.UnitBox.type]"></a>
-      <a id="reads(JsValue):JsResult[UnitBox.type]"></a>
+    </li><li name="play.modules.reactivemongo.json.commands.CommonImplicits.UnitBoxReader#readResult" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="readResult(doc:play.api.libs.json.JsObject):reactivemongo.api.commands.UnitBox.type"></a>
+      <a id="readResult(JsObject):UnitBox.type"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">reads</span><span class="params">(<span name="doc">doc: <span class="extype" name="play.api.libs.json.JsValue">JsValue</span></span>)</span><span class="result">: <span class="extype" name="play.api.libs.json.JsResult">JsResult</span>[<span class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</span>.type]</span>
+        <span class="name">readResult</span><span class="params">(<span name="doc">doc: <span class="extype" name="play.api.libs.json.JsObject">JsObject</span></span>)</span><span class="result">: <span class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</span>.type</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#play.modules.reactivemongo.json.commands.CommonImplicits$$UnitBoxReader$@reads(doc:play.api.libs.json.JsValue):play.api.libs.json.JsResult[reactivemongo.api.commands.UnitBox.type]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#play.modules.reactivemongo.json.commands.CommonImplicits$$UnitBoxReader$@readResult(doc:play.api.libs.json.JsObject):reactivemongo.api.commands.UnitBox.type" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="play.modules.reactivemongo.json.commands.CommonImplicits.UnitBoxReader">UnitBoxReader</a> → Reads</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="play.modules.reactivemongo.json.commands.CommonImplicits.UnitBoxReader">UnitBoxReader</a> → DealingWithGenericCommandErrorsReader</dd></dl></div>
+    </li><li name="play.modules.reactivemongo.json.commands.DealingWithGenericCommandErrorsReader#reads" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="reads(json:play.api.libs.json.JsValue):play.api.libs.json.JsResult[A]"></a>
+      <a id="reads(JsValue):JsResult[UnitBox.type]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">reads</span><span class="params">(<span name="json">json: <span class="extype" name="play.api.libs.json.JsValue">JsValue</span></span>)</span><span class="result">: <span class="extype" name="play.api.libs.json.JsResult">JsResult</span>[<span class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</span>.type]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#play.modules.reactivemongo.json.commands.CommonImplicits$$UnitBoxReader$@reads(json:play.api.libs.json.JsValue):play.api.libs.json.JsResult[A]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>DealingWithGenericCommandErrorsReader → Reads</dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -643,7 +660,9 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="play.api.libs.json.Reads">
+        <div class="parent" name="play.modules.reactivemongo.json.commands.DealingWithGenericCommandErrorsReader">
+              <h3>Inherited from <span class="extype" name="play.modules.reactivemongo.json.commands.DealingWithGenericCommandErrorsReader">DealingWithGenericCommandErrorsReader</span>[<span class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</span>.type]</h3>
+            </div><div class="parent" name="play.api.libs.json.Reads">
               <h3>Inherited from <span class="extype" name="play.api.libs.json.Reads">Reads</span>[<span class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</span>.type]</h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>

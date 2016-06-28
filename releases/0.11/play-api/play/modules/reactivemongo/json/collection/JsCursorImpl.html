@@ -45,11 +45,14 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">JsCursorImpl</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="JsCursor.html" class="extype" name="play.modules.reactivemongo.json.collection.JsCursor">JsCursor</a>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>] with <span class="extype" name="reactivemongo.api.WrappedCursor">WrappedCursor</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>]</span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@3543fc36">JsCursorImpl</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="JsCursor.html" class="extype" name="play.modules.reactivemongo.json.collection.JsCursor">JsCursor</a>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>] with <span class="extype" name="reactivemongo.api.WrappedCursor">WrappedCursor</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>]</span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Use <span class="extype" name="reactivemongo.play.json.collection.JsCursorImpl">reactivemongo.play.json.collection.JsCursorImpl</span></p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="reactivemongo.api.WrappedCursor">WrappedCursor</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>], <a href="JsCursor.html" class="extype" name="play.modules.reactivemongo.json.collection.JsCursor">JsCursor</a>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>], <span class="extype" name="reactivemongo.api.Cursor">Cursor</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -62,7 +65,7 @@
               <ol>
                 
                 <li class="alpha in"><span>Alphabetic</span></li>
-                <li class="inherit out"><span>By inheritance</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
               </ol>
             </div>
         <div id="ancestors">
@@ -75,7 +78,7 @@
             <span class="filtertype"></span>
             <ol>
               <li class="hideall out"><span>Hide All</span></li>
-              <li class="showall in"><span>Show all</span></li>
+              <li class="showall in"><span>Show All</span></li>
             </ol>
           </div>
         <div id="visbl">
@@ -206,7 +209,7 @@
               
         </dd></dl></div>
     </li><li name="reactivemongo.api.WrappedCursor#collect" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="collect[M[_]](upTo:Int,stopOnError:Boolean)(implicitcbf:scala.collection.generic.CanBuildFrom[M[_],T,M[T]],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[M[T]]"></a>
+      <a id="collect[M[_]](maxDocs:Int,stopOnError:Boolean)(implicitcbf:scala.collection.generic.CanBuildFrom[M[_],T,M[T]],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[M[T]]"></a>
       <a id="collect[M[_]](Int,Boolean)(CanBuildFrom[M[_],T,M[T]],ExecutionContext):Future[M[T]]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -214,61 +217,44 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">collect</span><span class="tparams">[<span name="M">M<span class="tparams">[<span name="_">_</span>]</span></span>]</span><span class="params">(<span name="upTo">upTo: <span class="extype" name="scala.Int">Int</span></span>, <span name="stopOnError">stopOnError: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cbf">cbf: <span class="extype" name="scala.collection.generic.CanBuildFrom">CanBuildFrom</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.collect.M">M</span>[_], <span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>, <span class="extype" name="reactivemongo.api.WrappedCursor.collect.M">M</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>]]</span>, <span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.collect.M">M</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>]]</span>
+        <span class="name">collect</span><span class="tparams">[<span name="M">M<span class="tparams">[<span name="_">_</span>]</span></span>]</span><span class="params">(<span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>, <span name="stopOnError">stopOnError: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cbf">cbf: <span class="extype" name="scala.collection.generic.CanBuildFrom">CanBuildFrom</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.collect.M">M</span>[_], <span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>, <span class="extype" name="reactivemongo.api.WrappedCursor.collect.M">M</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>]]</span>, <span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.collect.M">M</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>]]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@collect[M[_]](upTo:Int,stopOnError:Boolean)(implicitcbf:scala.collection.generic.CanBuildFrom[M[_],T,M[T]],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[M[T]]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@collect[M[_]](maxDocs:Int,stopOnError:Boolean)(implicitcbf:scala.collection.generic.CanBuildFrom[M[_],T,M[T]],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[M[T]]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>WrappedCursor → Cursor</dd></dl></div>
-    </li><li name="reactivemongo.api.WrappedCursor#enumerate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="enumerate(maxDocs:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[T]"></a>
-      <a id="enumerate(Int,Boolean)(ExecutionContext):Enumerator[T]"></a>
+    </li><li name="reactivemongo.api.WrappedCursor#collect" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="collect[M[_]](maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[M[T]])(implicitcbf:scala.collection.generic.CanBuildFrom[M[_],T,M[T]],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[M[T]]"></a>
+      <a id="collect[M[_]](Int,ErrorHandler[M[T]])(CanBuildFrom[M[_],T,M[T]],ExecutionContext):Future[M[T]]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">enumerate</span><span class="params">(<span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>, <span name="stopOnError">stopOnError: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ctx">ctx: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="play.api.libs.iteratee.Enumerator">Enumerator</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>]</span>
+        <span class="name">collect</span><span class="tparams">[<span name="M">M<span class="tparams">[<span name="_">_</span>]</span></span>]</span><span class="params">(<span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>, <span name="err">err: <span class="extype" name="reactivemongo.api.Cursor.ErrorHandler">ErrorHandler</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.collect.M">M</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>]]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cbf">cbf: <span class="extype" name="scala.collection.generic.CanBuildFrom">CanBuildFrom</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.collect.M">M</span>[_], <span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>, <span class="extype" name="reactivemongo.api.WrappedCursor.collect.M">M</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>]]</span>, <span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.collect.M">M</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>]]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@enumerate(maxDocs:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[T]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@collect[M[_]](maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[M[T]])(implicitcbf:scala.collection.generic.CanBuildFrom[M[_],T,M[T]],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[M[T]]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>WrappedCursor → Cursor</dd></dl></div>
-    </li><li name="reactivemongo.api.WrappedCursor#enumerateBulks" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="enumerateBulks(maxDocs:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[Iterator[T]]"></a>
-      <a id="enumerateBulks(Int,Boolean)(ExecutionContext):Enumerator[Iterator[T]]"></a>
+    </li><li name="reactivemongo.api.WrappedCursor#documentIterator" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="documentIterator(response:reactivemongo.core.protocol.Response)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Iterator[T]]"></a>
+      <a id="documentIterator(Response)(ExecutionContext):Future[Iterator[T]]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">enumerateBulks</span><span class="params">(<span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>, <span name="stopOnError">stopOnError: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ctx">ctx: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="play.api.libs.iteratee.Enumerator">Enumerator</span>[<span class="extype" name="scala.Iterator">Iterator</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>]]</span>
+        <span class="name">documentIterator</span><span class="params">(<span name="response">response: <span class="extype" name="reactivemongo.core.protocol.Response">Response</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Iterator">Iterator</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>]]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@enumerateBulks(maxDocs:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[Iterator[T]]" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>WrappedCursor → Cursor</dd></dl></div>
-    </li><li name="reactivemongo.api.WrappedCursor#enumerateResponses" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="enumerateResponses(maxDocs:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[reactivemongo.core.protocol.Response]"></a>
-      <a id="enumerateResponses(Int,Boolean)(ExecutionContext):Enumerator[Response]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">enumerateResponses</span><span class="params">(<span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>, <span name="stopOnError">stopOnError: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ctx">ctx: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="play.api.libs.iteratee.Enumerator">Enumerator</span>[<span class="extype" name="reactivemongo.core.protocol.Response">Response</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@enumerateResponses(maxDocs:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[reactivemongo.core.protocol.Response]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@documentIterator(response:reactivemongo.core.protocol.Response)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Iterator[T]]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -330,53 +316,121 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="reactivemongo.api.WrappedCursor#foldBulks" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="foldBulks[A](z:=&gt;A,maxDocs:Int)(suc:(A,Iterator[T])=&gt;reactivemongo.api.Cursor.State[A],err:(A,Throwable)=&gt;reactivemongo.api.Cursor.State[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
-      <a id="foldBulks[A](⇒A,Int)((A,Iterator[T])⇒State[A],(A,Throwable)⇒State[A])(ExecutionContext):Future[A]"></a>
+    </li><li name="reactivemongo.api.Cursor#fold" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="fold[A](z:=&gt;A,maxDocs:Int)(suc:(A,T)=&gt;A)(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
+      <a id="fold[A](⇒A,Int)((A,T)⇒A)(ExecutionContext):Future[A]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">foldBulks</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="z">z: ⇒ <span class="extype" name="reactivemongo.api.WrappedCursor.foldBulks.A">A</span></span>, <span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="params">(<span name="suc">suc: (<span class="extype" name="reactivemongo.api.WrappedCursor.foldBulks.A">A</span>, <span class="extype" name="scala.Iterator">Iterator</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>]) ⇒ <span class="extype" name="reactivemongo.api.Cursor.State">State</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldBulks.A">A</span>]</span>, <span name="err">err: (<span class="extype" name="reactivemongo.api.WrappedCursor.foldBulks.A">A</span>, <span class="extype" name="scala.Throwable">Throwable</span>) ⇒ <span class="extype" name="reactivemongo.api.Cursor.State">State</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldBulks.A">A</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ctx">ctx: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldBulks.A">A</span>]</span>
+        <span class="name">fold</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="z">z: ⇒ <span class="extype" name="reactivemongo.api.Cursor.fold.A">A</span></span>, <span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="params">(<span name="suc">suc: (<span class="extype" name="reactivemongo.api.Cursor.fold.A">A</span>, <span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>) ⇒ <span class="extype" name="reactivemongo.api.Cursor.fold.A">A</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ctx">ctx: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="reactivemongo.api.Cursor.fold.A">A</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@foldBulks[A](z:=&gt;A,maxDocs:Int)(suc:(A,Iterator[T])=&gt;reactivemongo.api.Cursor.State[A],err:(A,Throwable)=&gt;reactivemongo.api.Cursor.State[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@fold[A](z:=&gt;A,maxDocs:Int)(suc:(A,T)=&gt;A)(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Cursor</dd></dl></div>
+    </li><li name="reactivemongo.api.WrappedCursor#foldBulks" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="foldBulks[A](z:=&gt;A,maxDocs:Int)(suc:(A,Iterator[T])=&gt;reactivemongo.api.Cursor.State[A],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
+      <a id="foldBulks[A](⇒A,Int)((A,Iterator[T])⇒State[A],ErrorHandler[A])(ExecutionContext):Future[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">foldBulks</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="z">z: ⇒ <span class="extype" name="reactivemongo.api.WrappedCursor.foldBulks.A">A</span></span>, <span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="params">(<span name="suc">suc: (<span class="extype" name="reactivemongo.api.WrappedCursor.foldBulks.A">A</span>, <span class="extype" name="scala.Iterator">Iterator</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>]) ⇒ <span class="extype" name="reactivemongo.api.Cursor.State">State</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldBulks.A">A</span>]</span>, <span name="err">err: <span class="extype" name="reactivemongo.api.Cursor.ErrorHandler">ErrorHandler</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldBulks.A">A</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ctx">ctx: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldBulks.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@foldBulks[A](z:=&gt;A,maxDocs:Int)(suc:(A,Iterator[T])=&gt;reactivemongo.api.Cursor.State[A],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>WrappedCursor → Cursor</dd></dl></div>
+    </li><li name="reactivemongo.api.WrappedCursor#foldBulksM" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="foldBulksM[A](z:=&gt;A,maxDocs:Int)(suc:(A,Iterator[T])=&gt;scala.concurrent.Future[reactivemongo.api.Cursor.State[A]],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
+      <a id="foldBulksM[A](⇒A,Int)((A,Iterator[T])⇒Future[State[A]],ErrorHandler[A])(ExecutionContext):Future[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">foldBulksM</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="z">z: ⇒ <span class="extype" name="reactivemongo.api.WrappedCursor.foldBulksM.A">A</span></span>, <span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="params">(<span name="suc">suc: (<span class="extype" name="reactivemongo.api.WrappedCursor.foldBulksM.A">A</span>, <span class="extype" name="scala.Iterator">Iterator</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>]) ⇒ <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="reactivemongo.api.Cursor.State">State</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldBulksM.A">A</span>]]</span>, <span name="err">err: <span class="extype" name="reactivemongo.api.Cursor.ErrorHandler">ErrorHandler</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldBulksM.A">A</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ctx">ctx: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldBulksM.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@foldBulksM[A](z:=&gt;A,maxDocs:Int)(suc:(A,Iterator[T])=&gt;scala.concurrent.Future[reactivemongo.api.Cursor.State[A]],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>WrappedCursor → Cursor</dd></dl></div>
     </li><li name="reactivemongo.api.WrappedCursor#foldResponses" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="foldResponses[A](z:=&gt;A,maxDocs:Int)(suc:(A,reactivemongo.core.protocol.Response)=&gt;reactivemongo.api.Cursor.State[A],err:(A,Throwable)=&gt;reactivemongo.api.Cursor.State[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
-      <a id="foldResponses[A](⇒A,Int)((A,Response)⇒State[A],(A,Throwable)⇒State[A])(ExecutionContext):Future[A]"></a>
+      <a id="foldResponses[A](z:=&gt;A,maxDocs:Int)(suc:(A,reactivemongo.core.protocol.Response)=&gt;reactivemongo.api.Cursor.State[A],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
+      <a id="foldResponses[A](⇒A,Int)((A,Response)⇒State[A],ErrorHandler[A])(ExecutionContext):Future[A]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">foldResponses</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="z">z: ⇒ <span class="extype" name="reactivemongo.api.WrappedCursor.foldResponses.A">A</span></span>, <span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="params">(<span name="suc">suc: (<span class="extype" name="reactivemongo.api.WrappedCursor.foldResponses.A">A</span>, <span class="extype" name="reactivemongo.core.protocol.Response">Response</span>) ⇒ <span class="extype" name="reactivemongo.api.Cursor.State">State</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldResponses.A">A</span>]</span>, <span name="err">err: (<span class="extype" name="reactivemongo.api.WrappedCursor.foldResponses.A">A</span>, <span class="extype" name="scala.Throwable">Throwable</span>) ⇒ <span class="extype" name="reactivemongo.api.Cursor.State">State</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldResponses.A">A</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ctx">ctx: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldResponses.A">A</span>]</span>
+        <span class="name">foldResponses</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="z">z: ⇒ <span class="extype" name="reactivemongo.api.WrappedCursor.foldResponses.A">A</span></span>, <span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="params">(<span name="suc">suc: (<span class="extype" name="reactivemongo.api.WrappedCursor.foldResponses.A">A</span>, <span class="extype" name="reactivemongo.core.protocol.Response">Response</span>) ⇒ <span class="extype" name="reactivemongo.api.Cursor.State">State</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldResponses.A">A</span>]</span>, <span name="err">err: <span class="extype" name="reactivemongo.api.Cursor.ErrorHandler">ErrorHandler</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldResponses.A">A</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ctx">ctx: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldResponses.A">A</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@foldResponses[A](z:=&gt;A,maxDocs:Int)(suc:(A,reactivemongo.core.protocol.Response)=&gt;reactivemongo.api.Cursor.State[A],err:(A,Throwable)=&gt;reactivemongo.api.Cursor.State[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@foldResponses[A](z:=&gt;A,maxDocs:Int)(suc:(A,reactivemongo.core.protocol.Response)=&gt;reactivemongo.api.Cursor.State[A],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>WrappedCursor → Cursor</dd></dl></div>
+    </li><li name="reactivemongo.api.WrappedCursor#foldResponsesM" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="foldResponsesM[A](z:=&gt;A,maxDocs:Int)(suc:(A,reactivemongo.core.protocol.Response)=&gt;scala.concurrent.Future[reactivemongo.api.Cursor.State[A]],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
+      <a id="foldResponsesM[A](⇒A,Int)((A,Response)⇒Future[State[A]],ErrorHandler[A])(ExecutionContext):Future[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">foldResponsesM</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="z">z: ⇒ <span class="extype" name="reactivemongo.api.WrappedCursor.foldResponsesM.A">A</span></span>, <span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="params">(<span name="suc">suc: (<span class="extype" name="reactivemongo.api.WrappedCursor.foldResponsesM.A">A</span>, <span class="extype" name="reactivemongo.core.protocol.Response">Response</span>) ⇒ <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="reactivemongo.api.Cursor.State">State</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldResponsesM.A">A</span>]]</span>, <span name="err">err: <span class="extype" name="reactivemongo.api.Cursor.ErrorHandler">ErrorHandler</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldResponsesM.A">A</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ctx">ctx: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldResponsesM.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@foldResponsesM[A](z:=&gt;A,maxDocs:Int)(suc:(A,reactivemongo.core.protocol.Response)=&gt;scala.concurrent.Future[reactivemongo.api.Cursor.State[A]],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>WrappedCursor → Cursor</dd></dl></div>
     </li><li name="reactivemongo.api.WrappedCursor#foldWhile" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="foldWhile[A](z:=&gt;A,maxDocs:Int)(suc:(A,T)=&gt;reactivemongo.api.Cursor.State[A],err:(A,Throwable)=&gt;reactivemongo.api.Cursor.State[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
-      <a id="foldWhile[A](⇒A,Int)((A,T)⇒State[A],(A,Throwable)⇒State[A])(ExecutionContext):Future[A]"></a>
+      <a id="foldWhile[A](z:=&gt;A,maxDocs:Int)(suc:(A,T)=&gt;reactivemongo.api.Cursor.State[A],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
+      <a id="foldWhile[A](⇒A,Int)((A,T)⇒State[A],ErrorHandler[A])(ExecutionContext):Future[A]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">foldWhile</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="z">z: ⇒ <span class="extype" name="reactivemongo.api.WrappedCursor.foldWhile.A">A</span></span>, <span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="params">(<span name="suc">suc: (<span class="extype" name="reactivemongo.api.WrappedCursor.foldWhile.A">A</span>, <span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>) ⇒ <span class="extype" name="reactivemongo.api.Cursor.State">State</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldWhile.A">A</span>]</span>, <span name="err">err: (<span class="extype" name="reactivemongo.api.WrappedCursor.foldWhile.A">A</span>, <span class="extype" name="scala.Throwable">Throwable</span>) ⇒ <span class="extype" name="reactivemongo.api.Cursor.State">State</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldWhile.A">A</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ctx">ctx: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldWhile.A">A</span>]</span>
+        <span class="name">foldWhile</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="z">z: ⇒ <span class="extype" name="reactivemongo.api.WrappedCursor.foldWhile.A">A</span></span>, <span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="params">(<span name="suc">suc: (<span class="extype" name="reactivemongo.api.WrappedCursor.foldWhile.A">A</span>, <span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>) ⇒ <span class="extype" name="reactivemongo.api.Cursor.State">State</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldWhile.A">A</span>]</span>, <span name="err">err: <span class="extype" name="reactivemongo.api.Cursor.ErrorHandler">ErrorHandler</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldWhile.A">A</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ctx">ctx: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldWhile.A">A</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@foldWhile[A](z:=&gt;A,maxDocs:Int)(suc:(A,T)=&gt;reactivemongo.api.Cursor.State[A],err:(A,Throwable)=&gt;reactivemongo.api.Cursor.State[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@foldWhile[A](z:=&gt;A,maxDocs:Int)(suc:(A,T)=&gt;reactivemongo.api.Cursor.State[A],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>WrappedCursor → Cursor</dd></dl></div>
+    </li><li name="reactivemongo.api.WrappedCursor#foldWhileM" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="foldWhileM[A](z:=&gt;A,maxDocs:Int)(suc:(A,T)=&gt;scala.concurrent.Future[reactivemongo.api.Cursor.State[A]],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
+      <a id="foldWhileM[A](⇒A,Int)((A,T)⇒Future[State[A]],ErrorHandler[A])(ExecutionContext):Future[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">foldWhileM</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="z">z: ⇒ <span class="extype" name="reactivemongo.api.WrappedCursor.foldWhileM.A">A</span></span>, <span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="params">(<span name="suc">suc: (<span class="extype" name="reactivemongo.api.WrappedCursor.foldWhileM.A">A</span>, <span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>) ⇒ <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="reactivemongo.api.Cursor.State">State</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldWhileM.A">A</span>]]</span>, <span name="err">err: <span class="extype" name="reactivemongo.api.Cursor.ErrorHandler">ErrorHandler</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldWhileM.A">A</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ctx">ctx: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="reactivemongo.api.WrappedCursor.foldWhileM.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@foldWhileM[A](z:=&gt;A,maxDocs:Int)(suc:(A,T)=&gt;scala.concurrent.Future[reactivemongo.api.Cursor.State[A]],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -467,6 +521,23 @@
     </span>
       <p class="shortcomment cmt">Returns the result of cursor as a JSON array.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the result of cursor as a JSON array.
 </p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>Maximum number of documents to be retrieved</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl">JsCursorImpl</a> → <a href="JsCursor.html" class="extype" name="play.modules.reactivemongo.json.collection.JsCursor">JsCursor</a></dd></dl></div>
+    </li><li name="reactivemongo.api.WrappedCursor#makeRequest" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="makeRequest(maxDocs:Int)(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.protocol.Response]"></a>
+      <a id="makeRequest(Int)(ExecutionContext):Future[Response]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">makeRequest</span><span class="params">(<span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ctx">ctx: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="reactivemongo.core.protocol.Response">Response</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@makeRequest(maxDocs:Int)(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.protocol.Response]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>WrappedCursor → Cursor</dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -484,6 +555,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="reactivemongo.api.WrappedCursor#nextResponse" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nextResponse(maxDocs:Int):(scala.concurrent.ExecutionContext,reactivemongo.core.protocol.Response)=&gt;scala.concurrent.Future[Option[reactivemongo.core.protocol.Response]]"></a>
+      <a id="nextResponse(Int):(ExecutionContext,Response)⇒Future[Option[Response]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nextResponse</span><span class="params">(<span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: (<span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span>, <span class="extype" name="reactivemongo.core.protocol.Response">Response</span>) ⇒ <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Option">Option</span>[<span class="extype" name="reactivemongo.core.protocol.Response">Response</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@nextResponse(maxDocs:Int):(scala.concurrent.ExecutionContext,reactivemongo.core.protocol.Response)=&gt;scala.concurrent.Future[Option[reactivemongo.core.protocol.Response]]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>WrappedCursor → Cursor</dd></dl></div>
     </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <a id="notify():Unit"></a>
@@ -518,23 +606,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="reactivemongo.api.WrappedCursor#rawEnumerateResponses" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="rawEnumerateResponses(maxDocs:Int)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[reactivemongo.core.protocol.Response]"></a>
-      <a id="rawEnumerateResponses(Int)(ExecutionContext):Enumerator[Response]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">rawEnumerateResponses</span><span class="params">(<span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ctx">ctx: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="play.api.libs.iteratee.Enumerator">Enumerator</span>[<span class="extype" name="reactivemongo.core.protocol.Response">Response</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@rawEnumerateResponses(maxDocs:Int)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[reactivemongo.core.protocol.Response]" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>WrappedCursor → Cursor</dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -662,8 +733,88 @@
 
         <div id="values" class="values members">
               <h3>Deprecated Value Members</h3>
-              <ol><li name="reactivemongo.api.Cursor#toList" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toList(upTo:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[List[T]]"></a>
+              <ol><li name="reactivemongo.api.WrappedCursor#enumerate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="enumerate(maxDocs:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[T]"></a>
+      <a id="enumerate(Int,Boolean)(ExecutionContext):Enumerator[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.10) Use the Play Iteratee modules">enumerate</span><span class="params">(<span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>, <span name="stopOnError">stopOnError: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ctx">ctx: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="play.api.libs.iteratee.Enumerator">Enumerator</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@enumerate(maxDocs:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[T]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>WrappedCursor → Cursor</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.10)</i> Use the Play Iteratee modules</p></dd></dl></div>
+    </li><li name="reactivemongo.api.WrappedCursor#enumerateBulks" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="enumerateBulks(maxDocs:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[Iterator[T]]"></a>
+      <a id="enumerateBulks(Int,Boolean)(ExecutionContext):Enumerator[Iterator[T]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.10) Use the Play Iteratee modules">enumerateBulks</span><span class="params">(<span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>, <span name="stopOnError">stopOnError: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ctx">ctx: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="play.api.libs.iteratee.Enumerator">Enumerator</span>[<span class="extype" name="scala.Iterator">Iterator</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@enumerateBulks(maxDocs:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[Iterator[T]]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>WrappedCursor → Cursor</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.10)</i> Use the Play Iteratee modules</p></dd></dl></div>
+    </li><li name="reactivemongo.api.WrappedCursor#enumerateResponses" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="enumerateResponses(maxDocs:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[reactivemongo.core.protocol.Response]"></a>
+      <a id="enumerateResponses(Int,Boolean)(ExecutionContext):Enumerator[Response]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.10) Use the Play Iteratee modules">enumerateResponses</span><span class="params">(<span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>, <span name="stopOnError">stopOnError: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ctx">ctx: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="play.api.libs.iteratee.Enumerator">Enumerator</span>[<span class="extype" name="reactivemongo.core.protocol.Response">Response</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@enumerateResponses(maxDocs:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[reactivemongo.core.protocol.Response]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>WrappedCursor → Cursor</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.10)</i> Use the Play Iteratee modules</p></dd></dl></div>
+    </li><li name="reactivemongo.api.WrappedCursor#rawEnumerateResponses" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="rawEnumerateResponses(maxDocs:Int)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[reactivemongo.core.protocol.Response]"></a>
+      <a id="rawEnumerateResponses(Int)(ExecutionContext):Enumerator[Response]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.10) Use the Play Iteratee modules">rawEnumerateResponses</span><span class="params">(<span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ctx">ctx: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="play.api.libs.iteratee.Enumerator">Enumerator</span>[<span class="extype" name="reactivemongo.core.protocol.Response">Response</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@rawEnumerateResponses(maxDocs:Int)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[reactivemongo.core.protocol.Response]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>WrappedCursor → Cursor</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.10)</i> Use the Play Iteratee modules</p></dd></dl></div>
+    </li><li name="reactivemongo.api.Cursor#toList" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toList(maxDocs:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[List[T]]"></a>
       <a id="toList(Int,Boolean)(ExecutionContext):Future[List[T]]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -671,10 +822,10 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.10.0) consider using collect[List] instead">toList</span><span class="params">(<span name="upTo">upTo: <span class="extype" name="scala.Int">Int</span></span>, <span name="stopOnError">stopOnError: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ctx">ctx: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.List">List</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>]]</span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.10.0) consider using collect[List] instead">toList</span><span class="params">(<span name="maxDocs">maxDocs: <span class="extype" name="scala.Int">Int</span></span>, <span name="stopOnError">stopOnError: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ctx">ctx: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.List">List</span>[<span class="extype" name="play.modules.reactivemongo.json.collection.JsCursorImpl.T">T</span>]]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@toList(upTo:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[List[T]]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#play.modules.reactivemongo.json.collection.JsCursorImpl@toList(maxDocs:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[List[T]]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>

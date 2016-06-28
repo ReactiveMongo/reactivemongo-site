@@ -20,6 +20,8 @@ The documentation of the module for the Play Framework can is [available online]
 
 The API for this module can be [browsed online](../play-api/index.html).
 
+The API for the standalone JSON serialization is [also available](../json-api/index.html).
+
 ### Tutorial
 
 1. [Add ReactiveMongo to your project](tutorial/setup.html)
