@@ -206,6 +206,45 @@ mongo-async-driver {
 
 ## Main features
 
+### Routing
+
+The [BSON types](../bson/overview.html) can be used in the bindings of the Play routing.
+
+For example, consider an action as follows.
+
+{% highlight scala %}
+import play.api.mvc.{ Action, Controller }
+import reactivemongo.bson.BSONObjectID
+
+class Application extends Controller {
+  def foo(id: BSONObjectID) = Action {
+    Ok(s"Foo: ${id.stringify}")
+  }
+}
+{% endhighlight %}
+
+This action can be configured with a [`BSONObjectID`](../../api/reactivemongo/bson/BSONObjectID.html) binding, in the `conf/routes` file.
+
+    GET /foo/:id controllers.Application.foo(id: reactivemongo.bson.BSONObjectID)
+
+When using BSON types in the route bindings, the Play plugin for SBT must also be setup (in your `build.sbt` or `project/Build.scala`) to install the appropriate import in the generated routes.
+
+{% highlight ocaml %}
+import play.sbt.routes.RoutesKeys
+
+RoutesKeys.routesImport += "play.modules.reactivemongo.PathBindables._"
+{% endhighlight %}
+
+If this routes import is not configured, errors as following will occur.
+
+    [error] /path/to/conf/routes:19: No URL path binder found for type reactivemongo.bson.BSONObjectID. Try to implement an implicit PathBindable for this type.
+
+Once this is properly set up, any BSON types can be used in your routes, and the appropriate validations are used.
+
+In the current example with `BSONObjectID`, if calling `/foo/bar` (with `bar` bound as `:id`), then the error thereafter will be raised.
+
+    For request 'GET /foo/bar' [wrong ObjectId: 'bar']
+
 ### Helpers for GridFS
 
 Play2-ReactiveMongo makes it easy to serve and store files in a complete non-blocking manner.

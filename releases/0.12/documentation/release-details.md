@@ -12,7 +12,7 @@ You can also browse the [API](../api/index.html).
 
 > The [MongoDB](https://www.mongodb.org/) compatibility is now from 2.6 up to 3.2.
 
-**Database connection**
+### Database connection
 
 A new better [DB resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) is available (see [connection tutorial](tutorial/connect-database.html)).
 
@@ -74,7 +74,7 @@ import reactivemongo.api.MongoConnectionOptions
 val options3 = MongoConnectionOptions(monitorRefreshMS = 5000 /* 5s */)
 {% endhighlight %}
 
-**Aggregation**
+### Aggregation
 
 The ReactiveMongo collections now has the convenient operation [`.aggregate`](../../api/index.html#reactivemongo.api.collections.GenericCollection@aggregate%28firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,cursor:Option[GenericCollection.this.BatchCommands.AggregationFramework.Cursor]%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[GenericCollection.this.BatchCommands.AggregationFramework.AggregationResult]).
 
@@ -169,7 +169,7 @@ import reactivemongo.api.collections.bson.BSONCollection
 def distinctStates(col: BSONCollection)(implicit ec: ExecutionContext): Future[Set[String]] = col.distinct[String, Set]("state")
 {% endhighlight %}
 
-**BSON**
+### BSON
 
 A [BSON handler](../api/index.html#reactivemongo.bson.BSONHandler) is provided to respectively, read a [`java.util.Date`](http://docs.oracle.com/javase/8/docs/api/java/util/Date.html) from a [`BSONDateTime`](../api/reactivemongo/bson/BSONDateTime.html), and write a `Date` as `BSONDateTime`.
 
@@ -235,7 +235,7 @@ def foo(millis: Long) = BSONTimestamp(millis)
 def bar(time: Long, ordinal: Int) = BSONTimestamp(time, ordinal)
 {% endhighlight %}
 
-**Query**
+### Query
 
 The new streaming support is based on the function [`Cursor.foldWhileM[A]`](../api/index.html#reactivemongo.api.Cursor@foldWhileM[A](z:=%3EA,maxDocs:Int)(suc:(A,T)=%3Escala.concurrent.Future[reactivemongo.api.Cursor.State[A]],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]) (and its variants), which allows to implement custom stream processing.
 
@@ -343,7 +343,7 @@ def jsonExplain(col: JSONCollection): Future[Option[JsObject]] =
 
 *[More: The query builder API](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder)$
 
-**Playframework**
+### Playframework
 
 The [integration with Playframework](./tutorial/play.html) is still a priority for ReactiveMongo.
 
@@ -448,7 +448,36 @@ Without this import, the following error can occur.
 value enumerator is not a member of reactivemongo.api.CursorProducer[reactivemongo.bson.BSONDocument]#ProducedCursor
 {% endhighlight %}
 
-**Administration**
+**Routing**
+
+The [BSON types](bson/overview.html) can be used in the bindings of the Play routing.
+
+For example, consider a Play action as follows.
+
+{% highlight scala %}
+import play.api.mvc.{ Action, Controller }
+import reactivemongo.bson.BSONObjectID
+
+class Application extends Controller {
+  def foo(id: BSONObjectID) = Action {
+    Ok(s"Foo: ${id.stringify}")
+  }
+}
+{% endhighlight %}
+
+This action can be configured with a [`BSONObjectID`](../api/reactivemongo/bson/BSONObjectID.html) binding, in the `conf/routes` file.
+
+    GET /foo/:id controllers.Application.foo(id: reactivemongo.bson.BSONObjectID)
+
+When using BSON types in the route bindings, the Play plugin for SBT must be setup (in your `build.sbt` or `project/Build.scala`) to install the appropriate import in the generated routes.
+
+{% highlight ocaml %}
+import play.sbt.routes.RoutesKeys
+
+RoutesKeys.routesImport += "play.modules.reactivemongo.PathBindables._"
+{% endhighlight %}
+
+### Administration
   
 The new [`drop`](../api/index.html#reactivemongo.api.collections.GenericCollection@drop%28failIfNotFound:Boolean%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[Boolean]) operation can try, without failing if the collection doesn't exist. The previous behaviour is still available.
 
@@ -500,7 +529,7 @@ def createPartialIndex(col: BSONCollection): Future[WriteResult] =
     partialFilter = Some(BSONDocument("age" -> BSONDocument("$gte" -> 21)))))
 {% endhighlight %}
 
-**Logging**
+### Logging
 
 Log4J is still required for backward compatibility (by deprecated code), but is replaced by [SLF4J](http://www.slf4j.org/) for the [ReactiveMongo logging](./index.html#logging).
 
@@ -512,7 +541,7 @@ As for SLF4J is now used, the following error is raised, please make sure to pro
 
     NoClassDefFoundError: : org/slf4j/LoggerFactory
 
-**Dependencies**
+### Dependencies
 
 The [Netty](http://netty.io/) dependency has been updated to the version 3.10.4. To avoid conflict ([dependency hell](https://en.wikipedia.org/wiki/Dependency_hell)), this dependency has also been excluded from the Play module (as provided by Play). The Netty dependency will be shaded in a next release.
 
