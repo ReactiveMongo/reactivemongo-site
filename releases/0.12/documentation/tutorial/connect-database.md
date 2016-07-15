@@ -47,7 +47,7 @@ The following options can be used with `MongoConnectionOptions` to configure the
 - **authSource**: The database source for authentication credentials.
 - **authMode**: The authentication mode. By default, it's the backward compatible [MONGODB-CR](http://docs.mongodb.org/manual/core/authentication/#mongodb-cr-authentication) which is used. If this options is set to `scram-sha1`, then the [SCRAM-SHA-1](http://docs.mongodb.org/manual/core/authentication/#scram-sha-1-authentication) authentication will be selected.
 - **connectTimeoutMS**: The [number of milliseconds](https://docs.mongodb.org/manual/reference/connection-string/#urioption.connectTimeoutMS) to wait for a connection to be established before giving up.
-- **socketTimeoutMS**: The [time in milliseconds](https://docs.mongodb.org/manual/reference/connection-string/#urioption.socketTimeoutMS) to attempt a send or receive on a socket before the attempt times out.
+- [**maxIdleTimeMS**](https://docs.mongodb.com/manual/reference/connection-string/#urioption.maxIdleTimeMS): The maximum number of milliseconds that a connection can remain idle in the pool before being removed and closed.
 - **sslEnabled**: It enables the SSL support for the connection (`true|false`).
 - **sslAllowsInvalidCert**: If `sslEnabled` is true, this one indicates whether to accept invalid certificates (e.g. self-signed).
 - **rm.tcpNoDelay**: TCPNoDelay boolean flag (`true|false`).

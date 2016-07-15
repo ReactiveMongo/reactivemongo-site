@@ -150,3 +150,5 @@ There are convenient handler functions, that are helpful to implement a custom s
 - [`Ignore`](../../api/index.html#reactivemongo.api.Cursor$@Ignore[A](callback:A=%3EUnit):(Unit,A)=%3Ereactivemongo.api.Cursor.State[Unit]): Consume all the results, but ignoring all the values as `Unit`.
 
 Each fold operations (`foldResponses`, `foldBulks` or `foldWhile`) have variants working with a function returning a `Future[State[T]]` (instead of a synchronous `State[T]`).
+
+> When using the asynchronous fold operations, you need to take care of the fast producer/slow consumer issue. Otherwise, an unbound number of `Future` can be created, and so raise memory and/or thread issue.
