@@ -88,10 +88,11 @@ val collection5 = db5.map(_.collection("somecollection"))
 ## Connecting to a replica set
 
 ReactiveMongo provides support for Replica Sets. That means the following:
-* the driver will detect if it is connected to a Replica Set;
-* it will probe for the other nodes in the set and connect to them;
-* it will detect when the primary has changed and guess which is the new one;
-* it will allow running queries on secondaries if they are explicitely set to SlaveOk (See the [MongoDB documentation](http://docs.mongodb.org/manual/applications/replication/#replica-set-read-preference) for more details about querying secondary nodes).
+
+- The driver will detect if it is connected to a Replica Set;
+- It will probe for the other nodes in the set and connect to them;
+- It will detect when the primary has changed and guess which is the new one;
+- It will allow running queries on secondaries if they are explicitely set to SlaveOk (See the [MongoDB documentation](http://docs.mongodb.org/manual/applications/replication/#replica-set-read-preference) for more details about querying secondary nodes).
 
 Connecting to a Replica Set is pretty much the same as connecting to a unique server. You may have notice that the argument to `driver.connection()` method is a `List[String]`; you can also give more than one node in the replica set.
 
