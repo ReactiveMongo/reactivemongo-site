@@ -19,18 +19,23 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.bson.BSONDocument
 import reactivemongo.api.commands.WriteResult
+import reactivemongo.api.collections.bson.BSONCollection
 
-val document = BSONDocument(
+val document1 = BSONDocument(
   "firstName" -> "Stephane",
   "lastName" -> "Godbillon",
   "age" -> 29)
 
-val future1: Future[WriteResult] = collection.insert(document)
+def insertDoc1(collection: BSONCollection, doc: BSONDocument): Future[Unit] = {
+  val writeRes: Future[WriteResult] = collection.insert(document1)
 
-future1.onComplete {
-  case Failure(e) => throw e
-  case Success(writeResult) =>
-    println(s"successfully inserted document with result: $writeResult")
+  writeRes.onComplete { // Dummy callbacks
+    case Failure(e) => e.printStackTrace()
+    case Success(writeResult) =>
+      println(s"successfully inserted document with result: $writeResult")
+  }
+
+  writeRes.map(_ => {}) // in this example, do nothing with the success
 }
 {% endhighlight %}
 
