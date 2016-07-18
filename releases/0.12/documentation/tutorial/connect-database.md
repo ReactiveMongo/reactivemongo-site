@@ -67,8 +67,9 @@ The following options can be used with `MongoConnectionOptions` to configure the
 - **writeConcernTimeout**: The [time limit](http://docs.mongodb.org/manual/reference/write-concern/#wtimeout) (in milliseconds) for the default write concern. If `writeConcern` is specified, its timeout is replaced by this one.
 - **readPreference**: The default [read preference](../advanced-topics/read-preferences.html) (`primary|primaryPreferred|secondary|secondaryPreferred|nearest`) (default is `primary`).
 - **rm.failover**: The default [failover strategy](../../api/index.html#reactivemongo.api.FailoverStrategy).
-  - `default`: The default/minimal strategy, with 8 retries with an initial delay of 100ms and a delay factor of `retry count * 1.25` (100ms .. 125ms, 250ms, 375ms, 500ms, 625ms, 750ms, 875ms, 1s).
+  - `default`: The default/minimal strategy, with 10 retries with an initial delay of 100ms and a delay factor of `retry count * 1.25` (100ms .. 125ms, 250ms, 375ms, 500ms, 625ms, 750ms, 875ms, 1s, 1125ms, 1250ms).
   - `remote`: The strategy for remote MongoDB node(s); Same as default but with 16 retries.
+  - `strict`: A more strict strategy; Same as default but with only 5 retries.
   - `<delay>:<retries>x<factor>`: The definition of a custom strategy;
       - *delay*: The [initial delay](../../api/index.html#reactivemongo.api.FailoverStrategy@initialDelay:scala.concurrent.duration.FiniteDuration) as a finite duration string accepted by the [`Duration` factory](http://www.scala-lang.org/api/current/index.html#scala.concurrent.duration.Duration$@apply(s:String):scala.concurrent.duration.Duration).
       - *retries*: The number of retry (`Int`).
