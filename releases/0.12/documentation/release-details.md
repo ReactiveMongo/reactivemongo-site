@@ -7,6 +7,8 @@ title: ReactiveMongo 0.12 - Release details
 
 **What's new?**
 
+TODO: strictUri, akka compat, trace/error
+
 The documentation is available [online](index.html), and its code samples are compiled to make sure it's up-to-date.
 You can also browse the [API](../api/index.html).
 
@@ -58,12 +60,12 @@ val options1 = MongoConnectionOptions(
   failoverStrategy = FailoverStrategy(retries = 10))
 {% endhighlight %}
 
-The option [`socketTimeoutMS`](https://docs.mongodb.org/manual/reference/connection-string/#urioption.socketTimeoutMS) is no supported. The default value is 0 (no timeout).
+The option [`maxIdleTimeMS`](https://docs.mongodb.org/manual/reference/connection-string/#urioption.maxIdleTimeMS) is no supported. The default value is 0 (no timeout).
 
 {% highlight scala %}
 import reactivemongo.api.MongoConnectionOptions
 
-val options2 = MongoConnectionOptions(socketTimeoutMS = 2000 /* 2s */)
+val options2 = MongoConnectionOptions(maxIdleTimeMS = 2000 /* 2s */)
 {% endhighlight %}
 
 The interval used by the ReactiveMongo monitor to refresh the information about the MongoDB node can be configured in the [connection options](tutorial/connect-database.html). The default is interval is 10s.
