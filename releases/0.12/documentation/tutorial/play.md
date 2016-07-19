@@ -190,6 +190,9 @@ A more complete example:
 mongodb.uri = "mongodb://someuser:somepasswd@host1:27017,host2:27017,host3:27017/your_db_name?authSource=authdb&rm.nbChannelsPerNode=10"
 {% endhighlight %}
 
+The setting `mongodb.connection.strictUri` (`true` or `false`) can be added to the Play configuration, to enforce the ReactiveMongo only accepts strict URI: to make the connection pool throws an exception if given an URI with unsupported options.
+By default (`false`), unsupported options (e.g. `?foo=bar`) are ignored.
+
 ### Configure underlying akka system
 
 ReactiveMongo loads its configuration from the key `mongo-async-driver`.
