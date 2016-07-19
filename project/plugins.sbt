@@ -1,1 +1,4 @@
-libraryDependencies += "commons-io" % "commons-io" % "2.4"
+resolvers ++= Seq(
+  "Tatami Releases" at "https://raw.github.com/cchantep/tatami/master/releases")
+
+addSbtPlugin("cchantep" % "sbt-hl-compiler" % "0.2")
