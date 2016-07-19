@@ -69,12 +69,12 @@ When calling a write operation, it's possible to handle some specific error case
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.api.commands.WriteResult
+import reactivemongo.api.commands.{ CommandError, WriteResult }
 
 val future: Future[WriteResult] = collection.insert(person)
 
-val end: Future[Unit] = future.map {
-  case writeResult if (writeResult.code contains 11000) =>
+val end: Future[Unit] = future.map(_ => {}).recover {
+  case err: CommandError if (err.code contains 11000) =>
     // if the result is defined with the error code 11000 (duplicate error)
     println("Just a warning")
 
