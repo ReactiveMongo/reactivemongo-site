@@ -24,6 +24,27 @@ Considering there is a `zipcodes` collection in a MongoDB, with the following do
 ]
 {% endhighlight %}
 
+**Distinct state**
+
+The [`distinct`](https://docs.mongodb.org/manual/reference/command/distinct/) command, to find the distinct values for a specified field across a single collection.
+
+In the MongoDB shell, such command can be used to find the distinct states from the `zipcodes` collection, with results `"NY"`, `"FR"`, and `"JP"`.
+
+{% highlight javascript %}
+db.runCommand({ distinct: "state" })
+{% endhighlight %}
+
+Using the ReactiveMongo API, it can be done with the corresponding [collection operation](../../api/index.html#reactivemongo.api.collections.GenericCollection@distinct[T]%28key:String,selector:Option[GenericCollection.this.pack.Document],readConcern:reactivemongo.api.ReadConcern%29%28implicitreader:GenericCollection.this.pack.NarrowValueReader[T],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[scala.collection.immutable.ListSet[T]]).
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+def distinctStates(col: BSONCollection)(implicit ec: ExecutionContext): Future[Set[String]] = col.distinct[String, Set]("state")
+{% endhighlight %}
+
 **States with population above 10000000**
 
 It's possible to determine the states for which the sum of the population of the cities is above 10000000, by [grouping the documents](http://docs.mongodb.org/manual/reference/operator/aggregation/group/#pipe._S_group) by their state, then for each [group calculating the sum](http://docs.mongodb.org/manual/reference/operator/aggregation/sum/#grp._S_sum) of the population values, and finally get only the grouped documents whose population sum [matches the filter](http://docs.mongodb.org/manual/reference/operator/aggregation/match/#pipe._S_match) "above 10000000".

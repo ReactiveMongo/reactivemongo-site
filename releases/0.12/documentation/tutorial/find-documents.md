@@ -157,4 +157,39 @@ def findOlder4(collection: BSONCollection)(implicit ec: ExecutionContext, reader
 
 > ReactiveMongo can directly return instances of a custom class, by defining a [custom reader](../bson/typeclasses.html#custom-reader).
 
-[Next: Consume streams of documents](./consume-streams.html)
+### Find and modify
+
+The MongoDB [`findAndModify`](https://docs.mongodb.com/manual/reference/command/findAndModify/) command modifies and returns a single document.
+
+The ReactiveMongo has a corresponding [operation](../../api/index.html#reactivemongo.api.collections.GenericCollection@findAndModify[Q](selector:Q,modifier:GenericCollection.this.BatchCommands.FindAndModifyCommand.Modify,sort:Option[GenericCollection.this.pack.Document],fields:Option[GenericCollection.this.pack.Document])(implicitselectorWriter:GenericCollection.this.pack.Writer[Q],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[GenericCollection.this.BatchCommands.FindAndModifyCommand.FindAndModifyResult]) on the collection API.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.{ BSONDocument, BSONDocumentReader }
+import reactivemongo.api.collections.bson.BSONCollection
+
+def test1(coll: BSONCollection) = {
+  case class Person(firstName: String, lastName: String, age: Int)
+
+  implicit def PersonReader: BSONDocumentReader[Person] = ???
+
+  val updateOp = coll.updateModifier(
+    BSONDocument("$set" -> BSONDocument("age" -> 35)))
+
+  val personBeforeUpdate: Future[Option[Person]] =
+    coll.findAndModify(BSONDocument("name" -> "Joline"), updateOp).
+    map(_.result[Person])
+
+  val removedPerson: Future[Option[Person]] = coll.findAndModify(
+    BSONDocument("name" -> "Jack"), coll.removeModifier).
+    map(_.result[Person])
+}
+{% endhighlight %}
+
+TODO: findAndUpdate
+
+TODO: findAndRemove
+
+[Previous: Write Documents](./write-documents.html) | [Next: Consume streams of documents](./consume-streams.html)

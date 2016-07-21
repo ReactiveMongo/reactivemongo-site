@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../../lib/template.js"></script>
       <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -55,11 +55,7 @@
         </div><div class="toggleContainer block">
             <span class="toggle">Known Subclasses</span>
             <div class="subClasses hiddenContent"><a href="bson/BSONDistinctCommand$.html" class="extype" name="reactivemongo.api.commands.bson.BSONDistinctCommand">BSONDistinctCommand</a></div>
-          </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
-                <span class="toggle diagram-link">Type Hierarchy</span>
-                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
-                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 192.00 155.00" height="155pt" width="192pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 151)" class="graph" id="graph0"><polygon points="-4,4 -4,-151 188,-151 188,4 -4,4" stroke="none" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this trait" id="graph1_0"><g id="a_this trait|graph1_0"><a xlink:title="reactivemongo.api.commands.DistinctCommand (this trait)" xlink:href="#inheritance-diagram"><polygon points="159.5,-86 24.5,-86 24.5,-61 159.5,-61 159.5,-86" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-80.5" x="35" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-70.5" x="56" text-anchor="start">DistinctCommand[P]</text></a></g></g><!-- node1 --><g class="node object" id="graph1_1"><g id="a_object|graph1_1"><a xlink:title="reactivemongo.api.commands.bson.BSONDistinctCommand" xlink:href="bson/BSONDistinctCommand$.html#inheritance-diagram"><polygon points="168,-25 16,-25 16,-0 168,-0 168,-25" stroke="#102966" fill="#3556a7"></polygon><image xlink:href="../../../lib/object_diagram.png" y="-19.5" x="26" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-9.5" x="47" text-anchor="start">BSONDistinctCommand</text></a></g></g><!-- node0&#45;&gt;node1 --><g class="edge inheritance" id="graph1_0_1"><g id="a_inheritance|graph1_0_1"><a xlink:title="BSONDistinctCommand is a subtype of DistinctCommand[P]"><path d="M92,-55.6874C92,-45.9173 92,-33.8534 92,-25.1323" stroke="#d4d4d4" fill="none"></path><polygon points="90.2501,-55.8435 92,-60.8435 93.7501,-55.8435 90.2501,-55.8435" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node trait" id="graph1_2"><g id="a_trait|graph1_2"><a xlink:title="reactivemongo.api.commands.ImplicitCommandHelpers" xlink:href="ImplicitCommandHelpers.html#inheritance-diagram"><polygon points="176,-147 8,-147 8,-122 176,-122 176,-147" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-141.5" x="18" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-131.5" x="39" text-anchor="start">ImplicitCommandHelpers[P]</text></a></g></g><!-- node2&#45;&gt;node0 --><g class="edge inheritance" id="graph1_2_0"><g id="a_inheritance|graph1_2_0"><a xlink:title="DistinctCommand[P] is a subtype of ImplicitCommandHelpers[P]"><path d="M92,-116.687C92,-106.917 92,-94.8534 92,-86.1323" stroke="#d4d4d4" fill="none"></path><polygon points="90.2501,-116.843 92,-121.843 93.7501,-116.844 90.2501,-116.843" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
-              </div></div>
+          </div></div>
         
 
       <div id="mbrsel">
@@ -111,7 +107,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="DistinctCommand$Distinct.html"><span class="name">Distinct</span></a><span class="params">(<span name="keyString">keyString: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="query">query: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>]</span>, <span name="readConcern">readConcern: <a href="../ReadConcern.html" class="extype" name="reactivemongo.api.ReadConcern">ReadConcern</a> = <span class="symbol"><span class="name"><a href="../../package.html">ReadConcern.Local</a></span></span></span>, <span name="version">version: <a href="../../core/protocol/MongoWireVersion.html" class="extype" name="reactivemongo.core.protocol.MongoWireVersion">MongoWireVersion</a> = <span class="symbol"><span class="name"><a href="../../package.html">MongoWireVersion.V30</a></span></span></span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithPack.html" class="extype" name="reactivemongo.api.commands.CommandWithPack">CommandWithPack</a>[<a href="#pack:P" class="extmbr" name="reactivemongo.api.commands.DistinctCommand#pack">pack</a>.type] with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="DistinctCommand$DistinctResult.html" class="extype" name="reactivemongo.api.commands.DistinctCommand.DistinctResult">DistinctResult</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="DistinctCommand$Distinct.html"><span class="name">Distinct</span></a><span class="params">(<span name="keyString">keyString: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="query">query: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>]</span>, <span name="readConcern">readConcern: <a href="../ReadConcern.html" class="extype" name="reactivemongo.api.ReadConcern">ReadConcern</a> = <span class="symbol"><span class="name"><a href="../../package.html">ReadConcern.Local</a></span></span></span>, <span name="version">version: <a href="../../core/protocol/MongoWireVersion.html" class="extype" name="reactivemongo.core.protocol.MongoWireVersion">MongoWireVersion</a> = <span class="symbol"><span class="name"><a href="../../package.html">MongoWireVersion.V30</a></span></span></span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithPack.html" class="extype" name="reactivemongo.api.commands.CommandWithPack">CommandWithPack</a>[<a href="#pack:P" class="extmbr" name="reactivemongo.api.commands.DistinctCommand#pack">pack</a>.type] with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="DistinctCommand$DistinctResult.html" class="extype" name="reactivemongo.api.commands.DistinctCommand.DistinctResult">DistinctResult</a>] with <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.DistinctCommand@DistinctextendsCollectionCommandwithCommandWithPack[DistinctCommand.this.pack.type]withCommandWithResult[DistinctCommand.this.DistinctResult]withProductwithSerializable" title="Permalink" target="_top">
@@ -119,7 +115,7 @@
       </a>
     </span>
       <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">keyString</dt><dd class="cmt"><p>the field for which to return distinct values</p></dd><dt class="param">query</dt><dd class="cmt"><p>the query that specifies the documents from which to retrieve the distinct values</p></dd><dt class="param">readConcern</dt><dd class="cmt"><p>the <a href="https://docs.mongodb.org/manual/reference/glossary/#term-read-concern" target="_blank">read concern</a> (default <code>local</code>)</p></dd></dl></div>
-    </li><li name="reactivemongo.api.commands.DistinctCommand.DistinctResult" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="reactivemongo.api.commands.DistinctCommand.DistinctResult" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="DistinctResultextendsProductwithSerializable"></a>
       <a id="DistinctResult:DistinctResult"></a>
       <h4 class="signature">
@@ -128,14 +124,14 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="DistinctCommand$DistinctResult.html"><span class="name">DistinctResult</span></a><span class="params">(<span name="values">values: <span class="extype" name="scala.collection.immutable.ListSet">ListSet</span>[<span class="extype" name="reactivemongo.api.SerializationPack.Value">P.Value</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="DistinctCommand$DistinctResult.html"><span class="name">DistinctResult</span></a><span class="params">(<span name="values">values: <span class="extype" name="scala.Traversable">Traversable</span>[<span class="extype" name="reactivemongo.api.SerializationPack.Value">P.Value</span>]</span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.DistinctCommand@DistinctResultextendsProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">values</dt><dd class="cmt"><p>the raw values (should not contain duplicate)</p></dd></dl></div>
     </li><li name="reactivemongo.api.commands.ImplicitCommandHelpers.ImplicitlyDocumentProducer" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="ImplicitlyDocumentProducerextendsAnyRef"></a>
       <a id="ImplicitlyDocumentProducer:ImplicitlyDocumentProducer"></a>
@@ -189,7 +185,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.DistinctCommand@!=(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -206,7 +202,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.DistinctCommand@##():Int" title="Permalink" target="_top">
@@ -268,7 +264,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.DistinctCommand@==(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -342,7 +338,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.commands.DistinctCommand">DistinctCommand</a>[<span class="extype" name="reactivemongo.api.commands.DistinctCommand.P">P</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.commands.DistinctCommand">DistinctCommand</a>[<span class="extype" name="reactivemongo.api.commands.DistinctCommand.P">P</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.commands.DistinctCommand">DistinctCommand</a>[<span class="extype" name="reactivemongo.api.commands.DistinctCommand.P">P</span>]) ⇒ <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.commands.DistinctCommand">DistinctCommand</a>[<span class="extype" name="reactivemongo.api.commands.DistinctCommand.P">P</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.DistinctCommand@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -363,7 +359,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.commands.DistinctCommand">DistinctCommand</a>[<span class="extype" name="reactivemongo.api.commands.DistinctCommand.P">P</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.commands.DistinctCommand">DistinctCommand</a>[<span class="extype" name="reactivemongo.api.commands.DistinctCommand.P">P</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.commands.DistinctCommand">DistinctCommand</a>[<span class="extype" name="reactivemongo.api.commands.DistinctCommand.P">P</span>]) ⇒ <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.commands.DistinctCommand">DistinctCommand</a>[<span class="extype" name="reactivemongo.api.commands.DistinctCommand.P">P</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.DistinctCommand@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
@@ -384,7 +380,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.commands.DistinctCommand">DistinctCommand</a>[<span class="extype" name="reactivemongo.api.commands.DistinctCommand.P">P</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.commands.DistinctCommand">DistinctCommand</a>[<span class="extype" name="reactivemongo.api.commands.DistinctCommand.P">P</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.DistinctCommand@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -405,7 +401,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.commands.DistinctCommand">DistinctCommand</a>[<span class="extype" name="reactivemongo.api.commands.DistinctCommand.P">P</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.commands.DistinctCommand">DistinctCommand</a>[<span class="extype" name="reactivemongo.api.commands.DistinctCommand.P">P</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.DistinctCommand@ensuring(cond:Boolean):A" title="Permalink" target="_top">
@@ -426,7 +422,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.DistinctCommand@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
@@ -443,7 +439,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.DistinctCommand@equals(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -460,7 +456,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.DistinctCommand@finalize():Unit" title="Permalink" target="_top">
@@ -524,7 +520,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.DistinctCommand@hashCode():Int" title="Permalink" target="_top">
@@ -541,7 +537,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.DistinctCommand@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
@@ -558,7 +554,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.DistinctCommand@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
@@ -575,7 +571,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.DistinctCommand@notify():Unit" title="Permalink" target="_top">
@@ -592,7 +588,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.DistinctCommand@notifyAll():Unit" title="Permalink" target="_top">
@@ -643,7 +639,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.DistinctCommand@wait():Unit" title="Permalink" target="_top">
@@ -666,7 +662,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.DistinctCommand@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
@@ -689,7 +685,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.DistinctCommand@wait(x$1:Long):Unit" title="Permalink" target="_top">

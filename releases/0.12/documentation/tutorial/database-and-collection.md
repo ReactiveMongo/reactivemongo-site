@@ -80,4 +80,4 @@ Such a design enables third-party libraries to provide their own collection API.
 
 There is one example of that in the [Play JSON serialization pack](../json/overview.html): `JSONCollection` is an implementation of `GenericCollection` that deals with Play JSON library, using its own de/serializations type classes (`Reads[T]` and `Writes[T]`).
 
-[Previous: Connect to the database](./connect-database.html) | [Next: Write documents](./write-documents.html)
+[Previous: Connect to the database](./connect-database.html) | [Next: Write documents](./write-documents.html) | [Next: Write Documents](./write-documents.html)
