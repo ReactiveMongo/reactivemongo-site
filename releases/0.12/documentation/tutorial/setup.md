@@ -41,6 +41,14 @@ libraryDependencies ++= Seq(
 )
 {% endhighlight %}
 
+**Akka dependency:**
+
+ReactiveMongo is internally using [Akka](http://akka.io/), so it declares a transitive dependency to.
+
+If your project already has the Akka dependency, directly or transitively (e.g. by [Play](https://playframework.com/) dependencies), both must be compatible.
+
+ReactiveMongo is tested against Akka from version 2.3.13 up to 2.4.x (2.4.8 for now).
+
 ### Logging
 
 SLF4J is now used by the ReactiveMongo logging, so a [SLF4J binding](http://www.slf4j.org/manual.html#swapping) must be provided (e.g. slf4j-simple).

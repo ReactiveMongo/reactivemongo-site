@@ -7,12 +7,15 @@ title: ReactiveMongo 0.12 - Release details
 
 **What's new?**
 
-TODO: strictUri, akka compat, trace/error
-
 The documentation is available [online](index.html), and its code samples are compiled to make sure it's up-to-date.
 You can also browse the [API](../api/index.html).
 
-> The [MongoDB](https://www.mongodb.org/) compatibility is now from 2.6 up to 3.2.
+### Compatibility
+
+This release is compatible with the following runtime.
+
+- The [MongoDB](https://www.mongodb.org/) from 2.6 up to 3.2.
+- [Akka](http://akka.io/) from 2.3.13 up to 2.4.x (see [Setup](./tutorial/setup.html)
 
 ### Database connection
 
@@ -355,6 +358,8 @@ For Play > 2.4, if you still have a file `conf/play.plugins`, it's important to 
     1) Could not find a suitable constructor in 
     play.modules.reactivemongo.ReactiveMongoPlugin.
 
+Considering the configuration with Play, the new setting `mongodb.connection.strictUri` (`true` or `false`) can be added. It makes the ReactiveMongo module for Play enforce only strict connection URI is accepted: with no unsupported option in it (otherwise it throws an exception). By default this setting is disabled (`false`).
+
 As for Play 2.5, due to the [Streams Migration](https://playframework.com/documentation/2.5.x/StreamsMigration25), a `akka.stream.Materializer` is required (see the following error).
 
 The Play support has also been modularized.
@@ -480,6 +485,8 @@ RoutesKeys.routesImport += "play.modules.reactivemongo.PathBindables._"
 {% endhighlight %}
 
 ### Administration
+
+TODO: db.renameCollection
   
 The new [`drop`](../api/index.html#reactivemongo.api.collections.GenericCollection@drop%28failIfNotFound:Boolean%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[Boolean]) operation can try, without failing if the collection doesn't exist. The previous behaviour is still available.
 
@@ -532,6 +539,8 @@ def createPartialIndex(col: BSONCollection): Future[WriteResult] =
 {% endhighlight %}
 
 ### Logging
+
+TODO: trace/error
 
 Log4J is still required for backward compatibility (by deprecated code), but is replaced by [SLF4J](http://www.slf4j.org/) for the [ReactiveMongo logging](./index.html#logging).
 
