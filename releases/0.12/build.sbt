@@ -12,6 +12,7 @@ libraryDependencies ++= Seq(
   "org.reactivemongo" %% "play2-reactivemongo" % Release,
   "org.reactivemongo" %% "reactivemongo-play-json" % Release,
   "org.reactivemongo" %% "reactivemongo-iteratees" % Release,
+  "org.reactivemongo" %% "reactivemongo-akkastream" % Release,
   "com.typesafe.play" %% "play" % "2.5.4")
 
 resolvers ++= Seq(

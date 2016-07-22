@@ -22,7 +22,7 @@ The API for this module can be [browsed online](../play-api/index.html).
 
 The API for the standalone JSON serialization is [also available](../json-api/index.html).
 
-### Tutorial
+### Tutorials
 
 - [Add ReactiveMongo to your project](tutorial/setup.html)
 - [Get started](tutorial/getstarted.html)
@@ -30,7 +30,7 @@ The API for the standalone JSON serialization is [also available](../json-api/in
    2. [Open database and collections](tutorial/database-and-collection.html)
    3. [Write documents (`insert`, `update`, `remove`)](tutorial/write-documents.html)
    4. [Find documents](tutorial/find-documents.html)
-   5. [Consume streams of documents](tutorial/consume-streams.html)
+   5. [Streaming](tutorial/consume-streams.html)
 
 ### BSON Manipulation
 

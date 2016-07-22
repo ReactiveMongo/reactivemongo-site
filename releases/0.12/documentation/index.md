@@ -5,10 +5,7 @@ title: ReactiveMongo 0.12 - Documentation
 
 ## ReactiveMongo {{site._0_12_latest_minor}}
 
-* You can read the [release notes](release-details.html) to know what is included in this release.
-* The Scaladoc for the Driver API can be browsed [here](../api/index.html).
-* The API for this module can be [browsed online](../play-api/index.html).
-* The API for the standalone JSON serialization is [also available](../json-api/index.html).
+You can read the [release notes](release-details.html) to know what is new with this release.
 
 The dependency can be added in your SBT project as following: `"org.reactivemongo" %% "reactivemongo" % "{{site._0_12_latest_minor}}"`
 
@@ -16,7 +13,16 @@ The dependency can be added in your SBT project as following: `"org.reactivemong
 
 > MongoDB versions older than 2.6 are not longer supported by ReactiveMongo, as the End of Life for MongoDB 2.4 was reached in [April 2015](https://www.mongodb.com/support-policy).
 
-### Tutorial
+**API documentations:**
+
+The various API of the ReactiveMongo driver itself, and also of the related libraries, are available as online.
+
+- [Driver API](../api/index.html): Core driver, BSON
+- [Play JSON API](http://reactivemongo.github.io/ReactiveMongo-Play-Json/0.12/api/)
+- [Play module API](http://reactivemongo.github.io/Play-ReactiveMongo/0.12/api/)
+- ReactiveMongo [AkkaStream](https://reactivemongo.github.io/ReactiveMongo-AkkaStream/0.12/api/)
+
+### Tutorials
 
 - [Setup ReactiveMongo in your project](tutorial/setup.html)
     - [Configure the logging](tutorial/setup.html#logging)
@@ -25,7 +31,7 @@ The dependency can be added in your SBT project as following: `"org.reactivemong
    2. [Open database and collections](tutorial/database-and-collection.html)
    3. [Write documents (`insert`, `update`, `remove`)](tutorial/write-documents.html)
    4. [Find documents](tutorial/find-documents.html)
-   5. [Consume streams of documents](tutorial/consume-streams.html)
+   5. [Streaming](tutorial/streaming.html)
 
 ### BSON Manipulation
 

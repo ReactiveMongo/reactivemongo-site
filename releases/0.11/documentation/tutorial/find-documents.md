@@ -157,4 +157,4 @@ def findOlder4(collection: BSONCollection)(implicit ec: ExecutionContext, reader
 
 > ReactiveMongo can directly return instances of a custom class, by defining a [custom reader](../bson/typeclasses.html#custom-reader).
 
-[Next: Consume streams of documents](./consume-streams.html)
+[Next: Streaming](./consume-streams.html)
