@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../../lib/template.js"></script>
       <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -47,19 +47,15 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">Update</span><span class="params">(<span name="update">update: <span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span></span>, <span name="fetchNewObject">fetchNewObject: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="upsert">upsert: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result"> extends <a href="FindAndModifyCommand$Modify.html" class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.Modify">Modify</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">Update</span><span class="params">(<span name="update">update: <span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span></span>, <span name="fetchNewObject">fetchNewObject: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="upsert">upsert: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result"> extends <a href="FindAndModifyCommand$Modify.html" class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.Modify">Modify</a> with <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Update (part of a FindAndModify command).
 </p></div><dl class="paramcmts block"><dt class="param">update</dt><dd class="cmt"><p>the modifier document.</p></dd><dt class="param">fetchNewObject</dt><dd class="cmt"><p>the command result must be the new object instead of the old one.</p></dd><dt class="param">upsert</dt><dd class="cmt"><p>if true, creates a new document if no document matches the query, or if documents match the query, findAndModify performs an update</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="FindAndModifyCommand$Modify.html" class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.Modify">Modify</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
-        </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
-                <span class="toggle diagram-link">Type Hierarchy</span>
-                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
-                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 294.00 118.00" height="118pt" width="294pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 114)" class="graph" id="graph0"><polygon points="-4,4 -4,-114 290,-114 290,4 -4,4" stroke="none" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this class" id="graph1_0"><g id="a_this class|graph1_0"><a xlink:title="reactivemongo.api.commands.FindAndModifyCommand.Update (this class)" xlink:href="#inheritance-diagram"><polygon points="170.5,-49 93.5,-49 93.5,-24 170.5,-24 170.5,-49" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-43.5" x="104" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-33.5" x="125" text-anchor="start">Update</text></a></g></g><!-- node1 --><g class="node trait" id="graph1_1"><g id="a_trait|graph1_1"><a xlink:title="reactivemongo.api.commands.FindAndModifyCommand.Modify" xlink:href="FindAndModifyCommand$Modify.html#inheritance-diagram"><polygon points="74,-110 0,-110 0,-85 74,-85 74,-110" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-104.5" x="10" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.5" x="31" text-anchor="start">Modify</text></a></g></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph1_1_0"><g id="a_inheritance|graph1_1_0"><a xlink:title="Update is a subtype of Modify"><path d="M60.2204,-82.0789C76.5279,-71.9511 98.0573,-58.5802 113.27,-49.1323" stroke="#d4d4d4" fill="none"></path><polygon points="59.0932,-80.7189 55.7689,-84.8435 60.9398,-83.6922 59.0932,-80.7189" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node trait" id="graph1_2"><g id="a_trait|graph1_2"><a xlink:title="scala.Product"><polygon points="171.5,-110 92.5,-110 92.5,-85 171.5,-85 171.5,-110" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-104.5" x="103" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.5" x="124" text-anchor="start">Product</text></a></g></g><!-- node2&#45;&gt;node0 --><g class="edge inheritance" id="graph1_2_0"><g id="a_inheritance|graph1_2_0"><a xlink:title="Update is a subtype of Product"><path d="M132,-79.6874C132,-69.9173 132,-57.8534 132,-49.1323" stroke="#d4d4d4" fill="none"></path><polygon points="130.25,-79.8435 132,-84.8435 133.75,-79.8435 130.25,-79.8435" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node3 --><g class="node trait" id="graph1_3"><g id="a_trait|graph1_3"><a xlink:title="scala.Serializable"><polygon points="286,-110 190,-110 190,-85 286,-85 286,-110" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-104.5" x="200" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.5" x="221" text-anchor="start">Serializable</text></a></g></g><!-- node3&#45;&gt;node0 --><g class="edge inheritance" id="graph1_3_0"><g id="a_inheritance|graph1_3_0"><a xlink:title="Update is a subtype of Serializable"><path d="M212.813,-82.4807C194.57,-72.3269 170.194,-58.7588 153,-49.1884" stroke="#d4d4d4" fill="none"></path><polygon points="212.091,-84.0815 217.31,-84.9841 213.793,-81.0233 212.091,-84.0815" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
-              </div></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <a href="FindAndModifyCommand$Modify.html" class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.Modify">Modify</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
         
 
       <div id="mbrsel">
@@ -109,7 +105,7 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">Update</span><span class="params">(<span name="update">update: <span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span></span>, <span name="fetchNewObject">fetchNewObject: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="upsert">upsert: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span>
+        <span class="name">Update</span><span class="params">(<span name="update">update: <span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span></span>, <span name="fetchNewObject">fetchNewObject: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="upsert">upsert: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.FindAndModifyCommand$Update@&lt;init&gt;(update:FindAndModifyCommand.this.pack.Document,fetchNewObject:Boolean,upsert:Boolean):FindAndModifyCommand.this.Update" title="Permalink" target="_top">
@@ -135,7 +131,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.FindAndModifyCommand$Update@!=(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -152,7 +148,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.FindAndModifyCommand$Update@##():Int" title="Permalink" target="_top">
@@ -214,7 +210,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.FindAndModifyCommand$Update@==(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -271,7 +267,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.Update">Update</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.Update">Update</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.Update">Update</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.Update">Update</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.FindAndModifyCommand$Update@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -292,7 +288,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.Update">Update</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.Update">Update</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.Update">Update</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.Update">Update</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.FindAndModifyCommand$Update@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
@@ -313,7 +309,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.Update">Update</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.Update">Update</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.FindAndModifyCommand$Update@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -334,7 +330,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.Update">Update</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.Update">Update</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.FindAndModifyCommand$Update@ensuring(cond:Boolean):A" title="Permalink" target="_top">
@@ -355,7 +351,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.FindAndModifyCommand$Update@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
@@ -372,7 +368,7 @@
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">fetchNewObject</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">fetchNewObject</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.FindAndModifyCommand$Update@fetchNewObject:Boolean" title="Permalink" target="_top">
@@ -389,7 +385,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.FindAndModifyCommand$Update@finalize():Unit" title="Permalink" target="_top">
@@ -453,7 +449,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.FindAndModifyCommand$Update@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
@@ -470,7 +466,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.FindAndModifyCommand$Update@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
@@ -487,7 +483,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.FindAndModifyCommand$Update@notify():Unit" title="Permalink" target="_top">
@@ -504,7 +500,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.FindAndModifyCommand$Update@notifyAll():Unit" title="Permalink" target="_top">
@@ -555,7 +551,7 @@
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">upsert</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">upsert</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.FindAndModifyCommand$Update@upsert:Boolean" title="Permalink" target="_top">
@@ -572,7 +568,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.FindAndModifyCommand$Update@wait():Unit" title="Permalink" target="_top">
@@ -595,7 +591,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.FindAndModifyCommand$Update@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
@@ -618,7 +614,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.FindAndModifyCommand$Update@wait(x$1:Long):Unit" title="Permalink" target="_top">
@@ -663,13 +659,13 @@
 
         <div id="inheritedMembers">
         <div class="parent" name="scala.Serializable">
-              <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></h3>
             </div><div class="parent" name="java.io.Serializable">
               <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
             </div><div class="parent" name="scala.Product">
-              <h3>Inherited from <span class="extype" name="scala.Product">Product</span></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Product" class="extype" target="_top">Product</a></h3>
             </div><div class="parent" name="scala.Equals">
-              <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Equals" class="extype" target="_top">Equals</a></h3>
             </div><div class="parent" name="reactivemongo.api.commands.FindAndModifyCommand.Modify">
               <h3>Inherited from <a href="FindAndModifyCommand$Modify.html" class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.Modify">Modify</a></h3>
             </div><div class="parent" name="scala.AnyRef">

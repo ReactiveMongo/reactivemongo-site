@@ -239,4 +239,4 @@ def removedPerson(collection: BSONCollection, name: String)(implicit ec: Executi
     map(_.result[Person])
 {% endhighlight %}
 
-[Next: Find documents](./find-documents.html)
+[Previous: Database and collections](./database-and-collection.html) | [Next: Find documents](./find-documents.html)

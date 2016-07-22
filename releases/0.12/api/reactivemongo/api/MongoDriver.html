@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../lib/template.js"></script>
       <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../index.html';
@@ -51,14 +51,10 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
-        </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
-                <span class="toggle diagram-link">Type Hierarchy</span>
-                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
-                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 158.00 118.00" height="118pt" width="158pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 114)" class="graph" id="graph0"><polygon points="-4,4 -4,-114 154,-114 154,4 -4,4" stroke="none" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this class" id="graph1_0"><g id="a_this class|graph1_0"><a xlink:title="reactivemongo.api.MongoDriver (this class)" xlink:href="#inheritance-diagram"><polygon points="126,-49 24,-49 24,-24 126,-24 126,-49" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-43.5" x="34" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-33.5" x="55" text-anchor="start">MongoDriver</text></a></g></g><!-- node1 --><g class="node class" id="graph1_1"><g id="a_class|graph1_1"><a xlink:title="scala.AnyRef"><polygon points="113.5,-110 36.5,-110 36.5,-85 113.5,-85 113.5,-110" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-104.5" x="47" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.5" x="68" text-anchor="start">AnyRef</text></a></g></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph1_1_0"><g id="a_inheritance|graph1_1_0"><a xlink:title="MongoDriver is a subtype of AnyRef"><path d="M75,-79.6874C75,-69.9173 75,-57.8534 75,-49.1323" stroke="#d4d4d4" fill="none"></path><polygon points="73.2501,-79.8435 75,-84.8435 76.7501,-79.8435 73.2501,-79.8435" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
-              </div></div>
+        </div></div>
         
 
       <div id="mbrsel">
@@ -99,7 +95,7 @@
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="reactivemongo.api.MongoDriver#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+              <ol><li name="reactivemongo.api.MongoDriver#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="&lt;init&gt;(config:Option[com.typesafe.config.Config]):reactivemongo.api.MongoDriver"></a>
       <a id="&lt;init&gt;:MongoDriver"></a>
       <h4 class="signature">
@@ -108,14 +104,14 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">MongoDriver</span><span class="params">(<span name="config">config: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="com.typesafe.config.Config">Config</span>] = <span class="symbol">None</span></span>)</span>
+        <span class="name">MongoDriver</span><span class="params">(<span name="config">config: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="com.typesafe.config.Config">Config</span>] = <span class="symbol">None</span></span>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@&lt;init&gt;(config:Option[com.typesafe.config.Config]):reactivemongo.api.MongoDriver" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">config</dt><dd class="cmt"><p>a custom configuration (otherwise the default options are used)</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -134,7 +130,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@!=(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -151,7 +147,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@##():Int" title="Permalink" target="_top">
@@ -213,7 +209,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@==(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -261,7 +257,7 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="reactivemongo.api.MongoDriver#close" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="reactivemongo.api.MongoDriver#close" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="close(timeout:scala.concurrent.duration.FiniteDuration):Unit"></a>
       <a id="close(FiniteDuration):Unit"></a>
       <h4 class="signature">
@@ -270,14 +266,16 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">close</span><span class="params">(<span name="timeout">timeout: <span class="extype" name="scala.concurrent.duration.FiniteDuration">FiniteDuration</span> = <span class="symbol">FiniteDuration(1, SECONDS)</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">close</span><span class="params">(<span name="timeout">timeout: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.duration.FiniteDuration" class="extype" target="_top">FiniteDuration</a> = <span class="symbol">FiniteDuration(2, SECONDS)</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@close(timeout:scala.concurrent.duration.FiniteDuration):Unit" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Closes this driver (and all its connections and resources).</p><div class="fullcomment"><div class="comment cmt"><p>Closes this driver (and all its connections and resources).
+Awaits the termination until the timeout is expired.
+</p></div></div>
     </li><li name="reactivemongo.api.MongoDriver#connection" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI):reactivemongo.api.MongoConnection"></a>
       <a id="connection(ParsedURI):MongoConnection"></a>
@@ -294,8 +292,44 @@
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Creates a new MongoConnection from URI.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection from URI.</p><p>See <a href="http://docs.mongodb.org/manual/reference/connection-string/" target="_blank">the MongoDB URI documentation</a> for more information.
-</p></div><dl class="paramcmts block"><dt class="param">parsedURI</dt><dd class="cmt"><p>The URI parsed by <a href="MongoConnection$.html#parseURI(uri:String):scala.util.Try[reactivemongo.api.MongoConnection.ParsedURI]" class="extmbr" name="reactivemongo.api.MongoConnection#parseURI">reactivemongo.api.MongoConnection.parseURI</a></p></dd></dl></div>
+      <p class="shortcomment cmt">Creates a new MongoConnection from URI.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection from URI.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
+</p></div><dl class="paramcmts block"><dt class="param">parsedURI</dt><dd class="cmt"><p>the URI parsed by <a href="MongoConnection$.html#parseURI(uri:String):scala.util.Try[reactivemongo.api.MongoConnection.ParsedURI]" class="extmbr" name="reactivemongo.api.MongoConnection#parseURI">reactivemongo.api.MongoConnection.parseURI</a></p></dd></dl></div>
+    </li><li name="reactivemongo.api.MongoDriver#connection" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI,strictUri:Boolean):scala.util.Try[reactivemongo.api.MongoConnection]"></a>
+      <a id="connection(ParsedURI,Boolean):Try[MongoConnection]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">connection</span><span class="params">(<span name="parsedURI">parsedURI: <a href="MongoConnection$$ParsedURI.html" class="extype" name="reactivemongo.api.MongoConnection.ParsedURI">ParsedURI</a></span>, <span name="strictUri">strictUri: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.util.Try" class="extype" target="_top">Try</a>[<a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.MongoDriver@connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI,strictUri:Boolean):scala.util.Try[reactivemongo.api.MongoConnection]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Creates a new MongoConnection from URI.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection from URI.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
+</p></div><dl class="paramcmts block"><dt class="param">parsedURI</dt><dd class="cmt"><p>the URI parsed by <a href="MongoConnection$.html#parseURI(uri:String):scala.util.Try[reactivemongo.api.MongoConnection.ParsedURI]" class="extmbr" name="reactivemongo.api.MongoConnection#parseURI">reactivemongo.api.MongoConnection.parseURI</a></p></dd><dt class="param">strictUri</dt><dd class="cmt"><p>if true the parsed URI must be strict, without ignored/unsupported options (default: false)</p></dd></dl></div>
+    </li><li name="reactivemongo.api.MongoDriver#connection" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI,name:Option[String],strictUri:Boolean):scala.util.Try[reactivemongo.api.MongoConnection]"></a>
+      <a id="connection(ParsedURI,Option[String],Boolean):Try[MongoConnection]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">connection</span><span class="params">(<span name="parsedURI">parsedURI: <a href="MongoConnection$$ParsedURI.html" class="extype" name="reactivemongo.api.MongoConnection.ParsedURI">ParsedURI</a></span>, <span name="name">name: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="strictUri">strictUri: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.util.Try" class="extype" target="_top">Try</a>[<a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.MongoDriver@connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI,name:Option[String],strictUri:Boolean):scala.util.Try[reactivemongo.api.MongoConnection]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Creates a new MongoConnection from URI.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection from URI.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
+</p></div><dl class="paramcmts block"><dt class="param">parsedURI</dt><dd class="cmt"><p>The URI parsed by <a href="MongoConnection$.html#parseURI(uri:String):scala.util.Try[reactivemongo.api.MongoConnection.ParsedURI]" class="extmbr" name="reactivemongo.api.MongoConnection#parseURI">reactivemongo.api.MongoConnection.parseURI</a></p></dd><dt class="param">name</dt><dd class="cmt"><p>the name for the connection pool</p></dd><dt class="param">strictUri</dt><dd class="cmt"><p>if true the parsed URI must be strict, without ignored/unsupported options (default: false)</p></dd></dl></div>
     </li><li name="reactivemongo.api.MongoDriver#connection" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI,name:Option[String]):reactivemongo.api.MongoConnection"></a>
       <a id="connection(ParsedURI,Option[String]):MongoConnection"></a>
@@ -305,15 +339,15 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">connection</span><span class="params">(<span name="parsedURI">parsedURI: <a href="MongoConnection$$ParsedURI.html" class="extype" name="reactivemongo.api.MongoConnection.ParsedURI">ParsedURI</a></span>, <span name="name">name: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
+        <span class="name">connection</span><span class="params">(<span name="parsedURI">parsedURI: <a href="MongoConnection$$ParsedURI.html" class="extype" name="reactivemongo.api.MongoConnection.ParsedURI">ParsedURI</a></span>, <span name="name">name: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI,name:Option[String]):reactivemongo.api.MongoConnection" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Creates a new MongoConnection from URI.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection from URI.</p><p>See <a href="http://docs.mongodb.org/manual/reference/connection-string/" target="_blank">the MongoDB URI documentation</a> for more information.
-</p></div><dl class="paramcmts block"><dt class="param">parsedURI</dt><dd class="cmt"><p>The URI parsed by <a href="MongoConnection$.html#parseURI(uri:String):scala.util.Try[reactivemongo.api.MongoConnection.ParsedURI]" class="extmbr" name="reactivemongo.api.MongoConnection#parseURI">reactivemongo.api.MongoConnection.parseURI</a></p></dd><dt class="param">name</dt><dd class="cmt"><p>The name of the newly created <a href="../core/actors/MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">reactivemongo.core.actors.MongoDBSystem</a> actor, if needed.</p></dd></dl></div>
+      <p class="shortcomment cmt">Creates a new MongoConnection from URI.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection from URI.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
+</p></div><dl class="paramcmts block"><dt class="param">parsedURI</dt><dd class="cmt"><p>the URI parsed by <a href="MongoConnection$.html#parseURI(uri:String):scala.util.Try[reactivemongo.api.MongoConnection.ParsedURI]" class="extmbr" name="reactivemongo.api.MongoConnection#parseURI">reactivemongo.api.MongoConnection.parseURI</a></p></dd><dt class="param">name</dt><dd class="cmt"><p>the name for the connection pool</p></dd></dl></div>
     </li><li name="reactivemongo.api.MongoDriver#connection" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="connection(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions,authentications:Seq[reactivemongo.core.nodeset.Authenticate],name:Option[String]):reactivemongo.api.MongoConnection"></a>
       <a id="connection(Seq[String],MongoConnectionOptions,Seq[Authenticate],Option[String]):MongoConnection"></a>
@@ -323,15 +357,15 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">connection</span><span class="params">(<span name="nodes">nodes: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="options">options: <a href="MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a> = <span class="symbol">MongoConnectionOptions()</span></span>, <span name="authentications">authentications: <span class="extype" name="scala.Seq">Seq</span>[<a href="../core/nodeset/Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>] = <span class="symbol">Seq.empty</span></span>, <span name="name">name: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
+        <span class="name">connection</span><span class="params">(<span name="nodes">nodes: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="options">options: <a href="MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a> = <span class="symbol"><span class="name"><a href="MongoConnectionOptions$.html">MongoConnectionOptions()</a></span></span></span>, <span name="authentications">authentications: <span class="extype" name="scala.Seq">Seq</span>[<a href="../core/nodeset/Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>] = <span class="symbol">Seq.empty</span></span>, <span name="name">name: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@connection(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions,authentications:Seq[reactivemongo.core.nodeset.Authenticate],name:Option[String]):reactivemongo.api.MongoConnection" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Creates a new MongoConnection.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection.</p><p>See <a href="http://docs.mongodb.org/manual/reference/connection-string/" target="_blank">the MongoDB URI documentation</a> for more information.
-</p></div><dl class="paramcmts block"><dt class="param">nodes</dt><dd class="cmt"><p>A list of node names, like <i>node1.foo.com:27017</i>. Port is optional, it is 27017 by default.</p></dd><dt class="param">options</dt><dd class="cmt"><p>Options for the new connection pool.</p></dd><dt class="param">authentications</dt><dd class="cmt"><p>A list of Authenticates.</p></dd><dt class="param">name</dt><dd class="cmt"><p>The name of the newly created <a href="../core/actors/MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">reactivemongo.core.actors.MongoDBSystem</a> actor, if needed.</p></dd></dl></div>
+      <p class="shortcomment cmt">Creates a new MongoConnection.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
+</p></div><dl class="paramcmts block"><dt class="param">nodes</dt><dd class="cmt"><p>The list of node names (e.g. <i>node1.foo.com:27017</i>); Port is optional (27017 is used by default)</p></dd><dt class="param">options</dt><dd class="cmt"><p>the options for the new connection pool</p></dd><dt class="param">authentications</dt><dd class="cmt"><p>the list of authentication instructions</p></dd><dt class="param">name</dt><dd class="cmt"><p>the name for the connection pool</p></dd></dl></div>
     </li><li name="reactivemongo.api.MongoDriver#connections" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="connections:Iterable[reactivemongo.api.MongoConnection]"></a>
       <a id="connections:Iterable[MongoConnection]"></a>
@@ -358,7 +392,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -379,7 +413,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
@@ -400,7 +434,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -421,7 +455,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@ensuring(cond:Boolean):A" title="Permalink" target="_top">
@@ -442,7 +476,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
@@ -459,7 +493,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@equals(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -476,7 +510,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@finalize():Unit" title="Permalink" target="_top">
@@ -540,7 +574,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@hashCode():Int" title="Permalink" target="_top">
@@ -557,7 +591,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
@@ -574,7 +608,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
@@ -591,7 +625,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@notify():Unit" title="Permalink" target="_top">
@@ -608,7 +642,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@notifyAll():Unit" title="Permalink" target="_top">
@@ -625,7 +659,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">numConnections</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span class="name">numConnections</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@numConnections:Int" title="Permalink" target="_top">
@@ -693,7 +727,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@wait():Unit" title="Permalink" target="_top">
@@ -716,7 +750,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
@@ -739,7 +773,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@wait(x$1:Long):Unit" title="Permalink" target="_top">
@@ -790,18 +824,18 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.11.3) Must you scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@427fde23 with nbChannelsPerNode set in the options of the parsedURI.">connection</span><span class="params">(<span name="parsedURI">parsedURI: <a href="MongoConnection$$ParsedURI.html" class="extype" name="reactivemongo.api.MongoConnection.ParsedURI">ParsedURI</a></span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.3) Must you connection with nbChannelsPerNode set in the options of the parsedURI.">connection</span><span class="params">(<span name="parsedURI">parsedURI: <a href="MongoConnection$$ParsedURI.html" class="extype" name="reactivemongo.api.MongoConnection.ParsedURI">ParsedURI</a></span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI,nbChannelsPerNode:Int):reactivemongo.api.MongoConnection" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Creates a new MongoConnection from URI.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection from URI.</p><p>See <a href="http://docs.mongodb.org/manual/reference/connection-string/" target="_blank">the MongoDB URI documentation</a> for more information.
-</p></div><dl class="paramcmts block"><dt class="param">parsedURI</dt><dd class="cmt"><p>The URI parsed by <a href="MongoConnection$.html#parseURI(uri:String):scala.util.Try[reactivemongo.api.MongoConnection.ParsedURI]" class="extmbr" name="reactivemongo.api.MongoConnection#parseURI">reactivemongo.api.MongoConnection.parseURI</a></p></dd><dt class="param">nbChannelsPerNode</dt><dd class="cmt"><p>Number of channels to open per node.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+      <p class="shortcomment cmt">Creates a new MongoConnection from URI.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection from URI.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
+</p></div><dl class="paramcmts block"><dt class="param">parsedURI</dt><dd class="cmt"><p>the URI parsed by <a href="MongoConnection$.html#parseURI(uri:String):scala.util.Try[reactivemongo.api.MongoConnection.ParsedURI]" class="extmbr" name="reactivemongo.api.MongoConnection#parseURI">reactivemongo.api.MongoConnection.parseURI</a></p></dd><dt class="param">nbChannelsPerNode</dt><dd class="cmt"><p>the number of channels to open per node</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.3)</i> Must you <a href="#connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI):reactivemongo.api.MongoConnection" class="extmbr" name="reactivemongo.api.MongoDriver#connection">connection</a> with <code>nbChannelsPerNode</code> set in the options of the <code>parsedURI</code>.</p></dd></dl></div>
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.3)</i> Must you <code>connection</code> with <code>nbChannelsPerNode</code> set in the options of the <code>parsedURI</code>.</p></dd></dl></div>
     </li><li name="reactivemongo.api.MongoDriver#connection" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI,nbChannelsPerNode:Int,name:Option[String]):reactivemongo.api.MongoConnection"></a>
       <a id="connection(ParsedURI,Int,Option[String]):MongoConnection"></a>
@@ -811,18 +845,18 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.11.3) Must you scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@71464042 with nbChannelsPerNode set in the options of the parsedURI.">connection</span><span class="params">(<span name="parsedURI">parsedURI: <a href="MongoConnection$$ParsedURI.html" class="extype" name="reactivemongo.api.MongoConnection.ParsedURI">ParsedURI</a></span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <span class="extype" name="scala.Int">Int</span></span>, <span name="name">name: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.3) Must you reactivemongo.api.MongoDriver.connection(reactivemongo.api.MongoConnection.ParsedURI,Option[String]):reactivemongo.api.MongoConnection connection(..)]] with nbChannelsPerNode set in the parsedURI.">connection</span><span class="params">(<span name="parsedURI">parsedURI: <a href="MongoConnection$$ParsedURI.html" class="extype" name="reactivemongo.api.MongoConnection.ParsedURI">ParsedURI</a></span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="name">name: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI,nbChannelsPerNode:Int,name:Option[String]):reactivemongo.api.MongoConnection" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Creates a new MongoConnection from URI.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection from URI.</p><p>See <a href="http://docs.mongodb.org/manual/reference/connection-string/" target="_blank">the MongoDB URI documentation</a> for more information.
-</p></div><dl class="paramcmts block"><dt class="param">parsedURI</dt><dd class="cmt"><p>The URI parsed by <a href="MongoConnection$.html#parseURI(uri:String):scala.util.Try[reactivemongo.api.MongoConnection.ParsedURI]" class="extmbr" name="reactivemongo.api.MongoConnection#parseURI">reactivemongo.api.MongoConnection.parseURI</a></p></dd><dt class="param">nbChannelsPerNode</dt><dd class="cmt"><p>Number of channels to open per node.</p></dd><dt class="param">name</dt><dd class="cmt"><p>The name of the newly created <a href="../core/actors/MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">reactivemongo.core.actors.MongoDBSystem</a> actor, if needed.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+      <p class="shortcomment cmt">Creates a new MongoConnection from URI.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection from URI.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
+</p></div><dl class="paramcmts block"><dt class="param">parsedURI</dt><dd class="cmt"><p>the URI parsed by <a href="MongoConnection$.html#parseURI(uri:String):scala.util.Try[reactivemongo.api.MongoConnection.ParsedURI]" class="extmbr" name="reactivemongo.api.MongoConnection#parseURI">reactivemongo.api.MongoConnection.parseURI</a></p></dd><dt class="param">nbChannelsPerNode</dt><dd class="cmt"><p>the number of channels to open per node</p></dd><dt class="param">name</dt><dd class="cmt"><p>the name for the connection pool</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.3)</i> Must you <a href="#connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI):reactivemongo.api.MongoConnection" class="extmbr" name="reactivemongo.api.MongoDriver#connection">connection</a> with <code>nbChannelsPerNode</code> set in the options of the <code>parsedURI</code>.</p></dd></dl></div>
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.3)</i> Must you reactivemongo.api.MongoDriver.connection(reactivemongo.api.MongoConnection.ParsedURI,Option[String]):reactivemongo.api.MongoConnection connection(..)]] with <code>nbChannelsPerNode</code> set in the <code>parsedURI</code>.</p></dd></dl></div>
     </li><li name="reactivemongo.api.MongoDriver#connection" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="connection(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions,authentications:Seq[reactivemongo.core.nodeset.Authenticate],nbChannelsPerNode:Int,name:Option[String]):reactivemongo.api.MongoConnection"></a>
       <a id="connection(Seq[String],MongoConnectionOptions,Seq[Authenticate],Int,Option[String]):MongoConnection"></a>
@@ -832,18 +866,18 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.11.3) Must use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@450f96c3 with nbChannelsPerNode set in the options.">connection</span><span class="params">(<span name="nodes">nodes: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="options">options: <a href="MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>, <span name="authentications">authentications: <span class="extype" name="scala.Seq">Seq</span>[<a href="../core/nodeset/Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>]</span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <span class="extype" name="scala.Int">Int</span></span>, <span name="name">name: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.3) Must use connection with nbChannelsPerNode set in the options.">connection</span><span class="params">(<span name="nodes">nodes: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="options">options: <a href="MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>, <span name="authentications">authentications: <span class="extype" name="scala.Seq">Seq</span>[<a href="../core/nodeset/Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>]</span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="name">name: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoDriver@connection(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions,authentications:Seq[reactivemongo.core.nodeset.Authenticate],nbChannelsPerNode:Int,name:Option[String]):reactivemongo.api.MongoConnection" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Creates a new MongoConnection.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection.</p><p>See <a href="http://docs.mongodb.org/manual/reference/connection-string/" target="_blank">the MongoDB URI documentation</a> for more information.
-</p></div><dl class="paramcmts block"><dt class="param">nodes</dt><dd class="cmt"><p>A list of node names, like <i>node1.foo.com:27017</i>. Port is optional, it is 27017 by default.</p></dd><dt class="param">options</dt><dd class="cmt"><p>Options for the new connection pool.</p></dd><dt class="param">authentications</dt><dd class="cmt"><p>A list of Authenticates.</p></dd><dt class="param">nbChannelsPerNode</dt><dd class="cmt"><p>Number of channels to open per node. Defaults to 10.</p></dd><dt class="param">name</dt><dd class="cmt"><p>The name of the newly created <a href="../core/actors/MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">reactivemongo.core.actors.MongoDBSystem</a> actor, if needed.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+      <p class="shortcomment cmt">Creates a new MongoConnection.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
+</p></div><dl class="paramcmts block"><dt class="param">nodes</dt><dd class="cmt"><p>The list of node names (e.g. <i>node1.foo.com:27017</i>); Port is optional (27017 is used by default)</p></dd><dt class="param">options</dt><dd class="cmt"><p>the options for the new connection pool</p></dd><dt class="param">authentications</dt><dd class="cmt"><p>the list of authentication instructions</p></dd><dt class="param">nbChannelsPerNode</dt><dd class="cmt"><p>the number of channels to open per node</p></dd><dt class="param">name</dt><dd class="cmt"><p>the name for the connection pool</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.3)</i> Must use <a href="#connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI):reactivemongo.api.MongoConnection" class="extmbr" name="reactivemongo.api.MongoDriver#connection">connection</a> with <code>nbChannelsPerNode</code> set in the <code>options</code>.</p></dd></dl></div>
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.3)</i> Must use <code>connection</code> with <code>nbChannelsPerNode</code> set in the <code>options</code>.</p></dd></dl></div>
     </li></ol>
             </div>
         </div>

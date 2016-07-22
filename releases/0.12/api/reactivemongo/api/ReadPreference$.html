@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../lib/template.js"></script>
       <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../index.html';
@@ -92,75 +92,96 @@
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="reactivemongo.api.ReadPreference.Nearest" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="NearestextendsReadPreferencewithProductwithSerializable"></a>
+              <ol><li name="reactivemongo.api.ReadPreference.Nearest" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="NearestextendsReadPreferencewithReadPreference.Taggable"></a>
       <a id="Nearest:Nearest"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">case class</span>
+        <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="ReadPreference$$Nearest.html"><span class="name">Nearest</span></a><span class="params">(<span name="filterTag">filterTag: <span class="extype" name="scala.Option">Option</span>[(<a href="../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span>]</span>)</span><span class="result"> extends <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="ReadPreference$$Nearest.html"><span class="name">Nearest</span></a><span class="result"> extends <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> with <a href="ReadPreference$$Taggable.html" class="extype" name="reactivemongo.api.ReadPreference.Taggable">Taggable</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.ReadPreference$@NearestextendsReadPreferencewithProductwithSerializable" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$@NearestextendsReadPreferencewithReadPreference.Taggable" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Read from the faster node (ie the node which replies faster than all others), regardless its status
-(primary or secondary).</p>
+      <p class="shortcomment cmt">Reads from the faster node (e.g.</p><div class="fullcomment"><div class="comment cmt"><p>Reads from the faster node (e.g. the node which replies faster than
+all others), regardless its status (primary or secondary).
+</p></div></div>
     </li><li name="reactivemongo.api.ReadPreference.PrimaryPreferred" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="PrimaryPreferredextendsReadPreferencewithProductwithSerializable"></a>
+      <a id="PrimaryPreferredextendsReadPreferencewithReadPreference.Taggable"></a>
       <a id="PrimaryPreferred:PrimaryPreferred"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">case class</span>
+        <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="ReadPreference$$PrimaryPreferred.html"><span class="name">PrimaryPreferred</span></a><span class="params">(<span name="filterTag">filterTag: <span class="extype" name="scala.Option">Option</span>[(<a href="../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span>]</span>)</span><span class="result"> extends <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="ReadPreference$$PrimaryPreferred.html"><span class="name">PrimaryPreferred</span></a><span class="result"> extends <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> with <a href="ReadPreference$$Taggable.html" class="extype" name="reactivemongo.api.ReadPreference.Taggable">Taggable</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.ReadPreference$@PrimaryPreferredextendsReadPreferencewithProductwithSerializable" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$@PrimaryPreferredextendsReadPreferencewithReadPreference.Taggable" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Read from the primary if it is available, or secondaries if it is not.</p>
+      <p class="shortcomment cmt">Reads from the primary if it is available, or secondaries if it is not.</p>
     </li><li name="reactivemongo.api.ReadPreference.Secondary" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="SecondaryextendsReadPreferencewithProductwithSerializable"></a>
+      <a id="SecondaryextendsReadPreferencewithReadPreference.Taggable"></a>
       <a id="Secondary:Secondary"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">case class</span>
+        <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="ReadPreference$$Secondary.html"><span class="name">Secondary</span></a><span class="params">(<span name="filterTag">filterTag: <span class="extype" name="scala.Option">Option</span>[(<a href="../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span>]</span>)</span><span class="result"> extends <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="ReadPreference$$Secondary.html"><span class="name">Secondary</span></a><span class="result"> extends <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> with <a href="ReadPreference$$Taggable.html" class="extype" name="reactivemongo.api.ReadPreference.Taggable">Taggable</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.ReadPreference$@SecondaryextendsReadPreferencewithProductwithSerializable" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$@SecondaryextendsReadPreferencewithReadPreference.Taggable" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Read only from any secondary.</p>
+      <p class="shortcomment cmt">Reads only from any secondary.</p>
     </li><li name="reactivemongo.api.ReadPreference.SecondaryPreferred" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="SecondaryPreferredextendsReadPreferencewithProductwithSerializable"></a>
+      <a id="SecondaryPreferredextendsReadPreferencewithReadPreference.Taggable"></a>
       <a id="SecondaryPreferred:SecondaryPreferred"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">case class</span>
+        <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="ReadPreference$$SecondaryPreferred.html"><span class="name">SecondaryPreferred</span></a><span class="params">(<span name="filterTag">filterTag: <span class="extype" name="scala.Option">Option</span>[(<a href="../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span>]</span>)</span><span class="result"> extends <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="ReadPreference$$SecondaryPreferred.html"><span class="name">SecondaryPreferred</span></a><span class="result"> extends <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> with <a href="ReadPreference$$Taggable.html" class="extype" name="reactivemongo.api.ReadPreference.Taggable">Taggable</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.ReadPreference$@SecondaryPreferredextendsReadPreferencewithProductwithSerializable" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$@SecondaryPreferredextendsReadPreferencewithReadPreference.Taggable" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Read from any secondary, or from the primary if they are not available.</p>
+      <p class="shortcomment cmt">Reads from any secondary, or from the primary if they are not available.</p>
+    </li><li name="reactivemongo.api.ReadPreference.Taggable" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="TaggableextendsSerializablewithSerializablewithProductwithEquals"></a>
+      <a id="Taggable:Taggable"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ReadPreference$$Taggable.html"><span class="name deprecated" title="Deprecated: (Since version 0.11.12) For legacy purpose only">Taggable</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Serializable" class="extype" target="_top">Serializable</a> with <span class="extype" name="java.io.Serializable">Serializable</span> with <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Equals" class="extype" target="_top">Equals</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$@TaggableextendsSerializablewithSerializablewithProductwithEquals" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.12)</i> For legacy purpose only</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -177,7 +198,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.ReadPreference$@!=(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -194,7 +215,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.ReadPreference$@##():Int" title="Permalink" target="_top">
@@ -211,7 +232,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.ReadPreference$@==(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -219,6 +240,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="reactivemongo.api.ReadPreference.Nearest" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Nearest"></a>
+      <a id="Nearest:Nearest"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ReadPreference$$Nearest$.html"><span class="name">Nearest</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.runtime.AbstractFunction1" class="extype" target="_top">AbstractFunction1</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[(<a href="../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a>], <a href="ReadPreference$$Nearest.html" class="extype" name="reactivemongo.api.ReadPreference.Nearest">Nearest</a>] with <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$@Nearest" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Factory for the <a href="ReadPreference$$Nearest.html" class="extype" name="reactivemongo.api.ReadPreference.Nearest">Nearest</a> read preference.</p>
     </li><li name="reactivemongo.api.ReadPreference.Primary" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="Primary"></a>
       <a id="Primary:Primary"></a>
@@ -235,7 +273,75 @@
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Read only from the primary.</p><div class="fullcomment"><div class="comment cmt"><p>Read only from the primary. This is the default choice.</p></div></div>
+      <p class="shortcomment cmt">Reads only from the primary.</p><div class="fullcomment"><div class="comment cmt"><p>Reads only from the primary. This is the default choice.</p></div></div>
+    </li><li name="reactivemongo.api.ReadPreference.PrimaryPreferred" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="PrimaryPreferred"></a>
+      <a id="PrimaryPreferred:PrimaryPreferred"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ReadPreference$$PrimaryPreferred$.html"><span class="name">PrimaryPreferred</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.runtime.AbstractFunction1" class="extype" target="_top">AbstractFunction1</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[(<a href="../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a>], <a href="ReadPreference$$PrimaryPreferred.html" class="extype" name="reactivemongo.api.ReadPreference.PrimaryPreferred">PrimaryPreferred</a>] with <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$@PrimaryPreferred" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Factory for the <a href="ReadPreference$$PrimaryPreferred.html" class="extype" name="reactivemongo.api.ReadPreference.PrimaryPreferred">PrimaryPreferred</a> read preference.</p>
+    </li><li name="reactivemongo.api.ReadPreference.Secondary" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Secondary"></a>
+      <a id="Secondary:Secondary"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ReadPreference$$Secondary$.html"><span class="name">Secondary</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.runtime.AbstractFunction1" class="extype" target="_top">AbstractFunction1</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[(<a href="../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a>], <a href="ReadPreference$$Secondary.html" class="extype" name="reactivemongo.api.ReadPreference.Secondary">Secondary</a>] with <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$@Secondary" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Factory for the <a href="ReadPreference$$Secondary.html" class="extype" name="reactivemongo.api.ReadPreference.Secondary">Secondary</a> read preference.</p>
+    </li><li name="reactivemongo.api.ReadPreference.SecondaryPreferred" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SecondaryPreferred"></a>
+      <a id="SecondaryPreferred:SecondaryPreferred"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ReadPreference$$SecondaryPreferred$.html"><span class="name">SecondaryPreferred</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.runtime.AbstractFunction1" class="extype" target="_top">AbstractFunction1</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[(<a href="../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a>], <a href="ReadPreference$$SecondaryPreferred.html" class="extype" name="reactivemongo.api.ReadPreference.SecondaryPreferred">SecondaryPreferred</a>] with <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$@SecondaryPreferred" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Factory for the <a href="ReadPreference$$SecondaryPreferred.html" class="extype" name="reactivemongo.api.ReadPreference.SecondaryPreferred">SecondaryPreferred</a> read preference.</p>
+    </li><li name="reactivemongo.api.ReadPreference.Taggable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Taggable"></a>
+      <a id="Taggable:Taggable"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ReadPreference$$Taggable$.html"><span class="name">Taggable</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$@Taggable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Extractor for taggable read preference.</p>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -285,7 +391,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.ReadPreference$@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
@@ -302,7 +408,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.ReadPreference$@equals(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -319,7 +425,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.ReadPreference$@finalize():Unit" title="Permalink" target="_top">
@@ -359,7 +465,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.ReadPreference$@hashCode():Int" title="Permalink" target="_top">
@@ -376,7 +482,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.ReadPreference$@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
@@ -393,7 +499,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.ReadPreference$@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
@@ -401,31 +507,49 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="reactivemongo.api.ReadPreference#nearest" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="nearest[T](tag:T)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.Nearest"></a>
-      <a id="nearest[T](T)(BSONDocumentWriter[T]):Nearest"></a>
+    </li><li name="reactivemongo.api.ReadPreference#nearest" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nearest[T](tagSet:List[Map[String,String]]):reactivemongo.api.ReadPreference.Nearest"></a>
+      <a id="nearest[T](List[Map[String,String]]):Nearest"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">nearest</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="tag">tag: <span class="extype" name="reactivemongo.api.ReadPreference.nearest.T">T</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <a href="../bson/BSONDocumentWriter.html" class="extype" name="reactivemongo.bson.BSONDocumentWriter">BSONDocumentWriter</a>[<span class="extype" name="reactivemongo.api.ReadPreference.nearest.T">T</span>]</span>)</span><span class="result">: <a href="ReadPreference$$Nearest.html" class="extype" name="reactivemongo.api.ReadPreference.Nearest">Nearest</a></span>
+        <span class="name">nearest</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="tagSet">tagSet: <span class="extype" name="scala.List">List</span>[<span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>]]</span>)</span><span class="result">: <a href="ReadPreference$$Nearest.html" class="extype" name="reactivemongo.api.ReadPreference.Nearest">Nearest</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.ReadPreference$@nearest[T](tag:T)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.Nearest" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$@nearest[T](tagSet:List[Map[String,String]]):reactivemongo.api.ReadPreference.Nearest" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Read from the fastest node (ie the node which replies faster than all others) that has the given <code>tag</code>,
-regardless its status (primary or secondary).</p>
+      <p class="shortcomment cmt">Reads from the fastest node (e.g.</p><div class="fullcomment"><div class="comment cmt"><p>Reads from the fastest node (e.g. the node which replies faster than all others) that has the given <code>tagSet</code>, regardless its status (primary or secondary).
+</p></div></div>
+    </li><li name="reactivemongo.api.ReadPreference#nearest" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nearest[T](tagSet:T*)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.Nearest"></a>
+      <a id="nearest[T](T*)(BSONDocumentWriter[T]):Nearest"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nearest</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="tagSet">tagSet: <span class="extype" name="reactivemongo.api.ReadPreference.nearest.T">T</span>*</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <a href="../bson/BSONDocumentWriter.html" class="extype" name="reactivemongo.bson.BSONDocumentWriter">BSONDocumentWriter</a>[<span class="extype" name="reactivemongo.api.ReadPreference.nearest.T">T</span>]</span>)</span><span class="result">: <a href="ReadPreference$$Nearest.html" class="extype" name="reactivemongo.api.ReadPreference.Nearest">Nearest</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$@nearest[T](tagSet:T*)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.Nearest" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Reads from the fastest node (e.g.</p><div class="fullcomment"><div class="comment cmt"><p>Reads from the fastest node (e.g. the node which replies faster than all others) that has the given <code>tagSet</code>, regardless its status (primary or secondary).
+</p></div></div>
     </li><li name="reactivemongo.api.ReadPreference#nearest" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="nearest:reactivemongo.api.ReadPreference.Nearest"></a>
       <a id="nearest:Nearest"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">def</span>
+        <span class="kind">val</span>
       </span>
       <span class="symbol">
         <span class="name">nearest</span><span class="result">: <a href="ReadPreference$$Nearest.html" class="extype" name="reactivemongo.api.ReadPreference.Nearest">Nearest</a></span>
@@ -435,7 +559,7 @@ regardless its status (primary or secondary).</p>
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Read from the fastest node (ie the node which replies faster than all others), regardless its status
+      <p class="shortcomment cmt">Reads from the fastest node (ie the node which replies faster than all others), regardless its status
 (primary or secondary).</p>
     </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
@@ -446,7 +570,7 @@ regardless its status (primary or secondary).</p>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.ReadPreference$@notify():Unit" title="Permalink" target="_top">
@@ -463,7 +587,7 @@ regardless its status (primary or secondary).</p>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.ReadPreference$@notifyAll():Unit" title="Permalink" target="_top">
@@ -487,31 +611,48 @@ regardless its status (primary or secondary).</p>
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Read only from the primary.</p><div class="fullcomment"><div class="comment cmt"><p>Read only from the primary. This is the default choice.</p></div></div>
+      <p class="shortcomment cmt">Reads only from the primary.</p><div class="fullcomment"><div class="comment cmt"><p>Reads only from the primary. This is the default choice.</p></div></div>
     </li><li name="reactivemongo.api.ReadPreference#primaryPreferred" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="primaryPreferred[T](tag:T)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.PrimaryPreferred"></a>
-      <a id="primaryPreferred[T](T)(BSONDocumentWriter[T]):PrimaryPreferred"></a>
+      <a id="primaryPreferred(tagSet:List[Map[String,String]]):reactivemongo.api.ReadPreference.PrimaryPreferred"></a>
+      <a id="primaryPreferred(List[Map[String,String]]):PrimaryPreferred"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">primaryPreferred</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="tag">tag: <span class="extype" name="reactivemongo.api.ReadPreference.primaryPreferred.T">T</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <a href="../bson/BSONDocumentWriter.html" class="extype" name="reactivemongo.bson.BSONDocumentWriter">BSONDocumentWriter</a>[<span class="extype" name="reactivemongo.api.ReadPreference.primaryPreferred.T">T</span>]</span>)</span><span class="result">: <a href="ReadPreference$$PrimaryPreferred.html" class="extype" name="reactivemongo.api.ReadPreference.PrimaryPreferred">PrimaryPreferred</a></span>
+        <span class="name">primaryPreferred</span><span class="params">(<span name="tagSet">tagSet: <span class="extype" name="scala.List">List</span>[<span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>]]</span>)</span><span class="result">: <a href="ReadPreference$$PrimaryPreferred.html" class="extype" name="reactivemongo.api.ReadPreference.PrimaryPreferred">PrimaryPreferred</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.ReadPreference$@primaryPreferred[T](tag:T)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.PrimaryPreferred" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$@primaryPreferred(tagSet:List[Map[String,String]]):reactivemongo.api.ReadPreference.PrimaryPreferred" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt"> Read from any node that has the given <code>tag</code> in the replica set (preferably the primary).</p>
+      <p class="shortcomment cmt">Reads from any node that has the given <code>tagSet</code> in the replica set (preferably the primary).</p>
+    </li><li name="reactivemongo.api.ReadPreference#primaryPreferred" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="primaryPreferred[T](tagSet:T*)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.PrimaryPreferred"></a>
+      <a id="primaryPreferred[T](T*)(BSONDocumentWriter[T]):PrimaryPreferred"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">primaryPreferred</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="tagSet">tagSet: <span class="extype" name="reactivemongo.api.ReadPreference.primaryPreferred.T">T</span>*</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <a href="../bson/BSONDocumentWriter.html" class="extype" name="reactivemongo.bson.BSONDocumentWriter">BSONDocumentWriter</a>[<span class="extype" name="reactivemongo.api.ReadPreference.primaryPreferred.T">T</span>]</span>)</span><span class="result">: <a href="ReadPreference$$PrimaryPreferred.html" class="extype" name="reactivemongo.api.ReadPreference.PrimaryPreferred">PrimaryPreferred</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$@primaryPreferred[T](tagSet:T*)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.PrimaryPreferred" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Reads from any node that has the given <code>tagSet</code> in the replica set (preferably the primary).</p>
     </li><li name="reactivemongo.api.ReadPreference#primaryPreferred" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="primaryPreferred:reactivemongo.api.ReadPreference.PrimaryPreferred"></a>
       <a id="primaryPreferred:PrimaryPreferred"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">def</span>
+        <span class="kind">val</span>
       </span>
       <span class="symbol">
         <span class="name">primaryPreferred</span><span class="result">: <a href="ReadPreference$$PrimaryPreferred.html" class="extype" name="reactivemongo.api.ReadPreference.PrimaryPreferred">PrimaryPreferred</a></span>
@@ -521,31 +662,48 @@ regardless its status (primary or secondary).</p>
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Read from the primary if it is available, or secondaries if it is not.</p>
+      <p class="shortcomment cmt">Reads from the primary if it is available, or secondaries if it is not.</p>
     </li><li name="reactivemongo.api.ReadPreference#secondary" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="secondary[T](tag:T)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.Secondary"></a>
-      <a id="secondary[T](T)(BSONDocumentWriter[T]):Secondary"></a>
+      <a id="secondary(tagSet:List[Map[String,String]]):reactivemongo.api.ReadPreference.Secondary"></a>
+      <a id="secondary(List[Map[String,String]]):Secondary"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">secondary</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="tag">tag: <span class="extype" name="reactivemongo.api.ReadPreference.secondary.T">T</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <a href="../bson/BSONDocumentWriter.html" class="extype" name="reactivemongo.bson.BSONDocumentWriter">BSONDocumentWriter</a>[<span class="extype" name="reactivemongo.api.ReadPreference.secondary.T">T</span>]</span>)</span><span class="result">: <a href="ReadPreference$$Secondary.html" class="extype" name="reactivemongo.api.ReadPreference.Secondary">Secondary</a></span>
+        <span class="name">secondary</span><span class="params">(<span name="tagSet">tagSet: <span class="extype" name="scala.List">List</span>[<span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>]]</span>)</span><span class="result">: <a href="ReadPreference$$Secondary.html" class="extype" name="reactivemongo.api.ReadPreference.Secondary">Secondary</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.ReadPreference$@secondary[T](tag:T)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.Secondary" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$@secondary(tagSet:List[Map[String,String]]):reactivemongo.api.ReadPreference.Secondary" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt"> Read from a secondary that has the given <code>tag</code> in the replica set.</p>
+      <p class="shortcomment cmt">Reads from a secondary that has the given <code>tagSet</code> in the replica set.</p>
+    </li><li name="reactivemongo.api.ReadPreference#secondary" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="secondary[T](tagSet:T*)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.Secondary"></a>
+      <a id="secondary[T](T*)(BSONDocumentWriter[T]):Secondary"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">secondary</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="tagSet">tagSet: <span class="extype" name="reactivemongo.api.ReadPreference.secondary.T">T</span>*</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <a href="../bson/BSONDocumentWriter.html" class="extype" name="reactivemongo.bson.BSONDocumentWriter">BSONDocumentWriter</a>[<span class="extype" name="reactivemongo.api.ReadPreference.secondary.T">T</span>]</span>)</span><span class="result">: <a href="ReadPreference$$Secondary.html" class="extype" name="reactivemongo.api.ReadPreference.Secondary">Secondary</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$@secondary[T](tagSet:T*)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.Secondary" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Reads from a secondary that has the given <code>tagSet</code> in the replica set.</p>
     </li><li name="reactivemongo.api.ReadPreference#secondary" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="secondary:reactivemongo.api.ReadPreference.Secondary"></a>
       <a id="secondary:Secondary"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">def</span>
+        <span class="kind">val</span>
       </span>
       <span class="symbol">
         <span class="name">secondary</span><span class="result">: <a href="ReadPreference$$Secondary.html" class="extype" name="reactivemongo.api.ReadPreference.Secondary">Secondary</a></span>
@@ -555,31 +713,48 @@ regardless its status (primary or secondary).</p>
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Read only from any secondary.</p>
+      <p class="shortcomment cmt">Reads only from any secondary.</p>
     </li><li name="reactivemongo.api.ReadPreference#secondaryPreferred" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="secondaryPreferred[T](tag:T)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.SecondaryPreferred"></a>
-      <a id="secondaryPreferred[T](T)(BSONDocumentWriter[T]):SecondaryPreferred"></a>
+      <a id="secondaryPreferred(tagSet:List[Map[String,String]]):reactivemongo.api.ReadPreference.SecondaryPreferred"></a>
+      <a id="secondaryPreferred(List[Map[String,String]]):SecondaryPreferred"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">secondaryPreferred</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="tag">tag: <span class="extype" name="reactivemongo.api.ReadPreference.secondaryPreferred.T">T</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <a href="../bson/BSONDocumentWriter.html" class="extype" name="reactivemongo.bson.BSONDocumentWriter">BSONDocumentWriter</a>[<span class="extype" name="reactivemongo.api.ReadPreference.secondaryPreferred.T">T</span>]</span>)</span><span class="result">: <a href="ReadPreference$$SecondaryPreferred.html" class="extype" name="reactivemongo.api.ReadPreference.SecondaryPreferred">SecondaryPreferred</a></span>
+        <span class="name">secondaryPreferred</span><span class="params">(<span name="tagSet">tagSet: <span class="extype" name="scala.List">List</span>[<span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>]]</span>)</span><span class="result">: <a href="ReadPreference$$SecondaryPreferred.html" class="extype" name="reactivemongo.api.ReadPreference.SecondaryPreferred">SecondaryPreferred</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.ReadPreference$@secondaryPreferred[T](tag:T)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.SecondaryPreferred" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$@secondaryPreferred(tagSet:List[Map[String,String]]):reactivemongo.api.ReadPreference.SecondaryPreferred" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt"> Read from any node that has the given <code>tag</code> in the replica set (preferably a secondary).</p>
+      <p class="shortcomment cmt">Reads from any node that has the given <code>tagSet</code> in the replica set (preferably a secondary).</p>
+    </li><li name="reactivemongo.api.ReadPreference#secondaryPreferred" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="secondaryPreferred[T](tagSet:T*)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.SecondaryPreferred"></a>
+      <a id="secondaryPreferred[T](T*)(BSONDocumentWriter[T]):SecondaryPreferred"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">secondaryPreferred</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="tagSet">tagSet: <span class="extype" name="reactivemongo.api.ReadPreference.secondaryPreferred.T">T</span>*</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <a href="../bson/BSONDocumentWriter.html" class="extype" name="reactivemongo.bson.BSONDocumentWriter">BSONDocumentWriter</a>[<span class="extype" name="reactivemongo.api.ReadPreference.secondaryPreferred.T">T</span>]</span>)</span><span class="result">: <a href="ReadPreference$$SecondaryPreferred.html" class="extype" name="reactivemongo.api.ReadPreference.SecondaryPreferred">SecondaryPreferred</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$@secondaryPreferred[T](tagSet:T*)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.SecondaryPreferred" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Reads from any node that has the given <code>tagSet</code> in the replica set (preferably a secondary).</p>
     </li><li name="reactivemongo.api.ReadPreference#secondaryPreferred" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="secondaryPreferred:reactivemongo.api.ReadPreference.SecondaryPreferred"></a>
       <a id="secondaryPreferred:SecondaryPreferred"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">def</span>
+        <span class="kind">val</span>
       </span>
       <span class="symbol">
         <span class="name">secondaryPreferred</span><span class="result">: <a href="ReadPreference$$SecondaryPreferred.html" class="extype" name="reactivemongo.api.ReadPreference.SecondaryPreferred">SecondaryPreferred</a></span>
@@ -589,7 +764,7 @@ regardless its status (primary or secondary).</p>
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Read from any secondary, or from the primary if they are not available.</p>
+      <p class="shortcomment cmt">Reads from any secondary, or from the primary if they are not available.</p>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -633,7 +808,7 @@ regardless its status (primary or secondary).</p>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.ReadPreference$@wait():Unit" title="Permalink" target="_top">
@@ -656,7 +831,7 @@ regardless its status (primary or secondary).</p>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.ReadPreference$@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
@@ -679,7 +854,7 @@ regardless its status (primary or secondary).</p>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.ReadPreference$@wait(x$1:Long):Unit" title="Permalink" target="_top">
@@ -698,7 +873,91 @@ regardless its status (primary or secondary).</p>
 
         
 
-        
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="reactivemongo.api.ReadPreference#nearest" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nearest[T](tag:T)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.Nearest"></a>
+      <a id="nearest[T](T)(BSONDocumentWriter[T]):Nearest"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.12) Use secondaryPreferred(T*)">nearest</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="tag">tag: <span class="extype" name="reactivemongo.api.ReadPreference.nearest.T">T</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <a href="../bson/BSONDocumentWriter.html" class="extype" name="reactivemongo.bson.BSONDocumentWriter">BSONDocumentWriter</a>[<span class="extype" name="reactivemongo.api.ReadPreference.nearest.T">T</span>]</span>)</span><span class="result">: <a href="ReadPreference$$Nearest.html" class="extype" name="reactivemongo.api.ReadPreference.Nearest">Nearest</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$@nearest[T](tag:T)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.Nearest" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Reads from the fastest node (e.g.</p><div class="fullcomment"><div class="comment cmt"><p>Reads from the fastest node (e.g. the node which replies faster than all others) that has the given <code>tag</code>, regardless its status (primary or secondary).
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.12)</i> Use <code>secondaryPreferred(T*)</code></p></dd></dl></div>
+    </li><li name="reactivemongo.api.ReadPreference#primaryPreferred" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="primaryPreferred[T](tag:T)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.PrimaryPreferred"></a>
+      <a id="primaryPreferred[T](T)(BSONDocumentWriter[T]):PrimaryPreferred"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.12) Use primaryPreferred(T*)">primaryPreferred</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="tag">tag: <span class="extype" name="reactivemongo.api.ReadPreference.primaryPreferred.T">T</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <a href="../bson/BSONDocumentWriter.html" class="extype" name="reactivemongo.bson.BSONDocumentWriter">BSONDocumentWriter</a>[<span class="extype" name="reactivemongo.api.ReadPreference.primaryPreferred.T">T</span>]</span>)</span><span class="result">: <a href="ReadPreference$$PrimaryPreferred.html" class="extype" name="reactivemongo.api.ReadPreference.PrimaryPreferred">PrimaryPreferred</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$@primaryPreferred[T](tag:T)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.PrimaryPreferred" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Reads from any node that has the given <code>tag</code> in the replica set (preferably the primary).</p><div class="fullcomment"><div class="comment cmt"><p>Reads from any node that has the given <code>tag</code> in the replica set (preferably the primary).</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.12)</i> Use <code>primaryPreferred(T*)</code></p></dd></dl></div>
+    </li><li name="reactivemongo.api.ReadPreference#secondary" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="secondary[T](tag:T)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.Secondary"></a>
+      <a id="secondary[T](T)(BSONDocumentWriter[T]):Secondary"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.12) Use secondary(T*)">secondary</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="tag">tag: <span class="extype" name="reactivemongo.api.ReadPreference.secondary.T">T</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <a href="../bson/BSONDocumentWriter.html" class="extype" name="reactivemongo.bson.BSONDocumentWriter">BSONDocumentWriter</a>[<span class="extype" name="reactivemongo.api.ReadPreference.secondary.T">T</span>]</span>)</span><span class="result">: <a href="ReadPreference$$Secondary.html" class="extype" name="reactivemongo.api.ReadPreference.Secondary">Secondary</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$@secondary[T](tag:T)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.Secondary" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Reads from a secondary that has the given <code>tag</code> in the replica set.</p><div class="fullcomment"><div class="comment cmt"><p>Reads from a secondary that has the given <code>tag</code> in the replica set.</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.12)</i> Use <code>secondary(T*)</code></p></dd></dl></div>
+    </li><li name="reactivemongo.api.ReadPreference#secondaryPreferred" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="secondaryPreferred[T](tag:T)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.SecondaryPreferred"></a>
+      <a id="secondaryPreferred[T](T)(BSONDocumentWriter[T]):SecondaryPreferred"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.12) Use secondaryPreferred(T*)">secondaryPreferred</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="tag">tag: <span class="extype" name="reactivemongo.api.ReadPreference.secondaryPreferred.T">T</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <a href="../bson/BSONDocumentWriter.html" class="extype" name="reactivemongo.bson.BSONDocumentWriter">BSONDocumentWriter</a>[<span class="extype" name="reactivemongo.api.ReadPreference.secondaryPreferred.T">T</span>]</span>)</span><span class="result">: <a href="ReadPreference$$SecondaryPreferred.html" class="extype" name="reactivemongo.api.ReadPreference.SecondaryPreferred">SecondaryPreferred</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.ReadPreference$@secondaryPreferred[T](tag:T)(implicitwriter:reactivemongo.bson.BSONDocumentWriter[T]):reactivemongo.api.ReadPreference.SecondaryPreferred" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Reads from any node that has the given <code>tag</code> in the replica set (preferably a secondary).</p><div class="fullcomment"><div class="comment cmt"><p>Reads from any node that has the given <code>tag</code> in the replica set (preferably a secondary).</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.12)</i> Use <code>secondaryPreferred(T*)</code></p></dd></dl></div>
+    </li></ol>
+            </div>
         </div>
 
         <div id="inheritedMembers">

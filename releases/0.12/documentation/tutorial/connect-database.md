@@ -188,10 +188,17 @@ import reactivemongo.api.MongoConnection
 // and authenticate on the database `somedb` with user `user123` and password `passwd123`
 val uri = "mongodb://user123:passwd123@host1:27018,host2:27019,host3:27020/somedb"
 
-def connection7(driver: reactivemongo.api.MongoDriver): Try[MongoConnection] =
+def connection7a(driver: reactivemongo.api.MongoDriver): Try[MongoConnection] =
   MongoConnection.parseURI(uri).map { parsedUri =>
     driver.connection(parsedUri)
   }
+
+def connection7b(driver: reactivemongo.api.MongoDriver): Try[MongoConnection] =
+  for {
+    parsedUri <- MongoConnection.parseURI(uri)
+    connection <- driver.connection(parsedUri, strictUri = true)
+  } yield connection // strictUri ~> validate all URI options are supported
+
 {% endhighlight %}
 
 The following example is using a connection to asynchronously resolve a database.
@@ -238,7 +245,7 @@ They manage two different things. `MongoDriver` holds the actor system, and `Mon
 
 #### Creation Costs
 
-`MongoDriver` and `MongoConnection` involve creation costs –  the driver may create a new `ActorSystem`, and the connection, well, will connect to the servers. It is also a good idea to store the driver and the connection to reuse them.
+`MongoDriver` and `MongoConnection` involve creation costs –  the driver may create a new [`ActorSystem`](http://akka.io/), and the connection, well, will connect to the servers. It is also a good idea to store the driver and the connection to reuse them.
 
 On the contrary, `db` and `collection` are just plain objects that store references and nothing else. It is virtually free to create new instances; calling `connection.database()` or `db.collection()` may be done many times without any performance hit.
 
@@ -246,4 +253,4 @@ On the contrary, `db` and `collection` are just plain objects that store referen
 
 When connecting to a MongoDB replica set over a VPN, if using IP addresses instead of hostnames to configure the connection nodes, then it's possible that the nodes are discovered with hostnames that are local to the remote network and not usable from the client side.
 
-[Next: Database and collections](./database-and-collection.html)
+[Previous: Setup](./setup.html) | [Next: Database and collections](./database-and-collection.html)

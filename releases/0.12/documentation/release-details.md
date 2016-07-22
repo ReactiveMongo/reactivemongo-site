@@ -79,7 +79,52 @@ import reactivemongo.api.MongoConnectionOptions
 val options3 = MongoConnectionOptions(monitorRefreshMS = 5000 /* 5s */)
 {% endhighlight %}
 
+### Collection operations
+
+The MongoDB [`findAndModify`](https://docs.mongodb.com/manual/reference/command/findAndModify/) command modifies and returns a single document. The ReactiveMongo API now has a collection [operation](../../api/index.html#reactivemongo.api.collections.GenericCollection@findAndModify[Q](selector:Q,modifier:GenericCollection.this.BatchCommands.FindAndModifyCommand.Modify,sort:Option[GenericCollection.this.pack.Document],fields:Option[GenericCollection.this.pack.Document])(implicitselectorWriter:GenericCollection.this.pack.Writer[Q],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[GenericCollection.this.BatchCommands.FindAndModifyCommand.FindAndModifyResult]).
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.{ BSONDocument, BSONDocumentReader }
+import reactivemongo.api.collections.bson.BSONCollection
+
+case class Person(firstName: String, lastName: String, age: Int)
+
+implicit def PersonReader: BSONDocumentReader[Person] = ???
+
+def findAndModifyTests(coll: BSONCollection) = {
+  val updateOp = coll.updateModifier(
+    BSONDocument("$set" -> BSONDocument("age" -> 35)))
+
+  val personBeforeUpdate: Future[Option[Person]] =
+    coll.findAndModify(BSONDocument("name" -> "Joline"), updateOp).
+    map(_.result[Person])
+
+  val removedPerson: Future[Option[Person]] = coll.findAndModify(
+    BSONDocument("name" -> "Jack"), coll.removeModifier).
+    map(_.result[Person])
+
+}
+{% endhighlight %}
+
+TODO: collection.findAndUpdate
+
+TODO: collection.findAndRemove
+
 ### Aggregation
+
+The [`distinct`](https://docs.mongodb.org/manual/reference/command/distinct/) command, to find the distinct values for a specified field across a single collection, is now provided as a [collection operation](../api/index.html#reactivemongo.api.collections.GenericCollection@distinct[T]%28key:String,selector:Option[GenericCollection.this.pack.Document],readConcern:reactivemongo.api.ReadConcern%29%28implicitreader:GenericCollection.this.pack.NarrowValueReader[T],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[scala.collection.immutable.ListSet[T]]).
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+def distinctStates(col: BSONCollection)(implicit ec: ExecutionContext): Future[Set[String]] = col.distinct[String, Set]("state")
+{% endhighlight %}
 
 The ReactiveMongo collections now has the convenient operation [`.aggregate`](../../api/index.html#reactivemongo.api.collections.GenericCollection@aggregate%28firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,cursor:Option[GenericCollection.this.BatchCommands.AggregationFramework.Cursor]%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[GenericCollection.this.BatchCommands.AggregationFramework.AggregationResult]).
 
@@ -103,6 +148,8 @@ def populatedStates(col: BSONCollection): Future[List[BSONDocument]] = {
 }
 {% endhighlight %}
 
+About the `AggregationResult` the property [`documents`](../../api/index.html#reactivemongo.api.commands.AggregationFramework$AggregationResult@documents:List[AggregationFramework.this.pack.Document]) has been renamed to `firstBatch`, to clearly indicate it returns the first batch from result (which is frequently the single one).
+
 - Newly supported [Pipeline Aggregation Stages](https://docs.mongodb.org/manual/reference/operator/aggregation-pipeline/);
   - [$geoNear](https://docs.mongodb.org/manual/reference/operator/aggregation/geoNear/#pipe._S_geoNear): Returns an ordered stream of documents based on the proximity to a geospatial point.
   - [$out](https://docs.mongodb.org/manual/reference/operator/aggregation/out/#pipe._S_out): Takes the documents returned by the aggregation pipeline and writes them to a specified collection.
@@ -124,6 +171,8 @@ def randomDocs(coll: BSONCollection, count: Int): Future[List[BSONDocument]] = {
   coll.aggregate(AggregationFramework.Sample(count)).map(_.head[BSONDocument])
 }
 {% endhighlight %}
+
+TODO: lookup stage
 
 When the [`$text` operator](https://docs.mongodb.org/v3.0/reference/operator/query/text/#op._S_text) is used in an aggregation pipeline, then new the results can be [sorted](https://docs.mongodb.org/v3.0/reference/operator/aggregation/sort/#metadata-sort) according the [text scores](https://docs.mongodb.org/v3.0/reference/operator/query/text/#text-operator-text-score).
 
@@ -155,23 +204,6 @@ def textFind(coll: BSONCollection)(implicit ec: ExecutionContext): Future[List[B
   coll.aggregate1[BSONDocument](
     firstOp, pipeline, Cursor(1)).flatMap(_.collect[List]())
 }
-{% endhighlight %}
-
-TODO: collection.findAndModify
-
-TODO: collection.findAndUpdate
-
-TODO: collection.findAndRemove
-
-The [`distinct`](https://docs.mongodb.org/manual/reference/command/distinct/) command, to find the distinct values for a specified field across a single collection, is now provided as a [collection operation](../api/index.html#reactivemongo.api.collections.GenericCollection@distinct[T]%28key:String,selector:Option[GenericCollection.this.pack.Document],readConcern:reactivemongo.api.ReadConcern%29%28implicitreader:GenericCollection.this.pack.NarrowValueReader[T],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[scala.collection.immutable.ListSet[T]]).
-
-{% highlight scala %}
-import scala.concurrent.{ ExecutionContext, Future }
-
-import reactivemongo.bson.BSONDocument
-import reactivemongo.api.collections.bson.BSONCollection
-
-def distinctStates(col: BSONCollection)(implicit ec: ExecutionContext): Future[Set[String]] = col.distinct[String, Set]("state")
 {% endhighlight %}
 
 ### BSON
