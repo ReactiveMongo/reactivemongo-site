@@ -79,7 +79,7 @@ import reactivemongo.api.MongoConnectionOptions
 val options3 = MongoConnectionOptions(monitorRefreshMS = 5000 /* 5s */)
 {% endhighlight %}
 
-### Query
+### Query and write operations
 
 The MongoDB [`findAndModify`](https://docs.mongodb.com/manual/reference/command/findAndModify/) command modifies and returns a single document. The ReactiveMongo API now has a collection [operation](../../api/index.html#reactivemongo.api.collections.GenericCollection@findAndModify[Q](selector:Q,modifier:GenericCollection.this.BatchCommands.FindAndModifyCommand.Modify,sort:Option[GenericCollection.this.pack.Document],fields:Option[GenericCollection.this.pack.Document])(implicitselectorWriter:GenericCollection.this.pack.Writer[Q],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[GenericCollection.this.BatchCommands.FindAndModifyCommand.FindAndModifyResult]).
 
@@ -90,28 +90,64 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import reactivemongo.bson.{ BSONDocument, BSONDocumentReader }
 import reactivemongo.api.collections.bson.BSONCollection
 
-case class Person(firstName: String, lastName: String, age: Int)
+object FindAndModifyUseCase {
+  case class Person(firstName: String, lastName: String, age: Int)
 
-implicit def PersonReader: BSONDocumentReader[Person] = ???
+  implicit def PersonReader: BSONDocumentReader[Person] = ???
 
-def findAndModifyTests(coll: BSONCollection) = {
-  val updateOp = coll.updateModifier(
-    BSONDocument("$set" -> BSONDocument("age" -> 35)))
+  def findAndModifyTests(coll: BSONCollection) = {
+    val updateOp = coll.updateModifier(
+      BSONDocument("$set" -> BSONDocument("age" -> 35)))
 
-  val personBeforeUpdate: Future[Option[Person]] =
-    coll.findAndModify(BSONDocument("name" -> "Joline"), updateOp).
-    map(_.result[Person])
+    val personBeforeUpdate: Future[Option[Person]] =
+      coll.findAndModify(BSONDocument("name" -> "Joline"), updateOp).
+      map(_.result[Person])
 
-  val removedPerson: Future[Option[Person]] = coll.findAndModify(
-    BSONDocument("name" -> "Jack"), coll.removeModifier).
-    map(_.result[Person])
-
+    val removedPerson: Future[Option[Person]] = coll.findAndModify(
+      BSONDocument("name" -> "Jack"), coll.removeModifier).
+      map(_.result[Person])
+  }
 }
 {% endhighlight %}
 
-TODO: collection.findAndUpdate
+The MongoDB `findAndModify` can be performed more easily to find and update documents, using [`findAndUpdate`](../../api/index.html#reactivemongo.api.collections.GenericCollection@findAndUpdate[Q,U]%28selector:Q,update:U,fetchNewObject:Boolean,upsert:Boolean,sort:Option[GenericCollection.this.pack.Document]%29%28implicitselectorWriter:GenericCollection.this.pack.Writer[Q],implicitupdateWriter:GenericCollection.this.pack.Writer[U],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[GenericCollection.this.BatchCommands.FindAndModifyCommand.FindAndModifyResult]).
 
-TODO: collection.findAndRemove
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.{ BSONDocument, BSONDocumentReader, Macros }
+import reactivemongo.api.collections.bson.BSONCollection
+
+case class Person(name: String, age: Int)
+
+def update(collection: BSONCollection, age: Int): Future[Option[Person]] = {
+  import collection.BatchCommands.FindAndModifyCommand.FindAndModifyResult
+  implicit val reader = Macros.reader[Person]  
+  
+  val result: Future[FindAndModifyResult] = collection.findAndUpdate(
+    BSONDocument("name" -> "James"),
+    BSONDocument("$set" -> BSONDocument("age" -> 17)),
+    fetchNewObject = true)
+
+  result.map(_.result[Person])
+}
+{% endhighlight %}
+
+A simplified [`findAndRemove`](../../api/index.html#reactivemongo.api.collections.GenericCollection@findAndRemove[Q](selector:Q,sort:Option[GenericCollection.this.pack.Document],fields:Option[GenericCollection.this.pack.Document])(implicitselectorWriter:GenericCollection.this.pack.Writer[Q],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[GenericCollection.this.BatchCommands.FindAndModifyCommand.FindAndModifyResult]) is also available for removal.
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+
+import reactivemongo.bson.{ BSONDocument, BSONDocumentReader }
+import reactivemongo.api.collections.bson.BSONCollection
+
+def removedPerson(coll: BSONCollection, name: String)(implicit ec: ExecutionContext, reader: BSONDocumentReader[Person]): Future[Option[Person]] =
+  coll.findAndRemove(BSONDocument("name" -> name)).
+    map(_.result[Person])
+{% endhighlight %}
+
+### Streaming
 
 TODO: AkkaStream
 
@@ -441,10 +477,16 @@ def playFormat[T <: BSONValue](bson: T)(implicit formatter: Formatter[T]) = {
 }
 {% endhighlight %}
 
-Play PathBindable instances
+The Play support of ReactiveMongo provides [`PathBindable`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.mvc.PathBindable), to use the BSON values in the Play routing, as following.
 
-{% highlight scala %}
-// TODO: Code sample
+    GET /foo/:id controllers.Application.foo(id: reactivemongo.bson.BSONObjectID)
+
+To do so, the `routesImport` must be configured.
+
+{% highlight ocaml %}
+import play.sbt.routes.RoutesKeys
+
+RoutesKeys.routesImport += "play.modules.reactivemongo.PathBindables._"
 {% endhighlight %}
 
 **Play Iteratees**
