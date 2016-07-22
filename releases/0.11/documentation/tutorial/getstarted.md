@@ -65,10 +65,11 @@ object GetStarted {
 
 **Go further:**
 
-1. [Connect to the database](./connect-database.html)
-2. [Open database and collections](./database-and-collection.html)
-3. [Write documents (`insert`, `update`, `remove`)](./write-documents.html)
-4. [Find documents](./find-documents.html)
-5. [Consume streams of documents](./consume-streams.html)
+1. [Setup](./setup.html)
+2. [Connect to the database](./connect-database.html)
+3. [Open database and collections](./database-and-collection.html)
+4. [Write documents (`insert`, `update`, `remove`)](./write-documents.html)
+5. [Find documents](./find-documents.html)
+6. [Streaming](./consume-streams.html)
 
 [Next: Connect to the database](./connect-database.html)

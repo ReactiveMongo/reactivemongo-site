@@ -147,83 +147,6 @@ def removedPerson(coll: BSONCollection, name: String)(implicit ec: ExecutionCont
     map(_.result[Person])
 {% endhighlight %}
 
-### Streaming
-
-TODO: AkkaStream
-
-The new streaming support is based on the function [`Cursor.foldWhileM[A]`](../api/index.html#reactivemongo.api.Cursor@foldWhileM[A](z:=%3EA,maxDocs:Int)(suc:(A,T)=%3Escala.concurrent.Future[reactivemongo.api.Cursor.State[A]],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]) (and its variants), which allows to implement custom stream processing.
-
-{% highlight scala %}
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
-
-import reactivemongo.api.Cursor
-
-def streaming(c: Cursor[String]): Future[List[String]] =
-  c.foldWhile(List.empty[String], 1000/* optional: max doc */)(
-    { (ls, str) => // process next String value
-      if (str startsWith "#") Cursor.Cont(ls) // Skip: continue unchanged `ls`
-      else if (str == "_end") Cursor.Done(ls) // End processing
-      else Cursor.Cont(str :: ls) // Continue with updated `ls`
-    },
-    { (ls, err) => // handle failure
-      err match {
-        case e: RuntimeException => Cursor.Cont(ls) // Skip error, continue
-        case _ => Cursor.Fail(err) // Stop with current failure -> Future.failed
-      }
-    })
-{% endhighlight %}
-
-*[More: Consume streams of documents](./tutorial/consume-streams.html)*
-
-The results from the new [aggregation operation](../api/index.html#reactivemongo.api.collections.GenericCollection@aggregate1[T]%28firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],cursor:GenericCollection.this.BatchCommands.AggregationFramework.Cursor,explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference%29%28implicitec:scala.concurrent.ExecutionContext,implicitr:GenericCollection.this.pack.Reader[T]%29:scala.concurrent.Future[reactivemongo.api.Cursor[T]]) can be processed in a streaming way, using the [cursor option](https://docs.mongodb.org/manual/reference/command/aggregate/).
-
-{% highlight scala %}
-import scala.concurrent.{ ExecutionContext, Future }
-
-import reactivemongo.bson._
-import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
-
-def populatedStates(cities: BSONCollection)(implicit ec: ExecutionContext): Future[Cursor[BSONDocument]] = {
-  import cities.BatchCommands.AggregationFramework
-  import AggregationFramework.{ Cursor => AggCursor, Group, Match, SumField }
-
-  val cursor = AggCursor(batchSize = 1) // initial batch size
-
-  cities.aggregate1[BSONDocument](Group(BSONString("$state"))(
-    "totalPop" -> SumField("population")), List(
-    Match(document("totalPop" -> document("$gte" -> 10000000L)))),
-    cursor)
-}
-{% endhighlight %}
-
-An [`ErrorHandler`](../api/index.html#reactivemongo.api.Cursor$@ErrorHandler[A]=%28A,Throwable%29=%3Ereactivemongo.api.Cursor.State[A]) can be used with the [`Cursor`](../api/index.html#reactivemongo.api.Cursor), instead of the limited `stopOnError` flag.
-
-{% highlight scala %}
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
-
-import reactivemongo.api.Cursor
-
-def foldStrings(cursor: Cursor[String]): Future[Seq[String]] = {
-  val handler: Cursor.ErrorHandler[Seq[String]] =
-    { (last: Seq[String], error: Throwable) =>
-      println(s"Encounter error: $error")
-
-      if (last.isEmpty) { // continue, skip error if no previous value
-        Cursor.Cont(last)
-      } else Cursor.Fail(error)
-    }
-
-  cursor.foldWhile(Seq.empty[String])({ (agg, str) =>
-    Cursor.Cont(agg :+ str)
-  }, handler)
-}
-{% endhighlight %}
-
-> The convenient handlers [`ContOnError`](../api/index.html#reactivemongo.api.Cursor$@ContOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]) (skip all errors), [`DoneOnError`](../api/index.html#reactivemongo.api.Cursor$@DoneOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]) (stop quietly on the first error), and [`FailOnError`](../api/index.html#reactivemongo.api.Cursor$@FailOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]) (fail on the first error).
-
 The field [`maxTimeMs`](https://docs.mongodb.org/manual/reference/method/cursor.maxTimeMS/) is supported by the [query builder](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@maxTimeMs%28p:Long%29:GenericQueryBuilder.this.Self), to specifies a cumulative time limit in milliseconds for processing operations.
 
 {% highlight scala %}
@@ -256,6 +179,117 @@ def jsonExplain(col: JSONCollection): Future[Option[JsObject]] =
 {% endhighlight %}
 
 *[More: The query builder API](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder)$
+
+### Streaming
+
+Instead of accumulating documents in memory, they can be [processed as a stream](./tutorial/streaming.html), using a reactive [`Cursor`](../../api/index.html#reactivemongo.api.Cursor).
+
+ReactiveMongo can now be used with several streaming frameworks.
+
+#### Akka Stream
+
+The [Akka Stream library](./tutorial/streaming.html#akka-stream) can be used to consume ReactiveMongo results.
+
+To enable the Akka Stream support, [`reactivemongo.play.akkastream.cursorProducer`](https://reactivemongo.github.io/ReactiveMongo-AkkaStream/0.12/api/index.html#reactivemongo.akkastream.package$$cursorFlattener$) must be imported.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import akka.NotUsed
+import akka.stream.Materializer
+import akka.stream.scaladsl.{ Sink, Source }
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+import reactivemongo.akkastream.cursorProducer
+// Provides the cursor producer with the AkkaStream capabilities
+
+def processPerson0(collection: BSONCollection, query: BSONDocument)(implicit m: Materializer): Future[Seq[BSONDocument]] = {
+  val sourceOfPeople: Source[BSONDocument, NotUsed] =
+    collection.find(query).cursor[BSONDocument].documentSource()
+
+  sourceOfPeople.runWith(Sink.seq[BSONDocument])
+}
+{% endhighlight %}
+
+[More: **ReactiveMongo AkkaStream API**](https://reactivemongo.github.io/ReactiveMongo-AkkaStream/0.12/api/#package)
+
+#### Aggregated streams
+
+The results from the new [aggregation operation](../api/index.html#reactivemongo.api.collections.GenericCollection@aggregate1[T]%28firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],cursor:GenericCollection.this.BatchCommands.AggregationFramework.Cursor,explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference%29%28implicitec:scala.concurrent.ExecutionContext,implicitr:GenericCollection.this.pack.Reader[T]%29:scala.concurrent.Future[reactivemongo.api.Cursor[T]]) can be processed in a streaming way, using the [cursor option](https://docs.mongodb.org/manual/reference/command/aggregate/).
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+
+import reactivemongo.bson._
+import reactivemongo.api.Cursor
+import reactivemongo.api.collections.bson.BSONCollection
+
+def populatedStates(cities: BSONCollection)(implicit ec: ExecutionContext): Future[Cursor[BSONDocument]] = {
+  import cities.BatchCommands.AggregationFramework
+  import AggregationFramework.{ Cursor => AggCursor, Group, Match, SumField }
+
+  val cursor = AggCursor(batchSize = 1) // initial batch size
+
+  cities.aggregate1[BSONDocument](Group(BSONString("$state"))(
+    "totalPop" -> SumField("population")), List(
+    Match(document("totalPop" -> document("$gte" -> 10000000L)))),
+    cursor)
+}
+{% endhighlight %}
+
+#### Custom streaming
+
+The new streaming support is based on the function [`Cursor.foldWhileM[A]`](../api/index.html#reactivemongo.api.Cursor@foldWhileM[A](z:=%3EA,maxDocs:Int)(suc:(A,T)=%3Escala.concurrent.Future[reactivemongo.api.Cursor.State[A]],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]) (and its variants), which allows to implement custom stream processing.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.api.Cursor
+
+def streaming(c: Cursor[String]): Future[List[String]] =
+  c.foldWhile(List.empty[String], 1000/* optional: max doc */)(
+    { (ls, str) => // process next String value
+      if (str startsWith "#") Cursor.Cont(ls) // Skip: continue unchanged `ls`
+      else if (str == "_end") Cursor.Done(ls) // End processing
+      else Cursor.Cont(str :: ls) // Continue with updated `ls`
+    },
+    { (ls, err) => // handle failure
+      err match {
+        case e: RuntimeException => Cursor.Cont(ls) // Skip error, continue
+        case _ => Cursor.Fail(err) // Stop with current failure -> Future.failed
+      }
+    })
+{% endhighlight %}
+
+An [`ErrorHandler`](../api/index.html#reactivemongo.api.Cursor$@ErrorHandler[A]=%28A,Throwable%29=%3Ereactivemongo.api.Cursor.State[A]) can be used with the [`Cursor`](../api/index.html#reactivemongo.api.Cursor), instead of the previous `stopOnError` boolean flag.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.api.Cursor
+
+def foldStrings(cursor: Cursor[String]): Future[Seq[String]] = {
+  val handler: Cursor.ErrorHandler[Seq[String]] =
+    { (last: Seq[String], error: Throwable) =>
+      println(s"Encounter error: $error")
+
+      if (last.isEmpty) { // continue, skip error if no previous value
+        Cursor.Cont(last)
+      } else Cursor.Fail(error)
+    }
+
+  cursor.foldWhile(Seq.empty[String])({ (agg, str) =>
+    Cursor.Cont(agg :+ str)
+  }, handler)
+}
+{% endhighlight %}
+
+> The convenient handlers [`ContOnError`](../api/index.html#reactivemongo.api.Cursor$@ContOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]) (skip all errors), [`DoneOnError`](../api/index.html#reactivemongo.api.Cursor$@DoneOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]) (stop quietly on the first error), and [`FailOnError`](../api/index.html#reactivemongo.api.Cursor$@FailOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]) (fail on the first error).
 
 ### BSON
 
@@ -382,7 +416,44 @@ def randomDocs(coll: BSONCollection, count: Int): Future[List[BSONDocument]] = {
 }
 {% endhighlight %}
 
-TODO: lookup stage
+Using the MongoDB aggregation, the [lookup](https://docs.mongodb.com/v3.2/reference/operator/aggregation/lookup/#pipe._S_lookup) stage performs a left outer join between two collection in the same database (see the [examples](https://docs.mongodb.com/v3.2/reference/operator/aggregation/lookup/#examples)).
+ReactiveMongo now supports this [new stage](../api/index.html#reactivemongo.api.commands.AggregationFramework@LookupextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable).
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.Macros
+import reactivemongo.api.collections.bson.BSONCollection
+
+object LookupUseCase {
+  implicit def productHandler = Macros.handler[Product]
+  implicit def invReportHandler = Macros.handler[InventoryReport]
+
+  def lookupInventoryReports(orders: BSONCollection, inventory: BSONCollection): Future[List[InventoryReport]] = {
+    import orders.BatchCommands.AggregationFramework.Lookup
+
+    // Left outer join between the current `orders` collection,
+    // and the inventory collection (referenced by its name)
+    orders.aggregate(Lookup(inventory.name, "item", "sku", "docs")).
+      map(_.head[InventoryReport].toList)
+  }
+
+  case class Product(
+    _id: Int, sku: Option[String] = None,
+    description: Option[String] = None,
+    instock: Option[Int] = None
+  )
+
+  case class InventoryReport(
+    _id: Int,
+    item: Option[String] = None,
+    price: Option[Int] = None,
+    quantity: Option[Int] = None,
+    docs: List[Product] = Nil
+  )
+}
+{% endhighlight %}
 
 When the [`$text` operator](https://docs.mongodb.org/v3.0/reference/operator/query/text/#op._S_text) is used in an aggregation pipeline, then new the results can be [sorted](https://docs.mongodb.org/v3.0/reference/operator/aggregation/sort/#metadata-sort) according the [text scores](https://docs.mongodb.org/v3.0/reference/operator/query/text/#text-operator-text-score).
 
@@ -560,8 +631,21 @@ RoutesKeys.routesImport += "play.modules.reactivemongo.PathBindables._"
 
 ### Administration
 
-TODO: db.renameCollection
-  
+The `Database` now has a [`renameCollection`](../api/index.html#reactivemongo.api.DefaultDB@renameCollection[C%3C:reactivemongo.api.Collection](db:String,from:String,to:String,dropExisting:Boolean,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext,implicitproducer:reactivemongo.api.CollectionProducer[C]):scala.concurrent.Future[C]) operation, which can be easily used with the 'admin' database, to rename collections in the other databases.
+
+TODO
+
+{% highlight scala %}
+import reactivemongo.api.DefaultDB
+
+def renameWithSuffix(
+  admin: DefaultDB,
+  otherDb: String,
+  collName: String,
+  suffix: String
+) = ??? //admin.renameCollection(otherDb, collName, s"$collName-$suffix")
+{% endhighlight %}
+
 The new [`drop`](../api/index.html#reactivemongo.api.collections.GenericCollection@drop%28failIfNotFound:Boolean%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[Boolean]) operation can try, without failing if the collection doesn't exist. The previous behaviour is still available.
 
 {% highlight scala %}

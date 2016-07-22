@@ -1,15 +1,88 @@
 ---
 layout: default
-title: ReactiveMongo 0.12 - Consume streams of documents
+title: ReactiveMongo 0.12 - Streaming
 ---
 
-## Consume streams of documents
+## Streaming
 
-Instead of accumulating documents in memory like in the two previous examples, we can process them as a stream, using a reactive [Cursor](../../api/index.html#reactivemongo.api.Cursor).
+Instead of accumulating documents in memory, they can be processed as a stream, using a reactive [`Cursor`](../../api/index.html#reactivemongo.api.Cursor).
 
 ReactiveMongo can be used with several streaming frameworks: [Play Iteratees](http://www.playframework.com/documentation/latest/Iteratees), [Akka Streams](http://akka.io/docs/), or with custom processors using [`foldWhile`](../../api/index.html#reactivemongo.api.Cursor@foldWhile[A](z:=%3EA,maxDocs:Int)(suc:(A,T)=%3Ereactivemongo.api.Cursor.State[A],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]) (and the other similar operations).
 
-### Play Iteratee
+### Akka Stream
+
+The [Akka Stream](http://akka.io/) library can be used to consume ReactiveMongo results.
+
+- Get a [`Source`](https://reactivemongo.github.io/ReactiveMongo-AkkaStream/0.12/api/index.html#reactivemongo.akkastream.AkkaStreamCursor@documentSource(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Option[T]])(implicitm:akka.stream.Materializer):akka.stream.scaladsl.Source[T,akka.NotUsed]) of documents from a ReactiveMongo cursor. This is a document producer.
+- Run with a [`Flow](doc.akka.io/api/akka/2.4.8/#akka.stream.javadsl.Flow) or a [`Sink`](doc.akka.io/api/akka/2.4.8/#akka.stream.javadsl.Sink), which will consume the documents, with possible transformation.
+
+To use the Akka Stream support for the ReactiveMongo cursors, [`reactivemongo.play.akkastream.cursorProducer`](https://reactivemongo.github.io/ReactiveMongo-AkkaStream/0.12/api/index.html#reactivemongo.akkastream.package$$cursorFlattener$) must be imported.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import akka.NotUsed
+import akka.stream.Materializer
+import akka.stream.scaladsl.{ Sink, Source }
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+import reactivemongo.akkastream.cursorProducer
+// Provides the cursor producer with the Akka Stream capabilities
+
+def processPerson1(collection: BSONCollection, query: BSONDocument)(implicit m: Materializer): Future[Seq[BSONDocument]] = {
+  val sourceOfPeople: Source[BSONDocument, NotUsed] =
+    collection.find(query).cursor[BSONDocument].documentSource()
+
+  sourceOfPeople.runWith(Sink.seq[BSONDocument])
+}
+{% endhighlight %}
+
+The operation [`AkkaStreamCursor.documentSource`](https://reactivemongo.github.io/ReactiveMongo-AkkaStream/0.12/api/index.html#reactivemongo.akkastream.AkkaStreamCursor@documentSource(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Option[T]])(implicitm:akka.stream.Materializer):akka.stream.scaladsl.Source[T,akka.NotUsed]) returns an `Source[T, NotUsed]`. In this case, we get a producer of documents (of type `BSONDocument`).
+
+Now that we have the producer, we need to define how the documents are processed, using a `Sink` or a `Flow` (with transformations).
+
+The line `sourceOfPeople.run(processDocuments)` returns a `Future[Unit]`. It will eventually return the final value of the sink, which is a `Seq` in our case.
+
+Obviously, we may use a pure `Sink` that performs some computation.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import akka.NotUsed
+import akka.stream.Materializer
+import akka.stream.scaladsl.{ Sink, Source }
+
+import reactivemongo.bson.BSONDocument
+
+def processPerson2(sourceOfPeople: Source[BSONDocument, NotUsed])(implicit m: Materializer): Future[Float] = {
+  val cumulateAge: Sink[BSONDocument, Future[(Int, Int)]] =
+    Sink.fold(0 -> 0) {
+      case ((cumulatedAge, n), doc) =>
+        val age = doc.getAs[Int]("age").getOrElse(0)
+        (cumulatedAge + age, n + 1)
+    }
+
+  val cumulated: Future[(Int, Int)] = sourceOfPeople runWith cumulateAge
+
+  val meanAge: Future[Float] =
+    cumulated.map { case (cumulatedAge, n) =>
+      if (n == 0) 0
+      else cumulatedAge / n
+    }
+
+  meanAge
+}
+{% endhighlight %}
+
+The `cumulateAge` sink extracts the age from the each document, and add it the current result. At the same time, it counts the processed documents. When the `cumulated` age is completed, it is devided by the number of documents to get the mean age.
+
+[More: **ReactiveMongo AkkaStream API**](https://reactivemongo.github.io/ReactiveMongo-AkkaStream/0.12/api/#package)
+
+### Play Iteratees
 
 The [Play Iteratees](https://www.playframework.com/documentation/latest/Iteratees) library can work with streams of MongoDB documents.
 
@@ -30,7 +103,7 @@ import reactivemongo.api.collections.bson.BSONCollection
 import reactivemongo.play.iteratees.cursorProducer
 // Provides the cursor producer with the Iteratees capabilities
 
-def processPerson1(collection: BSONCollection, query: BSONDocument): Future[Unit] = {
+def processPerson3(collection: BSONCollection, query: BSONDocument): Future[Unit] = {
   val enumeratorOfPeople: Enumerator[BSONDocument] =
     collection.find(query).cursor[BSONDocument].enumerator()
 
@@ -45,7 +118,7 @@ def processPerson1(collection: BSONCollection, query: BSONDocument): Future[Unit
 }
 {% endhighlight %}
 
-The operation [`PlayIterateesCursor.enumerate`](../../api/index.html#reactivemongo.play.iteratees.PlayIterateesCursor@enumerator(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Unit])(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[T]) returns an `Enumerator[T]`. In this case, we get a producer of documents (of type `BSONDocument`).
+The operation [`PlayIterateesCursor.enumerator`](../../api/index.html#reactivemongo.play.iteratees.PlayIterateesCursor@enumerator(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Unit])(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[T]) returns an `Enumerator[T]`. In this case, we get a producer of documents (of type `BSONDocument`).
 
 Now that we have the producer, we need to define how the documents are processed: that is the Iteratee's job. Iteratees, as the opposite of Enumerators, are consumers: they are fed in by enumerators and do some computation with the chunks they get.
 
@@ -74,7 +147,7 @@ found Hemingway: {
 }
 {% endhighlight %}
 
-The line `enumeratorOfPeople.run(processDocuments)` returns a `Future[Unit]`; it will eventually return the final value of the iteratee, which is `Unit` in our case.
+The line `enumeratorOfPeople.run(processDocuments)` returns a `Future[Unit]`. It will eventually return the final value of the iteratee, which is `Unit` in our case.
 
 > The `run` method on `Enumerator` has an operator alias, `|>>>`. So we can rewrite the last line like this: `enumeratorOfPeople |>>> processDocuments`.
 
@@ -87,7 +160,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import play.api.libs.iteratee._
 import reactivemongo.bson.BSONDocument
 
-def processPerson2(enumeratorOfPeople: Enumerator[BSONDocument]) = {
+def processPerson4(enumeratorOfPeople: Enumerator[BSONDocument]) = {
   val cumulateAge: Iteratee[BSONDocument, (Int, Int)] =
     Iteratee.fold(0 -> 0) {
       case ((cumulatedAge, n), doc) =>
@@ -107,9 +180,9 @@ def processPerson2(enumeratorOfPeople: Enumerator[BSONDocument]) = {
 }
 {% endhighlight %}
 
-At each step, this Iteratee will extract the age from the document and add it to the current result; it also counts the number of documents processed. It eventually produces a tuple of two integers; in our case `(173, 3)`. When the `cumulated` future is completed, we divide the cumulated age by the number of documents to get the mean age.
+At each step, this Iteratee will extract the age from the document and add it to the current result. It also counts the number of documents processed. It eventually produces a tuple of two integers; in our case `(173, 3)`. When the `cumulated` age is completed, we divide it by the number of documents to get the mean age.
 
-> The similar operations [`bulkEnumerator`](../../api/index.html#reactivemongo.play.iteratees.PlayIterateesCursor@bulkEnumerator(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Unit])(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[Iterator[T]]) and [`responseEnumerator`](../../api/index.html#reactivemongo.play.iteratees.PlayIterateesCursor@responseEnumerator(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Unit])(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[reactivemongo.core.protocol.Response]) are also provided, to respectively have `Enumerator` per MongoDB result batch or per response.
+[More: **ReactiveMongo Iteratees API**](../../api/#reactivemongo.play.iteratees.package)
 
 ### Custom streaming
 

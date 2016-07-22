@@ -1,17 +1,17 @@
 ---
 layout: default
-title: ReactiveMongo 0.11 - Consume streams of documents
+title: ReactiveMongo 0.11 - Streaming
 ---
 
-## Consume streams of documents
+## Streaming
 
 Instead of accumulating documents in memory like in the two previous examples, we can process them as a stream.
 
 ReactiveMongo can be used with several streaming frameworks: [Play Iteratees](http://www.playframework.com/documentation/latest/Iteratees), [Akka Streams](http://akka.io/docs/), or with custom processors using `foldWhile`.
 
-### Play Iteratee
+### Play Iteratees
 
-The Play Iteratee library can work with document streams as follows.
+The Play Iteratees library can work with document streams as follows.
 
 - Get an `Enumerator` of documents from ReactiveMongo. This is a producer of data.
 - Run an `Iteratee` (that we build for this purpose), which will consume data and eventually produce a result.
