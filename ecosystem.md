@@ -5,7 +5,7 @@ title: ReactiveMongo - Ecosystem
 
 ## ReactiveMongo Components
 
-ReactiveMongo is composed of three subprojects.
+ReactiveMongo is composed of subprojects.
 
 * [ReactiveMongo BSON](https://github.com/ReactiveMongo/ReactiveMongo): the core BSON library of ReactiveMongo. Though it can be used seperately from the rest of the project – it has no other dependency than the Scala library itself.
 
@@ -13,8 +13,9 @@ ReactiveMongo is composed of three subprojects.
 
 * [ReactiveMongo](https://github.com/ReactiveMongo/ReactiveMongo): well, the core of ReactiveMongo :)
 
-## Officially supported projects
+* Playframework
+  - [ReactiveMongo Play JSON](https://github.com/ReactiveMongo/ReactiveMongo-Play-Json): the JSON serialization pack for ReactiveMongo, based on the JSON library of Play! Framework. It provides a specialized collection implementation that enables to use directly JSON (including Writes and Reads de/serializers) with ReactiveMongo.
+  - [Play ReactiveMongo](https://github.com/ReactiveMongo/Play-ReactiveMongo): the official plugin for PlayFramework. Setup the connection according the configuration of the Play application.
 
-* [Play-ReactiveMongo](https://github.com/ReactiveMongo/Play-ReactiveMongo): the official plugin for PlayFramework. It provides a specialized collection implementation that enables to use directly JSON (including Writes and Reads de/serializers) with ReactiveMongo.
-
-* [ReactiveMongo Extensions](https://github.com/ReactiveMongo/ReactiveMongo-Extensions): a project aiming to provide all the necessary tools for ReactiveMongo other than the core functionality.
+* Streaming
+  - [ReactiveMongo AkkaStream](https://github.com/ReactiveMongo/ReactiveMongo-AkkaStream): the [AkkaStream](http://doc.akka.io/docs/akka/2.4/scala/stream/index.html) for ReactiveMongo.
