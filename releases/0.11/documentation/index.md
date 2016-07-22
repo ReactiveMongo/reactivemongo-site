@@ -24,12 +24,13 @@ The API for the standalone JSON serialization is [also available](../json-api/in
 
 ### Tutorial
 
-1. [Add ReactiveMongo to your project](tutorial/setup.html)
-2. [Connect to the database](tutorial/connect-database.html)
-3. [Open database and collections](tutorial/database-and-collection.html)
-4. [Write documents (`insert`, `update`, `remove`)](tutorial/write-documents.html)
-5. [Find documents](tutorial/find-documents.html)
-6. [Consume streams of documents](tutorial/consume-streams.html)
+- [Add ReactiveMongo to your project](tutorial/setup.html)
+- [Get started](tutorial/getstarted.html)
+   1. [Connect to the database](tutorial/connect-database.html)
+   2. [Open database and collections](tutorial/database-and-collection.html)
+   3. [Write documents (`insert`, `update`, `remove`)](tutorial/write-documents.html)
+   4. [Find documents](tutorial/find-documents.html)
+   5. [Consume streams of documents](tutorial/consume-streams.html)
 
 ### BSON Manipulation
 

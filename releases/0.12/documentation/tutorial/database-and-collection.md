@@ -5,79 +5,48 @@ title: ReactiveMongo 0.12 - Database and collections
 
 ## Database and collections
 
-Once you have a connection and [resolved the database](./connect-database.html), the collections of the database can be referenced.
-
-### Get a `Collection` reference
-
-A collection can be resolved from the database, thanks to the `collection`.
+Once you have a connection and [resolved the database](./connect-database.html), the collections can be easily referenced.
 
 {% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+import reactivemongo.api.MongoConnection
 import reactivemongo.api.collections.bson.BSONCollection
 
-def db3: reactivemongo.api.DefaultDB = ???
-
-val collection3 = db3.collection[BSONCollection]("acollection")
+def dbFromConnection(connection: MongoConnection): Future[BSONCollection] =
+  connection.database("somedatabase").
+    map(_.collection("somecollection"))
 {% endhighlight %}
 
-Or, with the `apply()` alias:
+By default, it returns a [`BSONCollection`](../../api/index.html#reactivemongo.api.collections.bson.BSONCollection), which implements the basic `Collection` trait.
 
-{% highlight scala %}
-import reactivemongo.api.collections.bson.BSONCollection
+The `Collection` trait itself is almost empty, and is not meant to be used as is. The collection operations are implemented by [`GenericCollection`](../../api/index.html#reactivemongo.api.collections.GenericCollection).
 
-def db4: reactivemongo.api.DefaultDB = ???
+**Go further:**
 
-val collection4 = db4[BSONCollection]("acollection")
-{% endhighlight %}
+If looking at the signature of the [`DB.collection`](../../api/index.html#reactivemongo.api.DefaultDB@collection[C%3C:reactivemongo.api.Collection](name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitproducer:reactivemongo.api.CollectionProducer[C]):C) function, it can be seen that it uses a [`CollectionProducer`](../../api/index.html#reactivemongo.api.CollectionProducer) (resolved from the [implicit scope](http://docs.scala-lang.org/tutorials/FAQ/finding-implicits.html). This producer is required to create the collection references.
 
-Both return a [`BSONCollection`](../../api/index.html#reactivemongo.api.collections.bson.BSONCollection), which implements the basic [`Collection`](../../api/index.html#reactivemongo.api.Collection) trait.
+By default the BSON producer is used, so there is nothing more to do.
 
-The `Collection` trait itself is almost empty. It is not meant to be used as is. Let's take a look to the `DB.collection` method signature:
+It is this mechanism which makes ReactiveMongo can support other kinds of serialization, such as the [JSON support](../json/overview.html).
 
-{% highlight scala %}
-package api
+### Operations
 
-trait db {
-  import reactivemongo.api.{
-    Collection, CollectionProducer, FailoverStrategy
-  }
-  import reactivemongo.api.collections.bson.BSONCollectionProducer
+The collection references provides the [query and write operations](https://docs.mongodb.com/manual/reference/command/#query-and-write-operation-commands): [`find`](../../api/index.html#reactivemongo.api.collections.GenericCollection@find[S,P](selector:S,projection:P)(implicitswriter:GenericCollection.this.pack.Writer[S],implicitpwriter:GenericCollection.this.pack.Writer[P]):reactivemongo.api.collections.GenericQueryBuilder[GenericCollection.this.pack.type]), [`insert`](../../api/index.html#reactivemongo.api.collections.GenericCollection@insert[T](document:T,writeConcern:reactivemongo.api.commands.WriteConcern)(implicitwriter:GenericCollection.this.pack.Writer[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.WriteResult]), [`update`](../../api/index.html#reactivemongo.api.collections.GenericCollection@update[S,U](selector:S,update:U,writeConcern:reactivemongo.api.commands.WriteConcern,upsert:Boolean,multi:Boolean)(implicitselectorWriter:GenericCollection.this.pack.Writer[S],implicitupdateWriter:GenericCollection.this.pack.Writer[U],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.UpdateWriteResult]) and [`remove`](../../api/index.html#reactivemongo.api.collections.GenericCollection@remove[T](query:T,writeConcern:reactivemongo.api.commands.WriteConcern,firstMatchOnly:Boolean)(implicitwriter:GenericCollection.this.pack.Writer[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.WriteResult])...
 
-  def collection[C <: Collection](name: String, failoverStrategy: FailoverStrategy)(implicit producer: CollectionProducer[C] = BSONCollectionProducer): C
+It also supports some [administration commands](https://docs.mongodb.com/manual/reference/command/#instance-administration-commands): [`create`](../../api/index.html#reactivemongo.api.collections.GenericCollection@create(autoIndexId:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]), [`drop`](../../api/index.html#reactivemongo.api.collections.GenericCollection@drop(failIfNotFound:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Boolean])...
 
-}
-{% endhighlight %}
+It also includes a helper to manage indexes (see [`indexesManager`](../../api/index.html#reactivemongo.api.collections.GenericCollection@indexesManager(implicitec:scala.concurrent.ExecutionContext):reactivemongo.api.indexes.CollectionIndexesManager)).
 
-When you call this method, there must be an implicit `CollectionProducer` instance in the scope. Then the actual type of the return `Collection` will be the type parameter of the implicit producer.
+Many of these methods take documents as a parameters.
+Indeed, they can take anything that can be represented as document, depending on the serialization pack (the BSON one by default).
 
-In most cases, you want to use the default BSON implementation. That's why we wrote `collection[BSONCollection](name)`. Note that you don't need to import an implicit `CollectionProducer[BSONCollection]`, since it is the default value of the implicit parameter `producer` (` = collections.bson.BSONCollectionProducer`).
+Considering the default serialization (BSON), the functions requiring documents will accept any value for which is provided a [`BSONDocumentWriter`](../bson/typeclasses.html).
 
-#### `BSONCollection`
+The results from the operations can be turned into the appropriate types, if there is a [`BSONDocumentReader`](../../api/index.html#reactivemongo.bson.BSONDocumentReader) for this type in the implicit scope.
 
-`BSONCollection` is the default implementation of `Collection` in ReactiveMongo. It defines all the classic operations:
+### Additional Notes
 
-- `find`
-- `insert`
-- `update`
-- `remove`
-- `save`
-- `bulkInsert`
+When using the [Play JSON serialization pack](../json/overview.html), it provides `JSONCollection` which is an implementation of `GenericCollection` that deals with Play JSON library, using its own de/serializations type classes (`Reads[T]` and `Writes[T]`).
 
-and some commands that operate on the collection itself:
-
-- `create` (to create the collection explicitely)
-- `rename`
-- `drop`
-
-It also includes a helper to manage indexes, called `indexesManager`.
-
-Many of these methods take `BSONDocument` instances as a parameter. But they can take anything actually, provided that there exists a special transformer called `BSONDocumentWriter` in the implicit scope. The results from the database themselves can be turned into an object of some arbitrary class, if there is a `BSONDocumentReader` for this type in the implicit scope. It is a very handy to deal with the database without having to transform explicitely all you models into `BSONDocument`.
-
-#### Notes about the Collections design
-
-`BSONCollection` extends a trait called [`GenericCollection`](../../api/index.html#reactivemongo.api.collections.GenericCollection). Actually, it is this trait that provides most of its methods. Moreover, it works with a structure type (which is `BSONDocument` in `BSONCollection`) and de/serialization type classes (which are `BSONDocumentReader[T]` and `BSONDocumentWriter[T]` in `BSONCollection`).
-
-Such a design enables third-party libraries to provide their own collection API. And by extending the `GenericCollection` trait, one can implement a collection that deals with any other structure (like JSON, or even another BSON library).
-
-There is one example of that in the [Play JSON serialization pack](../json/overview.html): `JSONCollection` is an implementation of `GenericCollection` that deals with Play JSON library, using its own de/serializations type classes (`Reads[T]` and `Writes[T]`).
-
-[Previous: Connect to the database](./connect-database.html) | [Next: Write documents](./write-documents.html) | [Next: Write Documents](./write-documents.html)
+[Previous: Connect to the database](./connect-database.html) / [Next: Write documents](./write-documents.html)
