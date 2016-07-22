@@ -43,7 +43,8 @@ def insertDoc1(collection: BSONCollection, doc: BSONDocument): Future[Unit] = {
 
 ### What does WriteResult mean?
 
-A [`WriteResult`](../../api/index.html#reactivemongo.api.commands.WriteResult) is a special document that contains information about the write operation, like the number of documents that were updated, for example, or the description of the error if an error occurred. If the write result actually indicates an error, the `Future` will be in a `failed` state.
+A [`WriteResult`](../../api/index.html#reactivemongo.api.commands.WriteResult) is a special document that contains information about the write operation, like the number of documents that were updated, for example, or the description of the error if an error occurred. If the write result actually indicates an error, the `Future` will be in a `failed` state.  
+> **Note**: This means, if the future is successful there will be no errors in the WriteResult object. So there is no need to check for `WriteResult.ok` and all error related fields can be safely ignored. 
 
 Like all the other operations in the [`GenericCollection`](../../api/index.html#reactivemongo.api.collections.GenericCollection) trait, you can give any object to `insert()`, provided that you have a [`BSONDocumentWriter`](../../api/index.html#reactivemongo.bson.BSONDocumentWriter) for its type in the implicit scope. So, with the `Person` case class:
 
