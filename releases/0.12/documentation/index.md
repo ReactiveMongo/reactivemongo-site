@@ -18,13 +18,14 @@ The dependency can be added in your SBT project as following: `"org.reactivemong
 
 ### Tutorial
 
-1. [Setup ReactiveMongo in your project](tutorial/setup.html)
+- [Setup ReactiveMongo in your project](tutorial/setup.html)
     - [Configure the logging](tutorial/setup.html#logging)
-2. [Connect to the database](tutorial/connect-database.html)
-3. [Open database and collections](tutorial/database-and-collection.html)
-4. [Write documents (`insert`, `update`, `remove`)](tutorial/write-documents.html)
-5. [Find documents](tutorial/find-documents.html)
-6. [Consume streams of documents](tutorial/consume-streams.html)
+- [Get started](tutorial/getstarted.html)
+   1. [Connect to the database](tutorial/connect-database.html)
+   2. [Open database and collections](tutorial/database-and-collection.html)
+   3. [Write documents (`insert`, `update`, `remove`)](tutorial/write-documents.html)
+   4. [Find documents](tutorial/find-documents.html)
+   5. [Consume streams of documents](tutorial/consume-streams.html)
 
 ### BSON Manipulation
 
