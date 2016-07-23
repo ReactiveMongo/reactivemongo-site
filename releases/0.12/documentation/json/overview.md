@@ -81,4 +81,18 @@ type ResultType = JsObject // any type which is provided a `Writes[T]`
 jsonCollection.find(Json.obj()).cursor[ResultType].jsArray()
 {% endhighlight %}
 
+## Troubleshooting
+
+If the following error is raised;
+
+    No Json serializer as JsObject found for type play.api.libs.json.JsObject.
+    Try to implement an implicit OWrites or OFormat for this type.
+
+It's necessary to make sure the right imports are there.
+
+{% highlight scala %}
+import reactivemongo.play.json._
+// import the default BSON/JSON conversions
+{% endhighlight %}
+
 [Next: Integration with Play Framework](../tutorial/play.html)

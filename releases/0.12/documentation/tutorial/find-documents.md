@@ -157,4 +157,11 @@ def findOlder4(collection: BSONCollection)(implicit ec: ExecutionContext, reader
 
 > ReactiveMongo can directly return instances of a custom class, by defining a [custom reader](../bson/typeclasses.html#custom-reader).
 
-[Previous: Write Documents](./write-documents.html) | [Next: Streaming](./streaming.html)
+### Troubleshooting
+
+The synchronous [`.db` has been deprecated](../release-details.html#database-resolution) as it didn't offer a sufficient guaranty that it can initially find an active channel in the connection pool (`MongoConnection`).
+The new [`.database` resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) must be used (see [connection tutorial](tutorial/connect-database.html)).
+
+If the deprecated database resolution is still used, a runtime error such as `ConnectionNotInitialized` can be raised when querying documents.
+
+[Previous: Write Documents](./write-documents.html) / [Next: Streaming](./streaming.html)
