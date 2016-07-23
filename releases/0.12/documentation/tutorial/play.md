@@ -560,14 +560,18 @@ class ApplicationUsingJsonReadersWriters @Inject() (
 }
 {% endhighlight %}
 
+## Troubleshooting
+
+For Play > 2.4, if you still have a file `conf/play.plugins`, it's important to make sure this file no longer mentions `ReactiveMongoPlugin`, which is replaced by `ReactiveMongoModule`. With such deprecated configuration, the following error can be raised.
+
+    ConfigurationException: Guice configuration errors: 
+    1) Could not find a suitable constructor in 
+    play.modules.reactivemongo.ReactiveMongoPlugin.
+
 ## Resources
 
 **Samples:**
 
 {% include play-samples.md %}
-
-**Screencasts:**
-
-* [ReactiveMongo Play Plugin](http://yobriefca.se/screencasts/005-play-reactivemongo) (by James Hughes)
 
 [Previous: Play JSON support](../json/overview.html)
