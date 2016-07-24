@@ -145,11 +145,28 @@ import reactivemongo.bson.{ BSONDocument, BSONDocumentReader }
 import reactivemongo.api.collections.bson.BSONCollection
 
 def removedPerson(coll: BSONCollection, name: String)(implicit ec: ExecutionContext, reader: BSONDocumentReader[Person]): Future[Option[Person]] =
-  coll.findAndRemove(BSONDocument("name" -> name)).
+  coll.findAndRemove(BSONDocument("firstName" -> name)).
     map(_.result[Person])
 {% endhighlight %}
 
 **Query builder:**
+
+The new [`requireOne`](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@requireOne[T](readPreference:reactivemongo.api.ReadPreference)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[T]) function, based on the [`head`](../api/index.html#reactivemongo.api.Cursor@headOption(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[Option[T]]) cursor, allows to more easily find and require a single result.
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+trait PersonService {
+  def collection: BSONCollection
+
+  def requirePerson(firstName: String, lastName: String)(implicit ec: ExecutionContext): Future[Person] = collection.find(BSONDocument(
+    "firstName" -> firstName,
+    "lastName" -> lastName
+  )).requireOne[Person]
+}
+{% endhighlight %}
 
 The field [`maxTimeMs`](https://docs.mongodb.org/manual/reference/method/cursor.maxTimeMS/) is supported by the [query builder](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@maxTimeMs%28p:Long%29:GenericQueryBuilder.this.Self), to specifies a cumulative time limit in milliseconds for processing operations.
 

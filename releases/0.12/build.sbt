@@ -2,11 +2,13 @@ organization := "org.reactivemongo"
 
 name := "release_0_12"
 
-version := "0.12"
+val majorVer = "0.12"
 
-val Release = "0.12-RC0"
+version := majorVer
 
-scalaVersion := "2.11.7"
+val Release = s"${majorVer}.0-SNAPSHOT"
+
+scalaVersion := "2.11.8"
 
 libraryDependencies ++= Seq(
   "org.reactivemongo" %% "play2-reactivemongo" % Release,
