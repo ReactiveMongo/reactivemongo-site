@@ -71,17 +71,45 @@ def findNOlder(collection: BSONCollection, limit: Int) = {
 
 The class [`QueryOpts`](../../api/index.html#reactivemongo.api.QueryOpts) is used to prepared the query options.
 
-When your query is ready to be sent to MongoDB, you may just call one of the following methods:
+When your query is ready to be sent to MongoDB, you may just call one of the following function.
 
-- `cursor` which returns a [`Cursor[BSONDocument]`](../../api/index.html#reactivemongo.api.Cursor)
-- `one` wich returns a `Future[Option[BSONDocument]]` (the first document that matches the query, if any)
+- The function [`cursor`](../../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@cursor[T](readPreference:reactivemongo.api.ReadPreference,isMongo26WriteOp:Boolean)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor) which returns a [`Cursor[BSONDocument]`](../../api/index.html#reactivemongo.api.Cursor).
+- The function [`one`](../../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@one[T](readPreference:reactivemongo.api.ReadPreference)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Option[T]]) which returns a `Future[Option[T]]` (the first document that matches the query, if any).
+- The function [`requireOne`](../../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@requireOne[T](readPreference:reactivemongo.api.ReadPreference)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[T]) which returns a `Future[T]` with the first matching document, or fails if none.
 
-On a cursor, there are two interesting methods you can use to collect the results:
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
 
-- `collect[List]()` which returns a future list of documents
-- `enumerate()` which returns an `Enumerator` of documents (more on that later.)
+trait PersonService1 {
+  def collection: BSONCollection
 
-The `collect` method must be given a Scala collection type, like `List` or `Vector`. It accumulates all the results in memory, as opposed to `enumerate`.
+  def requirePerson(firstName: String, lastName: String)(implicit ec: ExecutionContext): Future[Person] = collection.find(BSONDocument(
+    "firstName" -> firstName,
+    "lastName" -> lastName
+  )).requireOne[Person]
+}
+{% endhighlight %}
+
+On a cursor, the [`collect`](../../api/index.html#reactivemongo.api.Cursor@collect[M[_]](maxDocs:Int,stopOnError:Boolean)(implicitcbf:scala.collection.generic.CanBuildFrom[M[_],T,M[T]],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[M[T]]) function can be used.
+It must be given a Scala collection type, like [`List`](http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List) or [`Vector`](http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.Vector). It accumulates all the results in memory.
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+trait PersonService2 {
+  def collection: BSONCollection
+
+  def persons(age: Int)(implicit ec: ExecutionContext): Future[List[Person]] =
+    collection.find(BSONDocument("age" -> age)).
+      cursor[Person]().collect[List]()
+}
+{% endhighlight %}
+
+[More: **Streaming**](./streaming.html)
 
 ## Find and sort documents
 
@@ -98,8 +126,7 @@ def findOlder3(collection: BSONCollection) = {
   collection.find(query).
     // sort by lastName
     sort(BSONDocument("lastName" -> 1)).
-    cursor[BSONDocument].
-    collect[List]()
+    cursor[BSONDocument].collect[List]()
 }  
 {% endhighlight %}
 
