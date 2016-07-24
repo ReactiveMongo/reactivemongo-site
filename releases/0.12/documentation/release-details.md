@@ -516,6 +516,33 @@ def textFind(coll: BSONCollection)(implicit ec: ExecutionContext): Future[List[B
 }
 {% endhighlight %}
 
+The [`$filter` operation](https://docs.mongodb.org/master/reference/operator/aggregation/filter/) can also be used.
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+
+import reactivemongo.bson.{ BSONString, Macros, array, document }
+import reactivemongo.api.collections.bson.BSONCollection
+
+object FilterUseCase {
+  case class SaleItem(itemId: Int, quantity: Int, price: Int)
+  case class Sale(_id: Int, items: List[SaleItem])
+
+  implicit val saleItemHandler = Macros.handler[SaleItem]
+  implicit val saleHandler = Macros.handler[Sale]
+
+  def filterSales(sales: BSONCollection)(implicit ec: ExecutionContext): Future[List[Sale]] = {
+    import sales.BatchCommands.AggregationFramework.{ Project, Filter }
+
+    sales.aggregate(Project(document("items" -> Filter(
+      input = BSONString("$items"),
+      as = "item",
+      cond = document("$gte" -> array("$$item.price", 100))
+    )))).map(_.head[Sale])
+  }
+}
+{% endhighlight %}
+
 ### Playframework
 
 The [integration with Playframework](./tutorial/play.html) is still a priority for ReactiveMongo.
