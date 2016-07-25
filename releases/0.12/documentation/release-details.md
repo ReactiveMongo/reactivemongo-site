@@ -9,6 +9,23 @@ title: ReactiveMongo 0.12 - Release details
 
 The documentation is available [online](index.html), and its code samples are compiled to make sure it's up-to-date.
 
+- [Compatibility](#compatibility)
+- [Database resolution](#database-resolution)
+- [Query and write operations](#query-and-write-operations): FindAndModify, Query build, 
+- [Streaming](#streaming)
+  - [Akka Stream](#akka-stream)
+  - [Aggregated streams](#aggregated-streams)
+  - [Custom streaming](#custom-streaming)
+- [BSON Library](#bson-library)
+- [Aggregation](#aggregation)
+- [Playframework](#playframework): JSON serialization, Play Iteratees, Routing
+- [Administration](#administration)
+- [Logging](#logging)
+- [Dependencies](#dependencies)
+- [Breaking changes](#breaking-changes)
+
+> The next release will be 1.0.0 (not 0.13.0).
+
 ### Compatibility
 
 This release is compatible with the following runtime.
@@ -559,7 +576,7 @@ As for Play 2.5, due to the [Streams Migration](https://playframework.com/docume
 
 The Play support has also been modularized.
 
-**Play JSON**
+**JSON serialization**
 
 There is now a separate [Play JSON library](./json/overview.html), providing the serialization pack without the Play module.
 
