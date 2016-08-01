@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>pattern - ReactiveMongo API 0.12.0-SNAPSHOT - akka.pattern</title>
-          <meta name="description" content="pattern - ReactiveMongo API 0.12.0 - SNAPSHOT - akka.pattern" />
-          <meta name="keywords" content="pattern ReactiveMongo API 0.12.0 SNAPSHOT akka.pattern" />
+          <title>pattern - ReactiveMongo API 0.12-RC1 - akka.pattern</title>
+          <meta name="description" content="pattern - ReactiveMongo API 0.12 - RC1 - akka.pattern" />
+          <meta name="keywords" content="pattern ReactiveMongo API 0.12 RC1 akka.pattern" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../lib/template.js"></script>
       <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../index.html';
@@ -60,7 +60,7 @@
               <ol>
                 
                 <li class="alpha in"><span>Alphabetic</span></li>
-                <li class="inherit out"><span>By inheritance</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
               </ol>
             </div>
         <div id="ancestors">
@@ -73,7 +73,7 @@
             <span class="filtertype"></span>
             <ol>
               <li class="hideall out"><span>Hide All</span></li>
-              <li class="showall in"><span>Show all</span></li>
+              <li class="showall in"><span>Show All</span></li>
             </ol>
           </div>
         <div id="visbl">
@@ -89,7 +89,7 @@
         <div id="types" class="types members">
               <h3>Type Members</h3>
               <ol><li name="akka.pattern.PipeToSupport.PipeableFuture" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="PipeableFuture[T]extendsAnyRef"></a>
+      <a id="PipeableFuture[T&lt;:&lt;?&gt;]extendsAnyRef"></a>
       <a id="PipeableFuture[T]:PipeableFuture[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -113,7 +113,7 @@
         <div id="values" class="values members">
               <h3>Value Members</h3>
               <ol><li name="akka.pattern.FutureTimeoutSupport#after" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="after[T&lt;:&lt;?&gt;](duration:&lt;?&gt;,using:&lt;?&gt;)(value:&lt;?&gt;)(implicitec:&lt;?&gt;):scala.concurrent.Future[T]"></a>
+      <a id="after[T](duration:scala.concurrent.duration.FiniteDuration,using:akka.actor.Scheduler)(value:=&gt;scala.concurrent.Future[T])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[T]"></a>
       <a id="after[T](FiniteDuration,Scheduler)(⇒Future[T])(ExecutionContext):Future[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -121,7 +121,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">after</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="duration">duration: <span class="extype" name="scala.concurrent.duration.FiniteDuration">FiniteDuration</span></span>, <span name="using">using: <span class="extype" name="akka.actor.Scheduler">Scheduler</span></span>)</span><span class="params">(<span name="value">value: ⇒ <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="akka.pattern.FutureTimeoutSupport.after.T">T</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="akka.pattern.FutureTimeoutSupport.after.T">T</span>]</span>
+        <span class="name">after</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="duration">duration: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.duration.FiniteDuration" class="extype" target="_top">FiniteDuration</a></span>, <span name="using">using: <span class="extype" name="akka.actor.Scheduler">Scheduler</span></span>)</span><span class="params">(<span name="value">value: ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="akka.pattern.FutureTimeoutSupport.after.T">T</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.ExecutionContext" class="extype" target="_top">ExecutionContext</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="akka.pattern.FutureTimeoutSupport.after.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#akka.pattern.package@after[T](duration:scala.concurrent.duration.FiniteDuration,using:akka.actor.Scheduler)(value:=&gt;scala.concurrent.Future[T])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[T]" title="Permalink" target="_top">
@@ -138,7 +138,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">ask</span><span class="params">(<span name="actorSelection">actorSelection: <span class="extype" name="akka.actor.ActorSelection">ActorSelection</span></span>, <span name="message">message: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="timeout">timeout: <span class="extype" name="akka.util.Timeout">Timeout</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Any">Any</span>]</span>
+        <span class="name">ask</span><span class="params">(<span name="actorSelection">actorSelection: <span class="extype" name="akka.actor.ActorSelection">ActorSelection</span></span>, <span name="message">message: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="timeout">timeout: <span class="extype" name="akka.util.Timeout">Timeout</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Any">Any</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#akka.pattern.package@ask(actorSelection:akka.actor.ActorSelection,message:Any)(implicittimeout:akka.util.Timeout):scala.concurrent.Future[Any]" title="Permalink" target="_top">
@@ -172,7 +172,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">ask</span><span class="params">(<span name="actorRef">actorRef: <span class="extype" name="akka.actor.ActorRef">ActorRef</span></span>, <span name="message">message: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="timeout">timeout: <span class="extype" name="akka.util.Timeout">Timeout</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Any">Any</span>]</span>
+        <span class="name">ask</span><span class="params">(<span name="actorRef">actorRef: <span class="extype" name="akka.actor.ActorRef">ActorRef</span></span>, <span name="message">message: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="timeout">timeout: <span class="extype" name="akka.util.Timeout">Timeout</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Any">Any</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#akka.pattern.package@ask(actorRef:akka.actor.ActorRef,message:Any)(implicittimeout:akka.util.Timeout):scala.concurrent.Future[Any]" title="Permalink" target="_top">
@@ -206,7 +206,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">gracefulStop</span><span class="params">(<span name="target">target: <span class="extype" name="akka.actor.ActorRef">ActorRef</span></span>, <span name="timeout">timeout: <span class="extype" name="scala.concurrent.duration.FiniteDuration">FiniteDuration</span></span>, <span name="stopMessage">stopMessage: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
+        <span class="name">gracefulStop</span><span class="params">(<span name="target">target: <span class="extype" name="akka.actor.ActorRef">ActorRef</span></span>, <span name="timeout">timeout: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.duration.FiniteDuration" class="extype" target="_top">FiniteDuration</a></span>, <span name="stopMessage">stopMessage: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#akka.pattern.package@gracefulStop(target:akka.actor.ActorRef,timeout:scala.concurrent.duration.FiniteDuration,stopMessage:Any):scala.concurrent.Future[Boolean]" title="Permalink" target="_top">
@@ -215,7 +215,7 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>GracefulStopSupport</dd></dl></div>
     </li><li name="akka.pattern.PipeToSupport#pipe" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="pipe[T](future:scala.concurrent.Future[T])(implicitexecutionContext:scala.concurrent.ExecutionContext):PipeToSupport.this.PipeableFuture[T]"></a>
+      <a id="pipe[T&lt;:&lt;?&gt;](future:&lt;?&gt;)(implicitexecutionContext:&lt;?&gt;):PipeToSupport.this.PipeableFuture[T]"></a>
       <a id="pipe[T](Future[T])(ExecutionContext):PipeableFuture[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -223,7 +223,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">pipe</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="future">future: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="akka.pattern.PipeToSupport.pipe.T">T</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="executionContext">executionContext: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="akka.pattern.PipeToSupport.PipeableFuture">PipeableFuture</span>[<span class="extype" name="akka.pattern.PipeToSupport.pipe.T">T</span>]</span>
+        <span class="name">pipe</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="future">future: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="akka.pattern.PipeToSupport.pipe.T">T</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="executionContext">executionContext: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.ExecutionContext" class="extype" target="_top">ExecutionContext</a></span>)</span><span class="result">: <span class="extype" name="akka.pattern.PipeToSupport.PipeableFuture">PipeableFuture</span>[<span class="extype" name="akka.pattern.PipeToSupport.pipe.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#akka.pattern.package@pipe[T](future:scala.concurrent.Future[T])(implicitexecutionContext:scala.concurrent.ExecutionContext):PipeToSupport.this.PipeableFuture[T]" title="Permalink" target="_top">

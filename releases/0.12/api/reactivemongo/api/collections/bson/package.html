@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>bson - ReactiveMongo API 0.12.0-SNAPSHOT - reactivemongo.api.collections.bson</title>
-          <meta name="description" content="bson - ReactiveMongo API 0.12.0 - SNAPSHOT - reactivemongo.api.collections.bson" />
-          <meta name="keywords" content="bson ReactiveMongo API 0.12.0 SNAPSHOT reactivemongo.api.collections.bson" />
+          <title>bson - ReactiveMongo API 0.12-RC1 - reactivemongo.api.collections.bson</title>
+          <meta name="description" content="bson - ReactiveMongo API 0.12 - RC1 - reactivemongo.api.collections.bson" />
+          <meta name="keywords" content="bson ReactiveMongo API 0.12 RC1 reactivemongo.api.collections.bson" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../../../lib/template.js"></script>
       <script type="text/javascript" src="../../../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../../index.html';
@@ -60,7 +60,7 @@
               <ol>
                 
                 <li class="alpha in"><span>Alphabetic</span></li>
-                <li class="inherit out"><span>By inheritance</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
               </ol>
             </div>
         <div id="ancestors">
@@ -73,7 +73,7 @@
             <span class="filtertype"></span>
             <ol>
               <li class="hideall out"><span>Hide All</span></li>
-              <li class="showall in"><span>Show all</span></li>
+              <li class="showall in"><span>Show All</span></li>
             </ol>
           </div>
         <div id="visbl">
@@ -97,7 +97,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="BSONCollection.html"><span class="name">BSONCollection</span></a><span class="params">(<span name="db">db: <a href="../../DB.html" class="extype" name="reactivemongo.api.DB">DB</a></span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="failoverStrategy">failoverStrategy: <a href="../../FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a></span>)</span><span class="result"> extends <a href="../GenericCollection.html" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<a href="../../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="BSONCollection.html"><span class="name">BSONCollection</span></a><span class="params">(<span name="db">db: <a href="../../DB.html" class="extype" name="reactivemongo.api.DB">DB</a></span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="failoverStrategy">failoverStrategy: <a href="../../FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a></span>)</span><span class="result"> extends <a href="../GenericCollection.html" class="extype" name="reactivemongo.api.collections.GenericCollection">GenericCollection</a>[<a href="../../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type] with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#reactivemongo.api.collections.bson.package@BSONCollectionextendsGenericCollection[reactivemongo.api.BSONSerializationPack.type]withProductwithSerializable" title="Permalink" target="_top">
@@ -114,7 +114,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="BSONQueryBuilder.html"><span class="name">BSONQueryBuilder</span></a><span class="params">(<span name="collection">collection: <a href="../../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a></span>, <span name="failover">failover: <a href="../../FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a></span>, <span name="queryOption">queryOption: <span class="extype" name="scala.Option">Option</span>[<a href="../../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>] = <span class="symbol">None</span></span>, <span name="sortOption">sortOption: <span class="extype" name="scala.Option">Option</span>[<a href="../../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>] = <span class="symbol">None</span></span>, <span name="projectionOption">projectionOption: <span class="extype" name="scala.Option">Option</span>[<a href="../../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>] = <span class="symbol">None</span></span>, <span name="hintOption">hintOption: <span class="extype" name="scala.Option">Option</span>[<a href="../../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>] = <span class="symbol">None</span></span>, <span name="explainFlag">explainFlag: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="snapshotFlag">snapshotFlag: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="commentString">commentString: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="options">options: <a href="../../QueryOpts.html" class="extype" name="reactivemongo.api.QueryOpts">QueryOpts</a> = <span class="symbol"><span class="name"><a href="../../../package.html">QueryOpts()</a></span></span></span>, <span name="maxTimeMsOption">maxTimeMsOption: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Long">Long</span>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="../GenericQueryBuilder.html" class="extype" name="reactivemongo.api.collections.GenericQueryBuilder">GenericQueryBuilder</a>[<a href="../../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="BSONQueryBuilder.html"><span class="name">BSONQueryBuilder</span></a><span class="params">(<span name="collection">collection: <a href="../../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a></span>, <span name="failover">failover: <a href="../../FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a></span>, <span name="queryOption">queryOption: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="../../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>] = <span class="symbol">None</span></span>, <span name="sortOption">sortOption: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="../../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>] = <span class="symbol">None</span></span>, <span name="projectionOption">projectionOption: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="../../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>] = <span class="symbol">None</span></span>, <span name="hintOption">hintOption: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="../../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>] = <span class="symbol">None</span></span>, <span name="explainFlag">explainFlag: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="snapshotFlag">snapshotFlag: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="commentString">commentString: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="options">options: <a href="../../QueryOpts.html" class="extype" name="reactivemongo.api.QueryOpts">QueryOpts</a> = <span class="symbol"><span class="name"><a href="../../../package.html">QueryOpts()</a></span></span></span>, <span name="maxTimeMsOption">maxTimeMsOption: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="../GenericQueryBuilder.html" class="extype" name="reactivemongo.api.collections.GenericQueryBuilder">GenericQueryBuilder</a>[<a href="../../BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type] with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#reactivemongo.api.collections.bson.package@BSONQueryBuilderextendsGenericQueryBuilder[reactivemongo.api.BSONSerializationPack.type]withProductwithSerializable" title="Permalink" target="_top">
