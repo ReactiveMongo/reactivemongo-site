@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Reply - ReactiveMongo API 0.12.0-SNAPSHOT - reactivemongo.core.protocol.Reply</title>
-          <meta name="description" content="Reply - ReactiveMongo API 0.12.0 - SNAPSHOT - reactivemongo.core.protocol.Reply" />
-          <meta name="keywords" content="Reply ReactiveMongo API 0.12.0 SNAPSHOT reactivemongo.core.protocol.Reply" />
+          <title>Reply - ReactiveMongo API 0.12-RC1 - reactivemongo.core.protocol.Reply</title>
+          <meta name="description" content="Reply - ReactiveMongo API 0.12 - RC1 - reactivemongo.core.protocol.Reply" />
+          <meta name="keywords" content="Reply ReactiveMongo API 0.12 RC1 reactivemongo.core.protocol.Reply" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../../lib/template.js"></script>
       <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
-      <script type="text/javascript" src="../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../lib/diagrams.js" id="diagrams-js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -47,19 +47,15 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">Reply</span><span class="params">(<span name="flags">flags: <span class="extype" name="scala.Int">Int</span></span>, <span name="cursorID">cursorID: <span class="extype" name="scala.Long">Long</span></span>, <span name="startingFrom">startingFrom: <span class="extype" name="scala.Int">Int</span></span>, <span name="numberReturned">numberReturned: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <a href="Op.html" class="extype" name="reactivemongo.core.protocol.Op">Op</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">Reply</span><span class="params">(<span name="flags">flags: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="cursorID">cursorID: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="startingFrom">startingFrom: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="numberReturned">numberReturned: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result"> extends <a href="Op.html" class="extype" name="reactivemongo.core.protocol.Op">Op</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Reply operation.
 </p></div><dl class="paramcmts block"><dt class="param">flags</dt><dd class="cmt"><p>The flags of this response.</p></dd><dt class="param">cursorID</dt><dd class="cmt"><p>The cursor id. Strictly positive if a cursor has been created server side, 0 if none or exhausted.</p></dd><dt class="param">startingFrom</dt><dd class="cmt"><p>The index the returned documents start from.</p></dd><dt class="param">numberReturned</dt><dd class="cmt"><p>The number of documents that are present in this reply.</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="Op.html" class="extype" name="reactivemongo.core.protocol.Op">Op</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
-        </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
-                <span class="toggle diagram-link">Type Hierarchy</span>
-                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
-                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 278.00 118.00" height="118pt" width="278pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 114)" class="graph" id="graph0"><polygon points="-4,4 -4,-114 274,-114 274,4 -4,4" stroke="none" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this class" id="graph1_0"><g id="a_this class|graph1_0"><a xlink:title="reactivemongo.core.protocol.Reply (this class)" xlink:href="#inheritance-diagram"><polygon points="151,-49 81,-49 81,-24 151,-24 151,-49" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-43.5" x="91" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-33.5" x="112" text-anchor="start">Reply</text></a></g></g><!-- node1 --><g class="node trait" id="graph1_1"><g id="a_trait|graph1_1"><a xlink:title="reactivemongo.core.protocol.Op" xlink:href="Op.html#inheritance-diagram"><polygon points="58,-110 0,-110 0,-85 58,-85 58,-110" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-104.5" x="10" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.5" x="31" text-anchor="start">Op</text></a></g></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph1_1_0"><g id="a_inheritance|graph1_1_0"><a xlink:title="Reply is a subtype of Op"><path d="M50.649,-81.8185C65.5358,-71.7228 85.0347,-58.4995 98.8473,-49.1323" stroke="#d4d4d4" fill="none"></path><polygon points="49.3443,-80.5887 46.1884,-84.8435 51.3088,-83.4855 49.3443,-80.5887" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node trait" id="graph1_2"><g id="a_trait|graph1_2"><a xlink:title="scala.Product"><polygon points="155.5,-110 76.5,-110 76.5,-85 155.5,-85 155.5,-110" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-104.5" x="87" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.5" x="108" text-anchor="start">Product</text></a></g></g><!-- node2&#45;&gt;node0 --><g class="edge inheritance" id="graph1_2_0"><g id="a_inheritance|graph1_2_0"><a xlink:title="Reply is a subtype of Product"><path d="M116,-79.6874C116,-69.9173 116,-57.8534 116,-49.1323" stroke="#d4d4d4" fill="none"></path><polygon points="114.25,-79.8435 116,-84.8435 117.75,-79.8435 114.25,-79.8435" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node3 --><g class="node trait" id="graph1_3"><g id="a_trait|graph1_3"><a xlink:title="scala.Serializable"><polygon points="270,-110 174,-110 174,-85 270,-85 270,-110" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-104.5" x="184" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.5" x="205" text-anchor="start">Serializable</text></a></g></g><!-- node3&#45;&gt;node0 --><g class="edge inheritance" id="graph1_3_0"><g id="a_inheritance|graph1_3_0"><a xlink:title="Reply is a subtype of Serializable"><path d="M196.813,-82.4807C178.57,-72.3269 154.194,-58.7588 137,-49.1884" stroke="#d4d4d4" fill="none"></path><polygon points="196.091,-84.0815 201.31,-84.9841 197.793,-81.0233 196.091,-84.0815" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
-              </div></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <a href="Op.html" class="extype" name="reactivemongo.core.protocol.Op">Op</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
         
 
       <div id="mbrsel">
@@ -69,7 +65,7 @@
               <ol>
                 
                 <li class="alpha in"><span>Alphabetic</span></li>
-                <li class="inherit out"><span>By inheritance</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
               </ol>
             </div>
         <div id="ancestors">
@@ -87,7 +83,7 @@
             <span class="filtertype"></span>
             <ol>
               <li class="hideall out"><span>Hide All</span></li>
-              <li class="showall in"><span>Show all</span></li>
+              <li class="showall in"><span>Show All</span></li>
             </ol>
           </div>
         <div id="visbl">
@@ -109,7 +105,7 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">Reply</span><span class="params">(<span name="flags">flags: <span class="extype" name="scala.Int">Int</span></span>, <span name="cursorID">cursorID: <span class="extype" name="scala.Long">Long</span></span>, <span name="startingFrom">startingFrom: <span class="extype" name="scala.Int">Int</span></span>, <span name="numberReturned">numberReturned: <span class="extype" name="scala.Int">Int</span></span>)</span>
+        <span class="name">Reply</span><span class="params">(<span name="flags">flags: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="cursorID">cursorID: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="startingFrom">startingFrom: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="numberReturned">numberReturned: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@&lt;init&gt;(flags:Int,cursorID:Long,startingFrom:Int,numberReturned:Int):reactivemongo.core.protocol.Reply" title="Permalink" target="_top">
@@ -135,7 +131,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@!=(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -152,7 +148,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@##():Int" title="Permalink" target="_top">
@@ -214,7 +210,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@==(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -248,7 +244,7 @@
         <span class="kind">lazy val</span>
       </span>
       <span class="symbol">
-        <span class="name">awaitCapable</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">awaitCapable</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@awaitCapable:Boolean" title="Permalink" target="_top">
@@ -288,7 +284,7 @@
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">code</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span class="name">code</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@code:Int" title="Permalink" target="_top">
@@ -305,7 +301,7 @@
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">cursorID</span><span class="result">: <span class="extype" name="scala.Long">Long</span></span>
+        <span class="name">cursorID</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@cursorID:Long" title="Permalink" target="_top">
@@ -322,7 +318,7 @@
         <span class="kind">lazy val</span>
       </span>
       <span class="symbol">
-        <span class="name">cursorNotFound</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">cursorNotFound</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@cursorNotFound:Boolean" title="Permalink" target="_top">
@@ -339,7 +335,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -360,7 +356,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
@@ -381,7 +377,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -402,7 +398,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@ensuring(cond:Boolean):A" title="Permalink" target="_top">
@@ -423,7 +419,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
@@ -440,7 +436,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@finalize():Unit" title="Permalink" target="_top">
@@ -463,7 +459,7 @@
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">flags</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span class="name">flags</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@flags:Int" title="Permalink" target="_top">
@@ -521,7 +517,7 @@
         <span class="kind">lazy val</span>
       </span>
       <span class="symbol">
-        <span class="name">inError</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">inError</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@inError:Boolean" title="Permalink" target="_top">
@@ -538,7 +534,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
@@ -555,7 +551,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
@@ -572,7 +568,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@notify():Unit" title="Permalink" target="_top">
@@ -589,7 +585,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@notifyAll():Unit" title="Permalink" target="_top">
@@ -606,7 +602,7 @@
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">numberReturned</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span class="name">numberReturned</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@numberReturned:Int" title="Permalink" target="_top">
@@ -623,7 +619,7 @@
         <span class="kind">lazy val</span>
       </span>
       <span class="symbol">
-        <span class="name">queryFailure</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">queryFailure</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@queryFailure:Boolean" title="Permalink" target="_top">
@@ -640,7 +636,7 @@
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">startingFrom</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span class="name">startingFrom</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@startingFrom:Int" title="Permalink" target="_top">
@@ -691,7 +687,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@wait():Unit" title="Permalink" target="_top">
@@ -714,7 +710,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
@@ -737,7 +733,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.protocol.Reply@wait(x$1:Long):Unit" title="Permalink" target="_top">
@@ -782,13 +778,13 @@
 
         <div id="inheritedMembers">
         <div class="parent" name="scala.Serializable">
-              <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></h3>
             </div><div class="parent" name="java.io.Serializable">
               <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
             </div><div class="parent" name="scala.Product">
-              <h3>Inherited from <span class="extype" name="scala.Product">Product</span></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a></h3>
             </div><div class="parent" name="scala.Equals">
-              <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Equals" class="extype" target="_top">Equals</a></h3>
             </div><div class="parent" name="reactivemongo.core.protocol.Op">
               <h3>Inherited from <a href="Op.html" class="extype" name="reactivemongo.core.protocol.Op">Op</a></h3>
             </div><div class="parent" name="scala.AnyRef">

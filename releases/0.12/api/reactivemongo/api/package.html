@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>api - ReactiveMongo API 0.12.0-SNAPSHOT - reactivemongo.api</title>
-          <meta name="description" content="api - ReactiveMongo API 0.12.0 - SNAPSHOT - reactivemongo.api" />
-          <meta name="keywords" content="api ReactiveMongo API 0.12.0 SNAPSHOT reactivemongo.api" />
+          <title>api - ReactiveMongo API 0.12-RC1 - reactivemongo.api</title>
+          <meta name="description" content="api - ReactiveMongo API 0.12 - RC1 - reactivemongo.api" />
+          <meta name="keywords" content="api ReactiveMongo API 0.12 RC1 reactivemongo.api" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -60,7 +60,7 @@
               <ol>
                 
                 <li class="alpha in"><span>Alphabetic</span></li>
-                <li class="inherit out"><span>By inheritance</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
               </ol>
             </div>
         <div id="ancestors">
@@ -73,7 +73,7 @@
             <span class="filtertype"></span>
             <ol>
               <li class="hideall out"><span>Hide All</span></li>
-              <li class="showall in"><span>Show all</span></li>
+              <li class="showall in"><span>Show All</span></li>
             </ol>
           </div>
         <div id="visbl">
@@ -121,8 +121,7 @@
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">A MongoDB Collection.</p><div class="fullcomment"><div class="comment cmt"><p>A MongoDB Collection.
-You should consider the generic API
+      <p class="shortcomment cmt">A MongoDB Collection, resolved from a <a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">reactivemongo.api.DefaultDB</a>.</p><div class="fullcomment"><div class="comment cmt"><p>A MongoDB Collection, resolved from a <a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">reactivemongo.api.DefaultDB</a>.</p><p>You should consider the generic API
 (<a href="collections/GenericCollection.html" class="extype" name="reactivemongo.api.collections.GenericCollection">reactivemongo.api.collections.GenericCollection</a>)
 and the default <a href="collections/bson/BSONCollection.html" class="extype" name="reactivemongo.api.collections.bson.BSONCollection">reactivemongo.api.collections.bson.BSONCollection</a>.</p><pre><span class="kw">import</span> reactivemongo.bson._
 <span class="kw">import</span> reactivemongo.api.collections.bson.BSONCollection
@@ -283,7 +282,7 @@ and the default <a href="collections/bson/BSONCollection.html" class="extype" na
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">A Mongo Database.</p><div class="fullcomment"><div class="comment cmt"><p>A Mongo Database.</p><p>You should consider the provided <a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">reactivemongo.api.DefaultDB</a> implementation.</p><p>Example:</p><pre><span class="kw">import</span> reactivemongo.api._
+      <p class="shortcomment cmt">A MongoDB database, obtained from a <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">reactivemongo.api.MongoConnection</a>.</p><div class="fullcomment"><div class="comment cmt"><p>A MongoDB database, obtained from a <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">reactivemongo.api.MongoConnection</a>.</p><p>You should consider the provided <a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">reactivemongo.api.DefaultDB</a> implementation.</p><p>Example:</p><pre><span class="kw">import</span> reactivemongo.api._
 
 <span class="kw">val</span> connection = MongoConnection( <span class="std">List</span>( <span class="lit">"localhost:27016"</span> ) )
 <span class="kw">val</span> db = connection.database(<span class="lit">"plugin"</span>)
@@ -314,7 +313,7 @@ and the default <a href="collections/bson/BSONCollection.html" class="extype" na
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="DefaultDB.html"><span class="name">DefaultDB</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="connection">connection: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="FailoverStrategy$.html">FailoverStrategy()</a></span></span></span>)</span><span class="result"> extends <a href="DB.html" class="extype" name="reactivemongo.api.DB">DB</a> with <a href="DBMetaCommands.html" class="extype" name="reactivemongo.api.DBMetaCommands">DBMetaCommands</a> with <a href="GenericDB.html" class="extype" name="reactivemongo.api.GenericDB">GenericDB</a>[<a href="BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type] with <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="DefaultDB.html"><span class="name">DefaultDB</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="connection">connection: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="FailoverStrategy$.html">FailoverStrategy()</a></span></span></span>)</span><span class="result"> extends <a href="DB.html" class="extype" name="reactivemongo.api.DB">DB</a> with <a href="DBMetaCommands.html" class="extype" name="reactivemongo.api.DBMetaCommands">DBMetaCommands</a> with <a href="GenericDB.html" class="extype" name="reactivemongo.api.GenericDB">GenericDB</a>[<a href="BSONSerializationPack$.html" class="extype" name="reactivemongo.api.BSONSerializationPack">BSONSerializationPack</a>.type] with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.package@DefaultDBextendsDBwithDBMetaCommandswithGenericDB[reactivemongo.api.BSONSerializationPack.type]withProductwithSerializable" title="Permalink" target="_top">
@@ -355,7 +354,7 @@ the future reference is completed with a Throwable.</p><p>Should not be used dir
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="FailoverStrategy.html"><span class="name">FailoverStrategy</span></a><span class="params">(<span name="initialDelay">initialDelay: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.duration.FiniteDuration" class="extype" target="_top">FiniteDuration</a> = <span class="symbol">FiniteDuration(100, &quot;ms&quot;)</span></span>, <span name="retries">retries: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">10</span></span>, <span name="delayFactor">delayFactor: (<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Double" class="extype" target="_top">Double</a> = <span class="symbol"><span class="name"><a href="FailoverStrategy$.html">FailoverStrategy.defaultFactor</a></span></span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="FailoverStrategy.html"><span class="name">FailoverStrategy</span></a><span class="params">(<span name="initialDelay">initialDelay: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.duration.FiniteDuration" class="extype" target="_top">FiniteDuration</a> = <span class="symbol">FiniteDuration(100, &quot;ms&quot;)</span></span>, <span name="retries">retries: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">10</span></span>, <span name="delayFactor">delayFactor: (<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Double" class="extype" target="_top">Double</a> = <span class="symbol"><span class="name"><a href="FailoverStrategy$.html">FailoverStrategy.defaultFactor</a></span></span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.package@FailoverStrategyextendsProductwithSerializable" title="Permalink" target="_top">
@@ -383,23 +382,6 @@ The default uses 10 retries:
       </a>
     </span>
       
-    </li><li name="reactivemongo.api.GenericDB" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="GenericDB[P&lt;:reactivemongo.api.SerializationPackwithSingleton]extendsAnyRef"></a>
-      <a id="GenericDB[P&lt;:SerializationPackwithSingleton]:GenericDB[P]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">trait</span>
-      </span>
-      <span class="symbol">
-        <a href="GenericDB.html"><span class="name">GenericDB</span></a><span class="tparams">[<span name="P">P &lt;: <a href="SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a> with <span class="extype" name="scala.Singleton">Singleton</span></span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.api.package@GenericDB[P&lt;:reactivemongo.api.SerializationPackwithSingleton]extendsAnyRef" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="reactivemongo.api.MongoConnection" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="MongoConnectionextendsAnyRef"></a>
       <a id="MongoConnection:MongoConnection"></a>
@@ -416,7 +398,7 @@ The default uses 10 retries:
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">A pool of MongoDB connections.</p><div class="fullcomment"><div class="comment cmt"><p>A pool of MongoDB connections.</p><p>Connection here does not mean that there is one open channel to the server:
+      <p class="shortcomment cmt">A pool of MongoDB connections, obtained from a <a href="MongoDriver.html" class="extype" name="reactivemongo.api.MongoDriver">reactivemongo.api.MongoDriver</a>.</p><div class="fullcomment"><div class="comment cmt"><p>A pool of MongoDB connections, obtained from a <a href="MongoDriver.html" class="extype" name="reactivemongo.api.MongoDriver">reactivemongo.api.MongoDriver</a>.</p><p>Connection here does not mean that there is one open channel to the server:
 behind the scene, many connections (channels) are open on all the available servers in the replica set.</p><p>Example:</p><pre><span class="kw">import</span> reactivemongo.api._
 
 <span class="kw">val</span> connection = MongoConnection(<span class="std">List</span>(<span class="lit">"localhost"</span>))
@@ -431,7 +413,7 @@ behind the scene, many connections (channels) are open on all the available serv
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="MongoConnectionOptions.html"><span class="name">MongoConnectionOptions</span></a><span class="params">(<span name="connectTimeoutMS">connectTimeoutMS: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">0</span></span>, <span name="authSource">authSource: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="sslEnabled">sslEnabled: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="sslAllowsInvalidCert">sslAllowsInvalidCert: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="authMode">authMode: <a href="AuthenticationMode.html" class="extype" name="reactivemongo.api.AuthenticationMode">AuthenticationMode</a> = <span class="symbol"><span class="name"><a href="CrAuthentication$.html">CrAuthentication</a></span></span></span>, <span name="tcpNoDelay">tcpNoDelay: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="keepAlive">keepAlive: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">10</span></span>, <span name="writeConcern">writeConcern: <a href="commands/package.html#WriteConcern=reactivemongo.api.commands.GetLastError" class="extmbr" name="reactivemongo.api.commands.WriteConcern">WriteConcern</a> = <span class="symbol"><span class="name"><a href="../package.html">WriteConcern.Default</a></span></span></span>, <span name="readPreference">readPreference: <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> = <span class="symbol"><span class="name"><a href="ReadPreference$.html">ReadPreference.primary</a></span></span></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="FailoverStrategy$.html">FailoverStrategy.default</a></span></span></span>, <span name="monitorRefreshMS">monitorRefreshMS: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">10000</span></span>, <span name="maxIdleTimeMS">maxIdleTimeMS: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">0</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="MongoConnectionOptions.html"><span class="name">MongoConnectionOptions</span></a><span class="params">(<span name="connectTimeoutMS">connectTimeoutMS: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">0</span></span>, <span name="authSource">authSource: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="sslEnabled">sslEnabled: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="sslAllowsInvalidCert">sslAllowsInvalidCert: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="authMode">authMode: <a href="AuthenticationMode.html" class="extype" name="reactivemongo.api.AuthenticationMode">AuthenticationMode</a> = <span class="symbol"><span class="name"><a href="CrAuthentication$.html">CrAuthentication</a></span></span></span>, <span name="tcpNoDelay">tcpNoDelay: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="keepAlive">keepAlive: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">10</span></span>, <span name="writeConcern">writeConcern: <a href="commands/package.html#WriteConcern=reactivemongo.api.commands.GetLastError" class="extmbr" name="reactivemongo.api.commands.WriteConcern">WriteConcern</a> = <span class="symbol"><span class="name"><a href="../package.html">WriteConcern.Default</a></span></span></span>, <span name="readPreference">readPreference: <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> = <span class="symbol"><span class="name"><a href="ReadPreference$.html">ReadPreference.primary</a></span></span></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="FailoverStrategy$.html">FailoverStrategy.default</a></span></span></span>, <span name="monitorRefreshMS">monitorRefreshMS: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">10000</span></span>, <span name="maxIdleTimeMS">maxIdleTimeMS: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">0</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.package@MongoConnectionOptionsextendsProductwithSerializable" title="Permalink" target="_top">
@@ -466,7 +448,7 @@ behind the scene, many connections (channels) are open on all the available serv
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="QueryOpts.html"><span class="name">QueryOpts</span></a><span class="params">(<span name="skipN">skipN: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">0</span></span>, <span name="batchSizeN">batchSizeN: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">0</span></span>, <span name="flagsN">flagsN: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">0</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="QueryOpts.html"><span class="name">QueryOpts</span></a><span class="params">(<span name="skipN">skipN: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">0</span></span>, <span name="batchSizeN">batchSizeN: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">0</span></span>, <span name="flagsN">flagsN: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">0</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.package@QueryOptsextendsProductwithSerializable" title="Permalink" target="_top">
@@ -582,6 +564,26 @@ with a predefined strategy.</p>
                 <span class="name">@deprecated</span>
               
         </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.11)</i> Will be made private</p></dd></dl></div>
+    </li><li name="reactivemongo.api.GenericDB" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="GenericDB[P&lt;:reactivemongo.api.SerializationPackwithSingleton]extendsAnyRef"></a>
+      <a id="GenericDB[P&lt;:SerializationPackwithSingleton]:GenericDB[P]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="GenericDB.html"><span class="name deprecated" title="Deprecated: (Since version 0.12-RC0) Will be made sealed">GenericDB</span></a><span class="tparams">[<span name="P">P &lt;: <a href="SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a> with <span class="extype" name="scala.Singleton">Singleton</span></span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.package@GenericDB[P&lt;:reactivemongo.api.SerializationPackwithSingleton]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12-RC0)</i> Will be made sealed</p></dd></dl></div>
     </li><li name="reactivemongo.api.SortOrder" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="SortOrderextendsAnyRef"></a>
       <a id="SortOrder:SortOrder"></a>
@@ -635,7 +637,7 @@ with a predefined strategy.</p>
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="CrAuthentication$.html"><span class="name">CrAuthentication</span></a><span class="result"> extends <a href="AuthenticationMode.html" class="extype" name="reactivemongo.api.AuthenticationMode">AuthenticationMode</a> with <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="CrAuthentication$.html"><span class="name">CrAuthentication</span></a><span class="result"> extends <a href="AuthenticationMode.html" class="extype" name="reactivemongo.api.AuthenticationMode">AuthenticationMode</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.package@CrAuthentication" title="Permalink" target="_top">
@@ -771,7 +773,7 @@ with a predefined strategy.</p>
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="FailoverStrategy$.html"><span class="name">FailoverStrategy</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="FailoverStrategy$.html"><span class="name">FailoverStrategy</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.package@FailoverStrategy" title="Permalink" target="_top">
@@ -805,7 +807,7 @@ with a predefined strategy.</p>
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="MongoConnectionOptions$.html"><span class="name">MongoConnectionOptions</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="MongoConnectionOptions$.html"><span class="name">MongoConnectionOptions</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.package@MongoConnectionOptions" title="Permalink" target="_top">
@@ -873,7 +875,7 @@ with a predefined strategy.</p>
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="ScramSha1Authentication$.html"><span class="name">ScramSha1Authentication</span></a><span class="result"> extends <a href="AuthenticationMode.html" class="extype" name="reactivemongo.api.AuthenticationMode">AuthenticationMode</a> with <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="ScramSha1Authentication$.html"><span class="name">ScramSha1Authentication</span></a><span class="result"> extends <a href="AuthenticationMode.html" class="extype" name="reactivemongo.api.AuthenticationMode">AuthenticationMode</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.package@ScramSha1Authentication" title="Permalink" target="_top">
