@@ -438,29 +438,39 @@ def populatedStates(col: BSONCollection): Future[List[BSONDocument]] = {
 
 About the type `AggregationResult` the property [`documents`](../../api/index.html#reactivemongo.api.commands.AggregationFramework$AggregationResult@documents:List[AggregationFramework.this.pack.Document]) has been renamed to `firstBatch`, to clearly indicate it returns the first batch from result (which is frequently the single one).
 
-TODO: 
+There are also some newly supported [Pipeline Aggregation Stages](https://docs.mongodb.org/manual/reference/operator/aggregation-pipeline/).
 
-- Newly supported [Pipeline Aggregation Stages](https://docs.mongodb.org/manual/reference/operator/aggregation-pipeline/);
-  - [$geoNear](https://docs.mongodb.org/manual/reference/operator/aggregation/geoNear/#pipe._S_geoNear): Returns an ordered stream of documents based on the proximity to a geospatial point.
-  - [$out](https://docs.mongodb.org/manual/reference/operator/aggregation/out/#pipe._S_out): Takes the documents returned by the aggregation pipeline and writes them to a specified collection.
-  - [$redact](https://docs.mongodb.org/manual/reference/operator/aggregation/redact/#pipe._S_redact): Reshapes each document in the stream by restricting the content for each document based on information stored in the documents themselves..
+**`$geoNear`:**
 
-The [$sample](https://docs.mongodb.org/manual/reference/operator/aggregation/sample/) aggregation stage is also supported (only MongoDB >= 3.2). It randomly selects the specified number of documents from its input.
-With ReactiveMongo, the [`Sample`](../api/index.html#reactivemongo.api.commands.AggregationFramework@SampleextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable) stage can be used as follows.
+Thhe [$geoNear](https://docs.mongodb.org/manual/reference/operator/aggregation/geoNear/#pipe._S_geoNear) stage returns an ordered stream of documents based on the proximity to a geospatial point.
+
+**`$indexStats`:**
+
+The `$indexStats` stage returns statistics regarding the use of each index for the collection.
 
 {% highlight scala %}
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.BSONDocument
 import reactivemongo.api.collections.bson.BSONCollection
 
-def randomDocs(coll: BSONCollection, count: Int): Future[List[BSONDocument]] = {
-  import coll.BatchCommands.AggregationFramework
+def aggregateIndexes(coll: BSONCollection) = {
+  import coll.BatchCommands.AggregationFramework.{ Ascending, IndexStats, Sort }
+  import reactivemongo.api.commands.{ bson => bsoncommands }
+  import bsoncommands.BSONAggregationFramework.{
+    IndexStatsResult, IndexStatAccesses
+  }
+  import bsoncommands.BSONAggregationResultImplicits.BSONIndexStatsReader
 
-  coll.aggregate(AggregationFramework.Sample(count)).map(_.head[BSONDocument])
+  val result: Future[List[IndexStatsResult]] =
+    coll.aggregate(IndexStats, List(Sort(Ascending("name")))).
+    map(_.head[IndexStatsResult])
+
+  result
 }
 {% endhighlight %}
+
+**`$lookup`:**
 
 Using the MongoDB aggregation, the [$lookup](https://docs.mongodb.com/v3.2/reference/operator/aggregation/lookup/#pipe._S_lookup) stage performs a left outer join between two collection in the same database (see the [examples](https://docs.mongodb.com/v3.2/reference/operator/aggregation/lookup/#examples)).
 ReactiveMongo now supports this [new stage](../api/index.html#reactivemongo.api.commands.AggregationFramework@LookupextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable).
@@ -500,6 +510,69 @@ object LookupUseCase {
   )
 }
 {% endhighlight %}
+
+**`$out`:**
+
+The [$out](https://docs.mongodb.org/manual/reference/operator/aggregation/out/#pipe._S_out) aggregation stage takes the documents returned by the aggregation pipeline and writes them to a specified collection.
+
+Consider a collection *books* that contains the following documents.
+
+{% highlight javascript %}
+{ "_id" : 8751, "title" : "The Banquet", "author" : "Dante", "copies" : 2 }
+{ "_id" : 8752, "title" : "Divine Comedy", "author" : "Dante", "copies" : 1 }
+{ "_id" : 8645, "title" : "Eclogues", "author" : "Dante", "copies" : 2 }
+{ "_id" : 7000, "title" : "The Odyssey", "author" : "Homer", "copies" : 10 }
+{ "_id" : 7020, "title" : "Iliad", "author" : "Homer", "copies" : 10 }
+{% endhighlight %}
+
+Then its documents can be aggregated and outputed to another collection.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONString
+import reactivemongo.api.collections.bson.BSONCollection
+
+def outputBooks(books: BSONCollection, outColl: String): Future[Unit] = {
+  import books.BatchCommands.AggregationFramework
+  import AggregationFramework.{ Ascending, Group, Push, Out, Sort }
+
+  books.aggregate(Sort(Ascending("title")), List(
+    Group(BSONString("$author"))("books" -> Push("title")),
+    Out(outColl))).map(_ => {})
+}
+{% endhighlight %}
+
+For the current example, the result collection will contain the following documents.
+
+{% highlight javascript %}
+{ "_id" : "Homer", "books" : [ "Iliad", "The Odyssey" ] }
+{ "_id" : "Dante", "books" : [ "Divine Comedy", "Eclogues", "The Banquet" ] }
+{% endhighlight %}
+
+TODO: [$redact](https://docs.mongodb.org/manual/reference/operator/aggregation/redact/#pipe._S_redact): Reshapes each document in the stream by restricting the content for each document based on information stored in the documents themselves..
+
+**`$sample`:**
+
+The [$sample](https://docs.mongodb.org/manual/reference/operator/aggregation/sample/) aggregation stage is also supported (only MongoDB >= 3.2). It randomly selects the specified number of documents from its input.
+With ReactiveMongo, the [`Sample`](../api/index.html#reactivemongo.api.commands.AggregationFramework@SampleextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable) stage can be used as follows.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+def randomDocs(coll: BSONCollection, count: Int): Future[List[BSONDocument]] = {
+  import coll.BatchCommands.AggregationFramework
+
+  coll.aggregate(AggregationFramework.Sample(count)).map(_.head[BSONDocument])
+}
+{% endhighlight %}
+
+**`$text`:**
 
 When the [`$text` operator](https://docs.mongodb.org/v3.0/reference/operator/query/text/#op._S_text) is used in an aggregation pipeline, then new the results can be [sorted](https://docs.mongodb.org/v3.0/reference/operator/aggregation/sort/#metadata-sort) according the [text scores](https://docs.mongodb.org/v3.0/reference/operator/query/text/#text-operator-text-score).
 
