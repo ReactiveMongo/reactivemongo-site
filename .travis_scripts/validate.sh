@@ -14,7 +14,9 @@ export GEM_PATH="$HOME/.gem/ruby/2.2.0:$GEM_PATH"
 # Sonatype staging (avoid Central sync delay)
 perl -pe "s|resolvers |resolvers in ThisBuild += \"Sonatype Staging\" at \"https://oss.sonatype.org/content/repositories/staging/\",\r\nresolvers |" < "$SCRIPT_DIR/../build.sbt" > /tmp/build.sbt && mv /tmp/build.sbt "$SCRIPT_DIR/../build.sbt"
 
-(java $SBT_OPTS -jar "$HOME/.sbt/launchers/$SBT_VER/sbt-launch.jar" compile && \
+SBT_JAR="$HOME/.sbt/launchers/$SBT_VER/sbt-launch.jar"
+
+(java $SBT_OPTS -jar "$SBT_JAR" compile && \
   jekyll build) || exit 2
 
 echo "# Documentation built"

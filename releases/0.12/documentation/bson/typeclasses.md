@@ -138,7 +138,7 @@ def create(personCollection: BSONCollection, person: Person)(implicit ec: Execut
 
 ### Helpful macros
 
-To ease the definition or reader and writer instances for your custom types, ReactiveMongo provides some helper [Macros](../../api/index.html#reactivemongo.bson.Macros).
+To ease the definition of reader and writer instances for your custom types, ReactiveMongo provides some helper [Macros](../../api/index.html#reactivemongo.bson.Macros).
 
 {% highlight scala %}
 case class Person(name: String, age: Int)
@@ -154,9 +154,111 @@ implicit val personWriter: BSONDocumentWriter[Person] = Macros.writer[Person]
 */
 {% endhighlight %}
 
-A [`BSONHandler`](../../api/index.html#reactivemongo.bson.BSONHandler) gathers both `BSONReader` and `BSONWriter` traits.
+The [`BSONHandler`](../../api/index.html#reactivemongo.bson.BSONHandler) provided by [`Macros.handler`](../../api/index.html#reactivemongo.bson.Macros$@handler[A]:reactivemongo.bson.BSONDocumentReader[A]withreactivemongo.bson.BSONDocumentWriter[A]withreactivemongo.bson.BSONHandler[reactivemongo.bson.BSONDocument,A]) gathers both `BSONReader` and `BSONWriter` traits.
 
-> The macros are currently limited to case classes whose constructor doesn't take more than 22 parameters (due to Scala not generating `apply` and `unapply` in these cases).
+The [`Macros.reader`](../../api/index.html#reactivemongo.bson.Macros$@reader[A]:reactivemongo.bson.BSONDocumentReader[A]) can be used to generate only the `BSONReader`, while the [`Macros.writer`](../../api/index.html#reactivemongo.bson.Macros$@writer[A]:reactivemongo.bson.BSONDocumentWriter[A]) is for `BSONWriter`.
+
+The `A` type parameter (e.g. with `A` being `Person`, `Macros.reader[Person]`) defines a type for a case class, or for a [sealed trait](http://docs.scala-lang.org/tutorials/tour/traits.html) with subclasses.
+This type will be the basis for the auto-generated implementation.
+
+> Some other types with matching apply-unapply might work but behaviour is undefined. Since macros will match the apply-unapply pair you are free to overload these methods in the companion object.
+
+**Case class mapping:**
+
+For the case classes, the fields get mapped into BSON properties with respective names, and BSON handlers are pulled from implicit scope to (de)serialize them (in the previous `Person` example, the handlers for `String` are resolved for the `name` property).
+
+So in order to use custom types as properties in case classes, the appropriate handlers are in scope.
+
+For example if you have `case class Foo(bar: Bar)` and want to create a handler for it is enough to put an implicit handler for `Bar` in it's companion object. That handler might itself be macro generated, or written by hand.
+
+> The macros are currently limited to case classes whose constructor doesn't take more than 22 parameters (due to Scala not generating `apply` and `unapply` in the other cases).
+
+**Sealed trait and union types:**
+
+Sealed traits are also supported as [union types](https://en.wikipedia.org/wiki/Union_type), with each of their subclasses considered as a disjoint case.
+
+{% highlight scala %}
+import reactivemongo.bson.{ BSONDocument, BSONHandler, Macros }
+
+sealed trait Tree
+case class Node(left: Tree, right: Tree) extends Tree
+case class Leaf(data: String) extends Tree
+
+object Tree {
+  implicit val bson: BSONHandler[BSONDocument, Tree] = Macros.handler[Tree]
+}
+{% endhighlight %}
+
+The `handler`, `reader` and `writer` macros each have a corresponding extended macro: [`readerOpts`](../../api/index.html#reactivemongo.bson.Macros$@readerOpts[A,Opts%3C:reactivemongo.bson.Macros.Options.Default]:reactivemongo.bson.BSONDocumentReader[A]), [`writerOpts`](../../api/index.html#reactivemongo.bson.Macros$@writerOpts[A,Opts%3C:reactivemongo.bson.Macros.Options.Default]:reactivemongo.bson.BSONDocumentWriter[A]) and [`handlerOpts`](../../api/index.html#reactivemongo.bson.Macros$@handlerOpts[A,Opts%3C:reactivemongo.bson.Macros.Options.Default]:reactivemongo.bson.BSONDocumentReader[A]withreactivemongo.bson.BSONDocumentWriter[A]withreactivemongo.bson.BSONHandler[reactivemongo.bson.BSONDocument,A]).
+
+These 'Opts' suffixed macros can be used to explicitly define the [`UnionType`](../../api/index.html#reactivemongo.bson.Macros$$Options$@UnionType[Types%3C:reactivemongo.bson.Macros.Options.\/[_,_]]extendsMacros.Options.SaveClassNamewithMacros.Options.Default).
+
+{% highlight scala %}
+sealed trait Color
+
+case object Red extends Color
+case object Blue extends Color
+case class Green(brightness: Int) extends Color
+case class CustomColor(code: String) extends Color
+
+object Color {
+  import reactivemongo.bson.{ BSONDocument, BSONHandler, Macros },
+    Macros.Options.{ UnionType, \/ }
+
+  // Use `UnionType` to define a subset of the `Color` type
+  type PredefinedColor = UnionType[Red.type \/ Green \/ Blue.type]
+
+  val predefinedColor = Macros.handlerOpts[Color, PredefinedColor]
+}
+{% endhighlight %}
+
+As for the `UnionType` definition, `Foo \/ Bar \/ Baz` is interpreted as type `Foo` or type `Bar` or type `Baz`.
+
+The other options available to configure the typeclasses generation at compile time are the following.
+
+- [`Verbose`](../../api/index.html#reactivemongo.bson.Macros$$Options$@VerboseextendsMacros.Options.Default): Print out generated code during compilation.
+- [`SaveClassName`](../../api/index.html#reactivemongo.bson.Macros$$Options$@SaveClassNameextendsMacros.Options.Default): Indicate to the `BSONWriter` to add a "className" field in the written document along with the other properties. The value for this meta field is the fully qualified name of the class. This is the default behaviour when the target type is a sealed trait (the "className" field is used as discriminator).
+
+**Annotations:**
+
+Some annotations are also available to configure the macros.
+
+The [`@Key`](../../api/index.html#reactivemongo.bson.Macros$$Annotations$@KeyextendsAnnotationwithStaticAnnotationwithProductwithSerializable) annotation allows to specify the field name for a class property.
+
+For example, it is convenient to use when you'd like to leverage the MongoDB `_id` index but you don't want to actually use `_id` in your code.
+
+{% highlight scala %}
+import reactivemongo.bson.Macros.Annotations.Key
+
+case class Website(@Key("_id") url: String)
+// Generated handler will map the `url` field in your code to as `_id` field
+{% endhighlight %}
+
+The [`@Ignore`](../../api/index.html#reactivemongo.bson.Macros$$Annotations$@IgnoreextendsAnnotationwithStaticAnnotationwithProductwithSerializable) can be applied on the class properties to be ignored.
+
+{% highlight scala %}
+import reactivemongo.bson.Macros.Annotations.Ignore
+
+case class Foo(
+  bar: String,
+  @Ignore lastAccessed: Long = -1L
+)
+{% endhighlight %}
+
+**Troubleshooting:**
+
+The mapped type can also be defined inside other classes, objects or traits but not inside functions (known macro limitation). In order to work you should have the case class in scope (where you call the macro), so you can refer to it by it's short name - without package. This is necessary because the generated implementations refer to it by the short name to support nested declarations. You can work around this with local imports.
+
+{% highlight scala %}
+object lorem {
+  case class Ipsum(v: String)
+}
+
+implicit val handler = {
+  import lorem.Ipsum
+  reactivemongo.bson.Macros.handler[Ipsum]
+}
+{% endhighlight %}
 
 ### Provided handlers
 
