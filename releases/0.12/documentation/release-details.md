@@ -450,6 +450,35 @@ About the type `AggregationResult` the property [`documents`](../../api/index.ht
 
 There are also some newly supported [Pipeline Aggregation Stages](https://docs.mongodb.org/manual/reference/operator/aggregation-pipeline/).
 
+**filter:**
+
+The [`$filter` stage](https://docs.mongodb.org/master/reference/operator/aggregation/filter/) is available in this new version.
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+
+import reactivemongo.bson.{ BSONString, Macros, array, document }
+import reactivemongo.api.collections.bson.BSONCollection
+
+object FilterUseCase {
+  case class SaleItem(itemId: Int, quantity: Int, price: Int)
+  case class Sale(_id: Int, items: List[SaleItem])
+
+  implicit val saleItemHandler = Macros.handler[SaleItem]
+  implicit val saleHandler = Macros.handler[Sale]
+
+  def filterSales(sales: BSONCollection)(implicit ec: ExecutionContext): Future[List[Sale]] = {
+    import sales.BatchCommands.AggregationFramework.{ Project, Filter }
+
+    sales.aggregate(Project(document("items" -> Filter(
+      input = BSONString("$items"),
+      as = "item",
+      cond = document("$gte" -> array("$$item.price", 100))
+    )))).map(_.head[Sale])
+  }
+}
+{% endhighlight %}
+
 **geoNear:**
 
 The [$geoNear](https://docs.mongodb.org/manual/reference/operator/aggregation/geoNear/#pipe._S_geoNear) stage returns an ordered stream of documents based on the proximity to a geospatial point.
@@ -677,32 +706,7 @@ def textFind(coll: BSONCollection)(implicit ec: ExecutionContext): Future[List[B
 }
 {% endhighlight %}
 
-The [`$filter` operation](https://docs.mongodb.org/master/reference/operator/aggregation/filter/) can also be used.
-
-{% highlight scala %}
-import scala.concurrent.{ ExecutionContext, Future }
-
-import reactivemongo.bson.{ BSONString, Macros, array, document }
-import reactivemongo.api.collections.bson.BSONCollection
-
-object FilterUseCase {
-  case class SaleItem(itemId: Int, quantity: Int, price: Int)
-  case class Sale(_id: Int, items: List[SaleItem])
-
-  implicit val saleItemHandler = Macros.handler[SaleItem]
-  implicit val saleHandler = Macros.handler[Sale]
-
-  def filterSales(sales: BSONCollection)(implicit ec: ExecutionContext): Future[List[Sale]] = {
-    import sales.BatchCommands.AggregationFramework.{ Project, Filter }
-
-    sales.aggregate(Project(document("items" -> Filter(
-      input = BSONString("$items"),
-      as = "item",
-      cond = document("$gte" -> array("$$item.price", 100))
-    )))).map(_.head[Sale])
-  }
-}
-{% endhighlight %}
+[More: **Aggregation Framework**](./advanced-topics/aggregation.html)
 
 ### Playframework
 
