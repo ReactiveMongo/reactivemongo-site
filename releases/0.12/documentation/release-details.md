@@ -16,7 +16,7 @@ The documentation is available [online](index.html), and its code samples are co
   - [Akka Stream](#akka-stream)
   - [Aggregated streams](#aggregated-streams)
   - [Custom streaming](#custom-streaming)
-- [BSON Library](#bson-library)
+- [BSON](#bson)
 - [Aggregation](#aggregation)
 - [Playframework](#playframework): JSON serialization, Play Iteratees, Routing
 - [Administration](#administration)
@@ -333,7 +333,7 @@ Some convenient error handlers are provided along with the driver:
 - [`DoneOnError`](../api/index.html#reactivemongo.api.Cursor$@DoneOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]) (stop quietly on the first error),
 - and [`FailOnError`](../api/index.html#reactivemongo.api.Cursor$@FailOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]) (fail on the first error).
 
-### BSON Library
+### BSON
 
 A [BSON handler](../api/index.html#reactivemongo.bson.BSONHandler) is provided to respectively, read a [`java.util.Date`](http://docs.oracle.com/javase/8/docs/api/java/util/Date.html) from a [`BSONDateTime`](../api/reactivemongo/bson/BSONDateTime.html), and write a `Date` as `BSONDateTime`.
 
@@ -399,6 +399,16 @@ def foo(millis: Long) = BSONTimestamp(millis)
 def bar(time: Long, ordinal: Int) = BSONTimestamp(time, ordinal)
 {% endhighlight %}
 
+The generic types are now supported:
+
+{% highlight scala %}
+case class GenFoo[T](bar: T, lorem: Int)
+
+reactivemongo.bson.Macros.reader[GenFoo[String]]
+{% endhighlight %}
+
+Some undocumented macro features, such as **union types** and sealed trait support are now [explained](./bson/typeclasses.html#helpful-macros).
+
 [More: **BSON Library overview**](./bson/overview.html)
 
 ### Aggregation
@@ -440,11 +450,11 @@ About the type `AggregationResult` the property [`documents`](../../api/index.ht
 
 There are also some newly supported [Pipeline Aggregation Stages](https://docs.mongodb.org/manual/reference/operator/aggregation-pipeline/).
 
-**`$geoNear`:**
+**geoNear:**
 
-Thhe [$geoNear](https://docs.mongodb.org/manual/reference/operator/aggregation/geoNear/#pipe._S_geoNear) stage returns an ordered stream of documents based on the proximity to a geospatial point.
+The [$geoNear](https://docs.mongodb.org/manual/reference/operator/aggregation/geoNear/#pipe._S_geoNear) stage returns an ordered stream of documents based on the proximity to a geospatial point.
 
-**`$indexStats`:**
+**indexStats:**
 
 The `$indexStats` stage returns statistics regarding the use of each index for the collection.
 
@@ -470,7 +480,7 @@ def aggregateIndexes(coll: BSONCollection) = {
 }
 {% endhighlight %}
 
-**`$lookup`:**
+**lookup:**
 
 Using the MongoDB aggregation, the [$lookup](https://docs.mongodb.com/v3.2/reference/operator/aggregation/lookup/#pipe._S_lookup) stage performs a left outer join between two collection in the same database (see the [examples](https://docs.mongodb.com/v3.2/reference/operator/aggregation/lookup/#examples)).
 ReactiveMongo now supports this [new stage](../api/index.html#reactivemongo.api.commands.AggregationFramework@LookupextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable).
@@ -511,7 +521,7 @@ object LookupUseCase {
 }
 {% endhighlight %}
 
-**`$out`:**
+**out:**
 
 The [$out](https://docs.mongodb.org/manual/reference/operator/aggregation/out/#pipe._S_out) aggregation stage takes the documents returned by the aggregation pipeline and writes them to a specified collection.
 
@@ -551,9 +561,13 @@ For the current example, the result collection will contain the following docume
 { "_id" : "Dante", "books" : [ "Divine Comedy", "Eclogues", "The Banquet" ] }
 {% endhighlight %}
 
-TODO: [$redact](https://docs.mongodb.org/manual/reference/operator/aggregation/redact/#pipe._S_redact): Reshapes each document in the stream by restricting the content for each document based on information stored in the documents themselves..
+**redact:**
 
-**`$sample`:**
+The [$redact](https://docs.mongodb.org/manual/reference/operator/aggregation/redact/#pipe._S_redact) stage reshapes each document in the stream by restricting the content for each document based on information stored in the documents themselves.
+
+TODO
+
+**sample:**
 
 The [$sample](https://docs.mongodb.org/manual/reference/operator/aggregation/sample/) aggregation stage is also supported (only MongoDB >= 3.2). It randomly selects the specified number of documents from its input.
 With ReactiveMongo, the [`Sample`](../api/index.html#reactivemongo.api.commands.AggregationFramework@SampleextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable) stage can be used as follows.
@@ -572,7 +586,7 @@ def randomDocs(coll: BSONCollection, count: Int): Future[List[BSONDocument]] = {
 }
 {% endhighlight %}
 
-**`$text`:**
+**text:**
 
 When the [`$text` operator](https://docs.mongodb.org/v3.0/reference/operator/query/text/#op._S_text) is used in an aggregation pipeline, then new the results can be [sorted](https://docs.mongodb.org/v3.0/reference/operator/aggregation/sort/#metadata-sort) according the [text scores](https://docs.mongodb.org/v3.0/reference/operator/query/text/#text-operator-text-score).
 
