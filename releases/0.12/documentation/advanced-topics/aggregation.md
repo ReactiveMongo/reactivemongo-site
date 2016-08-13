@@ -7,7 +7,7 @@ title: ReactiveMongo 0.12 - Aggregation Framework
 
 The [MongoDB Aggregation Framework](http://docs.mongodb.org/manual/reference/operator/aggregation/) is available through ReactiveMongo.
 
-### ZipCodes example ###
+### ZipCodes example
 
 Considering there is a `zipcodes` collection in a MongoDB, with the following documents.
 
@@ -331,6 +331,111 @@ def randomZipCodes(coll: BSONCollection)(implicit ec: ExecutionContext): Future[
   import coll.BatchCommands.AggregationFramework
 
   coll.aggregate(AggregationFramework.Sample(3)).map(_.head[BSONDocument])
+}
+{% endhighlight %}
+
+### Places examples
+
+Let consider a collection of different kind of places (e.g. Central Park ...), with their locations indexed using [`2dsphere`](https://docs.mongodb.com/manual/core/2dsphere/#create-a-2dsphere-index).
+
+This can be setup with the MongoDB shell as follows.
+
+{% highlight javascript %}
+db.place.createIndex({'loc':"2dsphere"});
+
+db.place.insert({
+  "type": "public",
+  "loc": {
+    "type": "Point", "coordinates": [-73.97, 40.77]
+  },
+  "name": "Central Park",
+  "category": "Parks"
+});
+db.place.insert({
+  "type": "public",
+  "loc": {
+    "type": "Point", "coordinates": [-73.88, 40.78]
+  },
+  "name": "La Guardia Airport",
+  "category": "Airport"
+});
+{% endhighlight %}
+
+The [`$geoNear`](https://docs.mongodb.com/manual/reference/operator/aggregation/geoNear/) aggregation can be used on the collection, to find the place near the  geospatial coordinates `[ -73.9667, 40.78 ]`, within 1km (1000 meters) and 5km (5000 meters)
+
+{% highlight javascript %}
+db.places.aggregate([{
+  $geoNear: {
+    near: { type: "Point", coordinates: [ -73.9667, 40.78 ] },
+    distanceField: "dist.calculated",
+    minDistance: 1000,
+    maxDistance: 5000,
+    query: { type: "public" },
+    includeLocs: "dist.location",
+    num: 5,
+    spherical: true
+  }
+}])
+{% endhighlight %}
+
+The results will be of the following form:
+
+{% highlight javascript %}
+{
+  "type": "public",
+  "loc": {
+    "type": "Point",
+    "coordinates": [ -73.97, 40.77 ]
+  },
+  "name": "Central Park",
+  "category": "Parks",
+  "dist": {
+    "calculated": 1147.4220523120696,
+    "loc": {
+      "type": "Point",
+      "coordinates": [ -73.97, 40.77 ]
+    }
+  }
+}
+{% endhighlight %}
+
+It can be done with ReactiveMongo as follows.
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+
+import reactivemongo.bson.{ array, document, Macros }
+import reactivemongo.api.collections.bson.BSONCollection
+
+case class GeoPoint(coordinates: List[Double])
+case class GeoDistance(calculated: Double, loc: GeoPoint)
+
+case class GeoPlace(
+  loc: GeoPoint,
+  name: String,
+  category: String,
+  dist: GeoDistance
+)
+
+object GeoPlace {
+  implicit val pointReader = Macros.reader[GeoPoint]
+  implicit val distanceReader = Macros.reader[GeoDistance]
+  implicit val placeReader = Macros.reader[GeoPlace]
+}
+
+def placeArround(places: BSONCollection)(implicit ec: ExecutionContext): Future[List[GeoPlace]] = {
+  import places.BatchCommands.AggregationFramework.GeoNear
+
+  places.aggregate(GeoNear(document(
+    "type" -> "Point",
+    "coordinates" -> array(-73.9667, 40.78)
+  ), distanceField = Some("dist.calculated"),
+    minDistance = Some(1000),
+    maxDistance = Some(5000),
+    query = Some(document("type" -> "public")),
+    includeLocs = Some("dist.loc"),
+    limit = 5,
+    spherical = true)).map(_.head[GeoPlace])
 }
 {% endhighlight %}
 
