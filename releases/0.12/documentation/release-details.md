@@ -454,6 +454,63 @@ There are also some newly supported [Pipeline Aggregation Stages](https://docs.m
 
 The [$geoNear](https://docs.mongodb.org/manual/reference/operator/aggregation/geoNear/#pipe._S_geoNear) stage returns an ordered stream of documents based on the proximity to a geospatial point.
 
+It can be used in the MongoDB shell as follows.
+
+{% highlight javascript %}
+db.places.aggregate([{
+  $geoNear: {
+    near: { type: "Point", coordinates: [ -73.9667, 40.78 ] },
+    distanceField: "dist.calculated",
+    minDistance: 1000,
+    maxDistance: 5000,
+    query: { type: "public" },
+    includeLocs: "dist.location",
+    num: 5,
+    spherical: true
+  }
+}])
+{% endhighlight %}
+
+The same can be done with ReactiveMongo.
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+
+import reactivemongo.bson.{ array, document, Macros }
+import reactivemongo.api.collections.bson.BSONCollection
+
+case class GeoPoint(coordinates: List[Double])
+case class GeoDistance(calculated: Double, loc: GeoPoint)
+
+case class GeoPlace(
+  loc: GeoPoint,
+  name: String,
+  category: String,
+  dist: GeoDistance
+)
+
+object GeoPlace {
+  implicit val pointReader = Macros.reader[GeoPoint]
+  implicit val distanceReader = Macros.reader[GeoDistance]
+  implicit val placeReader = Macros.reader[GeoPlace]
+}
+
+def placeArround(places: BSONCollection)(implicit ec: ExecutionContext): Future[List[GeoPlace]] = {
+  import places.BatchCommands.AggregationFramework.GeoNear
+
+  places.aggregate(GeoNear(document(
+    "type" -> "Point",
+    "coordinates" -> array(-73.9667, 40.78)
+  ), distanceField = Some("dist.calculated"),
+    minDistance = Some(1000),
+    maxDistance = Some(5000),
+    query = Some(document("type" -> "public")),
+    includeLocs = Some("dist.loc"),
+    limit = 5,
+    spherical = true)).map(_.head[GeoPlace])
+}
+{% endhighlight %}
+
 **indexStats:**
 
 The `$indexStats` stage returns statistics regarding the use of each index for the collection.
