@@ -65,7 +65,12 @@ future2.onComplete {
 }
 {% endhighlight %}
 
-When calling a write operation, it's possible to handle some specific error case by testing the result.
+**Error handling:**
+
+When calling a write operation, it's possible to handle some specific error case by testing the result, using [`CommandError`](../../api/index.html#reactivemongo.api.commands.CommandError) (that represents these errors) and its pattern matching utilities.
+
+- [`CommandError.Code`](../../api/index.html#reactivemongo.api.commands.CommandError$@Code): matches the errors according the specified code (e.g. the 11000 code for the Duplicate error)
+- [`CommandError.Message`](../../api/index.html#reactivemongo.api.commands.CommandError$@Message): matches the errors according the message
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -76,9 +81,12 @@ import reactivemongo.api.commands.{ CommandError, WriteResult }
 val future: Future[WriteResult] = personColl.insert(person)
 
 val end: Future[Unit] = future.map(_ => {}).recover {
-  case err: CommandError if (err.code contains 11000) =>
+  case CommandError.Code(11000) =>
     // if the result is defined with the error code 11000 (duplicate error)
-    println("Just a warning")
+    println("Match the code 11000")
+
+  case CommandError.Message("Must match this exact message") =>
+    println("Match the error message")
 
   case _ => ()
 }
