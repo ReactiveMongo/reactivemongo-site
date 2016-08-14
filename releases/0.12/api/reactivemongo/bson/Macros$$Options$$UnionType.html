@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>UnionType - ReactiveMongo API 0.12-RC1 - reactivemongo.bson.Macros.Options.UnionType</title>
-          <meta name="description" content="UnionType - ReactiveMongo API 0.12 - RC1 - reactivemongo.bson.Macros.Options.UnionType" />
-          <meta name="keywords" content="UnionType ReactiveMongo API 0.12 RC1 reactivemongo.bson.Macros.Options.UnionType" />
+          <title>UnionType - ReactiveMongo API 0.12-RC2 - reactivemongo.bson.Macros.Options.UnionType</title>
+          <meta name="description" content="UnionType - ReactiveMongo API 0.12 - RC2 - reactivemongo.bson.Macros.Options.UnionType" />
+          <meta name="keywords" content="UnionType ReactiveMongo API 0.12 RC2 reactivemongo.bson.Macros.Options.UnionType" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -56,15 +56,8 @@ case classes). When writing a case class into BSON its dynamic type
 will be pattern matched, when reading from BSON the pattern matching
 will be done on the <code>className</code> string. This option extends
 <a href="Macros$$Options$$SaveClassName.html" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">reactivemongo.bson.Macros.Options.SaveClassName</a> in to ensure class
-names are always serialized.</p><p>If there are handlers available in implicit scope for any of the types
-in the union they will be used to handle (de)serialization, otherwise
-handlers for all types will be generated.</p><p>You can also use case object but you have to refer to their types as to
-singleton types. e.g. case object MyObject, type would be MyObject.type</p><p>Example</p><pre><span class="kw">sealed</span> <span class="kw">trait</span> Tree
-<span class="kw">case</span> <span class="kw">class</span> Node(left: Tree, right: Tree) <span class="kw">extends</span> Tree
-<span class="kw">case</span> <span class="kw">class</span> Leaf(data: <span class="std">String</span>) <span class="kw">extends</span> Tree
-
-<span class="kw">import</span> Macros.Options._
-<span class="kw">implicit</span> <span class="kw">val</span> treeHandler = Macros.handlerOpts[Tree, UnionType[Node \/ Leaf]]</pre></div><dl class="paramcmts block"><dt class="tparam">Types</dt><dd class="cmt"><p>to use in pattern matching. Listed in a &quot;type list&quot; \/</p></dd></dl><div class="toggleContainer block">
+names are always serialized.
+</p></div><dl class="paramcmts block"><dt class="tparam">Types</dt><dd class="cmt"><p>to use in pattern matching. Listed in a &quot;type list&quot; \/</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="Macros$$Options$$SaveClassName.html" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a>, <a href="Macros$$Options$$Default.html" class="extype" name="reactivemongo.bson.Macros.Options.Default">Default</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">

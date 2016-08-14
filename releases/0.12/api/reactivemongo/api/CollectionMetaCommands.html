@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>CollectionMetaCommands - ReactiveMongo API 0.12-RC1 - reactivemongo.api.CollectionMetaCommands</title>
-          <meta name="description" content="CollectionMetaCommands - ReactiveMongo API 0.12 - RC1 - reactivemongo.api.CollectionMetaCommands" />
-          <meta name="keywords" content="CollectionMetaCommands ReactiveMongo API 0.12 RC1 reactivemongo.api.CollectionMetaCommands" />
+          <title>CollectionMetaCommands - ReactiveMongo API 0.12-RC2 - reactivemongo.api.CollectionMetaCommands</title>
+          <meta name="description" content="CollectionMetaCommands - ReactiveMongo API 0.12 - RC2 - reactivemongo.api.CollectionMetaCommands" />
+          <meta name="keywords" content="CollectionMetaCommands ReactiveMongo API 0.12 RC2 reactivemongo.api.CollectionMetaCommands" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -255,7 +255,7 @@
       </a>
     </span>
       <p class="shortcomment cmt">Converts this collection to a capped one.</p><div class="fullcomment"><div class="comment cmt"><p>Converts this collection to a capped one.
-</p></div><dl class="paramcmts block"><dt class="param">size</dt><dd class="cmt"><p>The size of this capped collection, in bytes.</p></dd><dt class="param">maxDocuments</dt><dd class="cmt"><p>The maximum number of documents this capped collection can contain.</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">size</dt><dd class="cmt"><p>the size of the collection (number of bytes)</p></dd><dt class="param">maxDocuments</dt><dd class="cmt"><p>the maximum number of documents this capped collection can contain</p></dd></dl></div>
     </li><li name="reactivemongo.api.CollectionMetaCommands#create" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="create(autoIndexId:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a>
       <a id="create(Boolean)(ExecutionContext):Future[Unit]"></a>
@@ -273,7 +273,7 @@
       </a>
     </span>
       <p class="shortcomment cmt">Creates this collection.</p><div class="fullcomment"><div class="comment cmt"><p>Creates this collection.</p><p>The returned future will be completed with an error if this collection already exists.
-</p></div><dl class="paramcmts block"><dt class="param">autoIndexId</dt><dd class="cmt"><p>States if should automatically add an index on the _id field. By default, regular collections will have an indexed _id field, in contrast to capped collections.</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">autoIndexId</dt><dd class="cmt"><p>If true should automatically add an index on the <code>_id</code> field. By default, regular collections will have an indexed <code>_id</code> field, in contrast to capped collections. This MongoDB option is deprecated and will be removed in a future release.</p></dd></dl></div>
     </li><li name="reactivemongo.api.CollectionMetaCommands#createCapped" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="createCapped(size:Long,maxDocuments:Option[Int],autoIndexId:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a>
       <a id="createCapped(Long,Option[Int],Boolean)(ExecutionContext):Future[Unit]"></a>
@@ -291,7 +291,7 @@
       </a>
     </span>
       <p class="shortcomment cmt">Creates this collection as a capped one.</p><div class="fullcomment"><div class="comment cmt"><p>Creates this collection as a capped one.</p><p>The returned future will be completed with an error if this collection already exists.
-</p></div><dl class="paramcmts block"><dt class="param">size</dt><dd class="cmt"><p>the byte size of the collections.</p></dd><dt class="param">maxDocuments</dt><dd class="cmt"><p>the maximum number of documents.</p></dd><dt class="param">autoIndexId</dt><dd class="cmt"><p>States if should automatically add an index on the _id field. By default, capped collections will NOT have an indexed _id field, in contrast to regular collections.</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">size</dt><dd class="cmt"><p>the size of the collection (number of bytes)</p></dd><dt class="param">maxDocuments</dt><dd class="cmt"><p>the maximum number of documents this capped collection can contain</p></dd><dt class="param">autoIndexId</dt><dd class="cmt"><p>If true should automatically add an index on the <code>_id</code> field. By default, regular collections will have an indexed <code>_id</code> field, in contrast to capped collections. This MongoDB option is deprecated and will be removed in a future release.</p></dd></dl></div>
     </li><li name="reactivemongo.api.CollectionMetaCommands#drop" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="drop(failIfNotFound:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Boolean]"></a>
       <a id="drop(Boolean)(ExecutionContext):Future[Boolean]"></a>

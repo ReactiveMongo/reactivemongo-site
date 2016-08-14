@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>api - ReactiveMongo API 0.12-RC1 - reactivemongo.api</title>
-          <meta name="description" content="api - ReactiveMongo API 0.12 - RC1 - reactivemongo.api" />
-          <meta name="keywords" content="api ReactiveMongo API 0.12 RC1 reactivemongo.api" />
+          <title>api - ReactiveMongo API 0.12-RC2 - reactivemongo.api</title>
+          <meta name="description" content="api - ReactiveMongo API 0.12 - RC2 - reactivemongo.api" />
+          <meta name="keywords" content="api ReactiveMongo API 0.12 RC2 reactivemongo.api" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -282,11 +282,11 @@ and the default <a href="collections/bson/BSONCollection.html" class="extype" na
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">A MongoDB database, obtained from a <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">reactivemongo.api.MongoConnection</a>.</p><div class="fullcomment"><div class="comment cmt"><p>A MongoDB database, obtained from a <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">reactivemongo.api.MongoConnection</a>.</p><p>You should consider the provided <a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">reactivemongo.api.DefaultDB</a> implementation.</p><p>Example:</p><pre><span class="kw">import</span> reactivemongo.api._
+      <p class="shortcomment cmt">The reference to a MongoDB database, obtained from a <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">reactivemongo.api.MongoConnection</a>.</p><div class="fullcomment"><div class="comment cmt"><p>The reference to a MongoDB database, obtained from a <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">reactivemongo.api.MongoConnection</a>.</p><p>You should consider the provided <a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">reactivemongo.api.DefaultDB</a> implementation.</p><pre><span class="kw">import</span> reactivemongo.api._
 
-<span class="kw">val</span> connection = MongoConnection( <span class="std">List</span>( <span class="lit">"localhost:27016"</span> ) )
+<span class="kw">val</span> connection = MongoConnection(<span class="std">List</span>(<span class="lit">"localhost:27017"</span>))
 <span class="kw">val</span> db = connection.database(<span class="lit">"plugin"</span>)
-<span class="kw">val</span> collection = db(<span class="lit">"acoll"</span>)</pre></div></div>
+<span class="kw">val</span> collection = db.map(_(<span class="lit">"acoll"</span>))</pre></div></div>
     </li><li name="reactivemongo.api.DBMetaCommands" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="DBMetaCommandsextendsAnyRef"></a>
       <a id="DBMetaCommands:DBMetaCommands"></a>
