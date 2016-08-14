@@ -216,6 +216,37 @@ def jsonExplain(col: JSONCollection): Future[Option[JsObject]] =
   col.find(Json.obj()).explain().one[JsObject]
 {% endhighlight %}
 
+**Error handling:**
+
+The [`CommandError`](../../api/index.html#reactivemongo.api.commands.CommandError) that represents the errors from executing commands, is now coming with pattern matching utilities:
+
+- [`CommandError.Code`](../../api/index.html#reactivemongo.api.commands.CommandError$@Code): matches the errors according the specified code (e.g. the 11000 code for the Duplicate error)
+- [`CommandError.Message`](../../api/index.html#reactivemongo.api.commands.CommandError$@Message): matches the errors according the message
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.commands.{ CommandError, WriteResult }
+
+def insertPerson(personColl: BSONCollection, person: Person) = {
+  implicit val writer = reactivemongo.bson.Macros.writer[Person]
+  val future: Future[WriteResult] = personColl.insert(person)
+
+  val end: Future[Unit] = future.map(_ => {}).recover {
+    case CommandError.Code(11000) =>
+      // if the result is defined with the error code 11000 (duplicate error)
+      println("Match the code 11000")
+
+    case CommandError.Message("Must match this exact message") =>
+      println("Match the error message")
+
+    case _ => ()
+  }
+}
+{% endhighlight %}
+
 [More: **Query builder API**](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder)
 
 ### Streaming
@@ -852,6 +883,10 @@ RoutesKeys.routesImport += "play.modules.reactivemongo.PathBindables._"
 
 ### Administration
 
+The operations to manage a MongoDB instance can be executed using ReactiveMongo. This new release has new functions for DB administration.
+
+**Rename collection:**
+
 The `Database` now has a [`renameCollection`](../api/index.html#reactivemongo.api.DefaultDB@renameCollection[C%3C:reactivemongo.api.Collection](db:String,from:String,to:String,dropExisting:Boolean,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext,implicitproducer:reactivemongo.api.CollectionProducer[C]):scala.concurrent.Future[C]) operation, which can be easily used with the 'admin' database, to rename collections in the other databases.
 
 TODO
@@ -866,6 +901,8 @@ def renameWithSuffix(
   suffix: String
 ) = ??? //admin.renameCollection(otherDb, collName, s"$collName-$suffix")
 {% endhighlight %}
+
+**Drop collection:**
 
 The new [`drop`](../api/index.html#reactivemongo.api.collections.GenericCollection@drop%28failIfNotFound:Boolean%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[Boolean]) operation can try to perform, without failing if the collection doesn't exist. The previous behaviour is still available.
 
@@ -887,17 +924,23 @@ def dropFail(col: BSONCollection): Future[Unit] = col.drop(true).map(_ => {})
 def deprecatedDrop(col: BSONCollection): Future[Unit] = col.drop()
 {% endhighlight %}
 
-The replication command [`resync`](https://docs.mongodb.org/manual/reference/command/resync/) is now provided.
+**Create user:**
+
+The [`DefaultDB`](../../api/index.html#reactivemongo.api.DefaultDB) is defined with a function to create a database user.
 
 {% highlight scala %}
-import scala.concurrent.{ ExecutionContext, Future }
-import reactivemongo.api.MongoConnection
-import reactivemongo.api.commands.{ Resync, bson }, bson.BSONResyncImplicits._
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
 
-def resyncDatabase(con: MongoConnection)(implicit ec: ExecutionContext): Future[Unit] = con.database("admin").flatMap(_.runCommand(Resync)).map(_ => {})
+import reactivemongo.api.DefaultDB
+import reactivemongo.api.commands.UserRole
+
+// Creates a 'foo' user, with the 'readWrite' role
+def createFooUser(db: DefaultDB, password: String): Future[Unit] =
+  db.createUser("foo", Some(password), roles = List(UserRole("readWrite")))
 {% endhighlight %}
 
-In the case class [`CollStatsResult`](../api/index.html#reactivemongo.api.commands.CollStatsResult), the field `maxSize` has been added.
+**Indexes:**
 
 In the case class [`Index`](../api/index.html#reactivemongo.api.indexes.Index), the property `partialFilter` has been added to support MongoDB index with [`partialFilterExpression`](https://docs.mongodb.com/manual/core/index-partial/#partial-index-with-unique-constraints).
 
@@ -915,6 +958,22 @@ def createPartialIndex(col: BSONCollection): Future[WriteResult] =
     key = Seq("username" -> IndexType.Ascending),
     unique = true,
     partialFilter = Some(BSONDocument("age" -> BSONDocument("$gte" -> 21)))))
+{% endhighlight %}
+
+**Collection statistics:**
+
+In the case class [`CollStatsResult`](../api/index.html#reactivemongo.api.commands.CollStatsResult), the field `maxSize` has been added.
+
+**Resync a replica set member:**
+
+The replication command [`resync`](https://docs.mongodb.org/manual/reference/command/resync/) is now provided.
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+import reactivemongo.api.MongoConnection
+import reactivemongo.api.commands.{ Resync, bson }, bson.BSONResyncImplicits._
+
+def resyncDatabase(con: MongoConnection)(implicit ec: ExecutionContext): Future[Unit] = con.database("admin").flatMap(_.runCommand(Resync)).map(_ => {})
 {% endhighlight %}
 
 ### Logging
