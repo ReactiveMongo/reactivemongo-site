@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>DB - ReactiveMongo API 0.12-RC1 - reactivemongo.api.DB</title>
-          <meta name="description" content="DB - ReactiveMongo API 0.12 - RC1 - reactivemongo.api.DB" />
-          <meta name="keywords" content="DB ReactiveMongo API 0.12 RC1 reactivemongo.api.DB" />
+          <title>DB - ReactiveMongo API 0.12-RC2 - reactivemongo.api.DB</title>
+          <meta name="description" content="DB - ReactiveMongo API 0.12 - RC2 - reactivemongo.api.DB" />
+          <meta name="keywords" content="DB ReactiveMongo API 0.12 RC2 reactivemongo.api.DB" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -51,11 +51,11 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A MongoDB database, obtained from a <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">reactivemongo.api.MongoConnection</a>.</p><p>You should consider the provided <a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">reactivemongo.api.DefaultDB</a> implementation.</p><p>Example:</p><pre><span class="kw">import</span> reactivemongo.api._
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>The reference to a MongoDB database, obtained from a <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">reactivemongo.api.MongoConnection</a>.</p><p>You should consider the provided <a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">reactivemongo.api.DefaultDB</a> implementation.</p><pre><span class="kw">import</span> reactivemongo.api._
 
-<span class="kw">val</span> connection = MongoConnection( <span class="std">List</span>( <span class="lit">"localhost:27016"</span> ) )
+<span class="kw">val</span> connection = MongoConnection(<span class="std">List</span>(<span class="lit">"localhost:27017"</span>))
 <span class="kw">val</span> db = connection.database(<span class="lit">"plugin"</span>)
-<span class="kw">val</span> collection = db(<span class="lit">"acoll"</span>)</pre></div><div class="toggleContainer block">
+<span class="kw">val</span> collection = db.map(_(<span class="lit">"acoll"</span>))</pre></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
@@ -274,10 +274,8 @@
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Returns a <a href="Collection.html" class="extype" name="reactivemongo.api.Collection">reactivemongo.api.Collection</a> from this database
-(alias for the <code>collection</code> method).</p><div class="fullcomment"><div class="comment cmt"><p>Returns a <a href="Collection.html" class="extype" name="reactivemongo.api.Collection">reactivemongo.api.Collection</a> from this database
-(alias for the <code>collection</code> method).
-</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the name of the collection to open</p></dd></dl></div>
+      <p class="shortcomment cmt">Returns a <a href="Collection.html" class="extype" name="reactivemongo.api.Collection">reactivemongo.api.Collection</a> from this database (alias for the <code>collection</code> method).</p><div class="fullcomment"><div class="comment cmt"><p>Returns a <a href="Collection.html" class="extype" name="reactivemongo.api.Collection">reactivemongo.api.Collection</a> from this database (alias for the <code>collection</code> method).
+</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the name of the collection to resolve</p></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -352,7 +350,7 @@
       </a>
     </span>
       <p class="shortcomment cmt">Returns a <a href="Collection.html" class="extype" name="reactivemongo.api.Collection">reactivemongo.api.Collection</a> from this database.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a <a href="Collection.html" class="extype" name="reactivemongo.api.Collection">reactivemongo.api.Collection</a> from this database.
-</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the name of the collection to open</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the name of the collection to resolve</p></dd></dl></div>
     </li><li name="reactivemongo.api.DB#defaultReadPreference" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="defaultReadPreference:reactivemongo.api.ReadPreference"></a>
       <a id="defaultReadPreference:ReadPreference"></a>

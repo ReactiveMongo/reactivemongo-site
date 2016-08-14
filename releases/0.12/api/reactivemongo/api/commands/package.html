@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>commands - ReactiveMongo API 0.12-RC1 - reactivemongo.api.commands</title>
-          <meta name="description" content="commands - ReactiveMongo API 0.12 - RC1 - reactivemongo.api.commands" />
-          <meta name="keywords" content="commands ReactiveMongo API 0.12 RC1 reactivemongo.api.commands" />
+          <title>commands - ReactiveMongo API 0.12-RC2 - reactivemongo.api.commands</title>
+          <meta name="description" content="commands - ReactiveMongo API 0.12 - RC2 - reactivemongo.api.commands" />
+          <meta name="keywords" content="commands ReactiveMongo API 0.12 RC2 reactivemongo.api.commands" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -362,6 +362,23 @@
     </span>
       <p class="shortcomment cmt">Creates the given indexes on the specified collection.</p><div class="fullcomment"><div class="comment cmt"><p>Creates the given indexes on the specified collection.
 </p></div><dl class="paramcmts block"><dt class="param">db</dt><dd class="cmt"><p>the database name</p></dd><dt class="param">indexes</dt><dd class="cmt"><p>the indexes to be created</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.CreateUserCommand" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CreateUserCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]"></a>
+      <a id="CreateUserCommand[P&lt;:SerializationPack]:CreateUserCommand[P]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CreateUserCommand.html"><span class="name">CreateUserCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.CreateUserCommand.P">P</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@CreateUserCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="reactivemongo.api.commands.CursorFetcher" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="CursorFetcher[P&lt;:reactivemongo.api.SerializationPack,+C[_]&lt;:reactivemongo.api.Cursor[_]]extendsAnyRef"></a>
       <a id="CursorFetcher[P&lt;:SerializationPack,+C[_]&lt;:Cursor[_]]:CursorFetcher[P,C]"></a>
@@ -379,6 +396,23 @@
       </a>
     </span>
       <p class="shortcomment cmt">Fetches a cursor from MongoDB results.</p><div class="fullcomment"><div class="comment cmt"><p>Fetches a cursor from MongoDB results.</p></div><dl class="paramcmts block"><dt class="tparam">P</dt><dd class="cmt"><p>the type of the serialization pack</p></dd><dt class="tparam">C</dt><dd class="cmt"><p>the type of the cursor implementation</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.DBUserRole" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="DBUserRoleextendsUserRolewithProductwithSerializable"></a>
+      <a id="DBUserRole:DBUserRole"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="DBUserRole.html"><span class="name">DBUserRole</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="db">db: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="UserRole.html" class="extype" name="reactivemongo.api.commands.UserRole">UserRole</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@DBUserRoleextendsUserRolewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">db</dt><dd class="cmt"><p>the name of the database</p></dd></dl></div>
     </li><li name="reactivemongo.api.commands.DefaultWriteResult" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="DefaultWriteResultextendsWriteResultwithProductwithSerializable"></a>
       <a id="DefaultWriteResult:DefaultWriteResult"></a>
@@ -843,6 +877,23 @@ It must be executed against the <code>admin</code> database.
       </a>
     </span>
       
+    </li><li name="reactivemongo.api.commands.UserRole" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UserRoleextendsAnyRef"></a>
+      <a id="UserRole:UserRole"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="UserRole.html"><span class="name">UserRole</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@UserRoleextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p>
     </li><li name="reactivemongo.api.commands.WriteConcern" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="WriteConcern=reactivemongo.api.commands.GetLastError"></a>
       <a id="WriteConcern:WriteConcern"></a>
@@ -1175,6 +1226,23 @@ It must be executed against the <code>admin</code> database.
       </a>
     </span>
       
+    </li><li name="reactivemongo.api.commands.UserRole" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UserRole"></a>
+      <a id="UserRole:UserRole"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="UserRole$.html"><span class="name">UserRole</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.package@UserRole" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">User role extractor</p>
     </li><li name="reactivemongo.api.commands#WriteConcern" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="WriteConcern:reactivemongo.api.commands.GetLastError.type"></a>
       <a id="WriteConcern:GetLastError.type"></a>
@@ -1242,7 +1310,7 @@ It must be executed against the <code>admin</code> database.
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="Drop$.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@3abb322d">Drop</span></a><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type]</span>
+        <a href="Drop$.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@1f6d46c6">Drop</span></a><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.package@Drop" title="Permalink" target="_top">

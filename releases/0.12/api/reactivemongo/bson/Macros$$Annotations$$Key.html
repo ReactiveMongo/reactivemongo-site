@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Key - ReactiveMongo API 0.12-RC1 - reactivemongo.bson.Macros.Annotations.Key</title>
-          <meta name="description" content="Key - ReactiveMongo API 0.12 - RC1 - reactivemongo.bson.Macros.Annotations.Key" />
-          <meta name="keywords" content="Key ReactiveMongo API 0.12 RC1 reactivemongo.bson.Macros.Annotations.Key" />
+          <title>Key - ReactiveMongo API 0.12-RC2 - reactivemongo.bson.Macros.Annotations.Key</title>
+          <meta name="description" content="Key - ReactiveMongo API 0.12 - RC2 - reactivemongo.bson.Macros.Annotations.Key" />
+          <meta name="keywords" content="Key ReactiveMongo API 0.12 RC2 reactivemongo.bson.Macros.Annotations.Key" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -50,8 +50,9 @@
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Specify a key different from field name in your case class.
-Convenient to use when you'd like to leverage mongo's _id index but don't want
-to actually use <code>_id</code> in your code.</p><p>Example</p><pre><span class="kw">case</span> <span class="kw">class</span> Website(@Key(<span class="lit">"_id"</span>) url: <span class="std">String</span>, content: Content)</pre><p>Generated handler will map the <code>url</code> field in your code to <code>_id</code> field in BSON
+Convenient to use when you'd like to leverage mongo's <code>_id</code> index
+but don't want to actually use <code>_id</code> in your code.</p><pre><span class="kw">case</span> <span class="kw">class</span> Website(@Key(<span class="lit">"_id"</span>) url: <span class="std">String</span>)</pre><p>Generated handler will map the <code>url</code> field in your code
+to <code>_id</code> field in BSON
 </p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>the desired key to use in BSON</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@param</span><span class="args">()</span>
               

@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>DBMetaCommands - ReactiveMongo API 0.12-RC1 - reactivemongo.api.DBMetaCommands</title>
-          <meta name="description" content="DBMetaCommands - ReactiveMongo API 0.12 - RC1 - reactivemongo.api.DBMetaCommands" />
-          <meta name="keywords" content="DBMetaCommands ReactiveMongo API 0.12 RC1 reactivemongo.api.DBMetaCommands" />
+          <title>DBMetaCommands - ReactiveMongo API 0.12-RC2 - reactivemongo.api.DBMetaCommands</title>
+          <meta name="description" content="DBMetaCommands - ReactiveMongo API 0.12 - RC2 - reactivemongo.api.DBMetaCommands" />
+          <meta name="keywords" content="DBMetaCommands ReactiveMongo API 0.12 RC2 reactivemongo.api.DBMetaCommands" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -255,6 +255,24 @@
       </a>
     </span>
       <p class="shortcomment cmt">Returns the names of the collections in this database.</p>
+    </li><li name="reactivemongo.api.DBMetaCommands#createUser" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createUser(name:String,pwd:Option[String],roles:List[reactivemongo.api.commands.UserRole],digestPassword:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern,customData:Option[reactivemongo.bson.BSONDocument])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a>
+      <a id="createUser(String,Option[String],List[UserRole],Boolean,WriteConcern,Option[BSONDocument])(ExecutionContext):Future[Unit]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createUser</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="pwd">pwd: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="roles">roles: <span class="extype" name="scala.List">List</span>[<a href="commands/UserRole.html" class="extype" name="reactivemongo.api.commands.UserRole">UserRole</a>]</span>, <span name="digestPassword">digestPassword: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>, <span name="writeConcern">writeConcern: <a href="commands/package.html#WriteConcern=reactivemongo.api.commands.GetLastError" class="extmbr" name="reactivemongo.api.commands.WriteConcern">WriteConcern</a> = <span class="symbol"><span class="name"><a href="DB.html#connection:reactivemongo.api.MongoConnection">connection.options.writeConcern</a></span></span></span>, <span name="customData">customData: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>] = <span class="symbol">None</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.ExecutionContext" class="extype" target="_top">ExecutionContext</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.api.DBMetaCommands@createUser(name:String,pwd:Option[String],roles:List[reactivemongo.api.commands.UserRole],digestPassword:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern,customData:Option[reactivemongo.bson.BSONDocument])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Create the specified user.</p><div class="fullcomment"><div class="comment cmt"><p>Create the specified user.
+</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the name of the user to be created</p></dd><dt class="param">pwd</dt><dd class="cmt"><p>the user password (not required if the database uses external credentials)</p></dd><dt class="param">roles</dt><dd class="cmt"><p>the roles granted to the user, possibly an empty to create users without roles</p></dd><dt class="param">digestPassword</dt><dd class="cmt"><p>when true, the mongod instance will create the hash of the user password (default: <code>true</code>)</p></dd><dt class="param">writeConcern</dt><dd class="cmt"><p>the optional level of <a href="https://docs.mongodb.com/manual/reference/write-concern/" target="_blank">write concern</a></p></dd><dt class="param">customData</dt><dd class="cmt"><p>the custom data to associate with the user account</p></dd></dl><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p>https://docs.mongodb.com/manual/reference/command/createUser/</p></span></dd></dl></div>
     </li><li name="reactivemongo.api.DBMetaCommands#drop" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="drop()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a>
       <a id="drop()(ExecutionContext):Future[Unit]"></a>

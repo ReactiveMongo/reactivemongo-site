@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>AggregationFramework - ReactiveMongo API 0.12-RC1 - reactivemongo.api.commands.AggregationFramework</title>
-          <meta name="description" content="AggregationFramework - ReactiveMongo API 0.12 - RC1 - reactivemongo.api.commands.AggregationFramework" />
-          <meta name="keywords" content="AggregationFramework ReactiveMongo API 0.12 RC1 reactivemongo.api.commands.AggregationFramework" />
+          <title>AggregationFramework - ReactiveMongo API 0.12-RC2 - reactivemongo.api.commands.AggregationFramework</title>
+          <meta name="description" content="AggregationFramework - ReactiveMongo API 0.12 - RC2 - reactivemongo.api.commands.AggregationFramework" />
+          <meta name="keywords" content="AggregationFramework ReactiveMongo API 0.12 RC2 reactivemongo.api.commands.AggregationFramework" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -262,15 +262,14 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="AggregationFramework$GeoNear.html"><span class="name">GeoNear</span></a><span class="params">(<span name="spherical">spherical: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="limit">limit: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">100</span></span>, <span name="maxDistance">maxDistance: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="selector">selector: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>] = <span class="symbol">None</span></span>, <span name="distanceMultiplier">distanceMultiplier: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Double" class="extype" target="_top">Double</a>] = <span class="symbol">None</span></span>, <span name="uniqueDocs">uniqueDocs: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="near">near: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="reactivemongo.api.SerializationPack.Value">P.Value</span>] = <span class="symbol">None</span></span>, <span name="distanceField">distanceField: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="includeLocs">includeLocs: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="AggregationFramework$PipelineOperator.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineOperator">PipelineOperator</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="AggregationFramework$GeoNear.html"><span class="name">GeoNear</span></a><span class="params">(<span name="near">near: <span class="extype" name="reactivemongo.api.SerializationPack.Value">P.Value</span></span>, <span name="spherical">spherical: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="limit">limit: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">100</span></span>, <span name="minDistance">minDistance: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="maxDistance">maxDistance: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="query">query: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>] = <span class="symbol">None</span></span>, <span name="distanceMultiplier">distanceMultiplier: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Double" class="extype" target="_top">Double</a>] = <span class="symbol">None</span></span>, <span name="uniqueDocs">uniqueDocs: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="distanceField">distanceField: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="includeLocs">includeLocs: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="AggregationFramework$PipelineOperator.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineOperator">PipelineOperator</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework@GeoNearextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Outputs documents in order of nearest to farthest from a specified point.</p><div class="fullcomment"><div class="comment cmt"><p>Outputs documents in order of nearest to farthest from a specified point.
-http://docs.mongodb.org/manual/reference/operator/aggregation/geoNear/#pipe._S_geoNear</p></div><dl class="paramcmts block"><dt class="param">spherical</dt><dd class="cmt"><p>if using a 2dsphere index</p></dd><dt class="param">limit</dt><dd class="cmt"><p>the maximum number of documents to return</p></dd><dt class="param">maxDistance</dt><dd class="cmt"><p>the maximum distance from the center point that the documents can be</p></dd><dt class="param">selector</dt><dd class="cmt"><p>limits the results to the matching documents</p></dd><dt class="param">distanceMultiplier</dt><dd class="cmt"><p>the factor to multiply all distances returned by the query</p></dd><dt class="param">uniqueDocs</dt><dd class="cmt"><p>if this value is true, the query returns a matching document once</p></dd><dt class="param">near</dt><dd class="cmt"><p>the point for which to find the closest documents</p></dd><dt class="param">distanceField</dt><dd class="cmt"><p>the output field that contains the calculated distance</p></dd><dt class="param">includeLocs</dt><dd class="cmt"><p>this specifies the output field that identifies the location used to calculate the distance</p></dd></dl></div>
+      <p class="shortcomment cmt">Outputs documents in order of nearest to farthest from a specified point.</p><div class="fullcomment"><div class="comment cmt"><p>Outputs documents in order of nearest to farthest from a specified point.</p><p>http://docs.mongodb.org/manual/reference/operator/aggregation/geoNear/#pipe._S_geoNear</p></div><dl class="paramcmts block"><dt class="param">near</dt><dd class="cmt"><p>the point for which to find the closest documents</p></dd><dt class="param">spherical</dt><dd class="cmt"><p>if using a 2dsphere index</p></dd><dt class="param">limit</dt><dd class="cmt"><p>the maximum number of documents to return</p></dd><dt class="param">maxDistance</dt><dd class="cmt"><p>the maximum distance from the center point that the documents can be</p></dd><dt class="param">query</dt><dd class="cmt"><p>limits the results to the matching documents</p></dd><dt class="param">distanceMultiplier</dt><dd class="cmt"><p>the factor to multiply all distances returned by the query</p></dd><dt class="param">uniqueDocs</dt><dd class="cmt"><p>if this value is true, the query returns a matching document once</p></dd><dt class="param">distanceField</dt><dd class="cmt"><p>the output field that contains the calculated distance</p></dd><dt class="param">includeLocs</dt><dd class="cmt"><p>this specifies the output field that identifies the location used to calculate the distance</p></dd></dl></div>
     </li><li name="reactivemongo.api.commands.AggregationFramework.Group" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="GroupextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable"></a>
       <a id="Group:Group"></a>
@@ -723,6 +722,40 @@ http://docs.mongodb.org/manual/reference/aggregation/sort/#_S_sort</p></div><dl 
     </span>
       <p class="shortcomment cmt">Represents that a field should be sorted on, as well as whether it
 should be ascending or descending.</p>
+    </li><li name="reactivemongo.api.commands.AggregationFramework.StdDevPop" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="StdDevPopextendsAggregationFramework.this.GroupFunctionwithProductwithSerializable"></a>
+      <a id="StdDevPop:StdDevPop"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="AggregationFramework$StdDevPop.html"><span class="name">StdDevPop</span></a><span class="params">(<span name="expression">expression: <span class="extype" name="reactivemongo.api.SerializationPack.Value">P.Value</span></span>)</span><span class="result"> extends <a href="AggregationFramework$GroupFunction.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.GroupFunction">GroupFunction</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework@StdDevPopextendsAggregationFramework.this.GroupFunctionwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/stdDevPop/" target="_blank">$stdDevPop</a> group accumulator (since MongoDB 3.2)</p>
+    </li><li name="reactivemongo.api.commands.AggregationFramework.StdDevSamp" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="StdDevSampextendsAggregationFramework.this.GroupFunctionwithProductwithSerializable"></a>
+      <a id="StdDevSamp:StdDevSamp"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="AggregationFramework$StdDevSamp.html"><span class="name">StdDevSamp</span></a><span class="params">(<span name="expression">expression: <span class="extype" name="reactivemongo.api.SerializationPack.Value">P.Value</span></span>)</span><span class="result"> extends <a href="AggregationFramework$GroupFunction.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.GroupFunction">GroupFunction</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework@StdDevSampextendsAggregationFramework.this.GroupFunctionwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/stdDevSamp/" target="_blank">$stdDevSamp</a> group accumulator (since MongoDB 3.2)</p>
     </li><li name="reactivemongo.api.commands.AggregationFramework.SumField" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="SumFieldextendsAggregationFramework.this.GroupFunctionwithProductwithSerializable"></a>
       <a id="SumField:SumField"></a>
