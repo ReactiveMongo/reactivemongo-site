@@ -18,7 +18,11 @@ The documentation is available [online](index.html), and its code samples are co
   - [Custom streaming](#custom-streaming)
 - [BSON](#bson)
 - [Aggregation](#aggregation)
-- [Playframework](#playframework): JSON serialization, Play Iteratees, Routing
+- [Playframework](#playframework)
+  - [JSON serialization](#json-serialization)
+  - [MVC integration](#mvc-integration)
+  - [Routing](#routing)
+  - [Play Iteratees](#play-iteratees)
 - [Administration](#administration)
 - [Logging](#logging)
 - [Dependencies](#dependencies)
@@ -71,7 +75,7 @@ def connection(driver: MongoDriver) =
   ))
 {% endhighlight %}
 
-The default [failover strategy](../../api/index.html#reactivemongo.api.FailoverStrategy) can be defined in the [connection options](tutorial/connect-database.html).
+The default [failover strategy](../api/index.html#reactivemongo.api.FailoverStrategy) can be defined in the [connection options](tutorial/connect-database.html).
 
 {% highlight scala %}
 import reactivemongo.api.{ FailoverStrategy, MongoConnectionOptions }
@@ -102,7 +106,7 @@ The collection API has new operations.
 
 **FindAndModify:**
 
-The MongoDB [`findAndModify`](https://docs.mongodb.com/manual/reference/command/findAndModify/) command modifies and returns a single document. The ReactiveMongo API now has a corresponding [operation](../../api/index.html#reactivemongo.api.collections.GenericCollection@findAndModify[Q](selector:Q,modifier:GenericCollection.this.BatchCommands.FindAndModifyCommand.Modify,sort:Option[GenericCollection.this.pack.Document],fields:Option[GenericCollection.this.pack.Document])(implicitselectorWriter:GenericCollection.this.pack.Writer[Q],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[GenericCollection.this.BatchCommands.FindAndModifyCommand.FindAndModifyResult]).
+The MongoDB [`findAndModify`](https://docs.mongodb.com/manual/reference/command/findAndModify/) command modifies and returns a single document. The ReactiveMongo API now has a corresponding [operation](../api/index.html#reactivemongo.api.collections.GenericCollection@findAndModify[Q](selector:Q,modifier:GenericCollection.this.BatchCommands.FindAndModifyCommand.Modify,sort:Option[GenericCollection.this.pack.Document],fields:Option[GenericCollection.this.pack.Document])(implicitselectorWriter:GenericCollection.this.pack.Writer[Q],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[GenericCollection.this.BatchCommands.FindAndModifyCommand.FindAndModifyResult]).
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -132,7 +136,7 @@ def findAndModifyTests(coll: BSONCollection) = {
 }
 {% endhighlight %}
 
-The `findAndModify` can be performed more easily to find and update documents, using [`findAndUpdate`](../../api/index.html#reactivemongo.api.collections.GenericCollection@findAndUpdate[Q,U]%28selector:Q,update:U,fetchNewObject:Boolean,upsert:Boolean,sort:Option[GenericCollection.this.pack.Document]%29%28implicitselectorWriter:GenericCollection.this.pack.Writer[Q],implicitupdateWriter:GenericCollection.this.pack.Writer[U],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[GenericCollection.this.BatchCommands.FindAndModifyCommand.FindAndModifyResult]).
+The `findAndModify` can be performed more easily to find and update documents, using [`findAndUpdate`](../api/index.html#reactivemongo.api.collections.GenericCollection@findAndUpdate[Q,U]%28selector:Q,update:U,fetchNewObject:Boolean,upsert:Boolean,sort:Option[GenericCollection.this.pack.Document]%29%28implicitselectorWriter:GenericCollection.this.pack.Writer[Q],implicitupdateWriter:GenericCollection.this.pack.Writer[U],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[GenericCollection.this.BatchCommands.FindAndModifyCommand.FindAndModifyResult]).
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -153,7 +157,7 @@ def update(collection: BSONCollection, age: Int): Future[Option[Person]] = {
 }
 {% endhighlight %}
 
-For removal, a convenient [`findAndRemove`](../../api/index.html#reactivemongo.api.collections.GenericCollection@findAndRemove[Q](selector:Q,sort:Option[GenericCollection.this.pack.Document],fields:Option[GenericCollection.this.pack.Document])(implicitselectorWriter:GenericCollection.this.pack.Writer[Q],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[GenericCollection.this.BatchCommands.FindAndModifyCommand.FindAndModifyResult]) is also available.
+For removal, a convenient [`findAndRemove`](../api/index.html#reactivemongo.api.collections.GenericCollection@findAndRemove[Q](selector:Q,sort:Option[GenericCollection.this.pack.Document],fields:Option[GenericCollection.this.pack.Document])(implicitselectorWriter:GenericCollection.this.pack.Writer[Q],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[GenericCollection.this.BatchCommands.FindAndModifyCommand.FindAndModifyResult]) is also available.
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
@@ -218,10 +222,10 @@ def jsonExplain(col: JSONCollection): Future[Option[JsObject]] =
 
 **Error handling:**
 
-The [`CommandError`](../../api/index.html#reactivemongo.api.commands.CommandError) that represents the errors from executing commands, is now coming with pattern matching utilities:
+The [`CommandError`](../api/index.html#reactivemongo.api.commands.CommandError) that represents the errors from executing commands, is now coming with pattern matching utilities:
 
-- [`CommandError.Code`](../../api/index.html#reactivemongo.api.commands.CommandError$@Code): matches the errors according the specified code (e.g. the 11000 code for the Duplicate error)
-- [`CommandError.Message`](../../api/index.html#reactivemongo.api.commands.CommandError$@Message): matches the errors according the message
+- [`CommandError.Code`](../api/index.html#reactivemongo.api.commands.CommandError$@Code): matches the errors according the specified code (e.g. the 11000 code for the Duplicate error)
+- [`CommandError.Message`](../api/index.html#reactivemongo.api.commands.CommandError$@Message): matches the errors according the message
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -251,7 +255,7 @@ def insertPerson(personColl: BSONCollection, person: Person) = {
 
 ### Streaming
 
-Instead of accumulating documents in memory, they can be [processed as a stream](./tutorial/streaming.html), using a reactive [`Cursor`](../../api/index.html#reactivemongo.api.Cursor).
+Instead of accumulating documents in memory, they can be [processed as a stream](./tutorial/streaming.html), using a reactive [`Cursor`](../api/index.html#reactivemongo.api.Cursor).
 
 ReactiveMongo can now be used with several streaming frameworks.
 
@@ -455,7 +459,7 @@ import reactivemongo.api.collections.bson.BSONCollection
 def distinctStates(col: BSONCollection)(implicit ec: ExecutionContext): Future[Set[String]] = col.distinct[String, Set]("state")
 {% endhighlight %}
 
-The ReactiveMongo collections now has the convenient operation [`.aggregate`](../../api/index.html#reactivemongo.api.collections.GenericCollection@aggregate%28firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,cursor:Option[GenericCollection.this.BatchCommands.AggregationFramework.Cursor]%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[GenericCollection.this.BatchCommands.AggregationFramework.AggregationResult]).
+The ReactiveMongo collections now has the convenient operation [`.aggregate`](../api/index.html#reactivemongo.api.collections.GenericCollection@aggregate%28firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,cursor:Option[GenericCollection.this.BatchCommands.AggregationFramework.Cursor]%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[GenericCollection.this.BatchCommands.AggregationFramework.AggregationResult]).
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -477,7 +481,7 @@ def populatedStates(col: BSONCollection): Future[List[BSONDocument]] = {
 }
 {% endhighlight %}
 
-About the type `AggregationResult` the property [`documents`](../../api/index.html#reactivemongo.api.commands.AggregationFramework$AggregationResult@documents:List[AggregationFramework.this.pack.Document]) has been renamed to `firstBatch`, to clearly indicate it returns the first batch from result (which is frequently the single one).
+About the type `AggregationResult` the property [`documents`](../api/index.html#reactivemongo.api.commands.AggregationFramework$AggregationResult@documents:List[AggregationFramework.this.pack.Document]) has been renamed to `firstBatch`, to clearly indicate it returns the first batch from result (which is frequently the single one).
 
 There are also some newly supported [Pipeline Aggregation Stages](https://docs.mongodb.org/manual/reference/operator/aggregation-pipeline/).
 
@@ -755,14 +759,14 @@ As for Play 2.5, due to the [Streams Migration](https://playframework.com/docume
 
 The Play support has also been modularized.
 
-**JSON serialization**
+#### JSON serialization
 
 There is now a separate [Play JSON library](./json/overview.html), providing the serialization pack without the Play module.
 
 This new library increases the JSON support to handle the following BSON types.
 
-- [BSONJavaScript](../../api/reactivemongo/bson/BSONJavaScript.html)
-- [BSONUndefined](../../api/reactivemongo/bson/BSONUndefined$.html)
+- [BSONJavaScript](../api/reactivemongo/bson/BSONJavaScript.html)
+- [BSONUndefined](../api/reactivemongo/bson/BSONUndefined$.html)
 
 To use this JSON library, it's necessary to make sure the right imports are there.
 
@@ -778,6 +782,23 @@ No Json serializer as JsObject found for type play.api.libs.json.JsObject.
 Try to implement an implicit OWrites or OFormat for this type.
 {% endhighlight %}
 
+There are also some helpers coming along with this JSON pack.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.play.json.collection._
+
+// Import a list of JSON object as document into the JSON `collection`,
+// and returns the insertion count.
+def importJson(collection: JSONCollection, resource: String): Future[Int] =
+  Helpers.bulkInsert(collection, getClass.getResourceAsStream(resource)).
+    map(_.totalN)
+{% endhighlight %}
+
+#### MVC integration
+
 Instances of [Play Formatter](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.data.format.Formatter) are provided for the [BSON values](./bson/overview.html).
 
 {% highlight scala %}
@@ -786,7 +807,7 @@ import play.api.libs.json.Json
 
 import reactivemongo.bson.BSONValue
 
-import play.modules.reactivemongo.json._
+import reactivemongo.play.json._
 import play.modules.reactivemongo.Formatters._
 
 def playFormat[T <: BSONValue](bson: T)(implicit formatter: Formatter[T]) = {
@@ -800,11 +821,28 @@ def playFormat[T <: BSONValue](bson: T)(implicit formatter: Formatter[T]) = {
 }
 {% endhighlight %}
 
-Similarily, the Play support of ReactiveMongo provides [`PathBindable`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.mvc.PathBindable), to use the BSON values in the Play routing, as following.
+#### Routing
+
+The [BSON types](bson/overview.html) can be used in the bindings of the Play routing.
+
+For example, consider a Play action as follows.
+
+{% highlight scala %}
+import play.api.mvc.{ Action, Controller }
+import reactivemongo.bson.BSONObjectID
+
+class Application extends Controller {
+  def foo(id: BSONObjectID) = Action {
+    Ok(s"Foo: ${id.stringify}")
+  }
+}
+{% endhighlight %}
+
+This action can be configured with a [`BSONObjectID`](../api/reactivemongo/bson/BSONObjectID.html) binding, in the `conf/routes` file.
 
     GET /foo/:id controllers.Application.foo(id: reactivemongo.bson.BSONObjectID)
 
-To do so, the `routesImport` must be configured.
+When using BSON types in the route bindings, the Play plugin for SBT must be setup (in your `build.sbt` or `project/Build.scala`) to install the appropriate import in the generated routes.
 
 {% highlight ocaml %}
 import play.sbt.routes.RoutesKeys
@@ -812,7 +850,7 @@ import play.sbt.routes.RoutesKeys
 RoutesKeys.routesImport += "play.modules.reactivemongo.PathBindables._"
 {% endhighlight %}
 
-**Play Iteratees**
+#### Play Iteratees
 
 The [`enumerate`](../api/index.html#reactivemongo.api.Cursor@enumerate(maxDocs:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[T]) on the cursors is now deprecated, and the [Play Iteratees](https://www.playframework.com/documentation/latest/Iteratees) support has been moved to a separate module, with a new [`enumerator`](../api/index.html#reactivemongo.play.iteratees.PlayIterateesCursor@enumerator(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Unit])(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[T]) operation.
 
@@ -852,35 +890,6 @@ Without this import, the following error can occur.
 value enumerator is not a member of reactivemongo.api.CursorProducer[reactivemongo.bson.BSONDocument]#ProducedCursor
 {% endhighlight %}
 
-**Routing**
-
-The [BSON types](bson/overview.html) can be used in the bindings of the Play routing.
-
-For example, consider a Play action as follows.
-
-{% highlight scala %}
-import play.api.mvc.{ Action, Controller }
-import reactivemongo.bson.BSONObjectID
-
-class Application extends Controller {
-  def foo(id: BSONObjectID) = Action {
-    Ok(s"Foo: ${id.stringify}")
-  }
-}
-{% endhighlight %}
-
-This action can be configured with a [`BSONObjectID`](../api/reactivemongo/bson/BSONObjectID.html) binding, in the `conf/routes` file.
-
-    GET /foo/:id controllers.Application.foo(id: reactivemongo.bson.BSONObjectID)
-
-When using BSON types in the route bindings, the Play plugin for SBT must be setup (in your `build.sbt` or `project/Build.scala`) to install the appropriate import in the generated routes.
-
-{% highlight ocaml %}
-import play.sbt.routes.RoutesKeys
-
-RoutesKeys.routesImport += "play.modules.reactivemongo.PathBindables._"
-{% endhighlight %}
-
 ### Administration
 
 The operations to manage a MongoDB instance can be executed using ReactiveMongo. This new release has new functions for DB administration.
@@ -888,8 +897,6 @@ The operations to manage a MongoDB instance can be executed using ReactiveMongo.
 **Rename collection:**
 
 The `Database` now has a [`renameCollection`](../api/index.html#reactivemongo.api.DefaultDB@renameCollection[C%3C:reactivemongo.api.Collection](db:String,from:String,to:String,dropExisting:Boolean,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext,implicitproducer:reactivemongo.api.CollectionProducer[C]):scala.concurrent.Future[C]) operation, which can be easily used with the 'admin' database, to rename collections in the other databases.
-
-TODO
 
 {% highlight scala %}
 import reactivemongo.api.DefaultDB
@@ -926,7 +933,7 @@ def deprecatedDrop(col: BSONCollection): Future[Unit] = col.drop()
 
 **Create user:**
 
-The [`DefaultDB`](../../api/index.html#reactivemongo.api.DefaultDB) is defined with a function to create a database user.
+The [`DefaultDB`](../api/index.html#reactivemongo.api.DefaultDB) is defined with a function to create a database user.
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -963,6 +970,14 @@ def createPartialIndex(col: BSONCollection): Future[WriteResult] =
 **Collection statistics:**
 
 In the case class [`CollStatsResult`](../api/index.html#reactivemongo.api.commands.CollStatsResult), the field `maxSize` has been added.
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.commands.CollStatsResult
+
+def maxSize(coll: BSONCollection)(implicit ec: ExecutionContext): Future[Option[Double]] = coll.stats.map(_.maxSize)
+{% endhighlight %}
 
 **Resync a replica set member:**
 
