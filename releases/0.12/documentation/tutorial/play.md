@@ -118,7 +118,7 @@ import play.api.Play.current // should deprecated in favor of DI
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 
 import play.modules.reactivemongo.ReactiveMongoApi
-import play.modules.reactivemongo.json.collection.JSONCollection
+import reactivemongo.play.json.collection.JSONCollection
 
 object Foo {
   lazy val reactiveMongoApi = current.injector.instanceOf[ReactiveMongoApi]
@@ -473,8 +473,7 @@ import play.modules.reactivemongo.{ // ReactiveMongo Play2 plugin
 }
 
 // BSON-JSON conversions/collection
-import reactivemongo.play.json._
-import play.modules.reactivemongo.json.collection._
+import reactivemongo.play.json._, collection._
 
 /*
  * Example using ReactiveMongo + Play JSON library.

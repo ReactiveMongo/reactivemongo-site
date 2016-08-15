@@ -81,6 +81,23 @@ type ResultType = JsObject // any type which is provided a `Writes[T]`
 jsonCollection.find(Json.obj()).cursor[ResultType].jsArray()
 {% endhighlight %}
 
+## Helpers
+
+There are some helpers coming along with the JSON support.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.play.json.collection._
+
+// Import a list of JSON object as document into the JSON `collection`,
+// and returns the insertion count.
+def importJson(collection: JSONCollection, resource: String): Future[Int] =
+  Helpers.bulkInsert(collection, getClass.getResourceAsStream(resource)).
+    map(_.totalN)
+{% endhighlight %}
+
 ## Troubleshooting
 
 If the following error is raised;
