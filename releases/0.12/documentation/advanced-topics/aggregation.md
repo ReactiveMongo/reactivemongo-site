@@ -439,4 +439,105 @@ def placeArround(places: BSONCollection)(implicit ec: ExecutionContext): Future[
 }
 {% endhighlight %}
 
+### Forecast example
+
+Consider a collection of forecasts with the following document.
+
+{% highlight javascript %}
+{
+  _id: 1,
+  title: "123 Department Report",
+  tags: [ "G", "STLW" ],
+  year: 2014,
+  subsections: [
+    {
+      subtitle: "Section 1: Overview",
+      tags: [ "SI", "G" ],
+      content:  "Section 1: This is the content of section 1."
+    },
+    {
+      subtitle: "Section 2: Analysis",
+      tags: [ "STLW" ],
+      content: "Section 2: This is the content of section 2."
+    },
+    {
+      subtitle: "Section 3: Budgeting",
+      tags: [ "TK" ],
+      content: {
+        text: "Section 3: This is the content of section3.",
+        tags: [ "HCS" ]
+      }
+    }
+  ]
+}
+{% endhighlight %}
+
+Using the [`$redact` stage](https://docs.mongodb.com/manual/reference/operator/aggregation/redact/), the MongoDB aggregation can be used to restricts the contents of the documents. It can be done in the MongoDB shell as follows:
+
+{% highlight javascript %}
+db.forecasts.aggregate([
+  { $match: { year: 2014 } },
+  { 
+    $redact: {
+      $cond: {
+        if: { $gt: [ { $size: { 
+          $setIntersection: [ "$tags", [ "STLW", "G" ] ] } }, 0 ]
+        },
+        then: "$$DESCEND",
+        else: "$$PRUNE"
+      }
+    }
+  }
+])
+{% endhighlight %}
+
+The corresponding results a redacted document.
+
+{% highlight javascript %}
+{
+  "_id" : 1,
+  "title" : "123 Department Report",
+  "tags" : [ "G", "STLW" ],
+  "year" : 2014,
+  "subsections" : [
+    {
+      "subtitle" : "Section 1: Overview",
+      "tags" : [ "SI", "G" ],
+      "content" : "Section 1: This is the content of section 1."
+    },
+    {
+      "subtitle" : "Section 2: Analysis",
+      "tags" : [ "STLW" ],
+      "content" : "Section 2: This is the content of section 2."
+    }
+  ]
+}
+{% endhighlight %}
+
+With ReactiveMongo, the aggregation framework can perform a similar redaction.
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+
+import reactivemongo.bson._
+import reactivemongo.api.collections.bson.BSONCollection
+
+def redactForecasts(forecasts: BSONCollection)(implicit ec: ExecutionContext) = {
+  import forecasts.BatchCommands.AggregationFramework.{ Match, Redact }
+
+  forecasts.aggregate(Match(document("year" -> 2014)), List(
+    Redact(document("$cond" -> document(
+      "if" -> document(
+        "$gt" -> array(document(
+          "$size" -> document("$setIntersection" -> array(
+            "$tags", array("STLW", "G")
+          ))
+        ), 0)
+      ),
+      "then" -> "$$DESCEND",
+      "else" -> "$$PRUNE"
+    ))))).map(_.head[BSONDocument])
+}
+{% endhighlight %}
+
 *More:* The operators available to define an aggregation pipeline are documented in the [API reference](../../api/index.html#reactivemongo.api.commands.AggregationFramework).

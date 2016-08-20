@@ -686,7 +686,50 @@ For the current example, the result collection will contain the following docume
 
 The [$redact](https://docs.mongodb.org/manual/reference/operator/aggregation/redact/#pipe._S_redact) stage reshapes each document in the stream by restricting the content for each document based on information stored in the documents themselves.
 
-TODO
+It can be done in the MongoDB shell as follows.
+
+{% highlight javascript %}
+db.forecasts.aggregate([
+  { $match: { year: 2014 } },
+  { 
+    $redact: {
+      $cond: {
+        if: { $gt: [ { $size: { 
+          $setIntersection: [ "$tags", [ "STLW", "G" ] ] } }, 0 ]
+        },
+        then: "$$DESCEND",
+        else: "$$PRUNE"
+      }
+    }
+  }
+])
+{% endhighlight %}
+
+With ReactiveMongo, the aggregation framework can perform a similar redaction.
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+
+import reactivemongo.bson._
+import reactivemongo.api.collections.bson.BSONCollection
+
+def redactForecasts(forecasts: BSONCollection)(implicit ec: ExecutionContext) = {
+  import forecasts.BatchCommands.AggregationFramework.{ Match, Redact }
+
+  forecasts.aggregate(Match(document("year" -> 2014)), List(
+    Redact(document("$cond" -> document(
+      "if" -> document(
+        "$gt" -> array(document(
+          "$size" -> document("$setIntersection" -> array(
+            "$tags", array("STLW", "G")
+          ))
+        ), 0)
+      ),
+      "then" -> "$$DESCEND",
+      "else" -> "$$PRUNE"
+    ))))).map(_.head[BSONDocument])
+}
+{% endhighlight %}
 
 **sample:**
 
