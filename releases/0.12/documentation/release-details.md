@@ -25,6 +25,7 @@ The documentation is available [online](index.html), and its code samples are co
   - [Play Iteratees](#play-iteratees)
 - [Administration](#administration)
 - [Logging](#logging)
+- [Monitoring[(#monitoring)
 - [Dependencies](#dependencies)
 - [Breaking changes](#breaking-changes)
 
@@ -1065,6 +1066,16 @@ reactivemongo.ChannelClosed(-562085577, {{NodeSet None Node[localhost:27017: Pri
 reactivemongo.ChannelDisconnected(-562085577, {{NodeSet None Node[localhost:27017: Primary (6/6 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
 reactivemongo.ChannelClosed(-857553810, {{NodeSet None Node[localhost:27017: Primary (6/7 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
 {% endhighlight %}
+
+### Monitoring
+
+A new [JMX](https://en.wikipedia.org/wiki/Java_Management_Extensions) module is available. It can be enabled by adding the corresponding dependency:
+
+{% highlight ocaml %}
+"org.reactivemongo" %% "reactivemongo-jmx" % "{{site._0_12_latest_minor}}"
+{% endhighlight %}
+
+When running with this module, you check the state of the ReactiveMongo pools from outside the JVM using a JMX client (e.g. `jconsole`).
 
 ### Dependencies
 
