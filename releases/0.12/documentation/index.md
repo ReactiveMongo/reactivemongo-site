@@ -20,7 +20,7 @@ The various API of the ReactiveMongo driver itself, and also of the related libr
 - [Driver API](../api/index.html): Core driver, BSON
 - [Play JSON API](http://reactivemongo.github.io/ReactiveMongo-Play-Json/0.12/api/)
 - [Play module API](http://reactivemongo.github.io/Play-ReactiveMongo/0.12/api/)
-- ReactiveMongo [AkkaStream](https://reactivemongo.github.io/ReactiveMongo-AkkaStream/0.12/api/)
+- ReactiveMongo [AkkaStream](https://reactivemongo.github.io/ReactiveMongo-Streaming/0.12/akka-stream/api/)
 
 ### Tutorials
 
