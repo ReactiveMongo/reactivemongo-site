@@ -25,7 +25,7 @@ The documentation is available [online](index.html), and its code samples are co
   - [Play Iteratees](#play-iteratees)
 - [Administration](#administration)
 - [Logging](#logging)
-- [Monitoring[(#monitoring)
+- [Monitoring](#monitoring)
 - [Dependencies](#dependencies)
 - [Breaking changes](#breaking-changes)
 
@@ -262,9 +262,9 @@ ReactiveMongo can now be used with several streaming frameworks.
 
 #### Akka Stream
 
-The [Akka Stream library](https://reactivemongo.github.io/ReactiveMongo-AkkaStream/0.12/api/#package) can be used to consume ReactiveMongo results.
+The [Akka Stream library](https://reactivemongo.github.io/ReactiveMongo-Streaming/0.12/akka-stream/api/#package) can be used to consume ReactiveMongo results.
 
-To enable the Akka Stream support (up to Akka 2.4.8), the import [`reactivemongo.play.akkastream.cursorProducer`](https://reactivemongo.github.io/ReactiveMongo-AkkaStream/0.12/api/index.html#reactivemongo.akkastream.package$$cursorFlattener$) must be added.
+To enable the Akka Stream support (up to Akka 2.4.8), the import [`reactivemongo.play.akkastream.cursorProducer`](https://reactivemongo.github.io/ReactiveMongo-Streaming/0.12/akka-stream/api/index.html#reactivemongo.akkastream.package$$cursorFlattener$) must be added.
 
 {% highlight scala %}
 import scala.concurrent.Future
