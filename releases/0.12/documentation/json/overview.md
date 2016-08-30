@@ -41,14 +41,14 @@ All these JSON types extend [`JsValue`](https://www.playframework.com/documentat
 | [BSONInteger](../../api/reactivemongo/bson/BSONInteger.html) | `JsNumber` |
 | [BSONJavaScript](../../api/reactivemongo/bson/BSONJavaScript.html) | `JsObject` with a `$javascript` `JsString` value representing the [JavaScript code](../../api/index.html#reactivemongo.bson.BSONJavaScript@value:String) |
 | [BSONLong](../../api/reactivemongo/bson/BSONLong.html) | `JsNumber` |
-| [BSONMaxKey](../../api/reactivemongo/bson/BSONMaxKey$.html) | *No JSON type* |
-[BSONMinKey](../../api/reactivemongo/bson/BSONMinKey$.html) | *No JSON type* |
+| [BSONMaxKey](../../api/reactivemongo/bson/BSONMaxKey$.html) | `JsObject` as constant `{ "$maxKey": 1 }` |
+[BSONMinKey](../../api/reactivemongo/bson/BSONMinKey$.html) | `JsObject` as constant `{ "$minKey": 1 }` |
 | [BSONNull](../../api/reactivemongo/bson/BSONNull$.html) | *No JSON type* |
 | [BSONObjectID](../../api/reactivemongo/bson/BSONObjectID.html) | `JsObject` with a `$oid` `JsString` field with the stringified ID as value |
 [BSONRegex](../../api/reactivemongo/bson/BSONRegex.html) | `JsObject` with a `$regex` `JsString` field with the regular expression, and optionally an `$options` `JsString` field with the regex flags (e.g. `"i"` for case insensitive) |
 | [BSONString](../../api/reactivemongo/bson/BSONString.html) | [JsString](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.JsString) |
 | [BSONSymbol](../../api/reactivemongo/bson/BSONSymbol.html) | `JsObject` with a `$symbol` `JsString` field with the symbol name as value |
-| [BSONTimestamp](../../api/reactivemongo/bson/BSONTimestamp.html) | `JsObject` with a `$time` and a `$i` `JsNumber` fields |
+| [BSONTimestamp](../../api/reactivemongo/bson/BSONTimestamp.html) | `JsObject` with a `$timestamp` nested object having a `t` and a `i` `JsNumber` fields |
 | [BSONUndefined](../../api/reactivemongo/bson/BSONUndefined$.html) | `JsObject` of the form `{ "$undefined": true }` |
 
 Furthermore, the whole library is articulated around the concept of [`Writes`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.Writes) and [`Reads`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.Reads). These are type classes which purpose is to serialize/deserialize objects of arbitraty types into/from JSON.

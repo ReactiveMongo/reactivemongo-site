@@ -76,6 +76,8 @@ def connection(driver: MongoDriver) =
   ))
 {% endhighlight %}
 
+The authentication algorithm is now [SCRAM SHA1](https://docs.mongodb.org/manual/core/security-scram-sha-1/) by default (see the [connection options](./tutorial/connect-database.html#connection-options)).
+
 The default [failover strategy](../api/index.html#reactivemongo.api.FailoverStrategy) can be defined in the [connection options](tutorial/connect-database.html).
 
 {% highlight scala %}
@@ -839,6 +841,28 @@ import reactivemongo.play.json.collection._
 def importJson(collection: JSONCollection, resource: String): Future[Int] =
   Helpers.bulkInsert(collection, getClass.getResourceAsStream(resource)).
     map(_.totalN)
+{% endhighlight %}
+
+In order to comply with the [extended JSON syntax for the timestamps](https://docs.mongodb.com/manual/reference/mongodb-extended-json/#data_timestamp), [`BSONTimestamp`](../../api/index.html#reactivemongo.bson.BSONTimestamp) values are written with both `$time` and `$timestamp` formats.
+
+{% highlight javascript %}
+{
+  "$time": <t>, "$i": <i>,
+  "$timestamp": { "t": <t>, "i": <i> }
+}
+{% endhighlight %}
+
+> The deprecated properties `$time` and `$i` will be removed.
+
+These two formats are also supported when reading from JSON.
+
+The [`BSONMinKey`](../../api/index.html#reactivemongo.bson.BSONMinKey$) and [`BSONMaxKey`](../../api/index.html#reactivemongo.bson.BSONMaxKey$) now support the extended syntax.
+
+{% highlight javascript %}
+{
+  "aMinKey": { "$minKey": 1 },
+  "aMaxKey" : { "$maxKey": 1 }
+}
 {% endhighlight %}
 
 #### MVC integration
