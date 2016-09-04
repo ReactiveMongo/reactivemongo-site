@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>BSONArray - ReactiveMongo API 0.12-RC2 - reactivemongo.bson.BSONArray</title>
-          <meta name="description" content="BSONArray - ReactiveMongo API 0.12 - RC2 - reactivemongo.bson.BSONArray" />
-          <meta name="keywords" content="BSONArray ReactiveMongo API 0.12 RC2 reactivemongo.bson.BSONArray" />
+          <title>BSONArray - ReactiveMongo API 0.12.0-SNAPSHOT - reactivemongo.bson.BSONArray</title>
+          <meta name="description" content="BSONArray - ReactiveMongo API 0.12.0 - SNAPSHOT - reactivemongo.bson.BSONArray" />
+          <meta name="keywords" content="BSONArray ReactiveMongo API 0.12.0 SNAPSHOT reactivemongo.bson.BSONArray" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -47,7 +47,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">BSONArray</span><span class="params">(<span name="stream">stream: <span class="extype" name="scala.Stream">Stream</span>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.util.Try" class="extype" target="_top">Try</a>[<a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]]</span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <span class="name">BSONArray</span><span class="params">(<span name="stream">stream: <span class="extype" name="scala.Stream">Stream</span>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.util.Try" class="extype" target="_top">Try</a>[<a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]]</span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="BSONElementSet.html" class="extype" name="reactivemongo.bson.BSONElementSet">BSONElementSet</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4>
       
@@ -56,7 +56,7 @@ It is completely lazy. The stream it wraps is a <code>Stream[Try[(String, BSONVa
 we cannot be sure that a not yet deserialized value will be processed without error.
 </p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <a href="BSONElementSet.html" class="extype" name="reactivemongo.bson.BSONElementSet">BSONElementSet</a>, <a href="ElementProducer.html" class="extype" name="reactivemongo.bson.ElementProducer">ElementProducer</a>, <a href="Producer.html" class="extype" name="reactivemongo.bson.Producer">Producer</a>[<a href="BSONElement.html" class="extype" name="reactivemongo.bson.BSONElement">BSONElement</a>], <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
         
 
@@ -74,12 +74,12 @@ we cannot be sure that a not yet deserialized value will be processed without er
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="reactivemongo.bson.BSONArray"><span>BSONArray</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="reactivemongo.bson.BSONValue"><span>BSONValue</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="reactivemongo.bson.BSONArray"><span>BSONArray</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="reactivemongo.bson.BSONElementSet"><span>BSONElementSet</span></li><li class="in" name="reactivemongo.bson.ElementProducer"><span>ElementProducer</span></li><li class="in" name="reactivemongo.bson.Producer"><span>Producer</span></li><li class="in" name="reactivemongo.bson.BSONValue"><span>BSONValue</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
                 <span class="filtertype">Implicitly<br />
                 </span>
-                <ol id="implicits"> <li class="in" name="reactivemongo.bson.BSONValue.ExtendedBSONValue" data-hidden="false"><span>by ExtendedBSONValue</span></li><li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.StringFormat" data-hidden="true"><span>by StringFormat</span></li><li class="in" name="scala.Predef.Ensuring" data-hidden="true"><span>by Ensuring</span></li><li class="in" name="scala.Predef.ArrowAssoc" data-hidden="true"><span>by ArrowAssoc</span></li>
+                <ol id="implicits"> <li class="in" name="reactivemongo.bson.BSONValue.ExtendedBSONValue" data-hidden="false"><span>by ExtendedBSONValue</span></li><li class="in" name="reactivemongo.bson.Producer.valueProducer" data-hidden="false"><span>by valueProducer</span></li><li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.StringFormat" data-hidden="true"><span>by StringFormat</span></li><li class="in" name="scala.Predef.Ensuring" data-hidden="true"><span>by Ensuring</span></li><li class="in" name="scala.Predef.ArrowAssoc" data-hidden="true"><span>by ArrowAssoc</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -118,7 +118,27 @@ we cannot be sure that a not yet deserialized value will be processed without er
     </li></ol>
             </div>
 
-        
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="reactivemongo.bson.BSONArray.SetType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SetType=reactivemongo.bson.BSONArray"></a>
+      <a id="SetType:SetType"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">SetType</span><span class="result"> = <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONArray@SetType=reactivemongo.bson.BSONArray" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a> → <a href="BSONElementSet.html" class="extype" name="reactivemongo.bson.BSONElementSet">BSONElementSet</a></dd></dl></div>
+    </li></ol>
+            </div>
 
         
 
@@ -133,7 +153,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.BSONArray@!=(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -180,7 +200,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
             
           </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
     </li><li name="reactivemongo.bson.BSONArray#++" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="++(elements:reactivemongo.bson.Producer[reactivemongo.bson.BSONValue]*):reactivemongo.bson.BSONArray"></a>
+      <a id="++(values:reactivemongo.bson.Producer[reactivemongo.bson.BSONValue]*):reactivemongo.bson.BSONArray"></a>
       <a id="++(Producer[BSONValue]*):BSONArray"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -188,15 +208,15 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $plus$plus" class="name">++</span><span class="params">(<span name="elements">elements: <a href="Producer.html" class="extype" name="reactivemongo.bson.Producer">Producer</a>[<a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]*</span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a></span>
+        <span title="gt4s: $plus$plus" class="name">++</span><span class="params">(<span name="values">values: <a href="Producer.html" class="extype" name="reactivemongo.bson.Producer">Producer</a>[<a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]*</span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.bson.BSONArray@++(elements:reactivemongo.bson.Producer[reactivemongo.bson.BSONValue]*):reactivemongo.bson.BSONArray" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.bson.BSONArray@++(values:reactivemongo.bson.Producer[reactivemongo.bson.BSONValue]*):reactivemongo.bson.BSONArray" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Alias for <code>add(elements: Producer[BSONValue]*): BSONArray</code></p>
-    </li><li name="reactivemongo.bson.BSONArray#++" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Alias for <code>add</code></p>
+    </li><li name="reactivemongo.bson.BSONArray#++" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="++(array:reactivemongo.bson.BSONArray):reactivemongo.bson.BSONArray"></a>
       <a id="++(BSONArray):BSONArray"></a>
       <h4 class="signature">
@@ -212,7 +232,27 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Alias for <code>add(arr: BSONArray): BSONArray</code></p>
+      <p class="shortcomment cmt">Alias for the corresponding <code>merge</code></p><div class="fullcomment"><div class="comment cmt"><p>Alias for the corresponding <code>merge</code></p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONArray#+:" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="+:(value:reactivemongo.bson.Producer[reactivemongo.bson.BSONValue]):reactivemongo.bson.BSONArray"></a>
+      <a id="+:(Producer[BSONValue]):BSONArray"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus$colon" class="name">+:</span><span class="params">(<span name="value">value: <a href="Producer.html" class="extype" name="reactivemongo.bson.Producer">Producer</a>[<a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]</span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONArray@+:(value:reactivemongo.bson.Producer[reactivemongo.bson.BSONValue]):reactivemongo.bson.BSONArray" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Alias for <a href="#prepend(value:reactivemongo.bson.Producer[reactivemongo.bson.BSONValue]):reactivemongo.bson.BSONArray" class="extmbr" name="reactivemongo.bson.BSONArray#prepend">BSONArray.prepend</a></p>
     </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="-&gt;[B](y:B):(A,B)"></a>
       <a id="-&gt;[B](B):(BSONArray,B)"></a>
@@ -237,6 +277,26 @@ we cannot be sure that a not yet deserialized value will be processed without er
                 <span class="name">@inline</span><span class="args">()</span>
               
         </dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONArray#:~" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id=":~(elements:reactivemongo.bson.Producer[reactivemongo.bson.BSONElement]*):reactivemongo.bson.BSONArray"></a>
+      <a id=":~(Producer[BSONElement]*):BSONArray"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $colon$tilde" class="name">:~</span><span class="params">(<span name="elements">elements: <a href="Producer.html" class="extype" name="reactivemongo.bson.Producer">Producer</a>[<a href="BSONElement.html" class="extype" name="reactivemongo.bson.BSONElement">BSONElement</a>]*</span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONArray@:~(elements:reactivemongo.bson.Producer[reactivemongo.bson.BSONElement]*):reactivemongo.bson.BSONArray" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The name of the produced elements are ignored,
+instead the indexes are used.</p><div class="fullcomment"><div class="comment cmt"><p>The name of the produced elements are ignored,
+instead the indexes are used.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a> → <a href="BSONElementSet.html" class="extype" name="reactivemongo.bson.BSONElementSet">BSONElementSet</a></dd></dl></div>
     </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a>
       <a id="==(Any):Boolean"></a>
@@ -246,7 +306,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.BSONArray@==(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -255,7 +315,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="reactivemongo.bson.BSONArray#add" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="add(elements:reactivemongo.bson.Producer[reactivemongo.bson.BSONValue]*):reactivemongo.bson.BSONArray"></a>
+      <a id="add(values:reactivemongo.bson.Producer[reactivemongo.bson.BSONValue]*):reactivemongo.bson.BSONArray"></a>
       <a id="add(Producer[BSONValue]*):BSONArray"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -263,31 +323,15 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">add</span><span class="params">(<span name="elements">elements: <a href="Producer.html" class="extype" name="reactivemongo.bson.Producer">Producer</a>[<a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]*</span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a></span>
+        <span class="name">add</span><span class="params">(<span name="values">values: <a href="Producer.html" class="extype" name="reactivemongo.bson.Producer">Producer</a>[<a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]*</span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.bson.BSONArray@add(elements:reactivemongo.bson.Producer[reactivemongo.bson.BSONValue]*):reactivemongo.bson.BSONArray" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.bson.BSONArray@add(values:reactivemongo.bson.Producer[reactivemongo.bson.BSONValue]*):reactivemongo.bson.BSONArray" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Creates a new <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a> containing all the elements of this one and the given <code>elements</code>.</p>
-    </li><li name="reactivemongo.bson.BSONArray#add" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="add(doc:reactivemongo.bson.BSONArray):reactivemongo.bson.BSONArray"></a>
-      <a id="add(BSONArray):BSONArray"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">add</span><span class="params">(<span name="doc">doc: <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.bson.BSONArray@add(doc:reactivemongo.bson.BSONArray):reactivemongo.bson.BSONArray" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Creates a new <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a> containing all the elements of this one and the elements of the given document.</p>
+      <p class="shortcomment cmt">Alias for <a href="#merge(values:reactivemongo.bson.Producer[reactivemongo.bson.BSONValue]*):reactivemongo.bson.BSONArray" class="extmbr" name="reactivemongo.bson.BSONArray#merge">merge</a>
+</p>
     </li><li name="reactivemongo.bson.BSONValue.ExtendedBSONValue#as" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="as[T](implicitreader:reactivemongo.bson.BSONReader[B,T]):T"></a>
       <a id="as[T](BSONReader[BSONArray,T]):T"></a>
@@ -398,7 +442,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.BSONArray@clone():Object" title="Permalink" target="_top">
@@ -428,7 +472,46 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a> → <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></dd></dl></div>
+      <p class="shortcomment cmt">The code indicating the BSON type for this value
+</p><div class="fullcomment"><div class="comment cmt"><p>The code indicating the BSON type for this value
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a> → <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONArray#contains" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="contains(name:String):Boolean"></a>
+      <a id="contains(String):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">contains</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONArray@contains(name:String):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns true if the given <code>name</code> corresponds to a valid index.</p><div class="fullcomment"><div class="comment cmt"><p>Returns true if the given <code>name</code> corresponds to a valid index.</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>true if the key is found</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a> → <a href="BSONElementSet.html" class="extype" name="reactivemongo.bson.BSONElementSet">BSONElementSet</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONArray#elements" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="elements:List[reactivemongo.bson.BSONElement]"></a>
+      <a id="elements:List[BSONElement]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">elements</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="BSONElement.html" class="extype" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONArray@elements:List[reactivemongo.bson.BSONElement]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a list for the values as <a href="BSONElement.html" class="extype" name="reactivemongo.bson.BSONElement">BSONElement</a>s,
+with their indexes as names (e.g.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a list for the values as <a href="BSONElement.html" class="extype" name="reactivemongo.bson.BSONElement">BSONElement</a>s,
+with their indexes as names (e.g. &quot;0&quot; for the first).
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a> → <a href="BSONElementSet.html" class="extype" name="reactivemongo.bson.BSONElementSet">BSONElementSet</a></dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
       <a id="ensuring((BSONArray)⇒Boolean,⇒Any):BSONArray"></a>
@@ -438,7 +521,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.BSONArray@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -480,7 +563,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.BSONArray@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -522,7 +605,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.BSONArray@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
@@ -578,6 +661,26 @@ we cannot be sure that a not yet deserialized value will be processed without er
               
         </dd></dl></div>
     </li><li name="reactivemongo.bson.BSONArray#get" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="get(name:String):Option[reactivemongo.bson.BSONValue]"></a>
+      <a id="get(String):Option[BSONValue]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">get</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONArray@get(name:String):Option[reactivemongo.bson.BSONValue]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> matching the given <code>name</code>,
+provided it is a valid string representation of a valid index.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> matching the given <code>name</code>,
+provided it is a valid string representation of a valid index.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a> → <a href="BSONElementSet.html" class="extype" name="reactivemongo.bson.BSONElementSet">BSONElementSet</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONArray#get" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="get(index:Int):Option[reactivemongo.bson.BSONValue]"></a>
       <a id="get(Int):Option[BSONValue]"></a>
       <h4 class="signature">
@@ -629,7 +732,9 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Gets the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> at the given <code>index</code>, and converts it with the given implicit <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Gets the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> at the given <code>index</code>, and converts it with the given implicit <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>.</p><p>If there is no matching value, or the value could not be deserialized or converted, returns a <code>Failure</code>.
+      <p class="shortcomment cmt">Gets the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> at the given <code>index</code>,
+and converts it with the given implicit <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Gets the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> at the given <code>index</code>,
+and converts it with the given implicit <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>.</p><p>If there is no matching value, or the value could not be deserialized or converted, returns a <code>Failure</code>.
 The <code>Failure</code> holds a <a href="exceptions/DocumentKeyNotFound.html" class="extype" name="reactivemongo.bson.exceptions.DocumentKeyNotFound">exceptions.DocumentKeyNotFound</a> if the key could not be found.
 </p></div></div>
     </li><li name="reactivemongo.bson.BSONArray#getAsUnflattenedTry" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -648,7 +753,9 @@ The <code>Failure</code> holds a <a href="exceptions/DocumentKeyNotFound.html" c
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Gets the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> at the given <code>index</code>, and converts it with the given implicit <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Gets the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> at the given <code>index</code>, and converts it with the given implicit <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>.</p><p>If there is no matching value, returns a <code>Success</code> holding <code>None</code>.
+      <p class="shortcomment cmt">Gets the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> at the given <code>index</code>,
+and converts it with the given implicit <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Gets the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> at the given <code>index</code>,
+and converts it with the given implicit <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>.</p><p>If there is no matching value, returns a <code>Success</code> holding <code>None</code>.
 If the value could not be deserialized or converted, returns a <code>Failure</code>.
 </p></div></div>
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -706,7 +813,24 @@ The <code>Failure</code> holds a <a href="exceptions/DocumentKeyNotFound.html" c
       <p class="shortcomment cmt">Returns the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> at the given <code>index</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> at the given <code>index</code>.</p><p>If there is no such <code>index</code>, the resulting option will be <code>None</code>.
 If the matching value could not be deserialized, returns a <code>Failure</code>.
 </p></div></div>
-    </li><li name="reactivemongo.bson.BSONArray#isEmpty" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="reactivemongo.bson.BSONArray#headOption" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="headOption:Option[reactivemongo.bson.BSONElement]"></a>
+      <a id="headOption:Option[BSONElement]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">headOption</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="BSONElement.html" class="extype" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONArray@headOption:Option[reactivemongo.bson.BSONElement]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The first/mandatory nested element, if any</p><div class="fullcomment"><div class="comment cmt"><p>The first/mandatory nested element, if any</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a> → <a href="BSONElementSet.html" class="extype" name="reactivemongo.bson.BSONElementSet">BSONElementSet</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONArray#isEmpty" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isEmpty:Boolean"></a>
       <a id="isEmpty:Boolean"></a>
       <h4 class="signature">
@@ -722,7 +846,10 @@ If the matching value could not be deserialized, returns a <code>Failure</code>.
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Is this array empty?</p>
+      <p class="shortcomment cmt">Indicates whether this element set is empty</p><div class="fullcomment"><div class="comment cmt"><p>Indicates whether this element set is empty</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a> → <a href="BSONElementSet.html" class="extype" name="reactivemongo.bson.BSONElementSet">BSONElementSet</a></dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -740,40 +867,40 @@ If the matching value could not be deserialized, returns a <code>Failure</code>.
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="reactivemongo.bson.BSONArray#iterator" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="iterator:Iterator[scala.util.Try[(String,reactivemongo.bson.BSONValue)]]"></a>
-      <a id="iterator:Iterator[Try[(String,BSONValue)]]"></a>
+    </li><li name="reactivemongo.bson.BSONArray#merge" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="merge(values:reactivemongo.bson.Producer[reactivemongo.bson.BSONValue]*):reactivemongo.bson.BSONArray"></a>
+      <a id="merge(Producer[BSONValue]*):BSONArray"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">iterator</span><span class="result">: <span class="extype" name="scala.Iterator">Iterator</span>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.util.Try" class="extype" target="_top">Try</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]]</span>
+        <span class="name">merge</span><span class="params">(<span name="values">values: <a href="Producer.html" class="extype" name="reactivemongo.bson.Producer">Producer</a>[<a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]*</span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.bson.BSONArray@iterator:Iterator[scala.util.Try[(String,reactivemongo.bson.BSONValue)]]" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.bson.BSONArray@merge(values:reactivemongo.bson.Producer[reactivemongo.bson.BSONValue]*):reactivemongo.bson.BSONArray" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="reactivemongo.bson.BSONArray#length" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="length:Int"></a>
-      <a id="length:Int"></a>
+      <p class="shortcomment cmt">Creates a new <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a> containing all the elements of this one and the given <code>elements</code>.</p>
+    </li><li name="reactivemongo.bson.BSONArray#merge" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="merge(doc:reactivemongo.bson.BSONArray):reactivemongo.bson.BSONArray"></a>
+      <a id="merge(BSONArray):BSONArray"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">lazy val</span>
+        <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">length</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+        <span class="name">merge</span><span class="params">(<span name="doc">doc: <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.bson.BSONArray@length:Int" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.bson.BSONArray@merge(doc:reactivemongo.bson.BSONArray):reactivemongo.bson.BSONArray" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Creates a new <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a> containing all the elements of this one and the elements of the given document.</p>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -783,7 +910,7 @@ If the matching value could not be deserialized, returns a <code>Failure</code>.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.BSONArray@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
@@ -825,6 +952,23 @@ If the matching value could not be deserialized, returns a <code>Failure</code>.
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONArray#prepend" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="prepend(value:reactivemongo.bson.Producer[reactivemongo.bson.BSONValue]):reactivemongo.bson.BSONArray"></a>
+      <a id="prepend(Producer[BSONValue]):BSONArray"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">prepend</span><span class="params">(<span name="value">value: <a href="Producer.html" class="extype" name="reactivemongo.bson.Producer">Producer</a>[<a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]</span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONArray@prepend(value:reactivemongo.bson.Producer[reactivemongo.bson.BSONValue]):reactivemongo.bson.BSONArray" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a> with the given value prepended to its elements.</p>
     </li><li name="reactivemongo.bson.BSONValue.ExtendedBSONValue#seeAsOpt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="seeAsOpt[T](implicitreader:reactivemongo.bson.BSONReader[_&lt;:reactivemongo.bson.BSONValue,T]):Option[T]"></a>
       <a id="seeAsOpt[T](BSONReader[_&lt;:BSONValue,T]):Option[T]"></a>
@@ -867,6 +1011,26 @@ If the matching value could not be deserialized, returns a <code>Failure</code>.
             <a href="BSONValue$$ExtendedBSONValue.html" class="extype" name="reactivemongo.bson.BSONValue.ExtendedBSONValue">ExtendedBSONValue</a>[<a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a>] performed by method ExtendedBSONValue in <a href="BSONValue$.html" class="extype" name="reactivemongo.bson.BSONValue">reactivemongo.bson.BSONValue</a>.
             
           </dd><dt>Definition Classes</dt><dd><a href="BSONValue$$ExtendedBSONValue.html" class="extype" name="reactivemongo.bson.BSONValue.ExtendedBSONValue">ExtendedBSONValue</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONArray#size" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="size:Int"></a>
+      <a id="size:Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">size</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONArray@size:Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The number of elements</p><div class="fullcomment"><div class="comment cmt"><p>The number of elements</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a> → <a href="BSONElementSet.html" class="extype" name="reactivemongo.bson.BSONElementSet">BSONElementSet</a></dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
     </li><li name="reactivemongo.bson.BSONArray#stream" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="stream:Stream[scala.util.Try[reactivemongo.bson.BSONValue]]"></a>
       <a id="stream:Stream[Try[BSONValue]]"></a>
@@ -901,6 +1065,23 @@ If the matching value could not be deserialized, returns a <code>Failure</code>.
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONElementSet#toMap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toMap:Map[String,reactivemongo.bson.BSONValue]"></a>
+      <a id="toMap:Map[String,BSONValue]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toMap</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONArray@toMap:Map[String,reactivemongo.bson.BSONValue]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a <code>Map</code> representation for this element set.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a <code>Map</code> representation for this element set.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BSONElementSet.html" class="extype" name="reactivemongo.bson.BSONElementSet">BSONElementSet</a></dd></dl></div>
     </li><li name="reactivemongo.bson.BSONArray#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <a id="toString():String"></a>
@@ -918,7 +1099,7 @@ If the matching value could not be deserialized, returns a <code>Failure</code>.
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a> → AnyRef → Any</dd></dl></div>
-    </li><li name="reactivemongo.bson.BSONArray#values" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="reactivemongo.bson.BSONArray#values" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="values:Stream[reactivemongo.bson.BSONValue]"></a>
       <a id="values:Stream[BSONValue]"></a>
       <h4 class="signature">
@@ -934,7 +1115,7 @@ If the matching value could not be deserialized, returns a <code>Failure</code>.
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Returns the values for the nested elements.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the values for the nested elements.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a> → <a href="BSONElementSet.html" class="extype" name="reactivemongo.bson.BSONElementSet">BSONElementSet</a></dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -1004,6 +1185,23 @@ If the matching value could not be deserialized, returns a <code>Failure</code>.
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONArray#~:" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="~:(elements:reactivemongo.bson.Producer[reactivemongo.bson.BSONElement]):reactivemongo.bson.BSONArray"></a>
+      <a id="~:(Producer[BSONElement]):BSONArray"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $tilde$colon" class="name">~:</span><span class="params">(<span name="elements">elements: <a href="Producer.html" class="extype" name="reactivemongo.bson.Producer">Producer</a>[<a href="BSONElement.html" class="extype" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONArray@~:(elements:reactivemongo.bson.Producer[reactivemongo.bson.BSONElement]):reactivemongo.bson.BSONArray" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Merge the produced elements at the beginning of this set</p><div class="fullcomment"><div class="comment cmt"><p>Merge the produced elements at the beginning of this set</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a> → <a href="BSONElementSet.html" class="extype" name="reactivemongo.bson.BSONElementSet">BSONElementSet</a></dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="→[B](y:B):(A,B)"></a>
       <a id="→[B](B):(BSONArray,B)"></a>
@@ -1030,7 +1228,75 @@ If the matching value could not be deserialized, returns a <code>Failure</code>.
 
         
 
-        
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="reactivemongo.bson.BSONArray#add" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="add(doc:reactivemongo.bson.BSONArray):reactivemongo.bson.BSONArray"></a>
+      <a id="add(BSONArray):BSONArray"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use the corresponding scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@30c74a7a">add</span><span class="params">(<span name="doc">doc: <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONArray@add(doc:reactivemongo.bson.BSONArray):reactivemongo.bson.BSONArray" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Alias for <a href="#merge(values:reactivemongo.bson.Producer[reactivemongo.bson.BSONValue]*):reactivemongo.bson.BSONArray" class="extmbr" name="reactivemongo.bson.BSONArray#merge">merge</a>
+</p><div class="fullcomment"><div class="comment cmt"><p>Alias for <a href="#merge(values:reactivemongo.bson.Producer[reactivemongo.bson.BSONValue]*):reactivemongo.bson.BSONArray" class="extmbr" name="reactivemongo.bson.BSONArray#merge">merge</a>
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Use the corresponding <a href="#merge(values:reactivemongo.bson.Producer[reactivemongo.bson.BSONValue]*):reactivemongo.bson.BSONArray" class="extmbr" name="reactivemongo.bson.BSONArray#merge">merge</a></p></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONArray#iterator" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="iterator:Iterator[scala.util.Try[(String,reactivemongo.bson.BSONValue)]]"></a>
+      <a id="iterator:Iterator[Try[(String,BSONValue)]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@4217c51e">iterator</span><span class="result">: <span class="extype" name="scala.Iterator">Iterator</span>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.util.Try" class="extype" target="_top">Try</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONArray@iterator:Iterator[scala.util.Try[(String,reactivemongo.bson.BSONValue)]]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns an iterator for the values as elements,
+with their indexes as names (e.g.</p><div class="fullcomment"><div class="comment cmt"><p>Returns an iterator for the values as elements,
+with their indexes as names (e.g. &quot;0&quot; for the first).
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Use <a href="#elements:List[reactivemongo.bson.BSONElement]" class="extmbr" name="reactivemongo.bson.BSONArray#elements">elements</a></p></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONArray#length" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="length:Int"></a>
+      <a id="length:Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@4f7c7888">length</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONArray@length:Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Use <a href="#size:Int" class="extmbr" name="reactivemongo.bson.BSONArray#size">size</a></p></dd></dl></div>
+    </li></ol>
+            </div>
         </div>
 
         <div id="inheritedMembers">
@@ -1042,16 +1308,26 @@ If the matching value could not be deserialized, returns a <code>Failure</code>.
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a></h3>
             </div><div class="parent" name="scala.Equals">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Equals" class="extype" target="_top">Equals</a></h3>
+            </div><div class="parent" name="reactivemongo.bson.BSONElementSet">
+              <h3>Inherited from <a href="BSONElementSet.html" class="extype" name="reactivemongo.bson.BSONElementSet">BSONElementSet</a></h3>
+            </div><div class="parent" name="reactivemongo.bson.ElementProducer">
+              <h3>Inherited from <a href="ElementProducer.html" class="extype" name="reactivemongo.bson.ElementProducer">ElementProducer</a></h3>
+            </div><div class="parent" name="reactivemongo.bson.Producer">
+              <h3>Inherited from <a href="Producer.html" class="extype" name="reactivemongo.bson.Producer">Producer</a>[<a href="BSONElement.html" class="extype" name="reactivemongo.bson.BSONElement">BSONElement</a>]</h3>
             </div><div class="parent" name="reactivemongo.bson.BSONValue">
               <h3>Inherited from <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></h3>
             </div><div class="parent" name="scala.AnyRef">
-              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">
-              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></h3>
             </div>
         <div class="conversion" name="reactivemongo.bson.BSONValue.ExtendedBSONValue">
               <h3>Inherited by implicit conversion ExtendedBSONValue from
                 <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a> to <a href="BSONValue$$ExtendedBSONValue.html" class="extype" name="reactivemongo.bson.BSONValue.ExtendedBSONValue">ExtendedBSONValue</a>[<a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a>]
+              </h3>
+            </div><div class="conversion" name="reactivemongo.bson.Producer.valueProducer">
+              <h3>Inherited by implicit conversion valueProducer from
+                <a href="" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a> to <a href="Producer$$OptionValueProducer.html" class="extype" name="reactivemongo.bson.Producer.OptionValueProducer">OptionValueProducer</a>
               </h3>
             </div><div class="conversion" name="scala.Predef.any2stringadd">
               <h3>Inherited by implicit conversion any2stringadd from

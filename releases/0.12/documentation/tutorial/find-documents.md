@@ -186,9 +186,30 @@ def findOlder4(collection: BSONCollection)(implicit ec: ExecutionContext, reader
 
 ### Troubleshooting
 
-The synchronous [`.db` has been deprecated](../release-details.html#database-resolution) as it didn't offer a sufficient guaranty that it can initially find an active channel in the connection pool (`MongoConnection`).
+The synchronous [`.db` has been deprecated](../release-details.html#database-resolution) as it didn't offer a sufficient guaranty that it can initially find an active channel in the connection pool (`MongoConnection`). A corresponding warning is raised by the compiler in such case.
+
+{% highlight text %}
+method db in class MongoConnection is deprecated: Must use [[database]]
+{% endhighlight %}
+
 The new [`.database` resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) must be used (see [connection tutorial](tutorial/connect-database.html)).
 
 If the deprecated database resolution is still used, a runtime error such as `ConnectionNotInitialized` can be raised when querying documents.
+
+On query builder, the [previous `cursor`](../../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@cursor[T](implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor) has been deprecated:
+
+{% highlight text %}
+Use `cursor()` or `cursor(readPreference)`
+{% endhighlight %}
+
+As indicated by this compilation warning, the [new `cursor`](../../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@cursor[T](readPreference:reactivemongo.api.ReadPreference,isMongo26WriteOp:Boolean)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor), accepting a [`ReadPreference`](../../api/index.html#reactivemongo.api.ReadPreference) as parameter.
+
+When a `Cursor` has been obtained, a warning can be raised if using the [deprecated `collect`](../../api/index.html#reactivemongo.api.Cursor@collect[M[_]](maxDocs:Int,stopOnError:Boolean)(implicitcbf:scala.collection.generic.CanBuildFrom[M[_],T,M[T]],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[M[T]]) function:
+
+{% highlight text %}
+method collect in trait Cursor is deprecated: Use `collect` with an [[Cursor.ErrorHandler]].
+{% endhighlight %}
+
+The [new `collect`](../../api/index.html#reactivemongo.api.Cursor@collect[M[_]](maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[M[T]])(implicitcbf:scala.collection.generic.CanBuildFrom[M[_],T,M[T]],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[M[T]]) function must be used instead.
 
 [Previous: Write Documents](./write-documents.html) / [Next: Streaming](./streaming.html)

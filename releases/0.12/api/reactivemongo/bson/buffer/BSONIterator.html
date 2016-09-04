@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>BSONIterator - ReactiveMongo API 0.12-RC2 - reactivemongo.bson.buffer.BSONIterator</title>
-          <meta name="description" content="BSONIterator - ReactiveMongo API 0.12 - RC2 - reactivemongo.bson.buffer.BSONIterator" />
-          <meta name="keywords" content="BSONIterator ReactiveMongo API 0.12 RC2 reactivemongo.bson.buffer.BSONIterator" />
+          <title>BSONIterator - ReactiveMongo API 0.12.0-SNAPSHOT - reactivemongo.bson.buffer.BSONIterator</title>
+          <meta name="description" content="BSONIterator - ReactiveMongo API 0.12.0 - SNAPSHOT - reactivemongo.bson.buffer.BSONIterator" />
+          <meta name="keywords" content="BSONIterator ReactiveMongo API 0.12.0 SNAPSHOT reactivemongo.bson.buffer.BSONIterator" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -47,13 +47,13 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">BSONIterator</span><span class="result"> extends <span class="extype" name="scala.Iterator">Iterator</span>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">BSONIterator</span><span class="result"> extends <span class="extype" name="scala.Iterator">Iterator</span>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableOnce" class="extype" target="_top">TraversableOnce</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableOnce" class="extype" target="_top">TraversableOnce</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
         
 
@@ -150,7 +150,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@!=(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -198,14 +198,14 @@
           </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
     </li><li name="scala.collection.Iterator#++" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="++[B&gt;:A](that:=&gt;scala.collection.GenTraversableOnce[B]):Iterator[B]"></a>
-      <a id="++[B&gt;:BSONElement](⇒GenTraversableOnce[B]):Iterator[B]"></a>
+      <a id="++[B&gt;:(String,BSONValue)](⇒GenTraversableOnce[B]):Iterator[B]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $plus$plus" class="name">++</span><span class="tparams">[<span name="B">B &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="params">(<span name="that">that: ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[<span class="extype" name="scala.collection.Iterator.++.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<span class="extype" name="scala.collection.Iterator.++.B">B</span>]</span>
+        <span title="gt4s: $plus$plus" class="name">++</span><span class="tparams">[<span name="B">B &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="params">(<span name="that">that: ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[<span class="extype" name="scala.collection.Iterator.++.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<span class="extype" name="scala.collection.Iterator.++.B">B</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@++[B&gt;:A](that:=&gt;scala.collection.GenTraversableOnce[B]):Iterator[B]" title="Permalink" target="_top">
@@ -239,14 +239,14 @@
         </dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#/:" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="/:[B](z:B)(op:(B,A)=&gt;B):B"></a>
-      <a id="/:[B](B)((B,BSONElement)⇒B):B"></a>
+      <a id="/:[B](B)((B,(String,BSONValue))⇒B):B"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $div$colon" class="name">/:</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="z">z: <span class="extype" name="scala.collection.TraversableOnce./:.B">B</span></span>)</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableOnce./:.B">B</span>, <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <span class="extype" name="scala.collection.TraversableOnce./:.B">B</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce./:.B">B</span></span>
+        <span title="gt4s: $div$colon" class="name">/:</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="z">z: <span class="extype" name="scala.collection.TraversableOnce./:.B">B</span></span>)</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableOnce./:.B">B</span>, (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <span class="extype" name="scala.collection.TraversableOnce./:.B">B</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce./:.B">B</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@/:[B](z:B)(op:(B,A)=&gt;B):B" title="Permalink" target="_top">
@@ -256,14 +256,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#:\" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id=":\[B](z:B)(op:(A,B)=&gt;B):B"></a>
-      <a id=":\[B](B)((BSONElement,B)⇒B):B"></a>
+      <a id=":\[B](B)(((String,BSONValue),B)⇒B):B"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $colon$bslash" class="name">:\</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="z">z: <span class="extype" name="scala.collection.TraversableOnce.:\.B">B</span></span>)</span><span class="params">(<span name="op">op: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>, <span class="extype" name="scala.collection.TraversableOnce.:\.B">B</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.:\.B">B</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.:\.B">B</span></span>
+        <span title="gt4s: $colon$bslash" class="name">:\</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="z">z: <span class="extype" name="scala.collection.TraversableOnce.:\.B">B</span></span>)</span><span class="params">(<span name="op">op: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>), <span class="extype" name="scala.collection.TraversableOnce.:\.B">B</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.:\.B">B</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.:\.B">B</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@:\[B](z:B)(op:(A,B)=&gt;B):B" title="Permalink" target="_top">
@@ -280,7 +280,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@==(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -341,14 +341,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#aggregate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="aggregate[B](z:=&gt;B)(seqop:(B,A)=&gt;B,combop:(B,B)=&gt;B):B"></a>
-      <a id="aggregate[B](⇒B)((B,BSONElement)⇒B,(B,B)⇒B):B"></a>
+      <a id="aggregate[B](⇒B)((B,(String,BSONValue))⇒B,(B,B)⇒B):B"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">aggregate</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="z">z: ⇒ <span class="extype" name="scala.collection.TraversableOnce.aggregate.B">B</span></span>)</span><span class="params">(<span name="seqop">seqop: (<span class="extype" name="scala.collection.TraversableOnce.aggregate.B">B</span>, <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.aggregate.B">B</span></span>, <span name="combop">combop: (<span class="extype" name="scala.collection.TraversableOnce.aggregate.B">B</span>, <span class="extype" name="scala.collection.TraversableOnce.aggregate.B">B</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.aggregate.B">B</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.aggregate.B">B</span></span>
+        <span class="name">aggregate</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="z">z: ⇒ <span class="extype" name="scala.collection.TraversableOnce.aggregate.B">B</span></span>)</span><span class="params">(<span name="seqop">seqop: (<span class="extype" name="scala.collection.TraversableOnce.aggregate.B">B</span>, (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <span class="extype" name="scala.collection.TraversableOnce.aggregate.B">B</span></span>, <span name="combop">combop: (<span class="extype" name="scala.collection.TraversableOnce.aggregate.B">B</span>, <span class="extype" name="scala.collection.TraversableOnce.aggregate.B">B</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.aggregate.B">B</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.aggregate.B">B</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@aggregate[B](z:=&gt;B)(seqop:(B,A)=&gt;B,combop:(B,B)=&gt;B):B" title="Permalink" target="_top">
@@ -375,14 +375,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="scala.collection.Iterator#buffered" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="buffered:scala.collection.BufferedIterator[A]"></a>
-      <a id="buffered:BufferedIterator[BSONElement]"></a>
+      <a id="buffered:BufferedIterator[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">buffered</span><span class="result">: <span class="extype" name="scala.collection.BufferedIterator">BufferedIterator</span>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">buffered</span><span class="result">: <span class="extype" name="scala.collection.BufferedIterator">BufferedIterator</span>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@buffered:scala.collection.BufferedIterator[A]" title="Permalink" target="_top">
@@ -399,7 +399,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@clone():Object" title="Permalink" target="_top">
@@ -415,14 +415,14 @@
         </dd></dl></div>
     </li><li name="scala.collection.Iterator#collect" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="collect[B](pf:PartialFunction[A,B]):Iterator[B]"></a>
-      <a id="collect[B](PartialFunction[BSONElement,B]):Iterator[B]"></a>
+      <a id="collect[B](PartialFunction[(String,BSONValue),B]):Iterator[B]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">collect</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="pf">pf: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.PartialFunction" class="extype" target="_top">PartialFunction</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>, <span class="extype" name="scala.collection.Iterator.collect.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<span class="extype" name="scala.collection.Iterator.collect.B">B</span>]</span>
+        <span class="name">collect</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="pf">pf: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.PartialFunction" class="extype" target="_top">PartialFunction</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>), <span class="extype" name="scala.collection.Iterator.collect.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<span class="extype" name="scala.collection.Iterator.collect.B">B</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@collect[B](pf:PartialFunction[A,B]):Iterator[B]" title="Permalink" target="_top">
@@ -435,14 +435,14 @@
         </dd><dt>Migration</dt><dd class="cmt"><p><i>(Changed in version 2.8.0)</i> <code>collect</code> has changed. The previous behavior can be reproduced with <code>toSeq</code>.</p></dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#collectFirst" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="collectFirst[B](pf:PartialFunction[A,B]):Option[B]"></a>
-      <a id="collectFirst[B](PartialFunction[BSONElement,B]):Option[B]"></a>
+      <a id="collectFirst[B](PartialFunction[(String,BSONValue),B]):Option[B]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">collectFirst</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="pf">pf: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.PartialFunction" class="extype" target="_top">PartialFunction</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>, <span class="extype" name="scala.collection.TraversableOnce.collectFirst.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.collection.TraversableOnce.collectFirst.B">B</span>]</span>
+        <span class="name">collectFirst</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="pf">pf: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.PartialFunction" class="extype" target="_top">PartialFunction</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>), <span class="extype" name="scala.collection.TraversableOnce.collectFirst.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.collection.TraversableOnce.collectFirst.B">B</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@collectFirst[B](pf:PartialFunction[A,B]):Option[B]" title="Permalink" target="_top">
@@ -459,7 +459,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">contains</span><span class="params">(<span name="elem">elem: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">contains</span><span class="params">(<span name="elem">elem: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@contains(elem:Any):Boolean" title="Permalink" target="_top">
@@ -469,14 +469,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator</dd></dl></div>
     </li><li name="scala.collection.Iterator#copyToArray" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="copyToArray[B&gt;:A](xs:Array[B],start:Int,len:Int):Unit"></a>
-      <a id="copyToArray[B&gt;:BSONElement](Array[B],Int,Int):Unit"></a>
+      <a id="copyToArray[B&gt;:(String,BSONValue)](Array[B],Int,Int):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">copyToArray</span><span class="tparams">[<span name="B">B &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="params">(<span name="xs">xs: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<span class="extype" name="scala.collection.Iterator.copyToArray.B">B</span>]</span>, <span name="start">start: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="len">len: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">copyToArray</span><span class="tparams">[<span name="B">B &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="params">(<span name="xs">xs: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<span class="extype" name="scala.collection.Iterator.copyToArray.B">B</span>]</span>, <span name="start">start: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="len">len: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@copyToArray[B&gt;:A](xs:Array[B],start:Int,len:Int):Unit" title="Permalink" target="_top">
@@ -486,14 +486,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator → TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#copyToArray" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="copyToArray[B&gt;:A](xs:Array[B]):Unit"></a>
-      <a id="copyToArray[B&gt;:BSONElement](Array[B]):Unit"></a>
+      <a id="copyToArray[B&gt;:(String,BSONValue)](Array[B]):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">copyToArray</span><span class="tparams">[<span name="B">B &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="params">(<span name="xs">xs: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<span class="extype" name="scala.collection.TraversableOnce.copyToArray.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">copyToArray</span><span class="tparams">[<span name="B">B &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="params">(<span name="xs">xs: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<span class="extype" name="scala.collection.TraversableOnce.copyToArray.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@copyToArray[B&gt;:A](xs:Array[B]):Unit" title="Permalink" target="_top">
@@ -503,14 +503,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#copyToArray" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="copyToArray[B&gt;:A](xs:Array[B],start:Int):Unit"></a>
-      <a id="copyToArray[B&gt;:BSONElement](Array[B],Int):Unit"></a>
+      <a id="copyToArray[B&gt;:(String,BSONValue)](Array[B],Int):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">copyToArray</span><span class="tparams">[<span name="B">B &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="params">(<span name="xs">xs: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<span class="extype" name="scala.collection.TraversableOnce.copyToArray.B">B</span>]</span>, <span name="start">start: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">copyToArray</span><span class="tparams">[<span name="B">B &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="params">(<span name="xs">xs: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<span class="extype" name="scala.collection.TraversableOnce.copyToArray.B">B</span>]</span>, <span name="start">start: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@copyToArray[B&gt;:A](xs:Array[B],start:Int):Unit" title="Permalink" target="_top">
@@ -520,14 +520,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#copyToBuffer" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="copyToBuffer[B&gt;:A](dest:scala.collection.mutable.Buffer[B]):Unit"></a>
-      <a id="copyToBuffer[B&gt;:BSONElement](Buffer[B]):Unit"></a>
+      <a id="copyToBuffer[B&gt;:(String,BSONValue)](Buffer[B]):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">copyToBuffer</span><span class="tparams">[<span name="B">B &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="params">(<span name="dest">dest: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.mutable.Buffer" class="extype" target="_top">Buffer</a>[<span class="extype" name="scala.collection.TraversableOnce.copyToBuffer.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">copyToBuffer</span><span class="tparams">[<span name="B">B &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="params">(<span name="dest">dest: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.mutable.Buffer" class="extype" target="_top">Buffer</a>[<span class="extype" name="scala.collection.TraversableOnce.copyToBuffer.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@copyToBuffer[B&gt;:A](dest:scala.collection.mutable.Buffer[B]):Unit" title="Permalink" target="_top">
@@ -537,14 +537,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce</dd></dl></div>
     </li><li name="scala.collection.Iterator#corresponds" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="corresponds[B](that:scala.collection.GenTraversableOnce[B])(p:(A,B)=&gt;Boolean):Boolean"></a>
-      <a id="corresponds[B](GenTraversableOnce[B])((BSONElement,B)⇒Boolean):Boolean"></a>
+      <a id="corresponds[B](GenTraversableOnce[B])(((String,BSONValue),B)⇒Boolean):Boolean"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">corresponds</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="that">that: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[<span class="extype" name="scala.collection.Iterator.corresponds.B">B</span>]</span>)</span><span class="params">(<span name="p">p: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>, <span class="extype" name="scala.collection.Iterator.corresponds.B">B</span>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">corresponds</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="that">that: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[<span class="extype" name="scala.collection.Iterator.corresponds.B">B</span>]</span>)</span><span class="params">(<span name="p">p: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>), <span class="extype" name="scala.collection.Iterator.corresponds.B">B</span>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@corresponds[B](that:scala.collection.GenTraversableOnce[B])(p:(A,B)=&gt;Boolean):Boolean" title="Permalink" target="_top">
@@ -554,14 +554,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#count" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="count(p:A=&gt;Boolean):Int"></a>
-      <a id="count((BSONElement)⇒Boolean):Int"></a>
+      <a id="count(((String,BSONValue))⇒Boolean):Int"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">count</span><span class="params">(<span name="p">p: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+        <span class="name">count</span><span class="params">(<span name="p">p: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@count(p:A=&gt;Boolean):Int" title="Permalink" target="_top">
@@ -588,14 +588,14 @@
       
     </li><li name="scala.collection.Iterator#drop" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="drop(n:Int):Iterator[A]"></a>
-      <a id="drop(Int):Iterator[BSONElement]"></a>
+      <a id="drop(Int):Iterator[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">drop</span><span class="params">(<span name="n">n: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">drop</span><span class="params">(<span name="n">n: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@drop(n:Int):Iterator[A]" title="Permalink" target="_top">
@@ -605,14 +605,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator</dd></dl></div>
     </li><li name="scala.collection.Iterator#dropWhile" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="dropWhile(p:A=&gt;Boolean):Iterator[A]"></a>
-      <a id="dropWhile((BSONElement)⇒Boolean):Iterator[BSONElement]"></a>
+      <a id="dropWhile(((String,BSONValue))⇒Boolean):Iterator[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">dropWhile</span><span class="params">(<span name="p">p: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">dropWhile</span><span class="params">(<span name="p">p: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@dropWhile(p:A=&gt;Boolean):Iterator[A]" title="Permalink" target="_top">
@@ -622,14 +622,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator</dd></dl></div>
     </li><li name="scala.collection.Iterator#duplicate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="duplicate:(Iterator[A],Iterator[A])"></a>
-      <a id="duplicate:(Iterator[BSONElement],Iterator[BSONElement])"></a>
+      <a id="duplicate:(Iterator[(String,BSONValue)],Iterator[(String,BSONValue)])"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">duplicate</span><span class="result">: (<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>])</span>
+        <span class="name">duplicate</span><span class="result">: (<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)])</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@duplicate:(Iterator[A],Iterator[A])" title="Permalink" target="_top">
@@ -646,7 +646,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.bson.buffer.BSONIterator">BSONIterator</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.buffer.BSONIterator">BSONIterator</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.bson.buffer.BSONIterator">BSONIterator</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.buffer.BSONIterator">BSONIterator</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -688,7 +688,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.buffer.BSONIterator">BSONIterator</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.buffer.BSONIterator">BSONIterator</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -730,7 +730,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
@@ -747,7 +747,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@equals(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -757,14 +757,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.collection.Iterator#exists" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="exists(p:A=&gt;Boolean):Boolean"></a>
-      <a id="exists((BSONElement)⇒Boolean):Boolean"></a>
+      <a id="exists(((String,BSONValue))⇒Boolean):Boolean"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">exists</span><span class="params">(<span name="p">p: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">exists</span><span class="params">(<span name="p">p: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@exists(p:A=&gt;Boolean):Boolean" title="Permalink" target="_top">
@@ -774,14 +774,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator → TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.Iterator#filter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="filter(p:A=&gt;Boolean):Iterator[A]"></a>
-      <a id="filter((BSONElement)⇒Boolean):Iterator[BSONElement]"></a>
+      <a id="filter(((String,BSONValue))⇒Boolean):Iterator[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">filter</span><span class="params">(<span name="p">p: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">filter</span><span class="params">(<span name="p">p: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@filter(p:A=&gt;Boolean):Iterator[A]" title="Permalink" target="_top">
@@ -791,14 +791,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator</dd></dl></div>
     </li><li name="scala.collection.Iterator#filterNot" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="filterNot(p:A=&gt;Boolean):Iterator[A]"></a>
-      <a id="filterNot((BSONElement)⇒Boolean):Iterator[BSONElement]"></a>
+      <a id="filterNot(((String,BSONValue))⇒Boolean):Iterator[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">filterNot</span><span class="params">(<span name="p">p: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">filterNot</span><span class="params">(<span name="p">p: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@filterNot(p:A=&gt;Boolean):Iterator[A]" title="Permalink" target="_top">
@@ -831,14 +831,14 @@
         </dd></dl></div>
     </li><li name="scala.collection.Iterator#find" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="find(p:A=&gt;Boolean):Option[A]"></a>
-      <a id="find((BSONElement)⇒Boolean):Option[BSONElement]"></a>
+      <a id="find(((String,BSONValue))⇒Boolean):Option[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">find</span><span class="params">(<span name="p">p: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">find</span><span class="params">(<span name="p">p: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@find(p:A=&gt;Boolean):Option[A]" title="Permalink" target="_top">
@@ -848,14 +848,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator → TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.Iterator#flatMap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="flatMap[B](f:A=&gt;scala.collection.GenTraversableOnce[B]):Iterator[B]"></a>
-      <a id="flatMap[B]((BSONElement)⇒GenTraversableOnce[B]):Iterator[B]"></a>
+      <a id="flatMap[B](((String,BSONValue))⇒GenTraversableOnce[B]):Iterator[B]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">flatMap</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[<span class="extype" name="scala.collection.Iterator.flatMap.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<span class="extype" name="scala.collection.Iterator.flatMap.B">B</span>]</span>
+        <span class="name">flatMap</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[<span class="extype" name="scala.collection.Iterator.flatMap.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<span class="extype" name="scala.collection.Iterator.flatMap.B">B</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@flatMap[B](f:A=&gt;scala.collection.GenTraversableOnce[B]):Iterator[B]" title="Permalink" target="_top">
@@ -865,14 +865,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#fold" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="fold[A1&gt;:A](z:A1)(op:(A1,A1)=&gt;A1):A1"></a>
-      <a id="fold[A1&gt;:BSONElement](A1)((A1,A1)⇒A1):A1"></a>
+      <a id="fold[A1&gt;:(String,BSONValue)](A1)((A1,A1)⇒A1):A1"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">fold</span><span class="tparams">[<span name="A1">A1 &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="params">(<span name="z">z: <span class="extype" name="scala.collection.TraversableOnce.fold.A1">A1</span></span>)</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableOnce.fold.A1">A1</span>, <span class="extype" name="scala.collection.TraversableOnce.fold.A1">A1</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.fold.A1">A1</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.fold.A1">A1</span></span>
+        <span class="name">fold</span><span class="tparams">[<span name="A1">A1 &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="params">(<span name="z">z: <span class="extype" name="scala.collection.TraversableOnce.fold.A1">A1</span></span>)</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableOnce.fold.A1">A1</span>, <span class="extype" name="scala.collection.TraversableOnce.fold.A1">A1</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.fold.A1">A1</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.fold.A1">A1</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@fold[A1&gt;:A](z:A1)(op:(A1,A1)=&gt;A1):A1" title="Permalink" target="_top">
@@ -882,14 +882,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#foldLeft" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="foldLeft[B](z:B)(op:(B,A)=&gt;B):B"></a>
-      <a id="foldLeft[B](B)((B,BSONElement)⇒B):B"></a>
+      <a id="foldLeft[B](B)((B,(String,BSONValue))⇒B):B"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">foldLeft</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="z">z: <span class="extype" name="scala.collection.TraversableOnce.foldLeft.B">B</span></span>)</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableOnce.foldLeft.B">B</span>, <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.foldLeft.B">B</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.foldLeft.B">B</span></span>
+        <span class="name">foldLeft</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="z">z: <span class="extype" name="scala.collection.TraversableOnce.foldLeft.B">B</span></span>)</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableOnce.foldLeft.B">B</span>, (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <span class="extype" name="scala.collection.TraversableOnce.foldLeft.B">B</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.foldLeft.B">B</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@foldLeft[B](z:B)(op:(B,A)=&gt;B):B" title="Permalink" target="_top">
@@ -899,14 +899,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#foldRight" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="foldRight[B](z:B)(op:(A,B)=&gt;B):B"></a>
-      <a id="foldRight[B](B)((BSONElement,B)⇒B):B"></a>
+      <a id="foldRight[B](B)(((String,BSONValue),B)⇒B):B"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">foldRight</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="z">z: <span class="extype" name="scala.collection.TraversableOnce.foldRight.B">B</span></span>)</span><span class="params">(<span name="op">op: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>, <span class="extype" name="scala.collection.TraversableOnce.foldRight.B">B</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.foldRight.B">B</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.foldRight.B">B</span></span>
+        <span class="name">foldRight</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="z">z: <span class="extype" name="scala.collection.TraversableOnce.foldRight.B">B</span></span>)</span><span class="params">(<span name="op">op: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>), <span class="extype" name="scala.collection.TraversableOnce.foldRight.B">B</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.foldRight.B">B</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.foldRight.B">B</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@foldRight[B](z:B)(op:(A,B)=&gt;B):B" title="Permalink" target="_top">
@@ -916,14 +916,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.Iterator#forall" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="forall(p:A=&gt;Boolean):Boolean"></a>
-      <a id="forall((BSONElement)⇒Boolean):Boolean"></a>
+      <a id="forall(((String,BSONValue))⇒Boolean):Boolean"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">forall</span><span class="params">(<span name="p">p: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">forall</span><span class="params">(<span name="p">p: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@forall(p:A=&gt;Boolean):Boolean" title="Permalink" target="_top">
@@ -933,14 +933,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator → TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.Iterator#foreach" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="foreach[U](f:A=&gt;U):Unit"></a>
-      <a id="foreach[U]((BSONElement)⇒U):Unit"></a>
+      <a id="foreach[U](((String,BSONValue))⇒U):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">foreach</span><span class="tparams">[<span name="U">U</span>]</span><span class="params">(<span name="f">f: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <span class="extype" name="scala.collection.Iterator.foreach.U">U</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">foreach</span><span class="tparams">[<span name="U">U</span>]</span><span class="params">(<span name="f">f: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <span class="extype" name="scala.collection.Iterator.foreach.U">U</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@foreach[U](f:A=&gt;U):Unit" title="Permalink" target="_top">
@@ -991,14 +991,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.collection.Iterator#grouped" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="grouped[B&gt;:A](size:Int):Iterator.this.GroupedIterator[B]"></a>
-      <a id="grouped[B&gt;:BSONElement](Int):GroupedIterator[B]"></a>
+      <a id="grouped[B&gt;:(String,BSONValue)](Int):GroupedIterator[B]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">grouped</span><span class="tparams">[<span name="B">B &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="params">(<span name="size">size: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="#GroupedIterator[B&gt;:A]extendsAbstractIterator[Seq[B]]withIterator[Seq[B]]" class="extmbr" name="reactivemongo.bson.buffer.BSONIterator.GroupedIterator">GroupedIterator</a>[<span class="extype" name="scala.collection.Iterator.grouped.B">B</span>]</span>
+        <span class="name">grouped</span><span class="tparams">[<span name="B">B &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="params">(<span name="size">size: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="#GroupedIterator[B&gt;:A]extendsAbstractIterator[Seq[B]]withIterator[Seq[B]]" class="extmbr" name="reactivemongo.bson.buffer.BSONIterator.GroupedIterator">GroupedIterator</a>[<span class="extype" name="scala.collection.Iterator.grouped.B">B</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@grouped[B&gt;:A](size:Int):Iterator.this.GroupedIterator[B]" title="Permalink" target="_top">
@@ -1059,14 +1059,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.collection.Iterator#indexOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="indexOf[B&gt;:A](elem:B):Int"></a>
-      <a id="indexOf[B&gt;:BSONElement](B):Int"></a>
+      <a id="indexOf[B&gt;:(String,BSONValue)](B):Int"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">indexOf</span><span class="tparams">[<span name="B">B &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="params">(<span name="elem">elem: <span class="extype" name="scala.collection.Iterator.indexOf.B">B</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+        <span class="name">indexOf</span><span class="tparams">[<span name="B">B &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="params">(<span name="elem">elem: <span class="extype" name="scala.collection.Iterator.indexOf.B">B</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@indexOf[B&gt;:A](elem:B):Int" title="Permalink" target="_top">
@@ -1076,14 +1076,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator</dd></dl></div>
     </li><li name="scala.collection.Iterator#indexWhere" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="indexWhere(p:A=&gt;Boolean):Int"></a>
-      <a id="indexWhere((BSONElement)⇒Boolean):Int"></a>
+      <a id="indexWhere(((String,BSONValue))⇒Boolean):Int"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">indexWhere</span><span class="params">(<span name="p">p: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+        <span class="name">indexWhere</span><span class="params">(<span name="p">p: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@indexWhere(p:A=&gt;Boolean):Int" title="Permalink" target="_top">
@@ -1161,14 +1161,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator</dd></dl></div>
     </li><li name="scala.collection.Iterator#map" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="map[B](f:A=&gt;B):Iterator[B]"></a>
-      <a id="map[B]((BSONElement)⇒B):Iterator[B]"></a>
+      <a id="map[B](((String,BSONValue))⇒B):Iterator[B]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">map</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <span class="extype" name="scala.collection.Iterator.map.B">B</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<span class="extype" name="scala.collection.Iterator.map.B">B</span>]</span>
+        <span class="name">map</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <span class="extype" name="scala.collection.Iterator.map.B">B</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<span class="extype" name="scala.collection.Iterator.map.B">B</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@map[B](f:A=&gt;B):Iterator[B]" title="Permalink" target="_top">
@@ -1185,7 +1185,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">mapped</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">mapped</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONElement.html" class="extype" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@mapped:Map[String,reactivemongo.bson.BSONElement]" title="Permalink" target="_top">
@@ -1195,14 +1195,14 @@
       
     </li><li name="scala.collection.TraversableOnce#max" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="max[B&gt;:A](implicitcmp:Ordering[B]):A"></a>
-      <a id="max[B&gt;:BSONElement](Ordering[B]):BSONElement"></a>
+      <a id="max[B&gt;:(String,BSONValue)](Ordering[B]):(String,BSONValue)"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">max</span><span class="tparams">[<span name="B">B &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="params">(<span class="implicit">implicit </span><span name="cmp">cmp: <span class="extype" name="scala.Ordering">Ordering</span>[<span class="extype" name="scala.collection.TraversableOnce.max.B">B</span>]</span>)</span><span class="result">: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>
+        <span class="name">max</span><span class="tparams">[<span name="B">B &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="cmp">cmp: <span class="extype" name="scala.Ordering">Ordering</span>[<span class="extype" name="scala.collection.TraversableOnce.max.B">B</span>]</span>)</span><span class="result">: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@max[B&gt;:A](implicitcmp:Ordering[B]):A" title="Permalink" target="_top">
@@ -1212,14 +1212,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#maxBy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="maxBy[B](f:A=&gt;B)(implicitcmp:Ordering[B]):A"></a>
-      <a id="maxBy[B]((BSONElement)⇒B)(Ordering[B]):BSONElement"></a>
+      <a id="maxBy[B](((String,BSONValue))⇒B)(Ordering[B]):(String,BSONValue)"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">maxBy</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.maxBy.B">B</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cmp">cmp: <span class="extype" name="scala.Ordering">Ordering</span>[<span class="extype" name="scala.collection.TraversableOnce.maxBy.B">B</span>]</span>)</span><span class="result">: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>
+        <span class="name">maxBy</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <span class="extype" name="scala.collection.TraversableOnce.maxBy.B">B</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cmp">cmp: <span class="extype" name="scala.Ordering">Ordering</span>[<span class="extype" name="scala.collection.TraversableOnce.maxBy.B">B</span>]</span>)</span><span class="result">: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@maxBy[B](f:A=&gt;B)(implicitcmp:Ordering[B]):A" title="Permalink" target="_top">
@@ -1229,14 +1229,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#min" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="min[B&gt;:A](implicitcmp:Ordering[B]):A"></a>
-      <a id="min[B&gt;:BSONElement](Ordering[B]):BSONElement"></a>
+      <a id="min[B&gt;:(String,BSONValue)](Ordering[B]):(String,BSONValue)"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">min</span><span class="tparams">[<span name="B">B &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="params">(<span class="implicit">implicit </span><span name="cmp">cmp: <span class="extype" name="scala.Ordering">Ordering</span>[<span class="extype" name="scala.collection.TraversableOnce.min.B">B</span>]</span>)</span><span class="result">: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>
+        <span class="name">min</span><span class="tparams">[<span name="B">B &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="cmp">cmp: <span class="extype" name="scala.Ordering">Ordering</span>[<span class="extype" name="scala.collection.TraversableOnce.min.B">B</span>]</span>)</span><span class="result">: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@min[B&gt;:A](implicitcmp:Ordering[B]):A" title="Permalink" target="_top">
@@ -1246,14 +1246,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#minBy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="minBy[B](f:A=&gt;B)(implicitcmp:Ordering[B]):A"></a>
-      <a id="minBy[B]((BSONElement)⇒B)(Ordering[B]):BSONElement"></a>
+      <a id="minBy[B](((String,BSONValue))⇒B)(Ordering[B]):(String,BSONValue)"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">minBy</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.minBy.B">B</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cmp">cmp: <span class="extype" name="scala.Ordering">Ordering</span>[<span class="extype" name="scala.collection.TraversableOnce.minBy.B">B</span>]</span>)</span><span class="result">: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>
+        <span class="name">minBy</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <span class="extype" name="scala.collection.TraversableOnce.minBy.B">B</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cmp">cmp: <span class="extype" name="scala.Ordering">Ordering</span>[<span class="extype" name="scala.collection.TraversableOnce.minBy.B">B</span>]</span>)</span><span class="result">: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@minBy[B](f:A=&gt;B)(implicitcmp:Ordering[B]):A" title="Permalink" target="_top">
@@ -1321,7 +1321,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
@@ -1330,18 +1330,18 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="reactivemongo.bson.buffer.BSONIterator#next" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="next():reactivemongo.bson.BSONElement"></a>
-      <a id="next():BSONElement"></a>
+      <a id="next():(String,reactivemongo.bson.BSONValue)"></a>
+      <a id="next():(String,BSONValue)"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">next</span><span class="params">()</span><span class="result">: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>
+        <span class="name">next</span><span class="params">()</span><span class="result">: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@next():reactivemongo.bson.BSONElement" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@next():(String,reactivemongo.bson.BSONValue)" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1399,14 +1399,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.collection.Iterator#padTo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="padTo[A1&gt;:A](len:Int,elem:A1):Iterator[A1]"></a>
-      <a id="padTo[A1&gt;:BSONElement](Int,A1):Iterator[A1]"></a>
+      <a id="padTo[A1&gt;:(String,BSONValue)](Int,A1):Iterator[A1]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">padTo</span><span class="tparams">[<span name="A1">A1 &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="params">(<span name="len">len: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="elem">elem: <span class="extype" name="scala.collection.Iterator.padTo.A1">A1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<span class="extype" name="scala.collection.Iterator.padTo.A1">A1</span>]</span>
+        <span class="name">padTo</span><span class="tparams">[<span name="A1">A1 &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="params">(<span name="len">len: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="elem">elem: <span class="extype" name="scala.collection.Iterator.padTo.A1">A1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<span class="extype" name="scala.collection.Iterator.padTo.A1">A1</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@padTo[A1&gt;:A](len:Int,elem:A1):Iterator[A1]" title="Permalink" target="_top">
@@ -1416,14 +1416,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator</dd></dl></div>
     </li><li name="scala.collection.Iterator#partition" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="partition(p:A=&gt;Boolean):(Iterator[A],Iterator[A])"></a>
-      <a id="partition((BSONElement)⇒Boolean):(Iterator[BSONElement],Iterator[BSONElement])"></a>
+      <a id="partition(((String,BSONValue))⇒Boolean):(Iterator[(String,BSONValue)],Iterator[(String,BSONValue)])"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">partition</span><span class="params">(<span name="p">p: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: (<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>])</span>
+        <span class="name">partition</span><span class="params">(<span name="p">p: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: (<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)])</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@partition(p:A=&gt;Boolean):(Iterator[A],Iterator[A])" title="Permalink" target="_top">
@@ -1433,14 +1433,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator</dd></dl></div>
     </li><li name="scala.collection.Iterator#patch" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="patch[B&gt;:A](from:Int,patchElems:Iterator[B],replaced:Int):Iterator[B]"></a>
-      <a id="patch[B&gt;:BSONElement](Int,Iterator[B],Int):Iterator[B]"></a>
+      <a id="patch[B&gt;:(String,BSONValue)](Int,Iterator[B],Int):Iterator[B]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">patch</span><span class="tparams">[<span name="B">B &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="params">(<span name="from">from: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="patchElems">patchElems: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<span class="extype" name="scala.collection.Iterator.patch.B">B</span>]</span>, <span name="replaced">replaced: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<span class="extype" name="scala.collection.Iterator.patch.B">B</span>]</span>
+        <span class="name">patch</span><span class="tparams">[<span name="B">B &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="params">(<span name="from">from: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="patchElems">patchElems: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<span class="extype" name="scala.collection.Iterator.patch.B">B</span>]</span>, <span name="replaced">replaced: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<span class="extype" name="scala.collection.Iterator.patch.B">B</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@patch[B&gt;:A](from:Int,patchElems:Iterator[B],replaced:Int):Iterator[B]" title="Permalink" target="_top">
@@ -1450,14 +1450,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#product" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="product[B&gt;:A](implicitnum:Numeric[B]):B"></a>
-      <a id="product[B&gt;:BSONElement](Numeric[B]):B"></a>
+      <a id="product[B&gt;:(String,BSONValue)](Numeric[B]):B"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">product</span><span class="tparams">[<span name="B">B &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="params">(<span class="implicit">implicit </span><span name="num">num: <span class="extype" name="scala.Numeric">Numeric</span>[<span class="extype" name="scala.collection.TraversableOnce.product.B">B</span>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.product.B">B</span></span>
+        <span class="name">product</span><span class="tparams">[<span name="B">B &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="num">num: <span class="extype" name="scala.Numeric">Numeric</span>[<span class="extype" name="scala.collection.TraversableOnce.product.B">B</span>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.product.B">B</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@product[B&gt;:A](implicitnum:Numeric[B]):B" title="Permalink" target="_top">
@@ -1467,14 +1467,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#reduce" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="reduce[A1&gt;:A](op:(A1,A1)=&gt;A1):A1"></a>
-      <a id="reduce[A1&gt;:BSONElement]((A1,A1)⇒A1):A1"></a>
+      <a id="reduce[A1&gt;:(String,BSONValue)]((A1,A1)⇒A1):A1"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">reduce</span><span class="tparams">[<span name="A1">A1 &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableOnce.reduce.A1">A1</span>, <span class="extype" name="scala.collection.TraversableOnce.reduce.A1">A1</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.reduce.A1">A1</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.reduce.A1">A1</span></span>
+        <span class="name">reduce</span><span class="tparams">[<span name="A1">A1 &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableOnce.reduce.A1">A1</span>, <span class="extype" name="scala.collection.TraversableOnce.reduce.A1">A1</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.reduce.A1">A1</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.reduce.A1">A1</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@reduce[A1&gt;:A](op:(A1,A1)=&gt;A1):A1" title="Permalink" target="_top">
@@ -1484,14 +1484,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#reduceLeft" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="reduceLeft[B&gt;:A](op:(B,A)=&gt;B):B"></a>
-      <a id="reduceLeft[B&gt;:BSONElement]((B,BSONElement)⇒B):B"></a>
+      <a id="reduceLeft[B&gt;:(String,BSONValue)]((B,(String,BSONValue))⇒B):B"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">reduceLeft</span><span class="tparams">[<span name="B">B &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableOnce.reduceLeft.B">B</span>, <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.reduceLeft.B">B</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.reduceLeft.B">B</span></span>
+        <span class="name">reduceLeft</span><span class="tparams">[<span name="B">B &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableOnce.reduceLeft.B">B</span>, (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <span class="extype" name="scala.collection.TraversableOnce.reduceLeft.B">B</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.reduceLeft.B">B</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@reduceLeft[B&gt;:A](op:(B,A)=&gt;B):B" title="Permalink" target="_top">
@@ -1501,14 +1501,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#reduceLeftOption" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="reduceLeftOption[B&gt;:A](op:(B,A)=&gt;B):Option[B]"></a>
-      <a id="reduceLeftOption[B&gt;:BSONElement]((B,BSONElement)⇒B):Option[B]"></a>
+      <a id="reduceLeftOption[B&gt;:(String,BSONValue)]((B,(String,BSONValue))⇒B):Option[B]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">reduceLeftOption</span><span class="tparams">[<span name="B">B &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableOnce.reduceLeftOption.B">B</span>, <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.reduceLeftOption.B">B</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.collection.TraversableOnce.reduceLeftOption.B">B</span>]</span>
+        <span class="name">reduceLeftOption</span><span class="tparams">[<span name="B">B &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableOnce.reduceLeftOption.B">B</span>, (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <span class="extype" name="scala.collection.TraversableOnce.reduceLeftOption.B">B</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.collection.TraversableOnce.reduceLeftOption.B">B</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@reduceLeftOption[B&gt;:A](op:(B,A)=&gt;B):Option[B]" title="Permalink" target="_top">
@@ -1518,14 +1518,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#reduceOption" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="reduceOption[A1&gt;:A](op:(A1,A1)=&gt;A1):Option[A1]"></a>
-      <a id="reduceOption[A1&gt;:BSONElement]((A1,A1)⇒A1):Option[A1]"></a>
+      <a id="reduceOption[A1&gt;:(String,BSONValue)]((A1,A1)⇒A1):Option[A1]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">reduceOption</span><span class="tparams">[<span name="A1">A1 &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableOnce.reduceOption.A1">A1</span>, <span class="extype" name="scala.collection.TraversableOnce.reduceOption.A1">A1</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.reduceOption.A1">A1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.collection.TraversableOnce.reduceOption.A1">A1</span>]</span>
+        <span class="name">reduceOption</span><span class="tparams">[<span name="A1">A1 &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableOnce.reduceOption.A1">A1</span>, <span class="extype" name="scala.collection.TraversableOnce.reduceOption.A1">A1</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.reduceOption.A1">A1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.collection.TraversableOnce.reduceOption.A1">A1</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@reduceOption[A1&gt;:A](op:(A1,A1)=&gt;A1):Option[A1]" title="Permalink" target="_top">
@@ -1535,14 +1535,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#reduceRight" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="reduceRight[B&gt;:A](op:(A,B)=&gt;B):B"></a>
-      <a id="reduceRight[B&gt;:BSONElement]((BSONElement,B)⇒B):B"></a>
+      <a id="reduceRight[B&gt;:(String,BSONValue)](((String,BSONValue),B)⇒B):B"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">reduceRight</span><span class="tparams">[<span name="B">B &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="params">(<span name="op">op: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>, <span class="extype" name="scala.collection.TraversableOnce.reduceRight.B">B</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.reduceRight.B">B</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.reduceRight.B">B</span></span>
+        <span class="name">reduceRight</span><span class="tparams">[<span name="B">B &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="params">(<span name="op">op: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>), <span class="extype" name="scala.collection.TraversableOnce.reduceRight.B">B</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.reduceRight.B">B</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.reduceRight.B">B</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@reduceRight[B&gt;:A](op:(A,B)=&gt;B):B" title="Permalink" target="_top">
@@ -1552,14 +1552,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#reduceRightOption" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="reduceRightOption[B&gt;:A](op:(A,B)=&gt;B):Option[B]"></a>
-      <a id="reduceRightOption[B&gt;:BSONElement]((BSONElement,B)⇒B):Option[B]"></a>
+      <a id="reduceRightOption[B&gt;:(String,BSONValue)](((String,BSONValue),B)⇒B):Option[B]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">reduceRightOption</span><span class="tparams">[<span name="B">B &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="params">(<span name="op">op: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>, <span class="extype" name="scala.collection.TraversableOnce.reduceRightOption.B">B</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.reduceRightOption.B">B</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.collection.TraversableOnce.reduceRightOption.B">B</span>]</span>
+        <span class="name">reduceRightOption</span><span class="tparams">[<span name="B">B &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="params">(<span name="op">op: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>), <span class="extype" name="scala.collection.TraversableOnce.reduceRightOption.B">B</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.reduceRightOption.B">B</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.collection.TraversableOnce.reduceRightOption.B">B</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@reduceRightOption[B&gt;:A](op:(A,B)=&gt;B):Option[B]" title="Permalink" target="_top">
@@ -1569,14 +1569,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#reversed" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="reversed:List[A]"></a>
-      <a id="reversed:List[BSONElement]"></a>
+      <a id="reversed:List[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">reversed</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">reversed</span><span class="result">: <span class="extype" name="scala.List">List</span>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@reversed:List[A]" title="Permalink" target="_top">
@@ -1603,14 +1603,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator</dd></dl></div>
     </li><li name="scala.collection.Iterator#scanLeft" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="scanLeft[B](z:B)(op:(B,A)=&gt;B):Iterator[B]"></a>
-      <a id="scanLeft[B](B)((B,BSONElement)⇒B):Iterator[B]"></a>
+      <a id="scanLeft[B](B)((B,(String,BSONValue))⇒B):Iterator[B]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">scanLeft</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="z">z: <span class="extype" name="scala.collection.Iterator.scanLeft.B">B</span></span>)</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.Iterator.scanLeft.B">B</span>, <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <span class="extype" name="scala.collection.Iterator.scanLeft.B">B</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<span class="extype" name="scala.collection.Iterator.scanLeft.B">B</span>]</span>
+        <span class="name">scanLeft</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="z">z: <span class="extype" name="scala.collection.Iterator.scanLeft.B">B</span></span>)</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.Iterator.scanLeft.B">B</span>, (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <span class="extype" name="scala.collection.Iterator.scanLeft.B">B</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<span class="extype" name="scala.collection.Iterator.scanLeft.B">B</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@scanLeft[B](z:B)(op:(B,A)=&gt;B):Iterator[B]" title="Permalink" target="_top">
@@ -1620,14 +1620,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator</dd></dl></div>
     </li><li name="scala.collection.Iterator#scanRight" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="scanRight[B](z:B)(op:(A,B)=&gt;B):Iterator[B]"></a>
-      <a id="scanRight[B](B)((BSONElement,B)⇒B):Iterator[B]"></a>
+      <a id="scanRight[B](B)(((String,BSONValue),B)⇒B):Iterator[B]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">scanRight</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="z">z: <span class="extype" name="scala.collection.Iterator.scanRight.B">B</span></span>)</span><span class="params">(<span name="op">op: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>, <span class="extype" name="scala.collection.Iterator.scanRight.B">B</span>) ⇒ <span class="extype" name="scala.collection.Iterator.scanRight.B">B</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<span class="extype" name="scala.collection.Iterator.scanRight.B">B</span>]</span>
+        <span class="name">scanRight</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="z">z: <span class="extype" name="scala.collection.Iterator.scanRight.B">B</span></span>)</span><span class="params">(<span name="op">op: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>), <span class="extype" name="scala.collection.Iterator.scanRight.B">B</span>) ⇒ <span class="extype" name="scala.collection.Iterator.scanRight.B">B</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<span class="extype" name="scala.collection.Iterator.scanRight.B">B</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@scanRight[B](z:B)(op:(A,B)=&gt;B):Iterator[B]" title="Permalink" target="_top">
@@ -1637,14 +1637,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator</dd></dl></div>
     </li><li name="scala.collection.Iterator#seq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="seq:Iterator[A]"></a>
-      <a id="seq:Iterator[BSONElement]"></a>
+      <a id="seq:Iterator[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">seq</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">seq</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@seq:Iterator[A]" title="Permalink" target="_top">
@@ -1671,14 +1671,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.Iterator#slice" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="slice(from:Int,until:Int):Iterator[A]"></a>
-      <a id="slice(Int,Int):Iterator[BSONElement]"></a>
+      <a id="slice(Int,Int):Iterator[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">slice</span><span class="params">(<span name="from">from: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="until">until: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">slice</span><span class="params">(<span name="from">from: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="until">until: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@slice(from:Int,until:Int):Iterator[A]" title="Permalink" target="_top">
@@ -1688,14 +1688,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator</dd></dl></div>
     </li><li name="scala.collection.Iterator#sliding" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sliding[B&gt;:A](size:Int,step:Int):Iterator.this.GroupedIterator[B]"></a>
-      <a id="sliding[B&gt;:BSONElement](Int,Int):GroupedIterator[B]"></a>
+      <a id="sliding[B&gt;:(String,BSONValue)](Int,Int):GroupedIterator[B]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">sliding</span><span class="tparams">[<span name="B">B &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="params">(<span name="size">size: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="step">step: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="#GroupedIterator[B&gt;:A]extendsAbstractIterator[Seq[B]]withIterator[Seq[B]]" class="extmbr" name="reactivemongo.bson.buffer.BSONIterator.GroupedIterator">GroupedIterator</a>[<span class="extype" name="scala.collection.Iterator.sliding.B">B</span>]</span>
+        <span class="name">sliding</span><span class="tparams">[<span name="B">B &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="params">(<span name="size">size: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="step">step: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="#GroupedIterator[B&gt;:A]extendsAbstractIterator[Seq[B]]withIterator[Seq[B]]" class="extmbr" name="reactivemongo.bson.buffer.BSONIterator.GroupedIterator">GroupedIterator</a>[<span class="extype" name="scala.collection.Iterator.sliding.B">B</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@sliding[B&gt;:A](size:Int,step:Int):Iterator.this.GroupedIterator[B]" title="Permalink" target="_top">
@@ -1705,14 +1705,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator</dd></dl></div>
     </li><li name="scala.collection.Iterator#span" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="span(p:A=&gt;Boolean):(Iterator[A],Iterator[A])"></a>
-      <a id="span((BSONElement)⇒Boolean):(Iterator[BSONElement],Iterator[BSONElement])"></a>
+      <a id="span(((String,BSONValue))⇒Boolean):(Iterator[(String,BSONValue)],Iterator[(String,BSONValue)])"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">span</span><span class="params">(<span name="p">p: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: (<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>])</span>
+        <span class="name">span</span><span class="params">(<span name="p">p: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: (<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)])</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@span(p:A=&gt;Boolean):(Iterator[A],Iterator[A])" title="Permalink" target="_top">
@@ -1739,14 +1739,14 @@
       
     </li><li name="scala.collection.TraversableOnce#sum" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sum[B&gt;:A](implicitnum:Numeric[B]):B"></a>
-      <a id="sum[B&gt;:BSONElement](Numeric[B]):B"></a>
+      <a id="sum[B&gt;:(String,BSONValue)](Numeric[B]):B"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">sum</span><span class="tparams">[<span name="B">B &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="params">(<span class="implicit">implicit </span><span name="num">num: <span class="extype" name="scala.Numeric">Numeric</span>[<span class="extype" name="scala.collection.TraversableOnce.sum.B">B</span>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.sum.B">B</span></span>
+        <span class="name">sum</span><span class="tparams">[<span name="B">B &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="num">num: <span class="extype" name="scala.Numeric">Numeric</span>[<span class="extype" name="scala.collection.TraversableOnce.sum.B">B</span>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.sum.B">B</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@sum[B&gt;:A](implicitnum:Numeric[B]):B" title="Permalink" target="_top">
@@ -1773,14 +1773,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.collection.Iterator#take" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="take(n:Int):Iterator[A]"></a>
-      <a id="take(Int):Iterator[BSONElement]"></a>
+      <a id="take(Int):Iterator[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">take</span><span class="params">(<span name="n">n: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">take</span><span class="params">(<span name="n">n: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@take(n:Int):Iterator[A]" title="Permalink" target="_top">
@@ -1790,14 +1790,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator</dd></dl></div>
     </li><li name="scala.collection.Iterator#takeWhile" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="takeWhile(p:A=&gt;Boolean):Iterator[A]"></a>
-      <a id="takeWhile((BSONElement)⇒Boolean):Iterator[BSONElement]"></a>
+      <a id="takeWhile(((String,BSONValue))⇒Boolean):Iterator[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">takeWhile</span><span class="params">(<span name="p">p: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">takeWhile</span><span class="params">(<span name="p">p: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@takeWhile(p:A=&gt;Boolean):Iterator[A]" title="Permalink" target="_top">
@@ -1807,14 +1807,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#to" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="to[Col[_]](implicitcbf:scala.collection.generic.CanBuildFrom[Nothing,A,Col[A@scala.annotation.unchecked.uncheckedVariance]]):Col[A@scala.annotation.unchecked.uncheckedVariance]"></a>
-      <a id="to[Col[_]](CanBuildFrom[Nothing,BSONElement,Col[BSONElement]]):Col[BSONElement]"></a>
+      <a id="to[Col[_]](CanBuildFrom[Nothing,(String,BSONValue),Col[(String,BSONValue)]]):Col[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">to</span><span class="tparams">[<span name="Col">Col<span class="tparams">[<span name="_">_</span>]</span></span>]</span><span class="params">(<span class="implicit">implicit </span><span name="cbf">cbf: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.CanBuildFrom" class="extype" target="_top">CanBuildFrom</a>[<span class="extype" name="scala.Nothing">Nothing</span>, <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>, <span class="extype" name="scala.collection.TraversableOnce.to.Col">Col</span>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]]</span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.to.Col">Col</span>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">to</span><span class="tparams">[<span name="Col">Col<span class="tparams">[<span name="_">_</span>]</span></span>]</span><span class="params">(<span class="implicit">implicit </span><span name="cbf">cbf: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.CanBuildFrom" class="extype" target="_top">CanBuildFrom</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Nothing" class="extype" target="_top">Nothing</a>, (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>), <span class="extype" name="scala.collection.TraversableOnce.to.Col">Col</span>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]]</span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.to.Col">Col</span>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@to[Col[_]](implicitcbf:scala.collection.generic.CanBuildFrom[Nothing,A,Col[A@scala.annotation.unchecked.uncheckedVariance]]):Col[A@scala.annotation.unchecked.uncheckedVariance]" title="Permalink" target="_top">
@@ -1824,14 +1824,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#toArray" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toArray[B&gt;:A](implicitevidence$1:scala.reflect.ClassTag[B]):Array[B]"></a>
-      <a id="toArray[B&gt;:BSONElement](ClassTag[B]):Array[B]"></a>
+      <a id="toArray[B&gt;:(String,BSONValue)](ClassTag[B]):Array[B]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">toArray</span><span class="tparams">[<span name="B">B &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.reflect.ClassTag" class="extype" target="_top">ClassTag</a>[<span class="extype" name="scala.collection.TraversableOnce.toArray.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<span class="extype" name="scala.collection.TraversableOnce.toArray.B">B</span>]</span>
+        <span class="name">toArray</span><span class="tparams">[<span name="B">B &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.reflect.ClassTag" class="extype" target="_top">ClassTag</a>[<span class="extype" name="scala.collection.TraversableOnce.toArray.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<span class="extype" name="scala.collection.TraversableOnce.toArray.B">B</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@toArray[B&gt;:A](implicitevidence$1:scala.reflect.ClassTag[B]):Array[B]" title="Permalink" target="_top">
@@ -1841,14 +1841,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#toBuffer" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toBuffer[B&gt;:A]:scala.collection.mutable.Buffer[B]"></a>
-      <a id="toBuffer[B&gt;:BSONElement]:Buffer[B]"></a>
+      <a id="toBuffer[B&gt;:(String,BSONValue)]:Buffer[B]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">toBuffer</span><span class="tparams">[<span name="B">B &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.mutable.Buffer" class="extype" target="_top">Buffer</a>[<span class="extype" name="scala.collection.TraversableOnce.toBuffer.B">B</span>]</span>
+        <span class="name">toBuffer</span><span class="tparams">[<span name="B">B &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.mutable.Buffer" class="extype" target="_top">Buffer</a>[<span class="extype" name="scala.collection.TraversableOnce.toBuffer.B">B</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@toBuffer[B&gt;:A]:scala.collection.mutable.Buffer[B]" title="Permalink" target="_top">
@@ -1858,14 +1858,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#toIndexedSeq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toIndexedSeq:scala.collection.immutable.IndexedSeq[A]"></a>
-      <a id="toIndexedSeq:IndexedSeq[BSONElement]"></a>
+      <a id="toIndexedSeq:IndexedSeq[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">toIndexedSeq</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.immutable.IndexedSeq" class="extype" target="_top">IndexedSeq</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">toIndexedSeq</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.immutable.IndexedSeq" class="extype" target="_top">IndexedSeq</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@toIndexedSeq:scala.collection.immutable.IndexedSeq[A]" title="Permalink" target="_top">
@@ -1875,14 +1875,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#toIterable" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toIterable:Iterable[A]"></a>
-      <a id="toIterable:Iterable[BSONElement]"></a>
+      <a id="toIterable:Iterable[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">toIterable</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterable" class="extype" target="_top">Iterable</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">toIterable</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterable" class="extype" target="_top">Iterable</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@toIterable:Iterable[A]" title="Permalink" target="_top">
@@ -1892,14 +1892,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.Iterator#toIterator" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toIterator:Iterator[A]"></a>
-      <a id="toIterator:Iterator[BSONElement]"></a>
+      <a id="toIterator:Iterator[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">toIterator</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">toIterator</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@toIterator:Iterator[A]" title="Permalink" target="_top">
@@ -1909,14 +1909,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#toList" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toList:List[A]"></a>
-      <a id="toList:List[BSONElement]"></a>
+      <a id="toList:List[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">toList</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">toList</span><span class="result">: <span class="extype" name="scala.List">List</span>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@toList:List[A]" title="Permalink" target="_top">
@@ -1926,14 +1926,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#toMap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toMap[T,U](implicitev:&lt;:&lt;[A,(T,U)]):scala.collection.immutable.Map[T,U]"></a>
-      <a id="toMap[T,U](&lt;:&lt;[BSONElement,(T,U)]):Map[T,U]"></a>
+      <a id="toMap[T,U](&lt;:&lt;[(String,BSONValue),(T,U)]):Map[T,U]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">toMap</span><span class="tparams">[<span name="T">T</span>, <span name="U">U</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="ev">ev: <span class="extype" name="scala.Predef.&lt;:&lt;">&lt;:&lt;</span>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>, (<span class="extype" name="scala.collection.TraversableOnce.toMap.T">T</span>, <span class="extype" name="scala.collection.TraversableOnce.toMap.U">U</span>)]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.immutable.Map" class="extype" target="_top">Map</a>[<span class="extype" name="scala.collection.TraversableOnce.toMap.T">T</span>, <span class="extype" name="scala.collection.TraversableOnce.toMap.U">U</span>]</span>
+        <span class="name">toMap</span><span class="tparams">[<span name="T">T</span>, <span name="U">U</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="ev">ev: <span class="extype" name="scala.Predef.&lt;:&lt;">&lt;:&lt;</span>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>), (<span class="extype" name="scala.collection.TraversableOnce.toMap.T">T</span>, <span class="extype" name="scala.collection.TraversableOnce.toMap.U">U</span>)]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.immutable.Map" class="extype" target="_top">Map</a>[<span class="extype" name="scala.collection.TraversableOnce.toMap.T">T</span>, <span class="extype" name="scala.collection.TraversableOnce.toMap.U">U</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@toMap[T,U](implicitev:&lt;:&lt;[A,(T,U)]):scala.collection.immutable.Map[T,U]" title="Permalink" target="_top">
@@ -1943,14 +1943,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#toSeq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toSeq:Seq[A]"></a>
-      <a id="toSeq:Seq[BSONElement]"></a>
+      <a id="toSeq:Seq[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">toSeq</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Seq" class="extype" target="_top">Seq</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">toSeq</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Seq" class="extype" target="_top">Seq</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@toSeq:Seq[A]" title="Permalink" target="_top">
@@ -1960,14 +1960,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#toSet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toSet[B&gt;:A]:scala.collection.immutable.Set[B]"></a>
-      <a id="toSet[B&gt;:BSONElement]:Set[B]"></a>
+      <a id="toSet[B&gt;:(String,BSONValue)]:Set[B]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">toSet</span><span class="tparams">[<span name="B">B &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.immutable.Set" class="extype" target="_top">Set</a>[<span class="extype" name="scala.collection.TraversableOnce.toSet.B">B</span>]</span>
+        <span class="name">toSet</span><span class="tparams">[<span name="B">B &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.immutable.Set" class="extype" target="_top">Set</a>[<span class="extype" name="scala.collection.TraversableOnce.toSet.B">B</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@toSet[B&gt;:A]:scala.collection.immutable.Set[B]" title="Permalink" target="_top">
@@ -1977,14 +1977,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.Iterator#toStream" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toStream:scala.collection.immutable.Stream[A]"></a>
-      <a id="toStream:Stream[BSONElement]"></a>
+      <a id="toStream:Stream[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">toStream</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.immutable.Stream" class="extype" target="_top">Stream</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">toStream</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.immutable.Stream" class="extype" target="_top">Stream</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@toStream:scala.collection.immutable.Stream[A]" title="Permalink" target="_top">
@@ -2011,14 +2011,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator → AnyRef → Any</dd></dl></div>
     </li><li name="scala.collection.Iterator#toTraversable" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toTraversable:Traversable[A]"></a>
-      <a id="toTraversable:Traversable[BSONElement]"></a>
+      <a id="toTraversable:Traversable[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">toTraversable</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">toTraversable</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@toTraversable:Traversable[A]" title="Permalink" target="_top">
@@ -2028,14 +2028,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator → TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#toVector" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toVector:Vector[A]"></a>
-      <a id="toVector:Vector[BSONElement]"></a>
+      <a id="toVector:Vector[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">toVector</span><span class="result">: <span class="extype" name="scala.Vector">Vector</span>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">toVector</span><span class="result">: <span class="extype" name="scala.Vector">Vector</span>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@toVector:Vector[A]" title="Permalink" target="_top">
@@ -2114,14 +2114,14 @@
         </dd></dl></div>
     </li><li name="scala.collection.Iterator#withFilter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="withFilter(p:A=&gt;Boolean):Iterator[A]"></a>
-      <a id="withFilter((BSONElement)⇒Boolean):Iterator[BSONElement]"></a>
+      <a id="withFilter(((String,BSONValue))⇒Boolean):Iterator[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">withFilter</span><span class="params">(<span name="p">p: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="name">withFilter</span><span class="params">(<span name="p">p: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@withFilter(p:A=&gt;Boolean):Iterator[A]" title="Permalink" target="_top">
@@ -2131,14 +2131,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator</dd></dl></div>
     </li><li name="scala.collection.Iterator#zip" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="zip[B](that:Iterator[B]):Iterator[(A,B)]"></a>
-      <a id="zip[B](Iterator[B]):Iterator[(BSONElement,B)]"></a>
+      <a id="zip[B](Iterator[B]):Iterator[((String,BSONValue),B)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">zip</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="that">that: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<span class="extype" name="scala.collection.Iterator.zip.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>, <span class="extype" name="scala.collection.Iterator.zip.B">B</span>)]</span>
+        <span class="name">zip</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="that">that: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<span class="extype" name="scala.collection.Iterator.zip.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>), <span class="extype" name="scala.collection.Iterator.zip.B">B</span>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@zip[B](that:Iterator[B]):Iterator[(A,B)]" title="Permalink" target="_top">
@@ -2148,14 +2148,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator</dd></dl></div>
     </li><li name="scala.collection.Iterator#zipAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="zipAll[B,A1&gt;:A,B1&gt;:B](that:Iterator[B],thisElem:A1,thatElem:B1):Iterator[(A1,B1)]"></a>
-      <a id="zipAll[B,A1&gt;:BSONElement,B1&gt;:B](Iterator[B],A1,B1):Iterator[(A1,B1)]"></a>
+      <a id="zipAll[B,A1&gt;:(String,BSONValue),B1&gt;:B](Iterator[B],A1,B1):Iterator[(A1,B1)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">zipAll</span><span class="tparams">[<span name="B">B</span>, <span name="A1">A1 &gt;: <a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a></span>, <span name="B1">B1 &gt;: <span class="extype" name="scala.collection.Iterator.zipAll.B">B</span></span>]</span><span class="params">(<span name="that">that: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<span class="extype" name="scala.collection.Iterator.zipAll.B">B</span>]</span>, <span name="thisElem">thisElem: <span class="extype" name="scala.collection.Iterator.zipAll.A1">A1</span></span>, <span name="thatElem">thatElem: <span class="extype" name="scala.collection.Iterator.zipAll.B1">B1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<span class="extype" name="scala.collection.Iterator.zipAll.A1">A1</span>, <span class="extype" name="scala.collection.Iterator.zipAll.B1">B1</span>)]</span>
+        <span class="name">zipAll</span><span class="tparams">[<span name="B">B</span>, <span name="A1">A1 &gt;: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)</span>, <span name="B1">B1 &gt;: <span class="extype" name="scala.collection.Iterator.zipAll.B">B</span></span>]</span><span class="params">(<span name="that">that: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<span class="extype" name="scala.collection.Iterator.zipAll.B">B</span>]</span>, <span name="thisElem">thisElem: <span class="extype" name="scala.collection.Iterator.zipAll.A1">A1</span></span>, <span name="thatElem">thatElem: <span class="extype" name="scala.collection.Iterator.zipAll.B1">B1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<span class="extype" name="scala.collection.Iterator.zipAll.A1">A1</span>, <span class="extype" name="scala.collection.Iterator.zipAll.B1">B1</span>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@zipAll[B,A1&gt;:A,B1&gt;:B](that:Iterator[B],thisElem:A1,thatElem:B1):Iterator[(A1,B1)]" title="Permalink" target="_top">
@@ -2165,14 +2165,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Iterator</dd></dl></div>
     </li><li name="scala.collection.Iterator#zipWithIndex" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="zipWithIndex:Iterator[(A,Int)]"></a>
-      <a id="zipWithIndex:Iterator[(BSONElement,Int)]"></a>
+      <a id="zipWithIndex:Iterator[((String,BSONValue),Int)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">zipWithIndex</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a>)]</span>
+        <span class="name">zipWithIndex</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>), <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@zipWithIndex:Iterator[(A,Int)]" title="Permalink" target="_top">
@@ -2208,14 +2208,14 @@
               <h3>Shadowed Implicit Value Members</h3>
               <ol><li name="scala.collection.TraversableOnce.MonadOps#filter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="filter(p:A=&gt;Boolean):scala.collection.TraversableOnce[A]"></a>
-      <a id="filter((BSONElement)⇒Boolean):TraversableOnce[BSONElement]"></a>
+      <a id="filter(((String,BSONValue))⇒Boolean):TraversableOnce[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit shadowed">filter</span><span class="params">(<span name="p">p: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableOnce" class="extype" target="_top">TraversableOnce</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="implicit shadowed">filter</span><span class="params">(<span name="p">p: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableOnce" class="extype" target="_top">TraversableOnce</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@filter(p:A=&gt;Boolean):scala.collection.TraversableOnce[A]" title="Permalink" target="_top">
@@ -2224,19 +2224,19 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
             This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.bson.buffer.BSONIterator">BSONIterator</a> to
-            <span class="extype" name="scala.collection.TraversableOnce.MonadOps">MonadOps</span>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>] performed by method MonadOps in scala.collection.TraversableOnce.
+            <span class="extype" name="scala.collection.TraversableOnce.MonadOps">MonadOps</span>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)] performed by method MonadOps in scala.collection.TraversableOnce.
             
-          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is shadowed by one or more members in this class.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(bSONIterator: MonadOps[BSONElement]).filter(p)</pre></div></dd><dt>Definition Classes</dt><dd>MonadOps</dd></dl></div>
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is shadowed by one or more members in this class.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(bSONIterator: MonadOps[(String, BSONValue)]).filter(p)</pre></div></dd><dt>Definition Classes</dt><dd>MonadOps</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce.MonadOps#flatMap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="flatMap[B](f:A=&gt;scala.collection.GenTraversableOnce[B]):scala.collection.TraversableOnce[B]"></a>
-      <a id="flatMap[B]((BSONElement)⇒GenTraversableOnce[B]):TraversableOnce[B]"></a>
+      <a id="flatMap[B](((String,BSONValue))⇒GenTraversableOnce[B]):TraversableOnce[B]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit shadowed">flatMap</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[<span class="extype" name="scala.collection.TraversableOnce.MonadOps.flatMap.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableOnce" class="extype" target="_top">TraversableOnce</a>[<span class="extype" name="scala.collection.TraversableOnce.MonadOps.flatMap.B">B</span>]</span>
+        <span class="implicit shadowed">flatMap</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[<span class="extype" name="scala.collection.TraversableOnce.MonadOps.flatMap.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableOnce" class="extype" target="_top">TraversableOnce</a>[<span class="extype" name="scala.collection.TraversableOnce.MonadOps.flatMap.B">B</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@flatMap[B](f:A=&gt;scala.collection.GenTraversableOnce[B]):scala.collection.TraversableOnce[B]" title="Permalink" target="_top">
@@ -2245,19 +2245,19 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
             This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.bson.buffer.BSONIterator">BSONIterator</a> to
-            <span class="extype" name="scala.collection.TraversableOnce.MonadOps">MonadOps</span>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>] performed by method MonadOps in scala.collection.TraversableOnce.
+            <span class="extype" name="scala.collection.TraversableOnce.MonadOps">MonadOps</span>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)] performed by method MonadOps in scala.collection.TraversableOnce.
             
-          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is shadowed by one or more members in this class.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(bSONIterator: MonadOps[BSONElement]).flatMap(f)</pre></div></dd><dt>Definition Classes</dt><dd>MonadOps</dd></dl></div>
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is shadowed by one or more members in this class.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(bSONIterator: MonadOps[(String, BSONValue)]).flatMap(f)</pre></div></dd><dt>Definition Classes</dt><dd>MonadOps</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce.MonadOps#map" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="map[B](f:A=&gt;B):scala.collection.TraversableOnce[B]"></a>
-      <a id="map[B]((BSONElement)⇒B):TraversableOnce[B]"></a>
+      <a id="map[B](((String,BSONValue))⇒B):TraversableOnce[B]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit shadowed">map</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.MonadOps.map.B">B</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableOnce" class="extype" target="_top">TraversableOnce</a>[<span class="extype" name="scala.collection.TraversableOnce.MonadOps.map.B">B</span>]</span>
+        <span class="implicit shadowed">map</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <span class="extype" name="scala.collection.TraversableOnce.MonadOps.map.B">B</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableOnce" class="extype" target="_top">TraversableOnce</a>[<span class="extype" name="scala.collection.TraversableOnce.MonadOps.map.B">B</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@map[B](f:A=&gt;B):scala.collection.TraversableOnce[B]" title="Permalink" target="_top">
@@ -2266,19 +2266,19 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
             This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.bson.buffer.BSONIterator">BSONIterator</a> to
-            <span class="extype" name="scala.collection.TraversableOnce.MonadOps">MonadOps</span>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>] performed by method MonadOps in scala.collection.TraversableOnce.
+            <span class="extype" name="scala.collection.TraversableOnce.MonadOps">MonadOps</span>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)] performed by method MonadOps in scala.collection.TraversableOnce.
             
-          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is shadowed by one or more members in this class.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(bSONIterator: MonadOps[BSONElement]).map(f)</pre></div></dd><dt>Definition Classes</dt><dd>MonadOps</dd></dl></div>
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is shadowed by one or more members in this class.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(bSONIterator: MonadOps[(String, BSONValue)]).map(f)</pre></div></dd><dt>Definition Classes</dt><dd>MonadOps</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce.MonadOps#withFilter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="withFilter(p:A=&gt;Boolean):Iterator[A]"></a>
-      <a id="withFilter((BSONElement)⇒Boolean):Iterator[BSONElement]"></a>
+      <a id="withFilter(((String,BSONValue))⇒Boolean):Iterator[(String,BSONValue)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit shadowed">withFilter</span><span class="params">(<span name="p">p: (<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</span>
+        <span class="implicit shadowed">withFilter</span><span class="params">(<span name="p">p: ((<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.bson.buffer.BSONIterator@withFilter(p:A=&gt;Boolean):Iterator[A]" title="Permalink" target="_top">
@@ -2287,9 +2287,9 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
             This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.bson.buffer.BSONIterator">BSONIterator</a> to
-            <span class="extype" name="scala.collection.TraversableOnce.MonadOps">MonadOps</span>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>] performed by method MonadOps in scala.collection.TraversableOnce.
+            <span class="extype" name="scala.collection.TraversableOnce.MonadOps">MonadOps</span>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)] performed by method MonadOps in scala.collection.TraversableOnce.
             
-          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is shadowed by one or more members in this class.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(bSONIterator: MonadOps[BSONElement]).withFilter(p)</pre></div></dd><dt>Definition Classes</dt><dd>MonadOps</dd></dl></div>
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is shadowed by one or more members in this class.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(bSONIterator: MonadOps[(String, BSONValue)]).withFilter(p)</pre></div></dd><dt>Definition Classes</dt><dd>MonadOps</dd></dl></div>
     </li></ol>
             </div>
 
@@ -2298,19 +2298,19 @@
 
         <div id="inheritedMembers">
         <div class="parent" name="scala.collection.Iterator">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</h3>
             </div><div class="parent" name="scala.collection.TraversableOnce">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableOnce" class="extype" target="_top">TraversableOnce</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableOnce" class="extype" target="_top">TraversableOnce</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</h3>
             </div><div class="parent" name="scala.collection.GenTraversableOnce">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]</h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</h3>
             </div><div class="parent" name="scala.AnyRef">
-              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">
-              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></h3>
             </div>
         <div class="conversion" name="scala.collection.TraversableOnce.MonadOps">
               <h3>Inherited by implicit conversion MonadOps from
-                <a href="" class="extype" name="reactivemongo.bson.buffer.BSONIterator">BSONIterator</a> to <span class="extype" name="scala.collection.TraversableOnce.MonadOps">MonadOps</span>[<a href="../package.html#BSONElement=(String,reactivemongo.bson.BSONValue)" class="extmbr" name="reactivemongo.bson.BSONElement">BSONElement</a>]
+                <a href="" class="extype" name="reactivemongo.bson.buffer.BSONIterator">BSONIterator</a> to <span class="extype" name="scala.collection.TraversableOnce.MonadOps">MonadOps</span>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]
               </h3>
             </div><div class="conversion" name="scala.Predef.any2stringadd">
               <h3>Inherited by implicit conversion any2stringadd from
