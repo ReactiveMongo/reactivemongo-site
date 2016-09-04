@@ -93,7 +93,7 @@ class MyController @Inject() (val reactiveMongoApi: ReactiveMongoApi)
 }
 {% endhighlight %}
 
-The trait `ReactiveMongoComponents` can be used for [compile-time dependency injection](https://playframework.com/documentation/2.4.x/ScalaCompileTimeDependencyInjection).
+The trait `ReactiveMongoComponents` can be used for [compile-time dependency injection](https://playframework.com/documentation/latest/ScalaCompileTimeDependencyInjection).
 
 {% highlight scala %}
 import javax.inject.Inject
@@ -109,67 +109,33 @@ class MyController @Inject() (val reactiveMongoApi: ReactiveMongoApi)
 
 > When using Play dependency injection for a controller, the [injected routes need to be enabled](https://www.playframework.com/documentation/2.4.0/ScalaRouting#Dependency-Injection) by adding `routesGenerator := InjectedRoutesGenerator` to your build.
 
-It's also possible to get the injected ReactiveMongo API outside of the controllers, using the `injector` of the current Play application.
-
-{% highlight scala %}
-import scala.concurrent.Future
-
-import play.api.Play.current // should deprecated in favor of DI
-import play.api.libs.concurrent.Execution.Implicits.defaultContext
-
-import play.modules.reactivemongo.ReactiveMongoApi
-import reactivemongo.play.json.collection.JSONCollection
-
-object Foo {
-  lazy val reactiveMongoApi = current.injector.instanceOf[ReactiveMongoApi]
-
-  def collection(name: String): Future[JSONCollection] =
-    reactiveMongoApi.database.map(_.collection[JSONCollection](name))
-}
-{% endhighlight %}
-
 **Multiple pools**
 
-In your Play application, you can use ReactiveMongo with multiple connection pools (possibly with different replica set).
+In your Play application, you can use ReactiveMongo with multiple connection pools (possibly with different replica set and/or options), using the `@NamedDatabase` annotation.
 
-{% highlight scala %}
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
-
-import reactivemongo.api.{ MongoConnection, MongoDriver }
-
-import play.api.Play.current
-import play.api.inject.ApplicationLifecycle
-
-object MongoEnv {
-  val driver1 = registerDriverShutdownHook(MongoDriver()) // first pool
-  val driver2 = registerDriverShutdownHook(MongoDriver()) // second pool
-
-  // Pick a connection from the first pool
-  def connection1 = driver1.connection(List("localhost:27017"))
-
-  // Pick a connection from the second pool
-  def connection2 = driver2.connection(List("remotehost:27017"))
-
-  // ensure the given driver will be closed on app shutdown
-  def registerDriverShutdownHook(mongoDriver: MongoDriver): MongoDriver = {
-    current.injector.instanceOf[ApplicationLifecycle].
-      addStopHook { () => Future(mongoDriver.close()) }
-    mongoDriver
-  }
-}
-{% endhighlight %}
-
-> Such custom management also work with ReactiveMongo in a Play application, without the module.
-
-### Play 2.3
-
-The version `0.11.14-play23` of this plugin is available for Play 2.3.
-
-Add to your `conf/play.plugins`:
+Consider the following configuration, with several connection URIs.
 
 {% highlight text %}
-1100:play.modules.reactivemongo.ReactiveMongoPlugin
+# The default URI
+mongodb.uri = "mongodb://someuser:somepasswd@localhost:27017/foo"
+
+# Another one, named with 'bar'
+mongodb.bar.uri = "mongodb://someuser:somepasswd@localhost:27017/lorem"
+{% endhighlight %}
+
+Then the dependency injection can select the API instances using the names.
+
+{% highlight scala %}
+import javax.inject.Inject
+
+import play.modules.reactivemongo._
+
+class MyComponent @Inject() (
+  val defaultApi: ReactiveMongoApi, // corresponds to 'mongodb.uri'
+  @NamedDatabase("bar") val barApi: ReactiveMongoApi // 'mongodb.bar'
+) {
+
+}
 {% endhighlight %}
 
 ### Configure your database access
@@ -190,10 +156,16 @@ A more complete example:
 mongodb.uri = "mongodb://someuser:somepasswd@host1:27017,host2:27017,host3:27017/your_db_name?authSource=authdb&rm.nbChannelsPerNode=10"
 {% endhighlight %}
 
-The setting `mongodb.connection.strictUri` (`true` or `false`) can be added to the Play configuration, to enforce the ReactiveMongo only accepts strict URI: to make the connection pool throws an exception if given an URI with unsupported options.
-By default (`false`), unsupported options (e.g. `?foo=bar`) are ignored.
+To configure connection pool different from the default one (for the `@NamedDatabase` annotation), the key must be `mongodb.ANY_NAME.uri`.
 
-### Configure underlying akka system
+{% highlight text %}
+mongodb.ANY_NAME.uri = "mongodb://localhost:27017/another_pool"
+{% endhighlight %}
+
+The setting `mongodb.connection.strictUri` (`true` or `false`) can be added to the Play configuration (or `mongodb.ANY_NAME.connection.strictUri` for a connection pool other than the default one), to enforce the ReactiveMongo only accepts strict URI: to make the connection pool throws an exception if given an URI with unsupported options.
+By default (`false`), unsupported options (e.g. `?foo=bar`) are just ignored.
+
+### Configure underlying Akka system
 
 ReactiveMongo loads its configuration from the key `mongo-async-driver`.
 
@@ -566,6 +538,14 @@ For Play > 2.4, if you still have a file `conf/play.plugins`, it's important to 
     ConfigurationException: Guice configuration errors: 
     1) Could not find a suitable constructor in 
     play.modules.reactivemongo.ReactiveMongoPlugin.
+
+As in the code driver, the database resolution has been updated in the Play module. If using the deprecated resolution, the following warning is raised by the compiler.
+
+    method db in trait MongoController is deprecated: Use [[database]]
+
+A related warning can also be displayed about GridFS usage.
+
+    method gridFSBodyParser in trait MongoController is deprecated: Use gridFSBodyParser with Future[GridFS]
 
 ## Resources
 

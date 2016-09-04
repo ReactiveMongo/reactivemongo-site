@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>BSONHandler - ReactiveMongo API 0.12-RC2 - reactivemongo.bson.BSONHandler</title>
-          <meta name="description" content="BSONHandler - ReactiveMongo API 0.12 - RC2 - reactivemongo.bson.BSONHandler" />
-          <meta name="keywords" content="BSONHandler ReactiveMongo API 0.12 RC2 reactivemongo.bson.BSONHandler" />
+          <title>BSONHandler - ReactiveMongo API 0.12.0-SNAPSHOT - reactivemongo.bson.BSONHandler</title>
+          <meta name="description" content="BSONHandler - ReactiveMongo API 0.12.0 - SNAPSHOT - reactivemongo.bson.BSONHandler" />
+          <meta name="keywords" content="BSONHandler ReactiveMongo API 0.12.0 SNAPSHOT reactivemongo.bson.BSONHandler" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -53,7 +53,7 @@
       
           <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
         
 
@@ -105,7 +105,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.BSONHandler$@!=(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -139,7 +139,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.BSONHandler$@==(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -147,7 +147,7 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="reactivemongo.bson.BSONHandler#apply" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="reactivemongo.bson.BSONHandler#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="apply[B&lt;:reactivemongo.bson.BSONValue,T](read:B=&gt;T,write:T=&gt;B):reactivemongo.bson.BSONHandler[B,T]"></a>
       <a id="apply[B&lt;:BSONValue,T]((B)⇒T,(T)⇒B):BSONHandler[B,T]"></a>
       <h4 class="signature">
@@ -163,7 +163,14 @@
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Handler factory.</p><div class="fullcomment"><div class="comment cmt"><p>Handler factory.</p><pre><span class="kw">import</span> reactivemongo.bson.{ BSONHandler, BSONString }
+
+<span class="kw">case</span> <span class="kw">class</span> Foo(value: <span class="std">String</span>)
+
+<span class="kw">val</span> foo: BSONHandler[BSONString, Foo] = BSONHandler(
+  { read: BSONString <span class="kw">=&gt;</span> Foo(read.value) },
+  { write: Foo <span class="kw">=&gt;</span> BSONString(write.value)
+)</pre></div></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -190,7 +197,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.BSONHandler$@clone():Object" title="Permalink" target="_top">
@@ -213,7 +220,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.BSONHandler$@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
@@ -230,7 +237,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.BSONHandler$@equals(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -321,7 +328,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.BSONHandler$@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
@@ -363,6 +370,24 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONHandler#provided" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="provided[B&lt;:reactivemongo.bson.BSONValue,T](implicitwriter:reactivemongo.bson.BSONWriter[T,B],implicitreader:reactivemongo.bson.BSONReader[B,T]):reactivemongo.bson.BSONHandler[B,T]"></a>
+      <a id="provided[B&lt;:BSONValue,T](BSONWriter[T,B],BSONReader[B,T]):BSONHandler[B,T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">provided</span><span class="tparams">[<span name="B">B &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>, <span name="T">T</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <a href="BSONWriter.html" class="extype" name="reactivemongo.bson.BSONWriter">BSONWriter</a>[<span class="extype" name="reactivemongo.bson.BSONHandler.provided.T">T</span>, <span class="extype" name="reactivemongo.bson.BSONHandler.provided.B">B</span>]</span>, <span name="reader">reader: <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[<span class="extype" name="reactivemongo.bson.BSONHandler.provided.B">B</span>, <span class="extype" name="reactivemongo.bson.BSONHandler.provided.T">T</span>]</span>)</span><span class="result">: <a href="BSONHandler.html" class="extype" name="reactivemongo.bson.BSONHandler">BSONHandler</a>[<span class="extype" name="reactivemongo.bson.BSONHandler.provided.B">B</span>, <span class="extype" name="reactivemongo.bson.BSONHandler.provided.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONHandler$@provided[B&lt;:reactivemongo.bson.BSONValue,T](implicitwriter:reactivemongo.bson.BSONWriter[T,B],implicitreader:reactivemongo.bson.BSONReader[B,T]):reactivemongo.bson.BSONHandler[B,T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a BSON handler for a type <code>T</code>, provided there are
+a writer and a reader for it, both using the same kind of <code>BSONValue</code>.</p>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -476,9 +501,9 @@
 
         <div id="inheritedMembers">
         <div class="parent" name="scala.AnyRef">
-              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">
-              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></h3>
             </div>
         
         </div>

@@ -46,7 +46,7 @@ val connection4 = driver2.connection(List("localhost"), options = conOpts)
 The following options can be used with `MongoConnectionOptions` to configure the connection behaviour.
 
 - **authSource**: The database source for authentication credentials.
-- **authMode**: The authentication mode. By default, it's the backward compatible [MONGODB-CR](http://docs.mongodb.org/manual/core/authentication/#mongodb-cr-authentication) which is used. If this options is set to `scram-sha1`, then the [SCRAM-SHA-1](http://docs.mongodb.org/manual/core/authentication/#scram-sha-1-authentication) authentication will be selected.
+- **authMode**: The authentication mode. By default set to `scram-sha1` for [SCRAM-SHA-1](http://docs.mongodb.org/manual/core/authentication/#scram-sha-1-authentication). Can be configured with `mongocr` for the backward compatible [MONGODB-CR](http://docs.mongodb.org/manual/core/authentication/#mongodb-cr-authentication).
 - **connectTimeoutMS**: The [number of milliseconds](https://docs.mongodb.org/manual/reference/connection-string/#urioption.connectTimeoutMS) to wait for a connection to be established before giving up.
 - [**maxIdleTimeMS**](https://docs.mongodb.com/manual/reference/connection-string/#urioption.maxIdleTimeMS): The maximum number of milliseconds that a connection can remain idle in the pool before being removed and closed.
 - **sslEnabled**: It enables the SSL support for the connection (`true|false`).

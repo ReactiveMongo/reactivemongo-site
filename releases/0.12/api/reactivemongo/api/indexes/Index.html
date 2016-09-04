@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Index - ReactiveMongo API 0.12-RC2 - reactivemongo.api.indexes.Index</title>
-          <meta name="description" content="Index - ReactiveMongo API 0.12 - RC2 - reactivemongo.api.indexes.Index" />
-          <meta name="keywords" content="Index ReactiveMongo API 0.12 RC2 reactivemongo.api.indexes.Index" />
+          <title>Index - ReactiveMongo API 0.12.0-SNAPSHOT - reactivemongo.api.indexes.Index</title>
+          <meta name="description" content="Index - ReactiveMongo API 0.12.0 - SNAPSHOT - reactivemongo.api.indexes.Index" />
+          <meta name="keywords" content="Index ReactiveMongo API 0.12.0 SNAPSHOT reactivemongo.api.indexes.Index" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -52,7 +52,7 @@
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A MongoDB index (excluding the namespace).</p><p>Consider reading <a href="http://www.mongodb.org/display/DOCS/Indexes" target="_blank">the documentation about indexes in MongoDB</a>.
 </p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>The index key (it can be composed of multiple fields). This list should not be empty!</p></dd><dt class="param">name</dt><dd class="cmt"><p>The name of this index. If you provide none, a name will be computed for you.</p></dd><dt class="param">unique</dt><dd class="cmt"><p>Enforces uniqueness.</p></dd><dt class="param">background</dt><dd class="cmt"><p>States if this index should be built in background. You should read <a href="http://www.mongodb.org/display/DOCS/Indexes#Indexes-background%3Atrue" target="_blank">the documentation about background indexing</a> before using it.</p></dd><dt class="param">dropDups</dt><dd class="cmt"><p>States if duplicates should be discarded (if unique = true). Warning: you should read <a href="http://www.mongodb.org/display/DOCS/Indexes#Indexes-dropDups%3Atrue" target="_blank">the documentation</a>.</p></dd><dt class="param">sparse</dt><dd class="cmt"><p>States if the index to build should only consider the documents that have the indexed fields. See <a href="http://www.mongodb.org/display/DOCS/Indexes#Indexes-sparse%3Atrue" target="_blank">the documentation</a> on the consequences of such an index.</p></dd><dt class="param">version</dt><dd class="cmt"><p>Indicates the <a href="http://www.mongodb.org/display/DOCS/Index+Versions" target="_blank">version</a> of the index (1 for &gt;= 2.0, else 0). You should let MongoDB decide.</p></dd><dt class="param">partialFilter</dt><dd class="cmt"><p>Optional <a href="https://docs.mongodb.com/manual/core/index-partial/#partial-index-with-unique-constraints" target="_blank">partial filter</a> (since MongoDB 3.2)</p></dd><dt class="param">options</dt><dd class="cmt"><p>Optional parameters for this index (typically specific to an IndexType like Geo2D).</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
         
 
@@ -129,7 +129,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.indexes.Index@!=(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -208,7 +208,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.indexes.Index@==(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -259,7 +259,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.indexes.Index@clone():Object" title="Permalink" target="_top">
@@ -299,7 +299,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.indexes.Index">Index</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.indexes.Index">Index</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.indexes.Index">Index</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.indexes.Index">Index</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.indexes.Index@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -341,7 +341,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.indexes.Index">Index</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.indexes.Index">Index</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.indexes.Index@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -383,7 +383,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.indexes.Index@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
@@ -532,7 +532,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.indexes.Index@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
@@ -784,9 +784,9 @@
             </div><div class="parent" name="scala.Equals">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Equals" class="extype" target="_top">Equals</a></h3>
             </div><div class="parent" name="scala.AnyRef">
-              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">
-              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></h3>
             </div>
         <div class="conversion" name="scala.Predef.any2stringadd">
               <h3>Inherited by implicit conversion any2stringadd from

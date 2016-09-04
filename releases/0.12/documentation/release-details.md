@@ -76,7 +76,7 @@ def connection(driver: MongoDriver) =
   ))
 {% endhighlight %}
 
-The authentication algorithm is now [SCRAM SHA1](https://docs.mongodb.org/manual/core/security-scram-sha-1/) by default (see the [connection options](./tutorial/connect-database.html#connection-options)).
+The authentication algorithm is now [SCRAM SHA1](https://docs.mongodb.org/manual/core/security-scram-sha-1/) by default. To change it (e.g. for MongoDB 2.6.x), see the [connection options](./tutorial/connect-database.html#connection-options).
 
 The default [failover strategy](../api/index.html#reactivemongo.api.FailoverStrategy) can be defined in the [connection options](tutorial/connect-database.html).
 
@@ -225,34 +225,39 @@ def jsonExplain(col: JSONCollection): Future[Option[JsObject]] =
 
 **Error handling:**
 
-The [`CommandError`](../api/index.html#reactivemongo.api.commands.CommandError) that represents the errors from executing commands, is now coming with pattern matching utilities:
+The [`WriteResult`](../api/index.html#reactivemongo.api.commands.WriteResult) that represents the errors from executing commands, is now coming with pattern matching utilities.
 
-- [`CommandError.Code`](../api/index.html#reactivemongo.api.commands.CommandError$@Code): matches the errors according the specified code (e.g. the 11000 code for the Duplicate error)
-- [`CommandError.Message`](../api/index.html#reactivemongo.api.commands.CommandError$@Message): matches the errors according the message
+- [`WriteResult.Code`](../api/index.html#reactivemongo.api.commands.WriteResult$@Code): matches the errors according the specified code (e.g. the 11000 code for the Duplicate error)
+- [`WriteResult.Message`](../api/index.html#reactivemongo.api.commands.WriteResult$@Message): matches the errors according the message
 
 {% highlight scala %}
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api.collections.bson.BSONCollection
-import reactivemongo.api.commands.{ CommandError, WriteResult }
+import reactivemongo.api.commands.WriteResult 
 
 def insertPerson(personColl: BSONCollection, person: Person) = {
   implicit val writer = reactivemongo.bson.Macros.writer[Person]
   val future: Future[WriteResult] = personColl.insert(person)
 
   val end: Future[Unit] = future.map(_ => {}).recover {
-    case CommandError.Code(11000) =>
+    case WriteResult.Code(11000) =>
       // if the result is defined with the error code 11000 (duplicate error)
       println("Match the code 11000")
 
-    case CommandError.Message("Must match this exact message") =>
+    case WriteResult.Message("Must match this exact message") =>
       println("Match the error message")
 
     case _ => ()
   }
 }
 {% endhighlight %}
+
+The same approach can be used with [`CommandError`](../api/index.html#reactivemongo.api.commands.CommandError).
+
+- [`CommandError.Code`](../api/index.html#reactivemongo.api.commands.CommandError$@Code): matches the errors according the specified code (e.g. the 11000 code for the Duplicate error)
+- [`CommandError.Message`](../api/index.html#reactivemongo.api.commands.CommandError$@Message): matches the errors according the message
 
 [More: **Query builder API**](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder)
 
@@ -446,6 +451,12 @@ reactivemongo.bson.Macros.reader[GenFoo[String]]
 {% endhighlight %}
 
 Some undocumented macro features, such as **union types** and sealed trait support are now [explained](./bson/typeclasses.html#helpful-macros).
+
+Taking care of backward compatibility, a refactoring of the BSON types has been started.
+
+- The type alias `BSONElement` has been promoted to a [trait](../api/index.html#reactivemongo.bson.BSONElement).
+- A new sealed family is introduced by the [`ElementProducer`](../api/index.html#reactivemongo.bson.ElementProducer] trait, implemented by `BSONElement` (that produces a single element) and `BSONElementSet`, whose instances can produces mant BSON elements (`ElementProducer` can be considered as a monoid with its [composition operation](../api/index.html#reactivemongo.bson.ElementProducer$@Composition) and its [identity instance](../api/index.html#reactivemongo.bson.ElementProducer$@Empty)).
+- The [`BSONElementSet`](../api/index.html#reactivemongo.bson.BSONElementSet) trait now gathers `BSONDocument` and `BSONArray`, with new operations such `prepend`, `headOption`.
 
 [More: **BSON Library overview**](./bson/overview.html)
 
@@ -856,12 +867,49 @@ In order to comply with the [extended JSON syntax for the timestamps](https://do
 
 These two formats are also supported when reading from JSON.
 
-The [`BSONMinKey`](../../api/index.html#reactivemongo.bson.BSONMinKey$) and [`BSONMaxKey`](../../api/index.html#reactivemongo.bson.BSONMaxKey$) now support the extended syntax.
+The extended syntax is also supported for the [`BSONMinKey`](../../api/index.html#reactivemongo.bson.BSONMinKey$) and the [`BSONMaxKey`](../../api/index.html#reactivemongo.bson.BSONMaxKey$).
 
 {% highlight javascript %}
 {
   "aMinKey": { "$minKey": 1 },
   "aMaxKey" : { "$maxKey": 1 }
+}
+{% endhighlight %}
+
+New functions from the `BSONFormats` provides JSON formats derived from BSON handlers.
+
+- [`jsonOFormat`](http://reactivemongo.github.io/ReactiveMongo-Play-Json/0.12/api/index.html#reactivemongo.play.json.BSONFormats$@jsonOFormat[T](implicitevidence$1:reactivemongo.bson.BSONDocumentWriter[T],implicitevidence$2:reactivemongo.bson.BSONDocumentReader[T]):play.api.libs.json.OFormat[T]) derives a [`BSONHandler`](../../api/index.html#reactivemongo.bson.BSONHandler) as a Play [`OFormat`](https://www.playframework.com/documentation/2.4.0/api/scala/index.html#play.api.libs.json.OFormat), to map JSON objects and BSON documents.
+- The similar [`jsonFormat`](http://reactivemongo.github.io/ReactiveMongo-Play-Json/0.12/api/index.html#reactivemongo.play.json.BSONFormats$@jsonFormat[T](implicith:reactivemongo.bson.BSONHandler[_%3C:reactivemongo.bson.BSONValue,T]):play.api.libs.json.Format[T]) derives a `BSONWriter` and its corresponding `BSONReader` to provide a Play `Format`.
+- The write-only `jsonOWrites` and `jsonWrites`, and also the read-only `jsonReads`.
+
+[More: **JSON overview**](json/overview.html)
+
+#### Dependency injection
+
+Now multiple connection pools can be injected using the `@NamedDatabase` annotation.
+
+For example with the following configuration:
+
+{% highlight text %}
+# The default URI
+mongodb.uri = "mongodb://someuser:somepasswd@localhost:27017/foo"
+
+# Another one, named with 'bar'
+mongodb.bar.uri = "mongodb://someuser:somepasswd@localhost:27017/lorem"
+{% endhighlight %}
+
+Then the dependency injection can select the API instances using the names.
+
+{% highlight scala %}
+import javax.inject.Inject
+
+import play.modules.reactivemongo._
+
+class MyComponent @Inject() (
+  val defaultApi: ReactiveMongoApi, // corresponds to 'mongodb.uri'
+  @NamedDatabase("bar") val barApi: ReactiveMongoApi // 'mongodb.bar'
+) {
+
 }
 {% endhighlight %}
 

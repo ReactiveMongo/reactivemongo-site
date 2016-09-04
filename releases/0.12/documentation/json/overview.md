@@ -23,11 +23,13 @@ Then, the following code enables this JSON serialization pack.
 import reactivemongo.play.json._
 {% endhighlight %}
 
+**API documentations:** [Play JSON API](http://reactivemongo.github.io/ReactiveMongo-Play-Json/0.12/api/)
+
 ## Documents and values
 
 There is one Play JSON class for most of the BSON types, all in the [`play.api.libs.json` package](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.package):
 
-All these JSON types extend [`JsValue`](https://www.playframework.com/documentation/2.4.x/api/scala/index.html#play.api.libs.json.JsValue), thus any JSON value can be converted to appropriate [BSON value](../../api/reactivemongo/bson/BSONValue.html):
+All these JSON types extend [`JsValue`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.JsValue), thus any JSON value can be converted to appropriate [BSON value](../../api/reactivemongo/bson/BSONValue.html):
 
 | BSON | JSON |
 | -----| ---- |
