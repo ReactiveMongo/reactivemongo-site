@@ -100,6 +100,36 @@ def importJson(collection: JSONCollection, resource: String): Future[Int] =
     map(_.totalN)
 {% endhighlight %}
 
+## Run a raw command
+
+The [command API](../advanced-topics/commands.html) can be used with the JSON serialization to execution a JSON object as a raw command.
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+
+import play.api.libs.json.{ JsObject, Json }
+
+import reactivemongo.play.json._
+import reactivemongo.api.commands.Command
+
+def rawResult(db: reactivemongo.api.DefaultDB)(implicit ec: ExecutionContext): Future[JsObject] = {
+  val commandDoc = Json.obj(
+    "aggregate" -> "orders", // we aggregate on collection `orders`
+    "pipeline" -> List(
+      Json.obj("$match" -> Json.obj("status" -> "A")),
+      Json.obj(
+        "$group" -> Json.obj(
+          "_id" -> "$cust_id",
+          "total" -> Json.obj("$sum" -> "$amount"))),
+      Json.obj("$sort" -> Json.obj("total" -> -1))
+    )
+  )
+  val runner = Command.run(JSONSerializationPack)
+
+  runner.apply(db, runner.rawCommand(commandDoc)).one[JsObject]
+}
+{% endhighlight %}
+
 ## Troubleshooting
 
 If the following error is raised;

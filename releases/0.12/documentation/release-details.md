@@ -48,7 +48,7 @@ The synchronous `.db` has been deprecated as it didn't offer a sufficient guaran
 
 Indeed, it was assuming at least one channel is active as soon as the pool is started, which is not always the case as checking/discovering the ReplicaSet can take time, according the network speed/latency.
 
-The new database resolution is reactive, as the majority of the driver operation. It uses a [`FailoverStrategy`](../api/index.html#reactivemongo.api.FailoverStrategy) to wait (or not) for an initial channel (according the chosen [read preference](../api/index.html#reactivemongo.api.ReadPreference), ...).
+The new database resolution is reactive, as the majority of the driver operation. It uses a [`FailoverStrategy`](../api/index.html#reactivemongo.api.FailoverStrategy) to make sure at least one initial channel (according the chosen [read preference](../api/index.html#reactivemongo.api.ReadPreference), ...).
 
 The new resolution returns a [`Future[DefaultDB]`](../api/index.html#reactivemongo.api.DefaultDB), and should be used instead of the former `connection(..)` (or its alias `connection.db(..)`).
 
@@ -61,6 +61,8 @@ def newResolution(con: MongoConnection, name: String)(implicit ec: ExecutionCont
 {% endhighlight %}
 
 Similarly the function `.db` of the [Play module](./tutorial/play2.html) must be replaced by its `.database` equivalent.
+
+It's generally a good practice not to assign the database and collection references to `val` (even to `lazy val`), as it's better to get fresh references, for example to recover from previous network issues.
 
 Consequently to this change, a runtime error such as `ConnectionNotInitialized` can be raised when calling a database or collection operation (e.g. `collection.find(..)`), if the *deprecated database resolution is still used*.
 
@@ -1152,6 +1154,9 @@ When running with this module, you check the state of the ReactiveMongo pools fr
 ### Dependencies
 
 The internal [Netty](http://netty.io/) dependency has been updated to the version 3.10.4, and is now [shaded](http://forgegradle.readthedocs.io/en/latest/user-guide/shading/) to avoid conflict ([dependency hell](https://en.wikipedia.org/wiki/Dependency_hell)).
+
+
+[![Test coverage](https://img.shields.io/badge/coverage-60%25-yellowgreen.svg)](reactivemongo.github.io/ReactiveMongo/coverage/0.12.0/)
 
 ### Breaking changes
 
