@@ -77,35 +77,28 @@ db.runCommand(command)
 We do exactly the same thing with `RawCommand`, by making a `BSONDocument` that contains the same fieds:
 
 {% highlight scala %}
-import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson.{ BSONArray, BSONDocument }
 import reactivemongo.api.BSONSerializationPack
 import reactivemongo.api.commands.Command
 
-def db: reactivemongo.api.DefaultDB = ???
-
-val commandDoc =
-  BSONDocument(
+def commandResult(db: reactivemongo.api.DefaultDB)(implicit ec: ExecutionContext): Future[BSONDocument] = {
+  val commandDoc = BSONDocument(
     "aggregate" -> "orders", // we aggregate on collection `orders`
     "pipeline" -> BSONArray(
       BSONDocument("$match" -> BSONDocument("status" -> "A")),
       BSONDocument(
         "$group" -> BSONDocument(
           "_id" -> "$cust_id",
-          "total" -> BSONDocument("$sum" -> "$amound"))),
+          "total" -> BSONDocument("$sum" -> "$amount"))),
       BSONDocument("$sort" -> BSONDocument("total" -> -1))
     )
   )
 
-val runner = Command.run(BSONSerializationPack)
+  val runner = Command.run(BSONSerializationPack)
 
-// we get a Future[BSONDocument]
-val futureResult =
   runner.apply(db, runner.rawCommand(commandDoc)).one[BSONDocument]
-
-futureResult.map { result => // result is a BSONDocument
-  // ...
 }
 {% endhighlight %}
 
@@ -175,7 +168,7 @@ object BSONCustomCommand extends CustomCommand[BSONSerializationPack.type] {
 
 In the previous example, the custom command is implemented using the BSON serialization, providing the [writers and readers](../bson/typeclasses.html) for the command input and result.
 
-A command can be implemented with various serialization pack. *e.g. It can also be implemented using the JSON serialization provided by the [Play JSON support](../json/overview.html).*
+A command can be implemented with various serialization pack. *e.g. It can also be implemented using the JSON serialization provided by the [Play JSON support](../json/overview.html#run-a-raw-command).*
 
 It's also possible to gather the command definition and implementation, if only one kind of serialization is needed.
 
