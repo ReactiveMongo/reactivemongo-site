@@ -277,18 +277,17 @@ To enable the Akka Stream support (up to Akka 2.4.8), the import [`reactivemongo
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import akka.NotUsed
 import akka.stream.Materializer
 import akka.stream.scaladsl.{ Sink, Source }
 
 import reactivemongo.bson.BSONDocument
 import reactivemongo.api.collections.bson.BSONCollection
 
-import reactivemongo.akkastream.cursorProducer
+import reactivemongo.akkastream.{ State, cursorProducer }
 // Provides the cursor producer with the AkkaStream capabilities
 
 def processPerson0(collection: BSONCollection, query: BSONDocument)(implicit m: Materializer): Future[Seq[BSONDocument]] = {
-  val sourceOfPeople: Source[BSONDocument, NotUsed] =
+  val sourceOfPeople: Source[BSONDocument, Future[State]] =
     collection.find(query).cursor[BSONDocument].documentSource()
 
   sourceOfPeople.runWith(Sink.seq[BSONDocument])

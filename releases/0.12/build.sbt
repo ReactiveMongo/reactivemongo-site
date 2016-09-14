@@ -15,7 +15,7 @@ libraryDependencies ++= Seq(
   "reactivemongo-iteratees", "reactivemongo-akkastream").map(
   "org.reactivemongo" %% _ % Release changing())
 
-libraryDependencies += "com.typesafe.play" %% "play" % "2.5.4"
+libraryDependencies += "com.typesafe.play" %% "play" % "2.5.7"
 
 resolvers ++= Seq(
   "Typesafe releases" at "http://repo.typesafe.com/typesafe/releases/",

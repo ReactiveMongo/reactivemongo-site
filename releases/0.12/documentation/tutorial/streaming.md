@@ -13,6 +13,16 @@ ReactiveMongo can be used with several streaming frameworks: [Play Iteratees](ht
 
 The [Akka Stream](http://akka.io/) library can be used to consume ReactiveMongo results.
 
+The following dependency must be configured in your `project/Build.scala` (or `build.sbt`).
+
+{% highlight ocaml %}
+libraryDependencies += "org.reactivemongo" %% "reactivemongo-akkastream" % "{{site._0_12_latest_minor}}"
+{% endhighlight %}
+
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-akkastream_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-akkastream_2.11/)
+
+The main features of this modules are as follows.
+
 - Get a [`Source`](https://reactivemongo.github.io/ReactiveMongo-Streaming/0.12/akka-stream/api/index.html#reactivemongo.akkastream.AkkaStreamCursor@documentSource(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Option[T]])(implicitm:akka.stream.Materializer):akka.stream.scaladsl.Source[T,akka.NotUsed]) of documents from a ReactiveMongo cursor. This is a document producer.
 - Run with a [`Flow`](doc.akka.io/api/akka/2.4.8/#akka.stream.javadsl.Flow) or a [`Sink`](doc.akka.io/api/akka/2.4.8/#akka.stream.javadsl.Sink), which will consume the documents, with possible transformation.
 
@@ -22,18 +32,17 @@ To use the Akka Stream support for the ReactiveMongo cursors, [`reactivemongo.pl
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import akka.NotUsed
 import akka.stream.Materializer
 import akka.stream.scaladsl.{ Sink, Source }
 
 import reactivemongo.bson.BSONDocument
 import reactivemongo.api.collections.bson.BSONCollection
 
-import reactivemongo.akkastream.cursorProducer
+import reactivemongo.akkastream.{ State, cursorProducer }
 // Provides the cursor producer with the Akka Stream capabilities
 
 def processPerson1(collection: BSONCollection, query: BSONDocument)(implicit m: Materializer): Future[Seq[BSONDocument]] = {
-  val sourceOfPeople: Source[BSONDocument, NotUsed] =
+  val sourceOfPeople: Source[BSONDocument, Future[State]] =
     collection.find(query).cursor[BSONDocument].documentSource()
 
   sourceOfPeople.runWith(Sink.seq[BSONDocument])
