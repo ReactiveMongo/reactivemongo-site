@@ -3,7 +3,8 @@
 export PATH="$HOME/.gem/ruby/2.2.0/bin:$PATH"
 #gem install --no-verbose --user-install jekyll -v 2.5.3
 gem install --no-verbose --user-install jekyll pygments.rb || exit 1
-pip install --user Pygments || exit 2
+bundle install || exit 2
+pip install --user Pygments || exit 3
 
 find $HOME/.local -type f -print
 
