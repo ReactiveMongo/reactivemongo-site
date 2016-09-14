@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="ReactiveMongo, Reactive Scala Driver for MongoDB" />
+    <meta name="description" content="ReactiveMongo {% include major-version.md %}, Reactive Scala Driver for MongoDB" />
 
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
     <link href="/css/syntax.css" rel="stylesheet" type="text/css" />
@@ -16,7 +16,7 @@
 
     <link rel="icon" type="image/png" href="/images/favicon.ico" />
 
-    <title>ReactiveMongo</title>
+    <title>ReactiveMongo {% include major-version.md %} - {{page.title}}</title>
   </head>
 
   <body>
@@ -26,7 +26,13 @@
           <img src="/images/logo.png" />
         </a>
         <ul class="nav">
-          <li><a href="/documentation.html">Documentation</a></li>
+          <li>
+            {% if page.major_version %}
+            <a href="/releases/{{page.major_version}}/documentation/">Documentation</a>
+            {% else %}
+            <a href="/documentation.html">Documentation</a>
+            {% endif %}
+          </li>
           <li><a href="/ecosystem.html">Ecosystem</a></li>
           <li><a href="/community.html">Community</a></li>
         </ul>
@@ -41,6 +47,7 @@
     </div>
     <div id="footer">
       <div class="container">
+        <span id="majorVersion">{% include major-version.md %}</span>
         <span class="copyright">
           © 2012 – 2015, Stephane Godbillon &amp; <a href="https://github.com/ReactiveMongo/ReactiveMongo/graphs/contributors">contributors</a>
         </span>

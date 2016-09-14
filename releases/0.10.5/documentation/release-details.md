@@ -1,9 +1,10 @@
 ---
 layout: default
-title: ReactiveMongo 0.10.5 - Release details
+major_version: 0.10.5
+title: Release details
 ---
 
-## ReactiveMongo 0.10.5 – Release details
+## ReactiveMongo {{page.major_version}} – Release details
 
 This is a minor release including mostly bugfixes and some enhancements.
 

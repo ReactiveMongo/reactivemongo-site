@@ -1,13 +1,19 @@
 ---
 layout: default
-title: ReactiveMongo 0.12 - Documentation
+major_version: 0.12
+title: Documentation
 ---
 
 ## ReactiveMongo {{site._0_12_latest_minor}}
 
 You can read the [release notes](release-details.html) to know what is new with this release.
 
-The dependency can be added in your SBT project as following: `"org.reactivemongo" %% "reactivemongo" % "{{site._0_12_latest_minor}}"`
+The core dependency can be added in your SBT project as following.
+
+{% highlight ocaml %}
+libraryDependencies ++= Seq(
+  "org.reactivemongo" %% "reactivemongo" % "{{site._0_12_latest_minor}}"
+{% endhighlight %}
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.12/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.12/)
 [![Test coverage](https://img.shields.io/badge/coverage-60%25-yellowgreen.svg)](reactivemongo.github.io/ReactiveMongo/coverage/0.12.0/)
@@ -19,9 +25,10 @@ The dependency can be added in your SBT project as following: `"org.reactivemong
 The various API of the ReactiveMongo driver itself, and also of the related libraries, are available as online.
 
 - [Driver API](../api/index.html): Core driver, BSON
-- [Play JSON API](http://reactivemongo.github.io/ReactiveMongo-Play-Json/0.12/api/)
-- [Play module API](http://reactivemongo.github.io/Play-ReactiveMongo/0.12/api/)
-- ReactiveMongo [AkkaStream](https://reactivemongo.github.io/ReactiveMongo-Streaming/0.12/akka-stream/api/)
+- [Play JSON API](http://reactivemongo.github.io/ReactiveMongo-Play-Json/{{page.major_version}}/api/)
+- [Play module API](http://reactivemongo.github.io/Play-ReactiveMongo/{{page.major_version}}/api/)
+- ReactiveMongo [AkkaStream](https://reactivemongo.github.io/ReactiveMongo-Streaming/{{page.major_version}}/akka-stream/api/)
+- ReactiveMongo [Iteratees](https://reactivemongo.github.io/ReactiveMongo-Streaming/{{page.major_version}}/iteratees/api/)
 
 ### Tutorials
 

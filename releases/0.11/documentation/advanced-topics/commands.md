@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.11 - Command API
+major_version: 0.11
+title: Command API
 ---
 
 ## Command API

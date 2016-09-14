@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.10 - Setup
+major_version: "0.10"
+title: Setup
 ---
 
 ## Setup your project

@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.11 - Documentation
+major_version: 0.11
+title: Documentation
 ---
 
 ## ReactiveMongo {{site._0_11_latest_minor}}

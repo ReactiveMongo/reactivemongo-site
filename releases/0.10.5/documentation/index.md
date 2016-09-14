@@ -1,9 +1,10 @@
 ---
 layout: default
-title: ReactiveMongo 0.10.5 - Documentation
+major_version: 0.10.5
+title: Documentation
 ---
 
-## ReactiveMongo 0.10.5
+## ReactiveMongo {{page.major_version}}
 
 * You can read the [release notes](release-details.html) to know what is included in this release.
 * The [Scaladoc for the API](../api/index.html) can be browsed [here](../api/index.html).

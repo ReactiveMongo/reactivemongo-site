@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.10.5 - Running Commands
+major_version: 0.10.5
+title: Running Commands
 ---
 
 ## Running Commands

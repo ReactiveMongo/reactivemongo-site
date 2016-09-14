@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.10.5 - Handle Map with BSON Library
+major_version: 0.10.5
+title: Handle Map with BSON Library
 ---
 
 ## De/Serializing `Map` with the ReactiveMongo BSON library

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ReactiveMongo - Ecosystem
+title: Ecosystem
 ---
 
 ## ReactiveMongo Components

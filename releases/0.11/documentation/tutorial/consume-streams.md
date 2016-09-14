@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.11 - Streaming
+major_version: 0.11
+title: Streaming
 ---
 
 ## Streaming

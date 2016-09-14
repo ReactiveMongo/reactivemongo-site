@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.12 - Integration with Play Framework
+major_version: 0.12
+title: Integration with Play Framework
 ---
 
 A ReactiveMongo plugin is available for [Play Framework](https://playframework.com/), providing a reactive, asynchronous and non-blocking Scala driver for MongoDB to develop your application.

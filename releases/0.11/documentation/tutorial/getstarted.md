@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.12 - Get started
+major_version: 0.11
+title: Get started
 ---
 
 ## Get started

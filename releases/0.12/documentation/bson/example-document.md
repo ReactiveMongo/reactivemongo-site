@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.12 - Handle documents with the BSON Library
+major_version: 0.12
+title: Handle documents with the BSON Library
 ---
 
 ## Concrete example: Documents
