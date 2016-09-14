@@ -5,9 +5,11 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   color: #666;
 }
+
 body > div {
   
 }
+
 a {
   color: #59b25b;
   text-decoration: none;
@@ -198,3 +200,5 @@ p code {
 #provided-handlers ~ table td {
   background: #fff
 }
+
+#majorVersion { display: none }

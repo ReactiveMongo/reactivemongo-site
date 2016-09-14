@@ -1,16 +1,16 @@
 ---
 layout: default
-title: ReactiveMongo 0.9 – Release Notes
+major_version: 0.9
+title: Release Notes
 ---
 
-## ReactiveMongo 0.9
+## ReactiveMongo {{page.major_version}}
 
 This version includes a refactoring of the code base and provides some nice new features :-)
 
 Note that, while we are stabilizing the API, some changes may occur between this version and the next in order to provide a more consistent experience.
 
 Here are a quick view of the 0.8⇒0.9 changes:
-
 
 ### 1. BSON library
 

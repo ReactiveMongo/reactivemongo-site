@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ReactiveMongo - Documentation
+title: Documentation
 ---
 
 ## Releases

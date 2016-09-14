@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.11 - BSON Library Overview
+major_version: 0.11
+title: BSON Library Overview
 ---
 
 ## Overview of the ReactiveMongo BSON library

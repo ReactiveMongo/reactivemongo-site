@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.12 - FailoverStrategy
+major_version: 0.12
+title: FailoverStrategy
 ---
 
 ## Failover Strategy

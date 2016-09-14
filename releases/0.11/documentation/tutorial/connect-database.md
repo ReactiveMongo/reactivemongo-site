@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.11 - Connect to the database
+major_version: 0.11
+title: Connect to the database
 ---
 
 ## Connect to the database

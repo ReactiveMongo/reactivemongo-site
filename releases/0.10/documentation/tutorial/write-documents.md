@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.10 - Write Documents
+major_version: "0.10"
+title: Write Documents
 ---
 
 ## Classic Write Operations

@@ -1,0 +1,1 @@
+{% if page.major_version %}{{page.major_version}}{% else %}{{site.latest_major_release}}{% endif %}

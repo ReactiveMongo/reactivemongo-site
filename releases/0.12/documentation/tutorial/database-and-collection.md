@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.12 - Database and collections
+major_version: 0.12
+title: Database and collections
 ---
 
 ## Database and collections

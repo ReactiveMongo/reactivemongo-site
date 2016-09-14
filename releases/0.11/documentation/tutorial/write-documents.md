@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.11 - Write Documents
+major_version: 0.11
+title: Write Documents
 ---
 
 ## Write Documents

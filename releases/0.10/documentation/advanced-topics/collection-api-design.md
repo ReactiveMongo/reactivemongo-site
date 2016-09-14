@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.10 - The Collection API Design
+major_version: "0.10"
+title: The Collection API Design
 ---
 
 ## The Collection API Design

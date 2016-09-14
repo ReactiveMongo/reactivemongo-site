@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.12 - BSON readers & writers
+major_version: 0.12
+title: BSON readers & writers
 ---
 
 ## BSON readers and writers

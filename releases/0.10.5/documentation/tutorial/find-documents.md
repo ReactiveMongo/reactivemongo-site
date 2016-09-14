@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.10.5 - Find Documents
+major_version: 0.10.5
+title: Find Documents
 ---
 
 ## Find documents

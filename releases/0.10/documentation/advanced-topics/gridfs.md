@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.10 - GridFS
+major_version: "0.10"
+title: GridFS
 ---
 
 ## GridFS

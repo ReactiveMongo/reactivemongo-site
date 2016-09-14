@@ -1,6 +1,6 @@
 ---
 layout: home
-title: ReactiveMongo
+title: Home
 ---
 
 [ReactiveMongo](https://github.com/ReactiveMongo/ReactiveMongo/) is a scala driver that provides fully non-blocking and asynchronous I/O operations.

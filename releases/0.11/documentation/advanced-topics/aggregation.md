@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.11 - Aggregation Framework
+major_version: 0.11
+title: Aggregation Framework
 ---
 
 ## Aggregation Framework

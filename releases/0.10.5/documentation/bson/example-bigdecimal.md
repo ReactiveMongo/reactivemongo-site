@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.10.5 - Handle BigDecimal and BigInteger with the BSON Library
+major_version: 0.10.5
+title: Handle BigDecimal and BigInteger with the BSON Library
 ---
 
 ## Concrete example: BigDecimal

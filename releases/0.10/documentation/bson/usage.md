@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.10 - The ReactiveMongo BSON Library
+major_version: "0.10"
+title: The ReactiveMongo BSON Library
 ---
 
 ## The ReactiveMongo BSON Library

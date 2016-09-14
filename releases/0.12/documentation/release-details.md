@@ -1,6 +1,7 @@
 ---
 layout: default
-title: ReactiveMongo 0.12 - Release details
+major_version: 0.12
+title: Release details
 ---
 
 ## ReactiveMongo {{site._0_12_latest_minor}} – Release details
