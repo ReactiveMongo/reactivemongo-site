@@ -41,6 +41,15 @@ This release is compatible with the following runtime.
 
 > MongoDB versions older than 2.6 are not longer supported by ReactiveMongo.
 
+**Recommanded configuration:**
+
+The driver core and the modules are tested in [container based environment](https://docs.travis-ci.com/user/ci-environment/#Virtualization-environments), with the specs as bellow.
+
+- 2 [cores](https://cloud.google.com/compute/) (64bits)
+- 4 GB of system memory, with a maximum of 2 GB for the JVM
+
+This can be considered as a recommanded environment.
+
 ### Database resolution
 
 A new better [DB resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) is available (see [connection tutorial](tutorial/connect-database.html)).
