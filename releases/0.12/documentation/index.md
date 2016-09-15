@@ -30,6 +30,15 @@ The various API of the ReactiveMongo driver itself, and also of the related libr
 - ReactiveMongo [AkkaStream](https://reactivemongo.github.io/ReactiveMongo-Streaming/{{page.major_version}}/akka-stream/api/)
 - ReactiveMongo [Iteratees](https://reactivemongo.github.io/ReactiveMongo-Streaming/{{page.major_version}}/iteratees/api/)
 
+**Recommanded configuration:**
+
+The driver core and the modules are tested in [container based environment](https://docs.travis-ci.com/user/ci-environment/#Virtualization-environments), with the specs as bellow.
+
+- 2 [cores](https://cloud.google.com/compute/) (64bits)
+- 4 GB of system memory, with a maximum of 2 GB for the JVM
+
+This can be considered as a recommanded environment.
+
 ### Tutorials
 
 - [Setup ReactiveMongo in your project](tutorial/setup.html)
