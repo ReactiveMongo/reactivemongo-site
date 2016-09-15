@@ -27,7 +27,7 @@ But if what you're interested in is live feeds then you can stream a MongoDB [ca
 
 Moreover, you can now use GridFS as a non-blocking, streaming datastore. ReactiveMongo retrieves the file, chunk by chunk, and streams it until the client is done or there's no more data. Neither huge memory consumption, nor blocked thread during the process!
 
-[More: **Get Started**](releases/{{site.latest_major_release}}/documentation/tutorial/getstarted)
+[More: **Get Started**](/releases/{{site.latest_major_release}}/documentation/tutorial/getstarted.html)
 
 ### Samples
 

@@ -1164,8 +1164,7 @@ When running with this module, you check the state of the ReactiveMongo pools fr
 
 The internal [Netty](http://netty.io/) dependency has been updated to the version 3.10.4, and is now [shaded](http://forgegradle.readthedocs.io/en/latest/user-guide/shading/) to avoid conflict ([dependency hell](https://en.wikipedia.org/wiki/Dependency_hell)).
 
-
-[![Test coverage](https://img.shields.io/badge/coverage-60%25-yellowgreen.svg)](reactivemongo.github.io/ReactiveMongo/coverage/0.12.0/)
+[![Test coverage](https://img.shields.io/badge/coverage-60%25-yellowgreen.svg)](https://reactivemongo.github.io/ReactiveMongo/coverage/0.12.0/)
 
 ### Breaking changes
 

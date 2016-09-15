@@ -17,11 +17,11 @@ perl -pe "s|resolvers |resolvers in ThisBuild += \"Sonatype Staging\" at \"https
 SBT_JAR="$HOME/.sbt/launchers/$SBT_VER/sbt-launch.jar"
 
 (java $SBT_OPTS -jar "$SBT_JAR" compile && \
-  jekyll build) || exit 2
+  bundle exec jekyll build) || exit 2
 
 echo "# Documentation built"
 
-jekyll serve --detach
+bundle exec jekyll serve --detach
 echo "# Jekyll local server started"
 
 for F in `grep -rl 'java\$lang.html' _site`
@@ -39,4 +39,12 @@ echo "# Documentation checked for broken links"
 rm -rf 'localhost:4000'
 pkill -f jekyll
 
-exit $RES
+if [ $RES -ne 0 ]; then
+  exit $RES
+fi
+
+echo "# Indexing to Algolia"
+bundle exec jekyll algolia push || (
+    echo "!! fails to push to Algolia"
+    false
+)

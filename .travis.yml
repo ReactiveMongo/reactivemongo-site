@@ -6,10 +6,11 @@ addons:
     packages:
     - oracle-java8-installer
 cache:
-  directories:
-  - $HOME/.ivy2
-  - $HOME/.sbt
-  - $HOME/.gem
-  - $HOME/.local
-before_install: ./.travis_scripts/beforeInstall.sh 0.13.11
-script: ./.travis_scripts/validate.sh 0.13.11
+  - bundler
+  - directories:
+    - $HOME/.ivy2
+    - $HOME/.sbt
+    - $HOME/.gem
+    - $HOME/.local
+before_install: ./.ci_scripts/beforeInstall.sh 0.13.11
+script: ./.ci_scripts/validate.sh 0.13.11
