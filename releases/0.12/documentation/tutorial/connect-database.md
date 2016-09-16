@@ -224,7 +224,7 @@ database.onComplete {
 
 **[`MongoConnection`](../../api/index.html#reactivemongo.api.MongoConnection) stands for a pool of connections.**
 
-Do not get confused here: a `MongoConnection` is a _logical_ connection, not a physical one; it is actually a _connection pool_. By default, a `MongoConnection` creates 10 _physical_ network channels to each node; It can be tuned this by setting the `rm.nbChannelsPerNode` options (see the [connection options](#connection-options]).
+Do not get confused here: a `MongoConnection` is a _logical_ connection, not a physical one (not a network channel); It's actually a _connection pool_. By default, a `MongoConnection` creates 10 _physical_ network channels to each node; It can be tuned this by setting the `rm.nbChannelsPerNode` options (see the [connection options](#connection-options]).
 
 **Why are `MongoDriver` and `MongoConnection` distinct?**
 
@@ -245,5 +245,63 @@ Gettting such references is lighweight, and calling [`connection.database(..)`](
 **Virtual Private Network ([VPN](https://en.wikipedia.org/wiki/Virtual_private_network)):**
 
 When connecting to a MongoDB replica set over a VPN, if using IP addresses instead of hostnames to configure the connection nodes, then it's possible that the nodes are discovered with hostnames that are only known within the remote network, and so not usable from the driver/client side.
+
+### Troubleshooting
+
+The bellow errors may indicate there is a connectivity and/or network issue.
+
+*Primary not available*
+
+- Error: `reactivemongo.core.actors.Exceptions$PrimaryUnavailableException: MongoError['No primary node is available! ...']`
+- In logging: "The primary is unavailable, is there a network problem?" (not critical if the error doesn't occur)
+
+*Node set not reachable*
+
+- Error: `reactivemongo.core.actors.Exceptions$NodeSetNotReachable: MongoError['The node set can not be reached! Please check your network connectivity ...']`
+- In logging: "The entire node set is unreachable, is there a network problem?" (not critical if the error doesn't occur)
+
+**Diagnostic:**
+
+If one of the error is seen, first retry/refresh to check it wasn't a temporary system/network issue. If the issue is then reproduced, the following can be checked.
+
+*Are the DB nodes accessible from the node running the application?*
+
+- Using the [MongoShell](https://docs.mongodb.com/manual/reference/mongo-shell/): `mongo primary-host:primary-port/name-of-database` (replace the primary host & port and the database name with the same used in the ReactiveMongo connection URI).
+- With the [SBT Playground](https://github.com/cchantep/RM-SBT-Playground), using the same connection URI.
+- **Possible causes:** Broken network, authentication issue (before 0.12, MONGODB-CR is the default mode; See the [`authMode` option](#connection-options)), SSL issue (check the `sslEnabled` and `sslAllowsInvalidCert` options).
+
+*Is the connection URI used with ReactiveMongo valid?*
+
+- If using the [Play module](./play.html), the `strictUri` setting can be enabled (e.g. `mongodb.connection.strictUri=true`).
+- If calling directly the function [`MongoDriver.connection`](../../api/index.html#reactivemongo.api.MongoDriver@connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI,strictUri:Boolean):scala.util.Try[reactivemongo.api.MongoConnection]), the `strictUri` parameter can be set to `true`.
+- Connect without any non mandatory options (e.g. `connectTimeoutMS`), using the [SBT Playground](https://github.com/cchantep/RM-SBT-Playground) to try the alternative URIs.
+
+*Connecting to a [MongoDB ReplicaSet](https://docs.mongodb.com/manual/replication/), is status ok?*
+
+- Using the [MongoShell](https://docs.mongodb.com/manual/reference/mongo-shell/) to connect to the primary node, execute `rs.status()`.
+
+**Additional actions:**
+
+With the [ReactiveMongo logging](http://reactivemongo.org/releases/0.12/documentation/tutorial/setup.html#logging) enabled, more details can be found (see a trace example thereafter).
+
+{% highlight text %}{% raw %}
+reactivemongo.core.actors.Exceptions$InternalState: null (<time:1469208071685>:-1)
+reactivemongo.ChannelClosed(-2079537712, {{NodeSet None Node[localhost:27017: Primary (0/0 available connections), latency=5], auth=Set() }})(<time:1469208071685>)
+reactivemongo.Shutdown(<time:1469208071673>)
+reactivemongo.ChannelDisconnected(-2079537712, {{NodeSet None Node[localhost:27017: Primary (1/1 available connections), latency=5], auth=Set() }})(<time:1469208071663>)
+reactivemongo.ChannelClosed(967102512, {{NodeSet None Node[localhost:27017: Primary (1/2 available connections), latency=5], auth=Set() }})(<time:1469208071663>)
+reactivemongo.ChannelDisconnected(967102512, {{NodeSet None Node[localhost:27017: Primary (2/2 available connections), latency=5], auth=Set() }})(<time:1469208071663>)
+reactivemongo.ChannelClosed(651496230, {{NodeSet None Node[localhost:27017: Primary (2/3 available connections), latency=5], auth=Set() }})(<time:1469208071663>)
+reactivemongo.ChannelDisconnected(651496230, {{NodeSet None Node[localhost:27017: Primary (3/3 available connections), latency=5], auth=Set() }})(<time:1469208071663>)
+reactivemongo.ChannelClosed(1503989210, {{NodeSet None Node[localhost:27017: Primary (3/4 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
+reactivemongo.ChannelDisconnected(1503989210, {{NodeSet None Node[localhost:27017: Primary (4/4 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
+reactivemongo.ChannelClosed(-228911231, {{NodeSet None Node[localhost:27017: Primary (4/5 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
+reactivemongo.ChannelDisconnected(-228911231, {{NodeSet None Node[localhost:27017: Primary (5/5 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
+reactivemongo.ChannelClosed(-562085577, {{NodeSet None Node[localhost:27017: Primary (5/6 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
+reactivemongo.ChannelDisconnected(-562085577, {{NodeSet None Node[localhost:27017: Primary (6/6 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
+reactivemongo.ChannelClosed(-857553810, {{NodeSet None Node[localhost:27017: Primary (6/7 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
+{% endraw %}{% endhighlight %}
+
+The [JMX module](../release-details.html#monitoring) can be used to check how the node set is seen by the driver.
 
 [Previous: Setup](./setup.html) / [Next: Database and collections](./database-and-collection.html)

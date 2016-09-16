@@ -1132,7 +1132,7 @@ As for SLF4J is now used, the following error is raised, please make sure to pro
 
 In order to debug the networking issues, the internal state of the node set is provided as details of the related exceptions, as bellow.
 
-{% highlight text %}
+{% highlight text %}{% raw %}
 reactivemongo.core.actors.Exceptions$InternalState: null (<time:1469208071685>:-1)
 reactivemongo.ChannelClosed(-2079537712, {{NodeSet None Node[localhost:27017: Primary (0/0 available connections), latency=5], auth=Set() }})(<time:1469208071685>)
 reactivemongo.Shutdown(<time:1469208071673>)
@@ -1148,7 +1148,7 @@ reactivemongo.ChannelDisconnected(-228911231, {{NodeSet None Node[localhost:2701
 reactivemongo.ChannelClosed(-562085577, {{NodeSet None Node[localhost:27017: Primary (5/6 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
 reactivemongo.ChannelDisconnected(-562085577, {{NodeSet None Node[localhost:27017: Primary (6/6 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
 reactivemongo.ChannelClosed(-857553810, {{NodeSet None Node[localhost:27017: Primary (6/7 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
-{% endhighlight %}
+{% endraw %}{% endhighlight %}
 
 ### Monitoring
 
