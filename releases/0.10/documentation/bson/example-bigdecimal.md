@@ -2,6 +2,7 @@
 layout: default
 major_version: "0.10"
 title: Handle BigDecimal and BigInteger with the BSON Library
+sitemap: false
 ---
 
 ## Concrete example: BigDecimal

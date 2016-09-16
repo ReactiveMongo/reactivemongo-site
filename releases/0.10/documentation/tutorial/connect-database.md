@@ -2,6 +2,7 @@
 layout: default
 major_version: "0.10"
 title: Setup
+sitemap: false
 ---
 
 ## Starting ReactiveMongo

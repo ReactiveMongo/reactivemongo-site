@@ -2,6 +2,7 @@
 layout: default
 major_version: 0.9
 title: Release Notes
+sitemap: false
 ---
 
 ## ReactiveMongo {{page.major_version}}

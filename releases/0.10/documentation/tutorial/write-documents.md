@@ -2,6 +2,7 @@
 layout: default
 major_version: "0.10"
 title: Write Documents
+sitemap: false
 ---
 
 ## Classic Write Operations

@@ -2,6 +2,7 @@
 layout: default
 major_version: "0.10"
 title: Handle Map with BSON Library
+sitemap: false
 ---
 
 ## De/Serializing `Map` with the ReactiveMongo BSON library

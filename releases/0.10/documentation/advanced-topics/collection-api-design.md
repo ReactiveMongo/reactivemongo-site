@@ -2,6 +2,7 @@
 layout: default
 major_version: "0.10"
 title: The Collection API Design
+sitemap: false
 ---
 
 ## The Collection API Design

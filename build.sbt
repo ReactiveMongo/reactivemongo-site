@@ -11,7 +11,8 @@ lazy val `reactivemongo-site` = (project in file("."))
     scalacOptions in ThisBuild ++= Seq("-Ywarn-unused-import", "-unchecked"),
     libraryDependencies ++= Seq(
       "org.reactivemongo" %% "reactivemongo" % "0.11.14"),
-    resolvers ++= Seq(
+    resolvers in ThisBuild += "Sonatype Staging" at "https://oss.sonatype.org/content/repositories/staging/",
+resolvers ++= Seq(
       "Typesafe releases" at "http://repo.typesafe.com/typesafe/releases/"))
   .aggregate(release_0_11, release_0_12)
 

@@ -2,6 +2,7 @@
 layout: default
 major_version: "0.10"
 title: Read Preferences
+sitemap: false
 ---
 
 ## Use Read Preferences
