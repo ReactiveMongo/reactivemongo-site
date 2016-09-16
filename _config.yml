@@ -14,8 +14,8 @@ _0_11_latest_minor: 0.11.14
 _0_12_latest_minor: 0.12.0
 
 algolia:
-  application_id: '#ALGOLIA_APPLICATION_ID#'
-  search_only_api_key: '#ALGOLIA_SEARCH_ONLY_API_KEY#'
+  application_id: 'LZ1F244Z01'
+  search_only_api_key: 'b0690010c443bd4632a6bba0ac8d26bd'
   record_css_selector: 'p,ul'
   settings:
     attributesForFaceting: ['#majorVersion']

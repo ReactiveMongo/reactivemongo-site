@@ -235,6 +235,8 @@ def jsonExplain(col: JSONCollection): Future[Option[JsObject]] =
   col.find(Json.obj()).explain().one[JsObject]
 {% endhighlight %}
 
+[More: **Query builder API**](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder)
+
 **Error handling:**
 
 The [`WriteResult`](../api/index.html#reactivemongo.api.commands.WriteResult) that represents the errors from executing commands, is now coming with pattern matching utilities.
@@ -271,7 +273,9 @@ The same approach can be used with [`CommandError`](../api/index.html#reactivemo
 - [`CommandError.Code`](../api/index.html#reactivemongo.api.commands.CommandError$@Code): matches the errors according the specified code (e.g. the 11000 code for the Duplicate error)
 - [`CommandError.Message`](../api/index.html#reactivemongo.api.commands.CommandError$@Message): matches the errors according the message
 
-[More: **Query builder API**](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder)
+**GridFS:**
+
+The [`GridFS`](../api/index.html#reactivemongo.api.gridfs.GridFS) provides the new `saveWithMD5` and `iterateeWithMD5`, which automatically compute the MD5 digested while storing data.
 
 ### Streaming
 
