@@ -1,7 +1,8 @@
 ---
 layout: default
 major_version: "0.10"
-title: FailoverStrategy
+title: Failover Strategy
+sitemap: false
 ---
 
 ## Failover Strategy

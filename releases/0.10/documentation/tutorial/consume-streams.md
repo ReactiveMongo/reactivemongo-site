@@ -2,6 +2,7 @@
 layout: default
 major_version: "0.10"
 title: Consume Streams of Documents
+sitemap: false
 ---
 
 ## Consume streams of documents

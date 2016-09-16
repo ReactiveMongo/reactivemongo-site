@@ -2,6 +2,7 @@
 layout: default
 major_version: "0.10"
 title: Release details
+sitemap: false
 ---
 
 ## ReactiveMongo {{page.major_version}} – Release details
