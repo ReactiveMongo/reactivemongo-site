@@ -54,14 +54,7 @@ h1, h2, h3, h4 {
   content: "";
   clear: both;
 }
-#siteSearch {
-  overflow: hidden;
-  margin: 0;
-  padding: 0 0 5px;
-  width: 320px;
-  height:40px;
-  float: right;
-}
+
 #main {
   padding-bottom: 100px;
 }

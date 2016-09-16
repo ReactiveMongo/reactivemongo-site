@@ -6,13 +6,15 @@
     <meta name="description" content="ReactiveMongo {% include major-version.md %}, Reactive Scala Driver for MongoDB" />
 
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
-    <link href="/css/syntax.css" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <link rel="stylesheet" media="only screen and (max-width: 640px) and (max-height: 640px)" href="/css/responsive.css" type="text/css" />
-    <link rel="stylesheet" media="only screen and (max-width: 640px) and (min-height: 600px)" href="/css/responsive.css" type="text/css" />    
+    <link rel="stylesheet" media="only screen and (max-width: 640px) and (min-height: 600px)" href="/css/responsive.css" type="text/css" />
 
     <link rel="stylesheet" media="screen and (min-width: 641px), screen and (min-width: 768px) and (min-height: 641px)" href="/css/desktop.css" type="text/css" />
+
+    <link href="/css/syntax.css" rel="stylesheet" type="text/css" />
+    <link href="/css/algolia.css" rel="stylesheet" type="text/css" />
 
     <link rel="icon" type="image/png" href="/images/favicon.ico" />
 
@@ -37,7 +39,9 @@
           <li><a href="/community.html">Community</a></li>
         </ul>
 
-        <iframe id="siteSearch" src="//duckduckgo.com/search.html?site=reactivemongo.org&prefill=Search&kn=1&ka=e&kt=n&kj=w&ky=%2359b25b&kx=%232f2f2f&k7=%23f4f4f4&k8=%23666&k9=%23376a39&kaa=%23008080&k1=-1" frameborder="0"></iframe>        
+        <form id="siteSearch">
+          <input id="search-input" type="text" autocomplete="on" spellcheck="false" autocorrect="off" placeholder="Search" />
+        </form>
       </div>
     </div>
     <div id="main">
@@ -45,6 +49,7 @@
       <p class="subtitle">Asynchronous &amp; Non-Blocking</p>
       {{content}}
     </div>
+
     <div id="footer">
       <div class="container">
         <span id="majorVersion">{% include major-version.md %}</span>
@@ -54,5 +59,7 @@
         <a class="sponsors" href="/sponsors.html">Sponsors</a>
       </div>
     </div>
+
+    {% include algolia-script.md %}
   </body>
 </html>

@@ -16,6 +16,9 @@ perl -pe "s|resolvers |resolvers in ThisBuild += \"Sonatype Staging\" at \"https
 
 SBT_JAR="$HOME/.sbt/launchers/$SBT_VER/sbt-launch.jar"
 
+echo "# Prepare the environment configuration"
+sed -e "s|#ALGOLIA_APPLICATION_ID#|$ALGOLIA_APPLICATION_ID|;s|#ALGOLIA_SEARCH_ONLY_API_KEY#|$ALGOLIA_SEARCH_ONLY_API_KEY|" < "$SCRIPT_DIR/../_config.yml" > /tmp/_config.yml && mv /tmp/_config.yml "$SCRIPT_DIR/../_config.yml"
+
 (java $SBT_OPTS -jar "$SBT_JAR" compile && \
   bundle exec jekyll build) || exit 2
 
