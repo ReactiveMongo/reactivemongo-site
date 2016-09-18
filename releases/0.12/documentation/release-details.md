@@ -696,10 +696,10 @@ import reactivemongo.api.collections.bson.BSONCollection
 
 def outputBooks(books: BSONCollection, outColl: String): Future[Unit] = {
   import books.BatchCommands.AggregationFramework
-  import AggregationFramework.{ Ascending, Group, Push, Out, Sort }
+  import AggregationFramework.{ Ascending, Group, PushField, Out, Sort }
 
   books.aggregate(Sort(Ascending("title")), List(
-    Group(BSONString("$author"))("books" -> Push("title")),
+    Group(BSONString("$author"))("books" -> PushField("title")),
     Out(outColl))).map(_ => {})
 }
 {% endhighlight %}
