@@ -164,25 +164,6 @@
       </a>
     </span>
       
-    </li><li name="reactivemongo.bson.BSONObjectID#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="apply(id:String):reactivemongo.bson.BSONObjectID"></a>
-      <a id="apply(String):BSONObjectID"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">apply</span><span class="params">(<span name="id">id: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="BSONObjectID.html" class="extype" name="reactivemongo.bson.BSONObjectID">BSONObjectID</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.bson.BSONObjectID$@apply(id:String):reactivemongo.bson.BSONObjectID" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Constructs a BSON ObjectId element from a hexadecimal String representation.</p><div class="fullcomment"><div class="comment cmt"><p>Constructs a BSON ObjectId element from a hexadecimal String representation.
-Throws an exception if the given argument is not a valid ObjectID.</p><p><code>parse(str: String): Try[BSONObjectID]</code> should be considered instead of this method.
-</p></div></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -430,7 +411,7 @@ with the <code>machine identifier</code>, <code>thread identifier</code> and <co
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="reactivemongo.bson.BSONObjectID#parse" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="parse(str:String):scala.util.Try[reactivemongo.bson.BSONObjectID]"></a>
+      <a id="parse(id:String):scala.util.Try[reactivemongo.bson.BSONObjectID]"></a>
       <a id="parse(String):Try[BSONObjectID]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -438,10 +419,10 @@ with the <code>machine identifier</code>, <code>thread identifier</code> and <co
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">parse</span><span class="params">(<span name="str">str: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.util.Try" class="extype" target="_top">Try</a>[<a href="BSONObjectID.html" class="extype" name="reactivemongo.bson.BSONObjectID">BSONObjectID</a>]</span>
+        <span class="name">parse</span><span class="params">(<span name="id">id: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.util.Try" class="extype" target="_top">Try</a>[<a href="BSONObjectID.html" class="extype" name="reactivemongo.bson.BSONObjectID">BSONObjectID</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.bson.BSONObjectID$@parse(str:String):scala.util.Try[reactivemongo.bson.BSONObjectID]" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.bson.BSONObjectID$@parse(id:String):scala.util.Try[reactivemongo.bson.BSONObjectID]" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -571,7 +552,32 @@ with the <code>machine identifier</code>, <code>thread identifier</code> and <co
 
         
 
-        
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="reactivemongo.bson.BSONObjectID#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply(id:String):reactivemongo.bson.BSONObjectID"></a>
+      <a id="apply(String):BSONObjectID"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.12.0) parse(str: String): Try[BSONObjectID] should be considered instead of this method">apply</span><span class="params">(<span name="id">id: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="BSONObjectID.html" class="extype" name="reactivemongo.bson.BSONObjectID">BSONObjectID</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONObjectID$@apply(id:String):reactivemongo.bson.BSONObjectID" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Constructs a BSON ObjectId element from a hexadecimal String representation.</p><div class="fullcomment"><div class="comment cmt"><p>Constructs a BSON ObjectId element from a hexadecimal String representation.
+Throws an exception if the given argument is not a valid ObjectID.
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> <code>parse(str: String): Try[BSONObjectID]</code> should be considered instead of this method</p></dd></dl></div>
+    </li></ol>
+            </div>
         </div>
 
         <div id="inheritedMembers">

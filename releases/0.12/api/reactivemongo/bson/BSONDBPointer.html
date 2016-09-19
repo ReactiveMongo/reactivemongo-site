@@ -28,10 +28,12 @@
         </head>
         <body class="type">
       <div id="definition">
-        <img alt="Class" src="../../lib/class_big.png" />
+        <a href="BSONDBPointer$.html" title="See companion object"><img alt="Class/Object" src="../../lib/class_to_object_big.png" /></a>
         <p id="owner"><a href="../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="package.html" class="extype" name="reactivemongo.bson">bson</a></p>
-        <h1>BSONDBPointer</h1><h3><span class="morelinks"><div>Related Doc:
-            <a href="package.html" class="extype" name="reactivemongo.bson">package bson</a>
+        <h1><a href="BSONDBPointer$.html" title="See companion object">BSONDBPointer</a></h1><h3><span class="morelinks"><div>
+            Related Docs:
+            <a href="BSONDBPointer$.html" title="See companion object">object BSONDBPointer</a>
+            | <a href="package.html" class="extype" name="reactivemongo.bson">package bson</a>
           </div></span></h3><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.BSONDBPointer" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
@@ -42,10 +44,10 @@
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">case class</span>
+        <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">BSONDBPointer</span><span class="params">(<span name="value">value: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="id">id: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Byte" class="extype" target="_top">Byte</a>]</span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <span class="name">BSONDBPointer</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a> with <span class="extype" name="java.io.Serializable">Serializable</span></span>
       </span>
       </h4>
       
@@ -93,7 +95,7 @@
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="reactivemongo.bson.BSONDBPointer#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+              <ol><li name="reactivemongo.bson.BSONDBPointer#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="&lt;init&gt;(value:String,id:Array[Byte]):reactivemongo.bson.BSONDBPointer"></a>
       <a id="&lt;init&gt;:BSONDBPointer"></a>
       <h4 class="signature">
@@ -102,14 +104,17 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">BSONDBPointer</span><span class="params">(<span name="value">value: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="id">id: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Byte" class="extype" target="_top">Byte</a>]</span>)</span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.12.0) ">BSONDBPointer</span><span class="params">(<span name="value">value: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="id">id: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Byte" class="extype" target="_top">Byte</a>]</span>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.BSONDBPointer@&lt;init&gt;(value:String,id:Array[Byte]):reactivemongo.bson.BSONDBPointer" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> </p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -557,23 +562,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="reactivemongo.bson.BSONDBPointer#id" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="id:Array[Byte]"></a>
-      <a id="id:Array[Byte]"></a>
+    </li><li name="reactivemongo.bson.BSONDBPointer#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">val</span>
+        <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">id</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Byte" class="extype" target="_top">Byte</a>]</span>
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.bson.BSONDBPointer@id:Array[Byte]" title="Permalink" target="_top">
+      <a href="../../index.html#reactivemongo.bson.BSONDBPointer@hashCode():Int" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.BSONDBPointer">BSONDBPointer</a> → AnyRef → Any</dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -659,6 +664,40 @@
       </a>
     </span>
       <p class="shortcomment cmt">The BSONObjectID representation of this reference.</p>
+    </li><li name="scala.Product#productIterator" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="productIterator:Iterator[Any]"></a>
+      <a id="productIterator:Iterator[Any]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">productIterator</span><span class="result">: <span class="extype" name="scala.Iterator">Iterator</span>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONDBPointer@productIterator:Iterator[Any]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Product</dd></dl></div>
+    </li><li name="scala.Product#productPrefix" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="productPrefix:String"></a>
+      <a id="productPrefix:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">productPrefix</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONDBPointer@productPrefix:String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Product</dd></dl></div>
     </li><li name="reactivemongo.bson.BSONValue.ExtendedBSONValue#seeAsOpt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="seeAsOpt[T](implicitreader:reactivemongo.bson.BSONReader[_&lt;:reactivemongo.bson.BSONValue,T]):Option[T]"></a>
       <a id="seeAsOpt[T](BSONReader[_&lt;:BSONValue,T]):Option[T]"></a>
@@ -718,6 +757,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONDBPointer@toString():String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="reactivemongo.bson.BSONDBPointer#value" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="value:String"></a>
       <a id="value:String"></a>
@@ -830,7 +886,90 @@
 
         
 
-        
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="reactivemongo.bson.BSONDBPointer#copy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="copy(value:String,id:Array[Byte]):reactivemongo.bson.BSONDBPointer"></a>
+      <a id="copy(String,Array[Byte]):BSONDBPointer"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.12.0) No longer a case class">copy</span><span class="params">(<span name="value">value: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol"><span class="name"><a href="#value:String">this.value</a></span></span></span>, <span name="id">id: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Byte" class="extype" target="_top">Byte</a>] = <span class="symbol">internalId()</span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.BSONDBPointer">BSONDBPointer</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONDBPointer@copy(value:String,id:Array[Byte]):reactivemongo.bson.BSONDBPointer" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> No longer a case class</p></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONDBPointer#id" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="id:Array[Byte]"></a>
+      <a id="id:Array[Byte]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.12.0) Do not use">id</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Byte" class="extype" target="_top">Byte</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONDBPointer@id:Array[Byte]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Do not use</p></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONDBPointer#productArity" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="productArity:Int"></a>
+      <a id="productArity:Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.12.0) No longer a case class">productArity</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONDBPointer@productArity:Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.BSONDBPointer">BSONDBPointer</a> → Product</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> No longer a case class</p></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONDBPointer#productElement" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="productElement(n:Int):Any"></a>
+      <a id="productElement(Int):Any"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.12.0) No longer a case class">productElement</span><span class="params">(<span name="n">n: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.BSONDBPointer@productElement(n:Int):Any" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.BSONDBPointer">BSONDBPointer</a> → Product</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> No longer a case class</p></dd></dl></div>
+    </li></ol>
+            </div>
         </div>
 
         <div id="inheritedMembers">

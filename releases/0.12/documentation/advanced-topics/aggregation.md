@@ -8,6 +8,18 @@ title: Aggregation Framework
 
 The [MongoDB Aggregation Framework](http://docs.mongodb.org/manual/reference/operator/aggregation/) is available through ReactiveMongo.
 
+- [`$group`](#group): [specifications](https://docs.mongodb.com/manual/reference/operator/aggregation/group/) / [API](https://reactivemongo.org/releases/0.12/api/index.html#reactivemongo.api.commands.GroupAggregation)
+  - [`$sum`](#sum)
+  - [`$avg`](#avg)
+  - [`$first`](#first)
+  - [`$last`](#last)
+  - [`$max`](#max)
+  - [`$min`](#min)
+  - [`$push`](#push)
+  - [`$addToSet`](#addToSet)
+  - [`$stdDevPop`](#stdDevPop)
+  - [`$stdDevSamp`](#stdDevSamp)
+
 ### ZipCodes example
 
 Considering there is a `zipcodes` collection in a MongoDB, with the following documents.
@@ -48,7 +60,7 @@ def distinctStates(col: BSONCollection)(implicit ec: ExecutionContext): Future[S
 
 **States with population above 10000000**
 
-It's possible to determine the states for which the sum of the population of the cities is above 10000000, by [grouping the documents](http://docs.mongodb.org/manual/reference/operator/aggregation/group/#pipe._S_group) by their state, then for each [group calculating the sum](http://docs.mongodb.org/manual/reference/operator/aggregation/sum/#grp._S_sum) of the population values, and finally get only the grouped documents whose population sum [matches the filter](http://docs.mongodb.org/manual/reference/operator/aggregation/match/#pipe._S_match) "above 10000000".
+It's possible to determine the states for which the <span id="sum">sum</span> of the population of the cities is above 10000000, by <span id="group">[grouping the documents](http://docs.mongodb.org/manual/reference/operator/aggregation/group/#pipe._S_group)</span> by their state, then for each [group calculating the sum](http://docs.mongodb.org/manual/reference/operator/aggregation/sum/#grp._S_sum) of the population values, and finally get only the grouped documents whose population sum [matches the filter](http://docs.mongodb.org/manual/reference/operator/aggregation/match/#pipe._S_match) "above 10000000".
 
 In the MongoDB shell, such aggregation is written as bellow (see the [example](http://docs.mongodb.org/manual/tutorial/aggregation-zip-code-data-set/#return-states-with-populations-above-10-million)).
 
@@ -138,9 +150,119 @@ def populatedStatesCursor(cities: BSONCollection)(implicit ec: ExecutionContext)
 }
 {% endhighlight %}
 
+**Most populated city per stage**
+
+The <span id="max">[`$max`](https://docs.mongodb.com/manual/reference/operator/aggregation/max/#grp._S_max)</span> can be used to get the most populated site per state.
+
+In the MongoDB shell, it would be executed as following.
+
+{% highlight javascript %}
+db.zipcodes.aggregate([
+   { $group: { _id: "$state", maxPop: { $max: "$population" } } }
+])
+{% endhighlight %}
+
+It will return a result as bellow.
+
+{% highlight javascript %}
+[
+  { _id: "JP", maxPop: 13185502 },
+  { _id: "FR", maxPop: 148169 }
+  { _id: "NY", maxPop: 19746227 }
+]
+{% endhighlight %}
+
+Using ReactiveMongo:
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+
+import reactivemongo.bson._
+import reactivemongo.api.collections.bson.BSONCollection
+
+def mostPopulated(cities: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
+  import cities.BatchCommands.AggregationFramework
+  import AggregationFramework.{ Group, MaxField }
+
+  cities.aggregate(Group(BSONString("$state"))(
+    "maxPop" -> MaxField("population")
+  )).map(_.firstBatch)
+}
+{% endhighlight %}
+
+Similarly, the <span id="min">[`$min`](https://docs.mongodb.com/manual/reference/operator/aggregation/min/#grp._S_min)</span> accumulator can be used to get the least populated cities.
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+
+import reactivemongo.bson._
+import reactivemongo.api.collections.bson.BSONCollection
+
+def leastPopulated(cities: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
+  import cities.BatchCommands.AggregationFramework
+  import AggregationFramework.{ Group, MinField }
+
+  cities.aggregate(Group(BSONString("$state"))(
+    "minPop" -> MinField("population")
+  )).map(_.firstBatch)
+}
+{% endhighlight %}
+
+**Gather the city names per state as a simple array**
+
+The <span id="push">[`$push`](https://docs.mongodb.com/manual/reference/operator/aggregation/push/#grp._S_push)</span> accumulator can be used to gather some fields, so there is a computed array for each group.
+
+In the MongoDB shell, it can be done as bellow.
+
+{% highlight javascript %}
+db.zipcodes.aggregate([
+  { $group: { _id: "$state", cities: { $push: "$city" } } }
+])
+{% endhighlight %}
+
+It will return the aggregation results:
+
+{% highlight javascript %}
+[
+  { _id: "JP", cities: [ "TOKYO", "AOGASHIMA" ] },
+  { _id: "FR", cities: [ "LE MANS" ] },
+  { _id: "NY", cities: [ "NEW YORK" ] }
+}
+{% endhighlight %}
+
+{% highlight javascript %}
+import scala.concurrent.{ ExecutionContext, Future }
+
+import reactivemongo.bson._
+import reactivemongo.api.collections.bson.BSONCollection
+
+def citiesPerState1(cities: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
+  import cities.BatchCommands.AggregationFramework.{ Group, PushField }
+
+  cities.aggregate(Group(BSONString("$state"))(
+    "cities" -> PushField("city"))).map(_.firstBatch)
+}
+{% endhighlight %}
+
+Similarily the <span id="addToSet">[`$addToSet` accumulator](https://docs.mongodb.com/manual/reference/operator/aggregation/addToSet/#grp._S_addToSet)</span> can be applied to collect all the unique values in the array for each group (there it's equivalent to `$push`).
+
+{% highlight javascript %}
+import scala.concurrent.{ ExecutionContext, Future }
+
+import reactivemongo.bson._
+import reactivemongo.api.collections.bson.BSONCollection
+
+def citiesPerState1(cities: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
+  import cities.BatchCommands.AggregationFramework.{ Group, AddFieldToSet }
+
+  cities.aggregate(Group(BSONString("$state"))(
+    "cities" -> AddFieldToSet("city"))).map(_.firstBatch)
+}
+{% endhighlight %}
+
 **Average city population by state**
 
-The Aggregation Framework can be used to find [the average population of the cities by state](http://docs.mongodb.org/manual/tutorial/aggregation-zip-code-data-set/#return-average-city-population-by-state).
+The accumulator <span id="avg">`$avg`</span> can be used to find [the average population of the cities by state](http://docs.mongodb.org/manual/tutorial/aggregation-zip-code-data-set/#return-average-city-population-by-state).
 
 In the MongoDB shell, it can be done as following.
 
@@ -164,19 +286,19 @@ import reactivemongo.api.collections.bson.BSONCollection
 
 def avgPopByState(col: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
   import col.BatchCommands.AggregationFramework.{
-    AggregationResult, Avg, Group, Match, SumField
+    AggregationResult, AvgField, Group, SumField
   }
 
   col.aggregate(Group(BSONDocument("state" -> "$state", "city" -> "$city"))(
     "pop" -> SumField("population")),
-    List(Group(BSONString("$_id.state"))("avgCityPop" -> Avg("pop")))).
+    List(Group(BSONString("$_id.state"))("avgCityPop" -> AvgField("pop")))).
     map(_.documents)
 }
 {% endhighlight %}
 
 **Largest and smallest cities by state**
 
-Aggregating the documents can be used to find the [largest and the smallest cities for each state](http://docs.mongodb.org/manual/tutorial/aggregation-zip-code-data-set/#return-largest-and-smallest-cities-by-state):
+Aggregating the documents can be used to find the <span id="first"><span id="last">[largest and the smallest cities for each state](http://docs.mongodb.org/manual/tutorial/aggregation-zip-code-data-set/#return-largest-and-smallest-cities-by-state)</span></span>:
 
 {% highlight javascript %}
 db.zipcodes.aggregate([
@@ -227,14 +349,17 @@ implicit val statsReader = Macros.reader[StateStats]
 
 def stateStats(col: BSONCollection): Future[List[StateStats]] = {
   import col.BatchCommands.AggregationFramework.{
-    AggregationResult, Ascending, First, Group, Last, Project, Sort, SumField
+    AggregationResult, Ascending, FirstField, Group, LastField,
+    Project, Sort, SumField
   }
 
   col.aggregate(Group(BSONDocument("state" -> "$state", "city" -> "$city"))(
     "pop" -> SumField("population")),
     List(Sort(Ascending("population")), Group(BSONString("$_id.state"))(
-        "biggestCity" -> Last("_id.city"), "biggestPop" -> Last("pop"),
-        "smallestCity" -> First("_id.city"), "smallestPop" -> First("pop")),
+        "biggestCity" -> LastField("_id.city"),
+        "biggestPop" -> LastField("pop"),
+        "smallestCity" -> FirstField("_id.city"),
+        "smallestPop" -> FirstField("pop")),
       Project(BSONDocument("_id" -> 0, "state" -> "$_id",
         "biggestCity" -> BSONDocument("name" -> "$biggestCity",
           "population" -> "$biggestPop"),
@@ -257,6 +382,57 @@ List(
   StateStats(state = "JP",
     biggestCity = City(name = "TOKYO", population = 13185502L),
     smallestCity = City(name = "AOGASHIMA", population = 200L)))
+{% endhighlight %}
+
+**Standard deviation of the japanese cities**
+
+The group accumulators <span id="stdDevPop">[`$stdDevPop`](https://docs.mongodb.com/manual/reference/operator/aggregation/stdDevPop/#grp._S_stdDevPop)</span> and <span id="stdDevSamp">[`$stdDevSamp`](https://docs.mongodb.com/manual/reference/operator/aggregation/stdDevSamp/#grp._S_stdDevSamp)</span> can be used to find the standard deviation of the japanese cities.
+
+In the MongoDB, it can be done as following.
+
+{% highlight javascript %}
+db.zipcodes.aggregate([
+   { $group:
+      {
+        _id: "$state",
+        popDev: { $stdDevPop: "$population" }
+      }
+   },
+   { $match: { _id: "JP" } }
+])
+{% endhighlight %}
+
+It will find the result:
+
+{% highlight javascript %}
+{ _id: "JP", popDev: 6592651 }
+{% endhighlight %}
+
+It can be done with ReactiveMongo as bellow.
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+
+import reactivemongo.bson._
+import reactivemongo.api.collections.bson.BSONCollection
+
+def populationStdDeviation(cities: BSONCollection)(implicit ec: ExecutionContext): Future[Option[BSONDocument]] = {
+  import cities.BatchCommands.AggregationFramework
+  import AggregationFramework.{ StdDevPopField, Group, Match }
+
+  cities.aggregate(Group(BSONString("$state"))(
+    "popDev" -> StdDevPopField("population")),
+    List(Match(document("_id" -> "JP")))).map(_.firstBatch.headOption)
+}
+
+def populationSampleDeviation(cities: BSONCollection)(implicit ec: ExecutionContext): Future[Option[BSONDocument]] = {
+  import cities.BatchCommands.AggregationFramework
+  import AggregationFramework.{ StdDevSampField, Group, Match }
+
+  cities.aggregate(Group(BSONString("$state"))(
+    "popDev" -> StdDevSampField("population")),
+    List(Match(document("_id" -> "JP")))).map(_.firstBatch.headOption)
+}
 {% endhighlight %}
 
 **Find documents using text indexing**
@@ -541,4 +717,7 @@ def redactForecasts(forecasts: BSONCollection)(implicit ec: ExecutionContext) = 
 }
 {% endhighlight %}
 
-*More:* The operators available to define an aggregation pipeline are documented in the [API reference](../../api/index.html#reactivemongo.api.commands.AggregationFramework).
+**See also:**
+
+- The operators available to define an aggregation pipeline are documented in the [API reference](../../api/index.html#reactivemongo.api.commands.AggregationFramework).
+- The [Aggregation Framework tests](https://github.com/ReactiveMongo/ReactiveMongo/blob/master/driver/src/test/scala/AggregationSpec.scala)
