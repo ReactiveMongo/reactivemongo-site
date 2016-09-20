@@ -8,7 +8,13 @@ title: Aggregation Framework
 
 The [MongoDB Aggregation Framework](http://docs.mongodb.org/manual/reference/operator/aggregation/) is available through ReactiveMongo.
 
-- [`$group`](#group): [specifications](https://docs.mongodb.com/manual/reference/operator/aggregation/group/) / [API](https://reactivemongo.org/releases/0.12/api/index.html#reactivemongo.api.commands.GroupAggregation)
+- [`$project`](#project): Reshapes each document in the stream, such as by [adding new fields or removing](https://docs.mongodb.com/manual/reference/operator/aggregation/project/#pipe._S_project) existing fields ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@ProjectextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- [`$match`](#match): Filters the document stream to allow only [matching documents](https://docs.mongodb.com/manual/reference/operator/aggregation/match/#pipe._S_match) ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@MatchextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- [`$redact`](#redact): Reshapes each document in the stream by [restricting the content](https://docs.mongodb.com/manual/reference/operator/aggregation/redact/) for each document based on information stored in the documents themselves ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@RedactextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- [`$limit`](#limit): Passes the first *n* documents unmodified to the pipeline where *n* is the specified [limit](https://docs.mongodb.com/manual/reference/operator/aggregation/limit/#pipe._S_limit) ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@LimitextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- [`$skip`](#skip): Skips the first *n* documents where *n* is the specified [skip number](https://docs.mongodb.com/manual/reference/operator/aggregation/skip/#pipe._S_skip) and passes the remaining documents unmodified to the pipeline ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@SkipextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- [`$unwind`](#unwind): Deconstructs an array field from the input documents to [output a document for *each* element](https://docs.mongodb.com/manual/reference/operator/aggregation/unwind/#pipe._S_unwind) ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@UnwindextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- [`$group`](#group): Groups the input documents by a specified [identifier expression]((https://docs.mongodb.com/manual/reference/operator/aggregation/group/)) and possibly applies some accumulators ([API](https://reactivemongo.org/releases/0.12/api/index.html#reactivemongo.api.commands.GroupAggregation)).
   - [`$sum`](#sum)
   - [`$avg`](#avg)
   - [`$first`](#first)
@@ -19,6 +25,12 @@ The [MongoDB Aggregation Framework](http://docs.mongodb.org/manual/reference/ope
   - [`$addToSet`](#addToSet)
   - [`$stdDevPop`](#stdDevPop)
   - [`$stdDevSamp`](#stdDevSamp)
+- [`$sample`](#sample): [Randomly](https://docs.mongodb.com/manual/reference/operator/aggregation/sample/#pipe._S_sample) selects the specified number of documents from its input ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@SampleextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- [`$sort`](#sort): Reorders the document stream by a specified [sort](https://docs.mongodb.com/manual/reference/operator/aggregation/sort/#pipe._S_sort) key ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@SortextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- [`$geoNear`](#geoNear): Returns an ordered stream of documents based on the [proximity to a geospatial point](https://docs.mongodb.com/manual/reference/operator/aggregation/geoNear/#pipe._S_geoNear) ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@GeoNearextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- [`$lookup`](#lookup): Performs a left outer [join to another collection](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#pipe._S_lookup) in the *same* database ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@LookupextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- [`$out`](#out): Writes the resulting documents of the aggregation [pipeline to a collection](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#pipe._S_out) ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@OutextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- [`$indexStats`](#indexStats): Returns statistics regarding the use of [each index for the collection](https://docs.mongodb.com/manual/reference/operator/aggregation/indexStats/#pipe._S_indexStats) ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@IndexStats)).
 
 ### ZipCodes example
 
@@ -71,7 +83,7 @@ db.zipcodes.aggregate([
 ])
 {% endhighlight %}
 
-With ReactiveMongo, it can be done as using the [`.aggregate` operation](../../api/index.html#reactivemongo.api.collections.GenericCollection@aggregate%28firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,cursor:Option[GenericCollection.this.BatchCommands.AggregationFramework.Cursor]%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[GenericCollection.this.BatchCommands.AggregationFramework.AggregationResult]).
+With ReactiveMongo, it <span id="match">can be done</span> using the [`.aggregate` operation](../../api/index.html#reactivemongo.api.collections.GenericCollection@aggregate%28firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,cursor:Option[GenericCollection.this.BatchCommands.AggregationFramework.Cursor]%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[GenericCollection.this.BatchCommands.AggregationFramework.AggregationResult]).
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -150,7 +162,9 @@ def populatedStatesCursor(cities: BSONCollection)(implicit ec: ExecutionContext)
 }
 {% endhighlight %}
 
-**Most populated city per stage**
+> The [`GroupField`](../../api/index.html#reactivemongo.api.commands.AggregationFramework@GroupFieldextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable) operator can be used instead of the `Group` one, to simply work with a single field.
+
+**Most populated city per state**
 
 The <span id="max">[`$max`](https://docs.mongodb.com/manual/reference/operator/aggregation/max/#grp._S_max)</span> can be used to get the most populated site per state.
 
@@ -208,6 +222,8 @@ def leastPopulated(cities: BSONCollection)(implicit ec: ExecutionContext): Futur
 }
 {% endhighlight %}
 
+> The [`Min`](../../api/index.html#reactivemongo.api.commands.GroupAggregation@MinextendsGroupAggregation.this.GroupFunctionwithProductwithSerializable) and the [`Max`](../../api/index.html#reactivemongo.api.commands.GroupAggregation@MaxextendsGroupAggregation.this.GroupFunctionwithProductwithSerializable) operators can be used instead of `MinField` and `MaxField`, to use expressions in place of single fields.
+
 **Gather the city names per state as a simple array**
 
 The <span id="push">[`$push`](https://docs.mongodb.com/manual/reference/operator/aggregation/push/#grp._S_push)</span> accumulator can be used to gather some fields, so there is a computed array for each group.
@@ -260,6 +276,8 @@ def citiesPerState1(cities: BSONCollection)(implicit ec: ExecutionContext): Futu
 }
 {% endhighlight %}
 
+> The [`AddToSet`](../../api/index.html#reactivemongo.api.commands.GroupAggregation@AddToSetextendsGroupAggregation.this.GroupFunctionwithProductwithSerializable) and the [`Push`](../../api/index.html#reactivemongo.api.commands.GroupAggregation@PushextendsGroupAggregation.this.GroupFunctionwithProductwithSerializable) operators can be used instead of `AddFieldToSet` and `PushField`, to use expressions in place of single fields.
+
 **Average city population by state**
 
 The accumulator <span id="avg">`$avg`</span> can be used to find [the average population of the cities by state](http://docs.mongodb.org/manual/tutorial/aggregation-zip-code-data-set/#return-average-city-population-by-state).
@@ -296,9 +314,11 @@ def avgPopByState(col: BSONCollection)(implicit ec: ExecutionContext): Future[Li
 }
 {% endhighlight %}
 
+> The [`Avg`](../../api/index.html#reactivemongo.api.commands.GroupAggregation@AvgextendsGroupAggregation.this.GroupFunctionwithProductwithSerializable) operator can be used instead of `AvgField`, to use an expression in place of a single field.
+
 **Largest and smallest cities by state**
 
-Aggregating the documents can be used to find the <span id="first"><span id="last">[largest and the smallest cities for each state](http://docs.mongodb.org/manual/tutorial/aggregation-zip-code-data-set/#return-largest-and-smallest-cities-by-state)</span></span>:
+Aggregating the documents can be used to find the <span id="project"><span id="first"><span id="last">[largest and the smallest cities for each state](http://docs.mongodb.org/manual/tutorial/aggregation-zip-code-data-set/#return-largest-and-smallest-cities-by-state)</span></span></span>:
 
 {% highlight javascript %}
 db.zipcodes.aggregate([
@@ -332,7 +352,7 @@ db.zipcodes.aggregate([
 ])
 {% endhighlight %}
 
-A ReactiveMongo function can be written as bellow.
+A ReactiveMongo function can be written <span id="sort">as bellow</span>.
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -342,10 +362,16 @@ import reactivemongo.bson.{ BSONDocument, BSONString, Macros }
 import reactivemongo.api.collections.bson.BSONCollection
 
 case class City(name: String, population: Long)
+
+object City {
+  implicit val reader = Macros.reader[City]
+}
+
 case class StateStats(state: String, biggestCity: City, smallestCity: City)
 
-implicit val cityReader = Macros.reader[City]
-implicit val statsReader = Macros.reader[StateStats]
+object StateStats {
+  implicit val reader = Macros.reader[StateStats]
+}
 
 def stateStats(col: BSONCollection): Future[List[StateStats]] = {
   import col.BatchCommands.AggregationFramework.{
@@ -382,6 +408,43 @@ List(
   StateStats(state = "JP",
     biggestCity = City(name = "TOKYO", population = 13185502L),
     smallestCity = City(name = "AOGASHIMA", population = 200L)))
+{% endhighlight %}
+
+> The [`First`](../../api/index.html#reactivemongo.api.commands.GroupAggregation@FirstextendsGroupAggregation.this.GroupFunctionwithProductwithSerializable) and the [`Last`](../../api/index.html#reactivemongo.api.commands.GroupAggregation@LastextendsGroupAggregation.this.GroupFunctionwithProductwithSerializable) operators can be used instead of `FirstField` and `LastField`, to use expressions in place of single fields.
+
+The <span id="limit">[`$limit`](https://docs.mongodb.com/manual/reference/operator/aggregation/limit/#pipe._S_limit)</span> or the <span id="skip">[`$skip`](https://docs.mongodb.com/manual/reference/operator/aggregation/skip/#pipe._S_skip)</span> stages can be used to consider only some states:
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson._
+import reactivemongo.api.collections.bson.BSONCollection
+
+def paginatedStats(col: BSONCollection, max: Int, offset: Int = 0): Future[List[StateStats]] = {
+  import col.BatchCommands.AggregationFramework.{
+    AggregationResult, Ascending, FirstField, Group, LastField, Limit,
+    Project, Skip, Sort, SumField
+  }
+
+  col.aggregate(Group(BSONDocument("state" -> "$state", "city" -> "$city"))(
+    "pop" -> SumField("population")),
+    List(
+      Skip(offset), // <-- skip some states if offset > 0
+      Limit(max), // <-- limit the state groups
+      Sort(Ascending("population")), 
+      Group(BSONString("$_id.state"))(
+        "biggestCity" -> LastField("_id.city"),
+        "biggestPop" -> LastField("pop"),
+        "smallestCity" -> FirstField("_id.city"),
+        "smallestPop" -> FirstField("pop")),
+      Project(BSONDocument("_id" -> 0, "state" -> "$_id",
+        "biggestCity" -> BSONDocument("name" -> "$biggestCity",
+          "population" -> "$biggestPop"),
+        "smallestCity" -> BSONDocument("name" -> "$smallestCity",
+          "population" -> "$smallestPop"))))).
+  map(_.result[StateStats])
+}
 {% endhighlight %}
 
 **Standard deviation of the japanese cities**
@@ -434,6 +497,8 @@ def populationSampleDeviation(cities: BSONCollection)(implicit ec: ExecutionCont
     List(Match(document("_id" -> "JP")))).map(_.firstBatch.headOption)
 }
 {% endhighlight %}
+
+> The [`StdDevPop`](../../api/index.html#reactivemongo.api.commands.GroupAggregation@StdDevPopextendsGroupAggregation.this.GroupFunctionwithProductwithSerializable) and the [`StdDevSamp`](../../api/index.html#reactivemongo.api.commands.GroupAggregation@StdDevSampextendsGroupAggregation.this.GroupFunctionwithProductwithSerializable) operators can be used instead of `StdDevPopField` and `StdDevSampField`, to use expressions in place of single fields.
 
 **Find documents using text indexing**
 
@@ -497,7 +562,7 @@ db.zipcodes.aggregate([
 ])
 {% endhighlight %}
 
-With ReactiveMongo, the [Sample](../api/index.html#reactivemongo.api.commands.AggregationFramework@SampleextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable) stage can be used as follows.
+With ReactiveMongo, the <span id="sample">[`$sample`](../api/index.html#reactivemongo.api.commands.AggregationFramework@SampleextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)</span> operator can be used as follows.
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
@@ -538,7 +603,7 @@ db.place.insert({
 });
 {% endhighlight %}
 
-The [`$geoNear`](https://docs.mongodb.com/manual/reference/operator/aggregation/geoNear/) aggregation can be used on the collection, to find the place near the  geospatial coordinates `[ -73.9667, 40.78 ]`, within 1km (1000 meters) and 5km (5000 meters)
+The <span id="geoNear">[`$geoNear`](https://docs.mongodb.com/manual/reference/operator/aggregation/geoNear/)</span> aggregation can be used on the collection, to find the place near the  geospatial coordinates `[ -73.9667, 40.78 ]`, within 1km (1000 meters) and 5km (5000 meters)
 
 {% highlight javascript %}
 db.places.aggregate([{
@@ -649,7 +714,7 @@ Consider a collection of forecasts with the following document.
 }
 {% endhighlight %}
 
-Using the [`$redact` stage](https://docs.mongodb.com/manual/reference/operator/aggregation/redact/), the MongoDB aggregation can be used to restricts the contents of the documents. It can be done in the MongoDB shell as follows:
+Using the <span id="redact">[`$redact` stage](https://docs.mongodb.com/manual/reference/operator/aggregation/redact/)</span>, the MongoDB aggregation can be used to restricts the contents of the documents. It can be done in the MongoDB shell as follows:
 
 {% highlight javascript %}
 db.forecasts.aggregate([
@@ -717,7 +782,175 @@ def redactForecasts(forecasts: BSONCollection)(implicit ec: ExecutionContext) = 
 }
 {% endhighlight %}
 
+### Inventory example
+
+Consider an `inventory` collection, with the following document.
+
+{% highlight javascript %}
+{ "_id" : 1, "item" : "ABC1", "sizes": [ "S", "M", "L"] }
+{% endhighlight %}
+
+The <span id="unwind">[`$unwind`](https://docs.mongodb.com/manual/reference/operator/aggregation/unwind/#pipe._S_unwind)</span> stage can be used as bellow in the MongoDB shell, to return a document for each size.
+
+{% highlight javascript %}
+db.inventory.aggregate( [ { $unwind : "$sizes" } ] )
+{% endhighlight %}
+
+It will return results as following.
+
+{% highlight javascript %}
+{ "_id" : 1, "item" : "ABC1", "sizes" : "S" }
+{ "_id" : 1, "item" : "ABC1", "sizes" : "M" }
+{ "_id" : 1, "item" : "ABC1", "sizes" : "L" }
+{% endhighlight %}
+
+With ReactiveMongo, it can be done using [`Unwind`](../../api/index.html#reactivemongo.api.commands.AggregationFramework@UnwindextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable).
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.api.collections.bson.BSONCollection
+
+def sized(inventory: BSONCollection) = {
+  import inventory.BatchCommands.AggregationFramework.UnwindField
+
+  inventory.aggregate(UnwindField("sizes")).map(_.firstBatch)
+}
+{% endhighlight %}
+
+If there is a second `price` collection, with the following document.
+
+{% highlight javascript %}
+{ "_id" : 10, "item" : "ABC1", "price" : 12.34 }
+{% endhighlight %}
+
+This can be joined using the MongoDB shell, with the <span id="lookup">[`$lookup`](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#pipe._S_lookup)</span> stage.
+
+{% highlight javascript %}
+db.inventory.aggregate([{
+  $lookup: {
+    from: "prices",
+    localField: "item",
+    foreignField: "item",
+    as: "prices"
+  }
+}])
+{% endhighlight %}
+
+It will result in the document thereafter.
+
+{% highlight javascript %}
+{
+  "_id" : 1,
+  "item" : "ABC1",
+  "sizes": [ "S", "M", "L" ],
+  "prices": [
+    { "_id" : 10, "item" : "ABC1", "price" : 12.34 }
+  ]
+}
+{% endhighlight %}
+
+It can be done with ReactiveMongo using the [`Lookup`](../../api/index.html#reactivemongo.api.commands.AggregationFramework@LookupextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable) operator.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONString
+import reactivemongo.api.collections.bson.BSONCollection
+
+def priced(inventory: BSONCollection, prices: BSONCollection) = {
+  import prices.BatchCommands.AggregationFramework.Lookup
+
+  prices.aggregate(
+    Lookup(inventory.name, "item", "item", "prices")
+  ).map(_.firstBatch)
+}
+{% endhighlight %}
+
+### Book library example
+
+Consider a collection *books* that contains the following documents.
+
+{% highlight javascript %}
+{ "_id" : 8751, "title" : "The Banquet", "author" : "Dante", "copies" : 2 }
+{ "_id" : 8752, "title" : "Divine Comedy", "author" : "Dante", "copies" : 1 }
+{ "_id" : 8645, "title" : "Eclogues", "author" : "Dante", "copies" : 2 }
+{ "_id" : 7000, "title" : "The Odyssey", "author" : "Homer", "copies" : 10 }
+{ "_id" : 7020, "title" : "Iliad", "author" : "Homer", "copies" : 10 }
+{% endhighlight %}
+
+Then its documents can be aggregated and outputed to another collection, using the <span id="out">[`$out`](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#pipe._S_out)</span> stage.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONString
+import reactivemongo.api.collections.bson.BSONCollection
+
+def outputBooks(books: BSONCollection, outColl: String): Future[Unit] = {
+  import books.BatchCommands.AggregationFramework
+  import AggregationFramework.{ Ascending, Group, PushField, Out, Sort }
+
+  books.aggregate(Sort(Ascending("title")), List(
+    Group(BSONString("$author"))("books" -> PushField("title")),
+    Out(outColl))).map(_ => {})
+}
+{% endhighlight %}
+
+For the current example, the result collection will contain the following documents.
+
+{% highlight javascript %}
+{ "_id" : "Homer", "books" : [ "Iliad", "The Odyssey" ] }
+{ "_id" : "Dante", "books" : [ "Divine Comedy", "Eclogues", "The Banquet" ] }
+{% endhighlight %}
+
+### Database indexes aggregation
+
+The <span id="indexStats">[`$indexStats`](https://docs.mongodb.com/manual/reference/operator/aggregation/indexStats/#pipe._S_indexStats)</span> stage returns statistics regarding the use of each index for a collection.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.api.collections.bson.BSONCollection
+
+def aggregateIndexes(coll: BSONCollection) = {
+  import coll.BatchCommands.AggregationFramework.{ Ascending, IndexStats, Sort }
+  import reactivemongo.api.commands.{ bson => bsoncommands }
+  import bsoncommands.BSONAggregationFramework.{
+    IndexStatsResult, IndexStatAccesses
+  }
+  import bsoncommands.BSONAggregationResultImplicits.BSONIndexStatsReader
+
+  val result: Future[List[IndexStatsResult]] =
+    coll.aggregate(IndexStats, List(Sort(Ascending("name")))).
+    map(_.head[IndexStatsResult])
+
+  result
+}
+{% endhighlight %}
+
 **See also:**
 
 - The operators available to define an aggregation pipeline are documented in the [API reference](../../api/index.html#reactivemongo.api.commands.AggregationFramework).
 - The [Aggregation Framework tests](https://github.com/ReactiveMongo/ReactiveMongo/blob/master/driver/src/test/scala/AggregationSpec.scala)
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="/javascripts/highlight.js"></script>
+<script>
+function hl(txt){
+  var b = $('body');
+  b.removeHighlight();
+  b.highlight(txt);
+}
+
+$("#main a[href^='#']").each(function(i,x){
+  var e=$(x),t=e.text();
+  if (t.startsWith("$")){
+    e.click(function(){ hl(t.substring(1)) })
+  }
+})
+</script>

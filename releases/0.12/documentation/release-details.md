@@ -626,8 +626,6 @@ def avgPopByState(col: BSONCollection)(implicit ec: ExecutionContext): Future[Li
 }
 {% endhighlight %}
 
-[More: **Aggregation**](./advanced-topics/aggregation.html)
-
 **indexStats:**
 
 The `$indexStats` stage returns statistics regarding the use of each index for the collection.
@@ -836,6 +834,8 @@ def textFind(coll: BSONCollection)(implicit ec: ExecutionContext): Future[List[B
     firstOp, pipeline, Cursor(1)).flatMap(_.collect[List]())
 }
 {% endhighlight %}
+
+> With the changes, the aggregation framework provide an API for all the stages supported by MongoDB 3.2.
 
 [More: **Aggregation Framework**](./advanced-topics/aggregation.html)
 
