@@ -109,6 +109,9 @@ h1, h2, h3, h4 {
   color: #e1f0e1;
   text-align: center;
 }
+#main .hlselection {
+  background: gold
+}
 
 pre {
   background: #f8f8f8;
