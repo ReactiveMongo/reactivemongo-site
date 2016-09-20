@@ -311,7 +311,7 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="reactivemongo.bson.utils.Converters#md5" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="md5(array:Array[Byte]):Array[Byte]"></a>
+      <a id="md5(bytes:Array[Byte]):Array[Byte]"></a>
       <a id="md5(Array[Byte]):Array[Byte]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -319,48 +319,52 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">md5</span><span class="params">(<span name="array">array: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Byte" class="extype" target="_top">Byte</a>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Byte" class="extype" target="_top">Byte</a>]</span>
+        <span class="name">md5</span><span class="params">(<span name="bytes">bytes: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Byte" class="extype" target="_top">Byte</a>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Byte" class="extype" target="_top">Byte</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.bson.utils.Converters$@md5(array:Array[Byte]):Array[Byte]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.bson.utils.Converters$@md5(bytes:Array[Byte]):Array[Byte]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Computes the MD5 hash of the given Array of Bytes.</p>
-    </li><li name="reactivemongo.bson.utils.Converters#md5" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="md5(s:String):Array[Byte]"></a>
-      <a id="md5(String):Array[Byte]"></a>
+      <p class="shortcomment cmt">Computes the MD5 hash of the given <code>bytes</code>.</p>
+    </li><li name="reactivemongo.bson.utils.Converters#md5" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="md5(string:String,encoding:String):Array[Byte]"></a>
+      <a id="md5(String,String):Array[Byte]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">md5</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Byte" class="extype" target="_top">Byte</a>]</span>
+        <span class="name">md5</span><span class="params">(<span name="string">string: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="encoding">encoding: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Byte" class="extype" target="_top">Byte</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.bson.utils.Converters$@md5(s:String):Array[Byte]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.bson.utils.Converters$@md5(string:String,encoding:String):Array[Byte]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Computes the MD5 hash of the given String.</p>
-    </li><li name="reactivemongo.bson.utils.Converters#md5Hex" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="md5Hex(s:String):String"></a>
-      <a id="md5Hex(String):String"></a>
+      <p class="shortcomment cmt">Returns the MD5 hash of the given <code>string</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the MD5 hash of the given <code>string</code>.
+</p></div><dl class="paramcmts block"><dt class="param">string</dt><dd class="cmt"><p>the string to be hashed</p></dd><dt class="param">encoding</dt><dd class="cmt"><p>the string encoding/charset</p></dd></dl></div>
+    </li><li name="reactivemongo.bson.utils.Converters#md5Hex" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="md5Hex(string:String,encoding:String):String"></a>
+      <a id="md5Hex(String,String):String"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">md5Hex</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+        <span class="name">md5Hex</span><span class="params">(<span name="string">string: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="encoding">encoding: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.bson.utils.Converters$@md5Hex(s:String):String" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.bson.utils.Converters$@md5Hex(string:String,encoding:String):String" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Computes the MD5 hash of the given String and turns it into a hexadecimal String representation.</p>
+      <p class="shortcomment cmt">Returns the MD5 hash for the given <code>string</code>,
+and turns it into a hexadecimal String representation.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the MD5 hash for the given <code>string</code>,
+and turns it into a hexadecimal String representation.
+</p></div><dl class="paramcmts block"><dt class="param">string</dt><dd class="cmt"><p>the string to be hashed</p></dd><dt class="param">encoding</dt><dd class="cmt"><p>the string encoding/charset</p></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -537,7 +541,53 @@
 
         
 
-        
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="reactivemongo.bson.utils.Converters#md5" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="md5(string:String):Array[Byte]"></a>
+      <a id="md5(String):Array[Byte]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use md5 with explicit encoding">md5</span><span class="params">(<span name="string">string: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Byte" class="extype" target="_top">Byte</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.bson.utils.Converters$@md5(string:String):Array[Byte]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the MD5 hash of the given UTF-8 <code>string</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the MD5 hash of the given UTF-8 <code>string</code>.</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Use <code>md5</code> with explicit encoding</p></dd></dl></div>
+    </li><li name="reactivemongo.bson.utils.Converters#md5Hex" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="md5Hex(string:String):String"></a>
+      <a id="md5Hex(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use md5Hex with explicit encoding">md5Hex</span><span class="params">(<span name="string">string: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.bson.utils.Converters$@md5Hex(string:String):String" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the MD5 hash for the given UTF-8 <code>string</code>,
+and turns it into a hexadecimal String representation.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the MD5 hash for the given UTF-8 <code>string</code>,
+and turns it into a hexadecimal String representation.
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Use <code>md5Hex</code> with explicit encoding</p></dd></dl></div>
+    </li></ol>
+            </div>
         </div>
 
         <div id="inheritedMembers">

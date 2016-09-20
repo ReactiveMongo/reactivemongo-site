@@ -604,6 +604,30 @@ def placeArround(places: BSONCollection)(implicit ec: ExecutionContext): Future[
 }
 {% endhighlight %}
 
+**group:**
+
+Now all the accumulators of the [`$group`](https://docs.mongodb.com/manual/reference/operator/aggregation/group/) aggregation stage are supported, for example the [`$avg` accumulator](https://docs.mongodb.com/manual/reference/operator/aggregation/avg/#grp._S_avg).
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+
+import reactivemongo.bson.{ BSONDocument, BSONString }
+import reactivemongo.api.collections.bson.BSONCollection
+
+def avgPopByState(col: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
+  import col.BatchCommands.AggregationFramework.{
+    AggregationResult, AvgField, Group, SumField
+  }
+
+  col.aggregate(Group(BSONDocument("state" -> "$state", "city" -> "$city"))(
+    "pop" -> SumField("population")),
+    List(Group(BSONString("$_id.state"))("avgCityPop" -> AvgField("pop")))).
+    map(_.documents)
+}
+{% endhighlight %}
+
+[More: **Aggregation**](./advanced-topics/aggregation.html)
+
 **indexStats:**
 
 The `$indexStats` stage returns statistics regarding the use of each index for the collection.
