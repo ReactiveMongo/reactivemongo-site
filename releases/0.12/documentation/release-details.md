@@ -1186,7 +1186,7 @@ A new [JMX](https://en.wikipedia.org/wiki/Java_Management_Extensions) module is 
 "org.reactivemongo" %% "reactivemongo-jmx" % "{{site._0_12_latest_minor}}"
 {% endhighlight %}
 
-When running with this module, you check the state of the ReactiveMongo pools from outside the JVM using a JMX client (e.g. `jconsole`).
+[More: **Monitoring**](advanced-topics/monitoring.html)
 
 ### Dependencies
 
