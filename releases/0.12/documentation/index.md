@@ -71,6 +71,7 @@ This can be considered as a recommanded environment.
 - [FailoverStrategy](advanced-topics/failoverstrategy.html)
 - [ReadPreferences](advanced-topics/read-preferences.html)
 - [GridFS](advanced-topics/gridfs.html)
+- [Monitoring](advanced-topics/monitoring.html)
 
 ### Samples
 
