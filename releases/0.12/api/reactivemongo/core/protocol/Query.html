@@ -50,7 +50,7 @@
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Query operation.
-</p></div><dl class="paramcmts block"><dt class="param">flags</dt><dd class="cmt"><p>Operation flags.</p></dd><dt class="param">numberToSkip</dt><dd class="cmt"><p>number of documents to skip in the response.</p></dd><dt class="param">numberToReturn</dt><dd class="cmt"><p>number of documents to return in the response. 0 means the server will choose.</p></dd></dl><div class="toggleContainer block">
+</p></div><dl class="paramcmts block"><dt class="param">flags</dt><dd class="cmt"><p>the operation flags</p></dd><dt class="param">fullCollectionName</dt><dd class="cmt"><p>the full name of the queried collection</p></dd><dt class="param">numberToSkip</dt><dd class="cmt"><p>the number of documents to skip in the response.</p></dd><dt class="param">numberToReturn</dt><dd class="cmt"><p>The number of documents to return in the response. 0 means the server will choose.</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <a href="CollectionAwareRequestOp.html" class="extype" name="reactivemongo.core.protocol.CollectionAwareRequestOp">CollectionAwareRequestOp</a>, <a href="RequestOp.html" class="extype" name="reactivemongo.core.protocol.RequestOp">RequestOp</a>, <a href="ChannelBufferWritable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferWritable">ChannelBufferWritable</a>, <a href="Op.html" class="extype" name="reactivemongo.core.protocol.Op">Op</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
@@ -110,7 +110,7 @@
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">flags</dt><dd class="cmt"><p>Operation flags.</p></dd><dt class="param">numberToSkip</dt><dd class="cmt"><p>number of documents to skip in the response.</p></dd><dt class="param">numberToReturn</dt><dd class="cmt"><p>number of documents to return in the response. 0 means the server will choose.</p></dd></dl></div>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">flags</dt><dd class="cmt"><p>the operation flags</p></dd><dt class="param">fullCollectionName</dt><dd class="cmt"><p>the full name of the queried collection</p></dd><dt class="param">numberToSkip</dt><dd class="cmt"><p>the number of documents to skip in the response.</p></dd><dt class="param">numberToReturn</dt><dd class="cmt"><p>The number of documents to return in the response. 0 means the server will choose.</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -464,7 +464,7 @@
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Operation flags.</p>
+      <p class="shortcomment cmt">the operation flags</p>
     </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="formatted(fmtstr:String):String"></a>
       <a id="formatted(String):String"></a>
@@ -505,7 +505,7 @@
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">The full collection name (<i>&lt;dbname.collectionname&gt;</i>)</p><div class="fullcomment"><div class="comment cmt"><p>The full collection name (<i>&lt;dbname.collectionname&gt;</i>)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.core.protocol.Query">Query</a> → <a href="CollectionAwareRequestOp.html" class="extype" name="reactivemongo.core.protocol.CollectionAwareRequestOp">CollectionAwareRequestOp</a></dd></dl></div>
+      <p class="shortcomment cmt">the full name of the queried collection</p><div class="fullcomment"><div class="comment cmt"><p>the full name of the queried collection</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.core.protocol.Query">Query</a> → <a href="CollectionAwareRequestOp.html" class="extype" name="reactivemongo.core.protocol.CollectionAwareRequestOp">CollectionAwareRequestOp</a></dd></dl></div>
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <a id="getClass():Class[_]"></a>
@@ -607,7 +607,7 @@
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">number of documents to return in the response.</p><div class="fullcomment"><div class="comment cmt"><p>number of documents to return in the response. 0 means the server will choose.</p></div></div>
+      <p class="shortcomment cmt">The number of documents to return in the response.</p><div class="fullcomment"><div class="comment cmt"><p>The number of documents to return in the response. 0 means the server will choose.</p></div></div>
     </li><li name="reactivemongo.core.protocol.Query#numberToSkip" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="numberToSkip:Int"></a>
       <a id="numberToSkip:Int"></a>
@@ -624,7 +624,7 @@
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">number of documents to skip in the response.</p>
+      <p class="shortcomment cmt">the number of documents to skip in the response.</p>
     </li><li name="reactivemongo.core.protocol.RequestOp#requiresPrimary" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="requiresPrimary:Boolean"></a>
       <a id="requiresPrimary:Boolean"></a>

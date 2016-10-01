@@ -8,29 +8,29 @@ title: Aggregation Framework
 
 The [MongoDB Aggregation Framework](http://docs.mongodb.org/manual/reference/operator/aggregation/) is available through ReactiveMongo.
 
-- [`$project`](#project): Reshapes each document in the stream, such as by [adding new fields or removing](https://docs.mongodb.com/manual/reference/operator/aggregation/project/#pipe._S_project) existing fields ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@ProjectextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
-- [`$match`](#match): Filters the document stream to allow only [matching documents](https://docs.mongodb.com/manual/reference/operator/aggregation/match/#pipe._S_match) ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@MatchextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
-- [`$redact`](#redact): Reshapes each document in the stream by [restricting the content](https://docs.mongodb.com/manual/reference/operator/aggregation/redact/) for each document based on information stored in the documents themselves ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@RedactextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
-- [`$limit`](#limit): Passes the first *n* documents unmodified to the pipeline where *n* is the specified [limit](https://docs.mongodb.com/manual/reference/operator/aggregation/limit/#pipe._S_limit) ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@LimitextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
-- [`$skip`](#skip): Skips the first *n* documents where *n* is the specified [skip number](https://docs.mongodb.com/manual/reference/operator/aggregation/skip/#pipe._S_skip) and passes the remaining documents unmodified to the pipeline ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@SkipextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
-- [`$unwind`](#unwind): Deconstructs an array field from the input documents to [output a document for *each* element](https://docs.mongodb.com/manual/reference/operator/aggregation/unwind/#pipe._S_unwind) ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@UnwindextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
-- [`$group`](#group): Groups the input documents by a specified [identifier expression]((https://docs.mongodb.com/manual/reference/operator/aggregation/group/)) and possibly applies some accumulators ([API](https://reactivemongo.org/releases/0.12/api/index.html#reactivemongo.api.commands.GroupAggregation)).
-  - [`$sum`](#sum)
-  - [`$avg`](#avg)
-  - [`$first`](#first)
-  - [`$last`](#last)
-  - [`$max`](#max)
-  - [`$min`](#min)
-  - [`$push`](#push)
-  - [`$addToSet`](#addToSet)
-  - [`$stdDevPop`](#stdDevPop)
-  - [`$stdDevSamp`](#stdDevSamp)
-- [`$sample`](#sample): [Randomly](https://docs.mongodb.com/manual/reference/operator/aggregation/sample/#pipe._S_sample) selects the specified number of documents from its input ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@SampleextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
-- [`$sort`](#sort): Reorders the document stream by a specified [sort](https://docs.mongodb.com/manual/reference/operator/aggregation/sort/#pipe._S_sort) key ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@SortextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
-- [`$geoNear`](#geoNear): Returns an ordered stream of documents based on the [proximity to a geospatial point](https://docs.mongodb.com/manual/reference/operator/aggregation/geoNear/#pipe._S_geoNear) ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@GeoNearextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
-- [`$lookup`](#lookup): Performs a left outer [join to another collection](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#pipe._S_lookup) in the *same* database ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@LookupextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
-- [`$out`](#out): Writes the resulting documents of the aggregation [pipeline to a collection](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#pipe._S_out) ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@OutextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
-- [`$indexStats`](#indexStats): Returns statistics regarding the use of [each index for the collection](https://docs.mongodb.com/manual/reference/operator/aggregation/indexStats/#pipe._S_indexStats) ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@IndexStats)).
+- **[`$project`](#project)**: Reshapes each document in the stream, such as by [adding new fields or removing](https://docs.mongodb.com/manual/reference/operator/aggregation/project/#pipe._S_project) existing fields ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@ProjectextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- **[`$match`](#match)**: Filters the document stream to allow only [matching documents](https://docs.mongodb.com/manual/reference/operator/aggregation/match/#pipe._S_match) ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@MatchextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- **[`$redact`](#redact)**: Reshapes each document in the stream by [restricting the content](https://docs.mongodb.com/manual/reference/operator/aggregation/redact/) for each document based on information stored in the documents themselves ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@RedactextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- **[`$limit`](#limit)**: Passes the first *n* documents unmodified to the pipeline where *n* is the specified [limit](https://docs.mongodb.com/manual/reference/operator/aggregation/limit/#pipe._S_limit) ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@LimitextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- **[`$skip`](#skip)**: Skips the first *n* documents where *n* is the specified [skip number](https://docs.mongodb.com/manual/reference/operator/aggregation/skip/#pipe._S_skip) and passes the remaining documents unmodified to the pipeline ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@SkipextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- **[`$unwind`](#unwind)**: Deconstructs an array field from the input documents to [output a document for *each* element](https://docs.mongodb.com/manual/reference/operator/aggregation/unwind/#pipe._S_unwind) ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@UnwindextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- **[`$group`](#group)**: Groups the input documents by a specified [identifier expression]((https://docs.mongodb.com/manual/reference/operator/aggregation/group/)) and possibly applies some accumulators ([API](https://reactivemongo.org/releases/0.12/api/index.html#reactivemongo.api.commands.GroupAggregation)).
+  - **[`$sum`](#sum)**: [Sum](https://docs.mongodb.com/manual/reference/operator/aggregation/sum/#grp._S_sum) of numerical values.
+  - **[`$avg`](#avg)**: [Average](https://docs.mongodb.com/manual/reference/operator/aggregation/avg/#grp._S_avg) of numerical values.
+  - **[`$first`](#first)**: Value from the [first document](https://docs.mongodb.com/manual/reference/operator/aggregation/first/#grp._S_first) for each group.
+  - **[`$last`](#last)**: Value from the [last document](https://docs.mongodb.com/manual/reference/operator/aggregation/last/#grp._S_last) for each group.
+  - **[`$max`](#max)**: [Highest](https://docs.mongodb.com/manual/reference/operator/aggregation/max/#grp._S_max) expression value for each group.
+  - **[`$min`](#min)**: [Lowest](https://docs.mongodb.com/manual/reference/operator/aggregation/min/#grp._S_min) expression value for each group.
+  - **[`$push`](#push)**: [Array of expression](https://docs.mongodb.com/manual/reference/operator/aggregation/push/#grp._S_push) values for each group.
+  - **[`$addToSet`](#addToSet)**: [Array of *unique* expression](https://docs.mongodb.com/manual/reference/operator/aggregation/addToSet/#grp._S_addToSet) values for each group.
+  - **[`$stdDevPop`](#stdDevPop)**: [Population standard deviation](https://docs.mongodb.com/manual/reference/operator/aggregation/stdDevPop/#grp._S_stdDevPop) of the input values.
+  - **[`$stdDevSamp`](#stdDevSamp)**: [Sample standard deviation](https://docs.mongodb.com/manual/reference/operator/aggregation/stdDevSamp/#grp._S_stdDevSamp) of the input values.
+- **[`$sample`](#sample)**: [Randomly](https://docs.mongodb.com/manual/reference/operator/aggregation/sample/#pipe._S_sample) selects the specified number of documents from its input ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@SampleextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- **[`$sort`](#sort)**: Reorders the document stream by a specified [sort](https://docs.mongodb.com/manual/reference/operator/aggregation/sort/#pipe._S_sort) key ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@SortextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- **[`$geoNear`](#geoNear)**: Returns an ordered stream of documents based on the [proximity to a geospatial point](https://docs.mongodb.com/manual/reference/operator/aggregation/geoNear/#pipe._S_geoNear) ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@GeoNearextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- **[`$lookup`](#lookup)**: Performs a left outer [join to another collection](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#pipe._S_lookup) in the *same* database ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@LookupextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- **[`$out`](#out)**: Writes the resulting documents of the aggregation [pipeline to a collection](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#pipe._S_out) ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@OutextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- **[`$indexStats`](#indexStats)**: Returns statistics regarding the use of [each index for the collection](https://docs.mongodb.com/manual/reference/operator/aggregation/indexStats/#pipe._S_indexStats) ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@IndexStats)).
 
 ### ZipCodes example
 
@@ -140,7 +140,7 @@ def states(col: BSONCollection): Future[List[State]] =
 
 *Using cursor:*
 
-The alternative [`aggregate1`](../api/index.html#reactivemongo.api.collections.GenericCollection@aggregate1[T]%28firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],cursor:GenericCollection.this.BatchCommands.AggregationFramework.Cursor,explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference%29%28implicitec:scala.concurrent.ExecutionContext,implicitr:GenericCollection.this.pack.Reader[T]%29:scala.concurrent.Future[reactivemongo.api.Cursor[T]]) operation can be used, to process the aggregation result with a [`Cursor`](../api/index.html#reactivemongo.api.Cursor).
+The alternative [`.aggregatingWith` builder](../../api/index.html#reactivemongo.api.collections.GenericCollection@aggregatingWith[T](explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference,batchSize:Option[Int])(f:GenericCollection.this.AggregationFramework=%3E(GenericCollection.this.PipelineOperator,List[GenericCollection.this.PipelineOperator]))(implicitec:scala.concurrent.ExecutionContext,implicitreader:GenericCollection.this.pack.Reader[T]):scala.concurrent.Future[reactivemongo.api.Cursor[T]]) operation can be used, to process the aggregation result with a [`Cursor`](../api/index.html#reactivemongo.api.Cursor).
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
@@ -149,16 +149,12 @@ import reactivemongo.bson._
 import reactivemongo.api.Cursor
 import reactivemongo.api.collections.bson.BSONCollection
 
-def populatedStatesCursor(cities: BSONCollection)(implicit ec: ExecutionContext): Future[Cursor[BSONDocument]] = {
-  import cities.BatchCommands.AggregationFramework
-  import AggregationFramework.{ Cursor => AggCursor, Group, Match, SumField }
+def populatedStatesCursor(cities: BSONCollection)(implicit ec: ExecutionContext): Cursor[BSONDocument] = cities.aggregatingWith[BSONDocument]() { framework =>
+  import framework.{ Group, Match, SumField }
 
-  val cursor = AggCursor(batchSize = 1) // initial batch size
-
-  cities.aggregate1[BSONDocument](Group(BSONString("$state"))(
-    "totalPop" -> SumField("population")), List(
-    Match(document("totalPop" -> document("$gte" -> 10000000L)))),
-    cursor)
+  Group(BSONString("$state"))("totalPop" -> SumField("population")) -> List(
+    Match(document("totalPop" -> document("$gte" -> 10000000L)))
+  )
 }
 {% endhighlight %}
 
@@ -543,8 +539,7 @@ def textFind(coll: BSONCollection): Future[List[BSONDocument]] = {
 
   val pipeline = List(Sort(MetadataSort("score", TextScore)))
 
-  coll.aggregate1[BSONDocument](
-    firstOp, pipeline, Cursor(1)).flatMap(_.collect[List]())
+  coll.aggregate1[BSONDocument](firstOp, pipeline).collect[List]()
 }
 {% endhighlight %}
 
@@ -939,15 +934,15 @@ def aggregateIndexes(coll: BSONCollection) = {
 - The [Aggregation Framework tests](https://github.com/ReactiveMongo/ReactiveMongo/blob/master/driver/src/test/scala/AggregationSpec.scala)
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="/javascripts/highlight.js"></script>
+<script src="/javascripts/highlight.min.js"></script>
 <script>
 function hl(txt){
-  var b = $('body');
+  var b = $('body p, body figure');
   b.removeHighlight();
   b.highlight(txt);
 }
 
-$("#main a[href^='#']").each(function(i,x){
+$("#main ul a[href^='#']").each(function(i,x){
   var e=$(x),t=e.text();
   if (t.startsWith("$")){
     e.click(function(){ hl(t.substring(1)) })
