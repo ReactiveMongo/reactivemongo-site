@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Drop - ReactiveMongo API 0.12.0-SNAPSHOT - reactivemongo.api.commands.Drop</title>
-          <meta name="description" content="Drop - ReactiveMongo API 0.12.0 - SNAPSHOT - reactivemongo.api.commands.Drop" />
-          <meta name="keywords" content="Drop ReactiveMongo API 0.12.0 SNAPSHOT reactivemongo.api.commands.Drop" />
+          <title>Unwind - ReactiveMongo API 0.12.0-SNAPSHOT - reactivemongo.api.commands.AggregationFramework.Unwind</title>
+          <meta name="description" content="Unwind - ReactiveMongo API 0.12.0 - SNAPSHOT - reactivemongo.api.commands.AggregationFramework.Unwind" />
+          <meta name="keywords" content="Unwind ReactiveMongo API 0.12.0 SNAPSHOT reactivemongo.api.commands.AggregationFramework.Unwind" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -16,7 +16,7 @@
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
-            var hash = 'reactivemongo.api.commands.Drop$';
+            var hash = 'reactivemongo.api.commands.AggregationFramework$Unwind$';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -28,12 +28,14 @@
         </head>
         <body class="value">
       <div id="definition">
-        <img alt="Object" src="../../../lib/object_big.png" />
-        <p id="owner"><a href="../../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../package.html" class="extype" name="reactivemongo.api">api</a>.<a href="package.html" class="extype" name="reactivemongo.api.commands">commands</a></p>
-        <h1>Drop</h1><h3><span class="morelinks"><div>Related Doc:
-            <a href="package.html" class="extype" name="reactivemongo.api.commands">package commands</a>
+        <a href="AggregationFramework$Unwind.html" title="See companion class"><img alt="Object/Class" src="../../../lib/object_to_class_big.png" /></a>
+        <p id="owner"><a href="../../package.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../package.html" class="extype" name="reactivemongo.api">api</a>.<a href="package.html" class="extype" name="reactivemongo.api.commands">commands</a>.<a href="AggregationFramework.html" class="extype" name="reactivemongo.api.commands.AggregationFramework">AggregationFramework</a></p>
+        <h1><a href="AggregationFramework$Unwind.html" title="See companion class">Unwind</a></h1><h3><span class="morelinks"><div>
+            Related Docs:
+            <a href="AggregationFramework$Unwind.html" title="See companion class">class Unwind</a>
+            | <a href="AggregationFramework.html" class="extype" name="reactivemongo.api.commands.AggregationFramework">package AggregationFramework</a>
           </div></span></h3><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.Drop$" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -45,16 +47,13 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@5466322">Drop</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type]</span>
+        <span class="name">Unwind</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Annotations</dt><dd>
-                <span class="name">@deprecated</span>
-              
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Use <a href="DropCollection$.html" class="extype" name="reactivemongo.api.commands.DropCollection">DropCollection</a></p></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type], <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a>, <a href="AbstractCommand.html" class="extype" name="reactivemongo.api.commands.AbstractCommand">AbstractCommand</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
         
 
@@ -72,7 +71,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="reactivemongo.api.commands.Drop"><span>Drop</span></li><li class="in" name="reactivemongo.api.commands.CommandWithResult"><span>CommandWithResult</span></li><li class="in" name="reactivemongo.api.commands.CollectionCommand"><span>CollectionCommand</span></li><li class="in" name="reactivemongo.api.commands.AbstractCommand"><span>AbstractCommand</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="reactivemongo.api.commands.AggregationFramework.Unwind"><span>Unwind</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -109,7 +108,7 @@
         <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.Drop$@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$@!=(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -126,7 +125,7 @@
         <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.Drop$@##():Int" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$@##():Int" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -143,11 +142,33 @@
         <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.Drop$@==(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$@==(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="reactivemongo.api.commands.AggregationFramework.Unwind#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply(path:String,includeArrayIndex:Option[String],preserveNullAndEmptyArrays:Option[Boolean]):AggregationFramework.this.Unwind"></a>
+      <a id="apply(String,Option[String],Option[Boolean]):Unwind"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="params">(<span name="path">path: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="includeArrayIndex">includeArrayIndex: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="preserveNullAndEmptyArrays">preserveNullAndEmptyArrays: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a>]</span>)</span><span class="result">: <a href="AggregationFramework$Unwind.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Unwind">Unwind</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$@apply(path:String,includeArrayIndex:Option[String],preserveNullAndEmptyArrays:Option[Boolean]):AggregationFramework.this.Unwind" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">(Since MongoDB 3.2)
+Turns a document with an array into multiple documents,
+one document for each element in the array.</p><div class="fullcomment"><div class="comment cmt"><p>(Since MongoDB 3.2)
+Turns a document with an array into multiple documents,
+one document for each element in the array.
+</p></div><dl class="paramcmts block"><dt class="param">path</dt><dd class="cmt"><p>the field path to an array field (without the <code>$</code> prefix)</p></dd><dt class="param">includeArrayIndex</dt><dd class="cmt"><p>the name of a new field to hold the array index of the element</p></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -160,7 +181,7 @@
         <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.Drop$@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$@asInstanceOf[T0]:T0" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -177,7 +198,7 @@
         <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.Drop$@clone():Object" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$@clone():Object" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -200,7 +221,7 @@
         <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.Drop$@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -217,7 +238,7 @@
         <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.Drop$@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$@equals(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -234,7 +255,7 @@
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.Drop$@finalize():Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$@finalize():Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -257,7 +278,7 @@
         <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.Drop$@getClass():Class[_]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$@getClass():Class[_]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -274,7 +295,7 @@
         <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.Drop$@hashCode():Int" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$@hashCode():Int" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -291,7 +312,7 @@
         <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.Drop$@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -308,7 +329,7 @@
         <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.Drop$@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -325,7 +346,7 @@
         <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.Drop$@notify():Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$@notify():Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -342,7 +363,7 @@
         <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.Drop$@notifyAll():Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$@notifyAll():Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -359,7 +380,7 @@
         <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.Drop$@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -376,11 +397,28 @@
         <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.Drop$@toString():String" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$@toString():String" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="reactivemongo.api.commands.AggregationFramework.Unwind#unapply" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="unapply(that:AggregationFramework.this.Unwind):Option[String]"></a>
+      <a id="unapply(Unwind):Option[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">unapply</span><span class="params">(<span name="that">that: <a href="AggregationFramework$Unwind.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Unwind">Unwind</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$@unapply(that:AggregationFramework.this.Unwind):Option[String]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -393,7 +431,7 @@
         <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.Drop$@wait():Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$@wait():Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -416,7 +454,7 @@
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.Drop$@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -439,7 +477,7 @@
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.Drop$@wait(x$1:Long):Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$@wait(x$1:Long):Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -455,16 +493,40 @@
 
         
 
-        
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="reactivemongo.api.commands.AggregationFramework.Unwind#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply(field:String):AggregationFramework.this.Unwind"></a>
+      <a id="apply(String):Unwind"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@b82f587">apply</span><span class="params">(<span name="field">field: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="AggregationFramework$Unwind.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Unwind">Unwind</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework$Unwind$@apply(field:String):AggregationFramework.this.Unwind" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Turns a document with an array into multiple documents,
+one document for each element in the array.</p><div class="fullcomment"><div class="comment cmt"><p>Turns a document with an array into multiple documents,
+one document for each element in the array.
+http://docs.mongodb.org/manual/reference/aggregation/unwind/#_S_unwind</p></div><dl class="paramcmts block"><dt class="param">field</dt><dd class="cmt"><p>the name of the array to unwind</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Use <a href="AggregationFramework$UnwindField.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.UnwindField">AggregationFramework#UnwindField</a></p></dd></dl></div>
+    </li></ol>
+            </div>
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="reactivemongo.api.commands.CommandWithResult">
-              <h3>Inherited from <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type]</h3>
-            </div><div class="parent" name="reactivemongo.api.commands.CollectionCommand">
-              <h3>Inherited from <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a></h3>
-            </div><div class="parent" name="reactivemongo.api.commands.AbstractCommand">
-              <h3>Inherited from <a href="AbstractCommand.html" class="extype" name="reactivemongo.api.commands.AbstractCommand">AbstractCommand</a></h3>
+        <div class="parent" name="scala.Serializable">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></h3>
+            </div><div class="parent" name="java.io.Serializable">
+              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">

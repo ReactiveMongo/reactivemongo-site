@@ -314,7 +314,7 @@ def processPerson0(collection: BSONCollection, query: BSONDocument)(implicit m: 
 
 #### Aggregated streams
 
-The results from the new [aggregation operation](../api/index.html#reactivemongo.api.collections.GenericCollection@aggregate1[T]%28firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],cursor:GenericCollection.this.BatchCommands.AggregationFramework.Cursor,explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference%29%28implicitec:scala.concurrent.ExecutionContext,implicitr:GenericCollection.this.pack.Reader[T]%29:scala.concurrent.Future[reactivemongo.api.Cursor[T]]) can be processed in a streaming way, using the [cursor option](https://docs.mongodb.org/manual/reference/command/aggregate/).
+The results from the new [aggregation operation](../../api/index.html#reactivemongo.api.collections.GenericCollection@aggregatingWith[T](explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference,batchSize:Option[Int])(f:GenericCollection.this.AggregationFramework=%3E(GenericCollection.this.PipelineOperator,List[GenericCollection.this.PipelineOperator]))(implicitec:scala.concurrent.ExecutionContext,implicitreader:GenericCollection.this.pack.Reader[T]):scala.concurrent.Future[reactivemongo.api.Cursor[T]]) can be processed in a streaming way, using the [cursor option](https://docs.mongodb.org/manual/reference/command/aggregate/).
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
@@ -323,16 +323,12 @@ import reactivemongo.bson._
 import reactivemongo.api.Cursor
 import reactivemongo.api.collections.bson.BSONCollection
 
-def populatedStates(cities: BSONCollection)(implicit ec: ExecutionContext): Future[Cursor[BSONDocument]] = {
-  import cities.BatchCommands.AggregationFramework
-  import AggregationFramework.{ Cursor => AggCursor, Group, Match, SumField }
+def populatedStates(cities: BSONCollection)(implicit ec: ExecutionContext): Cursor[BSONDocument] = cities.aggregatingWith[BSONDocument]() { framework =>
+  import framework.{ Group, Match, SumField }
 
-  val cursor = AggCursor(batchSize = 1) // initial batch size
-
-  cities.aggregate1[BSONDocument](Group(BSONString("$state"))(
-    "totalPop" -> SumField("population")), List(
-    Match(document("totalPop" -> document("$gte" -> 10000000L)))),
-    cursor)
+  Group(BSONString("$state"))("totalPop" -> SumField("population")) -> List(
+    Match(document("totalPop" -> document("$gte" -> 10000000L)))
+  )
 }
 {% endhighlight %}
 
@@ -830,8 +826,7 @@ def textFind(coll: BSONCollection)(implicit ec: ExecutionContext): Future[List[B
 
   val pipeline = List(Sort(MetadataSort("score", TextScore)))
 
-  coll.aggregate1[BSONDocument](
-    firstOp, pipeline, Cursor(1)).flatMap(_.collect[List]())
+  coll.aggregate1[BSONDocument](firstOp, pipeline).collect[List]()
 }
 {% endhighlight %}
 

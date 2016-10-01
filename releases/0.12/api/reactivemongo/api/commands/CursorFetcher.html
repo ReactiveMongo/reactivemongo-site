@@ -98,35 +98,52 @@
         <div id="values" class="values members">
               <h3>Abstract Value Members</h3>
               <ol><li name="reactivemongo.api.commands.CursorFetcher#cursor" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="cursor[A](implicitreader:CursorFetcher.this.pack.Reader[A]):C[A]"></a>
-      <a id="cursor[A](P.Reader[A]):C[A]"></a>
+      <a id="cursor[A](readPreference:reactivemongo.api.ReadPreference)(implicitreader:CursorFetcher.this.pack.Reader[A]):C[A]"></a>
+      <a id="cursor[A](ReadPreference)(P.Reader[A]):C[A]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">abstract </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">cursor</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">P.Reader</span>[<span class="extype" name="reactivemongo.api.commands.CursorFetcher.cursor.A">A</span>]</span>)</span><span class="result">: <span class="extype" name="reactivemongo.api.commands.CursorFetcher.C">C</span>[<span class="extype" name="reactivemongo.api.commands.CursorFetcher.cursor.A">A</span>]</span>
+        <span class="name">cursor</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="readPreference">readPreference: <a href="../ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">P.Reader</span>[<span class="extype" name="reactivemongo.api.commands.CursorFetcher.cursor.A">A</span>]</span>)</span><span class="result">: <span class="extype" name="reactivemongo.api.commands.CursorFetcher.C">C</span>[<span class="extype" name="reactivemongo.api.commands.CursorFetcher.cursor.A">A</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.CursorFetcher@cursor[A](implicitreader:CursorFetcher.this.pack.Reader[A]):C[A]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.CursorFetcher@cursor[A](readPreference:reactivemongo.api.ReadPreference)(implicitreader:CursorFetcher.this.pack.Reader[A]):C[A]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       
-    </li><li name="reactivemongo.api.commands.CursorFetcher#one" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="one[A](implicitreader:CursorFetcher.this.pack.Reader[A],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
-      <a id="one[A](P.Reader[A],ExecutionContext):Future[A]"></a>
+    </li><li name="reactivemongo.api.commands.CursorFetcher#defaultReadPreference" visbl="prt" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="defaultReadPreference:reactivemongo.api.ReadPreference"></a>
+      <a id="defaultReadPreference:ReadPreference"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">abstract </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">one</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">P.Reader</span>[<span class="extype" name="reactivemongo.api.commands.CursorFetcher.one.A">A</span>]</span>, <span name="ec">ec: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.ExecutionContext" class="extype" target="_top">ExecutionContext</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="reactivemongo.api.commands.CursorFetcher.one.A">A</span>]</span>
+        <span class="name">defaultReadPreference</span><span class="result">: <a href="../ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#reactivemongo.api.commands.CursorFetcher@one[A](implicitreader:CursorFetcher.this.pack.Reader[A],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]" title="Permalink" target="_top">
+      <a href="../../../index.html#reactivemongo.api.commands.CursorFetcher@defaultReadPreference:reactivemongo.api.ReadPreference" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+    </li><li name="reactivemongo.api.commands.CursorFetcher#one" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="one[A](readPreference:reactivemongo.api.ReadPreference)(implicitreader:CursorFetcher.this.pack.Reader[A],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
+      <a id="one[A](ReadPreference)(P.Reader[A],ExecutionContext):Future[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">one</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="readPreference">readPreference: <a href="../ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">P.Reader</span>[<span class="extype" name="reactivemongo.api.commands.CursorFetcher.one.A">A</span>]</span>, <span name="ec">ec: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.ExecutionContext" class="extype" target="_top">ExecutionContext</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="reactivemongo.api.commands.CursorFetcher.one.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.CursorFetcher@one[A](readPreference:reactivemongo.api.ReadPreference)(implicitreader:CursorFetcher.this.pack.Reader[A],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -685,7 +702,50 @@
 
         
 
-        
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="reactivemongo.api.commands.CursorFetcher#cursor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="cursor[A](implicitreader:CursorFetcher.this.pack.Reader[A]):C[A]"></a>
+      <a id="cursor[A](P.Reader[A]):C[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use the alternative with ReadPreference">cursor</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">P.Reader</span>[<span class="extype" name="reactivemongo.api.commands.CursorFetcher.cursor.A">A</span>]</span>)</span><span class="result">: <span class="extype" name="reactivemongo.api.commands.CursorFetcher.C">C</span>[<span class="extype" name="reactivemongo.api.commands.CursorFetcher.cursor.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.CursorFetcher@cursor[A](implicitreader:CursorFetcher.this.pack.Reader[A]):C[A]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Use the alternative with <code>ReadPreference</code></p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.CursorFetcher#one" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="one[A](implicitreader:CursorFetcher.this.pack.Reader[A],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a>
+      <a id="one[A](P.Reader[A],ExecutionContext):Future[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use the alternative with ReadPreference">one</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">P.Reader</span>[<span class="extype" name="reactivemongo.api.commands.CursorFetcher.one.A">A</span>]</span>, <span name="ec">ec: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.ExecutionContext" class="extype" target="_top">ExecutionContext</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="reactivemongo.api.commands.CursorFetcher.one.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.CursorFetcher@one[A](implicitreader:CursorFetcher.this.pack.Reader[A],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Use the alternative with <code>ReadPreference</code></p></dd></dl></div>
+    </li></ol>
+            </div>
         </div>
 
         <div id="inheritedMembers">
