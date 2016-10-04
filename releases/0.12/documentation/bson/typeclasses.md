@@ -45,7 +45,7 @@ package object custom {
 }
 {% endhighlight %}
 
-> When reading a numeric value from MongoDB, it's recommanded to use the typeclass [`BSONNumberLike`](../../api/index.html#reactivemongo.bson.BSONNumberLike), to benefit from numeric conversions it provides.
+> When reading a numeric value from MongoDB, it's recommended to use the typeclass [`BSONNumberLike`](../../api/index.html#reactivemongo.bson.BSONNumberLike), to benefit from numeric conversions it provides.
 
 Once a custom `BSONReader` (or `BSONDocumentReader`) is defined, it can be used in `aDocument.getAs[MyValueType]("docProperty")`.
 
@@ -162,7 +162,7 @@ The [`Macros.reader`](../../api/index.html#reactivemongo.bson.Macros$@reader[A]:
 The `A` type parameter (e.g. with `A` being `Person`, `Macros.reader[Person]`) defines a type for a case class, or for a [sealed trait](http://docs.scala-lang.org/tutorials/tour/traits.html) with subclasses.
 This type will be the basis for the auto-generated implementation.
 
-> Some other types with matching apply-unapply might work but behaviour is undefined. Since macros will match the apply-unapply pair you are free to overload these methods in the companion object.
+> Some other types with matching `apply`-`unapply` might work but behaviour is undefined. Since macros will match the `apply`-`unapply` pair you are free to overload these methods in the companion object.
 
 **Case class mapping:**
 

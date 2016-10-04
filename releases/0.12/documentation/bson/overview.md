@@ -50,26 +50,26 @@ val arrField = BSONDocument("array_field" -> List("written", "values"))
 | [BSONDateTime](../../api/reactivemongo/bson/BSONDateTime.html) | UTC Date Time | `java.util.Date` |
 | [BSONDouble](../../api/reactivemongo/bson/BSONDouble.html) | 64-bit IEEE 754 floating point | `Double` |
 | [BSONInteger](../../api/reactivemongo/bson/BSONInteger.html) | 32-bit integer | `Int` |
-| [BSONJavaScript](../../api/reactivemongo/bson/BSONJavaScript.html) | Javascript code | _None_ |
-| [BSONJavaScriptWS](../../api/reactivemongo/bson/BSONJavaScriptWS.html) | Javascript scoped code | _None_ |
+| [BSONJavaScript](../../api/reactivemongo/bson/BSONJavaScript.html) | JavaScript code | _None_ |
+| [BSONJavaScriptWS](../../api/reactivemongo/bson/BSONJavaScriptWS.html) | JavaScript scoped code | _None_ |
 | [BSONLong](../../api/reactivemongo/bson/BSONLong.html) | 64-bit integer | `Long` |
 | [BSONMaxKey](../../api/reactivemongo/bson/BSONMaxKey$.html) | max key | _None_ |
 | [BSONMinKey](../../api/reactivemongo/bson/BSONMinKey$.html) | min key | _None_ |
 | [BSONNull](../../api/reactivemongo/bson/BSONNull$.html) | null | _None_ |
-| [BSONObjectID](../../api/reactivemongo/bson/BSONObjectID.html) | [12-bytes default id type in MongoDB](http://docs.mongodb.org/manual/reference/object-id/) | _None_ |
+| [BSONObjectID](../../api/reactivemongo/bson/BSONObjectID.html) | [12 bytes default id type in MongoDB](http://docs.mongodb.org/manual/reference/object-id/) | _None_ |
 | [BSONRegex](../../api/reactivemongo/bson/BSONRegex.html) | regular expression | _None_ |
 | [BSONString](../../api/reactivemongo/bson/BSONString.html) | UTF-8 string | `String` |
 | [BSONSymbol](../../api/reactivemongo/bson/BSONSymbol.html) | _deprecated in the protocol_ | _None_ |
 | [BSONTimestamp](../../api/reactivemongo/bson/BSONTimestamp.html) | special date type used in MongoDB internals | _None_ |
 | [BSONUndefined](../../api/reactivemongo/bson/BSONUndefined$.html) | _deprecated in the protocol_ | _None_ |
 
-The traits [BSONNumberLike](../../api/reactivemongo/bson/BSONNumberLike.html) and [BSONBooleanLike](../../api/reactivemongo/bson/BSONBooleanLike.html) can be used to generalize the handling of numerical and boolean values.
+The traits [`BSONNumberLike`](../../api/reactivemongo/bson/BSONNumberLike.html) and [`BSONBooleanLike`](../../api/reactivemongo/bson/BSONBooleanLike.html) can be used to generalize the handling of numerical and boolean values.
 
 All these classes extend [BSONValue](../../api/reactivemongo/bson/BSONValue.html).
 
 > See how to handle the [optional values](./typeclasses.html#optional-value).
 
-A document is represented by `BSONDocument`. A `BSONDocument` is basically an immutable list of key-value pairs. Since it is the most used BSON type, one of the main focuses of the ReactiveMongo BSON library is to make manipulations of BSONDocuments as easy as possible.
+A document is represented by `BSONDocument`. A `BSONDocument` is basically an immutable list of key-value pairs. Since it is the most used BSON type, one of the main focuses of the ReactiveMongo BSON library is to make manipulations of BSONDocument as easy as possible.
 
 {% highlight scala %}
 import reactivemongo.bson._
@@ -86,6 +86,6 @@ albumTitle match {
 {% endhighlight %}
 
 Furthermore, the whole library is articulated around the concept of [`BSONDocumentWriter`](../../api/reactivemongo/bson/BSONDocumentWriter.html) and [`BSONDocumentReader`](../../api/reactivemongo/bson/BSONDocumentReader.html).
-These are type classes which purpose is to serialize/deserialize objects of arbitraty types into/from BSON. This makes usage of MongoDB much less verbose and more natural.
+These are type classes which purpose is to serialize/deserialize objects of arbitrary types into/from BSON. This makes usage of MongoDB much less verbose and more natural.
 
 [Next: The readers and writers](typeclasses.html)

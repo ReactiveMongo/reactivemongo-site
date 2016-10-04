@@ -6,7 +6,7 @@ title: Collection API
 
 ## Collection API
 
-The Collection API is designed to be very extensible, allowing the use of third-party libraries for building documents (ie use something else than the embedded BSON library), including specific serializers and deserializers.
+The Collection API is designed to be very extensible, allowing the use of third-party libraries for building documents (e.g. use something else than the embedded BSON library), including specific serializers and deserializers.
 
 For example, that's the case of the [support of Play JSON](https://github.com/reactivemongo/reactivemongo-play-json), which relies on the [Play JSON library](http://www.playframework.com/documentation/latest/ScalaJson) instead.
 
@@ -124,7 +124,7 @@ trait GenericCollection {
 }
 {% endhighlight %}
 
-This method takes a `selector` (or query), of type `S`. This object is then transformed into BSON thanks to the implicit `swriter` parameter. Moreover, you can notice that the return type is another trait, `GenericQueryBuilder`, with the same paramater types.
+This method takes a `selector` (or query), of type `S`. This object is then transformed into BSON thanks to the implicit `swriter` parameter. Moreover, you can notice that the return type is another trait, `GenericQueryBuilder`, with the same parameter types.
 
 ### The `GenericQueryBuilder` trait
 

@@ -25,13 +25,13 @@ There is one Scala class for each BSON type, all in the [`reactivemongo.bson` pa
 - [BSONDateTime](/releases/0.10/api/reactivemongo/bson/BSONDateTime.html) – UTC Date Time
 - [BSONDouble](/releases/0.10/api/reactivemongo/bson/BSONDouble.html) – 64-bit IEEE 754 floating point
 - [BSONInteger](/releases/0.10/api/reactivemongo/bson/BSONInteger.html) – 32-bit integer
-- [BSONJavaScript](/releases/0.10/api/reactivemongo/bson/BSONJavaScript.html) – javascript code
-- [BSONJavaScriptWS](/releases/0.10/api/reactivemongo/bson/BSONJavaScriptWS.html) – javascript scoped code
+- [BSONJavaScript](/releases/0.10/api/reactivemongo/bson/BSONJavaScript.html) – JavaScript code
+- [BSONJavaScriptWS](/releases/0.10/api/reactivemongo/bson/BSONJavaScriptWS.html) – JavaScript scoped code
 - [BSONLong](/releases/0.10/api/reactivemongo/bson/BSONLong.html) – 64-bit integer
 - [BSONMaxKey](/releases/0.10/api/reactivemongo/bson/BSONMaxKey$.html) – max key
 - [BSONMinKey](/releases/0.10/api/reactivemongo/bson/BSONMinKey$.html) – min key
 - [BSONNull](/releases/0.10/api/reactivemongo/bson/BSONNull$.html) – null
-- [BSONObjectID](/releases/0.10/api/reactivemongo/bson/BSONObjectID.html) – [12-bytes default id type in MongoDB](http://docs.mongodb.org/manual/reference/object-id/)
+- [BSONObjectID](/releases/0.10/api/reactivemongo/bson/BSONObjectID.html) – [12 bytes default id type in MongoDB](http://docs.mongodb.org/manual/reference/object-id/)
 - [BSONRegex](/releases/0.10/api/reactivemongo/bson/BSONRegex.html) – regular expression
 - [BSONString](/releases/0.10/api/reactivemongo/bson/BSONString.html) – UTF-8 string
 - [BSONSymbol](/releases/0.10/api/reactivemongo/bson/BSONSymbol.html) – _deprecated in the protocol_
@@ -40,8 +40,8 @@ There is one Scala class for each BSON type, all in the [`reactivemongo.bson` pa
 
 All these classes extend [BSONValue](/releases/0.10/api/reactivemongo/bson/BSONValue.html).
 
-A document is represented by `BSONDocument`. A `BSONDocument` is basically an immutable list of key-value pairs. Since it is the most used BSON type, one of the main focuses of the ReactiveMongo BSON library is to make manipulations of BSONDocuments as easy as possible.
+A document is represented by `BSONDocument`. A `BSONDocument` is basically an immutable list of key-value pairs. Since it is the most used BSON type, one of the main focuses of the ReactiveMongo BSON library is to make manipulations of BSONDocument as easy as possible.
 
-Furthermore, the whole library is articulated around the concept of `BSONDocumentWriter` and `BSONDocumentReader`. These are type classes which purpose is to serialize/deserialize objects of arbitraty types into/from BSON. This makes usage of MongoDB much less verbose and more natural.
+Furthermore, the whole library is articulated around the concept of `BSONDocumentWriter` and `BSONDocumentReader`. These are type classes which purpose is to serialize/deserialize objects of arbitrary types into/from BSON. This makes usage of MongoDB much less verbose and more natural.
 
 [Next: Using the ReactiveMongo BSON library](usage.html)

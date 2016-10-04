@@ -11,7 +11,7 @@ A `FailoverStrategy` defines if and how many times should ReactiveMongo retry a 
 
 - the entire node set is not available (probably because of a network failure)
 - the primary is not available, preventing to run write operations and consistent reads
-- the operation could not be done because of a credentials problem (ie the application is not yet logged on to the database)
+- the operation could not be done because of a credentials problem (e.g. the application is not yet logged on to the database)
 
 The other causes (business errors, normal database errors, fatal errors, etc.) are not handled.
 
@@ -43,7 +43,7 @@ val strategy =
   )
 {% endhighlight %}
 
-This strategy retries at most 5 times, waiting for `initialDelay * ( 1 + attemptNumber * 0.5 )` between each attempt (attemptNumber starting from 1). Here is the way the attemps will be run:
+This strategy retries at most 5 times, waiting for `initialDelay * ( 1 + attemptNumber * 0.5 )` between each attempt (`attemptNumber` starting from 1). Here is the way the attempts will be run:
 
 - __#1__: 750 milliseconds (`500 * (1 + 1 * 0.5)) = 500 * 1.5 = 750`)
 - __#2__: 1000 milliseconds (`500 * (1 + 2 * 0.5)) = 500 * 2 = 1000`)

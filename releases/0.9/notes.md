@@ -60,9 +60,9 @@ We changed the global architecture in order to separate the MongoDB's “collect
 
 It is now possible (and relatively easy) to implement your own Collection, and then create an abstraction layer without requiring an ORM.
 
-#### Smooth integration of the QueryBuilder
+#### Smooth integration of the query builder
 
-The QueryBuilder and the Collection have been merged the resulting new Collection API is far more friendly.
+The `QueryBuilder` and the Collection have been merged the resulting new Collection API is far more friendly.
 
 The types of query and result are now specified in different places, allowing of specify only one of them.
 
@@ -94,7 +94,7 @@ Collections can now be specialized to support other structures than BSON and the
 
 The default collection implementation is a specialized collection that uses the shipped-in BSON library, with `BSONDocumentWriter` and `BSONDocumentReader` as de/serialization typeclasses.
 
-The idea is to make integration with third party libraries (like other BSON libraries, JSON libraries, etc.) easier. There is an example of such a specialized collection in the PlayFramework plugin, using the Play JSON library.
+The idea is to make integration with third party libraries (like other BSON libraries, JSON libraries, etc.) easier. There is an example of such a specialized collection in the Play Framework plugin, using the Play JSON library.
 
 {% highlight scala %}
 // example using JSON-specialized collection in the PlayFramework plugin

@@ -86,7 +86,7 @@ val bsonBigDecimal = BSON.writeDocument(someClassValue)
 val someClassValueFromBSON = BSON.readDocument[SomeClass](bsonBigDecimal)
 {% endhighlight %}
 
-### BigInt
+### BigInteger
 
 {% highlight scala %}
 import reactivemongo.bson.{

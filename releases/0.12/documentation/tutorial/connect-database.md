@@ -46,29 +46,29 @@ val connection4 = driver2.connection(List("localhost"), options = conOpts)
 
 The following options can be used with `MongoConnectionOptions` to configure the connection behaviour.
 
-- **authSource**: The database source for authentication credentials.
-- **authMode**: The authentication mode. By default set to `scram-sha1` for [SCRAM-SHA-1](http://docs.mongodb.org/manual/core/authentication/#scram-sha-1-authentication). Can be configured with `mongocr` for the backward compatible [MONGODB-CR](http://docs.mongodb.org/manual/core/authentication/#mongodb-cr-authentication).
-- **connectTimeoutMS**: The [number of milliseconds](https://docs.mongodb.org/manual/reference/connection-string/#urioption.connectTimeoutMS) to wait for a connection to be established before giving up.
-- [**maxIdleTimeMS**](https://docs.mongodb.com/manual/reference/connection-string/#urioption.maxIdleTimeMS): The maximum number of milliseconds that a connection can remain idle in the pool before being removed and closed.
-- **sslEnabled**: It enables the SSL support for the connection (`true|false`).
-- **sslAllowsInvalidCert**: If `sslEnabled` is true, this one indicates whether to accept invalid certificates (e.g. self-signed).
-- **rm.tcpNoDelay**: TCPNoDelay boolean flag (`true|false`).
-- **rm.keepAlive**: TCP KeepAlive boolean flag (`true|false`).
-- **rm.nbChannelsPerNode**: Number of channels (connections) per node.
-- **writeConcern**: The default [write concern](http://docs.mongodb.org/manual/reference/write-concern/) (default: `acknowledged`).
-  - **unacknowledged**: Option `w` set to 0, journaling off (`j`), `fsync` off, no timeout.
-  - **acknowledged**: Option `w` set to 1, journaling off, `fsync` off, no timeout.
-  - **journaled**: Option `w` set to 1, journaling on, `fsync` off, no timeout.
-- **writeConcernW**: The [option `w`](http://docs.mongodb.org/manual/reference/write-concern/#w-option) for the default write concern. If `writeConcern` is specified, its `w` will be replaced by this `writeConcernW`.
+- **`authSource`**: The database source for authentication credentials.
+- **`authMode`**: The authentication mode. By default set to `scram-sha1` for [SCRAM-SHA-1](http://docs.mongodb.org/manual/core/authentication/#scram-sha-1-authentication). Can be configured with `mongocr` for the backward compatible [MONGODB-CR](http://docs.mongodb.org/manual/core/authentication/#mongodb-cr-authentication).
+- **`connectTimeoutMS`**: The [number of milliseconds](https://docs.mongodb.org/manual/reference/connection-string/#urioption.connectTimeoutMS) to wait for a connection to be established before giving up.
+- [**`maxIdleTimeMS`**](https://docs.mongodb.com/manual/reference/connection-string/#urioption.maxIdleTimeMS): The maximum number of milliseconds that a connection can remain idle in the pool before being removed and closed.
+- **`sslEnabled`**: It enables the SSL support for the connection (`true|false`).
+- **`sslAllowsInvalidCert`**: If `sslEnabled` is true, this one indicates whether to accept invalid certificates (e.g. self-signed).
+- **`rm.tcpNoDelay`**: TCPNoDelay boolean flag (`true|false`).
+- **`rm.keepAlive`**: TCP KeepAlive boolean flag (`true|false`).
+- **`rm.nbChannelsPerNode`**: Number of channels (connections) per node.
+- **`writeConcern`**: The default [write concern](http://docs.mongodb.org/manual/reference/write-concern/) (default: `acknowledged`).
+  - **`unacknowledged`**: Option `w` set to 0, journaling off (`j`), `fsync` off, no timeout.
+  - **`acknowledged`**: Option `w` set to 1, journaling off, `fsync` off, no timeout.
+  - **`journaled`**: Option `w` set to 1, journaling on, `fsync` off, no timeout.
+- **`writeConcernW`**: The [option `w`](http://docs.mongodb.org/manual/reference/write-concern/#w-option) for the default write concern. If `writeConcern` is specified, its `w` will be replaced by this `writeConcernW`.
   - `majority`: The write operations have to be propagated to the majority of voting nodes.
-  - `0`: Disable the acknowledgment.
-  - `1`: Acknowledgment from the standalone server or primary one.
-  - *positive integer*: Acknowledgment by at least the specified number of replica set members.
-  - [tag](http://docs.mongodb.org/manual/tutorial/configure-replica-set-tag-sets/#replica-set-configuration-tag-sets): Acknowledgment by the member of the replica set matching the given tag.
-- **writeConcernJ**: Toggle [journaling](http://docs.mongodb.org/manual/reference/write-concern/#j-option) on the default write concern. Of `writeConcern` is specified, its `j` will be replaced by this `writeConcernJ` boolean flag (`true|false`).
-- **writeConcernTimeout**: The [time limit](http://docs.mongodb.org/manual/reference/write-concern/#wtimeout) (in milliseconds) for the default write concern. If `writeConcern` is specified, its timeout is replaced by this one.
-- **readPreference**: The default [read preference](../advanced-topics/read-preferences.html) (`primary|primaryPreferred|secondary|secondaryPreferred|nearest`) (default is `primary`).
-- **rm.failover**: The default [failover strategy](../../api/index.html#reactivemongo.api.FailoverStrategy).
+  - `0`: Disable the acknowledgement.
+  - `1`: Acknowledgement from the standalone server or primary one.
+  - *positive integer*: Acknowledgement by at least the specified number of replica set members.
+  - [tag](http://docs.mongodb.org/manual/tutorial/configure-replica-set-tag-sets/#replica-set-configuration-tag-sets): Acknowledgement by the member of the replica set matching the given tag.
+- **`writeConcernJ`**: Toggle [journaling](http://docs.mongodb.org/manual/reference/write-concern/#j-option) on the default write concern. Of `writeConcern` is specified, its `j` will be replaced by this `writeConcernJ` boolean flag (`true|false`).
+- **`writeConcernTimeout`**: The [time limit](http://docs.mongodb.org/manual/reference/write-concern/#wtimeout) (in milliseconds) for the default write concern. If `writeConcern` is specified, its timeout is replaced by this one.
+- **`readPreference`**: The default [read preference](../advanced-topics/read-preferences.html) (`primary|primaryPreferred|secondary|secondaryPreferred|nearest`) (default is `primary`).
+- **`rm.failover`**: The default [failover strategy](../../api/index.html#reactivemongo.api.FailoverStrategy).
   - `default`: The default/minimal strategy, with 10 retries with an initial delay of 100ms and a delay factor of `retry count * 1.25` (100ms .. 125ms, 250ms, 375ms, 500ms, 625ms, 750ms, 875ms, 1s, 1125ms, 1250ms).
   - `remote`: The strategy for remote MongoDB node(s); Same as default but with 16 retries.
   - `strict`: A more strict strategy; Same as default but with only 5 retries.
@@ -76,7 +76,7 @@ The following options can be used with `MongoConnectionOptions` to configure the
       - *delay*: The [initial delay](../../api/index.html#reactivemongo.api.FailoverStrategy@initialDelay:scala.concurrent.duration.FiniteDuration) as a finite duration string accepted by the [`Duration` factory](http://www.scala-lang.org/api/current/index.html#scala.concurrent.duration.Duration$@apply(s:String):scala.concurrent.duration.Duration).
       - *retries*: The number of retry (`Int`).
       - *factor*: The `Double` value to multiply the retry counter with, to define the delay factor (`retryCount * factor`).
-- **rm.monitorRefreshMS**: The interval (in milliseconds) used by the ReactiveMongo monitor to refresh the node set (default: 10s); The minimal value is 100ms.
+- **`rm.monitorRefreshMS`**: The interval (in milliseconds) used by the ReactiveMongo monitor to refresh the node set (default: 10s); The minimal value is 100ms.
 
 > The option `sslEnabled` is needed if the MongoDB server is requiring SSL (`mongod --sslMode requireSSL`). The related option `sslAllowsInvalidCert` is required is the server allows invalid certificate (`mongod --sslAllowInvalidCertificates`).
 
@@ -95,7 +95,7 @@ ReactiveMongo provides support for replica sets as follows.
 - The driver will detect if it is connected to a replica set.
 - It will probe for the other nodes in the set and connect to them.
 - It will detect when the primary has changed and guess which is the new one.
-- It will allow running queries on secondaries if they are explicitely set to SlaveOk (See the [MongoDB documentation](http://docs.mongodb.org/manual/applications/replication/#replica-set-read-preference) for more details about querying secondary nodes).
+- It will allow running queries on secondaries if they are explicitly set to `slaveOk` (See the [MongoDB documentation](http://docs.mongodb.org/manual/applications/replication/#replica-set-read-preference) for more details about querying secondary nodes).
 
 Connecting to a replica set is pretty much the same as connecting to a unique server. You may have notice that the connection argument is a `List[String]`, so more than one node can be specified.
 
@@ -105,7 +105,7 @@ val connection6 = driver1.connection(servers6)
 {% endhighlight %}
 
 There is no obligation to give all the nodes in the replica set – actually, just one of them is required.
-ReactiveMongo will ask the nodes it can reach for the addresses of the other nodes in the replica set. Obviously it is better to give at least 2 or more nodes, in case of unavailablity of one node at the start of the application.
+ReactiveMongo will ask the nodes it can reach for the addresses of the other nodes in the replica set. Obviously it is better to give at least 2 or more nodes, in case of unavailability of one node at the start of the application.
 
 ### Using many connection instances
 
@@ -240,11 +240,11 @@ They manage two different things. `MongoDriver` holds the actor system, and `Mon
 It is also a good idea to store the driver and connection instances to reuse them.
 
 On the contrary, [`DefaultDB`](../../api/index.html#reactivemongo.api.DefaultDB) and [`Collection`](../../api/index.html#reactivemongo.api.Collection) are just plain objects that store references and nothing else.
-Gettting such references is lighweight, and calling [`connection.database(..)`](../../api/index.html#reactivemongo.api.MongoConnection@database(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitcontext:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DefaultDB]) or [`db.collection(..)`](../../api/index.html#reactivemongo.api.DefaultDB@collection[C%3C:reactivemongo.api.Collection](name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitproducer:reactivemongo.api.CollectionProducer[C]):C) may be done many times without any performance hit.
+Getting such references is lightweight, and calling [`connection.database(..)`](../../api/index.html#reactivemongo.api.MongoConnection@database(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitcontext:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DefaultDB]) or [`db.collection(..)`](../../api/index.html#reactivemongo.api.DefaultDB@collection[C%3C:reactivemongo.api.Collection](name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitproducer:reactivemongo.api.CollectionProducer[C]):C) may be done many times without any performance hit.
 
 **Virtual Private Network ([VPN](https://en.wikipedia.org/wiki/Virtual_private_network)):**
 
-When connecting to a MongoDB replica set over a VPN, if using IP addresses instead of hostnames to configure the connection nodes, then it's possible that the nodes are discovered with hostnames that are only known within the remote network, and so not usable from the driver/client side.
+When connecting to a MongoDB replica set over a VPN, if using IP addresses instead of host names to configure the connection nodes, then it's possible that the nodes are discovered with host names that are only known within the remote network, and so not usable from the driver/client side.
 
 ### Troubleshooting
 
@@ -266,7 +266,7 @@ If one of the error is seen, first retry/refresh to check it wasn't a temporary 
 
 *Are the DB nodes accessible from the node running the application?*
 
-- Using the [MongoShell](https://docs.mongodb.com/manual/reference/mongo-shell/): `mongo primary-host:primary-port/name-of-database` (replace the primary host & port and the database name with the same used in the ReactiveMongo connection URI).
+- Using the [MongoDB Shell](https://docs.mongodb.com/manual/reference/mongo-shell/): `mongo primary-host:primary-port/name-of-database` (replace the primary host & port and the database name with the same used in the ReactiveMongo connection URI).
 - With the [SBT Playground](https://github.com/cchantep/RM-SBT-Playground), using the same connection URI.
 - **Possible causes:** Broken network, authentication issue (before 0.12, MONGODB-CR is the default mode; See the [`authMode` option](#connection-options)), SSL issue (check the `sslEnabled` and `sslAllowsInvalidCert` options).
 
@@ -274,11 +274,11 @@ If one of the error is seen, first retry/refresh to check it wasn't a temporary 
 
 - If using the [Play module](./play.html), the `strictUri` setting can be enabled (e.g. `mongodb.connection.strictUri=true`).
 - If calling directly the function [`MongoDriver.connection`](../../api/index.html#reactivemongo.api.MongoDriver@connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI,strictUri:Boolean):scala.util.Try[reactivemongo.api.MongoConnection]), the `strictUri` parameter can be set to `true`.
-- Connect without any non mandatory options (e.g. `connectTimeoutMS`), using the [SBT Playground](https://github.com/cchantep/RM-SBT-Playground) to try the alternative URIs.
+- Connect without any non mandatory options (e.g. `connectTimeoutMS`), using the [SBT Playground](https://github.com/cchantep/RM-SBT-Playground) to try the alternative URI.
 
 *Connecting to a [MongoDB ReplicaSet](https://docs.mongodb.com/manual/replication/), is status ok?*
 
-- Using the [MongoShell](https://docs.mongodb.com/manual/reference/mongo-shell/) to connect to the primary node, execute `rs.status()`.
+- Using the [MongoDB Shell](https://docs.mongodb.com/manual/reference/mongo-shell/) to connect to the primary node, execute `rs.status()`.
 
 **Additional actions:**
 

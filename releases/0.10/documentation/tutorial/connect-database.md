@@ -15,7 +15,7 @@ import reactivemongo.api.MongoDriver
 val driver = new MongoDriver
 {% endhighlight %}
 
-Without any parameter, `MongoDriver` creates a new Akka's `ActorSystem`. Obviously, you may want to reuse an existing system to avoid wasting resources.
+Without any parameter, `MongoDriver` creates a new Akka `ActorSystem`. Obviously, you may want to reuse an existing system to avoid wasting resources.
 
 {% highlight scala %}
 val driver = new MongoDriver(existingSystem)
@@ -40,7 +40,7 @@ ReactiveMongo provides support for Replica Sets. That means the following:
 * the driver will detect if it is connected to a Replica Set;
 * it will probe for the other nodes in the set and connect to them;
 * it will detect when the primary has changed and guess which is the new one;
-* it will allow running queries on secondaries if they are explicitely set to SlaveOk (See the [MongoDB documentation](http://docs.mongodb.org/manual/applications/replication/#replica-set-read-preference) for more details about querying secondary nodes).
+* it will allow running queries on secondaries if they are explicitly set to `slaveOk` (See the [MongoDB documentation](http://docs.mongodb.org/manual/applications/replication/#replica-set-read-preference) for more details about querying secondary nodes).
 
 Connecting to a Replica Set is pretty much the same as connecting to a unique server. You may have notice that the argument to `driver.connection()` method is a `List[String]`; you can also give more than one node in the replica set.
 
@@ -49,7 +49,7 @@ val servers = List("server1:27017", "server2:27017", "server3:27017")
 val connection = driver.connection(servers)
 {% endhighlight %}
 
-There is no obligation to give all the nodes in the replica set – actually, just one of them is required. ReactiveMongo will ask the nodes it can reach for the addresses of the other nodes in the replica set. Obviously it is better to give at least 2 or more nodes, in case of unavailablity of one node at the start of the application.
+There is no obligation to give all the nodes in the replica set – actually, just one of them is required. ReactiveMongo will ask the nodes it can reach for the addresses of the other nodes in the replica set. Obviously it is better to give at least 2 or more nodes, in case of unavailability of one node at the start of the application.
 
 ### Using many `MongoConnection` instances
 

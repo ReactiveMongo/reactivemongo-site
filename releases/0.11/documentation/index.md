@@ -51,7 +51,7 @@ The API for the standalone JSON serialization is [also available](../json-api/in
 - [Command API](advanced-topics/commands.html)
 - [Aggregation Framework](advanced-topics/aggregation.html)
 - [FailoverStrategy](advanced-topics/failoverstrategy.html)
-- [ReadPreferences](advanced-topics/read-preferences.html)
+- [ReadPreference](advanced-topics/read-preferences.html)
 - [GridFS](advanced-topics/gridfs.html)
 
 ### Samples

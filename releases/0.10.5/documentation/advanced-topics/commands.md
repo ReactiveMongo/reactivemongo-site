@@ -54,7 +54,7 @@ var command =
 db.runCommand(command)
 {% endhighlight %}
 
-We do exactly the same thing with `RawCommand`, by making a `BSONDocument` that contains the same fieds:
+We do exactly the same thing with `RawCommand`, by making a `BSONDocument` that contains the same fields:
 
 {% highlight scala %}
 val commandDoc =

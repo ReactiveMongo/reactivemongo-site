@@ -88,7 +88,7 @@ futureRemove.onComplete {
 }
 {% endhighlight %}
 
-By default, `remove()` deletes all the documents that match the `selector`. You can change this behavior by setting the `firstMatchOnly` parameter to `true`:
+By default, `remove()` deletes all the documents that match the `selector`. You can change this behaviour by setting the `firstMatchOnly` parameter to `true`:
 
 {% highlight scala %}
 val futureRemove = collection.remove(selector, firstMatchOnly = true)

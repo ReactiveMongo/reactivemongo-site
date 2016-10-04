@@ -42,13 +42,13 @@ def insertDoc1(coll: BSONCollection, doc: BSONDocument): Future[Unit] = {
 
 > The type `Future[LastError]` previously returned by the write operations is replaced by `Future[WriteResult]` in the new API.
 
-**What does WriteResult mean?**
+**What does `WriteResult` mean?**
 
 A [`WriteResult`](../../api/index.html#reactivemongo.api.commands.WriteResult) is a special document that contains information about the write operation, like the number of documents that were updated.
 
 If the write result actually indicates an error, the `Future` will be in a [`failed` state](http://www.scala-lang.org/api/current/index.html#scala.concurrent.Future$@failed[T](exception:Throwable):scala.concurrent.Future[T]).
 
-Like all the other collection operations (in [`GenericCollection`](../../api/index.html#reactivemongo.api.collections.GenericCollection) trait), you can insert any [writable value](../bson/typeclasses.html) to `insert()`. With the default BSON serialization, that means provided there a [`BSONDocumentWriter`](../../api/index.html#reactivemongo.bson.BSONDocumentWriter) for its type in the [implicit scope](http://docs.scala-lang.org/tutorials/FAQ/finding-implicits.html). So, considering the `Person` case class:
+Like all the other collection operations (in [`GenericCollection`](../../api/index.html#reactivemongo.api.collections.GenericCollection) trait), you can insert any [writeable value](../bson/typeclasses.html) to `insert()`. With the default BSON serialization, that means provided there a [`BSONDocumentWriter`](../../api/index.html#reactivemongo.bson.BSONDocumentWriter) for its type in the [implicit scope](http://docs.scala-lang.org/tutorials/FAQ/finding-implicits.html). So, considering the `Person` case class:
 
 {% highlight scala %}
 import scala.util.{ Failure, Success }
@@ -179,7 +179,7 @@ futureRemove1.onComplete { // callback
 }
 {% endhighlight %}
 
-By default, this [`remove`](../../api/index.html#reactivemongo.api.collections.GenericCollection@remove[T]%28query:T,writeConcern:reactivemongo.api.commands.WriteConcern,firstMatchOnly:Boolean%29%28implicitwriter:GenericCollection.this.pack.Writer[T],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.commands.WriteResult]) function deletes all the documents that match the `selector`. You can change this behavior by setting the `firstMatchOnly` parameter to `true`:
+By default, this [`remove`](../../api/index.html#reactivemongo.api.collections.GenericCollection@remove[T]%28query:T,writeConcern:reactivemongo.api.commands.WriteConcern,firstMatchOnly:Boolean%29%28implicitwriter:GenericCollection.this.pack.Writer[T],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.commands.WriteResult]) function deletes all the documents that match the `selector`. You can change this behaviour by setting the `firstMatchOnly` parameter to `true`:
 
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -193,7 +193,7 @@ def removeFirst(selector: BSONDocument) =
 
 ### Find and modify
 
-ReactiveMongo also supports the MongoDB [findAndModify](http://docs.mongodb.org/manual/reference/command/findAndModify/) operation.
+ReactiveMongo also supports the MongoDB [`findAndModify`](http://docs.mongodb.org/manual/reference/command/findAndModify/) operation.
 
 In the case you want to update the age of a document in a collection of persons, and at the same time to return the information about the person before this change, it can be done using [`findAndUpdate`](../../api/index.html#reactivemongo.api.collections.GenericCollection@findAndUpdate[Q,U]%28selector:Q,update:U,fetchNewObject:Boolean,upsert:Boolean,sort:Option[GenericCollection.this.pack.Document]%29%28implicitselectorWriter:GenericCollection.this.pack.Writer[Q],implicitupdateWriter:GenericCollection.this.pack.Writer[U],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[GenericCollection.this.BatchCommands.FindAndModifyCommand.FindAndModifyResult]).
 

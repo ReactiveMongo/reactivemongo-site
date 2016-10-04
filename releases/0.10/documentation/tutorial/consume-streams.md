@@ -34,9 +34,9 @@ enumeratorOfPeople.apply(processDocuments) // returns Future[Unit]
 
 The method `cursor.enumerate()` returns an `Enumerator[T]`. In this case, we get a producer of documents (of type `BSONDocument`).
 
-Now that we have the producer, we need to define how the documents are processed: that is the Iteratee's job. Iteratees, as the opposite of Enumerators, are consumers: they are fed in by enumerators and do some computation with the chunks they get.
+Now that we have the producer, we need to define how the documents are processed: that is the Iteratee job. Iteratees, as the opposite of Enumerators, are consumers: they are fed in by enumerators and do some computation with the chunks they get.
 
-Here, we build an `Iteratee[BSONDocument, Unit]` that takes `BSONDocument` as an input and eventually returns `Unit` – which is normal because we just print the results without computing any final value. Each time it gets a document, it extracts the `lastName` and prints it on the console along with the whole document. Note that none of these operations are blocking: when the running thread is not processing the callback of our iteratee, it can be used to compute other things.
+Here, we build an `Iteratee[BSONDocument, Unit]` that takes `BSONDocument` as an input and eventually returns `Unit` – which is normal because we just print the results without computing any final value. Each time it gets a document, it extracts the `lastName` and prints it on the console along with the whole document. Note that none of these operations are blocking: when the running thread is not processing the callback of our Iteratee, it can be used to compute other things.
 
 When this snippet is run, we get the following:
 
@@ -61,7 +61,7 @@ found Hemingway: {
 }
 {% endhighlight %}
 
-The line `enumeratorOfPeople.apply(processDocuments)` returns a `Future[Unit]`; it will eventually return the final value of the iteratee, which is `Unit` in our case.
+The line `enumeratorOfPeople.apply(processDocuments)` returns a `Future[Unit]`; it will eventually return the final value of the Iteratee, which is `Unit` in our case.
 
 > The `apply` method on `Enumerator` has an operator alias, `|>>>`. So we can rewrite the last line like this: `enumeratorOfPeople |>>> processDocuments`.
 

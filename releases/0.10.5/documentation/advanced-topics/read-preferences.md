@@ -14,7 +14,7 @@ The following Read Preferences are supported:
 - `PrimaryPrefered`: read from the primary if it is available, or secondaries if it is not;
 - `Secondary`: read only from any secondary;
 - `SecondaryPrefered`: read from any secondary, or from the primary if they are not available;
-- `Nearest`: read from the faster node (ie the node which replies faster than all others), regardless its status (primary or secondary.)
+- `Nearest`: read from the faster node (e.g. the node which replies faster than all others), regardless its status (primary or secondary.)
 
 Read preference are given to `GenericQueryBuilder.cursor()` and `GenericQueryBuilder.one()`:
 
