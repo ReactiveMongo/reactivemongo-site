@@ -12,5 +12,6 @@ cache:
     - $HOME/.sbt
     - $HOME/.gem
     - $HOME/.local
+    - $PWD/node_modules
 before_install: ./.ci_scripts/beforeInstall.sh 0.13.11
 script: ./.ci_scripts/validate.sh 0.13.11

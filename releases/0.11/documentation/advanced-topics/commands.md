@@ -8,7 +8,7 @@ title: Command API
 
 A MongoDB Command is a special query that returns at most one document. It is executed at the database level (`db.runCommand` in the MongoDB shell), or at the collection level (`db.aCol.runCommand` in the shell).
 
-In ReactiveMongo, the database command can be runned using [`db.runCommand(<command>)`](../../api/index.html#reactivemongo.api.GenericDB@runCommand[R,C%3C:reactivemongo.api.commands.Commandwithreactivemongo.api.commands.CommandWithResult[R]]%28command:Cwithreactivemongo.api.commands.CommandWithResult[R]%29%28implicitwriter:GenericDB.this.pack.Writer[C],implicitreader:GenericDB.this.pack.Reader[R],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[R]).
+In ReactiveMongo, the database command can be executed using [`db.runCommand(<command>)`](../../api/index.html#reactivemongo.api.GenericDB@runCommand[R,C%3C:reactivemongo.api.commands.Commandwithreactivemongo.api.commands.CommandWithResult[R]]%28command:Cwithreactivemongo.api.commands.CommandWithResult[R]%29%28implicitwriter:GenericDB.this.pack.Writer[C],implicitreader:GenericDB.this.pack.Reader[R],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[R]).
 
 The collection command can be executed with [`collection.runCommand(<command>)`](../../api/index.html#reactivemongo.api.collections.GenericCollection@runCommand[R,C%3C:reactivemongo.api.commands.CollectionCommandwithreactivemongo.api.commands.CommandWithResult[R]]%28command:Cwithreactivemongo.api.commands.CommandWithResult[R]%29%28implicitwriter:GenericCollectionWithCommands.this.pack.Writer[reactivemongo.api.commands.ResolvedCollectionCommand[C]],implicitreader:GenericCollectionWithCommands.this.pack.Reader[R],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[R]).
 
@@ -75,7 +75,7 @@ var command =
 db.runCommand(command)
 {% endhighlight %}
 
-We do exactly the same thing with `RawCommand`, by making a `BSONDocument` that contains the same fieds:
+We do exactly the same thing with `RawCommand`, by making a `BSONDocument` that contains the same fields:
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }

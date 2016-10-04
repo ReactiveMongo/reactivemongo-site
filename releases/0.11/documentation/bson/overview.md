@@ -54,9 +54,9 @@ val arrField = BSONDocument("array_field" -> List("written", "values"))
 
 [BSONInteger](../../api/reactivemongo/bson/BSONInteger.html): 32-bit integer
 
-[BSONJavaScript](../../api/reactivemongo/bson/BSONJavaScript.html): javascript code
+[BSONJavaScript](../../api/reactivemongo/bson/BSONJavaScript.html): JavaScript code
 
-[BSONJavaScriptWS](../../api/reactivemongo/bson/BSONJavaScriptWS.html): javascript scoped code
+[BSONJavaScriptWS](../../api/reactivemongo/bson/BSONJavaScriptWS.html): JavaScript scoped code
 
 [BSONLong](../../api/reactivemongo/bson/BSONLong.html): 64-bit integer
 
@@ -66,7 +66,7 @@ val arrField = BSONDocument("array_field" -> List("written", "values"))
 
 [BSONNull](../../api/reactivemongo/bson/BSONNull$.html): null
 
-[BSONObjectID](../../api/reactivemongo/bson/BSONObjectID.html): [12-bytes default id type in MongoDB](http://docs.mongodb.org/manual/reference/object-id/)
+[BSONObjectID](../../api/reactivemongo/bson/BSONObjectID.html): [12 bytes default id type in MongoDB](http://docs.mongodb.org/manual/reference/object-id/)
 
 [BSONRegex](../../api/reactivemongo/bson/BSONRegex.html): regular expression
 
@@ -82,7 +82,7 @@ val arrField = BSONDocument("array_field" -> List("written", "values"))
 
 All these classes extend [BSONValue](../../api/reactivemongo/bson/BSONValue.html).
 
-A document is represented by `BSONDocument`. A `BSONDocument` is basically an immutable list of key-value pairs. Since it is the most used BSON type, one of the main focuses of the ReactiveMongo BSON library is to make manipulations of BSONDocuments as easy as possible.
+A document is represented by `BSONDocument`. A `BSONDocument` is basically an immutable list of key-value pairs. Since it is the most used BSON type, one of the main focuses of the ReactiveMongo BSON library is to make manipulations of BSONDocument as easy as possible.
 
 {% highlight scala %}
 import reactivemongo.bson._
@@ -99,6 +99,6 @@ albumTitle match {
 {% endhighlight %}
 
 Furthermore, the whole library is articulated around the concept of [`BSONDocumentWriter`](../../api/reactivemongo/bson/BSONDocumentWriter.html) and [`BSONDocumentReader`](../../api/reactivemongo/bson/BSONDocumentReader.html).
-These are type classes which purpose is to serialize/deserialize objects of arbitraty types into/from BSON. This makes usage of MongoDB much less verbose and more natural.
+These are type classes which purpose is to serialize/deserialize objects of arbitrary types into/from BSON. This makes usage of MongoDB much less verbose and more natural.
 
 [Next: The readers and writers](typeclasses.html)

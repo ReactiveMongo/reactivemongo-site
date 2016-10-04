@@ -19,6 +19,9 @@ SBT_JAR="$HOME/.sbt/launchers/$SBT_VER/sbt-launch.jar"
 (java $SBT_OPTS -jar "$SBT_JAR" compile && \
   bundle exec jekyll build) || exit 2
 
+echo "# Spell checking"
+./node_modules/markdown-spellcheck/bin/mdspell --en-gb -n `find . -not -path '*/node_modules/*' -type f -name '*.md' | perl -pe 's|^\./||;s|[A-Za-z0-9.-]+|*|g' | sort -u | sed -e 's/$/.md/'` '!**/node_modules/**/*.md' '!**/vendor/**/*.md' || exit 3
+
 echo "# Documentation built"
 
 bundle exec jekyll serve --detach

@@ -56,7 +56,7 @@ libraryDependencies ++= Seq(
 
 ### Play 2.4
 
-**ReactiveMongoPlugin is deprecated, long live to ReactiveMongoModule and ReactiveMongoApi**.
+**`ReactiveMongoPlugin` is deprecated, long live to `ReactiveMongoModule` and `ReactiveMongoApi`**.
 
 Play has deprecated plugins in version 2.4. Therefore it is recommended to remove it from your project and replace it by `ReactiveMongoModule` and `ReactiveMongoApi` which is the interface to MongoDB.
 
@@ -191,7 +191,7 @@ A more complete example:
 mongodb.uri = "mongodb://someuser:somepasswd@host1:27017,host2:27017,host3:27017/your_db_name?authSource=authdb&rm.nbChannelsPerNode=10"
 {% endhighlight %}
 
-### Configure underlying akka system
+### Configure underlying Akka system
 
 ReactiveMongo loads its configuration from the key `mongo-async-driver`.
 
@@ -292,7 +292,7 @@ trait MyController extends Controller
 
 ## Code samples
 
-### Play2 controller sample
+### Play controller sample
 
 {% highlight scala %}
 package controllers
@@ -413,7 +413,7 @@ class Application @Inject() (val reactiveMongoApi: ReactiveMongoApi)
 > - all actions are asynchronous because ReactiveMongo returns `Future[Result]`
 > - we use a specialized collection called `JSONCollection` that deals naturally with `JsValue` and `JsObject`
 
-### Play2 controller sample using JSON Writes and Reads
+### Play controller sample using JSON Writes and Reads
 
 First, the models:
 
@@ -439,7 +439,7 @@ object JsonFormats {
 }
 {% endhighlight %}
 
-> The following import is recommanded to make sure JSON/BSON convertions are available.
+> The following import is recommended to make sure JSON/BSON conversions are available.
 
 {% highlight scala %}
 import reactivemongo.play.json._

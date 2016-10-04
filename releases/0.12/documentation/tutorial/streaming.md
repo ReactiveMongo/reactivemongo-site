@@ -88,7 +88,7 @@ def processPerson2(sourceOfPeople: Source[BSONDocument, NotUsed])(implicit m: Ma
 }
 {% endhighlight %}
 
-The `cumulateAge` sink extracts the age from the each document, and add it the current result. At the same time, it counts the processed documents. When the `cumulated` age is completed, it is devided by the number of documents to get the mean age.
+The `cumulateAge` sink extracts the age from the each document, and add it the current result. At the same time, it counts the processed documents. When the `cumulated` age is completed, it is divided by the number of documents to get the mean age.
 
 [More: **ReactiveMongo AkkaStream API**](https://reactivemongo.github.io/ReactiveMongo-Streaming/0.12/akka-stream/api/#package)
 
@@ -146,7 +146,7 @@ The operation [`PlayIterateesCursor.enumerator`](../../api/index.html#reactivemo
 
 Now that we have the producer, we need to define how the documents are processed: that is the Iteratee's job. Iteratees, as the opposite of Enumerators, are consumers: they are fed in by enumerators and do some computation with the chunks they get.
 
-Here, we build an `Iteratee[BSONDocument, Unit]` that takes `BSONDocument` as an input and eventually returns `Unit` – which is normal because we just print the results without computing any final value. Each time it gets a document, it extracts the `lastName` and prints it on the console along with the whole document. Note that none of these operations are blocking: when the running thread is not processing the callback of our iteratee, it can be used to compute other things.
+Here, we build an `Iteratee[BSONDocument, Unit]` that takes `BSONDocument` as an input and eventually returns `Unit` – which is normal because we just print the results without computing any final value. Each time it gets a document, it extracts the `lastName` and prints it on the console along with the whole document. Note that none of these operations are blocking: when the running thread is not processing the callback of our Iteratee, it can be used to compute other things.
 
 When this snippet is run, we get the following:
 
@@ -171,7 +171,7 @@ found Hemingway: {
 }
 {% endhighlight %}
 
-The line `enumeratorOfPeople.run(processDocuments)` returns a `Future[Unit]`. It will eventually return the final value of the iteratee, which is `Unit` in our case.
+The line `enumeratorOfPeople.run(processDocuments)` returns a `Future[Unit]`. It will eventually return the final value of the Iteratee, which is `Unit` in our case.
 
 > The `run` method on `Enumerator` has an operator alias, `|>>>`. So we can rewrite the last line like this: `enumeratorOfPeople |>>> processDocuments`.
 

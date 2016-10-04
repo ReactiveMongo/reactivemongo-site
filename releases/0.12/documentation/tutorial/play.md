@@ -56,7 +56,7 @@ libraryDependencies ++= Seq(
 
 ### Play 2.4
 
-**ReactiveMongoPlugin is deprecated, long live to ReactiveMongoModule and ReactiveMongoApi**.
+**`ReactiveMongoPlugin` is deprecated, long live to `ReactiveMongoModule` and `ReactiveMongoApi`**.
 
 Play has deprecated plugins in version 2.4. Therefore it is recommended to remove it from your project and replace it by `ReactiveMongoModule` and `ReactiveMongoApi` which is the interface to MongoDB.
 
@@ -114,7 +114,7 @@ class MyController @Inject() (val reactiveMongoApi: ReactiveMongoApi)
 
 In your Play application, you can use ReactiveMongo with multiple connection pools (possibly with different replica set and/or options), using the `@NamedDatabase` annotation.
 
-Consider the following configuration, with several connection URIs.
+Consider the following configuration, with several connection URI.
 
 {% highlight text %}
 # The default URI
@@ -269,7 +269,7 @@ trait MyController extends Controller
 
 ## Code samples
 
-### Play2 controller sample
+### Play controller sample
 
 {% highlight scala %}
 package controllers
@@ -390,7 +390,7 @@ class Application @Inject() (val reactiveMongoApi: ReactiveMongoApi)
 > - all actions are asynchronous because ReactiveMongo returns `Future[Result]`
 > - we use a specialized collection called `JSONCollection` that deals naturally with `JsValue` and `JsObject`
 
-### Play2 controller sample using JSON Writes and Reads
+### Play controller sample using JSON Writes and Reads
 
 First, the models:
 
@@ -416,7 +416,7 @@ object JsonFormats {
 }
 {% endhighlight %}
 
-> The following import is recommanded to make sure JSON/BSON convertions are available.
+> The following import is recommended to make sure JSON/BSON conversions are available.
 
 {% highlight scala %}
 import reactivemongo.play.json._

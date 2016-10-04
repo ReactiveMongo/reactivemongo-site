@@ -13,8 +13,8 @@ sitemap: false
 2. Macros enhancements (including [support for customizable field names](https://github.com/ReactiveMongo/ReactiveMongo/pull/140))
 3. [Connection by URI](tutorial/connect-database.html#connect-using-mongodb-uri)
 4. Cursor refactoring
-5. Authentication reliabilty improvements
-6. Internals refactoring (especially nodeset, actors)
+5. Authentication reliability improvements
+6. Internals refactoring (especially node set, actors)
 7. Update to Akka 2.2 and Play-Iteratees 2.2
 8. Migration to SBT 0.13.1
 9. … and many bugfixes :)

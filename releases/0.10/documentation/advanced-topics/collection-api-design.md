@@ -7,7 +7,7 @@ sitemap: false
 
 ## The Collection API Design
 
-The Collection API is designed to be very extensible, allowing the use of third-party libraries for building documents (ie use something else than the embedded BSON library), including specific serializers and deserializers. For example, that's the case of the [ReactiveMongo Play plugin](https://github.com/ReactiveMongo/Play-ReactiveMongo), which relies on the [Play JSON library](http://www.playframework.com/documentation/2.2.x/ScalaJson) instead.
+The Collection API is designed to be very extensible, allowing the use of third-party libraries for building documents (e.g. use something else than the embedded BSON library), including specific serializers and deserializers. For example, that's the case of the [ReactiveMongo Play plugin](https://github.com/ReactiveMongo/Play-ReactiveMongo), which relies on the [Play JSON library](http://www.playframework.com/documentation/2.2.x/ScalaJson) instead.
 
 {% highlight scala %}
 // using the default Collection implementation
@@ -111,7 +111,7 @@ This trait is much more complete than `Collection`. It defines common methods, l
 
 `GenericCollection` takes 3 type parameters:
 
-- `Structure` is a type which instances may eventually be deserialized or serialized into BSON. It may be BSONDocument of course (as it is in the default Collection implementation), but can be a JSON objector any other third-party structure.
+- `Structure` is a type which instances may eventually be deserialized or serialized into BSON. It may be `BSONDocument` of course (as it is in the default Collection implementation), but can be a JSON objector any other third-party structure.
 - `Reader[T]` is a type constructor that represents something that knows how to produce a new instance of `T` from a `Structure` instance (`T` being the type parameter of `Reader`). In the default Collection implementation, this is `BSONDocumentReader[_]`.
 - `Writer[T]` is a type constructor that represents something that knows how to produce a new instance of `Structure` from a `T` instance (`T` being the type parameter of `Reader`). In the default Collection implementation, this is `BSONDocumentWriter[_]`.
 
@@ -175,7 +175,7 @@ Let's take an example of how these types are used with `find()`, which is define
 def find[S](selector: S)(implicit swriter: Writer[S]): GenericQueryBuilder[Structure, Reader, Writer]
 {% endhighlight %}
 
-This method takes a `selector` (or query), of type `S`. This object is then transformed into BSON thanks to the implicit `swriter` parameter. Moreover, you can notice that the return type is another trait, `GenericQueryBuilder`, with the same paramater types.
+This method takes a `selector` (or query), of type `S`. This object is then transformed into BSON thanks to the implicit `swriter` parameter. Moreover, you can notice that the return type is another trait, `GenericQueryBuilder`, with the same parameter types.
 
 ### The `GenericQueryBuilder` trait
 

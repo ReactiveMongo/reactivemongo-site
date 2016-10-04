@@ -32,7 +32,7 @@ The [MongoDB Aggregation Framework](http://docs.mongodb.org/manual/reference/ope
 - **[`$out`](#out)**: Writes the resulting documents of the aggregation [pipeline to a collection](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#pipe._S_out) ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@OutextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
 - **[`$indexStats`](#indexStats)**: Returns statistics regarding the use of [each index for the collection](https://docs.mongodb.com/manual/reference/operator/aggregation/indexStats/#pipe._S_indexStats) ([API](../../api/index.html#reactivemongo.api.commands.AggregationFramework@IndexStats)).
 
-### ZipCodes example
+### Zip codes example
 
 Considering there is a `zipcodes` collection in a MongoDB, with the following documents.
 
@@ -256,7 +256,7 @@ def citiesPerState1(cities: BSONCollection)(implicit ec: ExecutionContext): Futu
 }
 {% endhighlight %}
 
-Similarily the <span id="addToSet">[`$addToSet` accumulator](https://docs.mongodb.com/manual/reference/operator/aggregation/addToSet/#grp._S_addToSet)</span> can be applied to collect all the unique values in the array for each group (there it's equivalent to `$push`).
+Similarly the <span id="addToSet">[`$addToSet` accumulator](https://docs.mongodb.com/manual/reference/operator/aggregation/addToSet/#grp._S_addToSet)</span> can be applied to collect all the unique values in the array for each group (there it's equivalent to `$push`).
 
 {% highlight javascript %}
 import scala.concurrent.{ ExecutionContext, Future }
@@ -598,7 +598,7 @@ db.place.insert({
 });
 {% endhighlight %}
 
-The <span id="geoNear">[`$geoNear`](https://docs.mongodb.com/manual/reference/operator/aggregation/geoNear/)</span> aggregation can be used on the collection, to find the place near the  geospatial coordinates `[ -73.9667, 40.78 ]`, within 1km (1000 meters) and 5km (5000 meters)
+The <span id="geoNear">[`$geoNear`](https://docs.mongodb.com/manual/reference/operator/aggregation/geoNear/)</span> aggregation can be used on the collection, to find the place near the  geospatial coordinates `[ -73.9667, 40.78 ]`, within 1 km (1000 meters) and 5 km (5000 meters)
 
 {% highlight javascript %}
 db.places.aggregate([{
@@ -876,7 +876,7 @@ Consider a collection *books* that contains the following documents.
 { "_id" : 7020, "title" : "Iliad", "author" : "Homer", "copies" : 10 }
 {% endhighlight %}
 
-Then its documents can be aggregated and outputed to another collection, using the <span id="out">[`$out`](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#pipe._S_out)</span> stage.
+Then its documents can be aggregated and outputted to another collection, using the <span id="out">[`$out`](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#pipe._S_out)</span> stage.
 
 {% highlight scala %}
 import scala.concurrent.Future

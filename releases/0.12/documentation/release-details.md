@@ -19,7 +19,7 @@ The documentation is available [online](index.html), and its code samples are co
   - [Custom streaming](#custom-streaming)
 - [BSON](#bson)
 - [Aggregation](#aggregation)
-- [Playframework](#playframework)
+- [Play Framework](#playframework)
   - [JSON serialization](#json-serialization)
   - [MVC integration](#mvc-integration)
   - [Routing](#routing)
@@ -41,14 +41,14 @@ This release is compatible with the following runtime.
 
 > MongoDB versions older than 2.6 are not longer supported by ReactiveMongo.
 
-**Recommanded configuration:**
+**Recommended configuration:**
 
-The driver core and the modules are tested in [container based environment](https://docs.travis-ci.com/user/ci-environment/#Virtualization-environments), with the specs as bellow.
+The driver core and the modules are tested in [container based environment](https://docs.travis-ci.com/user/ci-environment/#Virtualization-environments), with the specifications as bellow.
 
-- 2 [cores](https://cloud.google.com/compute/) (64bits)
+- 2 [cores](https://cloud.google.com/compute/) (64 bits)
 - 4 GB of system memory, with a maximum of 2 GB for the JVM
 
-This can be considered as a recommanded environment.
+This can be considered as a recommended environment.
 
 ### Database resolution
 
@@ -466,7 +466,7 @@ Some undocumented macro features, such as **union types** and sealed trait suppo
 Taking care of backward compatibility, a refactoring of the BSON types has been started.
 
 - The type alias `BSONElement` has been promoted to a [trait](../api/index.html#reactivemongo.bson.BSONElement).
-- A new sealed family is introduced by the [`ElementProducer`](../api/index.html#reactivemongo.bson.ElementProducer] trait, implemented by `BSONElement` (that produces a single element) and `BSONElementSet`, whose instances can produces mant BSON elements (`ElementProducer` can be considered as a monoid with its [composition operation](../api/index.html#reactivemongo.bson.ElementProducer$@Composition) and its [identity instance](../api/index.html#reactivemongo.bson.ElementProducer$@Empty)).
+- A new sealed family is introduced by the [`ElementProducer`](../api/index.html#reactivemongo.bson.ElementProducer] trait, implemented by `BSONElement` (that produces a single element) and `BSONElementSet`, whose instances can produces many BSON elements (`ElementProducer` can be considered as a monoid with its [composition operation](../api/index.html#reactivemongo.bson.ElementProducer$@Composition) and its [identity instance](../api/index.html#reactivemongo.bson.ElementProducer$@Empty)).
 - The [`BSONElementSet`](../api/index.html#reactivemongo.bson.BSONElementSet) trait now gathers `BSONDocument` and `BSONArray`, with new operations such `prepend`, `headOption`.
 
 [More: **BSON Library overview**](./bson/overview.html)
@@ -703,7 +703,7 @@ Consider a collection *books* that contains the following documents.
 { "_id" : 7020, "title" : "Iliad", "author" : "Homer", "copies" : 10 }
 {% endhighlight %}
 
-Then its documents can be aggregated and outputed to another collection.
+Then its documents can be aggregated and outputted to another collection.
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -834,9 +834,9 @@ def textFind(coll: BSONCollection)(implicit ec: ExecutionContext): Future[List[B
 
 [More: **Aggregation Framework**](./advanced-topics/aggregation.html)
 
-### Playframework
+### Play Framework
 
-The [integration with Playframework](./tutorial/play.html) is still a priority for ReactiveMongo.
+The [integration with Play Framework](./tutorial/play.html) is still a priority for ReactiveMongo.
 
 For Play > 2.4, if you still have a file `conf/play.plugins`, it's important to make sure this file no longer mentions `ReactiveMongoPlugin`, which is replaced by `ReactiveMongoModule`. With such deprecated configuration, the following error can be raised.
 

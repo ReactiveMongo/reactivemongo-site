@@ -52,7 +52,7 @@ All these JSON types extend [`JsValue`](https://www.playframework.com/documentat
 | [BSONTimestamp](../../api/reactivemongo/bson/BSONTimestamp.html) | `JsObject` with a `$time` and a `$i` `JsNumber` fields |
 | [BSONUndefined](../../api/reactivemongo/bson/BSONUndefined$.html) | *No JSON type* |
 
-Furthermore, the whole library is articulated around the concept of [`Writes`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.Writes) and [`Reads`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.Reads). These are type classes which purpose is to serialize/deserialize objects of arbitraty types into/from JSON.
+Furthermore, the whole library is articulated around the concept of [`Writes`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.Writes) and [`Reads`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.Reads). These are type classes which purpose is to serialize/deserialize objects of arbitrary types into/from JSON.
 
 Consequently, any type that can be serialized as JSON can be also be serialized as BSON.
 

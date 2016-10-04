@@ -14,9 +14,9 @@ The following Read Preferences are supported:
 - `PrimaryPreferred`: read from the primary if it is available, or secondaries if it is not;
 - `Secondary`: read only from any secondary;
 - `SecondaryPreferred`: read from any secondary, or from the primary if they are not available;
-- `Nearest`: read from the faster node (ie the node which replies faster than all others), regardless its status (primary or secondary.)
+- `Nearest`: read from the faster node (e.g. the node which replies faster than all others), regardless its status (primary or secondary.)
 
-The Read preference can be choosen globally using the [`MongoConnectionOptions`](../../api/index.html#reactivemongo.api.MongoConnectionOptions), or for each [cursor](../../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@cursor[T](readPreference:reactivemongo.api.ReadPreference,isMongo26WriteOp:Boolean)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor).
+The Read preference can be chosen globally using the [`MongoConnectionOptions`](../../api/index.html#reactivemongo.api.MongoConnectionOptions), or for each [cursor](../../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@cursor[T](readPreference:reactivemongo.api.ReadPreference,isMongo26WriteOp:Boolean)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor).
 
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global

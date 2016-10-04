@@ -77,7 +77,7 @@ val someClassValueFromBSON = BSON.readDocument[SomeClass](bsonBigDecimal)
 println(s"someClassValue == someClassValueFromBSON ? ${someClassValue equals someClassValueFromBSON}")
 {% endhighlight %}
 
-### BigInt
+### BigInteger
 
 {% highlight scala %}
 implicit object BigIntHandler extends BSONDocumentReader[BigInt] with BSONDocumentWriter[BigInt] {

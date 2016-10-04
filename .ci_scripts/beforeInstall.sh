@@ -5,6 +5,7 @@ export PATH="$HOME/.gem/ruby/2.2.0/bin:$PATH"
 gem install --no-verbose --user-install jekyll pygments.rb || exit 1
 bundle install || exit 2
 pip install --user Pygments || exit 3
+npm i markdown-spellcheck -u
 
 find $HOME/.local -type f -print
 

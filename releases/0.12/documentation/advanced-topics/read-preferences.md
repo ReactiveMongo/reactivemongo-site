@@ -10,7 +10,7 @@ title: Read Preferences
 
 The following Read Preferences are supported:
 
-The Read preference can be choosen globally using the [`MongoConnectionOptions`](../../api/index.html#reactivemongo.api.MongoConnectionOptions), or for each [cursor](../../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@cursor[T](readPreference:reactivemongo.api.ReadPreference,isMongo26WriteOp:Boolean)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor).
+The Read preference can be chosen globally using the [`MongoConnectionOptions`](../../api/index.html#reactivemongo.api.MongoConnectionOptions), or for each [cursor](../../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@cursor[T](readPreference:reactivemongo.api.ReadPreference,isMongo26WriteOp:Boolean)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor).
 
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global

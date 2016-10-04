@@ -10,7 +10,7 @@ title: Find Documents
 
 ### Performing a simple query
 
-Queries are performed quite the same way as in the Mongo Shell.
+Queries are performed quite the same way as in the MongoDB Shell.
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -114,7 +114,7 @@ trait PersonService2 {
 
 ## Find and sort documents
 
-The return type of the `find` method is a `GenericQueryBuilder`, which enables to customize the query, especially to add sort information. Like in the MongoDB console, you sort by giving a document containing the field names associated with an order (1 for ascending, -1 descending). Let's sort our previous query by lastName, in the alphabetical order (the sort document is also `{ lastName: 1 }`).
+The return type of the `find` method is a `GenericQueryBuilder`, which enables to customize the query, especially to add sort information. Like in the MongoDB console, you sort by giving a document containing the field names associated with an order (1 for ascending, -1 descending). Let's sort our previous query by last name, in the alphabetical order (the sort document is also `{ lastName: 1 }`).
 
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global

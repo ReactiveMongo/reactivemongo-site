@@ -45,7 +45,7 @@ package object custom {
 }
 {% endhighlight %}
 
-> When reading a numeric value from MongoDB, it's recommanded to use the typeclass [`BSONNumberLike`](../../api/index.html#reactivemongo.bson.BSONNumberLike), to benefit from numeric conversions it provides.
+> When reading a numeric value from MongoDB, it's recommended to use the typeclass [`BSONNumberLike`](../../api/index.html#reactivemongo.bson.BSONNumberLike), to benefit from numeric conversions it provides.
 
 Once a custom `BSONReader` (or `BSONDocumentReader`) is defined, it can be used in `aDocument.getAs[MyValueType]("docProperty")`.
 

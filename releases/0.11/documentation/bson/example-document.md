@@ -44,7 +44,7 @@ implicit object SimpleAlbumReader extends BSONDocumentReader[SimpleAlbum] {
 
 You should have noted that our reader and writer extend `BSONDocumentReader[T]` and `BSONDocumentWriter[T]`. These two traits are just a shorthand for `BSONReader[B <: BSONValue, T]` and `BSONWriter[T, B <: BSONValue]`.
 
-OK, now, what if I want to store all the tracks names of the album? Or, in other words, how can we deal with collections? First of all, you can safely infer that all seqs and sets can be serialized as `BSONArray`s. Using `BSONArray` follows the same patterns as `BSONDocument`.
+OK, now, what if I want to store all the tracks names of the album? Or, in other words, how can we deal with collections? First of all, you can safely infer that all sequences and sets can be serialized as `BSONArray`s. Using `BSONArray` follows the same patterns as `BSONDocument`.
 
 {% highlight scala %}
 import reactivemongo.bson.{ BSONArray, BSONDocument }
@@ -175,7 +175,7 @@ val neilYoung = Artist(
 val neilYoungDoc = BSON.write(neilYoung)
 {% endhighlight %}
 
-Here, we get an "ambiguous implicits" problem, which is normal because we have more than one Reader of `BSONDocument`s available in our scope (`SimpleArtistReader`, `ArtistReader`, `AlbumReader`, etc.). So we have to explicitly give the type of the instance we want to get from the document.
+Here, we get an "ambiguous implicit" problem, which is normal because we have more than one Reader of `BSONDocument`s available in our scope (`SimpleArtistReader`, `ArtistReader`, `AlbumReader`, etc.). So we have to explicitly give the type of the instance we want to get from the document.
 
 {% highlight scala %}
 import reactivemongo.bson.BSON

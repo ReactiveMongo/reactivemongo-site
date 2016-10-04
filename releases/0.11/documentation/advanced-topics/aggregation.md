@@ -8,7 +8,7 @@ title: Aggregation Framework
 
 The [MongoDB Aggregation Framework](http://docs.mongodb.org/manual/reference/operator/aggregation/) is available through ReactiveMongo.
 
-### ZipCodes example ###
+### Zip codes example ###
 
 Considering there is a `zipcodes` collection in a MongoDB, with the following documents.
 
