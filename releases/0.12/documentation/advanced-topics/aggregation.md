@@ -140,7 +140,7 @@ def states(col: BSONCollection): Future[List[State]] =
 
 *Using cursor:*
 
-The alternative [`.aggregatingWith` builder](../../api/index.html#reactivemongo.api.collections.GenericCollection@aggregatingWith[T](explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference,batchSize:Option[Int])(f:GenericCollection.this.AggregationFramework=%3E(GenericCollection.this.PipelineOperator,List[GenericCollection.this.PipelineOperator]))(implicitec:scala.concurrent.ExecutionContext,implicitreader:GenericCollection.this.pack.Reader[T]):scala.concurrent.Future[reactivemongo.api.Cursor[T]]) operation can be used, to process the aggregation result with a [`Cursor`](../api/index.html#reactivemongo.api.Cursor).
+The alternative [`.aggregateWith` builder](../../api/index.html#reactivemongo.api.collections.GenericCollection@aggregateWith[T](explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference,batchSize:Option[Int])(f:GenericCollection.this.AggregationFramework=%3E(GenericCollection.this.PipelineOperator,List[GenericCollection.this.PipelineOperator]))(implicitec:scala.concurrent.ExecutionContext,implicitreader:GenericCollection.this.pack.Reader[T]):scala.concurrent.Future[reactivemongo.api.Cursor[T]]) operation can be used, to process the aggregation result with a [`Cursor`](../api/index.html#reactivemongo.api.Cursor).
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
@@ -149,7 +149,7 @@ import reactivemongo.bson._
 import reactivemongo.api.Cursor
 import reactivemongo.api.collections.bson.BSONCollection
 
-def populatedStatesCursor(cities: BSONCollection)(implicit ec: ExecutionContext): Cursor[BSONDocument] = cities.aggregatingWith[BSONDocument]() { framework =>
+def populatedStatesCursor(cities: BSONCollection)(implicit ec: ExecutionContext): Cursor[BSONDocument] = cities.aggregateWith[BSONDocument]() { framework =>
   import framework.{ Group, Match, SumField }
 
   Group(BSONString("$state"))("totalPop" -> SumField("population")) -> List(
