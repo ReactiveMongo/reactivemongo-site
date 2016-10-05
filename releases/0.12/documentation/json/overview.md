@@ -26,7 +26,7 @@ Then, the following code enables this JSON serialization pack.
 import reactivemongo.play.json._
 {% endhighlight %}
 
-**API documentations:** [Play JSON API](http://reactivemongo.github.io/ReactiveMongo-Play-Json/0.12/api/)
+**API documentations:** [Play JSON API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.11/{{page.major_version}}/reactivemongo-play-json_2.11-{{page.major_version}}-javadoc.jar/!/index.html)
 
 ## Documents and values
 

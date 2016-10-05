@@ -19,9 +19,9 @@ The dependency can be added in your SBT project as following: `"org.reactivemong
 
 The documentation of the module for the Play Framework can is [available online](tutorial/play2.html).
 
-The API for this module can be [browsed online](../play-api/index.html).
+The API for this module can be [browsed online](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_2.11/{{page.major_version}}/play2-reactivemongo_2.11-{{page.major_version}}-javadoc.jar/!/index.html).
 
-The API for the standalone JSON serialization is [also available](../json-api/index.html).
+The API for the standalone JSON serialization is [also available](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.11/{{page.major_version}}/reactivemongo-play-json_2.11-{{page.major_version}}-javadoc.jar/!/index.html).
 
 ### Tutorials
 

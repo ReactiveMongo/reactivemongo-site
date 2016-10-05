@@ -25,8 +25,8 @@ libraryDependencies ++= Seq(
 The various API of the ReactiveMongo driver itself, and also of the related libraries, are available as online.
 
 - [Driver API](../api/index.html): Core driver, BSON
-- [Play JSON API](http://reactivemongo.github.io/ReactiveMongo-Play-Json/{{page.major_version}}/api/)
-- [Play module API](http://reactivemongo.github.io/Play-ReactiveMongo/{{page.major_version}}/api/)
+- [Play JSON API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.11/{{page.major_version}}/reactivemongo-play-json_2.11-{{page.major_version}}-javadoc.jar/!/index.html)
+- [Play module API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_2.11/{{page.major_version}}/play2-reactivemongo_2.11-{{page.major_version}}-javadoc.jar/!/index.html)
 - ReactiveMongo [AkkaStream](https://reactivemongo.github.io/ReactiveMongo-Streaming/{{page.major_version}}/akka-stream/api/)
 - ReactiveMongo [Iteratees](https://reactivemongo.github.io/ReactiveMongo-Streaming/{{page.major_version}}/iteratees/api/)
 
