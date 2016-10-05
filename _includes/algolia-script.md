@@ -1,4 +1,3 @@
-<input type="text" id="search-input" />
 <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
 <script src="//cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
 <script>
