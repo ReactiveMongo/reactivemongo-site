@@ -18,6 +18,8 @@ libraryDependencies ++= Seq(
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-play-json_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-play-json_2.11/)
 
+> If the dependency for the [Play plugin](../tutorial/play2.html) (with the right version) is present, it already provides the JSON support and this JSON serialization pack must not be added as a separate dependency.
+
 Then, the following code enables this JSON serialization pack.
 
 {% highlight scala %}
