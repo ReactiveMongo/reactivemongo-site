@@ -234,7 +234,7 @@ They manage two different things. `MongoDriver` holds the actor system, and `Mon
 
 `MongoDriver` and `MongoConnection` involve creation costs:
 
-- the driver creates a new [`actor system`](http://akka.io/)),
+- the driver creates a new [`actor system`](http://akka.io/),
 - and the connection, will connect to the servers (creating network channels).
 
 It is also a good idea to store the driver and connection instances to reuse them.
