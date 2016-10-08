@@ -51,7 +51,7 @@ Considering there is a `zipcodes` collection in a MongoDB, with the following do
 
 **Distinct state**
 
-The [`distinct`](https://docs.mongodb.org/manual/reference/command/distinct/) command, to find the distinct values for a specified field across a single collection.
+The [`distinct`](https://docs.mongodb.org/manual/reference/command/distinct/) command is available to find the distinct values for a specified field across a single collection.
 
 In the MongoDB shell, such command can be used to find the distinct states from the `zipcodes` collection, with results `"NY"`, `"FR"`, and `"JP"`.
 

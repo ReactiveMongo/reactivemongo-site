@@ -12,14 +12,6 @@ The first thing you need, is to create a new [`MongoDriver`](../../api/index.htm
 val driver1 = new reactivemongo.api.MongoDriver
 {% endhighlight %}
 
-Without any parameter, the driver uses a default configuration. Obviously, you may want to indicate a specific configuration.
-
-{% highlight scala %}
-def customConfig: com.typesafe.config.Config = ???
-
-val driver2 = new reactivemongo.api.MongoDriver(Some(customConfig))
-{% endhighlight %}
-
 Then you can [connect](../../api/index.html#reactivemongo.api.MongoDriver@connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI,strictUri:Boolean):scala.util.Try[reactivemongo.api.MongoConnection]) to a MongoDB server.
 
 {% highlight scala %}
@@ -41,7 +33,7 @@ Some options can be provided while creating a connection.
 import reactivemongo.api.MongoConnectionOptions
 
 val conOpts = MongoConnectionOptions(/* connection options */)
-val connection4 = driver2.connection(List("localhost"), options = conOpts)
+val connection4 = driver1.connection(List("localhost"), options = conOpts)
 {% endhighlight %}
 
 The following options can be used with `MongoConnectionOptions` to configure the connection behaviour.

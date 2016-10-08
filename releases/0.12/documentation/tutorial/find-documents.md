@@ -133,7 +133,7 @@ def findOlder3(collection: BSONCollection) = {
 
 ### Use Readers to deserialize documents automatically
 
-[As explained here](), you can use the `BSONDocumentReader` / `BSONDocumentWriter` typeclasses to handle de/serialization between `BSONDocument` and your model classes.
+[As explained here](), you can use the `BSONDocumentReader` and `BSONDocumentWriter` typeclasses to handle de/serialization between `BSONDocument` and your model classes.
 
 {% highlight scala %}
 import reactivemongo.bson._
@@ -203,7 +203,7 @@ On query builder, the [previous `cursor`](../../api/index.html#reactivemongo.api
 Use `cursor()` or `cursor(readPreference)`
 {% endhighlight %}
 
-As indicated by this compilation warning, the [new `cursor`](../../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@cursor[T](readPreference:reactivemongo.api.ReadPreference,isMongo26WriteOp:Boolean)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor), accepting a [`ReadPreference`](../../api/index.html#reactivemongo.api.ReadPreference) as parameter.
+As indicated by this compilation warning, the [new `cursor`](../../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@cursor[T](readPreference:reactivemongo.api.ReadPreference,isMongo26WriteOp:Boolean)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor) is expecting a [`ReadPreference`](../../api/index.html#reactivemongo.api.ReadPreference) as parameter.
 
 When a `Cursor` has been obtained, a warning can be raised if using the [deprecated `collect`](../../api/index.html#reactivemongo.api.Cursor@collect[M[_]](maxDocs:Int,stopOnError:Boolean)(implicitcbf:scala.collection.generic.CanBuildFrom[M[_],T,M[T]],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[M[T]]) function:
 

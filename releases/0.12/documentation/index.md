@@ -18,7 +18,7 @@ libraryDependencies ++= Seq(
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.12/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.12/)
 [![Test coverage](https://img.shields.io/badge/coverage-60%25-yellowgreen.svg)](reactivemongo.github.io/ReactiveMongo/coverage/0.12.0/)
 
-> MongoDB versions older than 2.6 are not longer supported by ReactiveMongo, as the End of Life for MongoDB 2.4 was reached in [April 2015](https://www.mongodb.com/support-policy).
+> MongoDB versions older than 2.6 are no longer supported by ReactiveMongo, as the End of Life for MongoDB 2.4 was reached in [April 2015](https://www.mongodb.com/support-policy).
 
 **API documentations:**
 
@@ -32,7 +32,7 @@ The various API of the ReactiveMongo driver itself, and also of the related libr
 
 **Recommended configuration:**
 
-The driver core and the modules are tested in [container based environment](https://docs.travis-ci.com/user/ci-environment/#Virtualization-environments), with the specifications as bellow.
+The driver core and the modules are tested in a [container based environment](https://docs.travis-ci.com/user/ci-environment/#Virtualization-environments), with the specifications as bellow.
 
 - 2 [cores](https://cloud.google.com/compute/) (64 bits)
 - 4 GB of system memory, with a maximum of 2 GB for the JVM

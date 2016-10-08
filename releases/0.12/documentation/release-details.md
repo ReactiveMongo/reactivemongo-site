@@ -12,7 +12,7 @@ The documentation is available [online](index.html), and its code samples are co
 
 - [Compatibility](#compatibility)
 - [Database resolution](#database-resolution)
-- [Query and write operations](#query-and-write-operations): FindAndModify, Query build, 
+- [Query and write operations](#query-and-write-operations)
 - [Streaming](#streaming)
   - [Akka Stream](#akka-stream)
   - [Aggregated streams](#aggregated-streams)
@@ -43,7 +43,7 @@ This release is compatible with the following runtime.
 
 **Recommended configuration:**
 
-The driver core and the modules are tested in [container based environment](https://docs.travis-ci.com/user/ci-environment/#Virtualization-environments), with the specifications as bellow.
+The driver core and the modules are tested in a [container based environment](https://docs.travis-ci.com/user/ci-environment/#Virtualization-environments), with the specifications as bellow.
 
 - 2 [cores](https://cloud.google.com/compute/) (64 bits)
 - 4 GB of system memory, with a maximum of 2 GB for the JVM
@@ -54,11 +54,9 @@ This can be considered as a recommended environment.
 
 A new better [DB resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) is available (see [connection tutorial](tutorial/connect-database.html)).
 
-The synchronous `.db` has been deprecated as it didn't offer a sufficient guaranty that it can initially find an active channel in the connection pool (`MongoConnection`).
+The synchronous `.db` has been deprecated as it was assuming it can initially find an active channel in the connection pool (`MongoConnection`), whereas checking/discovering the initial ReplicaSet can take time, according the network speed/latency.
 
-Indeed, it was assuming at least one channel is active as soon as the pool is started, which is not always the case as checking/discovering the ReplicaSet can take time, according the network speed/latency.
-
-The new database resolution is reactive, as the majority of the driver operation. It uses a [`FailoverStrategy`](../api/index.html#reactivemongo.api.FailoverStrategy) to make sure at least one initial channel (according the chosen [read preference](../api/index.html#reactivemongo.api.ReadPreference), ...).
+The new version fix this assumption with an asynchronous/reactive resolution of the database (possibly using a [failover strategy](../api/index.html#reactivemongo.api.FailoverStrategy) to make sure at least one initial channel (according the chosen [read preference](../api/index.html#reactivemongo.api.ReadPreference)).
 
 The new resolution returns a [`Future[DefaultDB]`](../api/index.html#reactivemongo.api.DefaultDB), and should be used instead of the former `connection(..)` (or its alias `connection.db(..)`).
 
@@ -72,7 +70,7 @@ def newResolution(con: MongoConnection, name: String)(implicit ec: ExecutionCont
 
 Similarly the function `.db` of the [Play module](./tutorial/play2.html) must be replaced by its `.database` equivalent.
 
-It's generally a good practice not to assign the database and collection references to `val` (even to `lazy val`), as it's better to get fresh references, for example to recover from previous network issues.
+It's generally a good practice not to assign the database and collection references to `val` (even to `lazy val`), as it's better to get fresh references each time, to automatically recover from any previous issues (e.g. network failure).
 
 Consequently to this change, a runtime error such as `ConnectionNotInitialized` can be raised when calling a database or collection operation (e.g. `collection.find(..)`), if the *deprecated database resolution is still used*.
 
@@ -90,7 +88,7 @@ def connection(driver: MongoDriver) =
 
 The authentication algorithm is now [SCRAM SHA1](https://docs.mongodb.org/manual/core/security-scram-sha-1/) by default. To change it (e.g. for MongoDB 2.6.x), see the [connection options](./tutorial/connect-database.html#connection-options).
 
-The default [failover strategy](../api/index.html#reactivemongo.api.FailoverStrategy) can be defined in the [connection options](tutorial/connect-database.html).
+The default [failover strategy](../api/index.html#reactivemongo.api.FailoverStrategy) can also be defined in the [connection options](tutorial/connect-database.html).
 
 {% highlight scala %}
 import reactivemongo.api.{ FailoverStrategy, MongoConnectionOptions }
@@ -99,7 +97,7 @@ val options1 = MongoConnectionOptions(
   failoverStrategy = FailoverStrategy(retries = 10))
 {% endhighlight %}
 
-The option [`maxIdleTimeMS`](https://docs.mongodb.org/manual/reference/connection-string/#urioption.maxIdleTimeMS) is now supported. The default value is 0 (no timeout).
+The option [`maxIdleTimeMS`](https://docs.mongodb.org/manual/reference/connection-string/#urioption.maxIdleTimeMS) is now supported, with a default value is 0 (no timeout).
 
 {% highlight scala %}
 import reactivemongo.api.MongoConnectionOptions
@@ -107,7 +105,7 @@ import reactivemongo.api.MongoConnectionOptions
 val options2 = MongoConnectionOptions(maxIdleTimeMS = 2000 /* 2s */)
 {% endhighlight %}
 
-The frequency at which the ReactiveMongo monitor refreshes the information about the MongoDB nodes can be configured in the [connection options](tutorial/connect-database.html). The default is interval is 10 seconds.
+The frequency at which the ReactiveMongo monitor refreshes the information about the MongoDB nodes can be configured in the [connection options](tutorial/connect-database.html). The default interval is 10 seconds.
 
 {% highlight scala %}
 import reactivemongo.api.MongoConnectionOptions
@@ -117,7 +115,7 @@ val options3 = MongoConnectionOptions(monitorRefreshMS = 5000 /* 5s */)
 
 ### Query and write operations
 
-The collection API has new operations.
+The collection API provides new operations.
 
 **FindAndModify:**
 
@@ -204,7 +202,7 @@ trait PersonService {
 }
 {% endhighlight %}
 
-The field [`maxTimeMs`](https://docs.mongodb.org/manual/reference/method/cursor.maxTimeMS/) is supported by the [query builder](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@maxTimeMs%28p:Long%29:GenericQueryBuilder.this.Self), to specifies a cumulative time limit in milliseconds for processing operations.
+The field [`maxTimeMs`](https://docs.mongodb.org/manual/reference/method/cursor.maxTimeMS/) is supported by the [query builder](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@maxTimeMs%28p:Long%29:GenericQueryBuilder.this.Self), to specify a cumulative time limit in milliseconds for processing operations.
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
@@ -466,14 +464,14 @@ Some undocumented macro features, such as **union types** and sealed trait suppo
 Taking care of backward compatibility, a refactoring of the BSON types has been started.
 
 - The type alias `BSONElement` has been promoted to a [trait](../api/index.html#reactivemongo.bson.BSONElement).
-- A new sealed family is introduced by the [`ElementProducer`](../api/index.html#reactivemongo.bson.ElementProducer] trait, implemented by `BSONElement` (that produces a single element) and `BSONElementSet`, whose instances can produces many BSON elements (`ElementProducer` can be considered as a monoid with its [composition operation](../api/index.html#reactivemongo.bson.ElementProducer$@Composition) and its [identity instance](../api/index.html#reactivemongo.bson.ElementProducer$@Empty)).
+- A new sealed family is introduced by the [`ElementProducer`](../api/index.html#reactivemongo.bson.ElementProducer) trait, implemented by `BSONElement` (that produces a single element) and `BSONElementSet`, whose instances can produce many BSON elements (`ElementProducer` can be considered as a monoid with its [composition operation](../api/index.html#reactivemongo.bson.ElementProducer$@Composition) and its [identity instance](../api/index.html#reactivemongo.bson.ElementProducer$@Empty)).
 - The [`BSONElementSet`](../api/index.html#reactivemongo.bson.BSONElementSet) trait now gathers `BSONDocument` and `BSONArray`, with new operations such `prepend`, `headOption`.
 
 [More: **BSON Library overview**](./bson/overview.html)
 
 ### Aggregation
 
-The [`distinct`](https://docs.mongodb.org/manual/reference/command/distinct/) command, to find the distinct values for a specified field across a single collection, is now provided as a [collection operation](../api/index.html#reactivemongo.api.collections.GenericCollection@distinct[T]%28key:String,selector:Option[GenericCollection.this.pack.Document],readConcern:reactivemongo.api.ReadConcern%29%28implicitreader:GenericCollection.this.pack.NarrowValueReader[T],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[scala.collection.immutable.ListSet[T]]).
+The [`distinct`](https://docs.mongodb.org/manual/reference/command/distinct/) command to find the distinct values for a specified field across a single collection, is now provided as a [collection operation](../api/index.html#reactivemongo.api.collections.GenericCollection@distinct[T]%28key:String,selector:Option[GenericCollection.this.pack.Document],readConcern:reactivemongo.api.ReadConcern%29%28implicitreader:GenericCollection.this.pack.NarrowValueReader[T],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[scala.collection.immutable.ListSet[T]]).
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }

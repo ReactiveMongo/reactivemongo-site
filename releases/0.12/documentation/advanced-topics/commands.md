@@ -6,7 +6,7 @@ title: Command API
 
 ## Command API
 
-A MongoDB Command is a special query that returns at most one document. It is executed at the database level (`db.runCommand` in the MongoDB shell), or at the collection level (`db.aCol.runCommand` in the shell).
+A MongoDB Command is a special query that returns documents. It is executed at the database level (`db.runCommand` in the MongoDB shell), or at the collection level (`db.aCol.runCommand` in the shell).
 
 In ReactiveMongo, the database command can be executed using [`db.runCommand(<command>)`](../../api/index.html#reactivemongo.api.GenericDB@runCommand[R,C%3C:reactivemongo.api.commands.Commandwithreactivemongo.api.commands.CommandWithResult[R]]%28command:Cwithreactivemongo.api.commands.CommandWithResult[R]%29%28implicitwriter:GenericDB.this.pack.Writer[C],implicitreader:GenericDB.this.pack.Reader[R],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[R]).
 
@@ -42,7 +42,7 @@ def run1(collection: BSONCollection) = {
 
 > The `.count` operation is now directly available on collection.
 
-Some widely used commands, like [`Count`](../../api/index.html#reactivemongo.api.commands.CountCommand) or [`FindAndModify`](../../api/index.html#reactivemongo.api.commands.FindAndModifyCommand), are available in ReactiveMongo. But how to run commands that are not explicitly supported?
+Some widely used commands, like [`Count`](../../api/index.html#reactivemongo.api.commands.CountCommand) or [`FindAndModify`](../../api/index.html#reactivemongo.api.commands.FindAndModifyCommand), are available in ReactiveMongo. But how to run commands that are not yet provided as operations?
 
 ### Run any command with `RawCommand`
 

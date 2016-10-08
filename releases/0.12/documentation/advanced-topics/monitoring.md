@@ -22,10 +22,10 @@ In order to monitor with `jconsole`, first start it and select the ReactiveMongo
 
 <img src="../images/jconsole1.png" alt="JConsole startup" class="screenshot" />
 
-The following warning when connecting to a JVM without SSL (e.g. for local JVMs).
+The following warning may be display when connecting to a JVM without SSL (e.g. for local JVMs).
 
 <img src="../images/jconsole2.png" alt="JConsole warning" class="screenshot" />
 
-Once connected, you can select the "MBeans" tab on the top of JConsole, to display all the beans managed in the JVM, including those representing the node managed by ReactiveMongo.
+Once connected, you can select the "MBeans" tab on the top of JConsole, to check the beans managed in the JVM, including those representing the MongoDB nodes managed by ReactiveMongo.
 
 <img src="../images/jconsole3.png" alt="JConsole Node MBean" class="screenshot" />

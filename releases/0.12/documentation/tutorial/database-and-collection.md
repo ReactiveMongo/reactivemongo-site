@@ -37,17 +37,15 @@ The collection references provides the [query and write operations](https://docs
 
 It also supports some [administration commands](https://docs.mongodb.com/manual/reference/command/#instance-administration-commands): [`create`](../../api/index.html#reactivemongo.api.collections.GenericCollection@create(autoIndexId:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]), [`drop`](../../api/index.html#reactivemongo.api.collections.GenericCollection@drop(failIfNotFound:Boolean)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Boolean])...
 
-It also includes a helper to manage indexes (see [`indexesManager`](../../api/index.html#reactivemongo.api.collections.GenericCollection@indexesManager(implicitec:scala.concurrent.ExecutionContext):reactivemongo.api.indexes.CollectionIndexesManager)).
+ReactiveMongo provides a helper to manage indexes (see [`indexesManager`](../../api/index.html#reactivemongo.api.collections.GenericCollection@indexesManager(implicitec:scala.concurrent.ExecutionContext):reactivemongo.api.indexes.CollectionIndexesManager)).
 
 Many of these methods take documents as a parameters.
-Indeed, they can take anything that can be represented as document, depending on the serialization pack (the BSON one by default).
-
-Considering the default serialization (BSON), the functions requiring documents will accept any value for which is provided a [`BSONDocumentWriter`](../bson/typeclasses.html).
+Indeed, they can take anything that can be represented as document, depending on the serialization pack (e.g. for the BSON one, any value for which is provided a [`BSONDocumentWriter`](../bson/typeclasses.html)).
 
 The results from the operations can be turned into the appropriate types, if there is a [`BSONDocumentReader`](../../api/index.html#reactivemongo.bson.BSONDocumentReader) for this type in the implicit scope.
 
 ### Additional Notes
 
-When using the [Play JSON serialization pack](../json/overview.html), it provides `JSONCollection` which is an implementation of `GenericCollection` that deals with Play JSON library, using its own de/serializations type classes (`Reads[T]` and `Writes[T]`).
+When using the [Play JSON serialization pack](../json/overview.html), a `JSONCollection` is provided as an implementation of `GenericCollection` that deals with Play JSON library, using its own de/serializations type classes (Play JSON `Reads[T]` and `Writes[T]`).
 
 [Previous: Connect to the database](./connect-database.html) / [Next: Write documents](./write-documents.html)

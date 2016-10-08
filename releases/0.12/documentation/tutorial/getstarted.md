@@ -6,7 +6,7 @@ title: Get started
 
 ## Get started
 
-Here is a complete example, from connection to operations on a collection.
+For the impatient, bellow is a complete example, from connection to operations on a collection.
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
