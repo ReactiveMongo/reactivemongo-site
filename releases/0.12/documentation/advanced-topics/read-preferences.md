@@ -8,7 +8,13 @@ title: Read Preferences
 
 > Read preference describes how MongoDB clients route read operations to members of a replica set. ([MongoDB Read Preference Documentation](http://docs.mongodb.org/manual/core/read-preference/))
 
-The following Read Preferences are supported:
+The following [read preferences](../../api/index.html#reactivemongo.api.ReadPreference) are supported:
+
+- primary, 
+- primary preferred, 
+- secondary, 
+- secondary preferred,
+- nearest.
 
 The Read preference can be chosen globally using the [`MongoConnectionOptions`](../../api/index.html#reactivemongo.api.MongoConnectionOptions), or for each [cursor](../../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@cursor[T](readPreference:reactivemongo.api.ReadPreference,isMongo26WriteOp:Boolean)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor).
 
@@ -26,19 +32,16 @@ def readFromSecondary1(collection: BSONCollection) =
     collect[List]()
 {% endhighlight %}
 
-> The default read preference can also be set in the [connection options](../tutorial/connect-database.html).
+> The default read preference can be set in the [connection options](../tutorial/connect-database.html).
 
 ## Tag support
 
-> Tag sets allow you to specify custom read preferences and write concerns so that your application can target operations to specific members.
->
-> Custom read preferences and write concerns evaluate tags sets in different ways. Read preferences consider the value of a tag when selecting a member to read from. Write concerns ignore the value of a tag to when selecting a member, except to consider whether or not the value is unique.
->
-> [MongoDB Read Preference Documentation ](http://docs.mongodb.org/manual/core/read-preference/#tag-sets)
+Tag sets allow you to specify custom read preferences and write concerns so that your application can target operations to specific members.
 
-If you properly tagged the servers of your replica set, then you can use Tag-aware Read Preferences.
+If you properly tagged the servers of your replica set, then you can use tag-aware Read Preferences.
 
 Let's suppose that the replica set is configured that way:
+
 {% highlight javascript %}
 {
     "_id" : "rs0",
@@ -85,3 +88,7 @@ def readFromSecondary2(collection: BSONCollection) =
     one[BSONDocument](ReadPreference.secondaryPreferred(
       tag = BSONDocument("dc" -> "NYC")))
 {% endhighlight %}
+
+> Custom read preferences and write concerns evaluate tags sets in different ways. Read preferences consider the value of a tag when selecting a member to read from. Write concerns ignore the value of a tag to when selecting a member, except to consider whether or not the value is unique.
+>
+> [MongoDB Read Preference Documentation](http://docs.mongodb.org/manual/core/read-preference/#tag-sets)

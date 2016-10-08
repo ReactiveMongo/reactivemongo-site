@@ -26,7 +26,7 @@ libraryDependencies ++= Seq(
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/play2-reactivemongo_2.12/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/play2-reactivemongo_2.12/)
 
-> When the dependency to the Play plugin is used, no separate dependency to the ReactiveMongo driver must be declared, as it will be resolved in appropriate version by the transitive dependency mechanism.
+> When the dependency to the Play plugin is used, no separate dependency to the ReactiveMongo driver must be declared, as it will be resolved in the appropriate version by the transitive dependency mechanism.
 
 As for Play 2.4 itself, this ReactiveMongo plugin requires a JVM 1.8+.
 
@@ -384,11 +384,11 @@ class Application @Inject() (val reactiveMongoApi: ReactiveMongoApi)
 }
 {% endhighlight %}
 
-> Please Notice:
->
-> - your controller may extend `MongoController` which provides a few helpers
-> - all actions are asynchronous because ReactiveMongo returns `Future[Result]`
-> - we use a specialized collection called `JSONCollection` that deals naturally with `JsValue` and `JsObject`
+**Please note:**
+
+- Your controller may extend `MongoController` which provides a few helpers.
+- All actions are asynchronous because ReactiveMongo returns `Future[Result]`.
+- We use a specialized collection called `JSONCollection` that deals naturally with `JsValue` and `JsObject`.
 
 ### Play controller sample using JSON Writes and Reads
 

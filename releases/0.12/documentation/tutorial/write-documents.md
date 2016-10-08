@@ -144,7 +144,7 @@ val modifier = BSONDocument(
 val futureUpdate1 = personColl.update(selector, modifier)
 {% endhighlight %}
 
-By default, the update operation only update a single matching document. You can also specify that the update should be applied to all the documents that are matching, with the `multi` parameter.
+By default, the update operation only updates a single matching document. You can also indicate that the update should be applied to all the documents that are matching, with the `multi` parameter.
 
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -153,7 +153,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 val futureUpdate2 = personColl.update(selector, modifier, multi = true)
 {% endhighlight %}
 
-It's possible to automatically insert data if there is no existing document matching the update using the `upsert` parameter.
+It's possible to automatically insert data if there is no matching document using the `upsert` parameter.
 
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global
