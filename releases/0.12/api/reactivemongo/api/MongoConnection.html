@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>MongoConnection - ReactiveMongo API 0.12.0-SNAPSHOT - reactivemongo.api.MongoConnection</title>
-          <meta name="description" content="MongoConnection - ReactiveMongo API 0.12.0 - SNAPSHOT - reactivemongo.api.MongoConnection" />
-          <meta name="keywords" content="MongoConnection ReactiveMongo API 0.12.0 SNAPSHOT reactivemongo.api.MongoConnection" />
+          <title>MongoConnection - ReactiveMongo API 0.12.0 - reactivemongo.api.MongoConnection</title>
+          <meta name="description" content="MongoConnection - ReactiveMongo API 0.12.0 - reactivemongo.api.MongoConnection" />
+          <meta name="keywords" content="MongoConnection ReactiveMongo API 0.12.0 reactivemongo.api.MongoConnection" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -327,7 +327,7 @@ behind the scene, many connections (channels) are open on all the available serv
       </a>
     </span>
       <p class="shortcomment cmt">Closes this MongoConnection (closes all the channels and ends the actors).</p>
-    </li><li name="reactivemongo.api.MongoConnection#authenticate" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="reactivemongo.api.MongoConnection#authenticate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="authenticate(db:String,user:String,password:String):scala.concurrent.Future[reactivemongo.core.commands.SuccessfulAuthentication]"></a>
       <a id="authenticate(String,String,String):Future[SuccessfulAuthentication]"></a>
       <h4 class="signature">
@@ -343,7 +343,8 @@ behind the scene, many connections (channels) are open on all the available serv
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Authenticates the connection on the given database.</p>
+      <p class="shortcomment cmt">Authenticates the connection on the given database.</p><div class="fullcomment"><div class="comment cmt"><p>Authenticates the connection on the given database.
+</p></div><dl class="paramcmts block"><dt class="param">db</dt><dd class="cmt"><p>the database name</p></dd><dt class="param">user</dt><dd class="cmt"><p>the user name</p></dd><dt class="param">password</dt><dd class="cmt"><p>the user password</p></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
       <a id="clone():AnyRef"></a>
@@ -405,7 +406,7 @@ behind the scene, many connections (channels) are open on all the available serv
       <p class="shortcomment cmt">Returns a DefaultDB reference using this connection.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a DefaultDB reference using this connection.
 The failover strategy is also used to wait for the node set to be ready,
 before returning an available DB.
-</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the database name</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>the failover strategy for sending requests.</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the database name</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>the failover strategy for sending requests</p></dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
       <a id="ensuring((MongoConnection)⇒Boolean,⇒Any):MongoConnection"></a>
@@ -881,7 +882,7 @@ before returning an available DB.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.11.8) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@3649472b">apply</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="#options:reactivemongo.api.MongoConnectionOptions">options.failoverStrategy</a></span></span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="context">context: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.ExecutionContext" class="extype" target="_top">ExecutionContext</a></span>)</span><span class="result">: <a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">DefaultDB</a></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.8) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@548e0210">apply</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="#options:reactivemongo.api.MongoConnectionOptions">options.failoverStrategy</a></span></span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="context">context: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.ExecutionContext" class="extype" target="_top">ExecutionContext</a></span>)</span><span class="result">: <a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">DefaultDB</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoConnection@apply(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitcontext:scala.concurrent.ExecutionContext):reactivemongo.api.DefaultDB" title="Permalink" target="_top">
@@ -889,7 +890,7 @@ before returning an available DB.
       </a>
     </span>
       <p class="shortcomment cmt">Returns a DefaultDB reference using this connection.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a DefaultDB reference using this connection.
-</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the database name</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>the failover strategy for sending requests.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the database name</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>the failover strategy for sending requests</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
         </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.8)</i> Use <a href="#database(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitcontext:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DefaultDB]" class="extmbr" name="reactivemongo.api.MongoConnection#database">database</a></p></dd></dl></div>
@@ -902,7 +903,7 @@ before returning an available DB.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.11.8) Must use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@40ec0f18">db</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="#options:reactivemongo.api.MongoConnectionOptions">options.failoverStrategy</a></span></span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="context">context: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.ExecutionContext" class="extype" target="_top">ExecutionContext</a></span>)</span><span class="result">: <a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">DefaultDB</a></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.8) Must use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@645cbd3">db</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="#options:reactivemongo.api.MongoConnectionOptions">options.failoverStrategy</a></span></span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="context">context: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.ExecutionContext" class="extype" target="_top">ExecutionContext</a></span>)</span><span class="result">: <a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">DefaultDB</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.api.MongoConnection@db(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitcontext:scala.concurrent.ExecutionContext):reactivemongo.api.DefaultDB" title="Permalink" target="_top">
@@ -912,7 +913,7 @@ before returning an available DB.
       <p class="shortcomment cmt">Returns a DefaultDB reference using this connection
 (alias for the <code>apply</code> method).</p><div class="fullcomment"><div class="comment cmt"><p>Returns a DefaultDB reference using this connection
 (alias for the <code>apply</code> method).
-</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the database name</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>the failover strategy for sending requests.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the database name</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>the failover strategy for sending requests</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
         </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.8)</i> Must use <a href="#database(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitcontext:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DefaultDB]" class="extmbr" name="reactivemongo.api.MongoConnection#database">database</a></p></dd></dl></div>

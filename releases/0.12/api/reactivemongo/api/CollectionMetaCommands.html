@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>CollectionMetaCommands - ReactiveMongo API 0.12.0-SNAPSHOT - reactivemongo.api.CollectionMetaCommands</title>
-          <meta name="description" content="CollectionMetaCommands - ReactiveMongo API 0.12.0 - SNAPSHOT - reactivemongo.api.CollectionMetaCommands" />
-          <meta name="keywords" content="CollectionMetaCommands ReactiveMongo API 0.12.0 SNAPSHOT reactivemongo.api.CollectionMetaCommands" />
+          <title>CollectionMetaCommands - ReactiveMongo API 0.12.0 - reactivemongo.api.CollectionMetaCommands</title>
+          <meta name="description" content="CollectionMetaCommands - ReactiveMongo API 0.12.0 - reactivemongo.api.CollectionMetaCommands" />
+          <meta name="keywords" content="CollectionMetaCommands ReactiveMongo API 0.12.0 reactivemongo.api.CollectionMetaCommands" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -613,7 +613,7 @@ the returned future will be completed with false.</p><p>Otherwise in case, the f
       </a>
     </span>
       <p class="shortcomment cmt">Renames this collection.</p><div class="fullcomment"><div class="comment cmt"><p>Renames this collection.
-</p></div><dl class="paramcmts block"><dt class="param">to</dt><dd class="cmt"><p>The new name of this collection.</p></dd><dt class="param">dropExisting</dt><dd class="cmt"><p>If a collection of name <code>to</code> already exists, then drops that collection before renaming this one.</p></dd><dt>returns</dt><dd class="cmt"><p>a failure if the dropExisting option is false and the target collection already exists</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">to</dt><dd class="cmt"><p>the new name of this collection</p></dd><dt class="param">dropExisting</dt><dd class="cmt"><p>if a collection of name <code>to</code> already exists, then drops that collection before renaming this one</p></dd><dt>returns</dt><dd class="cmt"><p>a failure if the dropExisting option is false and the target collection already exists</p></dd></dl></div>
     </li><li name="reactivemongo.api.CollectionMetaCommands#stats" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="stats(scale:Int)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.CollStatsResult]"></a>
       <a id="stats(Int)(ExecutionContext):Future[CollStatsResult]"></a>
@@ -631,7 +631,7 @@ the returned future will be completed with false.</p><p>Otherwise in case, the f
       </a>
     </span>
       <p class="shortcomment cmt">Returns various information about this collection.</p><div class="fullcomment"><div class="comment cmt"><p>Returns various information about this collection.
-</p></div><dl class="paramcmts block"><dt class="param">scale</dt><dd class="cmt"><p>A scale factor (for example, to get all the sizes in kilobytes).</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">scale</dt><dd class="cmt"><p>the scale factor (for example, to get all the sizes in kilobytes)</p></dd></dl></div>
     </li><li name="reactivemongo.api.CollectionMetaCommands#stats" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="stats()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.CollStatsResult]"></a>
       <a id="stats()(ExecutionContext):Future[CollStatsResult]"></a>
