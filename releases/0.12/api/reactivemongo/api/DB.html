@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>DB - ReactiveMongo API 0.12.0-SNAPSHOT - reactivemongo.api.DB</title>
-          <meta name="description" content="DB - ReactiveMongo API 0.12.0 - SNAPSHOT - reactivemongo.api.DB" />
-          <meta name="keywords" content="DB ReactiveMongo API 0.12.0 SNAPSHOT reactivemongo.api.DB" />
+          <title>DB - ReactiveMongo API 0.12.0 - reactivemongo.api.DB</title>
+          <meta name="description" content="DB - ReactiveMongo API 0.12.0 - reactivemongo.api.DB" />
+          <meta name="keywords" content="DB ReactiveMongo API 0.12.0 reactivemongo.api.DB" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -657,8 +657,9 @@
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Returns the database of the given name on the same MongoConnection.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the database of the given name on the same MongoConnection.</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p><a href="#sibling1(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DefaultDB]" class="extmbr" name="reactivemongo.api.DB#sibling1">sibling1</a></p></span></dd></dl></div>
-    </li><li name="reactivemongo.api.DB#sibling1" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Returns the database of the given name on the same MongoConnection.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the database of the given name on the same MongoConnection.
+</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the name of the collection to resolve</p></dd></dl><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p><a href="#sibling1(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DefaultDB]" class="extmbr" name="reactivemongo.api.DB#sibling1">sibling1</a></p></span></dd></dl></div>
+    </li><li name="reactivemongo.api.DB#sibling1" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sibling1(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DefaultDB]"></a>
       <a id="sibling1(String,FailoverStrategy)(ExecutionContext):Future[DefaultDB]"></a>
       <h4 class="signature">
@@ -674,7 +675,8 @@
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Returns the database of the given name on the same MongoConnection.</p>
+      <p class="shortcomment cmt">Returns the database of the given name on the same MongoConnection.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the database of the given name on the same MongoConnection.
+</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the name of the collection to resolve</p></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -823,7 +825,7 @@
       </a>
     </span>
       <p class="shortcomment cmt">Sends a command and get the future result of the command.</p><div class="fullcomment"><div class="comment cmt"><p>Sends a command and get the future result of the command.
-</p></div><dl class="paramcmts block"><dt class="param">command</dt><dd class="cmt"><p>The command to send.</p></dd><dt class="param">readPreference</dt><dd class="cmt"><p>The ReadPreference to use for this command (defaults to <a href="MongoConnectionOptions.html#readPreference:reactivemongo.api.ReadPreference" class="extmbr" name="reactivemongo.api.MongoConnectionOptions#readPreference">MongoConnectionOptions.readPreference</a>).</p></dd><dt>returns</dt><dd class="cmt"><p>a future containing the result of the command.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+</p></div><dl class="paramcmts block"><dt class="param">command</dt><dd class="cmt"><p>the command to send</p></dd><dt class="param">readPreference</dt><dd class="cmt"><p>the ReadPreference to use for this command (defaults to <a href="MongoConnectionOptions.html#readPreference:reactivemongo.api.ReadPreference" class="extmbr" name="reactivemongo.api.MongoConnectionOptions#readPreference">MongoConnectionOptions.readPreference</a>)</p></dd><dt>returns</dt><dd class="cmt"><p>a future containing the result of the command.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
         </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.0)</i> Consider using reactivemongo.api.commands along with <code>DefaultDB.runCommand</code> methods</p></dd></dl></div>

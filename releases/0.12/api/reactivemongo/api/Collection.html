@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Collection - ReactiveMongo API 0.12.0-SNAPSHOT - reactivemongo.api.Collection</title>
-          <meta name="description" content="Collection - ReactiveMongo API 0.12.0 - SNAPSHOT - reactivemongo.api.Collection" />
-          <meta name="keywords" content="Collection ReactiveMongo API 0.12.0 SNAPSHOT reactivemongo.api.Collection" />
+          <title>Collection - ReactiveMongo API 0.12.0 - reactivemongo.api.Collection</title>
+          <meta name="description" content="Collection - ReactiveMongo API 0.12.0 - reactivemongo.api.Collection" />
+          <meta name="keywords" content="Collection ReactiveMongo API 0.12.0 reactivemongo.api.Collection" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -51,45 +51,7 @@
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A MongoDB Collection, resolved from a <a href="DefaultDB.html" class="extype" name="reactivemongo.api.DefaultDB">reactivemongo.api.DefaultDB</a>.</p><p>You should consider the generic API
 (<a href="collections/GenericCollection.html" class="extype" name="reactivemongo.api.collections.GenericCollection">reactivemongo.api.collections.GenericCollection</a>)
-and the default <a href="collections/bson/BSONCollection.html" class="extype" name="reactivemongo.api.collections.bson.BSONCollection">reactivemongo.api.collections.bson.BSONCollection</a>.</p><pre><span class="kw">import</span> reactivemongo.bson._
-<span class="kw">import</span> reactivemongo.api.collections.bson.BSONCollection
-
-<span class="kw">object</span> Samples {
-
-  <span class="kw">val</span> connection = MongoConnection(<span class="std">List</span>(<span class="lit">"localhost"</span>))
-
-  <span class="cmt">// Gets a reference to the database "plugin"</span>
-  <span class="kw">val</span> db = connection(<span class="lit">"plugin"</span>)
-
-  <span class="cmt">// Gets a reference to the collection "acoll"</span>
-  <span class="cmt">// By default, you get a BSONCollection.</span>
-  <span class="kw">val</span> collection = db[BSONCollection](<span class="lit">"acoll"</span>)
-
-  <span class="kw">def</span> listDocs() = {
-    <span class="cmt">// Select only the documents which field 'firstName' equals 'Jack'</span>
-    <span class="kw">val</span> query = BSONDocument(<span class="lit">"firstName"</span> -&gt; <span class="lit">"Jack"</span>)
-    <span class="cmt">// select only the field 'lastName'</span>
-    <span class="kw">val</span> filter = BSONDocument(
-      <span class="lit">"lastName"</span> -&gt; <span class="num">1</span>,
-      <span class="lit">"_id"</span> -&gt; <span class="num">0</span>)
-
-    <span class="cmt">// Get a cursor of BSONDocuments</span>
-    <span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument]
-    <span class="cmt">// Let's enumerate this cursor and print a readable representation of each document in the response</span>
-    cursor.enumerate().apply(Iteratee.foreach { doc <span class="kw">=&gt;</span>
-      println(<span class="lit">"found document: "</span> + BSONDocument.pretty(doc))
-    })
-
-    <span class="cmt">// Or, the same with getting a list</span>
-    <span class="kw">val</span> cursor2 = collection.find(query, filter).cursor[BSONDocument]
-    <span class="kw">val</span> futureList = cursor.collect[<span class="std">List</span>]()
-    futureList.map { list <span class="kw">=&gt;</span>
-      list.foreach { doc <span class="kw">=&gt;</span>
-        println(<span class="lit">"found document: "</span> + BSONDocument.pretty(doc))
-      }
-    }
-  }
-}</pre></div><div class="toggleContainer block">
+and the default <a href="collections/bson/BSONCollection.html" class="extype" name="reactivemongo.api.collections.bson.BSONCollection">reactivemongo.api.collections.bson.BSONCollection</a>.</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div><div class="toggleContainer block">
@@ -310,7 +272,7 @@ and the default <a href="collections/bson/BSONCollection.html" class="extype" na
     </span>
       <p class="shortcomment cmt">Gets another implementation of this collection.</p><div class="fullcomment"><div class="comment cmt"><p>Gets another implementation of this collection.
 An implicit CollectionProducer[C] must be present in the scope, or it will be the default implementation (<a href="collections/bson/BSONCollection.html" class="extype" name="reactivemongo.api.collections.bson.BSONCollection">reactivemongo.api.collections.bson.BSONCollection</a>).
-</p></div><dl class="paramcmts block"><dt class="param">failoverStrategy</dt><dd class="cmt"><p>Overrides the default strategy.</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">failoverStrategy</dt><dd class="cmt"><p>the failover strategy to override the default one</p></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -653,7 +615,7 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
     </span>
       <p class="shortcomment cmt">Gets another collection in the current database.</p><div class="fullcomment"><div class="comment cmt"><p>Gets another collection in the current database.
 An implicit CollectionProducer[C] must be present in the scope, or it will be the default implementation (<a href="collections/bson/BSONCollection.html" class="extype" name="reactivemongo.api.collections.bson.BSONCollection">reactivemongo.api.collections.bson.BSONCollection</a>).
-</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>The other collection name.</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>Overrides the default strategy.</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the name of another collection</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>the failover strategy to override the default one</p></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -803,7 +765,7 @@ An implicit CollectionProducer[C] must be present in the scope, or it will be th
     </span>
       <p class="shortcomment cmt">Gets another collection in the current database.</p><div class="fullcomment"><div class="comment cmt"><p>Gets another collection in the current database.
 An implicit CollectionProducer[C] must be present in the scope, or it will be the default implementation (<a href="collections/bson/BSONCollection.html" class="extype" name="reactivemongo.api.collections.bson.BSONCollection">reactivemongo.api.collections.bson.BSONCollection</a>).
-</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>The other collection name.</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>Overrides the default strategy.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the name of another collection</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>the failover strategy to override the default one</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
         </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.10)</i> Consider using <code>sibling</code> instead</p></dd></dl></div>
