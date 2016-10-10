@@ -72,7 +72,7 @@ def distinctStates(col: BSONCollection)(implicit ec: ExecutionContext): Future[S
 
 **States with population above 10000000**
 
-It's possible to determine the states for which the <span id="sum">sum</span> of the population of the cities is above 10000000, by <span id="group">[grouping the documents](http://docs.mongodb.org/manual/reference/operator/aggregation/group/#pipe._S_group)</span> by their state, then for each [group calculating the sum](http://docs.mongodb.org/manual/reference/operator/aggregation/sum/#grp._S_sum) of the population values, and finally get only the grouped documents whose population sum [matches the filter](http://docs.mongodb.org/manual/reference/operator/aggregation/match/#pipe._S_match) "above 10000000".
+It's possible to determine the states for which the <span id="sum">sum</span> of the population of their cities is above 10000000, by <span id="group">[grouping the documents](http://docs.mongodb.org/manual/reference/operator/aggregation/group/#pipe._S_group)</span> by their state, then for each [group calculating the sum](http://docs.mongodb.org/manual/reference/operator/aggregation/sum/#grp._S_sum) of the population values, and finally get only the grouped documents whose population sum [matches the filter](http://docs.mongodb.org/manual/reference/operator/aggregation/match/#pipe._S_match) "above 10000000".
 
 In the MongoDB shell, such aggregation is written as bellow (see the [example](http://docs.mongodb.org/manual/tutorial/aggregation-zip-code-data-set/#return-states-with-populations-above-10-million)).
 
@@ -140,7 +140,7 @@ def states(col: BSONCollection): Future[List[State]] =
 
 *Using cursor:*
 
-The alternative [`.aggregateWith` builder](../../api/index.html#reactivemongo.api.collections.GenericCollection@aggregateWith[T](explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference,batchSize:Option[Int])(f:GenericCollection.this.AggregationFramework=%3E(GenericCollection.this.PipelineOperator,List[GenericCollection.this.PipelineOperator]))(implicitec:scala.concurrent.ExecutionContext,implicitreader:GenericCollection.this.pack.Reader[T]):scala.concurrent.Future[reactivemongo.api.Cursor[T]]) operation can be used, to process the aggregation result with a [`Cursor`](../api/index.html#reactivemongo.api.Cursor).
+The alternative [`.aggregateWith`](../../api/index.html#reactivemongo.api.collections.GenericCollection@aggregateWith[T](explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference,batchSize:Option[Int])(f:GenericCollection.this.AggregationFramework=%3E(GenericCollection.this.PipelineOperator,List[GenericCollection.this.PipelineOperator]))(implicitec:scala.concurrent.ExecutionContext,implicitreader:GenericCollection.this.pack.Reader[T]):scala.concurrent.Future[reactivemongo.api.Cursor[T]]) builder can be used, to process the aggregation result with a [`Cursor`](../api/index.html#reactivemongo.api.Cursor).
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
@@ -149,16 +149,19 @@ import reactivemongo.bson._
 import reactivemongo.api.Cursor
 import reactivemongo.api.collections.bson.BSONCollection
 
-def populatedStatesCursor(cities: BSONCollection)(implicit ec: ExecutionContext): Cursor[BSONDocument] = cities.aggregateWith[BSONDocument]() { framework =>
-  import framework.{ Group, Match, SumField }
+def populatedStatesCursor(cities: BSONCollection)(implicit ec: ExecutionContext): Cursor[BSONDocument] =
+  cities.aggregateWith[BSONDocument]() { framework =>
+    import framework.{ Group, Match, SumField }
 
-  Group(BSONString("$state"))("totalPop" -> SumField("population")) -> List(
-    Match(document("totalPop" -> document("$gte" -> 10000000L)))
-  )
-}
+    Group(BSONString("$state"))("totalPop" -> SumField("population")) -> List(
+      Match(document("totalPop" -> document("$gte" -> 10000000L)))
+    )
+  }
 {% endhighlight %}
 
-> The [`GroupField`](../../api/index.html#reactivemongo.api.commands.AggregationFramework@GroupFieldextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable) operator can be used instead of the `Group` one, to simply work with a single field.
+The [`GroupField`](../../api/index.html#reactivemongo.api.commands.AggregationFramework@GroupFieldextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable) operator can be used instead of the `Group` one, to simply work with a single field.
+
+> In the previous example the dependent import `myCol.BatchCommands.AggregationFramework._` are replaced by a simpler import using the instance of the aggregation framework provided by the builder: `import framework.{ Group, Match, SumField }`
 
 **Most populated city per state**
 
@@ -573,7 +576,7 @@ def randomZipCodes(coll: BSONCollection)(implicit ec: ExecutionContext): Future[
 
 ### Places examples
 
-Let consider a collection of different kind of places (e.g. Central Park ...), with their locations indexed using [`2dsphere`](https://docs.mongodb.com/manual/core/2dsphere/#create-a-2dsphere-index).
+Let consider a collection of different kinds of place (e.g. Central Park ...), with their locations indexed using [`2dsphere`](https://docs.mongodb.com/manual/core/2dsphere/#create-a-2dsphere-index).
 
 This can be setup with the MongoDB shell as follows.
 
@@ -598,7 +601,7 @@ db.place.insert({
 });
 {% endhighlight %}
 
-The <span id="geoNear">[`$geoNear`](https://docs.mongodb.com/manual/reference/operator/aggregation/geoNear/)</span> aggregation can be used on the collection, to find the place near the  geospatial coordinates `[ -73.9667, 40.78 ]`, within 1 km (1000 meters) and 5 km (5000 meters)
+The <span id="geoNear">[`$geoNear`](https://docs.mongodb.com/manual/reference/operator/aggregation/geoNear/)</span> aggregation can be used on the collection, to find the place near the geospatial coordinates `[ -73.9667, 40.78 ]`, within 1 km (1000 meters) and 5 km (5000 meters)
 
 {% highlight javascript %}
 db.places.aggregate([{
@@ -791,7 +794,7 @@ The <span id="unwind">[`$unwind`](https://docs.mongodb.com/manual/reference/oper
 db.inventory.aggregate( [ { $unwind : "$sizes" } ] )
 {% endhighlight %}
 
-It will return results as following.
+It will return results as bellow.
 
 {% highlight javascript %}
 { "_id" : 1, "item" : "ABC1", "sizes" : "S" }

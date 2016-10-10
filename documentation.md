@@ -18,13 +18,8 @@ title: Documentation
     * [Release Notes](/releases/0.10.5/documentation/release-details.html)
     * [Documentation](/releases/0.10.5/documentation/index.html)
     * [API](/releases/0.10.5/api/index.html)
-  * [0.10.0](/releases/0.10/documentation/index.html)
-    * [Release Notes](/releases/0.10/documentation/release-details.html)
-    * [Documentation](/releases/0.10/documentation/index.html)
-    * [API](/releases/0.10/api/index.html)
+  * [0.10](/releases/0.10/documentation/index.html)
   * [0.9](/releases/0.9/notes.html)
-    * [Release Notes](/releases/0.9/notes.html)
-    * [API](/releases/0.9/api/index.html)
 
 ## Resources
 

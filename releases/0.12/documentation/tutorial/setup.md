@@ -6,29 +6,13 @@ title: Setup
 
 ## Setup your project
 
-We assume that you got a running MongoDB instance. If not, get [the latest MongoDB binaries](http://www.mongodb.org/downloads) and unzip the archive. Then you can launch the database:
+{% include assume-setup.md %}
 
-{% highlight sh %}
-$ mkdir /path/to/data
-$ /path/to/bin/mongod --dbpath /path/to/data
-{% endhighlight %}
-
-This will start a standalone MongoDB instance that stores its data in the ```data``` directory and listens on the TCP port 27017.
-
-### Set up your project dependencies (SBT)
+### Set up your project dependencies
 
 ReactiveMongo is available on [Maven Central](http://search.maven.org/#browse%7C1306790).
 
-If you use SBT, you just have to edit `build.sbt` and add the following:
-
-{% highlight ocaml %}
-// you may also want to add the typesafe repository
-resolvers += "Typesafe repository releases" at "http://repo.typesafe.com/typesafe/releases/"
-
-libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "reactivemongo" % "{{site._0_12_latest_minor}}"
-)
-{% endhighlight %}
+{% include sbt-dependency.md %}
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.12/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.12/)
 

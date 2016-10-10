@@ -6,13 +6,13 @@ title: Command API
 
 ## Command API
 
-A MongoDB Command is a special query that returns documents. It is executed at the database level (`db.runCommand` in the MongoDB shell), or at the collection level (`db.aCol.runCommand` in the shell).
+A MongoDB Command is a special query that returns documents. It's executed at either the database level (`db.runCommand` in the MongoDB shell), or at the collection level (`db.aCol.runCommand` in the shell).
 
 In ReactiveMongo, the database command can be executed using [`db.runCommand(<command>)`](../../api/index.html#reactivemongo.api.GenericDB@runCommand[R,C%3C:reactivemongo.api.commands.Commandwithreactivemongo.api.commands.CommandWithResult[R]]%28command:Cwithreactivemongo.api.commands.CommandWithResult[R]%29%28implicitwriter:GenericDB.this.pack.Writer[C],implicitreader:GenericDB.this.pack.Reader[R],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[R]).
 
 The collection command can be executed with [`collection.runCommand(<command>)`](../../api/index.html#reactivemongo.api.collections.GenericCollection@runCommand[R,C%3C:reactivemongo.api.commands.CollectionCommandwithreactivemongo.api.commands.CommandWithResult[R]]%28command:Cwithreactivemongo.api.commands.CommandWithResult[R]%29%28implicitwriter:GenericCollectionWithCommands.this.pack.Writer[reactivemongo.api.commands.ResolvedCollectionCommand[C]],implicitreader:GenericCollectionWithCommands.this.pack.Reader[R],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[R]).
 
-The return type of `.runCommand` operations depends on the kind of command you gave it as a parameter; for example, with `Count` it would return `Future[Int]`:
+The return type of `.runCommand` operations depends on the kind of command you gave it as a parameter; For example, with `Count` it would return `Future[Int]`:
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -46,7 +46,9 @@ Some widely used commands, like [`Count`](../../api/index.html#reactivemongo.api
 
 ### Run any command with `RawCommand`
 
-It is possible to run any kind of commands, even if they are not specifically implemented in ReactiveMongo yet. Since a command in MongoDB is nothing more than a query on the special collection `$cmd` that returns a document, you can make your own command, which result type is `Future[BSONDocument]`. Let's take a look to the following example involving the Aggregation Framework (you can find this example in the [MongoDB documentation](http://docs.mongodb.org/manual/core/aggregation-pipeline/#aggregation-pipeline-behavior)):
+It is possible to run any kind of command, even if they are not yet specifically implemented in ReactiveMongo. Since a command in MongoDB is nothing more than a query on the special collection `$cmd`, you can make your own command.
+
+Let's take a look to the following example involving the Aggregation Framework (you can find this example in the [MongoDB documentation](http://docs.mongodb.org/manual/core/aggregation-pipeline/#aggregation-pipeline-behavior)):
 
 {% highlight javascript %}
 // MongoDB Console example of Aggregate command
@@ -103,11 +105,13 @@ def commandResult(db: reactivemongo.api.DefaultDB)(implicit ec: ExecutionContext
 }
 {% endhighlight %}
 
+> The MongoDB aggregation is already provided by ReactiveMongo with a [specific support](./aggregation.html).
+
 ### Defining custom commands
 
-It's possible to define not yet implemented or custom command using the command API.
+It's possible to define a not yet implemented or custom command using the command API.
 
-**Database command**
+**Database command:**
 
 Considering a database command executed in the Shell using `db.runCommand({ "custom": name, "query": { ... } })`, with a result like `{ "count": int, "matching": [ "value1", "value2", ..., "valueN" ] }`, it can be defined as following.
 
@@ -169,7 +173,7 @@ object BSONCustomCommand extends CustomCommand[BSONSerializationPack.type] {
 
 In the previous example, the custom command is implemented using the BSON serialization, providing the [writers and readers](../bson/typeclasses.html) for the command input and result.
 
-A command can be implemented with various serialization pack. *e.g. It can also be implemented using the JSON serialization provided by the [Play JSON support](../json/overview.html#run-a-raw-command).*
+A command can be implemented with various serialization pack (e.g. it can also be implemented using the JSON serialization provided by the [Play JSON support](../json/overview.html#run-a-raw-command)).
 
 It's also possible to gather the command definition and implementation, if only one kind of serialization is needed.
 
@@ -242,7 +246,7 @@ object MyRunner {
 }
 {% endhighlight %}
 
-**Collection command**
+**Collection command:**
 
 For a collection command `db.aCollection.runCommand({ "custom": name, "query": { ... } })`, the ReactiveMongo definition will be similar to those at the database level, but based on [`CollectionCommand`](../../api/index.html#reactivemongo.api.commands.CollectionCommand) (rather than `Command`).
 
@@ -305,7 +309,7 @@ object BSONCustomCommand extends CustomCommand[BSONSerializationPack.type] {
 }
 {% endhighlight %}
 
-> The writer of a collection collection must serialize a `ResolvedCollectionCommand[Custom]`, rather than directly `Custom`. The [`ResolvedCollectionCommand`](../../api/index.html#reactivemongo.api.commands.ResolvedCollectionCommand) provides information about the collection against which the command is executed (e.g. the collection name `colName` in the previous example).
+The writer of a collection collection must serialize a `ResolvedCollectionCommand[Custom]`, rather than directly `Custom`. The [`ResolvedCollectionCommand`](../../api/index.html#reactivemongo.api.commands.ResolvedCollectionCommand) provides the information about the collection against which the command is executed (e.g. the collection name `colName` in the previous example).
 
 Then the collection command can be executed using `runCommand`.
 
@@ -329,4 +333,4 @@ def custom(
 
 **See also:**
 
-- [The Aggregation Framework](aggregation.html)
+- [The Aggregation Framework](./aggregation.html)

@@ -4,7 +4,7 @@ major_version: 0.12
 title: Play JSON support
 ---
 
-This [Play JSON library](https://github.com/reactivemongo/reactivemongo-play-json) provides a JSON serialization pack for ReactiveMongo, based on [Play Framework JSON library](https://www.playframework.com/documentation/latest/ScalaJson).
+The [ReactiveMongo Play JSON](https://github.com/reactivemongo/reactivemongo-play-json) library provides a JSON serialization pack for ReactiveMongo, based on the [Play Framework JSON library](https://www.playframework.com/documentation/latest/ScalaJson).
 
 ## Setup
 
@@ -28,13 +28,13 @@ Then, the following code enables this JSON serialization pack.
 import reactivemongo.play.json._
 {% endhighlight %}
 
-**API documentations:** [Play JSON API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.11/{{page.major_version}}/reactivemongo-play-json_2.11-{{page.major_version}}-javadoc.jar/!/index.html)
+**API documentations:** [Play JSON API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.11/{{site._0_12_latest_minor}}/reactivemongo-play-json_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html)
 
 ## Documents and values
 
-There is one Play JSON class for most of the BSON types, all in the [`play.api.libs.json` package](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.package):
+There is one Play JSON class for most of the BSON types, from the [`play.api.libs.json` package](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.package):
 
-All these JSON types extend [`JsValue`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.JsValue), thus any JSON value can be converted to appropriate [BSON value](../../api/reactivemongo/bson/BSONValue.html):
+All these JSON types extend [`JsValue`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.JsValue), thus any JSON value can be converted to an appropriate [BSON value](../../api/reactivemongo/bson/BSONValue.html):
 
 | BSON | JSON |
 | -----| ---- |
@@ -58,13 +58,13 @@ All these JSON types extend [`JsValue`](https://www.playframework.com/documentat
 | [BSONTimestamp](../../api/reactivemongo/bson/BSONTimestamp.html) | `JsObject` with a `$timestamp` nested object having a `t` and a `i` `JsNumber` fields |
 | [BSONUndefined](../../api/reactivemongo/bson/BSONUndefined$.html) | `JsObject` of the form `{ "$undefined": true }` |
 
-Furthermore, the whole library is articulated around the concept of [`Writes`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.Writes) and [`Reads`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.Reads). These are type classes which purpose is to serialize/deserialize objects of arbitrary types into/from JSON.
+Furthermore, the whole library is articulated around the concept of [`Writes`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.Writes) and [`Reads`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.Reads). These are typeclasses whose purpose is to serialize/deserialize objects of arbitrary types into/from JSON.
 
-Consequently, any type that can be serialized as JSON can be also be serialized as BSON.
+Using that, any type that can be serialized as JSON can be also be serialized as BSON.
 
-A document is represented by `JsObject`, which is basically an immutable list of key-value pairs. Since it is the most used JSON type, one of the main focuses of the ReactiveMongo Play JSON library is to manage such `JsObject`s as easy as possible. The encode of such JSON object needs an instance of the typeclass [`OWrites`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.OWrites).
+A document is represented by `JsObject`, which is basically an immutable list of key-value pairs. Since it is the most used JSON type when working with MongoDB, the ReactiveMongo Play JSON library handles such `JsObject`s as seamless as possible. The encoding of such JSON object needs an instance of the typeclass [`OWrites`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.OWrites) (a `Writes` specialized for object).
 
-This library provides a specialized collection called `reactivemongo.play.json.JSONCollection` that deals naturally with `JsValue` and `JsObject`. Thanks to it, you can now fetch documents from MongoDB in the JSON format, transform them by removing and/or adding some properties, and send them to the client.
+This library provides a specialized collection called [`JSONCollection`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.11/{{site._0_12_latest_minor}}/reactivemongo-play-json_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.play.json.collection.JSONCollection) that deals naturally with `JsValue` and `JsObject`. Thanks to it, you can fetch documents from MongoDB in the Play JSON format, transform them by removing and/or adding some properties, and send them to the client.
 
 Even better, when a client sends a JSON document, you can validate it and transform it before saving it into a MongoDB collection (coast-to-coast approach).
 
@@ -73,6 +73,8 @@ Even better, when a client sends a JSON document, you can validate it and transf
 The support of Play JSON for ReactiveMongo provides some extensions of the result cursors, as `.jsArray()` to read underlying data as a JSON array.
 
 {% highlight scala %}
+import scala.concurrent.Future
+
 import play.api.libs.json._
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 
@@ -81,12 +83,14 @@ import reactivemongo.play.json.collection.{
   JSONCollection, JsCursor
 }, JsCursor._
 
-def jsonCollection: JSONCollection = ???
+def jsAll(collection: JSONCollection): Future[JsArray] = {
+  type ResultType = JsObject // any type which is provided a `Writes[T]`
 
-type ResultType = JsObject // any type which is provided a `Writes[T]`
-
-jsonCollection.find(Json.obj()).cursor[ResultType].jsArray()
+  collection.find(Json.obj()).cursor[ResultType].jsArray()
+}
 {% endhighlight %}
+
+In the previous example, the function `jsAll` will return a JSON array containing all the documents of the given collection (as JSON objects).
 
 ## Helpers
 
@@ -98,12 +102,14 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.play.json.collection._
 
-// Import a list of JSON object as document into the JSON `collection`,
+// Import a list of JSON objects as documents into the JSON `collection`,
 // and returns the insertion count.
 def importJson(collection: JSONCollection, resource: String): Future[Int] =
   Helpers.bulkInsert(collection, getClass.getResourceAsStream(resource)).
     map(_.totalN)
 {% endhighlight %}
+
+As illustrated by the previous example, the function `Helpers.bulkInsert` provides a JSON import feature.
 
 ## Run a raw command
 

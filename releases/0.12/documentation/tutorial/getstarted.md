@@ -6,7 +6,11 @@ title: Get started
 
 ## Get started
 
-For the impatient, bellow is a complete example, from connection to operations on a collection.
+For the impatient, bellow is a complete example.
+
+First the ReactiveMongo dependencies must be configured. {% include sbt-dependency.md %}
+
+Then the following code, from connection to operations on a collection, can be used in your project.
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
@@ -64,12 +68,17 @@ object GetStarted {
 }
 {% endhighlight %}
 
+**Prerequisites:**
+
+{% include assume-setup.md %}
+
+[More: **Setup your project**](./setup.html)
+
 **Go further:**
 
-1. [Setup](./setup.html)
 2. [Connect to the database](./connect-database.html)
 3. [Open database and collections](./database-and-collection.html)
-4. [Write documents (`insert`, `update`, `remove`)](./write-documents.html)
+4. [Write documents](./write-documents.html) (`insert`, `update`, `remove`)
 5. [Find documents](./find-documents.html)
 6. [Streaming](./streaming.html)
 

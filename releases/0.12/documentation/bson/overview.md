@@ -6,7 +6,7 @@ title: BSON Library Overview
 
 ## Overview of the ReactiveMongo BSON library
 
-The BSON library of ReactiveMongo implements the [BSON protocol](http://bsonspec.org), or _Binary JSON_, which is used by MongoDB to encode data. Because of that, when we use MongoDB we tend to manipulate a lot of BSON structures; thus the BSON library is designed with the following points in mind:
+The BSON library of ReactiveMongo implements the [BSON protocol](http://bsonspec.org), or _Binary JSON_, which is used by MongoDB to encode data. Because of that, when we use MongoDB we tend to manipulate a lot of BSON structures; Thus the BSON library is designed with the following points in mind:
 
 - ease of use
 - strong typing
@@ -69,7 +69,7 @@ All these classes extend [BSONValue](../../api/reactivemongo/bson/BSONValue.html
 
 > See how to handle the [optional values](./typeclasses.html#optional-value).
 
-A document is represented by `BSONDocument`. A `BSONDocument` is basically an immutable list of key-value pairs. Since it is the most used BSON type, one of the main focuses of the ReactiveMongo BSON library is to make manipulations of BSONDocument as easy as possible.
+A document is represented by `BSONDocument`, which is basically an immutable list of key-value pairs. Since it is the most used BSON type, one of the main focuses of the ReactiveMongo BSON library is to make manipulations of BSONDocument as easy as possible.
 
 {% highlight scala %}
 import reactivemongo.bson._
@@ -86,6 +86,6 @@ albumTitle match {
 {% endhighlight %}
 
 Furthermore, the whole library is articulated around the concept of [`BSONDocumentWriter`](../../api/reactivemongo/bson/BSONDocumentWriter.html) and [`BSONDocumentReader`](../../api/reactivemongo/bson/BSONDocumentReader.html).
-These are type classes which purpose is to serialize/deserialize objects of arbitrary types into/from BSON. This makes usage of MongoDB much less verbose and more natural.
+These are typeclasses whose purpose is to serialize/deserialize objects of arbitrary types into/from BSON. This makes usage of MongoDB much less verbose and more natural.
 
 [Next: The readers and writers](typeclasses.html)

@@ -19,7 +19,7 @@ The documentation is available [online](index.html), and its code samples are co
   - [Custom streaming](#custom-streaming)
 - [BSON](#bson)
 - [Aggregation](#aggregation)
-- [Play Framework](#playframework)
+- [Play Framework](#play-framework)
   - [JSON serialization](#json-serialization)
   - [MVC integration](#mvc-integration)
   - [Routing](#routing)
@@ -54,9 +54,9 @@ This can be considered as a recommended environment.
 
 A new better [DB resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) is available (see [connection tutorial](tutorial/connect-database.html)).
 
-The synchronous `.db` has been deprecated as it was assuming it can initially find an active channel in the connection pool (`MongoConnection`), whereas checking/discovering the initial ReplicaSet can take time, according the network speed/latency.
+The synchronous `.db` has been deprecated as it was assuming it can initially find an active channel in the connection pool (`MongoConnection`), whereas checking/discovering the initial node set can take time, according the network speed/latency.
 
-The new version fix this assumption with an asynchronous/reactive resolution of the database (possibly using a [failover strategy](../api/index.html#reactivemongo.api.FailoverStrategy) to make sure at least one initial channel (according the chosen [read preference](../api/index.html#reactivemongo.api.ReadPreference)).
+The new version fix this assumption with an asynchronous/reactive resolution of the database (possibly using a [failover strategy](../api/index.html#reactivemongo.api.FailoverStrategy)) to make sure at least one initial channel (according the chosen [read preference](../api/index.html#reactivemongo.api.ReadPreference)).
 
 The new resolution returns a [`Future[DefaultDB]`](../api/index.html#reactivemongo.api.DefaultDB), and should be used instead of the former `connection(..)` (or its alias `connection.db(..)`).
 
@@ -70,7 +70,7 @@ def newResolution(con: MongoConnection, name: String)(implicit ec: ExecutionCont
 
 Similarly the function `.db` of the [Play module](./tutorial/play2.html) must be replaced by its `.database` equivalent.
 
-It's generally a good practice not to assign the database and collection references to `val` (even to `lazy val`), as it's better to get fresh references each time, to automatically recover from any previous issues (e.g. network failure).
+It's generally a good practice not to assign the database and collection references to `val` (even to `lazy val`), as it's better to get a fresh reference each time, to automatically recover from any previous issues (e.g. network failure).
 
 Consequently to this change, a runtime error such as `ConnectionNotInitialized` can be raised when calling a database or collection operation (e.g. `collection.find(..)`), if the *deprecated database resolution is still used*.
 
@@ -97,7 +97,7 @@ val options1 = MongoConnectionOptions(
   failoverStrategy = FailoverStrategy(retries = 10))
 {% endhighlight %}
 
-The option [`maxIdleTimeMS`](https://docs.mongodb.org/manual/reference/connection-string/#urioption.maxIdleTimeMS) is now supported, with a default value is 0 (no timeout).
+The option [`maxIdleTimeMS`](https://docs.mongodb.org/manual/reference/connection-string/#urioption.maxIdleTimeMS) is now supported, with a default value 0 (no timeout).
 
 {% highlight scala %}
 import reactivemongo.api.MongoConnectionOptions
@@ -202,7 +202,7 @@ trait PersonService {
 }
 {% endhighlight %}
 
-The field [`maxTimeMs`](https://docs.mongodb.org/manual/reference/method/cursor.maxTimeMS/) is supported by the [query builder](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@maxTimeMs%28p:Long%29:GenericQueryBuilder.this.Self), to specify a cumulative time limit in milliseconds for processing operations.
+The field [`maxTimeMs`](https://docs.mongodb.org/manual/reference/method/cursor.maxTimeMS/) is supported by the [query builder](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@maxTimeMs%28p:Long%29:GenericQueryBuilder.this.Self), to specify a cumulative time limit in milliseconds for the processing of the operations.
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
@@ -398,7 +398,7 @@ def foo(doc: BSONDocument): Option[Date] = doc.getAs[Date]("aBsonDateTime")
 def bar(date: Date): BSONDocument = BSONDocument("aBsonDateTime" -> date)
 {% endhighlight %}
 
-The traits [`BSONReader`](../api/index.html#reactivemongo.bson.BSONReader) and [`BSONWriter`](../api/index.html#reactivemongo.bson.BSONWriter) have new combinators, so new instances can be easily defined using the existing one.
+The traits [`BSONReader`](../api/index.html#reactivemongo.bson.BSONReader) and [`BSONWriter`](../api/index.html#reactivemongo.bson.BSONWriter) have new combinators, so new instances can be easily defined using the existing ones.
 
 {% highlight scala %}
 import reactivemongo.bson._
@@ -419,7 +419,7 @@ implicit def MyEnumWriter(implicit underlying: BSONWriter[String, BSONString]): 
 }
 {% endhighlight %}
 
-Companion objects for [`BSONDocumentReader`](../api/index.html#reactivemongo.bson.BSONDocumentReader) and [`BSONDocumentWriter`](../api/index.html#reactivemongo.bson.BSONDocumentWriter) provides new factories.
+The companion objects for [`BSONDocumentReader`](../api/index.html#reactivemongo.bson.BSONDocumentReader) and [`BSONDocumentWriter`](../api/index.html#reactivemongo.bson.BSONDocumentWriter) provides new factories.
 
 {% highlight scala %}
 import reactivemongo.bson.{
@@ -648,7 +648,7 @@ def aggregateIndexes(coll: BSONCollection) = {
 
 **lookup:**
 
-Using the MongoDB aggregation, the [$lookup](https://docs.mongodb.com/v3.2/reference/operator/aggregation/lookup/#pipe._S_lookup) stage performs a left outer join between two collection in the same database (see the [examples](https://docs.mongodb.com/v3.2/reference/operator/aggregation/lookup/#examples)).
+Using the MongoDB aggregation, the [$lookup](https://docs.mongodb.com/v3.2/reference/operator/aggregation/lookup/#pipe._S_lookup) stage performs a left outer join between two collections in the same database (see the [examples](https://docs.mongodb.com/v3.2/reference/operator/aggregation/lookup/#examples)).
 ReactiveMongo now supports this [new stage](../api/index.html#reactivemongo.api.commands.AggregationFramework@LookupextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable).
 
 {% highlight scala %}
@@ -828,7 +828,7 @@ def textFind(coll: BSONCollection)(implicit ec: ExecutionContext): Future[List[B
 }
 {% endhighlight %}
 
-> With the changes, the aggregation framework provide an API for all the stages supported by MongoDB 3.2.
+> With the changes, the aggregation framework provides an API for all the stages supported by MongoDB 3.2.
 
 [More: **Aggregation Framework**](./advanced-topics/aggregation.html)
 
@@ -842,11 +842,13 @@ For Play > 2.4, if you still have a file `conf/play.plugins`, it's important to 
     1) Could not find a suitable constructor in 
     play.modules.reactivemongo.ReactiveMongoPlugin.
 
-Considering the configuration with Play, the new setting `mongodb.connection.strictUri` (`true` or `false`) can be added. It makes the ReactiveMongo module for Play enforce only strict connection URI is accepted: with no unsupported option in it (otherwise it throws an exception). By default this setting is disabled (`false`).
+Considering the configuration with Play, the new setting `mongodb.connection.strictUri` (`true` or `false`) can be added. It makes the ReactiveMongo module for Play will enforce that only strict connection URI is accepted: with no unsupported option in it (otherwise it throws an exception). By default this setting is disabled (`false`).
 
-As for Play 2.5, due to the [Streams Migration](https://playframework.com/documentation/2.5.x/StreamsMigration25), a `akka.stream.Materializer` is required (see the following error).
+As for Play 2.5, due to the [Streams Migration](https://playframework.com/documentation/2.5.x/StreamsMigration25), a `akka.stream.Materializer` is required when implementing Play/ReactiveMongo controllers, otherwise the following error will be raised.
 
-The Play support has also been modularized.
+    could not find implicit value for parameter materializer: akka.Stream.Materializer
+
+It's also important to note that the Play support has also been modularized.
 
 #### JSON serialization
 
@@ -910,7 +912,7 @@ The extended syntax is also supported for the [`BSONMinKey`](../../api/index.htm
 
 New functions from the `BSONFormats` provides JSON formats derived from BSON handlers.
 
-- [`jsonOFormat`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.11/{{page.major_version}}/reactivemongo-play-json_2.11-{{page.major_version}}-javadoc.jar/!/index.html#reactivemongo.play.json.BSONFormats$@jsonOFormat[T](implicitevidence$1:reactivemongo.bson.BSONDocumentWriter[T],implicitevidence$2:reactivemongo.bson.BSONDocumentReader[T]):play.api.libs.json.OFormat[T]) derives a [`BSONHandler`](../../api/index.html#reactivemongo.bson.BSONHandler) as a Play [`OFormat`](https://www.playframework.com/documentation/2.4.0/api/scala/index.html#play.api.libs.json.OFormat), to map JSON objects and BSON documents.
+- The [`jsonOFormat`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.11/{{page.major_version}}/reactivemongo-play-json_2.11-{{page.major_version}}-javadoc.jar/!/index.html#reactivemongo.play.json.BSONFormats$@jsonOFormat[T](implicitevidence$1:reactivemongo.bson.BSONDocumentWriter[T],implicitevidence$2:reactivemongo.bson.BSONDocumentReader[T]):play.api.libs.json.OFormat[T]) derives a [`BSONHandler`](../../api/index.html#reactivemongo.bson.BSONHandler) as a Play [`OFormat`](https://www.playframework.com/documentation/2.4.0/api/scala/index.html#play.api.libs.json.OFormat), to map JSON objects and BSON documents.
 - The similar [`jsonFormat`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.11/{{page.major_version}}/reactivemongo-play-json_2.11-{{page.major_version}}-javadoc.jar/!/index.html#reactivemongo.play.json.BSONFormats$@jsonFormat[T](implicith:reactivemongo.bson.BSONHandler[_%3C:reactivemongo.bson.BSONValue,T]):play.api.libs.json.Format[T]) derives a `BSONWriter` and its corresponding `BSONReader` to provide a Play `Format`.
 - The write-only `jsonOWrites` and `jsonWrites`, and also the read-only `jsonReads`.
 
@@ -1147,7 +1149,7 @@ If you see the following message, please make sure you have a Log4J framework av
 
     ERROR StatusLogger No log4j2 configuration file found. Using default configuration: logging only errors to the console.
 
-As for SLF4J is now used, the following error is raised, please make sure to provide a [SLF4J binding](http://www.slf4j.org/manual.html#swapping) (e.g. slf4j-simple).
+As SLF4J is now used, if the following error is raised, please make sure to provide a [SLF4J binding](http://www.slf4j.org/manual.html#swapping) (e.g. slf4j-simple).
 
     NoClassDefFoundError: : org/slf4j/LoggerFactory
 

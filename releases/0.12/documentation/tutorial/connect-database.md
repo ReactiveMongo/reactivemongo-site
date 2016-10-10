@@ -70,7 +70,7 @@ The following options can be used with `MongoConnectionOptions` to configure the
       - *factor*: The `Double` value to multiply the retry counter with, to define the delay factor (`retryCount * factor`).
 - **`rm.monitorRefreshMS`**: The interval (in milliseconds) used by the ReactiveMongo monitor to refresh the node set (default: 10s); The minimal value is 100ms.
 
-> The option `sslEnabled` is needed if the MongoDB server is requiring SSL (`mongod --sslMode requireSSL`). The related option `sslAllowsInvalidCert` is required is the server allows invalid certificate (`mongod --sslAllowInvalidCertificates`).
+> The option `sslEnabled` is needed if the MongoDB server is requiring SSL (`mongod --sslMode requireSSL`). The related option `sslAllowsInvalidCert` is required if the server allows invalid certificate (`mongod --sslAllowInvalidCertificates`).
 
 If the connection pool is defined by an URI, then the options can be given after the `?` separator:
 
@@ -87,7 +87,7 @@ ReactiveMongo provides support for replica sets as follows.
 - The driver will detect if it is connected to a replica set.
 - It will probe for the other nodes in the set and connect to them.
 - It will detect when the primary has changed and guess which is the new one.
-- It will allow running queries on secondaries if they are explicitly set to `slaveOk` (See the [MongoDB documentation](http://docs.mongodb.org/manual/applications/replication/#replica-set-read-preference) for more details about querying secondary nodes).
+- It will allow running queries on secondaries, if allowed by the read preference (See the [MongoDB documentation](http://docs.mongodb.org/manual/applications/replication/#replica-set-read-preference) for more details about querying secondary nodes).
 
 Connecting to a replica set is pretty much the same as connecting to a unique server. You may have notice that the connection argument is a `List[String]`, so more than one node can be specified.
 
@@ -96,7 +96,7 @@ val servers6 = List("server1:27017", "server2:27017", "server3:27017")
 val connection6 = driver1.connection(servers6)
 {% endhighlight %}
 
-There is no obligation to give all the nodes in the replica set – actually, just one of them is required.
+There is no obligation to give all the nodes in the replica set. Actually, just one of them is required.
 ReactiveMongo will ask the nodes it can reach for the addresses of the other nodes in the replica set. Obviously it is better to give at least 2 or more nodes, in case of unavailability of one node at the start of the application.
 
 ### Using many connection instances
@@ -162,7 +162,7 @@ Like any other operation in ReactiveMongo, authentication is done asynchronously
 
 You can also give the connection information as a [URI](http://docs.mongodb.org/manual/reference/connection-string/):
 
-`mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?[option1=value1][&option2=value2][...&optionN=valueN]]`
+    mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?[option1=value1][&option2=value2][...&optionN=valueN]]
 
 If credentials and the database name are included in the URI, ReactiveMongo will authenticate the connections on that database.
 
@@ -234,6 +234,8 @@ It is also a good idea to store the driver and connection instances to reuse the
 On the contrary, [`DefaultDB`](../../api/index.html#reactivemongo.api.DefaultDB) and [`Collection`](../../api/index.html#reactivemongo.api.Collection) are just plain objects that store references and nothing else.
 Getting such references is lightweight, and calling [`connection.database(..)`](../../api/index.html#reactivemongo.api.MongoConnection@database(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitcontext:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DefaultDB]) or [`db.collection(..)`](../../api/index.html#reactivemongo.api.DefaultDB@collection[C%3C:reactivemongo.api.Collection](name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitproducer:reactivemongo.api.CollectionProducer[C]):C) may be done many times without any performance hit.
 
+> It's generally a good practice not to assign the database and collection references to `val` (even to `lazy val`), as it's better to get a fresh reference each time, to automatically recover from any previous issues (e.g. network failure).
+
 **Virtual Private Network ([VPN](https://en.wikipedia.org/wiki/Virtual_private_network)):**
 
 When connecting to a MongoDB replica set over a VPN, if using IP addresses instead of host names to configure the connection nodes, then it's possible that the nodes are discovered with host names that are only known within the remote network, and so not usable from the driver/client side.
@@ -245,12 +247,12 @@ The bellow errors may indicate there is a connectivity and/or network issue.
 *Primary not available*
 
 - Error: `reactivemongo.core.actors.Exceptions$PrimaryUnavailableException: MongoError['No primary node is available! ...']`
-- In logging: "The primary is unavailable, is there a network problem?" (not critical if the error doesn't occur)
+- In logging: "The primary is unavailable, is there a network problem?" (not critical if no application error occurs)
 
 *Node set not reachable*
 
 - Error: `reactivemongo.core.actors.Exceptions$NodeSetNotReachable: MongoError['The node set can not be reached! Please check your network connectivity ...']`
-- In logging: "The entire node set is unreachable, is there a network problem?" (not critical if the error doesn't occur)
+- In logging: "The entire node set is unreachable, is there a network problem?" (not critical if no application error occurs)
 
 **Diagnostic:**
 
@@ -296,4 +298,4 @@ reactivemongo.ChannelClosed(-857553810, {{NodeSet None Node[localhost:27017: Pri
 
 The [JMX module](../release-details.html#monitoring) can be used to check how the node set is seen by the driver.
 
-[Previous: Setup](./setup.html) / [Next: Database and collections](./database-and-collection.html)
+[Previous: Get started](./getstarted.html) / [Next: Database and collections](./database-and-collection.html)

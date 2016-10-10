@@ -8,7 +8,7 @@ title: Monitoring
 
 A [JMX](https://en.wikipedia.org/wiki/Java_Management_Extensions) module is available.
 
-When running with this module, you check the state of the ReactiveMongo pools from outside the JVM, using a JMX client.
+When running with this module, you can check the state of the ReactiveMongo pools from outside the JVM, using a JMX client.
 
 It can be enabled by adding the dependency as bellow.
 

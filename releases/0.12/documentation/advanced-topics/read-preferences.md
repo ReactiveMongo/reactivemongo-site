@@ -36,9 +36,9 @@ def readFromSecondary1(collection: BSONCollection) =
 
 ## Tag support
 
-Tag sets allow you to specify custom read preferences and write concerns so that your application can target operations to specific members.
+Tag sets allow you to specify custom read preferences and write concerns so that your application can dispatch the operations to specific members.
 
-If you properly tagged the servers of your replica set, then you can use tag-aware Read Preferences.
+With tagged servers in your replica set, then you can use a tag-aware Read Preferences.
 
 Let's suppose that the replica set is configured that way:
 
@@ -73,7 +73,7 @@ Let's suppose that the replica set is configured that way:
 }
 {% endhighlight %}
 
-Then we can tell ReactiveMongo to query only from the nodes that are tagged with `dc: "NYC"`:
+Then we can tell ReactiveMongo to query only from the nodes which are tagged with `dc: "NYC"`:
 
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -89,6 +89,4 @@ def readFromSecondary2(collection: BSONCollection) =
       tag = BSONDocument("dc" -> "NYC")))
 {% endhighlight %}
 
-> Custom read preferences and write concerns evaluate tags sets in different ways. Read preferences consider the value of a tag when selecting a member to read from. Write concerns ignore the value of a tag to when selecting a member, except to consider whether or not the value is unique.
->
-> [MongoDB Read Preference Documentation](http://docs.mongodb.org/manual/core/read-preference/#tag-sets)
+The custom read preferences and write concerns evaluate the tag sets in different ways. Read preferences consider the value of a tag when selecting a member to read from. Write concerns ignore the value of a tag to when selecting a member, except to consider whether or not the value is unique; See [MongoDB Read Preference Documentation](http://docs.mongodb.org/manual/core/read-preference/#tag-sets))

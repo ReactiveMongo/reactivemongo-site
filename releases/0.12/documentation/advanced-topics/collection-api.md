@@ -6,9 +6,11 @@ title: Collection API
 
 ## Collection API
 
-The Collection API is designed to be very extensible, allowing the use of third-party libraries for building documents (e.g. use something else than the embedded BSON library), including specific serializers and deserializers.
+The Collection API is designed to be very extensible, allowing the use of third-party libraries to build documents (e.g. use something else than the embedded BSON library).
 
-For example, that's the case of the [support of Play JSON](https://github.com/reactivemongo/reactivemongo-play-json), which relies on the [Play JSON library](http://www.playframework.com/documentation/latest/ScalaJson) instead.
+For example, let consider the case of the [support of Play JSON](https://github.com/reactivemongo/reactivemongo-play-json), which relies on the [Play JSON library](http://www.playframework.com/documentation/latest/ScalaJson) instead of the [BSON library](../bson/overview.html).
+
+*BSON collection:*
 
 {% highlight scala %}
 // using the default Collection implementation
@@ -38,6 +40,8 @@ val query1 =
 // using the implicit (BSON) reader
 val result1: Future[Option[Person]] = collection1.find(query1).one[Person]
 {% endhighlight %}
+
+*JSON collection:*
 
 {% highlight scala %}
 // using the Play plugin's Collection implementation
@@ -86,7 +90,7 @@ trait Collection {
 }
 {% endhighlight %}
 
-All collections implementations must mix this trait in. They also provide implicit objects of type `CollectionProducer` that make new (specialized) instances of them. Since `db.collection()` is parametrized with `C <: Collection` and accepts an implicit `CollectionProducer[C]`, the returned instance of collection can be inferred to the right type if there is only one producer in the implicit scope, which is a typical situation.
+All the collection implementations must mix this trait in. They also provide implicit objects of type `CollectionProducer` that make new (specialized) instances of them. Since `db.collection()` is parametrized with `C <: Collection` and accepts an implicit `CollectionProducer[C]`, the returned instance of collection can be inferred to the right type if there is only one producer in the implicit scope, which is a typical situation.
 
 {% highlight scala %}
 package simplifiedapi
@@ -98,18 +102,13 @@ trait DB {
 }
 {% endhighlight %}
 
-Most implementations actually extend another trait, `GenericCollection`.
+Most of the implementations actually extend the trait `GenericCollection`.
 
 ### The `GenericCollection` trait
 
-
 This trait is much more complete than `Collection`. It defines common methods, like `find()`, `update()`, `remove()` and `insert()`, among others. One particularity of them is that they may be given ...
 
-`GenericCollection` takes 1 type parameter: the `SerializationPack`.
-
-TODO
-
-Let's take an example of how these types are used with `find()`, which is defined like this:
+Let's take an example of how these types are used for `find()`, which is defined like this:
 
 {% highlight scala %}
 package simplifiedapi
@@ -124,15 +123,11 @@ trait GenericCollection {
 }
 {% endhighlight %}
 
-This method takes a `selector` (or query), of type `S`. This object is then transformed into BSON thanks to the implicit `swriter` parameter. Moreover, you can notice that the return type is another trait, `GenericQueryBuilder`, with the same parameter types.
+This function takes a `selector` (or query) of type `S`. This object is then transformed into BSON thanks to the implicit `swriter` parameter. Moreover, you can notice that the return type is another trait, `GenericQueryBuilder`, with the same parameter type
 
-### The `GenericQueryBuilder` trait
-
-A `GenericQueryBuilder`, like its name says it, helps building and customizing the query.
-
-TODO
+> A `GenericQueryBuilder`, like its name says it, helps building and customizing the query.
 
 ### Examples
 
-- The default implementation in ReactiveMongo, `BSONCollection`. It relies on the embedded BSON library, with `BSONCollection` as the `Structure`, and `BSONDocumentReader` and `BSONDocumentWriter` as the de/serializer typeclasses.
-- The implementation in the Play JSON support, `JSONCollection`. It uses `JsObject` (a JSON object), and the de/serializer typeclasses `Writes` and `Reads`.
+- The default implementation in ReactiveMongo: [`BSONCollection`](../../api/index.html#reactivemongo.api.collections.bson.BSONCollection). It relies on the embedded BSON library, with `BSONDocumentReader` and `BSONDocumentWriter` as the de/serializer typeclasses.
+- The implementation in the Play JSON support, [`JSONCollection`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.11/{{site._0_12_latest_minor}}/reactivemongo-play-json_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.play.json.collection.JSONCollection). It uses `JsObject` (a JSON object), and the de/serializer typeclasses `Writes` and `Reads`.

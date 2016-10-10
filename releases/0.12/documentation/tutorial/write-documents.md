@@ -46,7 +46,7 @@ def insertDoc1(coll: BSONCollection, doc: BSONDocument): Future[Unit] = {
 
 A [`WriteResult`](../../api/index.html#reactivemongo.api.commands.WriteResult) is a special document that contains information about the write operation, like the number of documents that were updated.
 
-If the write result actually indicates an error, the `Future` will be in a [`failed` state](http://www.scala-lang.org/api/current/index.html#scala.concurrent.Future$@failed[T](exception:Throwable):scala.concurrent.Future[T]).
+If the write result actually indicates an error, the `Future` will be in a [`failed` state](http://www.scala-lang.org/api/current/index.html#scala.concurrent.Future$@failed[T](exception:Throwable):scala.concurrent.Future[T]) (no need to check for `WriteResult.ok`).
 
 Like all the other collection operations (in [`GenericCollection`](../../api/index.html#reactivemongo.api.collections.GenericCollection) trait), you can insert any [writeable value](../bson/typeclasses.html) to `insert()`. With the default BSON serialization, that means provided there a [`BSONDocumentWriter`](../../api/index.html#reactivemongo.bson.BSONDocumentWriter) for its type in the [implicit scope](http://docs.scala-lang.org/tutorials/FAQ/finding-implicits.html). So, considering the `Person` case class:
 
@@ -68,10 +68,10 @@ future2.onComplete {
 
 **Error handling:**
 
-When calling a write operation, it's possible to handle some specific error case by testing the result, using [`CommandError`](../../api/index.html#reactivemongo.api.commands.CommandError) (that represents these errors) and its pattern matching utilities.
+When calling a write operation, it's possible to handle some specific error case by testing the result, using some pattern matching utilities.
 
-- [`CommandError.Code`](../../api/index.html#reactivemongo.api.commands.CommandError$@Code): matches the errors according the specified code (e.g. the 11000 code for the Duplicate error)
-- [`CommandError.Message`](../../api/index.html#reactivemongo.api.commands.CommandError$@Message): matches the errors according the message
+- [`WriteResult.Code`](../../api/index.html#reactivemongo.api.commands.WriteResult$@Code): matches the errors according the specified code (e.g. the 11000 code for the Duplicate error)
+- [`WriteResult.Message`](../../api/index.html#reactivemongo.api.commands.WriteResult$@Message): matches the errors according the message
 
 {% highlight scala %}
 import scala.concurrent.Future

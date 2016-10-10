@@ -22,13 +22,13 @@ libraryDependencies ++= Seq(
 
 **API documentations:**
 
-The various API of the ReactiveMongo driver itself, and also of the related libraries, are available as online.
+The various API of the ReactiveMongo driver itself, and also of the related libraries, are available online.
 
 - [Driver API](../api/index.html): Core driver, BSON
-- [Play JSON API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.11/{{page.major_version}}/reactivemongo-play-json_2.11-{{page.major_version}}-javadoc.jar/!/index.html)
-- [Play module API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_2.11/{{page.major_version}}/play2-reactivemongo_2.11-{{page.major_version}}-javadoc.jar/!/index.html)
-- ReactiveMongo [AkkaStream](https://reactivemongo.github.io/ReactiveMongo-Streaming/{{page.major_version}}/akka-stream/api/)
-- ReactiveMongo [Iteratees](https://reactivemongo.github.io/ReactiveMongo-Streaming/{{page.major_version}}/iteratees/api/)
+- [Play JSON API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.11/{{site._0_12_latest_minor}}/reactivemongo-play-json_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html)
+- [Play module API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_2.11/{{site._0_12_latest_minor}}/play2-reactivemongo_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html)
+- ReactiveMongo [AkkaStream](https://reactivemongo.github.io/ReactiveMongo-Streaming/{{site._0_12_latest_minor}}/akka-stream/api/)
+- ReactiveMongo [Iteratees](https://reactivemongo.github.io/ReactiveMongo-Streaming/{{site._0_12_latest_minor}}/iteratees/api/)
 
 **Recommended configuration:**
 
@@ -46,7 +46,7 @@ This can be considered as a recommended environment.
 - [Get started](tutorial/getstarted.html)
    1. [Connect to the database](tutorial/connect-database.html)
    2. [Open database and collections](tutorial/database-and-collection.html)
-   3. [Write documents (`insert`, `update`, `remove`)](tutorial/write-documents.html)
+   3. [Write documents](tutorial/write-documents.html) (`insert`, `update`, `remove`)
    4. [Find documents](tutorial/find-documents.html)
    5. [Streaming](tutorial/streaming.html)
 
@@ -65,11 +65,11 @@ This can be considered as a recommended environment.
 
 ### Advanced Topics
 
-- [Collection API](advanced-topics/collection-api.html)
-- [Command API](advanced-topics/commands.html)
 - [Aggregation Framework](advanced-topics/aggregation.html)
 - [FailoverStrategy](advanced-topics/failoverstrategy.html)
 - [ReadPreference](advanced-topics/read-preferences.html)
+- [Command API](advanced-topics/commands.html)
+- [Collection API](advanced-topics/collection-api.html)
 - [GridFS](advanced-topics/gridfs.html)
 - [Monitoring](advanced-topics/monitoring.html)
 
