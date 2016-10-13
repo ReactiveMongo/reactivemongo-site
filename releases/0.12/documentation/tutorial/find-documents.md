@@ -10,7 +10,7 @@ title: Find Documents
 
 ### Performing a simple query
 
-Queries are performed quite the same way as in the MongoDB Shell.
+Queries are performed in quite the same way as in the MongoDB Shell.
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -49,7 +49,8 @@ def findOlder2(collection: BSONCollection) = {
 
 > When using a serialization pack other than the BSON default one, then the appropriate document type must be used to define query (e.g. [`JsObject`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.JsObject) for the [JSON serialization](../json/overview.html)).
 
-The `find` method returns a [`BSONQueryBuilder`](../../api/index.html#reactivemongo.api.collections.default.BSONQueryBuilder) – the query is therefore not performed yet. It gives you the opportunity to add options to the query, like a sort order, projection, flags...
+The `find` method returns a query builder (e.g. a [`BSONQueryBuilder`](../../api/index.html#reactivemongo.api.collections.default.BSONQueryBuilder)), which means the query is therefore not performed yet.
+It gives you the opportunity to add options to the query, like a sort order, projection, flags...
 
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global

@@ -21,15 +21,15 @@ def dbFromConnection(connection: MongoConnection): Future[BSONCollection] =
 
 By default, it returns a [`BSONCollection`](../../api/index.html#reactivemongo.api.collections.bson.BSONCollection), which implements the basic `Collection` trait.
 
-The `Collection` trait itself is almost empty, and is not meant to be used as is. The collection operations are implemented by [`GenericCollection`](../../api/index.html#reactivemongo.api.collections.GenericCollection).
+The `Collection` trait itself is almost empty, and is not meant to be used as is, as the operations are implemented by [`GenericCollection`](../../api/index.html#reactivemongo.api.collections.GenericCollection).
 
 **Go further:**
 
-If looking at the signature of the [`DB.collection`](../../api/index.html#reactivemongo.api.DefaultDB@collection[C%3C:reactivemongo.api.Collection](name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitproducer:reactivemongo.api.CollectionProducer[C]):C) function, it can be seen that it uses a [`CollectionProducer`](../../api/index.html#reactivemongo.api.CollectionProducer) (resolved from the [implicit scope](http://docs.scala-lang.org/tutorials/FAQ/finding-implicits.html). This producer is required to create the collection references.
+If looking at the signature of the [`DefaultDB.collection`](../../api/index.html#reactivemongo.api.DefaultDB@collection[C%3C:reactivemongo.api.Collection](name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitproducer:reactivemongo.api.CollectionProducer[C]):C) function, it can be seen that it uses a [`CollectionProducer`](../../api/index.html#reactivemongo.api.CollectionProducer) (resolved from the [implicit scope](http://docs.scala-lang.org/tutorials/FAQ/finding-implicits.html). This producer is required to create the collection references.
 
 By default the BSON producer is used, so there is nothing more to do.
 
-It is this mechanism which makes ReactiveMongo can support other kinds of serialization, such as the [JSON support](../json/overview.html).
+This mechanism makes ReactiveMongo can support other kinds of serialization, such as the [JSON support](../json/overview.html).
 
 ### Operations
 
