@@ -215,4 +215,4 @@ List(
     smallestCity = City(name = "AOGASHIMA", population = 200L)))
 {% endhighlight %}
 
-The operators available to define an aggregation pipeline are documented in the [API reference](http://localhost:4000/releases/0.11/api/index.html#reactivemongo.api.commands.AggregationFramework).
+The operators available to define an aggregation pipeline are documented in the [API reference](../../api/index.html#reactivemongo.api.commands.AggregationFramework).

@@ -283,9 +283,9 @@ ReactiveMongo can now be used with several streaming frameworks.
 
 #### Akka Stream
 
-The [Akka Stream library](https://reactivemongo.github.io/ReactiveMongo-Streaming/0.12/akka-stream/api/#package) can be used to consume ReactiveMongo results.
+The [Akka Stream library](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.11/{{site._0_12_latest_minor}}/reactivemongo-akkastream_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#package) can be used to consume ReactiveMongo results.
 
-To enable the Akka Stream support (up to Akka 2.4.8), the import [`reactivemongo.play.akkastream.cursorProducer`](https://reactivemongo.github.io/ReactiveMongo-Streaming/0.12/akka-stream/api/index.html#reactivemongo.akkastream.package$$cursorFlattener$) must be added.
+To enable the Akka Stream support (up to Akka 2.4.8), the import [`reactivemongo.play.akkastream.cursorProducer`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.11/{{site._0_12_latest_minor}}/reactivemongo-akkastream_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.akkastream.package$$cursorFlattener$) must be added.
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -312,7 +312,7 @@ def processPerson0(collection: BSONCollection, query: BSONDocument)(implicit m: 
 
 #### Aggregated streams
 
-The results from the new [aggregation operation](../../api/index.html#reactivemongo.api.collections.GenericCollection@aggregateWith[T](explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference,batchSize:Option[Int])(f:GenericCollection.this.AggregationFramework=%3E(GenericCollection.this.PipelineOperator,List[GenericCollection.this.PipelineOperator]))(implicitec:scala.concurrent.ExecutionContext,implicitreader:GenericCollection.this.pack.Reader[T]):scala.concurrent.Future[reactivemongo.api.Cursor[T]]) can be processed in a streaming way, using the [cursor option](https://docs.mongodb.org/manual/reference/command/aggregate/).
+The results from the new [aggregation operation](../api/index.html#reactivemongo.api.collections.GenericCollection@aggregateWith[T](explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference,batchSize:Option[Int])(f:GenericCollection.this.AggregationFramework=%3E(GenericCollection.this.PipelineOperator,List[GenericCollection.this.PipelineOperator]))(implicitec:scala.concurrent.ExecutionContext,implicitreader:GenericCollection.this.pack.Reader[T]):scala.concurrent.Future[reactivemongo.api.Cursor[T]]) can be processed in a streaming way, using the [cursor option](https://docs.mongodb.org/manual/reference/command/aggregate/).
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
@@ -888,7 +888,7 @@ def importJson(collection: JSONCollection, resource: String): Future[Int] =
     map(_.totalN)
 {% endhighlight %}
 
-In order to comply with the [extended JSON syntax for the timestamps](https://docs.mongodb.com/manual/reference/mongodb-extended-json/#data_timestamp), [`BSONTimestamp`](../../api/index.html#reactivemongo.bson.BSONTimestamp) values are written with both `$time` and `$timestamp` formats.
+In order to comply with the [extended JSON syntax for the timestamps](https://docs.mongodb.com/manual/reference/mongodb-extended-json/#data_timestamp), [`BSONTimestamp`](../api/index.html#reactivemongo.bson.BSONTimestamp) values are written with both `$time` and `$timestamp` formats.
 
 {% highlight javascript %}
 {
@@ -901,7 +901,7 @@ In order to comply with the [extended JSON syntax for the timestamps](https://do
 
 These two formats are also supported when reading from JSON.
 
-The extended syntax is also supported for the [`BSONMinKey`](../../api/index.html#reactivemongo.bson.BSONMinKey$) and the [`BSONMaxKey`](../../api/index.html#reactivemongo.bson.BSONMaxKey$).
+The extended syntax is also supported for the [`BSONMinKey`](../api/index.html#reactivemongo.bson.BSONMinKey$) and the [`BSONMaxKey`](../api/index.html#reactivemongo.bson.BSONMaxKey$).
 
 {% highlight javascript %}
 {
@@ -912,7 +912,7 @@ The extended syntax is also supported for the [`BSONMinKey`](../../api/index.htm
 
 New functions from the `BSONFormats` provides JSON formats derived from BSON handlers.
 
-- The [`jsonOFormat`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.11/{{page.major_version}}/reactivemongo-play-json_2.11-{{page.major_version}}-javadoc.jar/!/index.html#reactivemongo.play.json.BSONFormats$@jsonOFormat[T](implicitevidence$1:reactivemongo.bson.BSONDocumentWriter[T],implicitevidence$2:reactivemongo.bson.BSONDocumentReader[T]):play.api.libs.json.OFormat[T]) derives a [`BSONHandler`](../../api/index.html#reactivemongo.bson.BSONHandler) as a Play [`OFormat`](https://www.playframework.com/documentation/2.4.0/api/scala/index.html#play.api.libs.json.OFormat), to map JSON objects and BSON documents.
+- The [`jsonOFormat`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.11/{{page.major_version}}/reactivemongo-play-json_2.11-{{page.major_version}}-javadoc.jar/!/index.html#reactivemongo.play.json.BSONFormats$@jsonOFormat[T](implicitevidence$1:reactivemongo.bson.BSONDocumentWriter[T],implicitevidence$2:reactivemongo.bson.BSONDocumentReader[T]):play.api.libs.json.OFormat[T]) derives a [`BSONHandler`](../api/index.html#reactivemongo.bson.BSONHandler) as a Play [`OFormat`](https://www.playframework.com/documentation/2.4.0/api/scala/index.html#play.api.libs.json.OFormat), to map JSON objects and BSON documents.
 - The similar [`jsonFormat`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.11/{{page.major_version}}/reactivemongo-play-json_2.11-{{page.major_version}}-javadoc.jar/!/index.html#reactivemongo.play.json.BSONFormats$@jsonFormat[T](implicith:reactivemongo.bson.BSONHandler[_%3C:reactivemongo.bson.BSONValue,T]):play.api.libs.json.Format[T]) derives a `BSONWriter` and its corresponding `BSONReader` to provide a Play `Format`.
 - The write-only `jsonOWrites` and `jsonWrites`, and also the read-only `jsonReads`.
 
@@ -1187,7 +1187,7 @@ A new [JMX](https://en.wikipedia.org/wiki/Java_Management_Extensions) module is 
 
 The internal [Netty](http://netty.io/) dependency has been updated to the version 3.10.4, and is now [shaded](http://forgegradle.readthedocs.io/en/latest/user-guide/shading/) to avoid conflict ([dependency hell](https://en.wikipedia.org/wiki/Dependency_hell)).
 
-[![Test coverage](https://img.shields.io/badge/coverage-60%25-yellowgreen.svg)](https://reactivemongo.github.io/ReactiveMongo/coverage/0.12.0/)
+[![Test coverage](https://img.shields.io/badge/coverage-60%25-yellowgreen.svg)](https://reactivemongo.github.io/ReactiveMongo/coverage/{{site._0_12_latest_minor}}/)
 
 ### Breaking changes
 
@@ -1204,7 +1204,7 @@ For the current 0.12 release, it has detected the following breaking changes.
   * method `ask(reactivemongo.core.protocol.RequestMaker,Boolean)` is removed
   * method `waitForPrimary(scala.concurrent.duration.FiniteDuration)` is removed
 
-Since [release 0.11](../../0.11/documentation/release-details.html), the package [`reactivemongo.api.collections.default`](http://reactivemongo.org/releases/0.10/api/index.html#reactivemongo.api.collections.default.package) has been refactored as the package [`reactivemongo.api.collections.bson`](http://reactivemongo.org/releases/0.11/api/index.html#reactivemongo.api.collections.bson.package).
+Since [release 0.11](../../0.11/documentation/release-details.html), the package [`reactivemongo.api.collections.default`](../../0.10/api/index.html#reactivemongo.api.collections.default.package) has been refactored as the package [`reactivemongo.api.collections.bson`](http://reactivemongo.org/releases/0.11/api/index.html#reactivemongo.api.collections.bson.package).
 If you get a compilation error like the following one, you need to update the corresponding imports.
 
 {% highlight text %}
@@ -1231,7 +1231,7 @@ In the class [`Upserted`](../api/index.html#reactivemongo.api.commands.Upserted)
 - The constructor has changed; was `(Int, java.lang.Object)`, is now: `(Int, reactivemongo.bson.BSONValue)`.
 - The field `_id`  has now a different result type; was: `java.lang.Object`, is now: `reactivemongo.bson.BSONValue`.
 
-In the case class [`GetLastError.TagSet`](reactivemongo.api.commands.GetLastError$$TagSet), the field `s`  is renamed to `tag`.
+In the case class [`GetLastError.TagSet`](../api/index.html#reactivemongo.api.commands.GetLastError$$TagSet), the field `s`  is renamed to `tag`.
 
 The exception case objects [`NodeSetNotReachable`](../api/index.html#reactivemongo.core.actors.Exceptions$@NodeSetNotReachable), [`NodeSetNotReachable`](../api/index.html#reactivemongo.core.actors.Exceptions$@PrimaryUnavailableExceptionextendsExceptionwithDriverExceptionwithNoStackTrace), [`ChannelNotFound`](../api/index.html#reactivemongo.core.actors.Exceptions$@ChannelNotFoundextendsExceptionwithDriverExceptionwithNoStackTrace) and [`ClosedException`](../api/index.html#reactivemongo.core.actors.Exceptions$@ClosedException) have been refactored as sealed classes. When try to catch such exception the class type must be used, rather than the object patterns.
 

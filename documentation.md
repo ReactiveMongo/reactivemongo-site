@@ -19,7 +19,6 @@ title: Documentation
     * [Documentation](/releases/0.10.5/documentation/index.html)
     * [API](/releases/0.10.5/api/index.html)
   * [0.10](/releases/0.10/documentation/index.html)
-  * [0.9](/releases/0.9/notes.html)
 
 ## Resources
 

@@ -194,7 +194,7 @@ The synchronous [`.db` has been deprecated](../release-details.html#database-res
 method db in class MongoConnection is deprecated: Must use [[database]]
 {% endhighlight %}
 
-The new [`.database` resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) must be used (see [connection tutorial](tutorial/connect-database.html)).
+The new [`.database` resolution](../../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) must be used (see [connection tutorial](./connect-database.html)).
 
 If the deprecated database resolution is still used, a runtime error such as `ConnectionNotInitialized` can be raised when querying documents.
 

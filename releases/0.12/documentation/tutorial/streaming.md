@@ -24,10 +24,10 @@ libraryDependencies += "org.reactivemongo" %% "reactivemongo-akkastream" % "{{si
 
 The main features of this modules are as follows.
 
-- Get a [`Source`](https://reactivemongo.github.io/ReactiveMongo-Streaming/0.12/akka-stream/api/index.html#reactivemongo.akkastream.AkkaStreamCursor@documentSource(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Option[T]])(implicitm:akka.stream.Materializer):akka.stream.scaladsl.Source[T,akka.NotUsed]) of documents from a ReactiveMongo cursor. This is a document producer.
-- Run with a [`Flow`](doc.akka.io/api/akka/2.4.8/#akka.stream.javadsl.Flow) or a [`Sink`](doc.akka.io/api/akka/2.4.8/#akka.stream.javadsl.Sink), which will consume the documents, with possible transformation.
+- Get a [`Source`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.11/{{site._0_12_latest_minor}}/reactivemongo-akkastream_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.akkastream.AkkaStreamCursor@documentSource(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Option[T]])(implicitm:akka.stream.Materializer):akka.stream.scaladsl.Source[T,akka.NotUsed]) of documents from a ReactiveMongo cursor. This is a document producer.
+- Run with a [`Flow`](http://doc.akka.io/api/akka/2.4.10/#akka.stream.javadsl.Flow) or a [`Sink`](http://doc.akka.io/api/akka/2.4.10/#akka.stream.javadsl.Sink), which will consume the documents, with possible transformation.
 
-To use the Akka Stream support for the ReactiveMongo cursors, [`reactivemongo.play.akkastream.cursorProducer`](https://reactivemongo.github.io/ReactiveMongo-Streaming/0.12/akka-stream/api/index.html#reactivemongo.akkastream.package$$cursorFlattener$) must be imported.
+To use the Akka Stream support for the ReactiveMongo cursors, [`reactivemongo.play.akkastream.cursorProducer`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.11/{{site._0_12_latest_minor}}/reactivemongo-akkastream_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.akkastream.package$$cursorFlattener$) must be imported.
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -50,7 +50,7 @@ def processPerson1(collection: BSONCollection, query: BSONDocument)(implicit m: 
 }
 {% endhighlight %}
 
-The operation [`AkkaStreamCursor.documentSource`](https://reactivemongo.github.io/ReactiveMongo-Streaming/0.12/akka-stream/api/index.html#reactivemongo.akkastream.AkkaStreamCursor@documentSource(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Option[T]])(implicitm:akka.stream.Materializer):akka.stream.scaladsl.Source[T,akka.NotUsed]) returns an `Source[T, NotUsed]`. In this case, we get a producer of documents (of type `BSONDocument`).
+The operation [`AkkaStreamCursor.documentSource`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.11/{{site._0_12_latest_minor}}/reactivemongo-akkastream_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.akkastream.AkkaStreamCursor@documentSource(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Option[T]])(implicitm:akka.stream.Materializer):akka.stream.scaladsl.Source[T,akka.NotUsed]) returns an `Source[T, NotUsed]`. In this case, we get a producer of documents (of type `BSONDocument`).
 
 Now that we have the producer, we need to define how the documents are processed, using a `Sink` or a `Flow` (with transformations).
 
@@ -90,7 +90,7 @@ def processPerson2(sourceOfPeople: Source[BSONDocument, NotUsed])(implicit m: Ma
 
 The `cumulateAge` sink extracts the age from the each document, and add it the current result. At the same time, it counts the processed documents. When the `cumulated` age is completed, it is divided by the number of documents to get the mean age.
 
-[More: **ReactiveMongo AkkaStream API**](https://reactivemongo.github.io/ReactiveMongo-Streaming/0.12/akka-stream/api/#package)
+[More: **ReactiveMongo AkkaStream API**](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.11/{{site._0_12_latest_minor}}/reactivemongo-akkastream_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#package)
 
 ### Play Iteratees
 
@@ -108,11 +108,11 @@ libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play-iteratees" % playVer)
 {% endhighlight %}
 
-To use the Iteratees support for the ReactiveMongo cursors, [`reactivemongo.play.iteratees.cursorProducer`](../../api/index.html#reactivemongo.play.iteratees.package@cursorProducer[T]:reactivemongo.api.CursorProducer[T]{typeProducedCursor=reactivemongo.play.iteratees.PlayIterateesCursor[T]}) must be imported.
+To use the Iteratees support for the ReactiveMongo cursors, [`reactivemongo.play.iteratees.cursorProducer`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-iteratees_2.11/{{site._0_12_latest_minor}}/reactivemongo-iteratees_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.play.iteratees.package@cursorProducer[T]:reactivemongo.api.CursorProducer[T]{typeProducedCursor=reactivemongo.play.iteratees.PlayIterateesCursor[T]}) must be imported.
 
 Then the corresponding operations are available on the cursors.
 
-- Get an [`Enumerator`](../../api/index.html#reactivemongo.play.iteratees.PlayIterateesCursor@enumerator(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Unit])(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[T]) of documents from ReactiveMongo. This is a producer of data.
+- Get an [`Enumerator`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-iteratees_2.11/{{site._0_12_latest_minor}}/reactivemongo-iteratees_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.play.iteratees.PlayIterateesCursor@enumerator(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Unit])(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[T]) of documents from ReactiveMongo. This is a producer of data.
 - Run an `Iteratee` (that we build for this purpose), which will consume data and eventually produce a result.
 
 {% highlight scala %}
@@ -142,7 +142,7 @@ def processPerson3(collection: BSONCollection, query: BSONDocument): Future[Unit
 }
 {% endhighlight %}
 
-The operation [`PlayIterateesCursor.enumerator`](../../api/index.html#reactivemongo.play.iteratees.PlayIterateesCursor@enumerator(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Unit])(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[T]) returns an `Enumerator[T]`. In this case, we get a producer of documents (of type `BSONDocument`).
+The operation [`PlayIterateesCursor.enumerator`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-iteratees_2.11/{{site._0_12_latest_minor}}/reactivemongo-iteratees_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.play.iteratees.PlayIterateesCursor@enumerator(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Unit])(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[T]) returns an `Enumerator[T]`. In this case, we get a producer of documents (of type `BSONDocument`).
 
 Now that we have the producer, we need to define how the documents are processed: that is the Iteratee's job. Iteratees, as the opposite of Enumerators, are consumers: they are fed in by enumerators and do some computation with the chunks they get.
 
@@ -206,7 +206,7 @@ def processPerson4(enumeratorOfPeople: Enumerator[BSONDocument]) = {
 
 At each step, this Iteratee will extract the age from the document and add it to the current result. It also counts the number of documents processed. It eventually produces a tuple of two integers; in our case `(173, 3)`. When the `cumulated` age is completed, we divide it by the number of documents to get the mean age.
 
-[More: **ReactiveMongo Iteratees API**](../../api/#reactivemongo.play.iteratees.package)
+[More: **ReactiveMongo Iteratees API**](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-iteratees_2.11/{{site._0_12_latest_minor}}/reactivemongo-iteratees_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.play.iteratees.package)
 
 ### Custom streaming
 

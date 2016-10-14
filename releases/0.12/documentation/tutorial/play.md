@@ -20,7 +20,7 @@ libraryDependencies ++= Seq(
 
 // only for Play 2.4.x
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._0_12_latest_minor}}-play23"
+  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._0_12_latest_minor}}-play24"
 )
 {% endhighlight %}
 
@@ -30,17 +30,9 @@ libraryDependencies ++= Seq(
 
 As for Play 2.4 itself, this ReactiveMongo plugin requires a JVM 1.8+.
 
-If you are looking for a stable version for Play 2.3.x, please consider using the 0.11.14-play23 version:
+The [API of this Play module](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_2.11/{{site._0_12_latest_minor}}/play2-reactivemongo_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html) can be browsed online.
 
-{% highlight ocaml %}
-libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.14-play23"
-)
-{% endhighlight %}
-
-The [API of this Play module](../../play-api/index.html) can be browsed online.
-
-The API for the standalone JSON serialization is [also available](../../json-api/index.html).
+The API for the standalone JSON serialization is [also available](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.11/{{site._0_12_latest_minor}}/reactivemongo-play-json_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html).
 
 If you want to use the latest snapshot, add the following instead (only for play > 2.4):
 

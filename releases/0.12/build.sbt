@@ -6,7 +6,7 @@ val majorVer = "0.12"
 
 version := majorVer
 
-val Release = s"${majorVer}.0-SNAPSHOT"
+val Release = s"${majorVer}.0"
 
 scalaVersion := "2.11.8"
 
@@ -15,7 +15,7 @@ libraryDependencies ++= Seq(
   "reactivemongo-iteratees", "reactivemongo-akkastream").map(
   "org.reactivemongo" %% _ % Release changing())
 
-libraryDependencies += "com.typesafe.play" %% "play" % "2.5.8"
+libraryDependencies += "com.typesafe.play" %% "play" % "2.5.9"
 
 resolvers ++= Seq(
   "Typesafe releases" at "http://repo.typesafe.com/typesafe/releases/",

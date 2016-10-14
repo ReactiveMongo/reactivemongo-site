@@ -14,6 +14,11 @@ export GEM_PATH="$HOME/.gem/ruby/2.2.0:$GEM_PATH"
 # Sonatype staging (avoid Central sync delay)
 perl -pe "s|resolvers |resolvers in ThisBuild += \"Sonatype Staging\" at \"https://oss.sonatype.org/content/repositories/staging/\",\r\nresolvers |" < "$SCRIPT_DIR/../build.sbt" > /tmp/build.sbt && mv /tmp/build.sbt "$SCRIPT_DIR/../build.sbt"
 
+R=0
+for REPO in `curl -s https://oss.sonatype.org/content/repositories/ | grep 'href="https://oss.sonatype.org/content/repositories/orgreactivemongo' | cut -d '"' -f 2`; do
+  perl -pe "s|resolvers |resolvers += \"Staging $R\" at \"$REPO\",\r\nresolvers |" < "$SCRIPT_DIR/../build.sbt" > /tmp/build.sbt && mv /tmp/build.sbt "$SCRIPT_DIR/../build.sbt"
+done
+
 SBT_JAR="$HOME/.sbt/launchers/$SBT_VER/sbt-launch.jar"
 
 (java $SBT_OPTS -jar "$SBT_JAR" compile && \
@@ -34,7 +39,9 @@ done
 
 echo "# Generated HTML normalized (for wget compat)"
 
-wget -nv -e robots=off -Dlocalhost --follow-tags=a -r --spider http://localhost:4000
+wget -nv -e robots=off --follow-tags=a -r --spider \
+  -Dlocalhost -Xreleases/0.12/api -Xreleases/0.10/api \
+  -Xreleases/0.11/api -Xreleases/0.10.5/api http://localhost:4000
 RES=$?
 
 echo "# Documentation checked for broken links"
