@@ -3,8 +3,8 @@ name: "ReactiveMongo"
 description: "The reactive Scala driver for MongoDB"
 url: http://reactivemongo.org/
 markdown: kramdown
-latest_major_release: 0.11
-latest_release: 0.11.14
+latest_major_release: 0.12
+latest_release: 0.12.0
 exclude: [vendor]
 gems:
   - jekyll-sitemap

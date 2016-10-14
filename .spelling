@@ -65,6 +65,7 @@ Maven
 LastError
 
 # Tech terms
+URIs
 MVC
 SHA1
 MD5
@@ -165,6 +166,25 @@ implicitm
 akka.stream.Materializer
 akka.stream.scaladsl.Source
 akka.NotUsed
+implicitreadFileReader
+GridFS.this.pack.Reader
+GridFS.this.ReadFile
+implicitidProducer
+reactivemongo.api.gridfs.IdProducer
+implicitdocWriter
+reactivemongo.bson.BSONDocumentWriter
+file.pack.Document
+GridFS.this.ReadFile
+implicitreadFileReader
+GridFS.this.pack.Reader
+GridFS.this.ReadFile
+implicitidProducer
+reactivemongo.api.gridfs.IdProducer
+implicitdocWriter
+reactivemongo.bson.BSONDocumentWriter
+file.pack.Document
+GridFS.this.pack.Writer
+implicitidProducer
 
 # Geo
 JP

@@ -276,7 +276,7 @@ If one of the error is seen, first retry/refresh to check it wasn't a temporary 
 
 **Additional actions:**
 
-With the [ReactiveMongo logging](http://reactivemongo.org/releases/0.12/documentation/tutorial/setup.html#logging) enabled, more details can be found (see a trace example thereafter).
+With the [ReactiveMongo logging](./setup.html#logging) enabled, more details can be found (see a trace example thereafter).
 
 {% highlight text %}{% raw %}
 reactivemongo.core.actors.Exceptions$InternalState: null (<time:1469208071685>:-1)

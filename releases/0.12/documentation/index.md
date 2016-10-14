@@ -16,7 +16,7 @@ libraryDependencies ++= Seq(
 {% endhighlight %}
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.12/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.12/)
-[![Test coverage](https://img.shields.io/badge/coverage-60%25-yellowgreen.svg)](reactivemongo.github.io/ReactiveMongo/coverage/0.12.0/)
+[![Test coverage](https://img.shields.io/badge/coverage-60%25-yellowgreen.svg)](http://reactivemongo.github.io/ReactiveMongo/coverage/{{site._0_12_latest_minor}}/)
 
 > MongoDB versions older than 2.6 are no longer supported by ReactiveMongo, as the End of Life for MongoDB 2.4 was reached in [April 2015](https://www.mongodb.com/support-policy).
 
@@ -27,8 +27,8 @@ The various API of the ReactiveMongo driver itself, and also of the related libr
 - [Driver API](../api/index.html): Core driver, BSON
 - [Play JSON API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.11/{{site._0_12_latest_minor}}/reactivemongo-play-json_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html)
 - [Play module API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_2.11/{{site._0_12_latest_minor}}/play2-reactivemongo_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html)
-- ReactiveMongo [AkkaStream](https://reactivemongo.github.io/ReactiveMongo-Streaming/{{site._0_12_latest_minor}}/akka-stream/api/)
-- ReactiveMongo [Iteratees](https://reactivemongo.github.io/ReactiveMongo-Streaming/{{site._0_12_latest_minor}}/iteratees/api/)
+- ReactiveMongo [AkkaStream](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.11/{{site._0_12_latest_minor}}/reactivemongo-akkastream_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html)
+- ReactiveMongo [Iteratees](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-iteratees_2.11/{{site._0_12_latest_minor}}/reactivemongo-iteratees_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html)
 
 **Recommended configuration:**
 

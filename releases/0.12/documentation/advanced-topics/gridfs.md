@@ -123,7 +123,7 @@ def removeFrom(
 
 **See also:**
 
-- Some [GridFS tests](https://github.com/ReactiveMongo/ReactiveMongo/blob/0.12-RC6/driver/src/test/scala/GridfsSpec.scala)
+- Some [GridFS tests](https://github.com/ReactiveMongo/ReactiveMongo/blob/{{site._0_12_latest_minor}}/driver/src/test/scala/GridfsSpec.scala)
 - An [example with Play](../tutorial/play.html#helpers-for-gridfs)
 
 ### Troubleshooting
