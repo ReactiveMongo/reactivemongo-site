@@ -11,16 +11,19 @@ title: Release details
 The documentation is available [online](index.html), and its code samples are compiled to make sure it's up-to-date.
 
 - [Compatibility](#compatibility)
-- [Database resolution](#database-resolution)
+- [Connection pool](#connection-pool)
+  - [Database resolution](#database-resolution)
+  - [Connection options](#connection-options)
 - [Query and write operations](#query-and-write-operations)
+- [BSON library](#bson-library)
 - [Streaming](#streaming)
   - [Akka Stream](#akka-stream)
   - [Aggregated streams](#aggregated-streams)
   - [Custom streaming](#custom-streaming)
-- [BSON](#bson)
 - [Aggregation](#aggregation)
 - [Play Framework](#play-framework)
   - [JSON serialization](#json-serialization)
+  - [Dependency injection](#dependency-injection)
   - [MVC integration](#mvc-integration)
   - [Routing](#routing)
   - [Play Iteratees](#play-iteratees)
@@ -32,12 +35,15 @@ The documentation is available [online](index.html), and its code samples are co
 
 > The next release will be 1.0.0 (not 0.13.0).
 
+The impatient can have a look at the [release slideshow](../slideshow.html).
+
 ### Compatibility
 
 This release is compatible with the following runtime.
 
-- The [MongoDB](https://www.mongodb.org/) from 2.6 up to 3.2.
+- [MongoDB](https://www.mongodb.org/) from 2.6 up to 3.2.
 - [Akka](http://akka.io/) from 2.3.13 up to 2.4.x (see [Setup](./tutorial/setup.html))
+- [Play Framework](https://playframework.com) from 2.3.13 to 2.5.9
 
 > MongoDB versions older than 2.6 are not longer supported by ReactiveMongo.
 
@@ -50,7 +56,11 @@ The driver core and the modules are tested in a [container based environment](ht
 
 This can be considered as a recommended environment.
 
-### Database resolution
+### Connection pool
+
+The way ReactiveMongo manages the connection pool has been improved.
+
+#### Database resolution
 
 A new better [DB resolution](../api/index.html#reactivemongo.api.MongoConnection@database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) is available (see [connection tutorial](tutorial/connect-database.html)).
 
@@ -74,6 +84,8 @@ It's generally a good practice not to assign the database and collection referen
 
 Consequently to this change, a runtime error such as `ConnectionNotInitialized` can be raised when calling a database or collection operation (e.g. `collection.find(..)`), if the *deprecated database resolution is still used*.
 
+#### Connection options
+
 Some default [read preference](https://docs.mongodb.org/manual/core/read-preference/) and default [write concern](https://docs.mongodb.org/manual/reference/write-concern/) can be set in the [connection configuration](tutorial/connect-database.html).
 
 {% highlight scala %}
@@ -82,7 +94,7 @@ import reactivemongo.api._, commands.WriteConcern
 def connection(driver: MongoDriver) =
   driver.connection(List("localhost"), options = MongoConnectionOptions(
     readPreference = ReadPreference.primary,
-    writeConcern = WriteConcern.Default
+    writeConcern = WriteConcern.Default // Acknowledged
   ))
 {% endhighlight %}
 
@@ -149,6 +161,8 @@ def findAndModifyTests(coll: BSONCollection) = {
 }
 {% endhighlight %}
 
+In the previous example, the `findAndModify` is used to find and update the person whose name is Joline by setting its age to 35, and it's also used to remove the document about Jack.
+
 The `findAndModify` can be performed more easily to find and update documents, using [`findAndUpdate`](../api/index.html#reactivemongo.api.collections.GenericCollection@findAndUpdate[Q,U]%28selector:Q,update:U,fetchNewObject:Boolean,upsert:Boolean,sort:Option[GenericCollection.this.pack.Document]%29%28implicitselectorWriter:GenericCollection.this.pack.Writer[Q],implicitupdateWriter:GenericCollection.this.pack.Writer[U],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[GenericCollection.this.BatchCommands.FindAndModifyCommand.FindAndModifyResult]).
 
 {% highlight scala %}
@@ -202,7 +216,7 @@ trait PersonService {
 }
 {% endhighlight %}
 
-The field [`maxTimeMs`](https://docs.mongodb.org/manual/reference/method/cursor.maxTimeMS/) is supported by the [query builder](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@maxTimeMs%28p:Long%29:GenericQueryBuilder.this.Self), to specify a cumulative time limit in milliseconds for the processing of the operations.
+The option [`maxTimeMs`](https://docs.mongodb.org/manual/reference/method/cursor.maxTimeMS/) is supported by the [query builder](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@maxTimeMs%28p:Long%29:GenericQueryBuilder.this.Self), to specify a cumulative time limit in milliseconds for the processing of the operations.
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
@@ -274,6 +288,130 @@ The same approach can be used with [`CommandError`](../api/index.html#reactivemo
 **GridFS:**
 
 The [`GridFS`](../api/index.html#reactivemongo.api.gridfs.GridFS) provides the new `saveWithMD5` and `iterateeWithMD5`, which automatically compute the MD5 digested while storing data.
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+
+import play.api.libs.iteratee.Enumerator
+
+import reactivemongo.api.BSONSerializationPack
+import reactivemongo.api.gridfs.{ DefaultFileToSave, GridFS }
+import reactivemongo.api.gridfs.Implicits._
+import reactivemongo.bson.BSONValue
+
+type BSONFile = 
+  reactivemongo.api.gridfs.ReadFile[BSONSerializationPack.type, BSONValue]
+
+def saveWithComputedMD5(
+  gridfs: GridFS[BSONSerializationPack.type],
+  filename: String, 
+  contentType: Option[String], 
+  data: Enumerator[Array[Byte]]
+)(implicit ec: ExecutionContext): Future[BSONFile] = {
+  // Prepare the GridFS object to the file to be pushed
+  val gridfsObj = DefaultFileToSave(Some(filename), contentType)
+
+  gridfs.saveWithMD5(data, gridfsObj)
+}
+{% endhighlight %}
+
+### BSON library
+
+The BSON library for ReactiveMongo has been updated.
+
+A [BSON handler](../api/index.html#reactivemongo.bson.BSONHandler) is provided to respectively, read a [`java.util.Date`](http://docs.oracle.com/javase/8/docs/api/java/util/Date.html) from a [`BSONDateTime`](../api/reactivemongo/bson/BSONDateTime.html), and write a `Date` as `BSONDateTime`.
+
+{% highlight scala %}
+import java.util.Date
+import reactivemongo.bson._
+
+def foo(doc: BSONDocument): Option[Date] = doc.getAs[Date]("aBsonDateTime")
+
+def bar(date: Date): BSONDocument = BSONDocument("aBsonDateTime" -> date)
+{% endhighlight %}
+
+The traits [`BSONReader`](../api/index.html#reactivemongo.bson.BSONReader) and [`BSONWriter`](../api/index.html#reactivemongo.bson.BSONWriter) have new combinators, so new instances can be easily defined using the existing ones.
+
+{% highlight scala %}
+import reactivemongo.bson._
+
+sealed trait MyEnum
+object EnumValA extends MyEnum
+object EnumValB extends MyEnum
+
+implicit def MyEnumReader(implicit underlying: BSONReader[BSONString, String]): BSONReader[BSONString, MyEnum] = underlying.afterRead {
+  case "A" => EnumValA
+  case "B" => EnumValB
+  case v => sys.error(s"unexpected value: $v")
+}
+
+implicit def MyEnumWriter(implicit underlying: BSONWriter[String, BSONString]): BSONWriter[MyEnum, BSONString] = underlying.beforeWrite[MyEnum] {
+  case EnumValA => "A"
+  case _ => "B"
+}
+{% endhighlight %}
+
+The companion objects for [`BSONDocumentReader`](../api/index.html#reactivemongo.bson.BSONDocumentReader) and [`BSONDocumentWriter`](../api/index.html#reactivemongo.bson.BSONDocumentWriter) provides new factories.
+
+{% highlight scala %}
+import reactivemongo.bson.{
+  BSONDocument, BSONDocumentReader, BSONDocumentWriter, BSONNumberLike
+}
+
+case class Foo(bar: String, lorem: Int)
+
+val w1 = BSONDocumentWriter[Foo] { foo =>
+  BSONDocument("_bar" -> foo.bar, "ipsum" -> foo.lorem)
+}
+
+val r1 = BSONDocumentReader[Foo] { doc =>
+  (for {
+    bar <- doc.getAsTry[String]("_bar")
+    lorem <- doc.getAsTry[BSONNumberLike]("ipsum").map(_.toInt)
+  } yield Foo(bar, lorem)).get
+}
+{% endhighlight %}
+
+The new instances of [`BSONTimestamp`](../api/index.html#reactivemongo.bson.BSONTimestamp) can be created from a raw numeric value, representing the milliseconds timestamp, with the `time` and `ordinal` properties being extracted.
+
+{% highlight scala %}
+import reactivemongo.bson.BSONTimestamp
+
+def foo(millis: Long) = BSONTimestamp(millis)
+
+// or...
+def bar(time: Long, ordinal: Int) = BSONTimestamp(time, ordinal)
+{% endhighlight %}
+
+The generic types are now supported:
+
+{% highlight scala %}
+case class GenFoo[T](bar: T, lorem: Int)
+
+reactivemongo.bson.Macros.reader[GenFoo[String]]
+{% endhighlight %}
+
+Some undocumented macro features, such as **union types** and sealed trait support are now [explained](./bson/typeclasses.html#helpful-macros).
+
+{% highlight scala %}
+import reactivemongo.bson.{ BSONDocument, BSONHandler, Macros }
+
+sealed trait Tree
+case class Node(left: Tree, right: Tree) extends Tree
+case class Leaf(data: String) extends Tree
+
+object Tree {
+  implicit val bson: BSONHandler[BSONDocument, Tree] = Macros.handler[Tree]
+}
+{% endhighlight %}
+
+Taking care of backward compatibility, a refactoring of the BSON types has been started.
+
+- The type alias `BSONElement` has been promoted to a [trait](../api/index.html#reactivemongo.bson.BSONElement).
+- A new sealed family is introduced by the [`ElementProducer`](../api/index.html#reactivemongo.bson.ElementProducer) trait, implemented by `BSONElement` (that produces a single element) and `BSONElementSet`, whose instances can produce many BSON elements (`ElementProducer` can be considered as a monoid with its [composition operation](../api/index.html#reactivemongo.bson.ElementProducer$@Composition) and its [identity instance](../api/index.html#reactivemongo.bson.ElementProducer$@Empty)).
+- The [`BSONElementSet`](../api/index.html#reactivemongo.bson.BSONElementSet) trait now gathers `BSONDocument` and `BSONArray`, with new operations such `prepend`, `headOption`.
+
+[More: **BSON Library overview**](./bson/overview.html)
 
 ### Streaming
 
@@ -384,90 +522,6 @@ Some convenient error handlers are provided along with the driver:
 - [`ContOnError`](../api/index.html#reactivemongo.api.Cursor$@ContOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]) (skip all errors),
 - [`DoneOnError`](../api/index.html#reactivemongo.api.Cursor$@DoneOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]) (stop quietly on the first error),
 - and [`FailOnError`](../api/index.html#reactivemongo.api.Cursor$@FailOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]) (fail on the first error).
-
-### BSON
-
-A [BSON handler](../api/index.html#reactivemongo.bson.BSONHandler) is provided to respectively, read a [`java.util.Date`](http://docs.oracle.com/javase/8/docs/api/java/util/Date.html) from a [`BSONDateTime`](../api/reactivemongo/bson/BSONDateTime.html), and write a `Date` as `BSONDateTime`.
-
-{% highlight scala %}
-import java.util.Date
-import reactivemongo.bson._
-
-def foo(doc: BSONDocument): Option[Date] = doc.getAs[Date]("aBsonDateTime")
-
-def bar(date: Date): BSONDocument = BSONDocument("aBsonDateTime" -> date)
-{% endhighlight %}
-
-The traits [`BSONReader`](../api/index.html#reactivemongo.bson.BSONReader) and [`BSONWriter`](../api/index.html#reactivemongo.bson.BSONWriter) have new combinators, so new instances can be easily defined using the existing ones.
-
-{% highlight scala %}
-import reactivemongo.bson._
-
-sealed trait MyEnum
-object EnumValA extends MyEnum
-object EnumValB extends MyEnum
-
-implicit def MyEnumReader(implicit underlying: BSONReader[BSONString, String]): BSONReader[BSONString, MyEnum] = underlying.afterRead {
-  case "A" => EnumValA
-  case "B" => EnumValB
-  case v => sys.error(s"unexpected value: $v")
-}
-
-implicit def MyEnumWriter(implicit underlying: BSONWriter[String, BSONString]): BSONWriter[MyEnum, BSONString] = underlying.beforeWrite[MyEnum] {
-  case EnumValA => "A"
-  case _ => "B"
-}
-{% endhighlight %}
-
-The companion objects for [`BSONDocumentReader`](../api/index.html#reactivemongo.bson.BSONDocumentReader) and [`BSONDocumentWriter`](../api/index.html#reactivemongo.bson.BSONDocumentWriter) provides new factories.
-
-{% highlight scala %}
-import reactivemongo.bson.{
-  BSONDocument, BSONDocumentReader, BSONDocumentWriter, BSONNumberLike
-}
-
-case class Foo(bar: String, lorem: Int)
-
-val w1 = BSONDocumentWriter[Foo] { foo =>
-  BSONDocument("_bar" -> foo.bar, "ipsum" -> foo.lorem)
-}
-
-val r1 = BSONDocumentReader[Foo] { doc =>
-  (for {
-    bar <- doc.getAsTry[String]("_bar")
-    lorem <- doc.getAsTry[BSONNumberLike]("ipsum").map(_.toInt)
-  } yield Foo(bar, lorem)).get
-}
-{% endhighlight %}
-
-The new instances of [`BSONTimestamp`](../api/index.html#reactivemongo.bson.BSONTimestamp) can be created from a raw numeric value, representing the milliseconds timestamp, with the `time` and `ordinal` properties being extracted.
-
-{% highlight scala %}
-import reactivemongo.bson.BSONTimestamp
-
-def foo(millis: Long) = BSONTimestamp(millis)
-
-// or...
-def bar(time: Long, ordinal: Int) = BSONTimestamp(time, ordinal)
-{% endhighlight %}
-
-The generic types are now supported:
-
-{% highlight scala %}
-case class GenFoo[T](bar: T, lorem: Int)
-
-reactivemongo.bson.Macros.reader[GenFoo[String]]
-{% endhighlight %}
-
-Some undocumented macro features, such as **union types** and sealed trait support are now [explained](./bson/typeclasses.html#helpful-macros).
-
-Taking care of backward compatibility, a refactoring of the BSON types has been started.
-
-- The type alias `BSONElement` has been promoted to a [trait](../api/index.html#reactivemongo.bson.BSONElement).
-- A new sealed family is introduced by the [`ElementProducer`](../api/index.html#reactivemongo.bson.ElementProducer) trait, implemented by `BSONElement` (that produces a single element) and `BSONElementSet`, whose instances can produce many BSON elements (`ElementProducer` can be considered as a monoid with its [composition operation](../api/index.html#reactivemongo.bson.ElementProducer$@Composition) and its [identity instance](../api/index.html#reactivemongo.bson.ElementProducer$@Empty)).
-- The [`BSONElementSet`](../api/index.html#reactivemongo.bson.BSONElementSet) trait now gathers `BSONDocument` and `BSONArray`, with new operations such `prepend`, `headOption`.
-
-[More: **BSON Library overview**](./bson/overview.html)
 
 ### Aggregation
 
@@ -852,7 +906,7 @@ It's also important to note that the Play support has also been modularized.
 
 #### JSON serialization
 
-There is now a separate [Play JSON library](./json/overview.html), providing the serialization pack without the Play module.
+There is now a standalone [Play JSON library](./json/overview.html), providing a serialization pack that can be used outside a Play application.
 
 This new library increases the JSON support to handle the following BSON types.
 
@@ -916,6 +970,17 @@ New functions from the `BSONFormats` provides JSON formats derived from BSON han
 - The similar [`jsonFormat`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.11/{{page.major_version}}/reactivemongo-play-json_2.11-{{page.major_version}}-javadoc.jar/!/index.html#reactivemongo.play.json.BSONFormats$@jsonFormat[T](implicith:reactivemongo.bson.BSONHandler[_%3C:reactivemongo.bson.BSONValue,T]):play.api.libs.json.Format[T]) derives a `BSONWriter` and its corresponding `BSONReader` to provide a Play `Format`.
 - The write-only `jsonOWrites` and `jsonWrites`, and also the read-only `jsonReads`.
 
+{% highlight scala %}
+import play.api.libs.json.OFormat
+import reactivemongo.bson._
+import reactivemongo.play.json.BSONFormats
+
+def derivesBsonHandlers[T](
+  implicit bsonWriter: BSONDocumentWriter[T],
+  bsonReader: BSONDocumentReader[T]
+): OFormat[T] = BSONFormats.jsonOFormat[T]
+{% endhighlight %}
+
 [More: **JSON overview**](json/overview.html)
 
 #### Dependency injection
@@ -978,6 +1043,8 @@ The [BSON types](bson/overview.html) can be used in the bindings of the Play rou
 For example, consider a Play action as follows.
 
 {% highlight scala %}
+package mine
+
 import play.api.mvc.{ Action, Controller }
 import reactivemongo.bson.BSONObjectID
 
@@ -990,7 +1057,7 @@ class Application extends Controller {
 
 This action can be configured with a [`BSONObjectID`](../api/reactivemongo/bson/BSONObjectID.html) binding, in the `conf/routes` file.
 
-    GET /foo/:id controllers.Application.foo(id: reactivemongo.bson.BSONObjectID)
+    GET /foo/:id mine.Application.foo(id: reactivemongo.bson.BSONObjectID)
 
 When using BSON types in the route bindings, the Play plugin for SBT must be setup (in your `build.sbt` or `project/Build.scala`) to install the appropriate import in the generated routes.
 
@@ -1049,6 +1116,7 @@ The operations to manage a MongoDB instance can be executed using ReactiveMongo.
 The `Database` now has a [`renameCollection`](../api/index.html#reactivemongo.api.DefaultDB@renameCollection[C%3C:reactivemongo.api.Collection](db:String,from:String,to:String,dropExisting:Boolean,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext,implicitproducer:reactivemongo.api.CollectionProducer[C]):scala.concurrent.Future[C]) operation, which can be easily used with the 'admin' database, to rename collections in the other databases.
 
 {% highlight scala %}
+import scala.concurrent.ExecutionContext.Implicits.global
 import reactivemongo.api.DefaultDB
 
 def renameWithSuffix(
@@ -1056,7 +1124,7 @@ def renameWithSuffix(
   otherDb: String,
   collName: String,
   suffix: String
-) = ??? //admin.renameCollection(otherDb, collName, s"$collName-$suffix")
+) = admin.renameCollection(otherDb, collName, s"$collName-$suffix")
 {% endhighlight %}
 
 **Drop collection:**
@@ -1129,7 +1197,7 @@ import reactivemongo.api.commands.CollStatsResult
 def maxSize(coll: BSONCollection)(implicit ec: ExecutionContext): Future[Option[Double]] = coll.stats.map(_.maxSize)
 {% endhighlight %}
 
-**Resync a replica set member:**
+**Resync replica set members:**
 
 The replication command [`resync`](https://docs.mongodb.org/manual/reference/command/resync/) is now provided.
 
