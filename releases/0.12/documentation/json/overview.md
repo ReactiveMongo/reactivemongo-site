@@ -66,6 +66,16 @@ A document is represented by `JsObject`, which is basically an immutable list of
 
 This library provides a specialized collection called [`JSONCollection`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.11/{{site._0_12_latest_minor}}/reactivemongo-play-json_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.play.json.collection.JSONCollection) that deals naturally with `JsValue` and `JsObject`. Thanks to it, you can fetch documents from MongoDB in the Play JSON format, transform them by removing and/or adding some properties, and send them to the client.
 
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+import play.api.libs.json._
+import reactivemongo.play.json._, collection._
+
+def jsonFind(coll: JSONCollection)(implicit ec: ExecutionContext): Future[List[JsObject]] =
+  coll.find(Json.obj()).sort(Json.obj("updated" -> -1)).
+    cursor[JsObject]().collect[List]()
+{% endhighlight %}
+
 Even better, when a client sends a JSON document, you can validate it and transform it before saving it into a MongoDB collection (coast-to-coast approach).
 
 ## JSON cursors

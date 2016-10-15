@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="ReactiveMongo {{site._0_12_latest_minor}}, Reactive Scala Driver for MongoDB" />
+
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" media="only screen and (max-width: 640px) and (max-height: 640px)" href="/css/responsive.css" type="text/css" />
+    <link rel="stylesheet" media="only screen and (max-width: 640px) and (min-height: 600px)" href="/css/responsive.css" type="text/css" />
+
+    <link rel="stylesheet" media="screen and (min-width: 641px), screen and (min-width: 768px) and (min-height: 641px)" href="/css/desktop.css" type="text/css" />
+
+    <link href="/css/syntax.css" rel="stylesheet" type="text/css" />
+
+    <link rel="icon" type="image/png" href="/images/favicon.ico" />
+
+    <title>ReactiveMongo {% include major-version.md %} - {{page.title}}</title>
+
+    <style type="text/css">
+      body.remark-container{background:#e1f0e1}
+      div.remark-slide-container{margin-top:64px}
+      div.remark-slide-content{background:#f4f4f4}
+      .remark-slide-content img{max-width:100%}
+    </style>
+  </head>
+
+  <body>
+    <div id="header" style="position:fixed; top:0px; margin:auto; z-index:100000; width:100%;">
+      <div class="container">
+        <a href="/">
+          <img src="/images/logo.png" style="max-height:64px" />
+        </a>
+        <div style="float:right;color:#59b25b;font:150%/64px 'Source Sans Pro'">{{page.presentation_title}}</div>
+      </div>
+    </div>
+
+    <textarea id="source">
+## ReactiveMongo {{site._0_12_latest_minor}}
+
+**What's new?**
+
+- Connection pool
+- Query and write operations
+- BSON library
+- Streaming
+- Aggregation
+- Play Framework
+- Administration
+- Logging
+- Monitoring
+- Compatibility
+
+---
+### Connection pool
+
+- Database resolution
+  * Initial node set discovery
+  * Depends on environment/network (latency)
+- Connection options
+
+<div style="background:url('//cdn3.iconfinder.com/data/icons/social-media-logos-flat-colorful-1/2048/5360_-_Dzone-512.png');background-position:0 -100px;width:512px;height:312px"> </div>
+
+---
+### Database resolution - Before
+
+**Synchronous:**
+
+```scala
+import reactivemongo.api.{ DB, MongoConnection }
+
+def deprecatedDB(con: MongoConnection) = con.db("db_name")
+```
+
+- Assume >=1 active channel in connection pool
+- Not sure the `DB` reference is immediately usable
+
+---
+### Database resolution - After
+
+**Asynchronous:** `Future[DB]`
+
+```scala
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+import reactivemongo.api.{ DB, MongoConnection }
+
+def newResolution(con: MongoConnection): Future[DB] =
+  con.database(name)
+```
+
+- Reactive handling of resolution success (or failure)
+- Use failover strategy
+
+---
+### Connection options *1/2*
+
+- Set a default [read preference](https://docs.mongodb.org/manual/core/read-preference/) (e.g. `primary`)
+- Set a default [write concern](https://docs.mongodb.org/manual/reference/write-concern/) (e.g. `acknowledged`)
+- Set a default [failover strategy](/releases/0.12/api/index.html#reactivemongo.api.FailoverStrategy) (e.g. 10 retries)
+
+```scala
+import reactivemongo.api._, commands.WriteConcern
+
+def connection(driver: MongoDriver) =
+  driver.connection(List("localhost"), 
+    options = MongoConnectionOptions(
+      readPreference = ReadPreference.primary,
+      writeConcern = WriteConcern.Acknowledged,
+      failoverStrategy = FailoverStrategy(retries = 10)
+    )
+  )
+```
+
+---
+### Connection options *2/2*
+
+- Default authentication is [SCRAM SHA1](https://docs.mongodb.org/manual/core/security-scram-sha-1/)
+- Support for [`maxIdleTimeMS`](https://docs.mongodb.org/manual/reference/connection-string/#urioption.maxIdleTimeMS) (e.g. 2s)
+- New option `monitorRefreshMS`: frequency for pool monitor (e.g. 5s)
+
+```scala
+MongoConnectionOptions(
+  authMode = ScramSha1Authentication // default SCRAM SHA1
+  maxIdleTimeMS = 2000 /* 2s */,
+  monitorRefreshMS = 5000 /* check nodes each 5s */
+)
+```
+
+---
+### Query and write operations
+
+The collection API provides new operations.
+
+- FindAndModify
+- Query builder
+- Error handling
+- GridFS
+
+---
+### Query & write - FindAndModify *1/2*
+
+*Example `findAndUpdate`:* Find Joline and update its age to 35
+
+```scala
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson._
+import reactivemongo.api.collections.bson.BSONCollection
+
+case class Person(
+  firstName: String, lastName: String, age: Int)
+
+object Person {
+  implicit def reader: BSONDocumentReader[Person] =
+    Macros.reader[Person]
+}
+
+def example1(coll: BSONCollection): Future[Option[Person]] =
+  coll.findAndUpdate(
+    BSONDocument("name" -> "Joline"),
+    BSONDocument("$set" -> BSONDocument("age" -> 35)),
+    fetchNewObject = true
+  ).map(_.result[Person])
+```
+
+---
+### Query & write - FindAndModify *2/2*
+
+*Example `findAndRemove`:* Find document about Jack and remove it
+
+```scala
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+def example2(coll: BSONCollection) =
+  coll.findAndRemove(BSONDocument("name" -> "Jack"))
+```
+
+---
+### Query & write - Query builder *1/3*
+
+New **`requireOne`** builder
+
+```scala
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+trait PersonService {
+  def collection: BSONCollection
+
+  def example3(f: String, l: String): Future[Person] = 
+    collection.find(BSONDocument(
+      "firstName" -> f, "lastName" -> l
+    )).requireOne[Person]
+}
+```
+
+---
+### Query & write - Query builder *2/3*
+
+Option **`maxTimeMs`** now supported
+
+*Example:* Make MongoDB stop if find takes more than 1234ms
+
+```scala
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+def example4(coll: BSONCollection) = 
+  coll.find(BSONDocument("foo" -> "bar")).maxTimeMs(1234L)
+```
+
+---
+### Query & write - Query builder *2/3*
+
+Operation **`explain`** to get query plan.
+
+```scala
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+def example5(coll: BSONCollection) =
+  coll.find(BSONDocument.empty).explain().one[BSONDocument]
+```
+
+---
+### Query & write - Error handling *1/2*
+
+Pattern matching utilities for **`WriteResult`**
+
+- `WriteResult.Code`: match by error code
+- `WriteResult.Message`: match by error message
+
+```scala
+import reactivemongo.api.commands.WriteResult 
+
+def example6(res: WriteResult) = res match {
+  case WriteResult.Code(11000) =>
+    println("Match the code 11000")
+    // 11000 code for the Duplicate error
+
+  case WriteResult.Message(
+    "Must match this exact message") =>
+    println("Match the error message")
+
+  case _ => ()
+}
+```
+
+---
+### Query & write - Error handling *2/2*
+
+Pattern matching utilities for **`CommandError`**
+
+- `CommandError.Code`: match by error code
+- `CommandError.Message`: match by error message
+
+```scala
+import reactivemongo.api.commands.CommandError 
+
+def example6(res: CommandError) = res match {
+  case CommandError.Code(11000) =>
+    println("Match the code 11000")
+
+  case CommandError.Message(
+    "Must match this exact message") =>
+    println("Match the error message")
+
+  case _ => ()
+}
+```
+
+---
+### Query & write - GridFS
+
+`GridFS` support provides operations with automatic MD5:<br>`saveWithMD5` & `iterateeWithMD5`
+
+```scala
+import scala.concurrent.{ ExecutionContext, Future }
+
+import play.api.libs.iteratee.Enumerator
+
+import reactivemongo.api._, gridfs._, Implicits._
+import reactivemongo.bson.BSONValue
+
+type BSONFile = reactivemongo.api.gridfs.
+  ReadFile[BSONSerializationPack.type, BSONValue]
+
+def example7(
+  gridfs: GridFS[BSONSerializationPack.type],
+  filename: String, typ: Option[String], 
+  data: Enumerator[Array[Byte]]
+)(implicit ec: ExecutionContext): Future[BSONFile] =
+  gridfs.saveWithMD5(data, 
+    DefaultFileToSave(Some(filename), typ)
+```
+
+---
+### BSON library
+
+Manipulate the BSON values and documents
+
+```javascript
+{
+  _id: 1,
+  MongoDB: "represents JSON documents",
+  in: "binary-encoded format"
+}
+```
+
+---
+### BSON library - `BSONReader`
+
+New combinator **`afterRead`**
+
+*Example:* Reader for `MyEnum` based on the one for BSON string
+
+```scala
+import reactivemongo.bson._
+
+sealed trait MyEnum
+object EnumValA extends MyEnum
+object EnumValB extends MyEnum
+
+val underlying: implicitly[BSONReader[BSONString, String]]
+
+implicit def example8: BSONReader[BSONString, MyEnum] =
+  underlying.afterRead {
+    case "A" => EnumValA
+    case "B" => EnumValB
+    case v => sys.error(s"unexpected value: $v")
+  }
+```
+
+---
+### BSON library - `BSONWriter`
+
+New combinator **`beforeWrite`**
+
+*Example:* Writer to encode as BSON string the instances of `MyEnum`
+
+```scala
+import reactivemongo.bson._
+
+val underlying = implicitly[BSONWriter[String, BSONString]]
+
+implicit def example9: BSONWriter[MyEnum, BSONString] = 
+  underlying.beforeWrite[MyEnum] {
+    case EnumValA => "A"
+    case _ => "B"
+  }
+```
+
+---
+### BSON library - Macros
+
+Support for **sealed family**
+
+*Example:* Types family of `Node` and `Leaf`
+
+```scala
+import reactivemongo.bson._
+
+sealed trait Tree
+case class Node(left: Tree, right: Tree) extends Tree
+case class Leaf(data: String) extends Tree
+
+val example10: BSONHandler[BSONDocument, Tree] =
+  Macros.handler[Tree]
+```
+
+---
+### Streaming
+
+- Instead of accumulating in memory, processing results as document stream
+- Can now be used with several frameworks:
+  * Play Iteratees
+  * Akka Stream
+  * Custom streaming
+
+<img src="//cdn0.iconfinder.com/data/icons/icocentre-free-icons/171/f-analytics2_128-512.png" style="max-width:252px"/>
+
+---
+### Streaming - Akka Stream
+
+*Example:* Find person documents and consume using an Akka `Sink`
+
+```scala
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import akka.stream.Materializer
+import akka.stream.scaladsl.{ Sink, Source }
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.akkastream.{ State, cursorProducer }
+
+trait Example11 {
+  implicit def m: Materializer
+
+  def apply(coll: BSONCollection, query: BSONDocument) = {
+    val sourceOfPeople = coll.find(query).
+      cursor[BSONDocument].documentSource()
+
+    sourceOfPeople.runWith(Sink.seq[BSONDocument])
+  }
+}
+```
+
+---
+### Streaming - Custom streaming
+
+New streaming based on primitive `Cursor.foldWhileM[A]`
+
+```scala
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.api.Cursor
+
+def example12(c: Cursor[String]): Future[List[String]] =
+  c.foldWhile(List.empty[String], 1000/* max doc */)(
+    { (ls, str) => // process next String value
+      if (str startsWith "#") Cursor.Cont(ls) // Skip
+      else if (str == "_end") Cursor.Done(ls) // End
+      else Cursor.Cont(str :: ls) // Continue
+    },
+    { (ls, err) => // handle failure
+      err match {
+        case e: RuntimeException => Cursor.Cont(ls) // Skip
+        case _ => Cursor.Fail(err) // Stop with failure
+      }
+    })
+```
+
+---
+### Aggregation
+
+MongoDB provides operations to group values from multiple documents, perform operations on the grouped data to return result.
+
+<img src="//cdn2.iconfinder.com/data/icons/circle-icons-1/64/merge-512.png" style="max-width:252px"/>
+
+---
+### Aggregation - Distinct
+
+Command `distinct` is now provided as collection operation
+
+*Example:* Find the distinct state from a collection of cities
+
+```scala
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+def example13(cities: BSONCollection): Future[Set[String]] = 
+  cities.distinct[String, Set]("state")
+```
+
+---
+### Aggregation - Aggregation builder
+
+*Example:* Aggregates the states with population > 10000000
+
+```scala
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson._
+import reactivemongo.api.Cursor
+import reactivemongo.api.collections.bson.BSONCollection
+
+def example14(cities: BSONCollection): Cursor[BSONDocument] = 
+  cities.aggregateWith[BSONDocument]() { framework =>
+    import framework.{ Group, Match, SumField }
+
+    Group(BSONString("$state"))(
+      "totalPop" -> SumField("population")) -> List(
+        Match(document("totalPop" -> document(
+          "$gte" -> 10000000L)))
+    )
+  }
+```
+
+---
+### Play Framework
+
+- JSON serialization
+- Dependency injection
+- Routing
+
+<img style="width:50%" src="//playframework.com/assets/images/logos/play_full_color.png" />
+
+---
+### Play Framework - JSON serialization *1/3*
+
+Standalone library based on Play JSON, usable outside a Play application
+
+*Example:* Find all documents as `JsObject`
+
+```scala
+import scala.concurrent.ExecutionContext.Implicits.global
+import play.api.libs.json._
+import reactivemongo.play.json._, collection._
+
+def example15(coll: JSONCollection) = 
+  coll.find(Json.obj()).cursor[JsObject]().collect[List]()
+```
+
+---
+### Play Framework - JSON serialization *2/3*
+
+New helper **`bulkInsert`**
+
+*Example:* Import a JSON resource
+
+```scala
+import scala.concurrent.ExecutionContext.Implicits.global
+import reactivemongo.play.json.collection._
+
+// Import many JSON objects as documents to JSON `collection`
+def example16(collection: JSONCollection, resource: String) =
+  Helpers.bulkInsert(collection, 
+    getClass.getResourceAsStream(resource))
+```
+
+---
+### Play Framework - JSON serialization *3/3*
+
+New functions to derive JSON handlers from BSON handlers
+
+*Example:* `jsonOFormat` derives a `BSONHandler`
+
+```scala
+import play.api.libs.json.OFormat
+import reactivemongo.bson._
+import reactivemongo.play.json.BSONFormats
+
+def example16(
+  implicit bsonWriter: BSONDocumentWriter[Person],
+  implicit bsonReader: BSONDocumentReader[Person]
+): OFormat[Perso] = BSONFormats.jsonOFormat[Person]
+```
+
+---
+### Play Framework - Dependency injection
+
+New **`@NamedDatabase`** annotation
+
+*Example:*
+
+<pre style="font-size:small">
+# The default URI
+mongodb.uri = "mongodb://someuser:somepasswd@localhost:27017/foo"
+
+# Another one, named with 'bar'
+mongodb.bar.uri = "mongodb://someuser:somepasswd@localhost:27017/lorem"
+</pre>
+
+Differrent polls can be injected:
+
+```scala
+import javax.inject.Inject
+
+import play.modules.reactivemongo._
+
+class MyComponent @Inject() (
+  val defaultApi: ReactiveMongoApi, // for 'mongodb.uri'
+  @NamedDatabase("bar") 
+  val barApi: ReactiveMongoApi // for 'mongodb.bar'
+) { /* ... */ }
+```
+
+---
+### Play Framework - Routing
+
+Bindings for Play routing are available for BSON types
+
+*Example:* Action `foo`
+
+```scala
+import play.api.mvc.{ Action, Controller }
+import reactivemongo.bson.BSONObjectID
+
+class Application extends Controller {
+  def foo(id: BSONObjectID) = Action {
+    Ok(s"Foo: ${id.stringify}")
+  }
+}
+```
+
+`BSONObjectID` binding can be used in `conf/routes`:
+
+<pre style="font-size: small">
+GET /foo/:id Application.foo(id: reactivemongo.bson.BSONObjectID)
+</pre>
+
+---
+### Administration
+
+New operations to manage a MongoDB instance:
+
+- Rename collection
+- Drop collection
+- Create user
+- Get collection statistics
+- Resync replica set members
+
+*Example:* Rename a collection by suffixing
+
+```scala
+import reactivemongo.api.DefaultDB
+
+def renameWithSuffix(
+  admin: DefaultDB, otherDb: String,
+  collName: String, suffix: String
+) = admin.renameCollection(
+  otherDb, collName, s"$collName-$suffix")
+```
+
+---
+### Monitoring
+
+- Monitoring of connection pools
+- Provided JMX implementation
+
+<img src="./documentation/images/jconsole3.png" />
+
+---
+### Compatibility
+
+ReactiveMongo {{site._0_12_latest_minor}} is compatible with the following runtime:
+
+- [MongoDB](https://www.mongodb.org/) from 2.6 up to 3.2.
+- [Akka](http://akka.io/) from 2.3.13 up to 2.4.x
+- [Play Framework](https://playframework.com) from 2.3.13 to 2.5.9
+
+---
+### Next
+
+Next release will be 1.0 (new BSON, Spark module, GeoJSON, certificate authentication, Kamon monitoring ...)
+
+<span style="display:block;margin-top:2em;text-align:center;font-weight:bold;color:#417f43">[Detailed release notes](./documentation/release-details.html)</span>
+    </textarea>
+    <script src="//gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript"></script>
+    <script type="text/javascript">var slideshow=remark.create()</script>
+  </body>
+</html>
