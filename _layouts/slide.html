@@ -88,7 +88,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import reactivemongo.api.{ DB, MongoConnection }
 
 def newResolution(con: MongoConnection): Future[DB] =
-  con.database(name)
+  con.database("db_name")
 ```
 
 - Reactive handling of resolution success (or failure)
@@ -122,8 +122,10 @@ def connection(driver: MongoDriver) =
 - New option `monitorRefreshMS`: frequency for pool monitor (e.g. 5s)
 
 ```scala
+import reactivemongo.api._
+
 MongoConnectionOptions(
-  authMode = ScramSha1Authentication // default SCRAM SHA1
+  authMode = ScramSha1Authentication, // default SCRAM SHA1
   maxIdleTimeMS = 2000 /* 2s */,
   monitorRefreshMS = 5000 /* check nodes each 5s */
 )
@@ -274,7 +276,7 @@ Pattern matching utilities for **`CommandError`**
 ```scala
 import reactivemongo.api.commands.CommandError 
 
-def example6(res: CommandError) = res match {
+def example7(res: CommandError) = res match {
   case CommandError.Code(11000) =>
     println("Match the code 11000")
 
@@ -302,7 +304,7 @@ import reactivemongo.bson.BSONValue
 type BSONFile = reactivemongo.api.gridfs.
   ReadFile[BSONSerializationPack.type, BSONValue]
 
-def example7(
+def example8(
   gridfs: GridFS[BSONSerializationPack.type],
   filename: String, typ: Option[String], 
   data: Enumerator[Array[Byte]]
@@ -340,7 +342,7 @@ object EnumValB extends MyEnum
 
 val underlying: implicitly[BSONReader[BSONString, String]]
 
-implicit def example8: BSONReader[BSONString, MyEnum] =
+implicit def example9: BSONReader[BSONString, MyEnum] =
   underlying.afterRead {
     case "A" => EnumValA
     case "B" => EnumValB
@@ -360,7 +362,7 @@ import reactivemongo.bson._
 
 val underlying = implicitly[BSONWriter[String, BSONString]]
 
-implicit def example9: BSONWriter[MyEnum, BSONString] = 
+implicit def example10: BSONWriter[MyEnum, BSONString] = 
   underlying.beforeWrite[MyEnum] {
     case EnumValA => "A"
     case _ => "B"
@@ -381,7 +383,7 @@ sealed trait Tree
 case class Node(left: Tree, right: Tree) extends Tree
 case class Leaf(data: String) extends Tree
 
-val example10: BSONHandler[BSONDocument, Tree] =
+val example11: BSONHandler[BSONDocument, Tree] =
   Macros.handler[Tree]
 ```
 
@@ -412,7 +414,7 @@ import reactivemongo.bson.BSONDocument
 import reactivemongo.api.collections.bson.BSONCollection
 import reactivemongo.akkastream.{ State, cursorProducer }
 
-trait Example11 {
+trait Example12 {
   implicit def m: Materializer
 
   def apply(coll: BSONCollection, query: BSONDocument) = {
@@ -435,7 +437,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api.Cursor
 
-def example12(c: Cursor[String]): Future[List[String]] =
+def example13(c: Cursor[String]): Future[List[String]] =
   c.foldWhile(List.empty[String], 1000/* max doc */)(
     { (ls, str) => // process next String value
       if (str startsWith "#") Cursor.Cont(ls) // Skip
@@ -471,12 +473,12 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import reactivemongo.bson.BSONDocument
 import reactivemongo.api.collections.bson.BSONCollection
 
-def example13(cities: BSONCollection): Future[Set[String]] = 
+def example14(cities: BSONCollection): Future[Set[String]] = 
   cities.distinct[String, Set]("state")
 ```
 
 ---
-### Aggregation - Aggregation builder
+### Aggregation - New builder
 
 *Example:* Aggregates the states with population > 10000000
 
@@ -488,7 +490,7 @@ import reactivemongo.bson._
 import reactivemongo.api.Cursor
 import reactivemongo.api.collections.bson.BSONCollection
 
-def example14(cities: BSONCollection): Cursor[BSONDocument] = 
+def example15(cities: BSONCollection): Cursor[BSONDocument] = 
   cities.aggregateWith[BSONDocument]() { framework =>
     import framework.{ Group, Match, SumField }
 
@@ -521,7 +523,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import play.api.libs.json._
 import reactivemongo.play.json._, collection._
 
-def example15(coll: JSONCollection) = 
+def example16(coll: JSONCollection) = 
   coll.find(Json.obj()).cursor[JsObject]().collect[List]()
 ```
 
@@ -537,7 +539,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import reactivemongo.play.json.collection._
 
 // Import many JSON objects as documents to JSON `collection`
-def example16(collection: JSONCollection, resource: String) =
+def example17(collection: JSONCollection, resource: String) =
   Helpers.bulkInsert(collection, 
     getClass.getResourceAsStream(resource))
 ```
@@ -554,7 +556,7 @@ import play.api.libs.json.OFormat
 import reactivemongo.bson._
 import reactivemongo.play.json.BSONFormats
 
-def example16(
+def example18(
   implicit bsonWriter: BSONDocumentWriter[Person],
   implicit bsonReader: BSONDocumentReader[Person]
 ): OFormat[Perso] = BSONFormats.jsonOFormat[Person]
@@ -575,7 +577,7 @@ mongodb.uri = "mongodb://someuser:somepasswd@localhost:27017/foo"
 mongodb.bar.uri = "mongodb://someuser:somepasswd@localhost:27017/lorem"
 </pre>
 
-Differrent polls can be injected:
+Different polls can be injected:
 
 ```scala
 import javax.inject.Inject
