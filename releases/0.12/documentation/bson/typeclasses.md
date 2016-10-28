@@ -303,4 +303,10 @@ Using [`BSONNumberLike`](../../api/index.html#reactivemongo.bson.BSONNumberLike)
 - [Map](example-maps.html)
 - [Document](example-document.html)
 
+### Troubleshooting
+
+When using the compiler option `-Ywarn-unused` and the BSON macro (e.g. `Macros.handler`), you can get a warning as bellow. It can be safely ignore (there for compatibility).
+
+    private val in <$anon: reactivemongo.bson.BSONDocumentReader[foo.Bar] with reactivemongo.bson.BSONDocumentWriter[foo.Bar] with reactivemongo.bson.BSONHandler[reactivemongo.bson.BSONDocument,foo.Bar]> is never used
+
 [Previous: Overview of the ReactiveMongo BSON library](overview.html)
