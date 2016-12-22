@@ -16,12 +16,10 @@ import reactivemongo.bson.{
 object BSONMap {
   implicit def MapReader[B <: BSONValue, V](implicit vr: BSONReader[B, V]): BSONDocumentReader[Map[String, V]] =
     new BSONDocumentReader[Map[String, V]] {
-      def read(bson: BSONDocument): Map[String, V] = {
-        val elements = bson.elements.map { tuple =>
+      def read(bson: BSONDocument): Map[String, V] =
+        bson.elements.map { tuple =>
           tuple.name -> tuple.value.seeAsTry[V].get
-        }
-        elements.toMap
-      }
+        }.toMap
     }
 
   implicit def MapWriter[V, B <: BSONValue](implicit vw: BSONWriter[V, B]): BSONDocumentWriter[Map[String, V]] =
