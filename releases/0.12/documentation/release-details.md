@@ -223,6 +223,7 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson.BSONDocument
 import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.ReadPreference
 
 def withMaxTimeMs(col: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = col.find(BSONDocument("foo" -> "bar")).maxTimeMs(1234L).cursor[BSONDocument](ReadPreference.primary).collect[List]()
 {% endhighlight %}
@@ -434,6 +435,7 @@ import akka.stream.scaladsl.{ Sink, Source }
 
 import reactivemongo.bson.BSONDocument
 import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.ReadPreference
 
 import reactivemongo.akkastream.{ State, cursorProducer }
 // Provides the cursor producer with the AkkaStream capabilities
@@ -1079,6 +1081,7 @@ import play.api.libs.iteratee.{ Enumerator, Iteratee }
 
 import reactivemongo.bson.BSONDocument
 import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.ReadPreference
 
 def workWithIteratees(personColl: BSONCollection): Future[Int] = {
   import reactivemongo.play.iteratees.cursorProducer

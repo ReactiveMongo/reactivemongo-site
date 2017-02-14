@@ -266,6 +266,7 @@ import play.api.libs.json._
 
 // Reactive Mongo imports
 import reactivemongo.api.Cursor
+import reactivemongo.api.ReadPreference
 
 import play.modules.reactivemongo.{ // ReactiveMongo Play2 plugin
   MongoController,

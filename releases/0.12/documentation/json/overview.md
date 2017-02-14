@@ -69,6 +69,7 @@ This library provides a specialized collection called [`JSONCollection`](https:/
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
 import play.api.libs.json._
+import reactivemongo.api.ReadPreference
 import reactivemongo.play.json._, collection._
 
 def jsonFind(coll: JSONCollection)(implicit ec: ExecutionContext): Future[List[JsObject]] =
@@ -88,6 +89,7 @@ import scala.concurrent.Future
 import play.api.libs.json._
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 
+import reactivemongo.api.ReadPreference
 import reactivemongo.play.json._
 import reactivemongo.play.json.collection.{
   JSONCollection, JsCursor
