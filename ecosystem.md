@@ -23,4 +23,8 @@ ReactiveMongo is composed of subprojects.
 
 ## Third party
 
-- [Acolyte for ReactiveMongo](http://acolyte.eu.org/reactive-mongo/): Framework to unit test a ReactiveMongo persistence.
+[Acolyte for ReactiveMongo](http://acolyte.eu.org/reactive-mongo/): 
+Framework to unit test a ReactiveMongo persistence.
+
+[Enumeratum for ReactiveMongo](https://github.com/lloydmeta/enumeratum/#reactivemongo-bson):
+BSON codecs to use Enumeratum with MongoDB.
