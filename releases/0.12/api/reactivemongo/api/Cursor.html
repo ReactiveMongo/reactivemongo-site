@@ -120,7 +120,7 @@
       </a>
     </span>
       <p class="shortcomment cmt">Collects all the documents into a collection of type <code>M[T]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Collects all the documents into a collection of type <code>M[T]</code>.
-</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>the maximum number of documents to be retrieved (-1 for unlimited).</p></dd><dt class="param">err</dt><dd class="cmt"><p>The binary operator to be applied when failing to get the next response. Exception or <a href="Cursor$$Fail.html" class="extype" name="reactivemongo.api.Cursor.Fail">Fail</a> raised within the <code>suc</code> function cannot be recovered by this error handler.</p><pre><span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument](ReadPreference.primary)
+</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>the maximum number of documents to be retrieved (-1 for unlimited).</p></dd><dt class="param">err</dt><dd class="cmt"><p>The binary operator to be applied when failing to get the next response. Exception or <a href="Cursor$$Fail.html" class="extype" name="reactivemongo.api.Cursor.Fail">Fail</a> raised within the <code>suc</code> function cannot be recovered by this error handler.</p><pre><span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument]
 <span class="cmt">// return the 3 first documents in a Vector[BSONDocument].</span>
 <span class="kw">val</span> vector = cursor.collect[Vector](<span class="num">3</span>, Cursor.FailOnError())</pre></dd></dl></div>
     </li><li name="reactivemongo.api.Cursor#foldBulks" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">

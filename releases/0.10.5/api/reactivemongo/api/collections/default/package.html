@@ -125,14 +125,14 @@
     <span class="lit">"_id"</span> -&gt; <span class="num">0</span>)
 
   <span class="cmt">// Get a cursor of BSONDocuments</span>
-  <span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument](ReadPreference.primary)
+  <span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument]
   <span class="cmt">// Let's enumerate this cursor and print a readable representation of each document in the response</span>
   cursor.enumerate().apply(Iteratee.foreach { doc <span class="kw">=&gt;</span>
     println(<span class="lit">"found document: "</span> + BSONDocument.pretty(doc))
   })
 
   <span class="cmt">// Or, the same with getting a list</span>
-  <span class="kw">val</span> cursor2 = collection.find(query, filter).cursor[BSONDocument](ReadPreference.primary)
+  <span class="kw">val</span> cursor2 = collection.find(query, filter).cursor[BSONDocument]
   <span class="kw">val</span> futureList = cursor.collect[<span class="std">List</span>]()
   futureList.map { list <span class="kw">=&gt;</span>
     list.foreach { doc <span class="kw">=&gt;</span>
