@@ -73,7 +73,7 @@ import reactivemongo.play.json._, collection._
 
 def jsonFind(coll: JSONCollection)(implicit ec: ExecutionContext): Future[List[JsObject]] =
   coll.find(Json.obj()).sort(Json.obj("updated" -> -1)).
-    cursor[JsObject]().collect[List]()
+    cursor[JsObject](ReadPreference.primary).collect[List]()
 {% endhighlight %}
 
 Even better, when a client sends a JSON document, you can validate it and transform it before saving it into a MongoDB collection (coast-to-coast approach).
@@ -96,7 +96,7 @@ import reactivemongo.play.json.collection.{
 def jsAll(collection: JSONCollection): Future[JsArray] = {
   type ResultType = JsObject // any type which is provided a `Writes[T]`
 
-  collection.find(Json.obj()).cursor[ResultType].jsArray()
+  collection.find(Json.obj()).cursor[ResultType](ReadPreference.primary).jsArray()
 }
 {% endhighlight %}
 

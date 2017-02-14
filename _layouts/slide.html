@@ -524,7 +524,7 @@ import play.api.libs.json._
 import reactivemongo.play.json._, collection._
 
 def example16(coll: JSONCollection) = 
-  coll.find(Json.obj()).cursor[JsObject]().collect[List]()
+  coll.find(Json.obj()).cursor[JsObject](ReadPreference.primary).collect[List]()
 ```
 
 ---
