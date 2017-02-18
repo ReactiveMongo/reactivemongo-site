@@ -1,6 +1,6 @@
 branches:
   only:
-  - .*
+  - /.*/
 language: ruby
 sudo: false
 rvm: 2.2
