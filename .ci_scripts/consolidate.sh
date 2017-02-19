@@ -22,8 +22,10 @@ if [ $RES -ne 0 ]; then
   exit $RES
 fi
 
-echo "# Indexing to Algolia"
-bundle exec jekyll algolia push || (
+if [ "x$CI_BRANCH" = "gh-pages" ]; then
+  echo "# Indexing to Algolia"
+  bundle exec jekyll algolia push || (
     echo "!! fails to push to Algolia"
     false
-)
+  )
+fi
