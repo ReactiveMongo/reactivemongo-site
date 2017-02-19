@@ -1,6 +1,8 @@
 machine:
   ruby:
     version: 2.2.0
+  environment:
+    CI_BRANCH: "$CIRCLE_BRANCH"
 dependencies:
   override:
     - ./.ci_scripts/beforeInstall.sh 0.13.11
