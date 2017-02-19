@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /usr/bin/env bash
 
 set -e
 
@@ -28,33 +28,3 @@ echo "# Spell checking"
 ./node_modules/markdown-spellcheck/bin/mdspell -r --en-gb -n `find . -not -path '*/node_modules/*' -type f -name '*.md' | perl -pe 's|^\./||;s|[A-Za-z0-9.-]+|*|g' | sort -u | sed -e 's/$/.md/'` '!**/node_modules/**/*.md' '!**/vendor/**/*.md' || exit 3
 
 echo "# Documentation built"
-
-bundle exec jekyll serve --detach
-echo "# Jekyll local server started"
-
-for F in `grep -rl 'java\$lang.html' _site`
-do
-  echo $F && sed -e 's/java\$lang.html/#java\$lang/g' < "$F" > "$F.tmp" && mv "$F.tmp" "$F"
-done
-
-echo "# Generated HTML normalized (for wget compat)"
-
-wget -nv -e robots=off --follow-tags=a -r --spider \
-  -Dlocalhost -Xreleases/0.12/api -Xreleases/0.10/api \
-  -Xreleases/0.11/api -Xreleases/0.10.5/api http://localhost:4000
-RES=$?
-
-echo "# Documentation checked for broken links"
-
-rm -rf 'localhost:4000'
-pkill -f jekyll
-
-if [ $RES -ne 0 ]; then
-  exit $RES
-fi
-
-echo "# Indexing to Algolia"
-bundle exec jekyll algolia push || (
-    echo "!! fails to push to Algolia"
-    false
-)

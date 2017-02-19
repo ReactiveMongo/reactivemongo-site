@@ -5,7 +5,7 @@ url: http://reactivemongo.org/
 markdown: kramdown
 latest_major_release: 0.12
 latest_release: 0.12.1
-exclude: [vendor]
+exclude: [vendor,target]
 gems:
   - jekyll-sitemap
   - algoliasearch-jekyll
