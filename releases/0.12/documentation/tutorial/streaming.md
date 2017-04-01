@@ -27,7 +27,7 @@ The main features of this modules are as follows.
 - Get a [`Source`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.11/{{site._0_12_latest_minor}}/reactivemongo-akkastream_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.akkastream.AkkaStreamCursor@documentSource(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Option[T]])(implicitm:akka.stream.Materializer):akka.stream.scaladsl.Source[T,akka.NotUsed]) of documents from a ReactiveMongo cursor. This is a document producer.
 - Run with a [`Flow`](http://doc.akka.io/api/akka/2.4.10/#akka.stream.javadsl.Flow) or a [`Sink`](http://doc.akka.io/api/akka/2.4.10/#akka.stream.javadsl.Sink), which will consume the documents, with possible transformation.
 
-To use the Akka Stream support for the ReactiveMongo cursors, [`reactivemongo.play.akkastream.cursorProducer`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.11/{{site._0_12_latest_minor}}/reactivemongo-akkastream_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.akkastream.package$$cursorFlattener$) must be imported.
+To use the Akka Stream support for the ReactiveMongo cursors, [`reactivemongo.akkastream.cursorProducer`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.11/{{site._0_12_latest_minor}}/reactivemongo-akkastream_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.akkastream.package$$cursorFlattener$) must be imported.
 
 {% highlight scala %}
 import scala.concurrent.Future
