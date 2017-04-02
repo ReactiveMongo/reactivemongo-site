@@ -521,10 +521,11 @@ Standalone library based on Play JSON, usable outside a Play application
 ```scala
 import scala.concurrent.ExecutionContext.Implicits.global
 import play.api.libs.json._
+import reactivemongo.api.ReadPreference
 import reactivemongo.play.json._, collection._
 
 def example16(coll: JSONCollection) = 
-  coll.find(Json.obj()).cursor[JsObject]().collect[List]()
+  coll.find(Json.obj()).cursor[JsObject](ReadPreference.primary).collect[List]()
 ```
 
 ---

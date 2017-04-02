@@ -266,6 +266,7 @@ import play.api.libs.json._
 
 // Reactive Mongo imports
 import reactivemongo.api.Cursor
+import reactivemongo.api.ReadPreference
 
 import play.modules.reactivemongo.{ // ReactiveMongo Play2 plugin
   MongoController,
@@ -347,7 +348,7 @@ class Application @Inject() (val reactiveMongoApi: ReactiveMongoApi)
       // sort them by creation date
       sort(Json.obj("created" -> -1)).
       // perform the query and get a cursor of JsObject
-      cursor[JsObject]
+      cursor[JsObject](ReadPreference.primary)
 
     // gather all the JsObjects in a list
     val futurePersonsList: Future[List[JsObject]] = cursor.collect[List]()

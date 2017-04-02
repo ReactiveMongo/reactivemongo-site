@@ -71,11 +71,12 @@ This library provides a specialized collection called [`JSONCollection`](https:/
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
 import play.api.libs.json._
+import reactivemongo.api.ReadPreference
 import reactivemongo.play.json._, collection._
 
 def jsonFind(coll: JSONCollection)(implicit ec: ExecutionContext): Future[List[JsObject]] =
   coll.find(Json.obj()).sort(Json.obj("updated" -> -1)).
-    cursor[JsObject]().collect[List]()
+    cursor[JsObject](ReadPreference.primary).collect[List]()
 {% endhighlight %}
 
 Even better, when a client sends a JSON document, you can validate it and transform it before saving it into a MongoDB collection (coast-to-coast approach).
@@ -90,6 +91,7 @@ import scala.concurrent.Future
 import play.api.libs.json._
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 
+import reactivemongo.api.ReadPreference
 import reactivemongo.play.json._
 import reactivemongo.play.json.collection.{
   JSONCollection, JsCursor
@@ -98,7 +100,7 @@ import reactivemongo.play.json.collection.{
 def jsAll(collection: JSONCollection): Future[JsArray] = {
   type ResultType = JsObject // any type which is provided a `Writes[T]`
 
-  collection.find(Json.obj()).cursor[ResultType].jsArray()
+  collection.find(Json.obj()).cursor[ResultType](ReadPreference.primary).jsArray()
 }
 {% endhighlight %}
 

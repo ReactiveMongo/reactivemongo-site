@@ -223,8 +223,9 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson.BSONDocument
 import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.ReadPreference
 
-def withMaxTimeMs(col: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = col.find(BSONDocument("foo" -> "bar")).maxTimeMs(1234L).cursor[BSONDocument]().collect[List]()
+def withMaxTimeMs(col: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = col.find(BSONDocument("foo" -> "bar")).maxTimeMs(1234L).cursor[BSONDocument](ReadPreference.primary).collect[List]()
 {% endhighlight %}
 
 The [`explain`](https://docs.mongodb.org/manual/reference/explain-results/) operation is now supported, to get information on the query plan.
@@ -434,13 +435,14 @@ import akka.stream.scaladsl.{ Sink, Source }
 
 import reactivemongo.bson.BSONDocument
 import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.ReadPreference
 
 import reactivemongo.akkastream.{ State, cursorProducer }
 // Provides the cursor producer with the AkkaStream capabilities
 
 def processPerson0(collection: BSONCollection, query: BSONDocument)(implicit m: Materializer): Future[Seq[BSONDocument]] = {
   val sourceOfPeople: Source[BSONDocument, Future[State]] =
-    collection.find(query).cursor[BSONDocument].documentSource()
+    collection.find(query).cursor[BSONDocument](ReadPreference.primary).documentSource()
 
   sourceOfPeople.runWith(Sink.seq[BSONDocument])
 }
@@ -1079,13 +1081,14 @@ import play.api.libs.iteratee.{ Enumerator, Iteratee }
 
 import reactivemongo.bson.BSONDocument
 import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.ReadPreference
 
 def workWithIteratees(personColl: BSONCollection): Future[Int] = {
   import reactivemongo.play.iteratees.cursorProducer
   // Provides the cursor producer with the Iteratees capabilities
 
   val cur = personColl.find(BSONDocument("plop" -> "plop")).
-    cursor[BSONDocument]() // can be seen as PlayIterateesCursor ...
+    cursor[BSONDocument](ReadPreference.primary) // can be seen as PlayIterateesCursor ...
 
   // ... so the new `enumerator` operation is available
   val source: Enumerator[BSONDocument] = cur.enumerator(10)

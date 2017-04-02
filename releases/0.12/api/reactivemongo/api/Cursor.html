@@ -253,7 +253,7 @@
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Returns the first document matching the query, or fails with <a href="Cursor$$NoSuchResultException$.html" class="extype" name="reactivemongo.api.Cursor.NoSuchResultException">Cursor.NoSuchResultException</a> if none.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the first document matching the query, or fails with <a href="Cursor$$NoSuchResultException$.html" class="extype" name="reactivemongo.api.Cursor.NoSuchResultException">Cursor.NoSuchResultException</a> if none.</p><pre><span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument]
+      <p class="shortcomment cmt">Returns the first document matching the query, or fails with <a href="Cursor$$NoSuchResultException$.html" class="extype" name="reactivemongo.api.Cursor.NoSuchResultException">Cursor.NoSuchResultException</a> if none.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the first document matching the query, or fails with <a href="Cursor$$NoSuchResultException$.html" class="extype" name="reactivemongo.api.Cursor.NoSuchResultException">Cursor.NoSuchResultException</a> if none.</p><pre><span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument](ReadPreference.primary)
 <span class="cmt">// return option of the first element.</span>
 <span class="kw">val</span> first: Future[BSONDocument] = cursor.head</pre></div></div>
     </li><li name="reactivemongo.api.Cursor#enumerate" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
@@ -722,7 +722,7 @@ An Enumeratee for error handling should be used to prevent silent failures.
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Returns the first document matching the query, if any.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the first document matching the query, if any.</p><pre><span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument]
+      <p class="shortcomment cmt">Returns the first document matching the query, if any.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the first document matching the query, if any.</p><pre><span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument](ReadPreference.primary)
 <span class="cmt">// return option of the first element.</span>
 <span class="kw">val</span> maybeFirst: Future[<span class="std">Option</span>[BSONDocument]] = cursor.headOption</pre></div></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -941,7 +941,7 @@ An Enumeratee for error handling should be used to prevent silent failures.
       </a>
     </span>
       <p class="shortcomment cmt">Collects all the documents into a collection of type <code>M[T]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Collects all the documents into a collection of type <code>M[T]</code>.
-</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>the maximum number of documents to be retrieved (-1 for unlimited).</p></dd><dt class="param">stopOnError</dt><dd class="cmt"><p>States if may stop on non-fatal exception (default: true). If set to false, the exceptions are skipped, trying to get the next result..</p><pre><span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument]
+</p></div><dl class="paramcmts block"><dt class="param">maxDocs</dt><dd class="cmt"><p>the maximum number of documents to be retrieved (-1 for unlimited).</p></dd><dt class="param">stopOnError</dt><dd class="cmt"><p>States if may stop on non-fatal exception (default: true). If set to false, the exceptions are skipped, trying to get the next result..</p><pre><span class="kw">val</span> cursor = collection.find(query, filter).cursor[BSONDocument](ReadPreference.primary)
 <span class="cmt">// return the 3 first documents in a Vector[BSONDocument].</span>
 <span class="kw">val</span> vector = cursor.collect[Vector](<span class="num">3</span>)</pre></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
