@@ -186,6 +186,9 @@ case class Node(left: Tree, right: Tree) extends Tree
 case class Leaf(data: String) extends Tree
 
 object Tree {
+  implicit val node = Macros.handler[Node]
+  implicit val leaf = Macros.handler[Leaf]
+
   implicit val bson: BSONHandler[BSONDocument, Tree] = Macros.handler[Tree]
 }
 {% endhighlight %}
@@ -204,16 +207,17 @@ case class CustomColor(code: String) extends Color
 
 object Color {
   import reactivemongo.bson.{ BSONDocument, BSONHandler, Macros },
-    Macros.Options.{ UnionType, \/ }
+    Macros.Options.{ AutomaticMaterialization, UnionType, \/ }
 
-  // Use `UnionType` to define a subset of the `Color` type
-  type PredefinedColor = UnionType[Red.type \/ Green \/ Blue.type]
+  // Use `UnionType` to define a subset of the `Color` type,
+  type PredefinedColor =
+    UnionType[Red.type \/ Green \/ Blue.type] with AutomaticMaterialization
 
   val predefinedColor = Macros.handlerOpts[Color, PredefinedColor]
 }
 {% endhighlight %}
 
-As for the `UnionType` definition, `Foo \/ Bar \/ Baz` is interpreted as type `Foo` or type `Bar` or type `Baz`.
+As for the `UnionType` definition, `Foo \/ Bar \/ Baz` is interpreted as type `Foo` or type `Bar` or type `Baz`. The option `AutomaticMaterialization` is used there to automatically try to materialize the handlers for the sub-types (disabled by default).
 
 The other options available to configure the typeclasses generation at compile time are the following.
 

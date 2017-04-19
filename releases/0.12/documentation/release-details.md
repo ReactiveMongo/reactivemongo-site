@@ -402,6 +402,9 @@ case class Node(left: Tree, right: Tree) extends Tree
 case class Leaf(data: String) extends Tree
 
 object Tree {
+  implicit val node = Macros.handler[Node]
+  implicit val leaf = Macros.handler[Leaf]
+
   implicit val bson: BSONHandler[BSONDocument, Tree] = Macros.handler[Tree]
 }
 {% endhighlight %}
