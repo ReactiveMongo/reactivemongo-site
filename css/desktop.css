@@ -162,6 +162,9 @@ p code {
   margin: 0 auto;
   padding: 0;
 }
+#sponsors li:not(:first-child) {
+  padding-top: 1em
+}
 #sponsors img {
   max-width: 100px;
 }
