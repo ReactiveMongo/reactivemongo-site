@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>DefaultBSONHandlers - ReactiveMongo API 0.12.0 - reactivemongo.bson.DefaultBSONHandlers</title>
-          <meta name="description" content="DefaultBSONHandlers - ReactiveMongo API 0.12.0 - reactivemongo.bson.DefaultBSONHandlers" />
-          <meta name="keywords" content="DefaultBSONHandlers ReactiveMongo API 0.12.0 reactivemongo.bson.DefaultBSONHandlers" />
+          <title>DefaultBSONHandlers - ReactiveMongo API 0.12 - reactivemongo.bson.DefaultBSONHandlers</title>
+          <meta name="description" content="DefaultBSONHandlers - ReactiveMongo API 0.12 - reactivemongo.bson.DefaultBSONHandlers" />
+          <meta name="keywords" content="DefaultBSONHandlers ReactiveMongo API 0.12 reactivemongo.bson.DefaultBSONHandlers" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -692,6 +692,40 @@
       </span>
       </h4><span class="permalink">
       <a href="../../index.html#reactivemongo.bson.DefaultBSONHandlers@BSONValueIdentity" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.bson.DefaultBSONHandlers#MapReader" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MapReader[K,V](implicitkeyReader:reactivemongo.bson.BSONReader[reactivemongo.bson.BSONString,K],implicitvalueReader:reactivemongo.bson.BSONReader[_&lt;:reactivemongo.bson.BSONValue,V]):reactivemongo.bson.BSONDocumentReader[Map[K,V]]"></a>
+      <a id="MapReader[K,V](BSONReader[BSONString,K],BSONReader[_&lt;:BSONValue,V]):BSONDocumentReader[Map[K,V]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">MapReader</span><span class="tparams">[<span name="K">K</span>, <span name="V">V</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="keyReader">keyReader: <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[<a href="BSONString.html" class="extype" name="reactivemongo.bson.BSONString">BSONString</a>, <span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.MapReader.K">K</span>]</span>, <span name="valueReader">valueReader: <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[_ &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>, <span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.MapReader.V">V</span>]</span>)</span><span class="result">: <a href="BSONDocumentReader.html" class="extype" name="reactivemongo.bson.BSONDocumentReader">BSONDocumentReader</a>[<span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.MapReader.K">K</span>, <span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.MapReader.V">V</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.DefaultBSONHandlers@MapReader[K,V](implicitkeyReader:reactivemongo.bson.BSONReader[reactivemongo.bson.BSONString,K],implicitvalueReader:reactivemongo.bson.BSONReader[_&lt;:reactivemongo.bson.BSONValue,V]):reactivemongo.bson.BSONDocumentReader[Map[K,V]]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="reactivemongo.bson.DefaultBSONHandlers#MapWriter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MapWriter[K,V](implicitkeyWriter:reactivemongo.bson.BSONWriter[K,reactivemongo.bson.BSONString],implicitvalueWriter:reactivemongo.bson.BSONWriter[V,_&lt;:reactivemongo.bson.BSONValue]):reactivemongo.bson.BSONDocumentWriter[Map[K,V]]"></a>
+      <a id="MapWriter[K,V](BSONWriter[K,BSONString],BSONWriter[V,_&lt;:BSONValue]):BSONDocumentWriter[Map[K,V]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">MapWriter</span><span class="tparams">[<span name="K">K</span>, <span name="V">V</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="keyWriter">keyWriter: <a href="BSONWriter.html" class="extype" name="reactivemongo.bson.BSONWriter">BSONWriter</a>[<span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.MapWriter.K">K</span>, <a href="BSONString.html" class="extype" name="reactivemongo.bson.BSONString">BSONString</a>]</span>, <span name="valueWriter">valueWriter: <a href="BSONWriter.html" class="extype" name="reactivemongo.bson.BSONWriter">BSONWriter</a>[<span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.MapWriter.V">V</span>, _ &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]</span>)</span><span class="result">: <a href="BSONDocumentWriter.html" class="extype" name="reactivemongo.bson.BSONDocumentWriter">BSONDocumentWriter</a>[<span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.MapWriter.K">K</span>, <span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.MapWriter.V">V</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.DefaultBSONHandlers@MapWriter[K,V](implicitkeyWriter:reactivemongo.bson.BSONWriter[K,reactivemongo.bson.BSONString],implicitvalueWriter:reactivemongo.bson.BSONWriter[V,_&lt;:reactivemongo.bson.BSONValue]):reactivemongo.bson.BSONDocumentWriter[Map[K,V]]" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>

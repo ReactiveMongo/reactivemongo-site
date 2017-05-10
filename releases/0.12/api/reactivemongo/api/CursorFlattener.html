@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>CursorFlattener - ReactiveMongo API 0.12.0 - reactivemongo.api.CursorFlattener</title>
-          <meta name="description" content="CursorFlattener - ReactiveMongo API 0.12.0 - reactivemongo.api.CursorFlattener" />
-          <meta name="keywords" content="CursorFlattener ReactiveMongo API 0.12.0 reactivemongo.api.CursorFlattener" />
+          <title>CursorFlattener - ReactiveMongo API 0.12 - reactivemongo.api.CursorFlattener</title>
+          <meta name="description" content="CursorFlattener - ReactiveMongo API 0.12 - reactivemongo.api.CursorFlattener" />
+          <meta name="keywords" content="CursorFlattener ReactiveMongo API 0.12 reactivemongo.api.CursorFlattener" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -51,7 +51,14 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Flattening strategy for cursor.</p></div><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Flattening strategy for cursor.</p><pre><span class="kw">trait</span> FooCursor[T] <span class="kw">extends</span> Cursor[T] { <span class="kw">def</span> foo: <span class="std">String</span> }
+
+<span class="kw">implicit</span> <span class="kw">def</span> fooFlattener[T] = <span class="kw">new</span> CursorFlattener[FooCursor] {
+  <span class="kw">def</span> flatten[T](future: Future[FooCursor[T]]): FooCursor[T] =
+    <span class="kw">new</span> FlattenedCursor[T](future) <span class="kw">with</span> FooCursor[T] {
+      <span class="kw">def</span> foo = <span class="lit">"Flattened"</span>
+    }
+}</pre></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div><div class="toggleContainer block">

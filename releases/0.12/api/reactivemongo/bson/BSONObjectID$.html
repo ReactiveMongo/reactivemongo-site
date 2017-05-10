@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>BSONObjectID - ReactiveMongo API 0.12.0 - reactivemongo.bson.BSONObjectID</title>
-          <meta name="description" content="BSONObjectID - ReactiveMongo API 0.12.0 - reactivemongo.bson.BSONObjectID" />
-          <meta name="keywords" content="BSONObjectID ReactiveMongo API 0.12.0 reactivemongo.bson.BSONObjectID" />
+          <title>BSONObjectID - ReactiveMongo API 0.12 - reactivemongo.bson.BSONObjectID</title>
+          <meta name="description" content="BSONObjectID - ReactiveMongo API 0.12 - reactivemongo.bson.BSONObjectID" />
+          <meta name="keywords" content="BSONObjectID ReactiveMongo API 0.12 reactivemongo.bson.BSONObjectID" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -277,10 +277,7 @@
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Generates a new BSON ObjectID from the given timestamp in milliseconds.</p><div class="fullcomment"><div class="comment cmt"><p>Generates a new BSON ObjectID from the given timestamp in milliseconds.</p><p>+------------------------+------------------------+------------------------+------------------------+
-+ timestamp (in seconds) +   machine identifier   +    thread identifier   +        increment       +
-+        (4 bytes)       +        (3 bytes)       +        (2 bytes)       +        (3 bytes)       +
-+------------------------+------------------------+------------------------+------------------------+</p><p>The included timestamp is the number of seconds since epoch, so a BSONObjectID time part has only
+      <p class="shortcomment cmt">Generates a new BSON ObjectID from the given timestamp in milliseconds.</p><div class="fullcomment"><div class="comment cmt"><p>Generates a new BSON ObjectID from the given timestamp in milliseconds.</p><p>The included timestamp is the number of seconds since epoch, so a BSONObjectID time part has only
 a precision up to the second. To get a reasonably unique ID, you _must_ set <code>onlyTimestamp</code> to false.</p><p>Crafting a BSONObjectID from a timestamp with <code>fillOnlyTimestamp</code> set to true is helpful for range queries,
 eg if you want of find documents an _id field which timestamp part is greater than or lesser than
 the one of another id.</p><p>If you do not intend to use the produced BSONObjectID for range queries, then you'd rather use
@@ -302,12 +299,8 @@ the <code>generate</code> method instead.
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Generates a new BSON ObjectID.</p><div class="fullcomment"><div class="comment cmt"><p>Generates a new BSON ObjectID.</p><p>+------------------------+------------------------+------------------------+------------------------+
-+ timestamp (in seconds) +   machine identifier   +    thread identifier   +        increment       +
-+        (4 bytes)       +        (3 bytes)       +        (2 bytes)       +        (3 bytes)       +
-+------------------------+------------------------+------------------------+------------------------+</p><p>The returned BSONObjectID contains a timestamp set to the current time (in seconds),
-with the <code>machine identifier</code>, <code>thread identifier</code> and <code>increment</code> properly set.
-</p></div></div>
+      <p class="shortcomment cmt">Generates a new BSON ObjectID using the current time.</p><div class="fullcomment"><div class="comment cmt"><p>Generates a new BSON ObjectID using the current time.
+</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p><a href="#fromTime(timeMillis:Long,fillOnlyTimestamp:Boolean):reactivemongo.bson.BSONObjectID" class="extmbr" name="reactivemongo.bson.BSONObjectID#fromTime">fromTime</a></p></span></dd></dl></div>
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <a id="getClass():Class[_]"></a>
@@ -426,7 +419,7 @@ with the <code>machine identifier</code>, <code>thread identifier</code> and <co
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Tries to make a BSON ObjectId element from a hexadecimal String representation.</p>
+      <p class="shortcomment cmt">Tries to make a BSON ObjectId from a hexadecimal string representation.</p>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>

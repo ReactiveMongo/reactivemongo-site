@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>bson - ReactiveMongo API 0.12.0 - reactivemongo.bson</title>
-          <meta name="description" content="bson - ReactiveMongo API 0.12.0 - reactivemongo.bson" />
-          <meta name="keywords" content="bson ReactiveMongo API 0.12.0 reactivemongo.bson" />
+          <title>bson - ReactiveMongo API 0.12 - reactivemongo.bson</title>
+          <meta name="description" content="bson - ReactiveMongo API 0.12 - reactivemongo.bson" />
+          <meta name="keywords" content="bson ReactiveMongo API 0.12 reactivemongo.bson" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -282,6 +282,23 @@ we cannot be sure that a not yet deserialized value will be processed without er
       <p class="shortcomment cmt">A <code>BSONDocument</code> structure (BSON type <code>0x03</code>).</p><div class="fullcomment"><div class="comment cmt"><p>A <code>BSONDocument</code> structure (BSON type <code>0x03</code>).</p><p>A <code>BSONDocument</code> is basically a stream of tuples <code>(String, BSONValue)</code>.
 It is completely lazy. The stream it wraps is a <code>Stream[Try[(String, BSONValue)]]</code> since
 we cannot be sure that a not yet deserialized value will be processed without error.</p></div></div>
+    </li><li name="reactivemongo.bson.BSONDocumentHandler" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONDocumentHandler[T]=reactivemongo.bson.BSONDocumentReader[T]withreactivemongo.bson.BSONDocumentWriter[T]withreactivemongo.bson.BSONHandler[reactivemongo.bson.BSONDocument,T]"></a>
+      <a id="BSONDocumentHandler[T]:BSONDocumentHandler[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">BSONDocumentHandler</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> = <a href="BSONDocumentReader.html" class="extype" name="reactivemongo.bson.BSONDocumentReader">BSONDocumentReader</a>[<span class="extype" name="reactivemongo.bson.BSONDocumentHandler.T">T</span>] with <a href="BSONDocumentWriter.html" class="extype" name="reactivemongo.bson.BSONDocumentWriter">BSONDocumentWriter</a>[<span class="extype" name="reactivemongo.bson.BSONDocumentHandler.T">T</span>] with <a href="BSONHandler.html" class="extype" name="reactivemongo.bson.BSONHandler">BSONHandler</a>[<a href="BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>, <span class="extype" name="reactivemongo.bson.BSONDocumentHandler.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.package@BSONDocumentHandler[T]=reactivemongo.bson.BSONDocumentReader[T]withreactivemongo.bson.BSONDocumentWriter[T]withreactivemongo.bson.BSONHandler[reactivemongo.bson.BSONDocument,T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Convenient type alias for document handlers</p>
     </li><li name="reactivemongo.bson.BSONDocumentReader" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="BSONDocumentReader[T]extendsBSONReader[reactivemongo.bson.BSONDocument,T]"></a>
       <a id="BSONDocumentReader[T]:BSONDocumentReader[T]"></a>
@@ -539,7 +556,11 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">BSON ObjectId value.</p><div class="fullcomment"><div class="comment cmt"><p>BSON ObjectId value.</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+      <p class="shortcomment cmt">BSON ObjectId value.</p><div class="fullcomment"><div class="comment cmt"><p>BSON ObjectId value.</p><p>+------------------------+------------------------+------------------------+------------------------+
++ timestamp (in seconds) +   machine identifier   +    thread identifier   +        increment       +
++        (4 bytes)       +        (3 bytes)       +        (2 bytes)       +        (3 bytes)       +
++------------------------+------------------------+------------------------+------------------------+
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@SerialVersionUID</span><span class="args">()</span>
               
         </dd></dl></div>
@@ -1112,6 +1133,23 @@ we cannot be sure that a not yet deserialized value will be processed without er
       </a>
     </span>
       
+    </li><li name="reactivemongo.bson#BSONDocumentHandler" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONDocumentHandler[T](read:reactivemongo.bson.BSONDocument=&gt;T,write:T=&gt;reactivemongo.bson.BSONDocument):reactivemongo.bson.package.BSONDocumentHandler[T]"></a>
+      <a id="BSONDocumentHandler[T]((BSONDocument)⇒T,(T)⇒BSONDocument):BSONDocumentHandler[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">BSONDocumentHandler</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="read">read: (<a href="BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>) ⇒ <span class="extype" name="reactivemongo.bson.BSONDocumentHandler.T">T</span></span>, <span name="write">write: (<span class="extype" name="reactivemongo.bson.BSONDocumentHandler.T">T</span>) ⇒ <a href="BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span><span class="result">: <a href="#BSONDocumentHandler[T]=reactivemongo.bson.BSONDocumentReader[T]withreactivemongo.bson.BSONDocumentWriter[T]withreactivemongo.bson.BSONHandler[reactivemongo.bson.BSONDocument,T]" class="extmbr" name="reactivemongo.bson.BSONDocumentHandler">BSONDocumentHandler</a>[<span class="extype" name="reactivemongo.bson.BSONDocumentHandler.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.package@BSONDocumentHandler[T](read:reactivemongo.bson.BSONDocument=&gt;T,write:T=&gt;reactivemongo.bson.BSONDocument):reactivemongo.bson.package.BSONDocumentHandler[T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Handler factory</p>
     </li><li name="reactivemongo.bson.DefaultBSONHandlers.BSONDocumentIdentity" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="BSONDocumentIdentity"></a>
       <a id="BSONDocumentIdentity:BSONDocumentIdentity"></a>
@@ -1694,6 +1732,40 @@ at compile time.</p><div class="fullcomment"><div class="comment cmt"><p>Macros 
 at compile time. Invoking these macros is equivalent to writing anonymous
 class implementations by hand.</p><pre><span class="kw">case</span> <span class="kw">class</span> Person(name: <span class="std">String</span>, surname: <span class="std">String</span>)
 <span class="kw">implicit</span> <span class="kw">val</span> personHandler = Macros.handler[Person]</pre></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p>Macros.Options for specific options</p></span></dd></dl></div>
+    </li><li name="reactivemongo.bson.DefaultBSONHandlers#MapReader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MapReader[K,V](implicitkeyReader:reactivemongo.bson.BSONReader[reactivemongo.bson.BSONString,K],implicitvalueReader:reactivemongo.bson.BSONReader[_&lt;:reactivemongo.bson.BSONValue,V]):reactivemongo.bson.BSONDocumentReader[Map[K,V]]"></a>
+      <a id="MapReader[K,V](BSONReader[BSONString,K],BSONReader[_&lt;:BSONValue,V]):BSONDocumentReader[Map[K,V]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">MapReader</span><span class="tparams">[<span name="K">K</span>, <span name="V">V</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="keyReader">keyReader: <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[<a href="BSONString.html" class="extype" name="reactivemongo.bson.BSONString">BSONString</a>, <span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.MapReader.K">K</span>]</span>, <span name="valueReader">valueReader: <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[_ &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>, <span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.MapReader.V">V</span>]</span>)</span><span class="result">: <a href="BSONDocumentReader.html" class="extype" name="reactivemongo.bson.BSONDocumentReader">BSONDocumentReader</a>[<span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.MapReader.K">K</span>, <span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.MapReader.V">V</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.package@MapReader[K,V](implicitkeyReader:reactivemongo.bson.BSONReader[reactivemongo.bson.BSONString,K],implicitvalueReader:reactivemongo.bson.BSONReader[_&lt;:reactivemongo.bson.BSONValue,V]):reactivemongo.bson.BSONDocumentReader[Map[K,V]]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DefaultBSONHandlers.html" class="extype" name="reactivemongo.bson.DefaultBSONHandlers">DefaultBSONHandlers</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.DefaultBSONHandlers#MapWriter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MapWriter[K,V](implicitkeyWriter:reactivemongo.bson.BSONWriter[K,reactivemongo.bson.BSONString],implicitvalueWriter:reactivemongo.bson.BSONWriter[V,_&lt;:reactivemongo.bson.BSONValue]):reactivemongo.bson.BSONDocumentWriter[Map[K,V]]"></a>
+      <a id="MapWriter[K,V](BSONWriter[K,BSONString],BSONWriter[V,_&lt;:BSONValue]):BSONDocumentWriter[Map[K,V]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">MapWriter</span><span class="tparams">[<span name="K">K</span>, <span name="V">V</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="keyWriter">keyWriter: <a href="BSONWriter.html" class="extype" name="reactivemongo.bson.BSONWriter">BSONWriter</a>[<span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.MapWriter.K">K</span>, <a href="BSONString.html" class="extype" name="reactivemongo.bson.BSONString">BSONString</a>]</span>, <span name="valueWriter">valueWriter: <a href="BSONWriter.html" class="extype" name="reactivemongo.bson.BSONWriter">BSONWriter</a>[<span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.MapWriter.V">V</span>, _ &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]</span>)</span><span class="result">: <a href="BSONDocumentWriter.html" class="extype" name="reactivemongo.bson.BSONDocumentWriter">BSONDocumentWriter</a>[<span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.MapWriter.K">K</span>, <span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.MapWriter.V">V</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.package@MapWriter[K,V](implicitkeyWriter:reactivemongo.bson.BSONWriter[K,reactivemongo.bson.BSONString],implicitvalueWriter:reactivemongo.bson.BSONWriter[V,_&lt;:reactivemongo.bson.BSONValue]):reactivemongo.bson.BSONDocumentWriter[Map[K,V]]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DefaultBSONHandlers.html" class="extype" name="reactivemongo.bson.DefaultBSONHandlers">DefaultBSONHandlers</a></dd></dl></div>
     </li><li name="reactivemongo.bson.Producer" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Producer"></a>
       <a id="Producer:Producer"></a>
