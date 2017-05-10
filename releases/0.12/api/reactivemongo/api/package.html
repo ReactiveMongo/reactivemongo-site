@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>api - ReactiveMongo API 0.12.0 - reactivemongo.api</title>
-          <meta name="description" content="api - ReactiveMongo API 0.12.0 - reactivemongo.api" />
-          <meta name="keywords" content="api ReactiveMongo API 0.12.0 reactivemongo.api" />
+          <title>api - ReactiveMongo API 0.12 - reactivemongo.api</title>
+          <meta name="description" content="api - ReactiveMongo API 0.12 - reactivemongo.api" />
+          <meta name="keywords" content="api ReactiveMongo API 0.12 reactivemongo.api" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -177,7 +177,7 @@ and the default <a href="collections/bson/BSONCollection.html" class="extype" na
     </span>
       <p class="shortcomment cmt">Cursor over results from MongoDB.</p><div class="fullcomment"><div class="comment cmt"><p>Cursor over results from MongoDB.
 </p></div><dl class="paramcmts block"><dt class="tparam">T</dt><dd class="cmt"><p>the type parsed from each result document</p></dd></dl></div>
-    </li><li name="reactivemongo.api.CursorFlattener" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+    </li><li name="reactivemongo.api.CursorFlattener" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="CursorFlattener[C[_]&lt;:reactivemongo.api.Cursor[_]]extendsAnyRef"></a>
       <a id="CursorFlattener[C[_]&lt;:Cursor[_]]:CursorFlattener[C]"></a>
       <h4 class="signature">
@@ -193,7 +193,14 @@ and the default <a href="collections/bson/BSONCollection.html" class="extype" na
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Flattening strategy for cursor.</p>
+      <p class="shortcomment cmt">Flattening strategy for cursor.</p><div class="fullcomment"><div class="comment cmt"><p>Flattening strategy for cursor.</p><pre><span class="kw">trait</span> FooCursor[T] <span class="kw">extends</span> Cursor[T] { <span class="kw">def</span> foo: <span class="std">String</span> }
+
+<span class="kw">implicit</span> <span class="kw">def</span> fooFlattener[T] = <span class="kw">new</span> CursorFlattener[FooCursor] {
+  <span class="kw">def</span> flatten[T](future: Future[FooCursor[T]]): FooCursor[T] =
+    <span class="kw">new</span> FlattenedCursor[T](future) <span class="kw">with</span> FooCursor[T] {
+      <span class="kw">def</span> foo = <span class="lit">"Flattened"</span>
+    }
+}</pre></div></div>
     </li><li name="reactivemongo.api.CursorOps" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="CursorOps[T]extendsAnyRef"></a>
       <a id="CursorOps[T]:CursorOps[T]"></a>
@@ -386,7 +393,7 @@ behind the scene, many connections (channels) are open on all the available serv
       </a>
     </span>
       <p class="shortcomment cmt">Options for MongoConnection.</p><div class="fullcomment"><div class="comment cmt"><p>Options for MongoConnection.
-</p></div><dl class="paramcmts block"><dt class="param">connectTimeoutMS</dt><dd class="cmt"><p>The number of milliseconds to wait for a connection to be established before giving up.</p></dd><dt class="param">authSource</dt><dd class="cmt"><p>The database source for authentication credentials.</p></dd><dt class="param">sslEnabled</dt><dd class="cmt"><p>Enable SSL connection (required to be accepted on server-side).</p></dd><dt class="param">sslAllowsInvalidCert</dt><dd class="cmt"><p>If <code>sslEnabled</code> is true, this one indicates whether to accept invalid certificates (e.g. self-signed).</p></dd><dt class="param">authMode</dt><dd class="cmt"><p>Either <a href="CrAuthentication$.html" class="extype" name="reactivemongo.api.CrAuthentication">CrAuthentication</a> or <a href="ScramSha1Authentication$.html" class="extype" name="reactivemongo.api.ScramSha1Authentication">ScramSha1Authentication</a></p></dd><dt class="param">tcpNoDelay</dt><dd class="cmt"><p>TCPNoDelay flag (ReactiveMongo-specific option). The default value is false (see <a href="http://docs.oracle.com/javase/8/docs/api/java/net/StandardSocketOptions.html#TCP_NODELAY" target="_blank">TCP_NODELAY</a>).</p></dd><dt class="param">keepAlive</dt><dd class="cmt"><p>TCP KeepAlive flag (ReactiveMongo-specific option). The default value is false (see <a href="http://docs.oracle.com/javase/8/docs/api/java/net/StandardSocketOptions.html#SO_KEEPALIVE" target="_blank">SO_KEEPALIVE</a>).</p></dd><dt class="param">nbChannelsPerNode</dt><dd class="cmt"><p>Number of channels (connections) per node (ReactiveMongo-specific option).</p></dd><dt class="param">writeConcern</dt><dd class="cmt"><p>the default write concern</p></dd><dt class="param">readPreference</dt><dd class="cmt"><p>the default read preference</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>the default failover strategy</p></dd><dt class="param">monitorRefreshMS</dt><dd class="cmt"><p>the interval in milliseconds used by monitor to refresh the node set (default: 10000)</p></dd><dt class="param">maxIdleTimeMS</dt><dd class="cmt"><p>the maximum number of milliseconds that a <a href="https://docs.mongodb.com/manual/reference/connection-string/#urioption.maxIdleTimeMS" target="_blank">channel can remain idle</a> in the connection pool before being removed and closed (default: 0 to disable, as implemented using <a href="https://docs.jboss.org/netty/3.2/api/org/jboss/netty/handler/timeout/IdleStateHandler.html" target="_blank">Netty IdleStateHandler</a>); If not 0, must be greater or equal to <a href="MongoConnectionOptions.html#monitorRefreshMS:Int" class="extmbr" name="reactivemongo.api.MongoConnectionOptions#monitorRefreshMS">#monitorRefreshMS</a></p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">connectTimeoutMS</dt><dd class="cmt"><p>The number of milliseconds to wait for a connection to be established before giving up.</p></dd><dt class="param">authSource</dt><dd class="cmt"><p>The database source for authentication credentials.</p></dd><dt class="param">sslEnabled</dt><dd class="cmt"><p>Enable SSL connection (required to be accepted on server-side).</p></dd><dt class="param">sslAllowsInvalidCert</dt><dd class="cmt"><p>If <code>sslEnabled</code> is true, this one indicates whether to accept invalid certificates (e.g. self-signed).</p></dd><dt class="param">authMode</dt><dd class="cmt"><p>Either <a href="CrAuthentication$.html" class="extype" name="reactivemongo.api.CrAuthentication">CrAuthentication</a> or <a href="ScramSha1Authentication$.html" class="extype" name="reactivemongo.api.ScramSha1Authentication">ScramSha1Authentication</a></p></dd><dt class="param">tcpNoDelay</dt><dd class="cmt"><p>TCPNoDelay flag (ReactiveMongo-specific option). The default value is false (see <a href="http://docs.oracle.com/javase/8/docs/api/java/net/StandardSocketOptions.html#TCP_NODELAY" target="_blank">TCP_NODELAY</a>).</p></dd><dt class="param">keepAlive</dt><dd class="cmt"><p>TCP KeepAlive flag (ReactiveMongo-specific option). The default value is false (see <a href="http://docs.oracle.com/javase/8/docs/api/java/net/StandardSocketOptions.html#SO_KEEPALIVE" target="_blank">SO_KEEPALIVE</a>).</p></dd><dt class="param">nbChannelsPerNode</dt><dd class="cmt"><p>Number of channels (connections) per node (ReactiveMongo-specific option).</p></dd><dt class="param">writeConcern</dt><dd class="cmt"><p>the default write concern</p></dd><dt class="param">readPreference</dt><dd class="cmt"><p>the default read preference</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>the default failover strategy</p></dd><dt class="param">monitorRefreshMS</dt><dd class="cmt"><p>the interval in milliseconds used by monitor to refresh the node set (default: 10000 aka 10s)</p></dd><dt class="param">maxIdleTimeMS</dt><dd class="cmt"><p>the maximum number of milliseconds that a <a href="https://docs.mongodb.com/manual/reference/connection-string/#urioption.maxIdleTimeMS" target="_blank">channel can remain idle</a> in the connection pool before being removed and closed (default: 0 to disable, as implemented using <a href="https://docs.jboss.org/netty/3.2/api/org/jboss/netty/handler/timeout/IdleStateHandler.html" target="_blank">Netty IdleStateHandler</a>); If not 0, must be greater or equal to <a href="MongoConnectionOptions.html#monitorRefreshMS:Int" class="extmbr" name="reactivemongo.api.MongoConnectionOptions#monitorRefreshMS">#monitorRefreshMS</a></p></dd></dl></div>
     </li><li name="reactivemongo.api.MongoDriver" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="MongoDriverextendsAnyRef"></a>
       <a id="MongoDriver:MongoDriver"></a>

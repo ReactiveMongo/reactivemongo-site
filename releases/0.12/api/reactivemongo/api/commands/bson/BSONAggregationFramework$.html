@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>BSONAggregationFramework - ReactiveMongo API 0.12.0 - reactivemongo.api.commands.bson.BSONAggregationFramework</title>
-          <meta name="description" content="BSONAggregationFramework - ReactiveMongo API 0.12.0 - reactivemongo.api.commands.bson.BSONAggregationFramework" />
-          <meta name="keywords" content="BSONAggregationFramework ReactiveMongo API 0.12.0 reactivemongo.api.commands.bson.BSONAggregationFramework" />
+          <title>BSONAggregationFramework - ReactiveMongo API 0.12 - reactivemongo.api.commands.bson.BSONAggregationFramework</title>
+          <meta name="description" content="BSONAggregationFramework - ReactiveMongo API 0.12 - reactivemongo.api.commands.bson.BSONAggregationFramework" />
+          <meta name="keywords" content="BSONAggregationFramework ReactiveMongo API 0.12 reactivemongo.api.commands.bson.BSONAggregationFramework" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -107,6 +107,25 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../GroupAggregation.html" class="extype" name="reactivemongo.api.commands.GroupAggregation">GroupAggregation</a></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.GroupAggregation.AddFields" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="AddFieldsextendsGroupAggregation.this.PipelineOperatorwithProductwithSerializable"></a>
+      <a id="AddFields:AggregationFramework.AddFields"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="../GroupAggregation$AddFields.html"><span class="name">AddFields</span></a><span class="params">(<span name="specifications">specifications: <span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span></span>)</span><span class="result"> extends <a href="../AggregationFramework$PipelineOperator.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineOperator">PipelineOperator</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.GroupAggregation@AddFieldsextendsGroupAggregation.this.PipelineOperatorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Since MongoDB 3.4
+</p><div class="fullcomment"><div class="comment cmt"><p>Since MongoDB 3.4
+</p></div><dl class="paramcmts block"><dt class="param">specifications</dt><dd class="cmt"><p>The fields to include. The resulting objects will also contain these fields.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../GroupAggregation.html" class="extype" name="reactivemongo.api.commands.GroupAggregation">GroupAggregation</a></dd><dt>See also</dt><dd><span class="cmt"><p>https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/</p></span></dd></dl></div>
     </li><li name="reactivemongo.api.commands.GroupAggregation.AddToSet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="AddToSetextendsGroupAggregation.this.GroupFunctionwithProductwithSerializable"></a>
       <a id="AddToSet:AggregationFramework.AddToSet"></a>
@@ -209,6 +228,30 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../GroupAggregation.html" class="extype" name="reactivemongo.api.commands.GroupAggregation">GroupAggregation</a></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.AggregationFramework.BucketAuto" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="BucketAutoextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable"></a>
+      <a id="BucketAuto:BucketAuto"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="../AggregationFramework$BucketAuto.html"><span class="name">BucketAuto</span></a><span class="params">(<span name="groupBy">groupBy: <span class="extype" name="reactivemongo.api.SerializationPack.Value">P.Value</span></span>, <span name="buckets">buckets: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="granularity">granularity: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="params">(<span name="output">output: (<span class="extype" name="scala.Predef.String">String</span>, <a href="../AggregationFramework.html#GroupFunctionextendsAnyRef" class="extmbr" name="reactivemongo.api.commands.GroupAggregation.GroupFunction">AggregationFramework.GroupFunction</a>)*</span>)</span><span class="result"> extends <a href="../AggregationFramework$PipelineOperator.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.PipelineOperator">PipelineOperator</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#reactivemongo.api.commands.AggregationFramework@BucketAutoextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Since MongoDB 3.4
+Categorizes incoming documents into a specific number of groups, called buckets,
+based on a specified expression.</p><div class="fullcomment"><div class="comment cmt"><p>Since MongoDB 3.4
+Categorizes incoming documents into a specific number of groups, called buckets,
+based on a specified expression. Bucket boundaries are automatically determined
+in an attempt to evenly distribute the documents into the specified number of buckets.
+Document fields identifier must be prefixed with <code>$</code>.
+https://docs.mongodb.com/manual/reference/operator/aggregation/bucketAuto/</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AggregationFramework.html" class="extype" name="reactivemongo.api.commands.AggregationFramework">AggregationFramework</a></dd></dl></div>
     </li><li name="reactivemongo.api.commands.AggregationFramework.Cursor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="CursorextendsProductwithSerializable"></a>
       <a id="Cursor:Cursor"></a>
@@ -965,7 +1008,7 @@ http://docs.mongodb.org/manual/reference/aggregation/unwind/#_S_unwind</p></div>
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="../GroupAggregation$SumValue.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@46d4514d">SumValue</span></a><span class="params">(<span name="value">value: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result"> extends <a href="../AggregationFramework.html#GroupFunctionextendsAnyRef" class="extmbr" name="reactivemongo.api.commands.GroupAggregation.GroupFunction">AggregationFramework.GroupFunction</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="../GroupAggregation$SumValue.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@799f7650">SumValue</span></a><span class="params">(<span name="value">value: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result"> extends <a href="../AggregationFramework.html#GroupFunctionextendsAnyRef" class="extmbr" name="reactivemongo.api.commands.GroupAggregation.GroupFunction">AggregationFramework.GroupFunction</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.api.commands.GroupAggregation@SumValueextendsGroupAggregation.this.GroupFunctionwithProductwithSerializable" title="Permalink" target="_top">

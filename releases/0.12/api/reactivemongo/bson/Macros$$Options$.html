@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Options - ReactiveMongo API 0.12.0 - reactivemongo.bson.Macros.Options</title>
-          <meta name="description" content="Options - ReactiveMongo API 0.12.0 - reactivemongo.bson.Macros.Options" />
-          <meta name="keywords" content="Options ReactiveMongo API 0.12.0 reactivemongo.bson.Macros.Options" />
+          <title>Options - ReactiveMongo API 0.12 - reactivemongo.bson.Macros.Options</title>
+          <meta name="description" content="Options - ReactiveMongo API 0.12 - reactivemongo.bson.Macros.Options" />
+          <meta name="keywords" content="Options ReactiveMongo API 0.12 reactivemongo.bson.Macros.Options" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -93,7 +93,30 @@ the macros during compilation.
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="reactivemongo.bson.Macros.Options.Default" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+              <ol><li name="reactivemongo.bson.Macros.Options.AutomaticMaterialization" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="AutomaticMaterializationextendsMacros.Options.Default"></a>
+      <a id="AutomaticMaterialization:AutomaticMaterialization"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Macros$$Options$$AutomaticMaterialization.html"><span class="name">AutomaticMaterialization</span></a><span class="result"> extends <a href="Macros$$Options$$Default.html" class="extype" name="reactivemongo.bson.Macros.Options.Default">Default</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.Macros$$Options$@AutomaticMaterializationextendsMacros.Options.Default" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">For a sealed family (all implementations of a sealed trait
+or defined explicit union types), this option enables the automatic
+materialization of handlers for the member types.</p><div class="fullcomment"><div class="comment cmt"><p>For a sealed family (all implementations of a sealed trait
+or defined explicit union types), this option enables the automatic
+materialization of handlers for the member types.</p><p>If used, make sure it cannot lead to type recursion issue
+(disabled by default).
+</p></div></div>
+    </li><li name="reactivemongo.bson.Macros.Options.Default" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="DefaultextendsAnyRef"></a>
       <a id="Default:Default"></a>
       <h4 class="signature">
@@ -109,27 +132,9 @@ the macros during compilation.
         <img src="../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Default options that are implied if invoking &quot;non-Opts&quot; method.</p><div class="fullcomment"><div class="comment cmt"><p>Default options that are implied if invoking &quot;non-Opts&quot; method.
+      <p class="shortcomment cmt">The default options that are implied if invoking &quot;non-Opts&quot; method.</p><div class="fullcomment"><div class="comment cmt"><p>The default options that are implied if invoking &quot;non-Opts&quot; method.
 All other options extend this.
 </p></div></div>
-    </li><li name="reactivemongo.bson.Macros.Options.SaveClassName" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="SaveClassNameextendsMacros.Options.Default"></a>
-      <a id="SaveClassName:SaveClassName"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">trait</span>
-      </span>
-      <span class="symbol">
-        <a href="Macros$$Options$$SaveClassName.html"><span class="name">SaveClassName</span></a><span class="result"> extends <a href="Macros$$Options$$Default.html" class="extype" name="reactivemongo.bson.Macros.Options.Default">Default</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../index.html#reactivemongo.bson.Macros$$Options$@SaveClassNameextendsMacros.Options.Default" title="Permalink" target="_top">
-        <img src="../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">In <code>write</code> method also store class name(dynamic type) as a string
-in a property named &quot;className&quot;.</p>
     </li><li name="reactivemongo.bson.Macros.Options.SaveSimpleName" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="SaveSimpleNameextendsMacros.Options.SaveClassNamewithMacros.Options.Default"></a>
       <a id="SaveSimpleName:SaveSimpleName"></a>
@@ -147,8 +152,8 @@ in a property named &quot;className&quot;.</p>
       </a>
     </span>
       <p class="shortcomment cmt">Same as <a href="Macros$$Options$$SaveClassName.html" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a> but using the class simple name
-(e.g.</p><div class="fullcomment"><div class="comment cmt"><p>Same as <a href="Macros$$Options$$SaveClassName.html" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a> but using the class simple name
-(e.g. the fully-qualified name).
+(i.e.</p><div class="fullcomment"><div class="comment cmt"><p>Same as <a href="Macros$$Options$$SaveClassName.html" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a> but using the class simple name
+(i.e. Not the fully-qualified name).
 </p></div></div>
     </li><li name="reactivemongo.bson.Macros.Options.SimpleUnionType" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="SimpleUnionType[Types&lt;:reactivemongo.bson.Macros.Options.\/[_,_]]extendsMacros.Options.UnionType[Types]withMacros.Options.SaveSimpleNamewithMacros.Options.Default"></a>
@@ -251,6 +256,29 @@ looks like a logical disjunction.</p><p><code>Foo \/ Bar \/ Baz</code> is interp
       <p class="shortcomment cmt">Similar to <a href="Macros$$Options$$UnionType.html" class="extype" name="reactivemongo.bson.Macros.Options.UnionType">reactivemongo.bson.Macros.Options.UnionType</a> but finds all
 implementations of the top trait automatically.</p><div class="fullcomment"><div class="comment cmt"><p>Similar to <a href="Macros$$Options$$UnionType.html" class="extype" name="reactivemongo.bson.Macros.Options.UnionType">reactivemongo.bson.Macros.Options.UnionType</a> but finds all
 implementations of the top trait automatically.
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12-RC2)</i> Default behaviour for sealed trait, if union types are not explicitly defined</p></dd></dl></div>
+    </li><li name="reactivemongo.bson.Macros.Options.SaveClassName" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="SaveClassNameextendsMacros.Options.Default"></a>
+      <a id="SaveClassName:SaveClassName"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Macros$$Options$$SaveClassName.html"><span class="name deprecated" title="Deprecated: (Since version 0.12-RC2) Default behaviour for sealed trait, if union types are not explicitly defined">SaveClassName</span></a><span class="result"> extends <a href="Macros$$Options$$Default.html" class="extype" name="reactivemongo.bson.Macros.Options.Default">Default</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.Macros$$Options$@SaveClassNameextendsMacros.Options.Default" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">In <code>write</code> method also store class name (dynamic type) as a string
+in a property named &quot;className&quot;.</p><div class="fullcomment"><div class="comment cmt"><p>In <code>write</code> method also store class name (dynamic type) as a string
+in a property named &quot;className&quot;.
 </p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               

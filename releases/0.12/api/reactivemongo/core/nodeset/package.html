@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>nodeset - ReactiveMongo API 0.12.0 - reactivemongo.core.nodeset</title>
-          <meta name="description" content="nodeset - ReactiveMongo API 0.12.0 - reactivemongo.core.nodeset" />
-          <meta name="keywords" content="nodeset ReactiveMongo API 0.12.0 reactivemongo.core.nodeset" />
+          <title>nodeset - ReactiveMongo API 0.12 - reactivemongo.core.nodeset</title>
+          <meta name="description" content="nodeset - ReactiveMongo API 0.12 - reactivemongo.core.nodeset" />
+          <meta name="keywords" content="nodeset ReactiveMongo API 0.12 reactivemongo.core.nodeset" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -273,7 +273,7 @@
       </a>
     </span>
       
-    </li><li name="reactivemongo.core.nodeset.PingInfo" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="reactivemongo.core.nodeset.PingInfo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="PingInfoextendsProductwithSerializable"></a>
       <a id="PingInfo:PingInfo"></a>
       <h4 class="signature">
@@ -282,14 +282,14 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="PingInfo.html"><span class="name">PingInfo</span></a><span class="params">(<span name="ping">ping: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">0</span></span>, <span name="lastIsMasterTime">lastIsMasterTime: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">0</span></span>, <span name="lastIsMasterId">lastIsMasterId: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">1</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="PingInfo.html"><span class="name">PingInfo</span></a><span class="params">(<span name="ping">ping: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">Long.MaxValue</span></span>, <span name="lastIsMasterTime">lastIsMasterTime: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">0</span></span>, <span name="lastIsMasterId">lastIsMasterId: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">1</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#reactivemongo.core.nodeset.package@PingInfoextendsProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">ping</dt><dd class="cmt"><p>the response delay for the last IsMaster request (duration between request and its response, or <code>Long.MaxValue</code>)</p></dd><dt class="param">lastIsMasterTime</dt><dd class="cmt"><p>the timestamp when the last IsMaster request has been sent (or 0)</p></dd><dt class="param">lastIsMasterId</dt><dd class="cmt"><p>the ID of the last IsMaster request (or -1 if none)</p></dd></dl></div>
     </li><li name="reactivemongo.core.nodeset.ProtocolMetadata" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="ProtocolMetadataextendsProductwithSerializable"></a>
       <a id="ProtocolMetadata:ProtocolMetadata"></a>

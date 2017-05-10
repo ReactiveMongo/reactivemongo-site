@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>BSONArrayCollectionReader - ReactiveMongo API 0.12.0 - reactivemongo.bson.DefaultBSONHandlers.BSONArrayCollectionReader</title>
-          <meta name="description" content="BSONArrayCollectionReader - ReactiveMongo API 0.12.0 - reactivemongo.bson.DefaultBSONHandlers.BSONArrayCollectionReader" />
-          <meta name="keywords" content="BSONArrayCollectionReader ReactiveMongo API 0.12.0 reactivemongo.bson.DefaultBSONHandlers.BSONArrayCollectionReader" />
+          <title>BSONArrayCollectionReader - ReactiveMongo API 0.12 - reactivemongo.bson.DefaultBSONHandlers.BSONArrayCollectionReader</title>
+          <meta name="description" content="BSONArrayCollectionReader - ReactiveMongo API 0.12 - reactivemongo.bson.DefaultBSONHandlers.BSONArrayCollectionReader" />
+          <meta name="keywords" content="BSONArrayCollectionReader ReactiveMongo API 0.12 reactivemongo.bson.DefaultBSONHandlers.BSONArrayCollectionReader" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -252,6 +252,23 @@ on the result of this reader.
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONReader#beforeRead" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="beforeRead[U&lt;:reactivemongo.bson.BSONValue](f:U=&gt;B):reactivemongo.bson.BSONReader[U,T]"></a>
+      <a id="beforeRead[U&lt;:BSONValue]((U)⇒BSONArray):BSONReader[U,M[T]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">beforeRead</span><span class="tparams">[<span name="U">U &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="reactivemongo.bson.BSONReader.beforeRead.U">U</span>) ⇒ <a href="BSONArray.html" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a></span>)</span><span class="result">: <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[<span class="extype" name="reactivemongo.bson.BSONReader.beforeRead.U">U</span>, <span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.BSONArrayCollectionReader.M">M</span>[<span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.BSONArrayCollectionReader.T">T</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#reactivemongo.bson.DefaultBSONHandlers$BSONArrayCollectionReader@beforeRead[U&lt;:reactivemongo.bson.BSONValue](f:U=&gt;B):reactivemongo.bson.BSONReader[U,T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
       <a id="clone():AnyRef"></a>
@@ -737,11 +754,11 @@ If used outside a reader, one should consider <code>readTry(bson: B): Try[T]</co
             </div>
         <div class="conversion" name="reactivemongo.bson.Producer.valueProducer">
               <h3>Inherited by implicit conversion valueProducer from
-                <a href="" class="extype" name="reactivemongo.bson.DefaultBSONHandlers.BSONArrayCollectionReader">BSONArrayCollectionReader</a>[<span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.BSONArrayCollectionReader.M">M</span>, <span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.BSONArrayCollectionReader.T">T</span>] to <a href="Producer$$OptionValueProducer.html" class="extype" name="reactivemongo.bson.Producer.OptionValueProducer">OptionValueProducer</a>
+                <a href="" class="extype" name="reactivemongo.bson.DefaultBSONHandlers.BSONArrayCollectionReader">BSONArrayCollectionReader</a>[<span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.BSONArrayCollectionReader.M">M</span>, <span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.BSONArrayCollectionReader.T">T</span>] to <a href="Producer.html" class="extype" name="reactivemongo.bson.Producer">Producer</a>[<a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]
               </h3>
             </div><div class="conversion" name="reactivemongo.bson.Producer.element2Producer">
               <h3>Inherited by implicit conversion element2Producer from
-                <a href="" class="extype" name="reactivemongo.bson.DefaultBSONHandlers.BSONArrayCollectionReader">BSONArrayCollectionReader</a>[<span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.BSONArrayCollectionReader.M">M</span>, <span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.BSONArrayCollectionReader.T">T</span>] to <a href="Producer$$NameOptionValueProducer.html" class="extype" name="reactivemongo.bson.Producer.NameOptionValueProducer">NameOptionValueProducer</a>
+                <a href="" class="extype" name="reactivemongo.bson.DefaultBSONHandlers.BSONArrayCollectionReader">BSONArrayCollectionReader</a>[<span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.BSONArrayCollectionReader.M">M</span>, <span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.BSONArrayCollectionReader.T">T</span>] to <a href="Producer.html" class="extype" name="reactivemongo.bson.Producer">Producer</a>[<a href="BSONElement.html" class="extype" name="reactivemongo.bson.BSONElement">BSONElement</a>]
               </h3>
             </div><div class="conversion" name="scala.Predef.any2stringadd">
               <h3>Inherited by implicit conversion any2stringadd from
