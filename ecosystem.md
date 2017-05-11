@@ -18,7 +18,7 @@ ReactiveMongo is composed of subprojects.
   - [Play ReactiveMongo](./releases/{{site.latest_major_release}}/documentation/tutorial/play.html): the official plugin for Play Framework. Setup the connection according the configuration of the Play application.
 
 * [ReactiveMongo Streaming](./releases/{{site.latest_major_release}}/documentation/tutorial/streaming.html)
-  - [ReactiveMongo AkkaStream](./releases/{{site.latest_major_release}}/documentation/tutorial/streaming.html#akka-stream): the [AkkaStream](http://doc.akka.io/docs/akka/2.4/scala/stream/index.html) for ReactiveMongo.
+  - [ReactiveMongo AkkaStream](./releases/{{site.latest_major_release}}/documentation/tutorial/streaming.html#akka-stream): the [AkkaStream](http://doc.akka.io/docs/akka/2.5/scala/stream/index.html) for ReactiveMongo.
   - [ReactiveMongo Iteratees](./releases/{{site.latest_major_release}}/documentation/tutorial/streaming.html#play-iteratees)
 
 ## Third party

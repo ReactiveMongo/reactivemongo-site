@@ -427,7 +427,7 @@ ReactiveMongo can now be used with several streaming frameworks.
 
 The [Akka Stream library](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.11/{{site._0_12_latest_minor}}/reactivemongo-akkastream_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#package) can be used to consume ReactiveMongo results.
 
-To enable the Akka Stream support (up to Akka 2.4.8), the import [`reactivemongo.play.akkastream.cursorProducer`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.11/{{site._0_12_latest_minor}}/reactivemongo-akkastream_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.akkastream.package$$cursorFlattener$) must be added.
+To enable the Akka Stream support (up to Akka 2.5.x), the import [`reactivemongo.play.akkastream.cursorProducer`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.11/{{site._0_12_latest_minor}}/reactivemongo-akkastream_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.akkastream.package$$cursorFlattener$) must be added.
 
 {% highlight scala %}
 import scala.concurrent.Future
