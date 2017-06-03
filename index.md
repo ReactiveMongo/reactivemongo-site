@@ -5,7 +5,7 @@ title: Home
 
 [ReactiveMongo](https://github.com/ReactiveMongo/ReactiveMongo/) is a Scala driver that provides fully non-blocking and asynchronous I/O operations.
 
-## Scale better, use less threads
+## Scale better, use fewer threads
 
 With a classic synchronous database driver, each operation blocks the current thread until a response is received. This model is simple but has a major flaw - it can't scale that much.
 
