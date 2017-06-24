@@ -225,6 +225,7 @@ reactivemongo.bson.BSONDocumentWriter
 file.pack.Document
 GridFS.this.pack.Writer
 implicitidProducer
+reactivemongo.akkastream.State
 
 # Geo
 JP
