@@ -50,7 +50,7 @@ def processPerson1(collection: BSONCollection, query: BSONDocument)(implicit m: 
 }
 {% endhighlight %}
 
-The operation [`AkkaStreamCursor.documentSource`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.11/{{site._0_12_latest_minor}}/reactivemongo-akkastream_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.akkastream.AkkaStreamCursor@documentSource(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Option[T]])(implicitm:akka.stream.Materializer):akka.stream.scaladsl.Source[T,akka.NotUsed]) returns an `Source[T, NotUsed]`. In this case, we get a producer of documents (of type `BSONDocument`).
+The operation [`AkkaStreamCursor.documentSource`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.11/{{site._0_12_latest_minor}}/reactivemongo-akkastream_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.akkastream.AkkaStreamCursor@documentSource(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Option[T]])(implicitm:akka.stream.Materializer):akka.stream.scaladsl.Source[T,scala.concurrent.Future[reactivemongo.akkastream.State]]) returns an `Source[T, Future[State]]` (with `Future[State]` representing the completion of the asynchronous materialization). In this case, we get a producer of documents (of type `BSONDocument`).
 
 Now that we have the producer, we need to define how the documents are processed, using a `Sink` or a `Flow` (with transformations).
 
