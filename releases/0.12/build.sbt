@@ -6,14 +6,17 @@ val majorVer = "0.12"
 
 version := majorVer
 
-val Release = s"${majorVer}.4"
+val Release = s"${majorVer}.5"
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.11.11"
 
 libraryDependencies ++= Seq(
-  "play2-reactivemongo", "reactivemongo-play-json",
   "reactivemongo-iteratees", "reactivemongo-akkastream").map(
   "org.reactivemongo" %% _ % Release changing())
+
+libraryDependencies ++= Seq(
+  "play2-reactivemongo", "reactivemongo-play-json").map(
+  "org.reactivemongo" %% _ % s"${Release}-play25" changing())
 
 libraryDependencies += "com.typesafe.play" %% "play" % "2.5.12"
 

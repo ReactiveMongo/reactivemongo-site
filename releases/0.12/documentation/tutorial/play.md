@@ -13,9 +13,14 @@ This module is based on the [Play JSON serialization](../json/overview.html).
 The latest version of this plugin is for Play 2.4+, and can be enabled by adding the following dependency in your `project/Build.scala` (or `build.sbt`).
 
 {% highlight ocaml %}
+// only for Play 2.6.x
+libraryDependencies ++= Seq(
+  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._0_12_latest_minor}}-play26"
+)
+
 // only for Play 2.5.x
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._0_12_latest_minor}}"
+  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._0_12_latest_minor}}-play25"
 )
 
 // only for Play 2.4.x
@@ -28,7 +33,7 @@ libraryDependencies ++= Seq(
 
 > When the dependency to the Play plugin is used, no separate dependency to the ReactiveMongo driver must be declared, as it will be resolved in the appropriate version by the transitive dependency mechanism.
 
-As for Play 2.4 itself, this ReactiveMongo plugin requires a JVM 1.8+.
+As for Play 2.4+ itself, this ReactiveMongo plugin requires a JVM 1.8+.
 
 The [API of this Play module](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_2.11/{{site._0_12_latest_minor}}/play2-reactivemongo_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html) can be browsed online.
 
@@ -46,7 +51,7 @@ libraryDependencies ++= Seq(
 
 ## Setup
 
-### Play 2.4
+### Play 2.4+
 
 **`ReactiveMongoPlugin` is deprecated, long live to `ReactiveMongoModule` and `ReactiveMongoApi`**.
 
