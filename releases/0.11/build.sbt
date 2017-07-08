@@ -4,10 +4,10 @@ name := "release_0_11"
 
 version := "0.11"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.11"
 
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.13-play24",
+  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.14-play24",
   "com.typesafe.play" %% "play" % "2.4.6")
 
 resolvers ++= Seq(
