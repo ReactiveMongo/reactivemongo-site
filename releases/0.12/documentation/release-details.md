@@ -43,7 +43,7 @@ This release is compatible with the following runtime.
 
 - [MongoDB](https://www.mongodb.org/) from 2.6 up to 3.4.
 - [Akka](http://akka.io/) from 2.3.13 up to 2.5.1 (see [Setup](./tutorial/setup.html))
-- [Play Framework](https://playframework.com) from 2.3.13 to 2.6.0
+- [Play Framework](https://playframework.com) from 2.3.13 to 2.6.1
 
 > MongoDB versions older than 2.6 are not longer supported by ReactiveMongo.
 
@@ -908,6 +908,8 @@ As for Play 2.5, due to the [Streams Migration](https://playframework.com/docume
     could not find implicit value for parameter materializer: akka.Stream.Materializer
 
 It's also important to note that the Play support has also been modularized.
+
+> As when directly using the core driver, the [database resolution](#database-resolution) has been updated since 0.12 (the deprecated `.db` function must be replaced by `.database`).
 
 #### JSON serialization
 

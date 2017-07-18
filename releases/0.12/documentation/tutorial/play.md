@@ -303,13 +303,18 @@ class Application @Inject() (val reactiveMongoApi: ReactiveMongoApi)
     extends Controller with MongoController with ReactiveMongoComponents {
 
   /*
-   * Get a JSONCollection (a Collection implementation that is designed to work
-   * with JsObject, Reads and Writes.)
+   * Resolves a JSONCollection
+   * (a Collection implementation that is designed to work with JsObject,
+   * Reads and Writes).
+   *
+   * The deprecated `.db` function should be replaced as there by `.database`.
+   *
    * Note that the `collection` is not a `val`, but a `def`. We do _not_ store
    * the collection reference to avoid potential problems in development with
    * Play hot-reloading.
    */
-  def collection: JSONCollection = db.collection[JSONCollection]("persons")
+  def collection: Future[JSONCollection] =
+    database.map(_.collection[JSONCollection]("persons"))
 
   def index = Action { Ok("works") }
 
@@ -319,7 +324,7 @@ class Application @Inject() (val reactiveMongoApi: ReactiveMongoApi)
       "age" -> age,
       "created" -> new java.util.Date().getTime())
 
-    collection.insert(json).map(lastError =>
+    collection.flatMap(_.insert(json)).map(lastError =>
       Ok("Mongo LastError: %s".format(lastError)))
   }
 
@@ -338,7 +343,7 @@ class Application @Inject() (val reactiveMongoApi: ReactiveMongoApi)
         Reads.jsPickBranch[JsNumber](__ \ "age") reduce
 
     request.body.transform(transformer).map { result =>
-      collection.insert(result).map { lastError =>
+      collection.flatMap(_.insert(result)).map { lastError =>
         Logger.debug(s"Successfully inserted with LastError: $lastError")
         Created
       }
@@ -347,16 +352,18 @@ class Application @Inject() (val reactiveMongoApi: ReactiveMongoApi)
 
   def findByName(name: String) = Action.async {
     // let's do our query
-    val cursor: Cursor[JsObject] = collection.
+    val cursor: Future[Cursor[JsObject]] = collection.map {
       // find all people with name `name`
-      find(Json.obj("name" -> name)).
-      // sort them by creation date
-      sort(Json.obj("created" -> -1)).
-      // perform the query and get a cursor of JsObject
-      cursor[JsObject](ReadPreference.primary)
+      _.find(Json.obj("name" -> name)).
+        // sort them by creation date
+        sort(Json.obj("created" -> -1)).
+        // perform the query and get a cursor of JsObject
+        cursor[JsObject](ReadPreference.primary)
+    }
 
     // gather all the JsObjects in a list
-    val futurePersonsList: Future[List[JsObject]] = cursor.collect[List]()
+    val futurePersonsList: Future[List[JsObject]] =
+      cursor.flatMap(_.collect[List]())
 
     // transform the list into a JsArray
     val futurePersonsJsonArray: Future[JsArray] =
@@ -462,7 +469,8 @@ class ApplicationUsingJsonReadersWriters @Inject() (
    * the collection reference to avoid potential problems in development with
    * Play hot-reloading.
    */
-  def collection: JSONCollection = db.collection[JSONCollection]("persons")
+  def collection: Future[JSONCollection] = database.map(
+    _.collection[JSONCollection]("persons"))
 
   // ------------------------------------------ //
   // Using case classes + JSON Writes and Reads //
@@ -474,8 +482,10 @@ class ApplicationUsingJsonReadersWriters @Inject() (
   def create = Action.async {
     val user = User(29, "John", "Smith", List(
       Feed("Slashdot news", "http://slashdot.org/slashdot.rdf")))
+
     // insert the user
-    val futureResult = collection.insert(user)
+    val futureResult = collection.flatMap(_.insert(user))
+
     // when the insert is performed, send a OK 200 result
     futureResult.map(_ => Ok)
   }
@@ -490,7 +500,7 @@ class ApplicationUsingJsonReadersWriters @Inject() (
      */
     request.body.validate[User].map { user =>
       // `user` is an instance of the case class `models.User`
-      collection.insert(user).map { lastError =>
+      collection.flatMap(_.insert(user)).map { lastError =>
         Logger.debug(s"Successfully inserted with LastError: $lastError")
         Created
       }
@@ -499,16 +509,17 @@ class ApplicationUsingJsonReadersWriters @Inject() (
 
   def findByName(lastName: String) = Action.async {
     // let's do our query
-    val cursor: Cursor[User] = collection.
+    val cursor: Future[Cursor[User]] = collection.map {
       // find all people with name `name`
-      find(Json.obj("lastName" -> lastName)).
-      // sort them by creation date
-      sort(Json.obj("created" -> -1)).
-      // perform the query and get a cursor of JsObject
-      cursor[User]
+      _.find(Json.obj("lastName" -> lastName)).
+        // sort them by creation date
+        sort(Json.obj("created" -> -1)).
+        // perform the query and get a cursor of JsObject
+        cursor[User]
+    }
 
     // gather all the JsObjects in a list
-    val futureUsersList: Future[List[User]] = cursor.collect[List]()
+    val futureUsersList: Future[List[User]] = cursor.flatMap(_.collect[List]())
 
     // everything's ok! Let's reply with the array
     futureUsersList.map { persons =>
