@@ -1,4 +1,5 @@
 * Full Web Application featuring basic CRUD operations and GridFS streaming: [online demo](http://reactivemongo-demo-app.herokuapp.com/) / [source](https://github.com/cchantep/reactivemongo-demo-app)
+* [Play 2.6 TODO App with Swagger and Reactivemongo](https://github.com/ricsirigu/play26-swagger-reactivemongo)
 * [Play Framework with REST, ReactiveMongo and Polymer](http://www.typesafe.com/activator/template/play-reactivemongo-polymer)
 * [ReactiveMongo Tailable Cursor, WebSocket and Play 2](https://github.com/sgodbillon/reactivemongo-tailablecursor-demo)
 * [Play ReactiveMongo application with KnockoutJS frontend](http://www.typesafe.com/activator/template/play-mongo-knockout)
