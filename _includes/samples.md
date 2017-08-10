@@ -5,3 +5,4 @@ These sample applications are kept up to date with the latest driver version. Th
 * Tests and samples: in the [GitHub repository](https://github.com/ReactiveMongo/ReactiveMongo/tree/{{site.latest_release}}/driver/src/test/scala)
 * [ReactiveMongo Tailable Cursor, WebSocket and Play 2](https://github.com/sgodbillon/reactivemongo-tailablecursor-demo)
 * [Play ReactiveMongo application with KnockoutJS frontend](http://www.typesafe.com/activator/template/play-mongo-knockout)
+* [Play 2.6 TODO app with Swagger and ReactiveMongo](https://github.com/ricsirigu/play26-swagger-reactivemongo)
