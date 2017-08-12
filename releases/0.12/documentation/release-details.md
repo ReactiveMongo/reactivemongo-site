@@ -395,7 +395,7 @@ reactivemongo.bson.Macros.reader[GenFoo[String]]
 Some undocumented macro features, such as **union types** and sealed trait support are now [explained](./bson/typeclasses.html#helpful-macros).
 
 {% highlight scala %}
-import reactivemongo.bson.{ BSONDocument, BSONHandler, Macros }
+import reactivemongo.bson.{ BSONDocument, BSONDocumentHandler, Macros }
 
 sealed trait Tree
 case class Node(left: Tree, right: Tree) extends Tree
@@ -405,7 +405,7 @@ object Tree {
   implicit val node = Macros.handler[Node]
   implicit val leaf = Macros.handler[Leaf]
 
-  implicit val bson: BSONHandler[BSONDocument, Tree] = Macros.handler[Tree]
+  implicit val bson: BSONDocumentHandler[Tree] = Macros.handler[Tree]
 }
 {% endhighlight %}
 

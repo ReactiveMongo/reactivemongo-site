@@ -383,7 +383,7 @@ sealed trait Tree
 case class Node(left: Tree, right: Tree) extends Tree
 case class Leaf(data: String) extends Tree
 
-val example11: BSONHandler[BSONDocument, Tree] =
+val example11: BSONDocumentHandler[Tree] =
   Macros.handler[Tree]
 ```
 
