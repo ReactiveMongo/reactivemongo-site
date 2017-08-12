@@ -38,7 +38,7 @@ object BSONMap {
 ### Example of usage
 
 {% highlight scala %}
-import reactivemongo.bson.{ BSON, BSONDocument, BSONHandler }
+import reactivemongo.bson.{ BSON, BSONDocument, BSONDocumentHandler }
 
 case class Album(
   title: String,
@@ -51,8 +51,8 @@ case class Artist(
   name: String,
   albums: List[Album])
 
-implicit def artistHandler: BSONHandler[BSONDocument, Artist] = ???
-implicit def mapHandler: BSONHandler[BSONDocument, Map[String, Artist]] = ???
+implicit def artistHandler: BSONDocumentHandler[Artist] = ???
+implicit def mapHandler: BSONDocumentHandler[Map[String, Artist]] = ???
 
 def neilYoung: Artist = ???
 
