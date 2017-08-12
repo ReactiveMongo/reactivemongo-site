@@ -134,10 +134,14 @@ Obviously, you can combine these readers and writers to de/serialize more comple
 
 {% highlight scala %}
 import reactivemongo.bson.{
-  BSON, BSONDocument, BSONHandler, BSONDocumentReader, BSONDocumentWriter
+  BSON,
+  BSONDocument,
+  BSONDocumentHandler,
+  BSONDocumentReader,
+  BSONDocumentWriter
 }
 
-implicit def albumHandler: BSONHandler[BSONDocument, Album] = ???
+implicit def albumHandler: BSONDocumentHandler[Album] = ???
 
 case class Artist(
   name: String,
