@@ -15,7 +15,7 @@ SBT_LAUNCHER_JAR="$SBT_LAUNCHER_HOME/sbt-launch.jar"
 
 if [ ! -r "$SBT_LAUNCHER_JAR" ]; then
   mkdir -p $SBT_LAUNCHER_HOME
-  curl -L -o "$SBT_LAUNCHER_JAR" "http://dl.bintray.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/$SBT_VER/sbt-launch.jar"
+  curl -L -o "$SBT_LAUNCHER_JAR" "https://repo1.maven.org/maven2/org/scala-sbt/sbt-launch/$SBT_VER/sbt-launch-$SBT_VER.jar"
 else
   echo -n "SBT already set up: "
   ls -v -1 "$SBT_LAUNCHER_JAR"
