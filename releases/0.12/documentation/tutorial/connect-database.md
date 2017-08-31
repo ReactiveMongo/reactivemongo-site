@@ -266,9 +266,38 @@ If one of the error is seen, first retry/refresh to check it wasn't a temporary 
 
 *Is the connection URI used with ReactiveMongo valid?*
 
-- If using the [Play module](./play.html), the `strictUri` setting can be enabled (e.g. `mongodb.connection.strictUri=true`).
-- If calling directly the function [`MongoDriver.connection`](../../api/index.html#reactivemongo.api.MongoDriver@connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI,strictUri:Boolean):scala.util.Try[reactivemongo.api.MongoConnection]), the `strictUri` parameter can be set to `true`.
-- Connect without any non mandatory options (e.g. `connectTimeoutMS`), using the [SBT Playground](https://github.com/cchantep/RM-SBT-Playground) to try the alternative URI.
+If using the [Play module](./play.html), the `strictUri` setting can be enabled (e.g. `mongodb.connection.strictUri=true`).
+
+If calling directly the function [`MongoDriver.connection`](../../api/index.html#reactivemongo.api.MongoDriver@connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI,strictUri:Boolean):scala.util.Try[reactivemongo.api.MongoConnection]), the `strictUri` parameter can be set to `true`.
+
+Connect without any non mandatory options (e.g. `connectTimeoutMS`), using the [SBT Playground](https://github.com/cchantep/RM-SBT-Playground) to try the alternative URI.
+
+Using the following code, make sure there is no authentication issue.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.api._
+
+def troubleshootAuth() = {
+  val strictUri = "mongodb://..."
+  val dbname = "db-name"
+  val user = "your-user"
+  val pass = "your-password"
+  val driver = MongoDriver()
+  
+  Future.fromTry(driver.connection(strictUri)).flatMap {
+    _.authenticate(dbname, user, pass)
+  }.onComplete {
+    case res => println(s"Auth: $res")
+  }
+}
+
+troubleshootAuth()
+
+// Would display something like `Auth: Failure(...)` in case of failure
+{% endhighlight %}
 
 *Connecting to a [MongoDB ReplicaSet](https://docs.mongodb.com/manual/replication/), is status ok?*
 
