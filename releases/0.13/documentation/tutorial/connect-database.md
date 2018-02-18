@@ -38,11 +38,13 @@ val connection4 = driver1.connection(List("localhost"), options = conOpts)
 
 The following options can be used with `MongoConnectionOptions` to configure the connection behaviour.
 
-- **`authSource`**: The database source for authentication credentials.
+- **`authSource`**: DEPRECATED, see `authenticationDatabase`
+- **`authenticationDatabase`**: The database source for authentication credentials.
 - **`authMode`**: The authentication mode. By default set to `scram-sha1` for [SCRAM-SHA-1](http://docs.mongodb.org/manual/core/authentication/#scram-sha-1-authentication). Can be configured with `mongocr` for the backward compatible [MONGODB-CR](http://docs.mongodb.org/manual/core/authentication/#mongodb-cr-authentication).
 - **`connectTimeoutMS`**: The [number of milliseconds](https://docs.mongodb.org/manual/reference/connection-string/#urioption.connectTimeoutMS) to wait for a connection to be established before giving up.
 - [**`maxIdleTimeMS`**](https://docs.mongodb.com/manual/reference/connection-string/#urioption.maxIdleTimeMS): The maximum number of milliseconds that a connection can remain idle in the pool before being removed and closed.
-- **`sslEnabled`**: It enables the SSL support for the connection (`true|false`).
+- **`sslEnabled`**: DEPRECATED, see `ssl`
+- **`ssl`**: It enables the SSL support for the connection (`true|false`).
 - **`sslAllowsInvalidCert`**: If `sslEnabled` is true, this one indicates whether to accept invalid certificates (e.g. self-signed).
 - **`rm.tcpNoDelay`**: TCPNoDelay boolean flag (`true|false`).
 - **`rm.keepAlive`**: TCP KeepAlive boolean flag (`true|false`).
