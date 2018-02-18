@@ -1,0 +1,1135 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+          <title>ReactiveMongo API 0.13 - reactivemongo.bson.buffer.DefaultBufferHandler</title>
+          <meta name="description" content="ReactiveMongo API 0.13 - reactivemongo.bson.buffer.DefaultBufferHandler" />
+          <meta name="keywords" content="ReactiveMongo API 0.13 reactivemongo.bson.buffer.DefaultBufferHandler" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js"></script>
+      <script type="text/javascript" src="../../../lib/jquery.panzoom.min.js"></script>
+      <script type="text/javascript" src="../../../lib/jquery.mousewheel.min.js"></script>
+      <script type="text/javascript" src="../../../lib/index.js"></script>
+      <script type="text/javascript" src="../../../index.js"></script>
+      <script type="text/javascript" src="../../../lib/scheduler.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+        /* this variable can be used by the JS to determine the path to the root document */
+        var toRoot = '../../../';
+      </script>
+    
+        </head>
+        <body>
+      <div id="search">
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.13</span></span>
+        <span class="close-results"><span class="left">&lt;</span> Back</span>
+        <div id="textfilter">
+          <span class="input">
+            <input autocapitalize="none" placeholder="Search" id="index-input" type="text" accesskey="/" />
+            <i class="clear material-icons"></i>
+            <i id="search-icon" class="material-icons"></i>
+          </span>
+        </div>
+    </div>
+      <div id="search-results">
+        <div id="search-progress">
+          <div id="progress-fill"></div>
+        </div>
+        <div id="results-content">
+          <div id="entity-results"></div>
+          <div id="member-results"></div>
+        </div>
+      </div>
+      <div id="content-scroll-container" style="-webkit-overflow-scrolling: touch;">
+        <div id="content-container" style="-webkit-overflow-scrolling: touch;">
+          <div id="subpackage-spacer">
+            <div id="packages">
+              <h1>Packages</h1>
+              <ul>
+                <li name="_root_.root" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="_root_"></a><a id="root:_root_"></a>
+      <span class="permalink">
+      <a href="index.html#_root_" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="../../../index.html"><span class="name">root</span></a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../../index.html" class="extype" name="_root_">root</a></dd></dl></div>
+    </li><li name="_root_.reactivemongo" visbl="pub" class="indented1 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="reactivemongo"></a><a id="reactivemongo:reactivemongo"></a>
+      <span class="permalink">
+      <a href="index.html#reactivemongo" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="../../index.html"><span class="name">reactivemongo</span></a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../../index.html" class="extype" name="_root_">root</a></dd></dl></div>
+    </li><li name="reactivemongo.bson" visbl="pub" class="indented2 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bson"></a><a id="bson:bson"></a>
+      <span class="permalink">
+      <a href="../reactivemongo/index.html#bson" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="../index.html"><span class="name">bson</span></a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../index.html" class="extype" name="reactivemongo">reactivemongo</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.buffer" visbl="pub" class="indented3 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="buffer"></a><a id="buffer:buffer"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/index.html#buffer" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="index.html"><span class="name">buffer</span></a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="reactivemongo.bson">bson</a></dd></dl></div>
+    </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="ArrayBSONBuffer.html" title="An array-backed writable buffer."></a>
+                        <a href="ArrayBSONBuffer.html" title="An array-backed writable buffer.">ArrayBSONBuffer</a>
+                      </li><li class="current-entities indented3">
+                        <a class="object" href="ArrayReadableBuffer$.html" title=""></a>
+                        <a class="class" href="ArrayReadableBuffer.html" title="An array-backed readable buffer."></a>
+                        <a href="ArrayReadableBuffer.html" title="An array-backed readable buffer.">ArrayReadableBuffer</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="trait" href="BSONBuffer.html" title=""></a>
+                        <a href="BSONBuffer.html" title="">BSONBuffer</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="trait" href="BufferHandler.html" title=""></a>
+                        <a href="BufferHandler.html" title="">BufferHandler</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="" title=""></a>
+                        <a href="" title="">DefaultBufferHandler</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="trait" href="ReadableBuffer.html" title="A readable buffer."></a>
+                        <a href="ReadableBuffer.html" title="A readable buffer.">ReadableBuffer</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="trait" href="WritableBuffer.html" title="A writable buffer."></a>
+                        <a href="WritableBuffer.html" title="A writable buffer.">WritableBuffer</a>
+                      </li>
+              </ul>
+            </div>
+          </div>
+          <div id="content">
+            <body class="object value">
+      <div id="definition">
+        <div class="big-circle object">o</div>
+        <p id="owner"><a href="../../index.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../index.html" class="extype" name="reactivemongo.bson">bson</a>.<a href="index.html" class="extype" name="reactivemongo.bson.buffer">buffer</a></p>
+        <h1>DefaultBufferHandler<span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span></h1>
+        <h3><span class="morelinks"></span></h3>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <span class="name">DefaultBufferHandler</span><span class="result"> extends <a href="BufferHandler.html" class="extype" name="reactivemongo.bson.buffer.BufferHandler">BufferHandler</a></span>
+      </span>
+      </h4>
+
+      
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <span class="toggle">
+            Linear Supertypes
+          </span>
+          <div class="superTypes hiddenContent"><a href="BufferHandler.html" class="extype" name="reactivemongo.bson.buffer.BufferHandler">BufferHandler</a>, <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div class="toggle"></div>
+        <div id="memberfilter">
+          <i class="material-icons arrow"></i>
+          <span class="input">
+            <input id="mbrsel-input" placeholder="Filter all members" type="text" accesskey="/" />
+          </span>
+          <i class="clear material-icons"></i>
+        </div>
+        <div id="filterby">
+          <div id="order">
+            <span class="filtertype">Ordering</span>
+            <ol>
+              
+              <li class="alpha in"><span>Alphabetic</span></li>
+              <li class="inherit out"><span>By Inheritance</span></li>
+            </ol>
+          </div>
+          <div class="ancestors">
+                  <span class="filtertype">Inherited<br />
+                  </span>
+                  <ol id="linearization">
+                    <li class="in" name="reactivemongo.bson.buffer.DefaultBufferHandler"><span>DefaultBufferHandler</span></li><li class="in" name="reactivemongo.bson.buffer.BufferHandler"><span>BufferHandler</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  </ol>
+                </div><div class="ancestors">
+              <span class="filtertype"></span>
+              <ol>
+                <li class="hideall out"><span>Hide All</span></li>
+                <li class="showall in"><span>Show All</span></li>
+              </ol>
+            </div>
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+            </div>
+        </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="BufferRW[B&lt;:reactivemongo.bson.BSONValue]extendsDefaultBufferHandler.BufferWriter[B]withDefaultBufferHandler.BufferReader[B]"></a><a id="BufferRW[B&lt;:BSONValue]:BufferRW[B]"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BufferRW[B&lt;:reactivemongo.bson.BSONValue]extendsDefaultBufferHandler.BufferWriter[B]withDefaultBufferHandler.BufferReader[B]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BufferRW.html"><span class="name">BufferRW</span></a><span class="tparams">[<span name="B">B &lt;: <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>]</span><span class="result"> extends <a href="DefaultBufferHandler$$BufferWriter.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferWriter">BufferWriter</a>[<span class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW.B">B</span>] with <a href="DefaultBufferHandler$$BufferReader.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferReader">BufferReader</a>[<span class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW.B">B</span>]</span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferReader" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="BufferReader[B&lt;:reactivemongo.bson.BSONValue]extendsAnyRef"></a><a id="BufferReader[B&lt;:BSONValue]:BufferReader[B]"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BufferReader[B&lt;:reactivemongo.bson.BSONValue]extendsAnyRef" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BufferReader.html"><span class="name">BufferReader</span></a><span class="tparams">[<span name="B">B &lt;: <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferWriter" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="BufferWriter[B&lt;:reactivemongo.bson.BSONValue]extendsAnyRef"></a><a id="BufferWriter[B&lt;:BSONValue]:BufferWriter[B]"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BufferWriter[B&lt;:reactivemongo.bson.BSONValue]extendsAnyRef" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BufferWriter.html"><span class="name">BufferWriter</span></a><span class="tparams">[<span name="B">B &lt;: <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+      </span>
+      
+      
+    </li></ol>
+            </div>
+
+        
+
+        <div class="values members">
+              <h3>Value Members</h3>
+              <ol>
+                <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#!=(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html###():Int" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#==(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#asInstanceOf[T0]:T0" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a><a id="clone():AnyRef"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#clone():Object" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java/lang/index.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler#deserialize" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="deserialize(buffer:reactivemongo.bson.buffer.ReadableBuffer):scala.util.Try[(String,reactivemongo.bson.BSONValue)]"></a><a id="deserialize(ReadableBuffer):Try[(String,BSONValue)]"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#deserialize(buffer:reactivemongo.bson.buffer.ReadableBuffer):scala.util.Try[(String,reactivemongo.bson.BSONValue)]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">deserialize</span><span class="params">(<span name="buffer">buffer: <a href="ReadableBuffer.html" class="extype" name="reactivemongo.bson.buffer.ReadableBuffer">ReadableBuffer</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/util/Try.html#scala.util.Try" class="extype" name="scala.util.Try">Try</a>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler">DefaultBufferHandler</a> → <a href="BufferHandler.html" class="extype" name="reactivemongo.bson.buffer.BufferHandler">BufferHandler</a></dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#equals(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#finalize():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java/lang/index.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#getClass():Class[_]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler#handlersByCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="handlersByCode:Map[Byte,reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW[_&lt;:reactivemongo.bson.BSONValue]]"></a><a id="handlersByCode:Map[Byte,BufferRW[_&lt;:BSONValue]]"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#handlersByCode:Map[Byte,reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW[_&lt;:reactivemongo.bson.BSONValue]]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">handlersByCode</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<a href="http://www.scala-lang.org/api/2.12.4/scala/Byte.html#scala.Byte" class="extype" name="scala.Byte">Byte</a>, <a href="DefaultBufferHandler$$BufferRW.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW">BufferRW</a>[_ &lt;: <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]]</span>
+      </span>
+      
+      
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#hashCode():Int" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#isInstanceOf[T0]:Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#notify():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#notifyAll():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler#readDocument" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="readDocument(buffer:reactivemongo.bson.buffer.ReadableBuffer):scala.util.Try[reactivemongo.bson.BSONDocument]"></a><a id="readDocument(ReadableBuffer):Try[BSONDocument]"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#readDocument(buffer:reactivemongo.bson.buffer.ReadableBuffer):scala.util.Try[reactivemongo.bson.BSONDocument]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">readDocument</span><span class="params">(<span name="buffer">buffer: <a href="ReadableBuffer.html" class="extype" name="reactivemongo.bson.buffer.ReadableBuffer">ReadableBuffer</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/util/Try.html#scala.util.Try" class="extype" name="scala.util.Try">Try</a>[<a href="../BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler">DefaultBufferHandler</a> → <a href="BufferHandler.html" class="extype" name="reactivemongo.bson.buffer.BufferHandler">BufferHandler</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler#serialize" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="serialize(bson:reactivemongo.bson.BSONValue,buffer:reactivemongo.bson.buffer.WritableBuffer):reactivemongo.bson.buffer.WritableBuffer"></a><a id="serialize(BSONValue,WritableBuffer):WritableBuffer"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#serialize(bson:reactivemongo.bson.BSONValue,buffer:reactivemongo.bson.buffer.WritableBuffer):reactivemongo.bson.buffer.WritableBuffer" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">serialize</span><span class="params">(<span name="bson">bson: <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>, <span name="buffer">buffer: <a href="WritableBuffer.html" class="extype" name="reactivemongo.bson.buffer.WritableBuffer">WritableBuffer</a></span>)</span><span class="result">: <a href="WritableBuffer.html" class="extype" name="reactivemongo.bson.buffer.WritableBuffer">WritableBuffer</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler">DefaultBufferHandler</a> → <a href="BufferHandler.html" class="extype" name="reactivemongo.bson.buffer.BufferHandler">BufferHandler</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.buffer.BufferHandler#stream" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="stream(buffer:reactivemongo.bson.buffer.ReadableBuffer):Stream[(String,reactivemongo.bson.BSONValue)]"></a><a id="stream(ReadableBuffer):Stream[(String,BSONValue)]"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#stream(buffer:reactivemongo.bson.buffer.ReadableBuffer):Stream[(String,reactivemongo.bson.BSONValue)]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">stream</span><span class="params">(<span name="buffer">buffer: <a href="ReadableBuffer.html" class="extype" name="reactivemongo.bson.buffer.ReadableBuffer">ReadableBuffer</a></span>)</span><span class="result">: <span class="extype" name="scala.Stream">Stream</span>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BufferHandler.html" class="extype" name="reactivemongo.bson.buffer.BufferHandler">BufferHandler</a></dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#toString():String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#wait():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#wait(x$1:Long):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="reactivemongo.bson.buffer.BufferHandler#write" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="write(buffer:reactivemongo.bson.buffer.WritableBuffer,arr:reactivemongo.bson.BSONArray):reactivemongo.bson.buffer.WritableBuffer"></a><a id="write(WritableBuffer,BSONArray):WritableBuffer"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#write(buffer:reactivemongo.bson.buffer.WritableBuffer,arr:reactivemongo.bson.BSONArray):reactivemongo.bson.buffer.WritableBuffer" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">write</span><span class="params">(<span name="buffer">buffer: <a href="WritableBuffer.html" class="extype" name="reactivemongo.bson.buffer.WritableBuffer">WritableBuffer</a></span>, <span name="arr">arr: <a href="../BSONArray.html" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a></span>)</span><span class="result">: <a href="WritableBuffer.html" class="extype" name="reactivemongo.bson.buffer.WritableBuffer">WritableBuffer</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BufferHandler.html" class="extype" name="reactivemongo.bson.buffer.BufferHandler">BufferHandler</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.buffer.BufferHandler#write" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="write(buffer:reactivemongo.bson.buffer.WritableBuffer,document:reactivemongo.bson.BSONDocument):reactivemongo.bson.buffer.WritableBuffer"></a><a id="write(WritableBuffer,BSONDocument):WritableBuffer"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#write(buffer:reactivemongo.bson.buffer.WritableBuffer,document:reactivemongo.bson.BSONDocument):reactivemongo.bson.buffer.WritableBuffer" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">write</span><span class="params">(<span name="buffer">buffer: <a href="WritableBuffer.html" class="extype" name="reactivemongo.bson.buffer.WritableBuffer">WritableBuffer</a></span>, <span name="document">document: <a href="../BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span><span class="result">: <a href="WritableBuffer.html" class="extype" name="reactivemongo.bson.buffer.WritableBuffer">WritableBuffer</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BufferHandler.html" class="extype" name="reactivemongo.bson.buffer.BufferHandler">BufferHandler</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler#writeDocument" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="writeDocument(document:reactivemongo.bson.BSONDocument,buffer:reactivemongo.bson.buffer.WritableBuffer):reactivemongo.bson.buffer.WritableBuffer"></a><a id="writeDocument(BSONDocument,WritableBuffer):WritableBuffer"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#writeDocument(document:reactivemongo.bson.BSONDocument,buffer:reactivemongo.bson.buffer.WritableBuffer):reactivemongo.bson.buffer.WritableBuffer" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">writeDocument</span><span class="params">(<span name="document">document: <a href="../BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>, <span name="buffer">buffer: <a href="WritableBuffer.html" class="extype" name="reactivemongo.bson.buffer.WritableBuffer">WritableBuffer</a></span>)</span><span class="result">: <a href="WritableBuffer.html" class="extype" name="reactivemongo.bson.buffer.WritableBuffer">WritableBuffer</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler">DefaultBufferHandler</a> → <a href="BufferHandler.html" class="extype" name="reactivemongo.bson.buffer.BufferHandler">BufferHandler</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BSONArrayBufferHandler" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONArrayBufferHandler"></a><a id="BSONArrayBufferHandler:BSONArrayBufferHandler"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BSONArrayBufferHandler" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BSONArrayBufferHandler$.html"><span class="name">BSONArrayBufferHandler</span></a><span class="result"> extends <a href="DefaultBufferHandler$$BufferRW.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW">BufferRW</a>[<a href="../BSONArray.html" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a>]</span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BSONBinaryBufferHandler" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONBinaryBufferHandler"></a><a id="BSONBinaryBufferHandler:BSONBinaryBufferHandler"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BSONBinaryBufferHandler" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BSONBinaryBufferHandler$.html"><span class="name">BSONBinaryBufferHandler</span></a><span class="result"> extends <a href="DefaultBufferHandler$$BufferRW.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW">BufferRW</a>[<a href="../BSONBinary.html" class="extype" name="reactivemongo.bson.BSONBinary">BSONBinary</a>]</span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BSONBooleanBufferHandler" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONBooleanBufferHandler"></a><a id="BSONBooleanBufferHandler:BSONBooleanBufferHandler"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BSONBooleanBufferHandler" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BSONBooleanBufferHandler$.html"><span class="name">BSONBooleanBufferHandler</span></a><span class="result"> extends <a href="DefaultBufferHandler$$BufferRW.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW">BufferRW</a>[<a href="../BSONBoolean.html" class="extype" name="reactivemongo.bson.BSONBoolean">BSONBoolean</a>]</span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BSONDBPointerBufferHandler" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONDBPointerBufferHandler"></a><a id="BSONDBPointerBufferHandler:BSONDBPointerBufferHandler"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BSONDBPointerBufferHandler" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BSONDBPointerBufferHandler$.html"><span class="name">BSONDBPointerBufferHandler</span></a><span class="result"> extends <a href="DefaultBufferHandler$$BufferRW.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW">BufferRW</a>[<a href="../BSONDBPointer.html" class="extype" name="reactivemongo.bson.BSONDBPointer">BSONDBPointer</a>]</span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BSONDateTimeBufferHandler" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONDateTimeBufferHandler"></a><a id="BSONDateTimeBufferHandler:BSONDateTimeBufferHandler"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BSONDateTimeBufferHandler" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BSONDateTimeBufferHandler$.html"><span class="name">BSONDateTimeBufferHandler</span></a><span class="result"> extends <a href="DefaultBufferHandler$$BufferRW.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW">BufferRW</a>[<a href="../BSONDateTime.html" class="extype" name="reactivemongo.bson.BSONDateTime">BSONDateTime</a>]</span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BSONDecimalBufferHandler" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONDecimalBufferHandler"></a><a id="BSONDecimalBufferHandler:BSONDecimalBufferHandler"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BSONDecimalBufferHandler" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BSONDecimalBufferHandler$.html"><span class="name">BSONDecimalBufferHandler</span></a><span class="result"> extends <a href="DefaultBufferHandler$$BufferRW.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW">BufferRW</a>[<a href="../BSONDecimal.html" class="extype" name="reactivemongo.bson.BSONDecimal">BSONDecimal</a>]</span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BSONDocumentBufferHandler" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONDocumentBufferHandler"></a><a id="BSONDocumentBufferHandler:BSONDocumentBufferHandler"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BSONDocumentBufferHandler" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BSONDocumentBufferHandler$.html"><span class="name">BSONDocumentBufferHandler</span></a><span class="result"> extends <a href="DefaultBufferHandler$$BufferRW.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW">BufferRW</a>[<a href="../BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a>]</span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BSONDoubleBufferHandler" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONDoubleBufferHandler"></a><a id="BSONDoubleBufferHandler:BSONDoubleBufferHandler"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BSONDoubleBufferHandler" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BSONDoubleBufferHandler$.html"><span class="name">BSONDoubleBufferHandler</span></a><span class="result"> extends <a href="DefaultBufferHandler$$BufferRW.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW">BufferRW</a>[<a href="../BSONDouble.html" class="extype" name="reactivemongo.bson.BSONDouble">BSONDouble</a>]</span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BSONIntegerBufferHandler" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONIntegerBufferHandler"></a><a id="BSONIntegerBufferHandler:BSONIntegerBufferHandler"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BSONIntegerBufferHandler" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BSONIntegerBufferHandler$.html"><span class="name">BSONIntegerBufferHandler</span></a><span class="result"> extends <a href="DefaultBufferHandler$$BufferRW.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW">BufferRW</a>[<a href="../BSONInteger.html" class="extype" name="reactivemongo.bson.BSONInteger">BSONInteger</a>]</span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BSONJavaScriptBufferHandler" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONJavaScriptBufferHandler"></a><a id="BSONJavaScriptBufferHandler:BSONJavaScriptBufferHandler"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BSONJavaScriptBufferHandler" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BSONJavaScriptBufferHandler$.html"><span class="name">BSONJavaScriptBufferHandler</span></a><span class="result"> extends <a href="DefaultBufferHandler$$BufferRW.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW">BufferRW</a>[<a href="../BSONJavaScript.html" class="extype" name="reactivemongo.bson.BSONJavaScript">BSONJavaScript</a>]</span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BSONJavaScriptWSBufferHandler" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONJavaScriptWSBufferHandler"></a><a id="BSONJavaScriptWSBufferHandler:BSONJavaScriptWSBufferHandler"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BSONJavaScriptWSBufferHandler" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BSONJavaScriptWSBufferHandler$.html"><span class="name">BSONJavaScriptWSBufferHandler</span></a><span class="result"> extends <a href="DefaultBufferHandler$$BufferRW.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW">BufferRW</a>[<a href="../BSONJavaScriptWS.html" class="extype" name="reactivemongo.bson.BSONJavaScriptWS">BSONJavaScriptWS</a>]</span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BSONLongBufferHandler" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONLongBufferHandler"></a><a id="BSONLongBufferHandler:BSONLongBufferHandler"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BSONLongBufferHandler" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BSONLongBufferHandler$.html"><span class="name">BSONLongBufferHandler</span></a><span class="result"> extends <a href="DefaultBufferHandler$$BufferRW.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW">BufferRW</a>[<a href="../BSONLong.html" class="extype" name="reactivemongo.bson.BSONLong">BSONLong</a>]</span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BSONMaxKeyBufferHandler" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONMaxKeyBufferHandler"></a><a id="BSONMaxKeyBufferHandler:BSONMaxKeyBufferHandler"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BSONMaxKeyBufferHandler" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BSONMaxKeyBufferHandler$.html"><span class="name">BSONMaxKeyBufferHandler</span></a><span class="result"> extends <a href="DefaultBufferHandler$$BufferRW.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW">BufferRW</a>[<a href="../BSONMaxKey$.html" class="extype" name="reactivemongo.bson.BSONMaxKey">BSONMaxKey</a>.type]</span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BSONMinKeyBufferHandler" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONMinKeyBufferHandler"></a><a id="BSONMinKeyBufferHandler:BSONMinKeyBufferHandler"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BSONMinKeyBufferHandler" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BSONMinKeyBufferHandler$.html"><span class="name">BSONMinKeyBufferHandler</span></a><span class="result"> extends <a href="DefaultBufferHandler$$BufferRW.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW">BufferRW</a>[<a href="../BSONMinKey$.html" class="extype" name="reactivemongo.bson.BSONMinKey">BSONMinKey</a>.type]</span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BSONNullBufferHandler" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONNullBufferHandler"></a><a id="BSONNullBufferHandler:BSONNullBufferHandler"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BSONNullBufferHandler" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BSONNullBufferHandler$.html"><span class="name">BSONNullBufferHandler</span></a><span class="result"> extends <a href="DefaultBufferHandler$$BufferRW.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW">BufferRW</a>[<a href="../BSONNull$.html" class="extype" name="reactivemongo.bson.BSONNull">BSONNull</a>.type]</span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BSONObjectIDBufferHandler" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONObjectIDBufferHandler"></a><a id="BSONObjectIDBufferHandler:BSONObjectIDBufferHandler"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BSONObjectIDBufferHandler" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BSONObjectIDBufferHandler$.html"><span class="name">BSONObjectIDBufferHandler</span></a><span class="result"> extends <a href="DefaultBufferHandler$$BufferRW.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW">BufferRW</a>[<a href="../BSONObjectID.html" class="extype" name="reactivemongo.bson.BSONObjectID">BSONObjectID</a>]</span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BSONRegexBufferHandler" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONRegexBufferHandler"></a><a id="BSONRegexBufferHandler:BSONRegexBufferHandler"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BSONRegexBufferHandler" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BSONRegexBufferHandler$.html"><span class="name">BSONRegexBufferHandler</span></a><span class="result"> extends <a href="DefaultBufferHandler$$BufferRW.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW">BufferRW</a>[<a href="../BSONRegex.html" class="extype" name="reactivemongo.bson.BSONRegex">BSONRegex</a>]</span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BSONStringBufferHandler" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONStringBufferHandler"></a><a id="BSONStringBufferHandler:BSONStringBufferHandler"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BSONStringBufferHandler" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BSONStringBufferHandler$.html"><span class="name">BSONStringBufferHandler</span></a><span class="result"> extends <a href="DefaultBufferHandler$$BufferRW.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW">BufferRW</a>[<a href="../BSONString.html" class="extype" name="reactivemongo.bson.BSONString">BSONString</a>]</span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BSONSymbolBufferHandler" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONSymbolBufferHandler"></a><a id="BSONSymbolBufferHandler:BSONSymbolBufferHandler"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BSONSymbolBufferHandler" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BSONSymbolBufferHandler$.html"><span class="name">BSONSymbolBufferHandler</span></a><span class="result"> extends <a href="DefaultBufferHandler$$BufferRW.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW">BufferRW</a>[<a href="../BSONSymbol.html" class="extype" name="reactivemongo.bson.BSONSymbol">BSONSymbol</a>]</span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BSONTimestampBufferHandler" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONTimestampBufferHandler"></a><a id="BSONTimestampBufferHandler:BSONTimestampBufferHandler"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BSONTimestampBufferHandler" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BSONTimestampBufferHandler$.html"><span class="name">BSONTimestampBufferHandler</span></a><span class="result"> extends <a href="DefaultBufferHandler$$BufferRW.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW">BufferRW</a>[<a href="../BSONTimestamp.html" class="extype" name="reactivemongo.bson.BSONTimestamp">BSONTimestamp</a>]</span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.bson.buffer.DefaultBufferHandler.BSONUndefinedBufferHandler" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BSONUndefinedBufferHandler"></a><a id="BSONUndefinedBufferHandler:BSONUndefinedBufferHandler"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/DefaultBufferHandler$.html#BSONUndefinedBufferHandler" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBufferHandler$$BSONUndefinedBufferHandler$.html"><span class="name">BSONUndefinedBufferHandler</span></a><span class="result"> extends <a href="DefaultBufferHandler$$BufferRW.html" class="extype" name="reactivemongo.bson.buffer.DefaultBufferHandler.BufferRW">BufferRW</a>[<a href="../BSONUndefined$.html" class="extype" name="reactivemongo.bson.BSONUndefined">BSONUndefined</a>.type]</span>
+      </span>
+      
+      
+    </li>
+              </ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="reactivemongo.bson.buffer.BufferHandler">
+              <h3>Inherited from <a href="BufferHandler.html" class="extype" name="reactivemongo.bson.buffer.BufferHandler">BufferHandler</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+    </body>
+          </div>
+        </div>
+      </div>
+    </body>
+      </html>

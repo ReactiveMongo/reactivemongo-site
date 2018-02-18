@@ -9,8 +9,7 @@ done
 echo "# Generated HTML normalized (for wget compat)"
 
 wget -nv -e robots=off --follow-tags=a -r --spider \
-  -Dlocalhost -Xreleases/0.12/api -Xreleases/0.10/api \
-  -Xreleases/0.11/api -Xreleases/0.10.5/api http://localhost:4000
+  -Dlocalhost -Xreleases/0.13/api http://localhost:4000
 RES=$?
 
 echo "# Documentation checked for broken links ($RES)"
