@@ -1,0 +1,906 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+          <title>ReactiveMongo API 0.13 - reactivemongo.bson.DefaultBSONHandlers.BSONBooleanHandler</title>
+          <meta name="description" content="ReactiveMongo API 0.13 - reactivemongo.bson.DefaultBSONHandlers.BSONBooleanHandler" />
+          <meta name="keywords" content="ReactiveMongo API 0.13 reactivemongo.bson.DefaultBSONHandlers.BSONBooleanHandler" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js"></script>
+      <script type="text/javascript" src="../../lib/jquery.panzoom.min.js"></script>
+      <script type="text/javascript" src="../../lib/jquery.mousewheel.min.js"></script>
+      <script type="text/javascript" src="../../lib/index.js"></script>
+      <script type="text/javascript" src="../../index.js"></script>
+      <script type="text/javascript" src="../../lib/scheduler.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+        /* this variable can be used by the JS to determine the path to the root document */
+        var toRoot = '../../';
+      </script>
+    
+        </head>
+        <body>
+      <div id="search">
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.13</span></span>
+        <span class="close-results"><span class="left">&lt;</span> Back</span>
+        <div id="textfilter">
+          <span class="input">
+            <input autocapitalize="none" placeholder="Search" id="index-input" type="text" accesskey="/" />
+            <i class="clear material-icons"></i>
+            <i id="search-icon" class="material-icons"></i>
+          </span>
+        </div>
+    </div>
+      <div id="search-results">
+        <div id="search-progress">
+          <div id="progress-fill"></div>
+        </div>
+        <div id="results-content">
+          <div id="entity-results"></div>
+          <div id="member-results"></div>
+        </div>
+      </div>
+      <div id="content-scroll-container" style="-webkit-overflow-scrolling: touch;">
+        <div id="content-container" style="-webkit-overflow-scrolling: touch;">
+          <div id="subpackage-spacer">
+            <div id="packages">
+              <h1>Packages</h1>
+              <ul>
+                <li name="_root_.root" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="_root_"></a><a id="root:_root_"></a>
+      <span class="permalink">
+      <a href="index.html#_root_" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="../../index.html"><span class="name">root</span></a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../index.html" class="extype" name="_root_">root</a></dd></dl></div>
+    </li><li name="_root_.reactivemongo" visbl="pub" class="indented1 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="reactivemongo"></a><a id="reactivemongo:reactivemongo"></a>
+      <span class="permalink">
+      <a href="index.html#reactivemongo" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="../index.html"><span class="name">reactivemongo</span></a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../index.html" class="extype" name="_root_">root</a></dd></dl></div>
+    </li><li name="reactivemongo.bson" visbl="pub" class="indented2 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bson"></a><a id="bson:bson"></a>
+      <span class="permalink">
+      <a href="../reactivemongo/index.html#bson" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="index.html"><span class="name">bson</span></a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="reactivemongo">reactivemongo</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.DefaultBSONHandlers" visbl="pub" class="indented3 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="DefaultBSONHandlersextendsAnyRef"></a><a id="DefaultBSONHandlers:DefaultBSONHandlers"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/index.html#DefaultBSONHandlersextendsAnyRef" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultBSONHandlers.html"><span class="name">DefaultBSONHandlers</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="index.html" class="extype" name="reactivemongo.bson">bson</a></dd></dl></div>
+    </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="DefaultBSONHandlers$BSONArrayCollectionReader.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONArrayCollectionReader.html" title="">BSONArrayCollectionReader</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="DefaultBSONHandlers$BSONArrayCollectionWriter.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONArrayCollectionWriter.html" title="">BSONArrayCollectionWriter</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONArrayIdentity$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONArrayIdentity$.html" title="">BSONArrayIdentity</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONBinaryHandler$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONBinaryHandler$.html" title="">BSONBinaryHandler</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONBinaryIdentity$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONBinaryIdentity$.html" title="">BSONBinaryIdentity</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="" title=""></a>
+                        <a href="" title="">BSONBooleanHandler</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONBooleanIdentity$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONBooleanIdentity$.html" title="">BSONBooleanIdentity</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="DefaultBSONHandlers$BSONBooleanLikeReader.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONBooleanLikeReader.html" title="">BSONBooleanLikeReader</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONBooleanLikeWriter$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONBooleanLikeWriter$.html" title="">BSONBooleanLikeWriter</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONDateTimeHandler$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONDateTimeHandler$.html" title="">BSONDateTimeHandler</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONDateTimeIdentity$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONDateTimeIdentity$.html" title="">BSONDateTimeIdentity</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONDecimalHandler$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONDecimalHandler$.html" title="">BSONDecimalHandler</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONDecimalIdentity$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONDecimalIdentity$.html" title="">BSONDecimalIdentity</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONDocumentIdentity$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONDocumentIdentity$.html" title="">BSONDocumentIdentity</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONDoubleHandler$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONDoubleHandler$.html" title="">BSONDoubleHandler</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONDoubleIdentity$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONDoubleIdentity$.html" title="">BSONDoubleIdentity</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONIntegerHandler$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONIntegerHandler$.html" title="">BSONIntegerHandler</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONIntegerIdentity$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONIntegerIdentity$.html" title="">BSONIntegerIdentity</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONJavaScriptIdentity$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONJavaScriptIdentity$.html" title="">BSONJavaScriptIdentity</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONLongHandler$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONLongHandler$.html" title="">BSONLongHandler</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONLongIdentity$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONLongIdentity$.html" title="">BSONLongIdentity</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONNullIdentity$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONNullIdentity$.html" title="">BSONNullIdentity</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="DefaultBSONHandlers$BSONNumberLikeReader.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONNumberLikeReader.html" title="">BSONNumberLikeReader</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONNumberLikeWriter$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONNumberLikeWriter$.html" title="">BSONNumberLikeWriter</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONObjectIDIdentity$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONObjectIDIdentity$.html" title="">BSONObjectIDIdentity</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONRegexIdentity$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONRegexIdentity$.html" title="">BSONRegexIdentity</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONStringHandler$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONStringHandler$.html" title="">BSONStringHandler</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONStringIdentity$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONStringIdentity$.html" title="">BSONStringIdentity</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONUndefinedIdentity$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONUndefinedIdentity$.html" title="">BSONUndefinedIdentity</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="DefaultBSONHandlers$BSONValueIdentity$.html" title=""></a>
+                        <a href="DefaultBSONHandlers$BSONValueIdentity$.html" title="">BSONValueIdentity</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="DefaultBSONHandlers$IdentityBSONConverter.html" title=""></a>
+                        <a href="DefaultBSONHandlers$IdentityBSONConverter.html" title="">IdentityBSONConverter</a>
+                      </li>
+              </ul>
+            </div>
+          </div>
+          <div id="content">
+            <body class="object value">
+      <div id="definition">
+        <div class="big-circle object">o</div>
+        <p id="owner"><a href="../index.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="index.html" class="extype" name="reactivemongo.bson">bson</a>.<a href="DefaultBSONHandlers.html" class="extype" name="reactivemongo.bson.DefaultBSONHandlers">DefaultBSONHandlers</a></p>
+        <h1>BSONBooleanHandler<span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span></h1>
+        <h3><span class="morelinks"></span></h3>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <span class="name">BSONBooleanHandler</span><span class="result"> extends <a href="BSONHandler.html" class="extype" name="reactivemongo.bson.BSONHandler">BSONHandler</a>[<a href="BSONBoolean.html" class="extype" name="reactivemongo.bson.BSONBoolean">BSONBoolean</a>, <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>]</span>
+      </span>
+      </h4>
+
+      
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <span class="toggle">
+            Linear Supertypes
+          </span>
+          <div class="superTypes hiddenContent"><a href="BSONHandler.html" class="extype" name="reactivemongo.bson.BSONHandler">BSONHandler</a>[<a href="BSONBoolean.html" class="extype" name="reactivemongo.bson.BSONBoolean">BSONBoolean</a>, <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>], <a href="BSONWriter.html" class="extype" name="reactivemongo.bson.BSONWriter">BSONWriter</a>[<a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>, <a href="BSONBoolean.html" class="extype" name="reactivemongo.bson.BSONBoolean">BSONBoolean</a>], <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[<a href="BSONBoolean.html" class="extype" name="reactivemongo.bson.BSONBoolean">BSONBoolean</a>, <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>], <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div class="toggle"></div>
+        <div id="memberfilter">
+          <i class="material-icons arrow"></i>
+          <span class="input">
+            <input id="mbrsel-input" placeholder="Filter all members" type="text" accesskey="/" />
+          </span>
+          <i class="clear material-icons"></i>
+        </div>
+        <div id="filterby">
+          <div id="order">
+            <span class="filtertype">Ordering</span>
+            <ol>
+              
+              <li class="alpha in"><span>Alphabetic</span></li>
+              <li class="inherit out"><span>By Inheritance</span></li>
+            </ol>
+          </div>
+          <div class="ancestors">
+                  <span class="filtertype">Inherited<br />
+                  </span>
+                  <ol id="linearization">
+                    <li class="in" name="reactivemongo.bson.DefaultBSONHandlers.BSONBooleanHandler"><span>BSONBooleanHandler</span></li><li class="in" name="reactivemongo.bson.BSONHandler"><span>BSONHandler</span></li><li class="in" name="reactivemongo.bson.BSONWriter"><span>BSONWriter</span></li><li class="in" name="reactivemongo.bson.BSONReader"><span>BSONReader</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  </ol>
+                </div><div class="ancestors">
+              <span class="filtertype"></span>
+              <ol>
+                <li class="hideall out"><span>Hide All</span></li>
+                <li class="showall in"><span>Show All</span></li>
+              </ol>
+            </div>
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+            </div>
+        </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        
+
+        
+
+        <div class="values members">
+              <h3>Value Members</h3>
+              <ol>
+                <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#!=(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html###():Int" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#==(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONReader#afterRead" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="afterRead[U](f:T=&gt;U):reactivemongo.bson.BSONReader[B,U]"></a><a id="afterRead[U]((Boolean)⇒U):BSONReader[BSONBoolean,U]"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#afterRead[U](f:T=&gt;U):reactivemongo.bson.BSONReader[B,U]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">afterRead</span><span class="tparams">[<span name="U">U</span>]</span><span class="params">(<span name="f">f: (<a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>) ⇒ <span class="extype" name="reactivemongo.bson.BSONReader.afterRead.U">U</span></span>)</span><span class="result">: <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[<a href="BSONBoolean.html" class="extype" name="reactivemongo.bson.BSONBoolean">BSONBoolean</a>, <span class="extype" name="reactivemongo.bson.BSONReader.afterRead.U">U</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Returns a BSON reader that returns the result of applying <code>f</code>
+on the result of this reader.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a BSON reader that returns the result of applying <code>f</code>
+on the result of this reader.
+</p></div><dl class="paramcmts block"><dt class="param">f</dt><dd class="cmt"><p>the function to apply</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONWriter#afterWrite" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="afterWrite[U&lt;:reactivemongo.bson.BSONValue](f:B=&gt;U):reactivemongo.bson.BSONWriter[T,U]"></a><a id="afterWrite[U&lt;:BSONValue]((BSONBoolean)⇒U):BSONWriter[Boolean,U]"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#afterWrite[U&lt;:reactivemongo.bson.BSONValue](f:B=&gt;U):reactivemongo.bson.BSONWriter[T,U]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">afterWrite</span><span class="tparams">[<span name="U">U &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>]</span><span class="params">(<span name="f">f: (<a href="BSONBoolean.html" class="extype" name="reactivemongo.bson.BSONBoolean">BSONBoolean</a>) ⇒ <span class="extype" name="reactivemongo.bson.BSONWriter.afterWrite.U">U</span></span>)</span><span class="result">: <a href="BSONWriter.html" class="extype" name="reactivemongo.bson.BSONWriter">BSONWriter</a>[<a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>, <span class="extype" name="reactivemongo.bson.BSONWriter.afterWrite.U">U</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Returns a BSON writer that returns the result of applying <code>f</code>
+on the BSON value from this writer.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a BSON writer that returns the result of applying <code>f</code>
+on the BSON value from this writer.
+</p></div><dl class="paramcmts block"><dt class="param">f</dt><dd class="cmt"><p>the function to apply</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BSONWriter.html" class="extype" name="reactivemongo.bson.BSONWriter">BSONWriter</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONHandler#as" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="as[R](to:T=&gt;R,from:R=&gt;T):reactivemongo.bson.BSONHandler[B,R]"></a><a id="as[R]((Boolean)⇒R,(R)⇒Boolean):BSONHandler[BSONBoolean,R]"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#as[R](to:T=&gt;R,from:R=&gt;T):reactivemongo.bson.BSONHandler[B,R]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">as</span><span class="tparams">[<span name="R">R</span>]</span><span class="params">(<span name="to">to: (<a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>) ⇒ <span class="extype" name="reactivemongo.bson.BSONHandler.as.R">R</span></span>, <span name="from">from: (<span class="extype" name="reactivemongo.bson.BSONHandler.as.R">R</span>) ⇒ <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="BSONHandler.html" class="extype" name="reactivemongo.bson.BSONHandler">BSONHandler</a>[<a href="BSONBoolean.html" class="extype" name="reactivemongo.bson.BSONBoolean">BSONBoolean</a>, <span class="extype" name="reactivemongo.bson.BSONHandler.as.R">R</span>]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BSONHandler.html" class="extype" name="reactivemongo.bson.BSONHandler">BSONHandler</a></dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#asInstanceOf[T0]:T0" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONReader#beforeRead" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="beforeRead[U&lt;:reactivemongo.bson.BSONValue](f:U=&gt;B):reactivemongo.bson.BSONReader[U,T]"></a><a id="beforeRead[U&lt;:BSONValue]((U)⇒BSONBoolean):BSONReader[U,Boolean]"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#beforeRead[U&lt;:reactivemongo.bson.BSONValue](f:U=&gt;B):reactivemongo.bson.BSONReader[U,T]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">beforeRead</span><span class="tparams">[<span name="U">U &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="reactivemongo.bson.BSONReader.beforeRead.U">U</span>) ⇒ <a href="BSONBoolean.html" class="extype" name="reactivemongo.bson.BSONBoolean">BSONBoolean</a></span>)</span><span class="result">: <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[<span class="extype" name="reactivemongo.bson.BSONReader.beforeRead.U">U</span>, <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONWriter#beforeWrite" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="beforeWrite[U](f:U=&gt;T):reactivemongo.bson.BSONWriter[U,B]"></a><a id="beforeWrite[U]((U)⇒Boolean):BSONWriter[U,BSONBoolean]"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#beforeWrite[U](f:U=&gt;T):reactivemongo.bson.BSONWriter[U,B]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">beforeWrite</span><span class="tparams">[<span name="U">U</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="reactivemongo.bson.BSONWriter.beforeWrite.U">U</span>) ⇒ <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="BSONWriter.html" class="extype" name="reactivemongo.bson.BSONWriter">BSONWriter</a>[<span class="extype" name="reactivemongo.bson.BSONWriter.beforeWrite.U">U</span>, <a href="BSONBoolean.html" class="extype" name="reactivemongo.bson.BSONBoolean">BSONBoolean</a>]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BSONWriter.html" class="extype" name="reactivemongo.bson.BSONWriter">BSONWriter</a></dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a><a id="clone():AnyRef"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#clone():Object" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java/lang/index.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#equals(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#finalize():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java/lang/index.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#getClass():Class[_]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#hashCode():Int" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#isInstanceOf[T0]:Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#notify():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#notifyAll():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="reactivemongo.bson.DefaultBSONHandlers.BSONBooleanHandler#read" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="read(boolean:reactivemongo.bson.BSONBoolean):Boolean"></a><a id="read(BSONBoolean):Boolean"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#read(boolean:reactivemongo.bson.BSONBoolean):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">read</span><span class="params">(<span name="boolean">boolean: <a href="BSONBoolean.html" class="extype" name="reactivemongo.bson.BSONBoolean">BSONBoolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Reads a BSON value and produce an instance of <code>T</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Reads a BSON value and produce an instance of <code>T</code>.</p><p>This method may throw exceptions at runtime.
+If used outside a reader, one should consider <code>readTry(bson: B): Try[T]</code> or <code>readOpt(bson: B): Option[T]</code>.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.DefaultBSONHandlers.BSONBooleanHandler">BSONBooleanHandler</a> → <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONReader#readOpt" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="readOpt(bson:B):Option[T]"></a><a id="readOpt(BSONBoolean):Option[Boolean]"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#readOpt(bson:B):Option[T]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">readOpt</span><span class="params">(<span name="bson">bson: <a href="BSONBoolean.html" class="extype" name="reactivemongo.bson.BSONBoolean">BSONBoolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Tries to produce an instance of <code>T</code> from the <code>bson</code> value, returns <code>None</code> if an error occurred.</p><div class="fullcomment"><div class="comment cmt"><p>Tries to produce an instance of <code>T</code> from the <code>bson</code> value, returns <code>None</code> if an error occurred.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONReader#readTry" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="readTry(bson:B):scala.util.Try[T]"></a><a id="readTry(BSONBoolean):Try[Boolean]"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#readTry(bson:B):scala.util.Try[T]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">readTry</span><span class="params">(<span name="bson">bson: <a href="BSONBoolean.html" class="extype" name="reactivemongo.bson.BSONBoolean">BSONBoolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/util/Try.html#scala.util.Try" class="extype" name="scala.util.Try">Try</a>[<a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Tries to produce an instance of <code>T</code> from the <code>bson</code> value.</p><div class="fullcomment"><div class="comment cmt"><p>Tries to produce an instance of <code>T</code> from the <code>bson</code> value.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a></dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#toString():String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#wait():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#wait(x$1:Long):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="reactivemongo.bson.DefaultBSONHandlers.BSONBooleanHandler#write" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="write(boolean:Boolean):reactivemongo.bson.BSONBoolean"></a><a id="write(Boolean):BSONBoolean"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#write(boolean:Boolean):reactivemongo.bson.BSONBoolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">write</span><span class="params">(<span name="boolean">boolean: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="BSONBoolean.html" class="extype" name="reactivemongo.bson.BSONBoolean">BSONBoolean</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Writes an instance of <code>T</code> as a BSON value.</p><div class="fullcomment"><div class="comment cmt"><p>Writes an instance of <code>T</code> as a BSON value.</p><p>This method may throw exceptions at runtime.
+If used outside a reader, one should consider <code>writeTry(bson: B): Try[T]</code> or <code>writeOpt(bson: B): Option[T]</code>.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.DefaultBSONHandlers.BSONBooleanHandler">BSONBooleanHandler</a> → <a href="BSONWriter.html" class="extype" name="reactivemongo.bson.BSONWriter">BSONWriter</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONWriter#writeOpt" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="writeOpt(t:T):Option[B]"></a><a id="writeOpt(Boolean):Option[BSONBoolean]"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#writeOpt(t:T):Option[B]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">writeOpt</span><span class="params">(<span name="t">t: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="BSONBoolean.html" class="extype" name="reactivemongo.bson.BSONBoolean">BSONBoolean</a>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Tries to produce a BSON value from an instance of <code>T</code>, returns <code>None</code> if an error occurred.</p><div class="fullcomment"><div class="comment cmt"><p>Tries to produce a BSON value from an instance of <code>T</code>, returns <code>None</code> if an error occurred.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BSONWriter.html" class="extype" name="reactivemongo.bson.BSONWriter">BSONWriter</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.BSONWriter#writeTry" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="writeTry(t:T):scala.util.Try[B]"></a><a id="writeTry(Boolean):Try[BSONBoolean]"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/DefaultBSONHandlers$BSONBooleanHandler$.html#writeTry(t:T):scala.util.Try[B]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">writeTry</span><span class="params">(<span name="t">t: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/util/Try.html#scala.util.Try" class="extype" name="scala.util.Try">Try</a>[<a href="BSONBoolean.html" class="extype" name="reactivemongo.bson.BSONBoolean">BSONBoolean</a>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Tries to produce a BSON value from an instance of <code>T</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Tries to produce a BSON value from an instance of <code>T</code>.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BSONWriter.html" class="extype" name="reactivemongo.bson.BSONWriter">BSONWriter</a></dd></dl></div>
+    </li>
+              </ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="reactivemongo.bson.BSONHandler">
+              <h3>Inherited from <a href="BSONHandler.html" class="extype" name="reactivemongo.bson.BSONHandler">BSONHandler</a>[<a href="BSONBoolean.html" class="extype" name="reactivemongo.bson.BSONBoolean">BSONBoolean</a>, <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>]</h3>
+            </div><div class="parent" name="reactivemongo.bson.BSONWriter">
+              <h3>Inherited from <a href="BSONWriter.html" class="extype" name="reactivemongo.bson.BSONWriter">BSONWriter</a>[<a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>, <a href="BSONBoolean.html" class="extype" name="reactivemongo.bson.BSONBoolean">BSONBoolean</a>]</h3>
+            </div><div class="parent" name="reactivemongo.bson.BSONReader">
+              <h3>Inherited from <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[<a href="BSONBoolean.html" class="extype" name="reactivemongo.bson.BSONBoolean">BSONBoolean</a>, <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>]</h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+    </body>
+          </div>
+        </div>
+      </div>
+    </body>
+      </html>

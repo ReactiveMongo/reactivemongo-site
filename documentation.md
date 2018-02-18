@@ -14,8 +14,6 @@ title: Documentation
 * Older releases
   * [0.11](/releases/0.11/documentation/index.html)
     * [Release Notes](/releases/0.11/documentation/release-details.html)
-  * [0.10.5.0.akka23 / 0.10.5.0.akka22](/releases/0.10.5/documentation/index.html)
-  * [0.10](/releases/0.10/documentation/index.html)
 
 ## Resources
 

@@ -16,8 +16,8 @@ cache:
     - $HOME/.gem
     - $HOME/.local
     - $PWD/node_modules
-before_install: ./.ci_scripts/beforeInstall.sh 1.0.0
+before_install: ./.ci_scripts/beforeInstall.sh 1.1.0
 script:
-  - ./.ci_scripts/validate.sh 1.0.0
+  - ./.ci_scripts/validate.sh 1.1.0
   - bundle exec jekyll serve --detach && echo "# Jekyll local server started"
   - ./.ci_scripts/consolidate.sh

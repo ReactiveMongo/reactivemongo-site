@@ -1,6 +1,6 @@
 #! /bin/bash
 
-export PATH="$HOME/.gem/ruby/2.2.0/bin:$PATH"
+export PATH="$HOME/.gem/ruby/2.2.5/bin:$PATH"
 #gem install --no-verbose --user-install jekyll -v 2.5.3
 gem install --no-verbose --user-install jekyll pygments.rb || exit 1
 bundle install || exit 2
