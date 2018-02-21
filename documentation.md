@@ -5,7 +5,7 @@ title: Documentation
 
 ## Releases
 
-* [**Current stable version ({{site.latest_release}})**](/releases/{{site.latest_major_release}}/documentation/index.html)
+* [**Current stable version ({{site.latest_major_release}})**](/releases/{{site.latest_major_release}}/documentation/index.html)
   * [Release Notes](/releases/{{site.latest_major_release}}/documentation/release-details.html)
   * [Documentation](/releases/{{site.latest_major_release}}/documentation/index.html)
     * [Driver API](/releases/{{site.latest_major_release}}/api/index.html)
