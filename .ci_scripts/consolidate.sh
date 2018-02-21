@@ -6,13 +6,13 @@ do
   sed -e 's/java\$lang.html/#java\$lang/g' < "$F" > "$F.tmp" && mv "$F.tmp" "$F"
 done
 
-echo "# Generated HTML normalized (for wget compat)"
+echo "[INFO] Generated HTML normalized (for wget compat)"
 
 wget -nv -e robots=off --follow-tags=a -r --spider \
-  -Dlocalhost -Xreleases/0.13/api http://localhost:4000
+  -Dlocalhost -Xreleases/0.1x/api http://localhost:4000
 RES=$?
 
-echo "# Documentation checked for broken links ($RES)"
+echo "[INFO] Documentation checked for broken links ($RES)"
 
 rm -rf 'localhost:4000'
 pkill -f jekyll
@@ -22,9 +22,11 @@ if [ $RES -ne 0 ]; then
 fi
 
 if [ "x$CI_BRANCH" = "gh-pages" ]; then
-  echo "# Indexing to Algolia"
+  echo "[INFO] Indexing to Algolia"
   bundle exec jekyll algolia push || (
     echo "!! fails to push to Algolia"
     false
   )
+else
+  echo "[WARN] Skip the Algolia stage: branch = $CI_BRANCH"
 fi

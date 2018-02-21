@@ -1,6 +1,6 @@
 lazy val release_0_11 = project.in((file(".") / "releases" / "0.11"))
 
-lazy val release_0_13 = project.in((file(".") / "releases" / "0.13"))
+lazy val release_0_1x = project.in((file(".") / "releases" / "0.1x"))
 
 lazy val `reactivemongo-site` = (project in file("."))
   .settings(
@@ -13,7 +13,7 @@ lazy val `reactivemongo-site` = (project in file("."))
       "org.reactivemongo" %% "reactivemongo" % "0.13.0"),
     resolvers ++= Seq(
       "Typesafe releases" at "http://repo.typesafe.com/typesafe/releases/"))
-  .aggregate(release_0_11, release_0_13)
+  .aggregate(release_0_11, release_0_1x)
 
 organization := "org.reactivemongo"
 
