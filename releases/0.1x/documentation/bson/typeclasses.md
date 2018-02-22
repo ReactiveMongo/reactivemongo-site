@@ -267,7 +267,7 @@ implicit val handler = {
 
 ### Provided handlers
 
-The following handlers are provided by ReactiveMongo, to read and write the [BSON values](../../api/reactivemongo.bson/).
+The following handlers are provided by ReactiveMongo, to read and write the [BSON values](../../api/reactivemongo/bson/).
 
 | BSON type    | Value type     |
 | ------------ | -------------- |
