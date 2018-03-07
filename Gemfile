@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'jekyll', '~> 2.5.3'
+gem 'jekyll', '~> 3.6'
 
 group :jekyll_plugins do
-  gem 'algoliasearch-jekyll', '~> 0.8.0'
+  gem 'jekyll-algolia'
   gem 'jekyll-sitemap', '~> 0.10.0'
 end

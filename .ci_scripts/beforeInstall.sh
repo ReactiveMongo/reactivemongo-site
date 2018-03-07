@@ -1,7 +1,9 @@
 #! /bin/bash
 
-export PATH="$HOME/.gem/ruby/2.2.5/bin:$PATH"
-#gem install --no-verbose --user-install jekyll -v 2.5.3
+for D in `ls -v -1 "$HOME/.gem/ruby"`; do
+  export PATH="$HOME/.gem/ruby/$D/bin:$PATH"
+done
+
 gem install --no-verbose --user-install jekyll pygments.rb || exit 1
 bundle install || exit 2
 pip install --user Pygments || exit 3

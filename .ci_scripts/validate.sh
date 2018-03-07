@@ -8,8 +8,12 @@ SBT_VER="$1"
 export SBT_OPTS="-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
 
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
-export PATH="$JAVA_HOME/bin:$HOME/.gem/ruby/2.2.5/bin:$PATH"
-export GEM_PATH="$HOME/.gem/ruby/2.2.5:$GEM_PATH"
+export PATH="$JAVA_HOME/bin:$PATH"
+
+for D in `ls -v -1 "$HOME/.gem/ruby"`; do
+  export PATH="$HOME/.gem/ruby/$D/bin:$PATH"
+  export GEM_PATH="$HOME/.gem/ruby/$D:$GEM_PATH"
+done
 
 # Sonatype staging (avoid Central sync delay)
 perl -pe "s|resolvers |resolvers in ThisBuild += \"Sonatype Staging\" at \"https://oss.sonatype.org/content/repositories/staging/\",\r\nresolvers |" < "$SCRIPT_DIR/../build.sbt" > /tmp/build.sbt && mv /tmp/build.sbt "$SCRIPT_DIR/../build.sbt"
