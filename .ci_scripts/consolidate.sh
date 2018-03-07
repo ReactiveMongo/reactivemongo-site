@@ -21,11 +21,9 @@ if [ $RES -ne 0 ]; then
   exit $RES
 fi
 
-echo "$ALGOLIA_API_KEY" | sed -e 's/[a-z0-9][a-z0-9][a-z0-9][a-z0-9]$//'
-
 if [ "x$CI_BRANCH" = "xgh-pages" ]; then
   echo "[INFO] Indexing to Algolia"
-  bundle exec jekyll algolia push || (
+  bundle exec jekyll algolia || (
     echo "!! fails to push to Algolia"
     false
   )

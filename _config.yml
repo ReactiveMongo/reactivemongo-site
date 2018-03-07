@@ -1,4 +1,4 @@
-pygments: true
+highlighter: true
 name: "ReactiveMongo"
 description: "The reactive Scala driver for MongoDB"
 url: http://reactivemongo.org/
@@ -6,9 +6,9 @@ markdown: kramdown
 latest_major_release: 0.1x
 latest_release: 0.13.0
 exclude: [vendor,target]
-gems:
+plugins:
   - jekyll-sitemap
-  - algoliasearch-jekyll
+  - jekyll-algolia
 
 _0_11_latest_minor: 0.11.14
 _0_12_latest_minor: 0.12.6
@@ -16,7 +16,8 @@ _0_1x_latest_minor: 0.13.0
 
 algolia:
   application_id: 'Y0CQ010OIG'
+  index_name: 'reactivemongo'
   search_only_api_key: 'ab9de0dae62c589128703e9076090b2f'
-  record_css_selector: 'p,ul'
+  nodes_to_index: 'p,ul'
   settings:
-    attributesForFaceting: ['#majorVersion']
+    attributesForFaceting: ['major_version']

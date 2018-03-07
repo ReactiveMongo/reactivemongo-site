@@ -3,7 +3,7 @@ branches:
   - /.*/
 language: ruby
 sudo: false
-rvm: 2.2
+rvm: 2.3
 addons:
   apt:
     packages:
