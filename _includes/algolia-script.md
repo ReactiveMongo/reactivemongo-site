@@ -7,7 +7,7 @@
     {
       source: autocomplete.sources.hits(index, {
         hitsPerPage:5, facets:"major_version",
-        filters: 'major_version=\"{% include major-version.md %}\"'
+        filters: 'major_version:\"{% include major-version.md %}\"'
       }),
       displayKey: 'title',
       templates: {
