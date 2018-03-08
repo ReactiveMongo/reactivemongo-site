@@ -12,7 +12,7 @@
       displayKey: 'title',
       templates: {
         suggestion: function(suggestion) {
-          return suggestion._highlightResult.h2.value;
+          return suggestion._highlightResult.title.value;
         }
       }
     }
