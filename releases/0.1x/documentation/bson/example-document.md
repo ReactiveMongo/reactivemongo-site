@@ -136,7 +136,6 @@ Obviously, you can combine these readers and writers to de/serialize more comple
 import reactivemongo.bson.{
   BSON,
   BSONDocument,
-  BSONDocumentHandler,
   BSONDocumentReader,
   BSONDocumentWriter
 }
