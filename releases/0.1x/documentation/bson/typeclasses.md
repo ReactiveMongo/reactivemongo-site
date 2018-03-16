@@ -124,7 +124,6 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson.BSONDocumentWriter
 import reactivemongo.api.collections.bson.BSONCollection
-import reactivemongo.api.commands.WriteResult
 
 // Provided the `Person` case class is defined, with its `BSONDocumentWriter`
 implicit def personWriter: BSONDocumentWriter[Person] = ???
@@ -206,7 +205,7 @@ case class Green(brightness: Int) extends Color
 case class CustomColor(code: String) extends Color
 
 object Color {
-  import reactivemongo.bson.{ BSONDocument, BSONHandler, Macros },
+  import reactivemongo.bson.Macros,
     Macros.Options.{ AutomaticMaterialization, UnionType, \/ }
 
   // Use `UnionType` to define a subset of the `Color` type,

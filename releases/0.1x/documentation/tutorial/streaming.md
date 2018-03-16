@@ -31,7 +31,6 @@ To use the Akka Stream support for the ReactiveMongo cursors, [`reactivemongo.ak
 
 {% highlight scala %}
 import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
 
 import akka.stream.Materializer
 import akka.stream.scaladsl.{ Sink, Source }

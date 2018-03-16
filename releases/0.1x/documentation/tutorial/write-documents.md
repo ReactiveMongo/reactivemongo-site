@@ -201,7 +201,7 @@ In the case you want to update the age of a document in a collection of persons,
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.{ BSONDocument, BSONDocumentReader, Macros }
+import reactivemongo.bson.{ BSONDocument, Macros }
 import reactivemongo.api.collections.bson.BSONCollection
 
 case class Person(name: String, age: Int)

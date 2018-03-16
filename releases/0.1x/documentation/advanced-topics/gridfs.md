@@ -60,7 +60,6 @@ import play.api.libs.iteratee.Enumerator
 import reactivemongo.api.BSONSerializationPack
 import reactivemongo.api.gridfs.{ DefaultFileToSave, GridFS }
 import reactivemongo.api.gridfs.Implicits._
-import reactivemongo.bson.BSONValue
 
 def saveWithComputedMD5(
   gridfs: GridFS[BSONSerializationPack.type],
@@ -84,8 +83,6 @@ A file previously stored in a GridFS can be retrieved as any MongoDB, using a [`
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
 
-import play.api.libs.iteratee.Enumerator
-
 import reactivemongo.api.BSONSerializationPack
 import reactivemongo.api.gridfs.{ GridFS, ReadFile }
 import reactivemongo.api.gridfs.Implicits._
@@ -107,12 +104,10 @@ A file can be removed from a GridFS using the [appropriate operation](../../api/
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
 
-import play.api.libs.iteratee.Enumerator
-
 import reactivemongo.api.BSONSerializationPack
 import reactivemongo.api.gridfs.GridFS //, ReadFile }
 //import reactivemongo.api.gridfs.Implicits._
-import reactivemongo.bson.{ BSONDocument, BSONValue }
+import reactivemongo.bson.BSONValue
 
 def removeFrom(
   gridfs: GridFS[BSONSerializationPack.type],
