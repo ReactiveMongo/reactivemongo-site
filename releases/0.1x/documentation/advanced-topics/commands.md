@@ -97,7 +97,7 @@ def commandResult(db: reactivemongo.api.DefaultDB)(implicit ec: ExecutionContext
           "total" -> BSONDocument("$sum" -> "$amount"))),
       BSONDocument("$sort" -> BSONDocument("total" -> -1))
     )
-  )
+  ) // For example, otherwise rather use `.aggregatorContext` with a collection
 
   val runner = Command.run(BSONSerializationPack)
 

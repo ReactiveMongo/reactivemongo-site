@@ -1,6 +1,6 @@
 organization := "org.reactivemongo"
 
-name := "release_0_13"
+name := "release_0_1x"
 
 val majorVer = "0"
 

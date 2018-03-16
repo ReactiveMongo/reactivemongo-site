@@ -177,7 +177,7 @@ For example, consider an action as follows.
 {% highlight scala %}
 import javax.inject.Inject
 
-import play.api.mvc.{ AbstractController, Action, ControllerComponents }
+import play.api.mvc.{ AbstractController, ControllerComponents }
 import reactivemongo.bson.BSONObjectID
 
 class Application @Inject() (
@@ -222,14 +222,12 @@ import scala.concurrent.Future
 
 import akka.stream.Materializer
 
-import play.api.mvc.{ AbstractController, Action, ControllerComponents }
+import play.api.mvc.{ AbstractController, ControllerComponents }
 
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import play.api.libs.json._
 
-import reactivemongo.api.gridfs.{ // ReactiveMongo GridFS
-  DefaultFileToSave, FileToSave, GridFS, ReadFile
-}
+import reactivemongo.api.gridfs.ReadFile
 
 import reactivemongo.play.json._
 
@@ -280,7 +278,7 @@ import javax.inject.Inject
 import scala.concurrent.{ ExecutionContext, Future }
 
 import play.api.Logger
-import play.api.mvc.{ AbstractController, Action, ControllerComponents }
+import play.api.mvc.{ AbstractController, ControllerComponents }
 import play.api.libs.functional.syntax._
 import play.api.libs.json._
 
@@ -445,7 +443,7 @@ import javax.inject.Inject
 import scala.concurrent.{ ExecutionContext, Future }
 
 import play.api.Logger
-import play.api.mvc.{ AbstractController, Action, ControllerComponents }
+import play.api.mvc.{ AbstractController, ControllerComponents }
 import play.api.libs.json._
 
 // Reactive Mongo imports
@@ -498,7 +496,6 @@ class ApplicationUsingJsonReadersWriters @Inject() (
   // ------------------------------------------ //
   // Using case classes + JSON Writes and Reads //
   // ------------------------------------------ //
-  import play.api.data.Form
   import models._
   import models.JsonFormats._
 

@@ -17,7 +17,7 @@ Then you can [connect](../../api/reactivemongo/api/MongoDriver#connection(parsed
 {% highlight scala %}
 import reactivemongo.api.MongoConnection
 
-val connection3 = driver1.connection(List("localhost"))
+val connection3: MongoConnection = driver1.connection(List("localhost"))
 {% endhighlight %}
 
 A `MongoDriver` instance manages the shared resources (e.g. the [actor system](http://akka.io) for the asynchronous processing); A connection manages a pool of network channels.
@@ -213,6 +213,8 @@ database.onComplete {
     driver.close()
 }
 {% endhighlight %}
+
+Note that [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) is supported, using `mongodb+srv://` scheme in the connection URI.
 
 ### Additional Notes
 

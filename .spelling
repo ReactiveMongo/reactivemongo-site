@@ -226,6 +226,7 @@ file.pack.Document
 GridFS.this.pack.Writer
 implicitidProducer
 reactivemongo.akkastream.State
+GenericCollection.this.AggregatorContext
 
 # Geo
 JP
@@ -251,3 +252,5 @@ Joline
 1250ms
 10s
 0.1x
+5BT
+5D

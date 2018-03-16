@@ -30,7 +30,7 @@ object BigDecimalBSONNaive {
 
 {% highlight scala %}
 import reactivemongo.bson.{
-  BSON, BSONDocument, BSONDocumentReader, BSONDocumentWriter, Macros
+  BSON, BSONDocument, BSONDocumentReader, BSONDocumentWriter
 }
 
 case class SomeClass(bigd: BigDecimal)
@@ -73,7 +73,7 @@ object BSONBigDecimalBigInteger {
 ##### Example of usage
 
 {% highlight scala %}
-import reactivemongo.bson.{ BSON, BSONHandler, BSONValue, Macros }
+import reactivemongo.bson.BSON
 
 val bigDecimal = BigDecimal(1908713, 12)
 
