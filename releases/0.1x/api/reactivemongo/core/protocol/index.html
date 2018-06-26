@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.13 - reactivemongo.core.protocol</title>
-          <meta name="description" content="ReactiveMongo API 0.13 - reactivemongo.core.protocol" />
-          <meta name="keywords" content="ReactiveMongo API 0.13 reactivemongo.core.protocol" />
+          <title>ReactiveMongo API 0.14 - reactivemongo.core.protocol</title>
+          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.core.protocol" />
+          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.core.protocol" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.13</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -215,16 +215,16 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="reactivemongo.core">core</a></dd></dl></div>
     </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="trait" href="ChannelBufferReadable.html" title="A constructor of T instances from a ChannelBuffer."></a>
-                        <a href="ChannelBufferReadable.html" title="A constructor of T instances from a ChannelBuffer.">ChannelBufferReadable</a>
+                        <a class="trait" href="ChannelBufferReadable.html" title="A constructor of T instances from a ByteBuf."></a>
+                        <a href="ChannelBufferReadable.html" title="A constructor of T instances from a ByteBuf.">ChannelBufferReadable</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="trait" href="ChannelBufferWritable.html" title="Something that can be written into a ChannelBuffer."></a>
-                        <a href="ChannelBufferWritable.html" title="Something that can be written into a ChannelBuffer.">ChannelBufferWritable</a>
+                        <a class="trait" href="ChannelBufferWritable.html" title="Something that can be written into a ByteBuf."></a>
+                        <a href="ChannelBufferWritable.html" title="Something that can be written into a ByteBuf.">ChannelBufferWritable</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="class" href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked."></a>
-                        <a href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked.">CheckedWriteRequest</a>
+                        <a class="class" href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked (by sending a reactivemongo.core.commands.GetLastError command after)."></a>
+                        <a href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked (by sending a reactivemongo.core.commands.GetLastError command after).">CheckedWriteRequest</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
                         <a class="trait" href="CollectionAwareRequestOp.html" title="A request that needs to know the full collection name."></a>
@@ -246,7 +246,7 @@
                         <a class="class" href="KillCursors.html" title="KillCursors operation."></a>
                         <a href="KillCursors.html" title="KillCursors operation.">KillCursors</a>
                       </li><li class="current-entities indented3">
-                        <a class="object" href="MessageHeader$.html" title="Header deserializer from a ChannelBuffer."></a>
+                        <a class="object" href="MessageHeader$.html" title="Header deserializer from a ByteBuf."></a>
                         <a class="class" href="MessageHeader.html" title="Header of a Mongo Wire Protocol message."></a>
                         <a href="MessageHeader.html" title="Header of a Mongo Wire Protocol message.">MessageHeader</a>
                       </li><li class="current-entities indented3">
@@ -294,7 +294,7 @@
                         <a class="class" href="Response.html" title="A Mongo Wire Protocol Response messages."></a>
                         <a href="Response.html" title="A Mongo Wire Protocol Response messages.">Response</a>
                       </li><li class="current-entities indented3">
-                        <span class="separator"></span>
+                        <a class="object" href="ResponseInfo$.html" title=""></a>
                         <a class="class" href="ResponseInfo.html" title="Response meta information."></a>
                         <a href="ResponseInfo.html" title="Response meta information.">ResponseInfo</a>
                       </li><li class="current-entities indented3">
@@ -345,7 +345,7 @@
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
         </div></div>
         
 
@@ -405,10 +405,10 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="A constructor of T instances from a ChannelBuffer." href="ChannelBufferReadable.html"><span class="name">ChannelBufferReadable</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+        <a title="A constructor of T instances from a ByteBuf." href="ChannelBufferReadable.html"><span class="name">ChannelBufferReadable</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
-      <p class="shortcomment cmt">A constructor of T instances from a <a href="http://static.netty.io/3.5/api/org/jboss/netty/buffer/ChannelBuffer.html" target="_blank">ChannelBuffer</a>.</p><div class="fullcomment"><div class="comment cmt"><p>A constructor of T instances from a <a href="http://static.netty.io/3.5/api/org/jboss/netty/buffer/ChannelBuffer.html" target="_blank">ChannelBuffer</a>.
+      <p class="shortcomment cmt">A constructor of T instances from a <a href="http://netty.io/4.1/api/io/netty/buffer/ByteBuf.html" target="_blank">ByteBuf</a>.</p><div class="fullcomment"><div class="comment cmt"><p>A constructor of T instances from a <a href="http://netty.io/4.1/api/io/netty/buffer/ByteBuf.html" target="_blank">ByteBuf</a>.
 </p></div><dl class="paramcmts block"><dt class="tparam">T</dt><dd class="cmt"><p>type which instances can be constructed with this.</p></dd></dl></div>
     </li><li name="reactivemongo.core.protocol.ChannelBufferWritable" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="ChannelBufferWritableextendsAnyRef"></a><a id="ChannelBufferWritable:ChannelBufferWritable"></a>
@@ -422,10 +422,10 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="Something that can be written into a ChannelBuffer." href="ChannelBufferWritable.html"><span class="name">ChannelBufferWritable</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+        <a title="Something that can be written into a ByteBuf." href="ChannelBufferWritable.html"><span class="name">ChannelBufferWritable</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
-      <p class="shortcomment cmt">Something that can be written into a <a href="http://static.netty.io/3.5/api/org/jboss/netty/buffer/ChannelBuffer.html" target="_blank">ChannelBuffer</a>.</p>
+      <p class="shortcomment cmt">Something that can be written into a <a href="http://netty.io/4.1/api/io/netty/buffer/ByteBuf.html" target="_blank">ByteBuf</a>.</p>
     </li><li name="reactivemongo.core.protocol.CheckedWriteRequest" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="CheckedWriteRequestextendsProductwithSerializable"></a><a id="CheckedWriteRequest:CheckedWriteRequest"></a>
       <span class="permalink">
@@ -438,11 +438,11 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="A helper to build write request which result needs to be checked." href="CheckedWriteRequest.html"><span class="name">CheckedWriteRequest</span></a><span class="params">(<span name="op">op: <a href="WriteRequestOp.html" class="extype" name="reactivemongo.core.protocol.WriteRequestOp">WriteRequestOp</a></span>, <span name="documents">documents: <a href="../netty/BufferSequence.html" class="extype" name="reactivemongo.core.netty.BufferSequence">BufferSequence</a></span>, <span name="getLastError">getLastError: <a href="../../api/commands/GetLastError.html" class="extype" name="reactivemongo.api.commands.GetLastError">GetLastError</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="A helper to build write request which result needs to be checked (by sending a reactivemongo.core.commands.GetLastError command after)." href="CheckedWriteRequest.html"><span class="name">CheckedWriteRequest</span></a><span class="params">(<span name="op">op: <a href="WriteRequestOp.html" class="extype" name="reactivemongo.core.protocol.WriteRequestOp">WriteRequestOp</a></span>, <span name="documents">documents: <a href="../netty/BufferSequence.html" class="extype" name="reactivemongo.core.netty.BufferSequence">BufferSequence</a></span>, <span name="getLastError">getLastError: <a href="../../api/commands/GetLastError.html" class="extype" name="reactivemongo.api.commands.GetLastError">GetLastError</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
-      <p class="shortcomment cmt">A helper to build write request which result needs to be checked.</p><div class="fullcomment"><div class="comment cmt"><p>A helper to build write request which result needs to be checked.
-</p></div><dl class="paramcmts block"><dt class="param">op</dt><dd class="cmt"><p>write operation.</p></dd><dt class="param">documents</dt><dd class="cmt"><p>body of this request, a <a href="http://static.netty.io/3.5/api/org/jboss/netty/buffer/ChannelBuffer.html" target="_blank">ChannelBuffer</a> containing 0, 1, or many documents.</p></dd><dt class="param">getLastError</dt><dd class="cmt"><p>a <code>GetLastError</code> command message.</p></dd></dl></div>
+      <p class="shortcomment cmt">A helper to build write request which result needs to be checked (by sending a <span class="extype" name="reactivemongo.core.commands.GetLastError">reactivemongo.core.commands.GetLastError</span> command after).</p><div class="fullcomment"><div class="comment cmt"><p>A helper to build write request which result needs to be checked (by sending a <span class="extype" name="reactivemongo.core.commands.GetLastError">reactivemongo.core.commands.GetLastError</span> command after).
+</p></div><dl class="paramcmts block"><dt class="param">op</dt><dd class="cmt"><p>write operation.</p></dd><dt class="param">documents</dt><dd class="cmt"><p>body of this request, a <a href="http://netty.io/4.1/api/io/netty/buffer/ByteBuf.html" target="_blank">ByteBuf</a> containing 0, 1, or many documents.</p></dd><dt class="param">getLastError</dt><dd class="cmt"><p>a <span class="extype" name="reactivemongo.core.commands.GetLastError">reactivemongo.core.commands.GetLastError</span> command message.</p></dd></dl></div>
     </li><li name="reactivemongo.core.protocol.CollectionAwareRequestOp" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="CollectionAwareRequestOpextendsRequestOp"></a><a id="CollectionAwareRequestOp:CollectionAwareRequestOp"></a>
       <span class="permalink">
@@ -471,7 +471,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="Delete operation." href="Delete.html"><span class="name">Delete</span></a><span class="params">(<span name="fullCollectionName">fullCollectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="flags">flags: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result"> extends <a href="WriteRequestOp.html" class="extype" name="reactivemongo.core.protocol.WriteRequestOp">WriteRequestOp</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="Delete operation." href="Delete.html"><span class="name">Delete</span></a><span class="params">(<span name="fullCollectionName">fullCollectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="flags">flags: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result"> extends <a href="WriteRequestOp.html" class="extype" name="reactivemongo.core.protocol.WriteRequestOp">WriteRequestOp</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">Delete operation.</p><div class="fullcomment"><div class="comment cmt"><p>Delete operation.
@@ -488,7 +488,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="GetMore operation." href="GetMore.html"><span class="name">GetMore</span></a><span class="params">(<span name="fullCollectionName">fullCollectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="numberToReturn">numberToReturn: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="cursorID">cursorID: <a href="http://www.scala-lang.org/api/2.12.4/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a></span>)</span><span class="result"> extends <a href="CollectionAwareRequestOp.html" class="extype" name="reactivemongo.core.protocol.CollectionAwareRequestOp">CollectionAwareRequestOp</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="GetMore operation." href="GetMore.html"><span class="name">GetMore</span></a><span class="params">(<span name="fullCollectionName">fullCollectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="numberToReturn">numberToReturn: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="cursorID">cursorID: <a href="http://www.scala-lang.org/api/2.12.6/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a></span>)</span><span class="result"> extends <a href="CollectionAwareRequestOp.html" class="extype" name="reactivemongo.core.protocol.CollectionAwareRequestOp">CollectionAwareRequestOp</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">GetMore operation.</p><div class="fullcomment"><div class="comment cmt"><p>GetMore operation.</p><p>Allows to get more data from a cursor.</p></div><dl class="paramcmts block"><dt class="param">numberToReturn</dt><dd class="cmt"><p>number of documents to return in the response. 0 means the server will choose.</p></dd></dl></div>
@@ -504,7 +504,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="Insert operation." href="Insert.html"><span class="name">Insert</span></a><span class="params">(<span name="flags">flags: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="fullCollectionName">fullCollectionName: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="WriteRequestOp.html" class="extype" name="reactivemongo.core.protocol.WriteRequestOp">WriteRequestOp</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="Insert operation." href="Insert.html"><span class="name">Insert</span></a><span class="params">(<span name="flags">flags: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="fullCollectionName">fullCollectionName: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="WriteRequestOp.html" class="extype" name="reactivemongo.core.protocol.WriteRequestOp">WriteRequestOp</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">Insert operation.</p><div class="fullcomment"><div class="comment cmt"><p>Insert operation.
@@ -521,7 +521,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="KillCursors operation." href="KillCursors.html"><span class="name">KillCursors</span></a><span class="params">(<span name="cursorIDs">cursorIDs: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="http://www.scala-lang.org/api/2.12.4/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a>]</span>)</span><span class="result"> extends <a href="RequestOp.html" class="extype" name="reactivemongo.core.protocol.RequestOp">RequestOp</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="KillCursors operation." href="KillCursors.html"><span class="name">KillCursors</span></a><span class="params">(<span name="cursorIDs">cursorIDs: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a>]</span>)</span><span class="result"> extends <a href="RequestOp.html" class="extype" name="reactivemongo.core.protocol.RequestOp">RequestOp</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">KillCursors operation.</p><div class="fullcomment"><div class="comment cmt"><p>KillCursors operation.
@@ -538,7 +538,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="Header of a Mongo Wire Protocol message." href="MessageHeader.html"><span class="name">MessageHeader</span></a><span class="params">(<span name="messageLength">messageLength: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="requestID">requestID: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="responseTo">responseTo: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="opCode">opCode: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result"> extends <a href="ChannelBufferWritable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferWritable">ChannelBufferWritable</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="Header of a Mongo Wire Protocol message." href="MessageHeader.html"><span class="name">MessageHeader</span></a><span class="params">(<span name="messageLength">messageLength: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="requestID">requestID: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="responseTo">responseTo: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="opCode">opCode: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result"> extends <a href="ChannelBufferWritable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferWritable">ChannelBufferWritable</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">Header of a Mongo Wire Protocol message.</p><div class="fullcomment"><div class="comment cmt"><p>Header of a Mongo Wire Protocol message.
@@ -571,7 +571,7 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="A Mongo Wire Protocol operation" href="Op.html"><span class="name">Op</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+        <a title="A Mongo Wire Protocol operation" href="Op.html"><span class="name">Op</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       <p class="shortcomment cmt">A Mongo Wire Protocol operation</p>
@@ -587,7 +587,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="Query operation." href="Query.html"><span class="name">Query</span></a><span class="params">(<span name="flags">flags: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="fullCollectionName">fullCollectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="numberToSkip">numberToSkip: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="numberToReturn">numberToReturn: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result"> extends <a href="CollectionAwareRequestOp.html" class="extype" name="reactivemongo.core.protocol.CollectionAwareRequestOp">CollectionAwareRequestOp</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="Query operation." href="Query.html"><span class="name">Query</span></a><span class="params">(<span name="flags">flags: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="fullCollectionName">fullCollectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="numberToSkip">numberToSkip: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="numberToReturn">numberToReturn: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result"> extends <a href="CollectionAwareRequestOp.html" class="extype" name="reactivemongo.core.protocol.CollectionAwareRequestOp">CollectionAwareRequestOp</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">Query operation.</p><div class="fullcomment"><div class="comment cmt"><p>Query operation.
@@ -604,7 +604,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="Reply operation." href="Reply.html"><span class="name">Reply</span></a><span class="params">(<span name="flags">flags: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="cursorID">cursorID: <a href="http://www.scala-lang.org/api/2.12.4/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a></span>, <span name="startingFrom">startingFrom: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="numberReturned">numberReturned: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result"> extends <a href="Op.html" class="extype" name="reactivemongo.core.protocol.Op">Op</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="Reply operation." href="Reply.html"><span class="name">Reply</span></a><span class="params">(<span name="flags">flags: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="cursorID">cursorID: <a href="http://www.scala-lang.org/api/2.12.6/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a></span>, <span name="startingFrom">startingFrom: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="numberReturned">numberReturned: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result"> extends <a href="Op.html" class="extype" name="reactivemongo.core.protocol.Op">Op</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">Reply operation.</p><div class="fullcomment"><div class="comment cmt"><p>Reply operation.
@@ -621,7 +621,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="" href="ReplyDocumentIteratorExhaustedException.html"><span class="name">ReplyDocumentIteratorExhaustedException</span></a><span class="params">(<span name="cause">cause: <span class="extype" name="scala.Exception">Exception</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="ReplyDocumentIteratorExhaustedException.html"><span class="name">ReplyDocumentIteratorExhaustedException</span></a><span class="params">(<span name="cause">cause: <span class="extype" name="scala.Exception">Exception</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       
@@ -637,11 +637,11 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="Request message." href="Request.html"><span class="name">Request</span></a><span class="params">(<span name="requestID">requestID: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="responseTo">responseTo: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="op">op: <a href="RequestOp.html" class="extype" name="reactivemongo.core.protocol.RequestOp">RequestOp</a></span>, <span name="documents">documents: <a href="../netty/BufferSequence.html" class="extype" name="reactivemongo.core.netty.BufferSequence">BufferSequence</a></span>, <span name="readPreference">readPreference: <a href="../../api/ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> = <span class="symbol"><span class="name"><a href="../../index.html">ReadPreference.primary</a></span></span></span>, <span name="channelIdHint">channelIdHint: <a href="http://www.scala-lang.org/api/2.12.4/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="ChannelBufferWritable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferWritable">ChannelBufferWritable</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="Request message." href="Request.html"><span class="name">Request</span></a><span class="params">(<span name="requestID">requestID: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="responseTo">responseTo: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="op">op: <a href="RequestOp.html" class="extype" name="reactivemongo.core.protocol.RequestOp">RequestOp</a></span>, <span name="documents">documents: <a href="../netty/BufferSequence.html" class="extype" name="reactivemongo.core.netty.BufferSequence">BufferSequence</a></span>, <span name="readPreference">readPreference: <a href="../../api/ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> = <span class="symbol"><span class="name"><a href="../../index.html">ReadPreference.primary</a></span></span></span>, <span name="channelIdHint">channelIdHint: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="shaded.netty.channel.ChannelId">ChannelId</span>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="ChannelBufferWritable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferWritable">ChannelBufferWritable</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">Request message.</p><div class="fullcomment"><div class="comment cmt"><p>Request message.
-</p></div><dl class="paramcmts block"><dt class="param">requestID</dt><dd class="cmt"><p>id of this request, so that the response may be identifiable. Should be strictly positive.</p></dd><dt class="param">op</dt><dd class="cmt"><p>request operation.</p></dd><dt class="param">documents</dt><dd class="cmt"><p>body of this request, a <a href="http://static.netty.io/3.5/api/org/jboss/netty/buffer/ChannelBuffer.html" target="_blank">ChannelBuffer</a> containing 0, 1, or many documents.</p></dd><dt class="param">channelIdHint</dt><dd class="cmt"><p>a hint for sending this request on a particular channel.</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">requestID</dt><dd class="cmt"><p>the ID of this request, so that the response may be identifiable. Should be strictly positive.</p></dd><dt class="param">op</dt><dd class="cmt"><p>request operation.</p></dd><dt class="param">documents</dt><dd class="cmt"><p>body of this request, a <a href="http://netty.io/4.1/api/io/netty/buffer/ByteBuf.html" target="_blank">ByteBuf</a> containing 0, 1, or many documents.</p></dd><dt class="param">channelIdHint</dt><dd class="cmt"><p>a hint for sending this request on a particular channel.</p></dd></dl></div>
     </li><li name="reactivemongo.core.protocol.RequestMaker" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="RequestMakerextendsProductwithSerializable"></a><a id="RequestMaker:RequestMaker"></a>
       <span class="permalink">
@@ -654,11 +654,11 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="A helper to build requests." href="RequestMaker.html"><span class="name">RequestMaker</span></a><span class="params">(<span name="op">op: <a href="RequestOp.html" class="extype" name="reactivemongo.core.protocol.RequestOp">RequestOp</a></span>, <span name="documents">documents: <a href="../netty/BufferSequence.html" class="extype" name="reactivemongo.core.netty.BufferSequence">BufferSequence</a> = <span class="symbol"><span class="name"><a href="../../index.html">BufferSequence.empty</a></span></span></span>, <span name="readPreference">readPreference: <a href="../../api/ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> = <span class="symbol"><span class="name"><a href="../../index.html">ReadPreference.primary</a></span></span></span>, <span name="channelIdHint">channelIdHint: <a href="http://www.scala-lang.org/api/2.12.4/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="A helper to build requests." href="RequestMaker.html"><span class="name">RequestMaker</span></a><span class="params">(<span name="op">op: <a href="RequestOp.html" class="extype" name="reactivemongo.core.protocol.RequestOp">RequestOp</a></span>, <span name="documents">documents: <a href="../netty/BufferSequence.html" class="extype" name="reactivemongo.core.netty.BufferSequence">BufferSequence</a> = <span class="symbol"><span class="name"><a href="../../index.html">BufferSequence.empty</a></span></span></span>, <span name="readPreference">readPreference: <a href="../../api/ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> = <span class="symbol"><span class="name"><a href="../../index.html">ReadPreference.primary</a></span></span></span>, <span name="channelIdHint">channelIdHint: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="shaded.netty.channel.ChannelId">ChannelId</span>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">A helper to build requests.</p><div class="fullcomment"><div class="comment cmt"><p>A helper to build requests.
-</p></div><dl class="paramcmts block"><dt class="param">op</dt><dd class="cmt"><p>write operation.</p></dd><dt class="param">documents</dt><dd class="cmt"><p>body of this request, a <a href="http://static.netty.io/3.5/api/org/jboss/netty/buffer/ChannelBuffer.html" target="_blank">ChannelBuffer</a> containing 0, 1, or many documents.</p></dd><dt class="param">channelIdHint</dt><dd class="cmt"><p>a hint for sending this request on a particular channel.</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">op</dt><dd class="cmt"><p>write operation.</p></dd><dt class="param">documents</dt><dd class="cmt"><p>body of this request, a <a href="http://netty.io/4.1/api/io/netty/buffer/ByteBuf.html" target="_blank">ByteBuf</a> containing 0, 1, or many documents.</p></dd><dt class="param">channelIdHint</dt><dd class="cmt"><p>a hint for sending this request on a particular channel.</p></dd></dl></div>
     </li><li name="reactivemongo.core.protocol.RequestOp" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="RequestOpextendsOpwithChannelBufferWritable"></a><a id="RequestOp:RequestOp"></a>
       <span class="permalink">
@@ -677,9 +677,9 @@
       <p class="shortcomment cmt">A Mongo Wire Protocol request operation.</p><div class="fullcomment"><div class="comment cmt"><p>A Mongo Wire Protocol request operation.</p><p>Actually, all operations excepted Reply are requests.
 </p></div></div>
     </li><li name="reactivemongo.core.protocol.Response" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="ResponseextendsProduct4[reactivemongo.core.protocol.MessageHeader,reactivemongo.core.protocol.Reply,shaded.netty.buffer.ChannelBuffer,reactivemongo.core.protocol.ResponseInfo]withSerializable"></a><a id="Response:Response"></a>
+      <a id="ResponseextendsProduct4[reactivemongo.core.protocol.MessageHeader,reactivemongo.core.protocol.Reply,shaded.netty.buffer.ByteBuf,reactivemongo.core.protocol.ResponseInfo]withSerializable"></a><a id="Response:Response"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/protocol/index.html#ResponseextendsProduct4[reactivemongo.core.protocol.MessageHeader,reactivemongo.core.protocol.Reply,shaded.netty.buffer.ChannelBuffer,reactivemongo.core.protocol.ResponseInfo]withSerializable" title="Permalink">
+      <a href="../../../reactivemongo/core/protocol/index.html#ResponseextendsProduct4[reactivemongo.core.protocol.MessageHeader,reactivemongo.core.protocol.Reply,shaded.netty.buffer.ByteBuf,reactivemongo.core.protocol.ResponseInfo]withSerializable" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -688,27 +688,26 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a title="A Mongo Wire Protocol Response messages." href="Response.html"><span class="name">Response</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Product4.html#scala.Product4" class="extype" name="scala.Product4">Product4</a>[<a href="MessageHeader.html" class="extype" name="reactivemongo.core.protocol.MessageHeader">MessageHeader</a>, <a href="Reply.html" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a>, <span class="extype" name="shaded.netty.buffer.ChannelBuffer">ChannelBuffer</span>, <a href="ResponseInfo.html" class="extype" name="reactivemongo.core.protocol.ResponseInfo">ResponseInfo</a>] with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="A Mongo Wire Protocol Response messages." href="Response.html"><span class="name">Response</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product4.html#scala.Product4" class="extype" name="scala.Product4">Product4</a>[<a href="MessageHeader.html" class="extype" name="reactivemongo.core.protocol.MessageHeader">MessageHeader</a>, <a href="Reply.html" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a>, <span class="extype" name="shaded.netty.buffer.ByteBuf">ByteBuf</span>, <a href="ResponseInfo.html" class="extype" name="reactivemongo.core.protocol.ResponseInfo">ResponseInfo</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">A Mongo Wire Protocol Response messages.</p>
-    </li><li name="reactivemongo.core.protocol.ResponseInfo" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ResponseInfoextendsProductwithSerializable"></a><a id="ResponseInfo:ResponseInfo"></a>
+    </li><li name="reactivemongo.core.protocol.RichBuffer" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RichBufferextendsAnyVal"></a><a id="RichBuffer:RichBuffer"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/protocol/index.html#ResponseInfoextendsProductwithSerializable" title="Permalink">
+      <a href="../../../reactivemongo/core/protocol/index.html#RichBufferextendsAnyVal" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
       <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
+        <span class="modifier">implicit final </span>
+        <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a title="Response meta information." href="ResponseInfo.html"><span class="name">ResponseInfo</span></a><span class="params">(<span name="channelId">channelId: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="package$$RichBuffer.html"><span class="name">RichBuffer</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyVal.html#scala.AnyVal" class="extype" name="scala.AnyVal">AnyVal</a></span>
       </span>
       
-      <p class="shortcomment cmt">Response meta information.</p><div class="fullcomment"><div class="comment cmt"><p>Response meta information.
-</p></div><dl class="paramcmts block"><dt class="param">channelId</dt><dd class="cmt"><p>the id of the channel that carried this response.</p></dd></dl></div>
+      
     </li><li name="reactivemongo.core.protocol.Update" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="UpdateextendsWriteRequestOpwithProductwithSerializable"></a><a id="Update:Update"></a>
       <span class="permalink">
@@ -721,7 +720,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="Update operation." href="Update.html"><span class="name">Update</span></a><span class="params">(<span name="fullCollectionName">fullCollectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="flags">flags: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result"> extends <a href="WriteRequestOp.html" class="extype" name="reactivemongo.core.protocol.WriteRequestOp">WriteRequestOp</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="Update operation." href="Update.html"><span class="name">Update</span></a><span class="params">(<span name="fullCollectionName">fullCollectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="flags">flags: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result"> extends <a href="WriteRequestOp.html" class="extype" name="reactivemongo.core.protocol.WriteRequestOp">WriteRequestOp</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">Update operation.</p><div class="fullcomment"><div class="comment cmt"><p>Update operation.
@@ -742,25 +741,26 @@
       </span>
       
       <p class="shortcomment cmt">A request that will perform a write on the database</p>
-    </li><li name="reactivemongo.core.protocol.RichBuffer" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="RichBufferextendsAnyVal"></a><a id="RichBuffer:RichBuffer"></a>
+    </li><li name="reactivemongo.core.protocol.ResponseInfo" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ResponseInfoextendsProduct1[shaded.netty.channel.ChannelId]withSerializable"></a><a id="ResponseInfo:ResponseInfo"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/protocol/index.html#RichBufferextendsAnyVal" title="Permalink">
+      <a href="../../../reactivemongo/core/protocol/index.html#ResponseInfoextendsProduct1[shaded.netty.channel.ChannelId]withSerializable" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
       <span class="modifier_kind">
-        <span class="modifier">final </span>
+        <span class="modifier"></span>
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a title="" href="package$$RichBuffer.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.0) Will be removed">RichBuffer</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyVal" class="extype" name="scala.collection.immutable.List">AnyVal</a></span>
+        <a title="Response meta information." href="ResponseInfo.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.8) Will be private">ResponseInfo</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product1.html#scala.Product1" class="extype" name="scala.Product1">Product1</a>[<span class="extype" name="shaded.netty.channel.ChannelId">ChannelId</span>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+      <p class="shortcomment cmt">Response meta information.</p><div class="fullcomment"><div class="comment cmt"><p>Response meta information.
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Will be removed</p></dd></dl></div>
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.8)</i> Will be private</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -781,10 +781,10 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="Header deserializer from a ChannelBuffer." href="MessageHeader$.html"><span class="name">MessageHeader</span></a><span class="result"> extends <a href="ChannelBufferReadable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferReadable">ChannelBufferReadable</a>[<a href="MessageHeader.html" class="extype" name="reactivemongo.core.protocol.MessageHeader">MessageHeader</a>] with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="Header deserializer from a ByteBuf." href="MessageHeader$.html"><span class="name">MessageHeader</span></a><span class="result"> extends <a href="ChannelBufferReadable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferReadable">ChannelBufferReadable</a>[<a href="MessageHeader.html" class="extype" name="reactivemongo.core.protocol.MessageHeader">MessageHeader</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
-      <p class="shortcomment cmt">Header deserializer from a <a href="http://static.netty.io/3.5/api/org/jboss/netty/buffer/ChannelBuffer.html" target="_blank">ChannelBuffer</a>.</p>
+      <p class="shortcomment cmt">Header deserializer from a <a href="http://netty.io/4.1/api/io/netty/buffer/ByteBuf.html" target="_blank">ByteBuf</a>.</p>
     </li><li name="reactivemongo.core.protocol.MongoWireVersion" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="MongoWireVersion"></a><a id="MongoWireVersion:MongoWireVersion"></a>
       <span class="permalink">
@@ -829,7 +829,7 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="Reply$.html"><span class="name">Reply</span></a><span class="result"> extends <a href="ChannelBufferReadable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferReadable">ChannelBufferReadable</a>[<a href="Reply.html" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a>] with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="Reply$.html"><span class="name">Reply</span></a><span class="result"> extends <a href="ChannelBufferReadable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferReadable">ChannelBufferReadable</a>[<a href="Reply.html" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       
@@ -861,7 +861,7 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="Request$.html"><span class="name">Request</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="Request$.html"><span class="name">Request</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt"></p>
@@ -877,7 +877,23 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="Response$.html"><span class="name">Response</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="Response$.html"><span class="name">Response</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.core.protocol.ResponseInfo" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ResponseInfo"></a><a id="ResponseInfo:ResponseInfo"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/core/protocol/index.html#ResponseInfo" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="ResponseInfo$.html"><span class="name">ResponseInfo</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/runtime/AbstractFunction1.html#scala.runtime.AbstractFunction1" class="extype" name="scala.runtime.AbstractFunction1">AbstractFunction1</a>[<span class="extype" name="shaded.netty.channel.ChannelId">ChannelId</span>, <a href="ResponseInfo.html" class="extype" name="reactivemongo.core.protocol.ResponseInfo">ResponseInfo</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       
@@ -908,9 +924,9 @@
 
         <div id="inheritedMembers">
         <div class="parent" name="scala.AnyRef">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></h3>
             </div>
         
         </div>

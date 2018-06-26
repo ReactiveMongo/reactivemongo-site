@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.13 - reactivemongo.api.MongoDriver</title>
-          <meta name="description" content="ReactiveMongo API 0.13 - reactivemongo.api.MongoDriver" />
-          <meta name="keywords" content="ReactiveMongo API 0.13 reactivemongo.api.MongoDriver" />
+          <title>ReactiveMongo API 0.14 - reactivemongo.api.MongoDriver</title>
+          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.api.MongoDriver" />
+          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.api.MongoDriver" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.13</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -297,6 +297,10 @@
                         <span class="separator"></span>
                         <a class="trait" href="WrappedCursor.html" title="Cursor wrapper, to help to define custom cursor classes."></a>
                         <a href="WrappedCursor.html" title="Cursor wrapper, to help to define custom cursor classes.">WrappedCursor</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="object" href="X509Authentication$.html" title="X509 authentication"></a>
+                        <a href="X509Authentication$.html" title="X509 authentication">X509Authentication</a>
                       </li>
               </ul>
             </div>
@@ -331,7 +335,7 @@
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><span class="extype" name="reactivemongo.api.Driver">Driver</span>, <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="reactivemongo.api.Driver">Driver</span>, <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
         </div></div>
         
 
@@ -394,7 +398,7 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">MongoDriver</span><span class="params">(<span name="config">config: <a href="http://www.scala-lang.org/api/2.12.4/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="com.typesafe.config.Config">Config</span>] = <span class="symbol">None</span></span>, <span name="classLoader">classLoader: <a href="http://www.scala-lang.org/api/2.12.4/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="java.lang.ClassLoader">ClassLoader</span>] = <span class="symbol">None</span></span>)</span>
+        <span class="name">MongoDriver</span><span class="params">(<span name="config">config: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="com.typesafe.config.Config">Config</span>] = <span class="symbol">None</span></span>, <span name="classLoader">classLoader: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="java.lang.ClassLoader">ClassLoader</span>] = <span class="symbol">None</span></span>)</span>
       </span>
       
       <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">config</dt><dd class="cmt"><p>a custom configuration (otherwise the default options are used)</p></dd><dt class="param">classLoader</dt><dd class="cmt"><p>a classloader used to load the actor system</p></dd></dl></div>
@@ -410,7 +414,7 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.12-RC6) Use the constructor with the classloader">MongoDriver</span><span class="params">(<span name="config">config: <a href="http://www.scala-lang.org/api/2.12.4/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="com.typesafe.config.Config">Config</span>]</span>)</span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.12-RC6) Use the constructor with the classloader">MongoDriver</span><span class="params">(<span name="config">config: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="com.typesafe.config.Config">Config</span>]</span>)</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
@@ -434,7 +438,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="" href="MongoDriver$AddConnection.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.7) Will be made private">AddConnection</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="nodes">nodes: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="options">options: <a href="MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>, <span name="mongosystem">mongosystem: <a href="http://doc.akka.io/api/akka/2.5.6/akka/actor/ActorRef.html#akka.actor.ActorRef" class="extype" name="akka.actor.ActorRef">ActorRef</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="MongoDriver$AddConnection.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.7) Will be made private">AddConnection</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="nodes">nodes: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="options">options: <a href="MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>, <span name="mongosystem">mongosystem: <a href="http://doc.akka.io/api/akka/2.5.13/akka/actor/ActorRef.html#akka.actor.ActorRef" class="extype" name="akka.actor.ActorRef">ActorRef</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
@@ -453,7 +457,7 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a title="" href="MongoDriver$SupervisorActor.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.7) Will be made private">SupervisorActor</span></a><span class="result"> extends <a href="http://doc.akka.io/api/akka/2.5.6/akka/actor/Actor.html#akka.actor.Actor" class="extype" name="akka.actor.Actor">Actor</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a> with <span class="extype" name="java.io.Serializable">Serializable</span></span>
+        <a title="" href="MongoDriver$SupervisorActor.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.7) Will be made private">SupervisorActor</span></a><span class="result"> extends <a href="http://doc.akka.io/api/akka/2.5.13/akka/actor/Actor.html#akka.actor.Actor" class="extype" name="akka.actor.Actor">Actor</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a> with <span class="extype" name="java.io.Serializable">Serializable</span></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
@@ -480,7 +484,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -496,7 +500,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -555,7 +559,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -587,16 +591,16 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">askClose</span><span class="params">(<span name="timeout">timeout: <a href="http://www.scala-lang.org/api/2.12.4/scala/concurrent/duration/FiniteDuration.html#scala.concurrent.duration.FiniteDuration" class="extype" name="scala.concurrent.duration.FiniteDuration">FiniteDuration</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="executionContext">executionContext: <a href="http://www.scala-lang.org/api/2.12.4/scala/concurrent/ExecutionContext.html#scala.concurrent.ExecutionContext" class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="http://www.scala-lang.org/api/2.12.4/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a>]</span>
+        <span class="name">askClose</span><span class="params">(<span name="timeout">timeout: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/duration/FiniteDuration.html#scala.concurrent.duration.FiniteDuration" class="extype" name="scala.concurrent.duration.FiniteDuration">FiniteDuration</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="executionContext">executionContext: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/ExecutionContext.html#scala.concurrent.ExecutionContext" class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Closes this driver (and all its connections and resources).</p><div class="fullcomment"><div class="comment cmt"><p>Closes this driver (and all its connections and resources).
 Will wait until the timeout for proper closing of connections before forcing hard shutdown.
 </p></div><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Driver</dd></dl></div>
     </li><li name="reactivemongo.api.Driver#askConnection" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="askConnection(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions,authentications:Seq[reactivemongo.core.nodeset.Authenticate],name:Option[String]):scala.concurrent.Future[reactivemongo.api.MongoConnection]"></a><a id="askConnection(Seq[String],MongoConnectionOptions,Seq[Authenticate],Option[String]):Future[MongoConnection]"></a>
+      <a id="askConnection(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions,name:Option[String]):scala.concurrent.Future[reactivemongo.api.MongoConnection]"></a><a id="askConnection(Seq[String],MongoConnectionOptions,Option[String]):Future[MongoConnection]"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/api/MongoDriver.html#askConnection(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions,authentications:Seq[reactivemongo.core.nodeset.Authenticate],name:Option[String]):scala.concurrent.Future[reactivemongo.api.MongoConnection]" title="Permalink">
+      <a href="../../reactivemongo/api/MongoDriver.html#askConnection(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions,name:Option[String]):scala.concurrent.Future[reactivemongo.api.MongoConnection]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -605,11 +609,11 @@ Will wait until the timeout for proper closing of connections before forcing har
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">askConnection</span><span class="params">(<span name="nodes">nodes: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="options">options: <a href="MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>, <span name="authentications">authentications: <span class="extype" name="scala.Seq">Seq</span>[<a href="../core/nodeset/Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>]</span>, <span name="name">name: <a href="http://www.scala-lang.org/api/2.12.4/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a>]</span>
+        <span class="name">askConnection</span><span class="params">(<span name="nodes">nodes: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="options">options: <a href="MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>, <span name="name">name: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Creates a new MongoConnection.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection.
-</p></div><dl class="paramcmts block"><dt class="param">nodes</dt><dd class="cmt"><p>The list of node names (e.g. <i>node1.foo.com:27017</i>); Port is optional (27017 is used by default)</p></dd><dt class="param">options</dt><dd class="cmt"><p>the options for the new connection pool</p></dd><dt class="param">authentications</dt><dd class="cmt"><p>the list of authentication instructions</p></dd><dt class="param">name</dt><dd class="cmt"><p>the name for the connection pool</p></dd></dl><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Driver</dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">nodes</dt><dd class="cmt"><p>The list of node names (e.g. <i>node1.foo.com:27017</i>); Port is optional (27017 is used by default)</p></dd><dt class="param">options</dt><dd class="cmt"><p>the options for the new connection pool</p></dd><dt class="param">name</dt><dd class="cmt"><p>the name for the connection pool</p></dd></dl><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Driver</dd></dl></div>
     </li><li name="reactivemongo.api.MongoDriver#classLoader" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="classLoader:Option[ClassLoader]"></a>
       <span class="permalink">
@@ -622,10 +626,12 @@ Will wait until the timeout for proper closing of connections before forcing har
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">classLoader</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="java.lang.ClassLoader">ClassLoader</span>]</span>
+        <span class="name">classLoader</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="java.lang.ClassLoader">ClassLoader</span>]</span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a> → Driver</dd></dl></div>
+      <p class="shortcomment cmt">The classloader used to load the actor system
+</p><div class="fullcomment"><div class="comment cmt"><p>The classloader used to load the actor system
+</p></div><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a> → Driver</dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
       <span class="permalink">
@@ -638,7 +644,7 @@ Will wait until the timeout for proper closing of connections before forcing har
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java/lang/index.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -662,7 +668,7 @@ Will wait until the timeout for proper closing of connections before forcing har
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">close</span><span class="params">(<span name="timeout">timeout: <a href="http://www.scala-lang.org/api/2.12.4/scala/concurrent/duration/FiniteDuration.html#scala.concurrent.duration.FiniteDuration" class="extype" name="scala.concurrent.duration.FiniteDuration">FiniteDuration</a> = <span class="symbol">FiniteDuration(2, SECONDS)</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+        <span class="name">close</span><span class="params">(<span name="timeout">timeout: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/duration/FiniteDuration.html#scala.concurrent.duration.FiniteDuration" class="extype" name="scala.concurrent.duration.FiniteDuration">FiniteDuration</a> = <span class="symbol">FiniteDuration(2, SECONDS)</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
       </span>
       
       <p class="shortcomment cmt">Closes this driver (and all its connections and resources).</p><div class="fullcomment"><div class="comment cmt"><p>Closes this driver (and all its connections and resources).
@@ -680,10 +686,12 @@ Awaits the termination until the timeout is expired.
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">config</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="com.typesafe.config.Config">Config</span>]</span>
+        <span class="name">config</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="com.typesafe.config.Config">Config</span>]</span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a> → Driver</dd></dl></div>
+      <p class="shortcomment cmt">The custom configuration (otherwise the default options are used)
+</p><div class="fullcomment"><div class="comment cmt"><p>The custom configuration (otherwise the default options are used)
+</p></div><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a> → Driver</dd></dl></div>
     </li><li name="reactivemongo.api.MongoDriver#connection" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI):reactivemongo.api.MongoConnection"></a><a id="connection(ParsedURI):MongoConnection"></a>
       <span class="permalink">
@@ -713,7 +721,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">connection</span><span class="params">(<span name="parsedURI">parsedURI: <a href="MongoConnection$$ParsedURI.html" class="extype" name="reactivemongo.api.MongoConnection.ParsedURI">ParsedURI</a></span>, <span name="strictUri">strictUri: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/util/Try.html#scala.util.Try" class="extype" name="scala.util.Try">Try</a>[<a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a>]</span>
+        <span class="name">connection</span><span class="params">(<span name="parsedURI">parsedURI: <a href="MongoConnection$$ParsedURI.html" class="extype" name="reactivemongo.api.MongoConnection.ParsedURI">ParsedURI</a></span>, <span name="strictUri">strictUri: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/util/Try.html#scala.util.Try" class="extype" name="scala.util.Try">Try</a>[<a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Creates a new MongoConnection from URI.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection from URI.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
@@ -730,7 +738,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">connection</span><span class="params">(<span name="parsedURI">parsedURI: <a href="MongoConnection$$ParsedURI.html" class="extype" name="reactivemongo.api.MongoConnection.ParsedURI">ParsedURI</a></span>, <span name="name">name: <a href="http://www.scala-lang.org/api/2.12.4/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="strictUri">strictUri: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/util/Try.html#scala.util.Try" class="extype" name="scala.util.Try">Try</a>[<a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a>]</span>
+        <span class="name">connection</span><span class="params">(<span name="parsedURI">parsedURI: <a href="MongoConnection$$ParsedURI.html" class="extype" name="reactivemongo.api.MongoConnection.ParsedURI">ParsedURI</a></span>, <span name="name">name: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="strictUri">strictUri: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/util/Try.html#scala.util.Try" class="extype" name="scala.util.Try">Try</a>[<a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Creates a new MongoConnection from URI.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection from URI.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
@@ -747,7 +755,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">connection</span><span class="params">(<span name="parsedURI">parsedURI: <a href="MongoConnection$$ParsedURI.html" class="extype" name="reactivemongo.api.MongoConnection.ParsedURI">ParsedURI</a></span>, <span name="name">name: <a href="http://www.scala-lang.org/api/2.12.4/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
+        <span class="name">connection</span><span class="params">(<span name="parsedURI">parsedURI: <a href="MongoConnection$$ParsedURI.html" class="extype" name="reactivemongo.api.MongoConnection.ParsedURI">ParsedURI</a></span>, <span name="name">name: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
       </span>
       
       <p class="shortcomment cmt">Creates a new MongoConnection from URI.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection from URI.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
@@ -764,7 +772,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">connection</span><span class="params">(<span name="uri">uri: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="name">name: <a href="http://www.scala-lang.org/api/2.12.4/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="strictUri">strictUri: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/util/Try.html#scala.util.Try" class="extype" name="scala.util.Try">Try</a>[<a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a>]</span>
+        <span class="name">connection</span><span class="params">(<span name="uri">uri: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="name">name: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="strictUri">strictUri: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/util/Try.html#scala.util.Try" class="extype" name="scala.util.Try">Try</a>[<a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Creates a new MongoConnection from URI.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection from URI.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
@@ -781,15 +789,15 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">connection</span><span class="params">(<span name="uriStrict">uriStrict: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/util/Try.html#scala.util.Try" class="extype" name="scala.util.Try">Try</a>[<a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a>]</span>
+        <span class="name">connection</span><span class="params">(<span name="uriStrict">uriStrict: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/util/Try.html#scala.util.Try" class="extype" name="scala.util.Try">Try</a>[<a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Creates a new MongoConnection from URI.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection from URI.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
 </p></div><dl class="paramcmts block"><dt class="param">uriStrict</dt><dd class="cmt"><p>the strict URI, that will be parsed by <a href="MongoConnection$.html#parseURI(uri:String):scala.util.Try[reactivemongo.api.MongoConnection.ParsedURI]" class="extmbr" name="reactivemongo.api.MongoConnection#parseURI">reactivemongo.api.MongoConnection.parseURI</a></p></dd></dl></div>
     </li><li name="reactivemongo.api.MongoDriver#connection" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="connection(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions,authentications:Seq[reactivemongo.core.nodeset.Authenticate],name:Option[String]):reactivemongo.api.MongoConnection"></a><a id="connection(Seq[String],MongoConnectionOptions,Seq[Authenticate],Option[String]):MongoConnection"></a>
+      <a id="connection(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions,name:String):reactivemongo.api.MongoConnection"></a><a id="connection(Seq[String],MongoConnectionOptions,String):MongoConnection"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/api/MongoDriver.html#connection(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions,authentications:Seq[reactivemongo.core.nodeset.Authenticate],name:Option[String]):reactivemongo.api.MongoConnection" title="Permalink">
+      <a href="../../reactivemongo/api/MongoDriver.html#connection(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions,name:String):reactivemongo.api.MongoConnection" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -798,11 +806,45 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">connection</span><span class="params">(<span name="nodes">nodes: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="options">options: <a href="MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a> = <span class="symbol"><span class="name"><a href="MongoConnectionOptions$.html">MongoConnectionOptions()</a></span></span></span>, <span name="authentications">authentications: <span class="extype" name="scala.Seq">Seq</span>[<a href="../core/nodeset/Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>] = <span class="symbol">Seq.empty</span></span>, <span name="name">name: <a href="http://www.scala-lang.org/api/2.12.4/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
+        <span class="name">connection</span><span class="params">(<span name="nodes">nodes: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="options">options: <a href="MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
       </span>
       
       <p class="shortcomment cmt">Creates a new MongoConnection.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
-</p></div><dl class="paramcmts block"><dt class="param">nodes</dt><dd class="cmt"><p>The list of node names (e.g. <i>node1.foo.com:27017</i>); Port is optional (27017 is used by default)</p></dd><dt class="param">options</dt><dd class="cmt"><p>the options for the new connection pool</p></dd><dt class="param">authentications</dt><dd class="cmt"><p>the list of authentication instructions</p></dd><dt class="param">name</dt><dd class="cmt"><p>the name for the connection pool</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">nodes</dt><dd class="cmt"><p>The list of node names (e.g. <i>node1.foo.com:27017</i>); Port is optional (27017 is used by default)</p></dd><dt class="param">options</dt><dd class="cmt"><p>the options for the new connection pool</p></dd><dt class="param">name</dt><dd class="cmt"><p>the name for the connection pool</p></dd></dl></div>
+    </li><li name="reactivemongo.api.MongoDriver#connection" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="connection(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions):reactivemongo.api.MongoConnection"></a><a id="connection(Seq[String],MongoConnectionOptions):MongoConnection"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/api/MongoDriver.html#connection(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions):reactivemongo.api.MongoConnection" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">connection</span><span class="params">(<span name="nodes">nodes: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="options">options: <a href="MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Creates a new MongoConnection.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
+</p></div><dl class="paramcmts block"><dt class="param">nodes</dt><dd class="cmt"><p>The list of node names (e.g. <i>node1.foo.com:27017</i>); Port is optional (27017 is used by default)</p></dd><dt class="param">options</dt><dd class="cmt"><p>the options for the new connection pool</p></dd></dl></div>
+    </li><li name="reactivemongo.api.MongoDriver#connection" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="connection(nodes:Seq[String]):reactivemongo.api.MongoConnection"></a><a id="connection(Seq[String]):MongoConnection"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/api/MongoDriver.html#connection(nodes:Seq[String]):reactivemongo.api.MongoConnection" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">connection</span><span class="params">(<span name="nodes">nodes: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Creates a new MongoConnection.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
+</p></div><dl class="paramcmts block"><dt class="param">nodes</dt><dd class="cmt"><p>The list of node names (e.g. <i>node1.foo.com:27017</i>); Port is optional (27017 is used by default)</p></dd></dl></div>
     </li><li name="reactivemongo.api.Driver#connectionMonitors" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="connectionMonitors:scala.collection.mutable.Map[akka.actor.ActorRef,reactivemongo.api.MongoConnection]"></a><a id="connectionMonitors:Map[ActorRef,MongoConnection]"></a>
       <span class="permalink">
@@ -815,7 +857,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">connectionMonitors</span><span class="result">: <span class="extype" name="scala.collection.mutable.Map">Map</span>[<a href="http://doc.akka.io/api/akka/2.5.6/akka/actor/ActorRef.html#akka.actor.ActorRef" class="extype" name="akka.actor.ActorRef">ActorRef</a>, <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a>]</span>
+        <span class="name">connectionMonitors</span><span class="result">: <span class="extype" name="scala.collection.mutable.Map">Map</span>[<a href="http://doc.akka.io/api/akka/2.5.13/akka/actor/ActorRef.html#akka.actor.ActorRef" class="extype" name="akka.actor.ActorRef">ActorRef</a>, <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a>]</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Driver</dd></dl></div>
@@ -831,7 +873,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a>) ⇒ <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a>) ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
@@ -851,7 +893,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a>) ⇒ <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a>) ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
@@ -871,7 +913,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
@@ -891,7 +933,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
@@ -911,7 +953,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -927,7 +969,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -943,7 +985,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java/lang/index.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -1007,7 +1049,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd><dt>Annotations</dt><dd>
@@ -1026,7 +1068,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -1042,7 +1084,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -1058,7 +1100,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -1077,7 +1119,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -1160,7 +1202,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -1182,7 +1224,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.6/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -1204,7 +1246,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.6/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -1256,7 +1298,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.11.3) Must you connection with nbChannelsPerNode set in the options of the parsedURI.">connection</span><span class="params">(<span name="parsedURI">parsedURI: <a href="MongoConnection$$ParsedURI.html" class="extype" name="reactivemongo.api.MongoConnection.ParsedURI">ParsedURI</a></span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.3) Must you connection with nbChannelsPerNode set in the options of the parsedURI.">connection</span><span class="params">(<span name="parsedURI">parsedURI: <a href="MongoConnection$$ParsedURI.html" class="extype" name="reactivemongo.api.MongoConnection.ParsedURI">ParsedURI</a></span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
       </span>
       
       <p class="shortcomment cmt">Creates a new MongoConnection from URI.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection from URI.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
@@ -1276,7 +1318,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.11.3) Must you reactivemongo.api.MongoDriver.connection(reactivemongo.api.MongoConnection.ParsedURI,Option[String]):reactivemongo.api.MongoConnection connection(..)]] with nbChannelsPerNode set in the parsedURI.">connection</span><span class="params">(<span name="parsedURI">parsedURI: <a href="MongoConnection$$ParsedURI.html" class="extype" name="reactivemongo.api.MongoConnection.ParsedURI">ParsedURI</a></span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="name">name: <a href="http://www.scala-lang.org/api/2.12.4/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.3) Must you reactivemongo.api.MongoDriver.connection(reactivemongo.api.MongoConnection.ParsedURI,Option[String]):reactivemongo.api.MongoConnection connection(..)]] with nbChannelsPerNode set in the parsedURI.">connection</span><span class="params">(<span name="parsedURI">parsedURI: <a href="MongoConnection$$ParsedURI.html" class="extype" name="reactivemongo.api.MongoConnection.ParsedURI">ParsedURI</a></span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="name">name: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
       </span>
       
       <p class="shortcomment cmt">Creates a new MongoConnection from URI.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection from URI.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
@@ -1284,6 +1326,26 @@ Awaits the termination until the timeout is expired.
                 <span class="name">@deprecated</span>
               
         </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.3)</i> Must you reactivemongo.api.MongoDriver.connection(reactivemongo.api.MongoConnection.ParsedURI,Option[String]):reactivemongo.api.MongoConnection connection(..)]] with <code>nbChannelsPerNode</code> set in the <code>parsedURI</code>.</p></dd></dl></div>
+    </li><li name="reactivemongo.api.MongoDriver#connection" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="connection(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions,authentications:Seq[reactivemongo.core.nodeset.Authenticate],name:Option[String]):reactivemongo.api.MongoConnection"></a><a id="connection(Seq[String],MongoConnectionOptions,Seq[Authenticate],Option[String]):MongoConnection"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/api/MongoDriver.html#connection(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions,authentications:Seq[reactivemongo.core.nodeset.Authenticate],name:Option[String]):reactivemongo.api.MongoConnection" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.14.0) Use connection without authentications (but possibly without options.credentials)">connection</span><span class="params">(<span name="nodes">nodes: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="options">options: <a href="MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a> = <span class="symbol"><span class="name"><a href="MongoConnectionOptions$.html">MongoConnectionOptions()</a></span></span></span>, <span name="authentications">authentications: <span class="extype" name="scala.Seq">Seq</span>[<a href="../core/nodeset/Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>] = <span class="symbol">Seq.empty</span></span>, <span name="name">name: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Creates a new MongoConnection.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
+</p></div><dl class="paramcmts block"><dt class="param">nodes</dt><dd class="cmt"><p>The list of node names (e.g. <i>node1.foo.com:27017</i>); Port is optional (27017 is used by default)</p></dd><dt class="param">options</dt><dd class="cmt"><p>the options for the new connection pool</p></dd><dt class="param">authentications</dt><dd class="cmt"><p>the list of authentication instructions</p></dd><dt class="param">name</dt><dd class="cmt"><p>the name for the connection pool</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.14.0)</i> Use <code>connection</code> without <code>authentications</code> (but possibly without <code>options.credentials</code>)</p></dd></dl></div>
     </li><li name="reactivemongo.api.MongoDriver#connection" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="connection(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions,authentications:Seq[reactivemongo.core.nodeset.Authenticate],nbChannelsPerNode:Int,name:Option[String]):reactivemongo.api.MongoConnection"></a><a id="connection(Seq[String],MongoConnectionOptions,Seq[Authenticate],Int,Option[String]):MongoConnection"></a>
       <span class="permalink">
@@ -1296,7 +1358,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.11.3) Must use connection with nbChannelsPerNode set in the options.">connection</span><span class="params">(<span name="nodes">nodes: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="options">options: <a href="MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>, <span name="authentications">authentications: <span class="extype" name="scala.Seq">Seq</span>[<a href="../core/nodeset/Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>]</span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="name">name: <a href="http://www.scala-lang.org/api/2.12.4/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.11.3) Must use connection with nbChannelsPerNode set in the options.">connection</span><span class="params">(<span name="nodes">nodes: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="options">options: <a href="MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>, <span name="authentications">authentications: <span class="extype" name="scala.Seq">Seq</span>[<a href="../core/nodeset/Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>]</span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="name">name: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
       </span>
       
       <p class="shortcomment cmt">Creates a new MongoConnection.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
@@ -1335,7 +1397,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.12-RC1) Will be made private">numConnections</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.12-RC1) Will be made private">numConnections</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
@@ -1350,9 +1412,9 @@ Awaits the termination until the timeout is expired.
         <div class="parent" name="reactivemongo.api.Driver">
               <h3>Inherited from <span class="extype" name="reactivemongo.api.Driver">Driver</span></h3>
             </div><div class="parent" name="scala.AnyRef">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></h3>
             </div>
         <div class="conversion" name="scala.Predef.any2stringadd">
               <h3>Inherited by implicit conversion any2stringadd from

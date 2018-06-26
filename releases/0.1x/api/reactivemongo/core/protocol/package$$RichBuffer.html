@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.13 - reactivemongo.core.protocol.RichBuffer</title>
-          <meta name="description" content="ReactiveMongo API 0.13 - reactivemongo.core.protocol.RichBuffer" />
-          <meta name="keywords" content="ReactiveMongo API 0.13 reactivemongo.core.protocol.RichBuffer" />
+          <title>ReactiveMongo API 0.14 - reactivemongo.core.protocol.RichBuffer</title>
+          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.core.protocol.RichBuffer" />
+          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.core.protocol.RichBuffer" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.13</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -119,16 +119,16 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="reactivemongo.core">core</a></dd></dl></div>
     </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="trait" href="ChannelBufferReadable.html" title="A constructor of T instances from a ChannelBuffer."></a>
-                        <a href="ChannelBufferReadable.html" title="A constructor of T instances from a ChannelBuffer.">ChannelBufferReadable</a>
+                        <a class="trait" href="ChannelBufferReadable.html" title="A constructor of T instances from a ByteBuf."></a>
+                        <a href="ChannelBufferReadable.html" title="A constructor of T instances from a ByteBuf.">ChannelBufferReadable</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="trait" href="ChannelBufferWritable.html" title="Something that can be written into a ChannelBuffer."></a>
-                        <a href="ChannelBufferWritable.html" title="Something that can be written into a ChannelBuffer.">ChannelBufferWritable</a>
+                        <a class="trait" href="ChannelBufferWritable.html" title="Something that can be written into a ByteBuf."></a>
+                        <a href="ChannelBufferWritable.html" title="Something that can be written into a ByteBuf.">ChannelBufferWritable</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="class" href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked."></a>
-                        <a href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked.">CheckedWriteRequest</a>
+                        <a class="class" href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked (by sending a reactivemongo.core.commands.GetLastError command after)."></a>
+                        <a href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked (by sending a reactivemongo.core.commands.GetLastError command after).">CheckedWriteRequest</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
                         <a class="trait" href="CollectionAwareRequestOp.html" title="A request that needs to know the full collection name."></a>
@@ -150,7 +150,7 @@
                         <a class="class" href="KillCursors.html" title="KillCursors operation."></a>
                         <a href="KillCursors.html" title="KillCursors operation.">KillCursors</a>
                       </li><li class="current-entities indented3">
-                        <a class="object" href="MessageHeader$.html" title="Header deserializer from a ChannelBuffer."></a>
+                        <a class="object" href="MessageHeader$.html" title="Header deserializer from a ByteBuf."></a>
                         <a class="class" href="MessageHeader.html" title="Header of a Mongo Wire Protocol message."></a>
                         <a href="MessageHeader.html" title="Header of a Mongo Wire Protocol message.">MessageHeader</a>
                       </li><li class="current-entities indented3">
@@ -198,7 +198,7 @@
                         <a class="class" href="Response.html" title="A Mongo Wire Protocol Response messages."></a>
                         <a href="Response.html" title="A Mongo Wire Protocol Response messages.">Response</a>
                       </li><li class="current-entities indented3">
-                        <span class="separator"></span>
+                        <a class="object" href="ResponseInfo$.html" title=""></a>
                         <a class="class" href="ResponseInfo.html" title="Response meta information."></a>
                         <a href="ResponseInfo.html" title="Response meta information.">ResponseInfo</a>
                       </li><li class="current-entities indented3">
@@ -236,23 +236,20 @@
 
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
-        <span class="modifier">final </span>
+        <span class="modifier">implicit final </span>
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.12.0) Will be removed">RichBuffer</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyVal" class="extype" name="scala.collection.immutable.List">AnyVal</a></span>
+        <span class="name">RichBuffer</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyVal.html#scala.AnyVal" class="extype" name="scala.AnyVal">AnyVal</a></span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Annotations</dt><dd>
-                <span class="name">@deprecated</span>
-              
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Will be removed</p></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyVal" class="extype" name="scala.collection.immutable.List">AnyVal</a>, <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.12.6/scala/AnyVal.html#scala.AnyVal" class="extype" name="scala.AnyVal">AnyVal</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
         </div></div>
         
 
@@ -304,9 +301,9 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="reactivemongo.core.protocol.RichBuffer#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(buffer:shaded.netty.buffer.ChannelBuffer):reactivemongo.core.protocol.package.RichBuffer"></a><a id="&lt;init&gt;:RichBuffer"></a>
+      <a id="&lt;init&gt;(buffer:shaded.netty.buffer.ByteBuf):reactivemongo.core.protocol.package.RichBuffer"></a><a id="&lt;init&gt;:RichBuffer"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/protocol/package$$RichBuffer.html#&lt;init&gt;(buffer:shaded.netty.buffer.ChannelBuffer):reactivemongo.core.protocol.package.RichBuffer" title="Permalink">
+      <a href="../../../reactivemongo/core/protocol/package$$RichBuffer.html#&lt;init&gt;(buffer:shaded.netty.buffer.ByteBuf):reactivemongo.core.protocol.package.RichBuffer" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -315,7 +312,7 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">RichBuffer</span><span class="params">(<span name="buffer">buffer: <span class="extype" name="shaded.netty.buffer.ChannelBuffer">ChannelBuffer</span></span>)</span>
+        <span class="name">RichBuffer</span><span class="params">(<span name="buffer">buffer: <span class="extype" name="shaded.netty.buffer.ByteBuf">ByteBuf</span></span>)</span>
       </span>
       
       
@@ -341,7 +338,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -357,7 +354,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -416,7 +413,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -437,9 +434,9 @@
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="reactivemongo.core.protocol.RichBuffer#buffer" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="buffer:shaded.netty.buffer.ChannelBuffer"></a><a id="buffer:ChannelBuffer"></a>
+      <a id="buffer:shaded.netty.buffer.ByteBuf"></a><a id="buffer:ByteBuf"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/protocol/package$$RichBuffer.html#buffer:shaded.netty.buffer.ChannelBuffer" title="Permalink">
+      <a href="../../../reactivemongo/core/protocol/package$$RichBuffer.html#buffer:shaded.netty.buffer.ByteBuf" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -448,7 +445,7 @@
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">buffer</span><span class="result">: <span class="extype" name="shaded.netty.buffer.ChannelBuffer">ChannelBuffer</span></span>
+        <span class="name">buffer</span><span class="result">: <span class="extype" name="shaded.netty.buffer.ByteBuf">ByteBuf</span></span>
       </span>
       
       
@@ -464,7 +461,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.core.protocol.RichBuffer">RichBuffer</a>) ⇒ <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.protocol.RichBuffer">RichBuffer</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.core.protocol.RichBuffer">RichBuffer</a>) ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.protocol.RichBuffer">RichBuffer</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
@@ -484,7 +481,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.core.protocol.RichBuffer">RichBuffer</a>) ⇒ <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.protocol.RichBuffer">RichBuffer</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.core.protocol.RichBuffer">RichBuffer</a>) ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.protocol.RichBuffer">RichBuffer</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
@@ -504,7 +501,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.protocol.RichBuffer">RichBuffer</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.protocol.RichBuffer">RichBuffer</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
@@ -524,7 +521,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.protocol.RichBuffer">RichBuffer</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.core.protocol.RichBuffer">RichBuffer</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
@@ -567,7 +564,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Predef.Class">Class</span>[_ &lt;: <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyVal" class="extype" name="scala.collection.immutable.List">AnyVal</a>]</span>
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Predef.Class">Class</span>[_ &lt;: <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyVal.html#scala.AnyVal" class="extype" name="scala.AnyVal">AnyVal</a>]</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyVal → Any</dd></dl></div>
@@ -583,7 +580,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -599,7 +596,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">readArray</span><span class="params">(<span name="length">length: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<a href="http://www.scala-lang.org/api/2.12.4/scala/Byte.html#scala.Byte" class="extype" name="scala.Byte">Byte</a>]</span>
+        <span class="name">readArray</span><span class="params">(<span name="length">length: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Byte.html#scala.Byte" class="extype" name="scala.Byte">Byte</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Reads an array of Byte of the given length.</p><div class="fullcomment"><div class="comment cmt"><p>Reads an array of Byte of the given length.
@@ -664,14 +661,14 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">write</span><span class="params">(<span name="writable">writable: <a href="ChannelBufferWritable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferWritable">ChannelBufferWritable</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.4/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+        <span class="name">write</span><span class="params">(<span name="writable">writable: <a href="ChannelBufferWritable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferWritable">ChannelBufferWritable</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
       </span>
       
       <p class="shortcomment cmt">Write the contents of the given <a href="ChannelBufferWritable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferWritable">reactivemongo.core.protocol.ChannelBufferWritable</a>.</p>
     </li><li name="reactivemongo.core.protocol.RichBuffer#writeCString" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="writeCString(s:String):shaded.netty.buffer.ChannelBuffer"></a><a id="writeCString(String):ChannelBuffer"></a>
+      <a id="writeCString(s:String):shaded.netty.buffer.ByteBuf"></a><a id="writeCString(String):ByteBuf"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/protocol/package$$RichBuffer.html#writeCString(s:String):shaded.netty.buffer.ChannelBuffer" title="Permalink">
+      <a href="../../../reactivemongo/core/protocol/package$$RichBuffer.html#writeCString(s:String):shaded.netty.buffer.ByteBuf" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -680,14 +677,14 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">writeCString</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="shaded.netty.buffer.ChannelBuffer">ChannelBuffer</span></span>
+        <span class="name">writeCString</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="shaded.netty.buffer.ByteBuf">ByteBuf</span></span>
       </span>
       
       <p class="shortcomment cmt">Write a UTF-8 encoded C-Style String.</p>
     </li><li name="reactivemongo.core.protocol.RichBuffer#writeString" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="writeString(s:String):shaded.netty.buffer.ChannelBuffer"></a><a id="writeString(String):ChannelBuffer"></a>
+      <a id="writeString(s:String):shaded.netty.buffer.ByteBuf"></a><a id="writeString(String):ByteBuf"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/protocol/package$$RichBuffer.html#writeString(s:String):shaded.netty.buffer.ChannelBuffer" title="Permalink">
+      <a href="../../../reactivemongo/core/protocol/package$$RichBuffer.html#writeString(s:String):shaded.netty.buffer.ByteBuf" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -696,7 +693,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">writeString</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="shaded.netty.buffer.ChannelBuffer">ChannelBuffer</span></span>
+        <span class="name">writeString</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="shaded.netty.buffer.ByteBuf">ByteBuf</span></span>
       </span>
       
       <p class="shortcomment cmt">Write a UTF-8 encoded String.</p>
@@ -731,9 +728,9 @@
 
         <div id="inheritedMembers">
         <div class="parent" name="scala.AnyVal">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyVal" class="extype" name="scala.collection.immutable.List">AnyVal</a></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyVal.html#scala.AnyVal" class="extype" name="scala.AnyVal">AnyVal</a></h3>
             </div><div class="parent" name="scala.Any">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></h3>
             </div>
         <div class="conversion" name="scala.Predef.any2stringadd">
               <h3>Inherited by implicit conversion any2stringadd from

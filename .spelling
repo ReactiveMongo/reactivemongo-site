@@ -1,10 +1,15 @@
 # Tech stack
+seedlist
+Decimal128
+kpoll
+epoll
 Enumeratum
 Logback
 logback-classic
 Log4J
 SLF4J
 slf4j-simple
+x.509
 JMX
 Netty
 Typesafe
@@ -254,3 +259,4 @@ Joline
 0.1x
 5BT
 5D
+3.x

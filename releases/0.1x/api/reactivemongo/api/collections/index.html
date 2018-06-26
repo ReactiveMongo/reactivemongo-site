@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.13 - reactivemongo.api.collections</title>
-          <meta name="description" content="ReactiveMongo API 0.13 - reactivemongo.api.collections" />
-          <meta name="keywords" content="ReactiveMongo API 0.13 reactivemongo.api.collections" />
+          <title>ReactiveMongo API 0.14 - reactivemongo.api.collections</title>
+          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.api.collections" />
+          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.api.collections" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.13</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -139,6 +139,10 @@
                         <a href="BatchCommands.html" title="">BatchCommands</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
+                        <a class="trait" href="DeleteOps.html" title=""></a>
+                        <a href="DeleteOps.html" title="">DeleteOps</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
                         <a class="trait" href="GenericCollection.html" title="A Collection that provides default methods using a SerializationPack (e.g."></a>
                         <a href="GenericCollection.html" title="A Collection that provides default methods using a SerializationPack (e.g.">GenericCollection</a>
                       </li><li class="current-entities indented3">
@@ -153,6 +157,10 @@
                         <span class="separator"></span>
                         <a class="trait" href="GenericQueryBuilder.html" title="A builder that helps to make a fine-tuned query to MongoDB."></a>
                         <a href="GenericQueryBuilder.html" title="A builder that helps to make a fine-tuned query to MongoDB.">GenericQueryBuilder</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="trait" href="InsertOps.html" title=""></a>
+                        <a href="InsertOps.html" title="">InsertOps</a>
                       </li><li name="reactivemongo.api.commands" visbl="pub" class="indented3 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="commands"></a><a id="commands:commands"></a>
       <span class="permalink">
@@ -252,14 +260,14 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="" href="BatchCommands.html"><span class="name">BatchCommands</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+        <a title="" href="BatchCommands.html"><span class="name">BatchCommands</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       
-    </li><li name="reactivemongo.api.collections.GenericCollection" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="GenericCollection[P&lt;:reactivemongo.api.SerializationPackwithSingleton]extendsCollectionwithGenericCollectionWithCommands[P]withCollectionMetaCommandswithImplicitCommandHelpers[P]withInsertOps[P]withUpdateOps[P]withAggregator[P]withGenericCollectionMetaCommands[P]"></a><a id="GenericCollection[P&lt;:SerializationPackwithSingleton]:GenericCollection[P]"></a>
+    </li><li name="reactivemongo.api.collections.DeleteOps" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="DeleteOps[P&lt;:reactivemongo.api.SerializationPackwithSingleton]extendsCommandCodecs[P]"></a><a id="DeleteOps[P&lt;:SerializationPackwithSingleton]:DeleteOps[P]"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/api/collections/index.html#GenericCollection[P&lt;:reactivemongo.api.SerializationPackwithSingleton]extendsCollectionwithGenericCollectionWithCommands[P]withCollectionMetaCommandswithImplicitCommandHelpers[P]withInsertOps[P]withUpdateOps[P]withAggregator[P]withGenericCollectionMetaCommands[P]" title="Permalink">
+      <a href="../../../reactivemongo/api/collections/index.html#DeleteOps[P&lt;:reactivemongo.api.SerializationPackwithSingleton]extendsCommandCodecs[P]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -268,7 +276,23 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="A Collection that provides default methods using a SerializationPack (e.g." href="GenericCollection.html"><span class="name">GenericCollection</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a> with <span class="extype" name="scala.Singleton">Singleton</span></span>]</span><span class="result"> extends <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a> with <a href="GenericCollectionWithCommands.html" class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands">GenericCollectionWithCommands</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] with <a href="../CollectionMetaCommands.html" class="extype" name="reactivemongo.api.CollectionMetaCommands">CollectionMetaCommands</a> with <a href="../commands/ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] with <span class="extype" name="reactivemongo.api.collections.InsertOps">InsertOps</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] with <span class="extype" name="reactivemongo.api.collections.UpdateOps">UpdateOps</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] with <span class="extype" name="reactivemongo.api.collections.Aggregator">Aggregator</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] with <span class="extype" name="reactivemongo.api.collections.GenericCollectionMetaCommands">GenericCollectionMetaCommands</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]</span>
+        <a title="" href="DeleteOps.html"><span class="name">DeleteOps</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a> with <span class="extype" name="scala.Singleton">Singleton</span></span>]</span><span class="result"> extends <span class="extype" name="reactivemongo.api.commands.CommandCodecs">CommandCodecs</span>[<span class="extype" name="reactivemongo.api.collections.DeleteOps.P">P</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt"></p>
+    </li><li name="reactivemongo.api.collections.GenericCollection" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="GenericCollection[P&lt;:reactivemongo.api.SerializationPackwithSingleton]extendsCollectionwithGenericCollectionWithCommands[P]withCollectionMetaCommandswithImplicitCommandHelpers[P]withInsertOps[P]withUpdateOps[P]withDeleteOps[P]withAggregator[P]withGenericCollectionMetaCommands[P]"></a><a id="GenericCollection[P&lt;:SerializationPackwithSingleton]:GenericCollection[P]"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/collections/index.html#GenericCollection[P&lt;:reactivemongo.api.SerializationPackwithSingleton]extendsCollectionwithGenericCollectionWithCommands[P]withCollectionMetaCommandswithImplicitCommandHelpers[P]withInsertOps[P]withUpdateOps[P]withDeleteOps[P]withAggregator[P]withGenericCollectionMetaCommands[P]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="A Collection that provides default methods using a SerializationPack (e.g." href="GenericCollection.html"><span class="name">GenericCollection</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a> with <span class="extype" name="scala.Singleton">Singleton</span></span>]</span><span class="result"> extends <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a> with <a href="GenericCollectionWithCommands.html" class="extype" name="reactivemongo.api.collections.GenericCollectionWithCommands">GenericCollectionWithCommands</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] with <a href="../CollectionMetaCommands.html" class="extype" name="reactivemongo.api.CollectionMetaCommands">CollectionMetaCommands</a> with <a href="../commands/ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] with <a href="InsertOps.html" class="extype" name="reactivemongo.api.collections.InsertOps">InsertOps</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] with <span class="extype" name="reactivemongo.api.collections.UpdateOps">UpdateOps</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] with <a href="DeleteOps.html" class="extype" name="reactivemongo.api.collections.DeleteOps">DeleteOps</a>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] with <span class="extype" name="reactivemongo.api.collections.Aggregator">Aggregator</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>] with <span class="extype" name="reactivemongo.api.collections.GenericCollectionMetaCommands">GenericCollectionMetaCommands</span>[<span class="extype" name="reactivemongo.api.collections.GenericCollection.P">P</span>]</span>
       </span>
       
       <p class="shortcomment cmt">A Collection that provides default methods using a <code>SerializationPack</code>
@@ -303,7 +327,7 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="Collection operations to run commands with" href="GenericCollectionWithCommands.html"><span class="name">GenericCollectionWithCommands</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a> with <span class="extype" name="scala.Singleton">Singleton</span></span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+        <a title="Collection operations to run commands with" href="GenericCollectionWithCommands.html"><span class="name">GenericCollectionWithCommands</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a> with <span class="extype" name="scala.Singleton">Singleton</span></span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       <p class="shortcomment cmt">Collection operations to run commands with</p>
@@ -323,6 +347,22 @@
       </span>
       
       <p class="shortcomment cmt">A builder that helps to make a fine-tuned query to MongoDB.</p><div class="fullcomment"><div class="comment cmt"><p>A builder that helps to make a fine-tuned query to MongoDB.</p><p>When the query is ready, you can call <code>cursor</code> to get a <a href="../Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a>, or <code>one</code> if you want to retrieve just one document.</p></div></div>
+    </li><li name="reactivemongo.api.collections.InsertOps" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="InsertOps[P&lt;:reactivemongo.api.SerializationPackwithSingleton]extendsCommandCodecs[P]"></a><a id="InsertOps[P&lt;:SerializationPackwithSingleton]:InsertOps[P]"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/collections/index.html#InsertOps[P&lt;:reactivemongo.api.SerializationPackwithSingleton]extendsCommandCodecs[P]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="InsertOps.html"><span class="name">InsertOps</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a> with <span class="extype" name="scala.Singleton">Singleton</span></span>]</span><span class="result"> extends <span class="extype" name="reactivemongo.api.commands.CommandCodecs">CommandCodecs</span>[<span class="extype" name="reactivemongo.api.collections.InsertOps.P">P</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt"></p>
     </li></ol>
             </div>
 

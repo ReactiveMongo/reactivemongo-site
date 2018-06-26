@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.13 - reactivemongo.bson.buffer</title>
-          <meta name="description" content="ReactiveMongo API 0.13 - reactivemongo.bson.buffer" />
-          <meta name="keywords" content="ReactiveMongo API 0.13 reactivemongo.bson.buffer" />
+          <title>ReactiveMongo API 0.14 - reactivemongo.bson.buffer</title>
+          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.bson.buffer" />
+          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.bson.buffer" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.13</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -129,6 +129,10 @@
                         <span class="separator"></span>
                         <a class="trait" href="BSONBuffer.html" title=""></a>
                         <a href="BSONBuffer.html" title="">BSONBuffer</a>
+                      </li><li class="current-entities indented3">
+                        <a class="object" href="BSONIterator$.html" title=""></a>
+                        <a class="trait" href="BSONIterator.html" title=""></a>
+                        <a href="BSONIterator.html" title="">BSONIterator</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
                         <a class="trait" href="BufferHandler.html" title=""></a>
@@ -284,7 +288,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="An array-backed readable buffer." href="ArrayReadableBuffer.html"><span class="name">ArrayReadableBuffer</span></a><span class="result"> extends <a href="ReadableBuffer.html" class="extype" name="reactivemongo.bson.buffer.ReadableBuffer">ReadableBuffer</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="An array-backed readable buffer." href="ArrayReadableBuffer.html"><span class="name">ArrayReadableBuffer</span></a><span class="result"> extends <a href="ReadableBuffer.html" class="extype" name="reactivemongo.bson.buffer.ReadableBuffer">ReadableBuffer</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">An array-backed readable buffer.</p>
@@ -300,7 +304,7 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="" href="BufferHandler.html"><span class="name">BufferHandler</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+        <a title="" href="BufferHandler.html"><span class="name">BufferHandler</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       
@@ -316,7 +320,7 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="A readable buffer." href="ReadableBuffer.html"><span class="name">ReadableBuffer</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+        <a title="A readable buffer." href="ReadableBuffer.html"><span class="name">ReadableBuffer</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       <p class="shortcomment cmt">A readable buffer.</p><div class="fullcomment"><div class="comment cmt"><p>A readable buffer.</p><p>The implementation <b>MUST</b> ensure it reads data in little endian when needed.
@@ -333,7 +337,7 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="A writable buffer." href="WritableBuffer.html"><span class="name">WritableBuffer</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+        <a title="A writable buffer." href="WritableBuffer.html"><span class="name">WritableBuffer</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       <p class="shortcomment cmt">A writable buffer.</p><div class="fullcomment"><div class="comment cmt"><p>A writable buffer.</p><p>The implementation <b>MUST</b> ensure it stores data in little endian when needed.
@@ -357,6 +361,25 @@
                 <span class="name">@deprecated</span>
               
         </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.13.0)</i> Unused</p></dd></dl></div>
+    </li><li name="reactivemongo.bson.buffer.BSONIterator" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="BSONIteratorextendsIterator[(String,reactivemongo.bson.BSONValue)]"></a><a id="BSONIterator:BSONIterator"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/index.html#BSONIteratorextendsIterator[(String,reactivemongo.bson.BSONValue)]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="BSONIterator.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.8) Use reactivemongo.bson.BSONIterator">BSONIterator</span></a><span class="result"> extends <span class="extype" name="scala.Iterator">Iterator</span>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="../BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>)]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.8)</i> Use <a href="../BSONIterator.html" class="extype" name="reactivemongo.bson.BSONIterator">reactivemongo.bson.BSONIterator</a></p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -377,7 +400,7 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="ArrayReadableBuffer$.html"><span class="name">ArrayReadableBuffer</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="ArrayReadableBuffer$.html"><span class="name">ArrayReadableBuffer</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       
@@ -403,7 +426,29 @@
 
         
 
-        
+        <div class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="reactivemongo.bson.buffer.BSONIterator" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="BSONIterator"></a><a id="BSONIterator:BSONIterator"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/index.html#BSONIterator" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="BSONIterator$.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.8) Use reactivemongo.bson.BSONIterator">BSONIterator</span></a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.8)</i> Use <a href="../BSONIterator.html" class="extype" name="reactivemongo.bson.BSONIterator">reactivemongo.bson.BSONIterator</a></p></dd></dl></div>
+    </li></ol>
+            </div>
         </div>
 
         <div id="inheritedMembers">

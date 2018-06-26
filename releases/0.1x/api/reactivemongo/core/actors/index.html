@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.13 - reactivemongo.core.actors</title>
-          <meta name="description" content="ReactiveMongo API 0.13 - reactivemongo.core.actors" />
-          <meta name="keywords" content="ReactiveMongo API 0.13 reactivemongo.core.actors" />
+          <title>ReactiveMongo API 0.14 - reactivemongo.core.actors</title>
+          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.core.actors" />
+          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.core.actors" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.13</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -126,9 +126,9 @@
                         <a class="class" href="CheckedWriteRequestExpectingResponse.html" title="A checked write request expecting a response."></a>
                         <a href="CheckedWriteRequestExpectingResponse.html" title="A checked write request expecting a response.">CheckedWriteRequestExpectingResponse</a>
                       </li><li class="current-entities indented3">
-                        <span class="separator"></span>
                         <a class="object" href="Close$.html" title="Message to close all active connections."></a>
-                        <a href="Close$.html" title="Message to close all active connections.">Close</a>
+                        <a class="class" href="Close.html" title=""></a>
+                        <a href="Close.html" title="">Close</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
                         <a class="object" href="Closed$.html" title="MongoDBSystem has been shut down."></a>
@@ -185,6 +185,10 @@
                         <span class="separator"></span>
                         <a class="class" href="StandardDBSystem.html" title=""></a>
                         <a href="StandardDBSystem.html" title="">StandardDBSystem</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="StandardDBSystemWithX509.html" title=""></a>
+                        <a href="StandardDBSystemWithX509.html" title="">StandardDBSystemWithX509</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
                         <a class="object" href="WaitForPrimary$.html" title="A message to send to a MonitorActor to be warned when a primary has been discovered."></a>
@@ -360,7 +364,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="" href="AuthRequest.html"><span class="name">AuthRequest</span></a><span class="params">(<span name="authenticate">authenticate: <a href="../nodeset/Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a></span>, <span name="promise">promise: <span class="extype" name="scala.concurrent.Promise">Promise</span>[<a href="../commands/SuccessfulAuthentication.html" class="extype" name="reactivemongo.core.commands.SuccessfulAuthentication">SuccessfulAuthentication</a>] = <span class="symbol">Promise()</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="AuthRequest.html"><span class="name">AuthRequest</span></a><span class="params">(<span name="authenticate">authenticate: <a href="../nodeset/Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a></span>, <span name="promise">promise: <span class="extype" name="scala.concurrent.Promise">Promise</span>[<a href="../commands/SuccessfulAuthentication.html" class="extype" name="reactivemongo.core.commands.SuccessfulAuthentication">SuccessfulAuthentication</a>] = <span class="symbol">Promise()</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       
@@ -376,7 +380,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="A checked write request expecting a response." href="CheckedWriteRequestExpectingResponse.html"><span class="name">CheckedWriteRequestExpectingResponse</span></a><span class="params">(<span name="checkedWriteRequest">checkedWriteRequest: <a href="../protocol/CheckedWriteRequest.html" class="extype" name="reactivemongo.core.protocol.CheckedWriteRequest">CheckedWriteRequest</a></span>)</span><span class="result"> extends <a href="ExpectingResponse.html" class="extype" name="reactivemongo.core.actors.ExpectingResponse">ExpectingResponse</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="A checked write request expecting a response." href="CheckedWriteRequestExpectingResponse.html"><span class="name">CheckedWriteRequestExpectingResponse</span></a><span class="params">(<span name="checkedWriteRequest">checkedWriteRequest: <a href="../protocol/CheckedWriteRequest.html" class="extype" name="reactivemongo.core.protocol.CheckedWriteRequest">CheckedWriteRequest</a></span>)</span><span class="result"> extends <a href="ExpectingResponse.html" class="extype" name="reactivemongo.core.actors.ExpectingResponse">ExpectingResponse</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">A checked write request expecting a response.</p><div class="fullcomment"><div class="comment cmt"><p>A checked write request expecting a response.
@@ -393,7 +397,7 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="A message expecting a response from database." href="ExpectingResponse.html"><span class="name">ExpectingResponse</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+        <a title="A message expecting a response from database." href="ExpectingResponse.html"><span class="name">ExpectingResponse</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       <p class="shortcomment cmt">A message expecting a response from database.</p><div class="fullcomment"><div class="comment cmt"><p>A message expecting a response from database.
@@ -412,7 +416,7 @@ The future can be used to get the error or the successful response.
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="Message sent when the primary has been discovered." href="PrimaryAvailable.html"><span class="name">PrimaryAvailable</span></a><span class="params">(<span name="metadata">metadata: <a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="Message sent when the primary has been discovered." href="PrimaryAvailable.html"><span class="name">PrimaryAvailable</span></a><span class="params">(<span name="metadata">metadata: <a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">Message sent when the primary has been discovered.</p>
@@ -428,7 +432,7 @@ The future can be used to get the error or the successful response.
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="A request expecting a response." href="RequestMakerExpectingResponse.html"><span class="name">RequestMakerExpectingResponse</span></a><span class="params">(<span name="requestMaker">requestMaker: <a href="../protocol/RequestMaker.html" class="extype" name="reactivemongo.core.protocol.RequestMaker">RequestMaker</a></span>, <span name="isMongo26WriteOp">isMongo26WriteOp: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result"> extends <a href="ExpectingResponse.html" class="extype" name="reactivemongo.core.actors.ExpectingResponse">ExpectingResponse</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="A request expecting a response." href="RequestMakerExpectingResponse.html"><span class="name">RequestMakerExpectingResponse</span></a><span class="params">(<span name="requestMaker">requestMaker: <a href="../protocol/RequestMaker.html" class="extype" name="reactivemongo.core.protocol.RequestMaker">RequestMaker</a></span>, <span name="isMongo26WriteOp">isMongo26WriteOp: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result"> extends <a href="ExpectingResponse.html" class="extype" name="reactivemongo.core.actors.ExpectingResponse">ExpectingResponse</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">A request expecting a response.</p><div class="fullcomment"><div class="comment cmt"><p>A request expecting a response.
@@ -445,10 +449,45 @@ The future can be used to get the error or the successful response.
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="" href="SetAvailable.html"><span class="name">SetAvailable</span></a><span class="params">(<span name="metadata">metadata: <a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="SetAvailable.html"><span class="name">SetAvailable</span></a><span class="params">(<span name="metadata">metadata: <a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       
+    </li><li name="reactivemongo.core.actors.StandardDBSystemWithX509" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="StandardDBSystemWithX509extendsMongoDBSystemwithMongoX509Authentication"></a><a id="StandardDBSystemWithX509:StandardDBSystemWithX509"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/core/actors/index.html#StandardDBSystemWithX509extendsMongoDBSystemwithMongoX509Authentication" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="StandardDBSystemWithX509.html"><span class="name">StandardDBSystemWithX509</span></a><span class="result"> extends <a href="MongoDBSystem.html" class="extype" name="reactivemongo.core.actors.MongoDBSystem">MongoDBSystem</a> with <span class="extype" name="reactivemongo.core.actors.MongoX509Authentication">MongoX509Authentication</span></span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.core.actors.Close" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="CloseextendsAnyRef"></a><a id="Close:Close"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/core/actors/index.html#CloseextendsAnyRef" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="Close.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.8) Will be private">Close</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.8)</i> Will be private</p></dd></dl></div>
     </li><li name="reactivemongo.core.actors.LegacyDBSystem" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="LegacyDBSystemextendsMongoDBSystemwithMongoCrAuthentication"></a><a id="LegacyDBSystem:LegacyDBSystem"></a>
       <span class="permalink">
@@ -480,7 +519,7 @@ The future can be used to get the error or the successful response.
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="Main actor that processes the requests." href="MongoDBSystem.html"><span class="name deprecated" title="Deprecated: (Since version 0.11.14) Internal class: will be made private">MongoDBSystem</span></a><span class="result"> extends <a href="http://doc.akka.io/api/akka/2.5.6/akka/actor/Actor.html#akka.actor.Actor" class="extype" name="akka.actor.Actor">Actor</a></span>
+        <a title="Main actor that processes the requests." href="MongoDBSystem.html"><span class="name deprecated" title="Deprecated: (Since version 0.11.14) Internal class: will be made private">MongoDBSystem</span></a><span class="result"> extends <a href="http://doc.akka.io/api/akka/2.5.13/akka/actor/Actor.html#akka.actor.Actor" class="extype" name="akka.actor.Actor">Actor</a></span>
       </span>
       
       <p class="shortcomment cmt">Main actor that processes the requests.</p><div class="fullcomment"><div class="comment cmt"><p>Main actor that processes the requests.</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
@@ -526,7 +565,7 @@ The future can be used to get the error or the successful response.
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="Message to close all active connections." href="Close$.html"><span class="name">Close</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="Message to close all active connections." href="Close$.html"><span class="name">Close</span></a><span class="result"> extends <a href="Close.html" class="extype" name="reactivemongo.core.actors.Close">Close</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">Message to close all active connections.</p><div class="fullcomment"><div class="comment cmt"><p>Message to close all active connections.
@@ -544,7 +583,7 @@ The MongoDBSystem actor must not be used after this message has been sent.
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="MongoDBSystem has been shut down." href="Closed$.html"><span class="name">Closed</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="MongoDBSystem has been shut down." href="Closed$.html"><span class="name">Closed</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">MongoDBSystem has been shut down.</p>
@@ -592,7 +631,7 @@ The MongoDBSystem actor must not be used after this message has been sent.
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="GetLastMetadata$.html"><span class="name">GetLastMetadata</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="GetLastMetadata$.html"><span class="name">GetLastMetadata</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       
@@ -608,7 +647,7 @@ The MongoDBSystem actor must not be used after this message has been sent.
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="Message sent when the primary has been lost." href="PrimaryUnavailable$.html"><span class="name">PrimaryUnavailable</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="Message sent when the primary has been lost." href="PrimaryUnavailable$.html"><span class="name">PrimaryUnavailable</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">Message sent when the primary has been lost.</p>
@@ -624,7 +663,7 @@ The MongoDBSystem actor must not be used after this message has been sent.
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="Register a monitor." href="RegisterMonitor$.html"><span class="name">RegisterMonitor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="Register a monitor." href="RegisterMonitor$.html"><span class="name">RegisterMonitor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">Register a monitor.</p>
@@ -640,7 +679,7 @@ The MongoDBSystem actor must not be used after this message has been sent.
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="SetUnavailable$.html"><span class="name">SetUnavailable</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="SetUnavailable$.html"><span class="name">SetUnavailable</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       
@@ -683,7 +722,7 @@ The MongoDBSystem actor must not be used after this message has been sent.
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="RequestIdGenerator$.html"><span class="name deprecated" title="Deprecated: (Since version 0.12-RC6) Use the class RequestIdGenerator">RequestIdGenerator</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/runtime/AbstractFunction2.html#scala.runtime.AbstractFunction2" class="extype" name="scala.runtime.AbstractFunction2">AbstractFunction2</a>[<a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>, <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>, <span class="extype" name="reactivemongo.core.actors.RequestIdGenerator">RequestIdGenerator</span>] with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="RequestIdGenerator$.html"><span class="name deprecated" title="Deprecated: (Since version 0.12-RC6) Use the class RequestIdGenerator">RequestIdGenerator</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/runtime/AbstractFunction2.html#scala.runtime.AbstractFunction2" class="extype" name="scala.runtime.AbstractFunction2">AbstractFunction2</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>, <span class="extype" name="reactivemongo.core.actors.RequestIdGenerator">RequestIdGenerator</span>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
@@ -702,7 +741,7 @@ The MongoDBSystem actor must not be used after this message has been sent.
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="A message to send to a MonitorActor to be warned when a primary has been discovered." href="WaitForPrimary$.html"><span class="name deprecated" title="Deprecated: (Since version 0.11.10) Will be removed">WaitForPrimary</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="A message to send to a MonitorActor to be warned when a primary has been discovered." href="WaitForPrimary$.html"><span class="name deprecated" title="Deprecated: (Since version 0.11.10) Will be removed">WaitForPrimary</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">A message to send to a MonitorActor to be warned when a primary has been discovered.</p><div class="fullcomment"><div class="comment cmt"><p>A message to send to a MonitorActor to be warned when a primary has been discovered.

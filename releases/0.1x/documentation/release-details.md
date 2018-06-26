@@ -1269,102 +1269,16 @@ The internal [Netty](http://netty.io/) dependency has been updated to the versio
 The [Typesafe Migration Manager](https://github.com/typesafehub/migration-manager#migration-manager-for-scala) has been setup on the ReactiveMongo repository.
 It will validate all the future contributions, and help to make the API more stable.
 
-For the current 0.13 release, it has detected the following breaking changes.
+For the current 0.14 release, it has detected the following breaking changes.
 
 **Connection**
 
-- In the case class [`MongoConnectionOptions`](../api/reactivemongo/api/MongoConnectionOptions), the constructor has 2 extra properties [`writeConcern`](../api/reactivemongo/api/commands/package@WriteConcern=reactivemongo.api.commands.GetLastError) and [`readPreference`](../api/reactivemongo/api/ReadPreference).
-- In the class [`MongoConnection`](../api/reactivemongo/api/MongoConnection);
-  * method `ask(reactivemongo.core.protocol.CheckedWriteRequest)` is removed
-  * method `ask(reactivemongo.core.protocol.RequestMaker,Boolean)` is removed
-  * method `waitForPrimary(scala.concurrent.duration.FiniteDuration)` is removed
-
-Since [release 0.11](../../0.11/documentation/release-details.html), the package `reactivemongo.api.collections.default` has been refactored as the package [`reactivemongo.api.collections.bson`](http://reactivemongo.org/releases/0.11/api/reactivemongo/api/collections/GenericCollection.bson.package).
-If you get a compilation error like the following one, you need to update the corresponding imports.
-
-{% highlight text %}
-object default is not a member of package reactivemongo.api.collections
-[error] import reactivemongo.api.collections.default.BSONCollection
-{% endhighlight %}
-
-**Operation results**
-
-The type hierarchy of the trait [`WriteResult`](../api/reactivemongo/api/commands/WriteResult) has changed in new version. It's no longer an `Exception`, and no longer inherits from [`reactivemongo.core.errors.DatabaseException`](../api/index.html#reactivemongo.core.errors.DatabaseException), `scala.util.control.NoStackTrace`, `reactivemongo.core.errors.ReactiveMongoException`.
-As it now longer represents errors in the public API, the following properties have been removed: `errmsg`, `hasErrors`, `inError` and `message`.
-
-For the type [`LastError`](../api/reactivemongo/api/commands/LastError), the properties `writeErrors` and `writeConcernError` have been added.
-
-The type hierarchy of the classes [`DefaultWriteResult`](../api/reactivemongo/api/commands/DefaultWriteResult) and [`UpdateWriteResult`](../api/reactivemongo/api/commands/UpdateWriteResult) have changed in new version; no longer inherits from `java.lang.Exception`:
-
-- method `fillInStackTrace()` is removed
-- method `isUnauthorized()` is removed
-- method `getMessage()` is removed
-- method `isNotAPrimaryError()` is removed
-
-In the class [`Upserted`](../api/reactivemongo/api/commands/Upserted);
-
-- The constructor has changed; was `(Int, java.lang.Object)`, is now: `(Int, reactivemongo.bson.BSONValue)`.
-- The field `_id`  has now a different result type; was: `java.lang.Object`, is now: `reactivemongo.bson.BSONValue`.
-
-In the case class [`GetLastError.TagSet`](../api/reactivemongo/api/commands/GetLastError$$TagSet), the field `s`  is renamed to `tag`.
-
-The exception case objects [`NodeSetNotReachable`](../api/index.html#reactivemongo.core.actors.Exceptions$@NodeSetNotReachable), [`NodeSetNotReachable`](../api/index.html#reactivemongo.core.actors.Exceptions$@PrimaryUnavailableExceptionextendsExceptionwithDriverExceptionwithNoStackTrace), [`ChannelNotFound`](../api/index.html#reactivemongo.core.actors.Exceptions$@ChannelNotFoundextendsExceptionwithDriverExceptionwithNoStackTrace) and [`ClosedException`](../api/index.html#reactivemongo.core.actors.Exceptions$@ClosedException) have been refactored as sealed classes. When try to catch such exception the class type must be used, rather than the object patterns.
-
-{% highlight scala %}
-import scala.concurrent.{ ExecutionContext, Future }
-import reactivemongo.core.actors.Exceptions.{
-  ClosedException, NodeSetNotReachable
-}
-
-def handle(mongoOp: Future[String])(implicit ec: ExecutionContext) =
-  mongoOp.recover {
-    case err1: ClosedException => // rather than `case ClosedException`
-      "closed"
-  
-    case err2: NodeSetNotReachable => // rather than `case NodeSetNotReachable`
-      "notReachable"
-  }
-{% endhighlight %}
-
-**Aggregation framework**
-
-- In the trait [`AggregationFramework`](../api/reactivemongo/api/commands/AggregationFramework);
-  * the type `PipelineStage` is removed
-  * the type `DocumentStage` is removed
-  * the type `DocumentStageCompanion` is removed
-  * the type `PipelineStageDocumentProducer` is removed
-  * the type `AggregateCursorOptions` is removed
-  * the field `name` is removed from all the pipeline stages
-- In the case class [`AggregationFramework.Aggregate`](../api/reactivemongo/api/commands/AggregationFramework$Aggregate);
-  * field `needsCursor` is removed
-  * field `cursorOptions` is removed
-- In case classes [`AggregationFramework.Limit`](../api/reactivemongo/api/commands/AggregationFramework#LimitextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable) and [`reactivemongo.api.commands.AggregationFramework.Skip`](../api/reactivemongo/api/commands/AggregationFramework#SkipextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable);
-  * field `n` is removed
-- In the case class [`reactivemongo.api.commands.AggregationFramework#Unwind`](../api/reactivemongo/api/commands/AggregationFramework$Unwind), the field `prefixedField` is removed.
+- `reactivemongo.api.ReadPreference.Taggable`
 
 **Operations and commands**
 
-- The enumerated type `reactivemongo.api.SortOrder` is removed, as not used in the API.
-- The trait `reactivemongo.api.commands.CursorCommand` is removed
-- In the case class [`FindAndModify`](../api/reactivemongo/api/commands/FindAndModifyCommand$Update);
-  * the field `upsert` (and the corresponding constructor parameter) has been added
-  * the type of the field `update` is now `Document`; was `java.lang.Object`.
-
-**GridFS**
-
-- In the trait [`ComputedMetadata`](../api/reactivemongo/gridfs/GridFS.ComputedMetadata), the field `length` has now a different result type; was: `Int`, is now: `Long`
-- In the case class [`DefaultFileToSave`](../api/reactivemongo/gridfs/GridFS.DefaultFileToSave) has changed to a plain class, and its method `filename()`  has now a different result type; was: `String`, is now: `Option[String]`.
-- In class [`DefaultReadFile`](../api/reactivemongo/gridfs/GridFS.DefaultReadFile);
-  * field `length` in  has now a different result type; was: `Int`, is now: `Long`;
-  * field `filename` has now a different result type; was: `String`, is now: `Option[String]`.
-- In the trait [`BasicMetadata`](../api/reactivemongo/gridfs/GridFS.BasicMetadata), the field `filename` has now a different result type; was: `String`, is now: `Option[String]`.
+- `reactivemongo.api.commands.DeleteCommand.DeleteElement`
 
 **Core/internal**
 
-- The class [`Authenticate`](../api/index.html#reactivemongo.core.commands.Authenticate) is now deprecated;
-  * The type hierarchy of has changed in new version. No longer inherits from `reactivemongo.core.commands.BSONCommandResultMaker` and `reactivemongo.core.commands.CommandResultMaker`.
-  * method `apply(reactivemongo.bson.BSONDocument)` is removed
-  * method `apply(reactivemongo.core.protocol.Response)` is removed
-  * see [`CrAuthenticate`](../api/index.html#reactivemongo.core.commands.CrAuthenticate) (only for the legacy MongoDB CR authentication)
-- The class [`MongoDBSystem`](../api/index.html#reactivemongo.core.actors.MongoDBSystem) has changed to a trait.
-- The declaration of class [`Authenticating`](../api/index.html#reactivemongo.core.nodeset.Authenticating) has changed to a sealed trait.
+- `reactivemongo.core` packages after Netty 4.1.25 upgrade.
