@@ -38,17 +38,46 @@ val connection4 = driver1.connection(List("localhost"), options = conOpts)
 
 The following options can be used with `MongoConnectionOptions` to configure the connection behaviour.
 
-- **`authSource`**: DEPRECATED, see `authenticationDatabase`
-- **`authenticationDatabase`**: The database source for authentication credentials.
-- **`authMode`**: The authentication mode. By default set to `scram-sha1` for [SCRAM-SHA-1](http://docs.mongodb.org/manual/core/authentication/#scram-sha-1-authentication). Can be configured with `mongocr` for the backward compatible [MONGODB-CR](http://docs.mongodb.org/manual/core/authentication/#mongodb-cr-authentication).
+*Authentication:*
+
+- **`authSource`**: DEPRECATED since 0.13, see `authenticationDatabase`
+- **`authMode`**: DEPRECATED since 0.14, see `authenticationMechanism`
+- **`authenticationDatabase`**: (optional) The database source for authentication credentials.
+- **`authenticationMechanism`**: (optional) The authentication mechanism, by default set to `scram-sha1` for [SCRAM-SHA-1](http://docs.mongodb.org/manual/core/authentication/#scram-sha-1-authentication). Can be configured with:
+  - `scram-sha1` (the default since MongoDB 3.x),
+  - `mongocr` for the backward compatible [MONGODB-CR](http://docs.mongodb.org/manual/core/authentication/#mongodb-cr-authentication),
+  - `x509` for [x.509 certificate authentication](https://docs.mongodb.com/manual/core/security-x.509/#security-auth-x509).
+
+*SSL & certificates:*
+
+- **`sslEnabled`**: DEPRECATED, see `ssl`
+- **`ssl`**: (optional) It enables the SSL support for the connection (`true|false`, default is `false`).
+- **`sslAllowsInvalidCert`**: (optional) If `sslEnabled` is true, this one indicates whether to accept invalid certificates (e.g. self-signed) (`true|false`, default is `false`).
+- **`keyStore`**: (optional) An URI to a key store (e.g. `file:///path/to/keystore.p12`).
+- **`keyStorePassword`**: (optional) If `keyStore` is set, then provides the password to load it (if required).
+- **`keyStoreType`**: (optional) If `keyStore` is set, indicates the [type of the store](https://docs.oracle.com/javase/7/docs/technotes/guides/security/StandardNames.html#KeyStore).
+
+> The option `sslEnabled` is needed if the MongoDB server is requiring SSL (`mongod --sslMode requireSSL`). The related option `sslAllowsInvalidCert` is required if the server allows invalid certificate (`mongod --sslAllowInvalidCertificates`).
+
+*Network, timeouts & failover:*
+
 - **`connectTimeoutMS`**: The [number of milliseconds](https://docs.mongodb.org/manual/reference/connection-string/#urioption.connectTimeoutMS) to wait for a connection to be established before giving up.
 - [**`maxIdleTimeMS`**](https://docs.mongodb.com/manual/reference/connection-string/#urioption.maxIdleTimeMS): The maximum number of milliseconds that a connection can remain idle in the pool before being removed and closed.
-- **`sslEnabled`**: DEPRECATED, see `ssl`
-- **`ssl`**: It enables the SSL support for the connection (`true|false`).
-- **`sslAllowsInvalidCert`**: If `sslEnabled` is true, this one indicates whether to accept invalid certificates (e.g. self-signed).
 - **`rm.tcpNoDelay`**: TCPNoDelay boolean flag (`true|false`).
 - **`rm.keepAlive`**: TCP KeepAlive boolean flag (`true|false`).
 - **`rm.nbChannelsPerNode`**: Number of channels (connections) per node.
+- **`rm.monitorRefreshMS`**: The interval (in milliseconds) used by the ReactiveMongo monitor to refresh the node set (default: 10s); The minimal value is 100ms.
+- **`rm.failover`**: The default [failover strategy](../../api/reactivemongo/api/FailoverStrategy).
+  - `default`: The default/minimal strategy, with 10 retries with an initial delay of 100ms and a delay factor of `retry count * 1.25` (100ms .. 125ms, 250ms, 375ms, 500ms, 625ms, 750ms, 875ms, 1s, 1125ms, 1250ms).
+  - `remote`: The strategy for remote MongoDB node(s); Same as default but with 16 retries.
+  - `strict`: A more strict strategy; Same as default but with only 5 retries.
+  - `<delay>:<retries>x<factor>`: The definition of a custom strategy;
+      - *delay*: The [initial delay](../../api/reactivemongo/api/FailoverStrategy#initialDelay:scala.concurrent.duration.FiniteDuration) as a finite duration string accepted by the [`Duration` factory](http://www.scala-lang.org/api/current/index.html#scala.concurrent.duration.Duration$@apply(s:String):scala.concurrent.duration.Duration).
+      - *retries*: The number of retry (`Int`).
+      - *factor*: The `Double` value to multiply the retry counter with, to define the delay factor (`retryCount * factor`).
+
+*Read isolation & consistency:*
+
 - **`writeConcern`**: The default [write concern](http://docs.mongodb.org/manual/reference/write-concern/) (default: `acknowledged`).
   - **`unacknowledged`**: Option `w` set to 0, journaling off (`j`), `fsync` off, no timeout.
   - **`acknowledged`**: Option `w` set to 1, journaling off, `fsync` off, no timeout.
@@ -62,22 +91,11 @@ The following options can be used with `MongoConnectionOptions` to configure the
 - **`writeConcernJ`**: Toggle [journaling](http://docs.mongodb.org/manual/reference/write-concern/#j-option) on the default write concern. Of `writeConcern` is specified, its `j` will be replaced by this `writeConcernJ` boolean flag (`true|false`).
 - **`writeConcernTimeout`**: The [time limit](http://docs.mongodb.org/manual/reference/write-concern/#wtimeout) (in milliseconds) for the default write concern. If `writeConcern` is specified, its timeout is replaced by this one.
 - **`readPreference`**: The default [read preference](../advanced-topics/read-preferences.html) (`primary|primaryPreferred|secondary|secondaryPreferred|nearest`) (default is `primary`).
-- **`rm.failover`**: The default [failover strategy](../../api/reactivemongo/api/FailoverStrategy).
-  - `default`: The default/minimal strategy, with 10 retries with an initial delay of 100ms and a delay factor of `retry count * 1.25` (100ms .. 125ms, 250ms, 375ms, 500ms, 625ms, 750ms, 875ms, 1s, 1125ms, 1250ms).
-  - `remote`: The strategy for remote MongoDB node(s); Same as default but with 16 retries.
-  - `strict`: A more strict strategy; Same as default but with only 5 retries.
-  - `<delay>:<retries>x<factor>`: The definition of a custom strategy;
-      - *delay*: The [initial delay](../../api/reactivemongo/api/FailoverStrategy#initialDelay:scala.concurrent.duration.FiniteDuration) as a finite duration string accepted by the [`Duration` factory](http://www.scala-lang.org/api/current/index.html#scala.concurrent.duration.Duration$@apply(s:String):scala.concurrent.duration.Duration).
-      - *retries*: The number of retry (`Int`).
-      - *factor*: The `Double` value to multiply the retry counter with, to define the delay factor (`retryCount * factor`).
-- **`rm.monitorRefreshMS`**: The interval (in milliseconds) used by the ReactiveMongo monitor to refresh the node set (default: 10s); The minimal value is 100ms.
-
-> The option `sslEnabled` is needed if the MongoDB server is requiring SSL (`mongod --sslMode requireSSL`). The related option `sslAllowsInvalidCert` is required if the server allows invalid certificate (`mongod --sslAllowInvalidCertificates`).
 
 If the connection pool is defined by an URI, then the options can be given after the `?` separator:
 
 {% highlight javascript %}
-mongodb.uri = "mongodb://user:pass@host1:27017,host2:27018,host3:27019/mydatabase?authMode=scram-sha1&rm.tcpNoDelay=true"
+mongodb.uri = "mongodb://user:pass@host1:27017,host2:27018,host3:27019/mydatabase?authenticationMechanism=scram-sha1&rm.tcpNoDelay=true"
 {% endhighlight %}
 
 [See: Connect using MongoDB URI](#connect-using-mongodb-uri)
@@ -129,7 +147,7 @@ def servers7: List[String] = List("server1", "server2")
 val dbName = "somedatabase"
 val userName = "username"
 val password = "password"
-val credentials7 = List(Authenticate(dbName, userName, password))
+val credentials7 = List(Authenticate(dbName, userName, Some(password)))
 val connection7 = driver1.connection(servers7, authentications = credentials7)
 {% endhighlight %}
 
@@ -214,6 +232,8 @@ database.onComplete {
 }
 {% endhighlight %}
 
+Note that [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) is supported, using `mongodb+srv://` scheme in the connection URI.
+
 ### Additional Notes
 
 **[`MongoConnection`](../../api/reactivemongo/api/MongoConnection) stands for a pool of connections.**
@@ -264,7 +284,7 @@ If one of the error is seen, first retry/refresh to check it wasn't a temporary 
 
 - Using the [MongoDB Shell](https://docs.mongodb.com/manual/reference/mongo-shell/): `mongo primary-host:primary-port/name-of-database` (replace the primary host & port and the database name with the same used in the ReactiveMongo connection URI).
 - With the [SBT Playground](https://github.com/cchantep/RM-SBT-Playground), using the same connection URI.
-- **Possible causes:** Broken network, authentication issue (before 0.13, MONGODB-CR is the default mode; See the [`authMode` option](#connection-options)), SSL issue (check the `sslEnabled` and `sslAllowsInvalidCert` options).
+- **Possible causes:** Broken network, authentication issue (before 0.13, MONGODB-CR is the default mode; See the [`authenticationMechanism` option](#connection-options)), SSL issue (check the `sslEnabled` and `sslAllowsInvalidCert` options).
 
 *Is the connection URI used with ReactiveMongo valid?*
 

@@ -6,9 +6,9 @@ val majorVer = "0"
 
 version := majorVer
 
-val Release = s"${majorVer}.13.0"
+val Release = s"${majorVer}.14.0"
 
-scalaVersion := "2.12.4"
+scalaVersion := "2.12.6"
 
 libraryDependencies ++= Seq(
   "reactivemongo-iteratees", "reactivemongo-akkastream").map(

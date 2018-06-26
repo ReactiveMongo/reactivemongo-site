@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.13 - reactivemongo.bson</title>
-          <meta name="description" content="ReactiveMongo API 0.13 - reactivemongo.bson" />
-          <meta name="keywords" content="ReactiveMongo API 0.13 reactivemongo.bson" />
+          <title>ReactiveMongo API 0.14 - reactivemongo.bson</title>
+          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.bson" />
+          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.bson" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.13</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -577,7 +577,7 @@
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><a href="DefaultBSONHandlers.html" class="extype" name="reactivemongo.bson.DefaultBSONHandlers">DefaultBSONHandlers</a>, <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></div>
+          <div class="superTypes hiddenContent"><a href="DefaultBSONHandlers.html" class="extype" name="reactivemongo.bson.DefaultBSONHandlers">DefaultBSONHandlers</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
         </div></div>
         
 
@@ -637,7 +637,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="A BSONArray structure (BSON type 0x04)." href="BSONArray.html"><span class="name">BSONArray</span></a><span class="params">(<span name="stream">stream: <span class="extype" name="scala.Stream">Stream</span>[<a href="http://www.scala-lang.org/api/2.12.4/scala/util/Try.html#scala.util.Try" class="extype" name="scala.util.Try">Try</a>[<a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]]</span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="BSONElementSet.html" class="extype" name="reactivemongo.bson.BSONElementSet">BSONElementSet</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="A BSONArray structure (BSON type 0x04)." href="BSONArray.html"><span class="name">BSONArray</span></a><span class="params">(<span name="stream">stream: <span class="extype" name="scala.Stream">Stream</span>[<a href="http://www.scala-lang.org/api/2.12.6/scala/util/Try.html#scala.util.Try" class="extype" name="scala.util.Try">Try</a>[<a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>]]</span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="BSONElementSet.html" class="extype" name="reactivemongo.bson.BSONElementSet">BSONElementSet</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">A <code>BSONArray</code> structure (BSON type <code>0x04</code>).</p><div class="fullcomment"><div class="comment cmt"><p>A <code>BSONArray</code> structure (BSON type <code>0x04</code>).</p><p>A <code>BSONArray</code> is a straightforward <code>BSONDocument</code> where keys are a sequence of positive integers.</p><p>A <code>BSONArray</code> is basically a stream of tuples <code>(String, BSONValue)</code> where the first member is a string representation of an index.
@@ -656,7 +656,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="A BSON binary value." href="BSONBinary.html"><span class="name">BSONBinary</span></a><span class="params">(<span name="value">value: <a href="buffer/ReadableBuffer.html" class="extype" name="reactivemongo.bson.buffer.ReadableBuffer">ReadableBuffer</a></span>, <span name="subtype">subtype: <a href="Subtype.html" class="extype" name="reactivemongo.bson.Subtype">Subtype</a></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="A BSON binary value." href="BSONBinary.html"><span class="name">BSONBinary</span></a><span class="params">(<span name="value">value: <a href="buffer/ReadableBuffer.html" class="extype" name="reactivemongo.bson.buffer.ReadableBuffer">ReadableBuffer</a></span>, <span name="subtype">subtype: <a href="Subtype.html" class="extype" name="reactivemongo.bson.Subtype">Subtype</a></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">A BSON binary value.</p><div class="fullcomment"><div class="comment cmt"><p>A BSON binary value.
@@ -673,7 +673,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="BSON boolean value" href="BSONBoolean.html"><span class="name">BSONBoolean</span></a><span class="params">(<span name="value">value: <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="BSON boolean value" href="BSONBoolean.html"><span class="name">BSONBoolean</span></a><span class="params">(<span name="value">value: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">BSON boolean value</p>
@@ -689,7 +689,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="A BSON value that can be seen as a boolean." href="BSONBooleanLike.html"><span class="name">BSONBooleanLike</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+        <a title="A BSON value that can be seen as a boolean." href="BSONBooleanLike.html"><span class="name">BSONBooleanLike</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       <p class="shortcomment cmt">A BSON value that can be seen as a boolean.</p><div class="fullcomment"><div class="comment cmt"><p>A BSON value that can be seen as a boolean.</p><p>Conversions:</p><ul><li><code>number = 0 ~&gt; false</code></li><li><code>number != 0 ~&gt; true</code></li><li><code>boolean</code></li><li><code>undefined ~&gt; false</code></li><li><code>null ~&gt; false</code>
@@ -722,7 +722,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a title="BSON DBPointer value." href="BSONDBPointer.html"><span class="name">BSONDBPointer</span></a><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a> with <span class="extype" name="java.io.Serializable">Serializable</span></span>
+        <a title="BSON DBPointer value." href="BSONDBPointer.html"><span class="name">BSONDBPointer</span></a><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a> with <span class="extype" name="java.io.Serializable">Serializable</span></span>
       </span>
       
       <p class="shortcomment cmt">BSON DBPointer value.</p>
@@ -738,7 +738,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="BSON date time value" href="BSONDateTime.html"><span class="name">BSONDateTime</span></a><span class="params">(<span name="value">value: <a href="http://www.scala-lang.org/api/2.12.4/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="BSON date time value" href="BSONDateTime.html"><span class="name">BSONDateTime</span></a><span class="params">(<span name="value">value: <a href="http://www.scala-lang.org/api/2.12.6/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">BSON date time value</p>
@@ -754,7 +754,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a title="Value wrapper for a BSON 128-bit decimal." href="BSONDecimal.html"><span class="name">BSONDecimal</span></a><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product2.html#scala.Product2" class="extype" name="scala.Product2">Product2</a>[<a href="http://www.scala-lang.org/api/2.12.4/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a>, <a href="http://www.scala-lang.org/api/2.12.4/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a>]</span>
+        <a title="Value wrapper for a BSON 128-bit decimal." href="BSONDecimal.html"><span class="name">BSONDecimal</span></a><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product2.html#scala.Product2" class="extype" name="scala.Product2">Product2</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Value wrapper for a <a href="https://github.com/mongodb/specifications/blob/master/source/bson-decimal128/decimal128.rst" target="_blank">BSON 128-bit decimal</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Value wrapper for a <a href="https://github.com/mongodb/specifications/blob/master/source/bson-decimal128/decimal128.rst" target="_blank">BSON 128-bit decimal</a>.
@@ -774,7 +774,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="A BSONDocument structure (BSON type 0x03)." href="BSONDocument.html"><span class="name">BSONDocument</span></a><span class="params">(<span name="stream">stream: <span class="extype" name="scala.Stream">Stream</span>[<a href="http://www.scala-lang.org/api/2.12.4/scala/util/Try.html#scala.util.Try" class="extype" name="scala.util.Try">Try</a>[<a href="BSONElement.html" class="extype" name="reactivemongo.bson.BSONElement">BSONElement</a>]]</span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="BSONElementSet.html" class="extype" name="reactivemongo.bson.BSONElementSet">BSONElementSet</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="A BSONDocument structure (BSON type 0x03)." href="BSONDocument.html"><span class="name">BSONDocument</span></a><span class="params">(<span name="stream">stream: <span class="extype" name="scala.Stream">Stream</span>[<a href="http://www.scala-lang.org/api/2.12.6/scala/util/Try.html#scala.util.Try" class="extype" name="scala.util.Try">Try</a>[<a href="BSONElement.html" class="extype" name="reactivemongo.bson.BSONElement">BSONElement</a>]]</span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="BSONElementSet.html" class="extype" name="reactivemongo.bson.BSONElementSet">BSONElementSet</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">A <code>BSONDocument</code> structure (BSON type <code>0x03</code>).</p><div class="fullcomment"><div class="comment cmt"><p>A <code>BSONDocument</code> structure (BSON type <code>0x03</code>).</p><p>A <code>BSONDocument</code> is basically a stream of tuples <code>(String, BSONValue)</code>.
@@ -840,7 +840,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="A BSON Double." href="BSONDouble.html"><span class="name">BSONDouble</span></a><span class="params">(<span name="value">value: <a href="http://www.scala-lang.org/api/2.12.4/scala/Double.html#scala.Double" class="extype" name="scala.Double">Double</a></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="A BSON Double." href="BSONDouble.html"><span class="name">BSONDouble</span></a><span class="params">(<span name="value">value: <a href="http://www.scala-lang.org/api/2.12.6/scala/Double.html#scala.Double" class="extype" name="scala.Double">Double</a></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">A BSON Double.</p>
@@ -856,7 +856,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="" href="BSONElement.html"><span class="name">BSONElement</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="value">value: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>)</span><span class="result"> extends <a href="ElementProducer.html" class="extype" name="reactivemongo.bson.ElementProducer">ElementProducer</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="BSONElement.html"><span class="name">BSONElement</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="value">value: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>)</span><span class="result"> extends <a href="ElementProducer.html" class="extype" name="reactivemongo.bson.ElementProducer">ElementProducer</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       
@@ -872,7 +872,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="" href="BSONElementLowPriority.html"><span class="name">BSONElementLowPriority</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+        <a title="" href="BSONElementLowPriority.html"><span class="name">BSONElementLowPriority</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       
@@ -920,7 +920,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="BSON Integer value" href="BSONInteger.html"><span class="name">BSONInteger</span></a><span class="params">(<span name="value">value: <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="BSON Integer value" href="BSONInteger.html"><span class="name">BSONInteger</span></a><span class="params">(<span name="value">value: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">BSON Integer value</p>
@@ -952,7 +952,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="BSON JavaScript value." href="BSONJavaScript.html"><span class="name">BSONJavaScript</span></a><span class="params">(<span name="value">value: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="BSON JavaScript value." href="BSONJavaScript.html"><span class="name">BSONJavaScript</span></a><span class="params">(<span name="value">value: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">BSON JavaScript value.</p><div class="fullcomment"><div class="comment cmt"><p>BSON JavaScript value.
@@ -969,7 +969,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="BSON scoped JavaScript value." href="BSONJavaScriptWS.html"><span class="name">BSONJavaScriptWS</span></a><span class="params">(<span name="value">value: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="BSON scoped JavaScript value." href="BSONJavaScriptWS.html"><span class="name">BSONJavaScriptWS</span></a><span class="params">(<span name="value">value: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">BSON scoped JavaScript value.</p><div class="fullcomment"><div class="comment cmt"><p>BSON scoped JavaScript value.
@@ -986,7 +986,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="BSON Long value" href="BSONLong.html"><span class="name">BSONLong</span></a><span class="params">(<span name="value">value: <a href="http://www.scala-lang.org/api/2.12.4/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="BSON Long value" href="BSONLong.html"><span class="name">BSONLong</span></a><span class="params">(<span name="value">value: <a href="http://www.scala-lang.org/api/2.12.6/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">BSON Long value</p>
@@ -1002,7 +1002,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="A BSON value that can be seen as a number." href="BSONNumberLike.html"><span class="name">BSONNumberLike</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+        <a title="A BSON value that can be seen as a number." href="BSONNumberLike.html"><span class="name">BSONNumberLike</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       <p class="shortcomment cmt">A BSON value that can be seen as a number.</p><div class="fullcomment"><div class="comment cmt"><p>A BSON value that can be seen as a number.</p><p>Conversions:</p><ul><li><a href="BSONDateTime.html" class="extype" name="reactivemongo.bson.BSONDateTime">BSONDateTime</a></li><li><a href="BSONDecimal.html" class="extype" name="reactivemongo.bson.BSONDecimal">BSONDecimal</a></li><li><a href="BSONDouble.html" class="extype" name="reactivemongo.bson.BSONDouble">BSONDouble</a></li><li><a href="BSONInteger.html" class="extype" name="reactivemongo.bson.BSONInteger">BSONInteger</a></li><li><a href="BSONLong.html" class="extype" name="reactivemongo.bson.BSONLong">BSONLong</a></li><li><a href="BSONTimestamp.html" class="extype" name="reactivemongo.bson.BSONTimestamp">BSONTimestamp</a>
@@ -1035,7 +1035,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a title="BSON ObjectId value." href="BSONObjectID.html"><span class="name">BSONObjectID</span></a><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Equals.html#scala.Equals" class="extype" name="scala.Equals">Equals</a></span>
+        <a title="BSON ObjectId value." href="BSONObjectID.html"><span class="name">BSONObjectID</span></a><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Equals.html#scala.Equals" class="extype" name="scala.Equals">Equals</a></span>
       </span>
       
       <p class="shortcomment cmt">BSON ObjectId value.</p><div class="fullcomment"><div class="comment cmt"><p>BSON ObjectId value.</p><p>+------------------------+------------------------+------------------------+------------------------+
@@ -1058,7 +1058,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="A reader that produces an instance of T from a subtype of BSONValue." href="BSONReader.html"><span class="name">BSONReader</span></a><span class="tparams">[<span name="B">B &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>, <span name="T">T</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+        <a title="A reader that produces an instance of T from a subtype of BSONValue." href="BSONReader.html"><span class="name">BSONReader</span></a><span class="tparams">[<span name="B">B &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>, <span name="T">T</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       <p class="shortcomment cmt">A reader that produces an instance of <code>T</code> from a subtype of <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>.</p>
@@ -1074,7 +1074,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="BSON Regex value." href="BSONRegex.html"><span class="name">BSONRegex</span></a><span class="params">(<span name="value">value: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="flags">flags: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="BSON Regex value." href="BSONRegex.html"><span class="name">BSONRegex</span></a><span class="params">(<span name="value">value: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="flags">flags: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">BSON Regex value.</p><div class="fullcomment"><div class="comment cmt"><p>BSON Regex value.
@@ -1091,7 +1091,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="" href="BSONString.html"><span class="name">BSONString</span></a><span class="params">(<span name="value">value: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="BSONString.html"><span class="name">BSONString</span></a><span class="params">(<span name="value">value: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       
@@ -1107,7 +1107,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="BSON Symbol value." href="BSONSymbol.html"><span class="name">BSONSymbol</span></a><span class="params">(<span name="value">value: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="BSON Symbol value." href="BSONSymbol.html"><span class="name">BSONSymbol</span></a><span class="params">(<span name="value">value: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">BSON Symbol value.</p>
@@ -1123,7 +1123,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="BSON Timestamp value" href="BSONTimestamp.html"><span class="name">BSONTimestamp</span></a><span class="params">(<span name="value">value: <a href="http://www.scala-lang.org/api/2.12.4/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="BSON Timestamp value" href="BSONTimestamp.html"><span class="name">BSONTimestamp</span></a><span class="params">(<span name="value">value: <a href="http://www.scala-lang.org/api/2.12.6/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a></span>)</span><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">BSON Timestamp value</p>
@@ -1139,7 +1139,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="" href="BSONValue.html"><span class="name">BSONValue</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+        <a title="" href="BSONValue.html"><span class="name">BSONValue</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       
@@ -1155,7 +1155,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="A writer that produces a subtype of BSONValue from an instance of T." href="BSONWriter.html"><span class="name">BSONWriter</span></a><span class="tparams">[<span name="T">T</span>, <span name="B">B &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+        <a title="A writer that produces a subtype of BSONValue from an instance of T." href="BSONWriter.html"><span class="name">BSONWriter</span></a><span class="tparams">[<span name="T">T</span>, <span name="B">B &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       <p class="shortcomment cmt">A writer that produces a subtype of <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> from an instance of <code>T</code>.</p>
@@ -1171,7 +1171,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="" href="DefaultBSONHandlers.html"><span class="name">DefaultBSONHandlers</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+        <a title="" href="DefaultBSONHandlers.html"><span class="name">DefaultBSONHandlers</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       
@@ -1283,7 +1283,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="" href="Producer.html"><span class="name">Producer</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+        <a title="" href="Producer.html"><span class="name">Producer</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       
@@ -1299,7 +1299,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="Binary Subtype" href="Subtype.html"><span class="name">Subtype</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+        <a title="Binary Subtype" href="Subtype.html"><span class="name">Subtype</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       <p class="shortcomment cmt">Binary Subtype</p>
@@ -1315,7 +1315,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="" href="UnsafeBSONReader.html"><span class="name">UnsafeBSONReader</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+        <a title="" href="UnsafeBSONReader.html"><span class="name">UnsafeBSONReader</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       
@@ -1363,7 +1363,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="A reader that produces an instance of T from a subtype of BSONValue." href="VariantBSONReader.html"><span class="name">VariantBSONReader</span></a><span class="tparams">[<span name="B">-B &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>, <span name="T">+T</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+        <a title="A reader that produces an instance of T from a subtype of BSONValue." href="VariantBSONReader.html"><span class="name">VariantBSONReader</span></a><span class="tparams">[<span name="B">-B &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>, <span name="T">+T</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       <p class="shortcomment cmt">A reader that produces an instance of <code>T</code> from a subtype of <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>.</p>
@@ -1395,7 +1395,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="A writer that produces a subtype of BSONValue from an instance of T." href="VariantBSONWriter.html"><span class="name">VariantBSONWriter</span></a><span class="tparams">[<span name="T">-T</span>, <span name="B">+B &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></span>
+        <a title="A writer that produces a subtype of BSONValue from an instance of T." href="VariantBSONWriter.html"><span class="name">VariantBSONWriter</span></a><span class="tparams">[<span name="T">-T</span>, <span name="B">+B &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a></span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       <p class="shortcomment cmt">A writer that produces a subtype of <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> from an instance of <code>T</code>.</p>
@@ -1515,7 +1515,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">bsonArrayToCollectionReader</span><span class="tparams">[<span name="M">M<span class="tparams">[<span name="_">_</span>]</span></span>, <span name="T">T</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="cbf">cbf: <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/generic/CanBuildFrom.html#scala.collection.generic.CanBuildFrom" class="extype" name="scala.collection.generic.CanBuildFrom">CanBuildFrom</a>[<span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.bsonArrayToCollectionReader.M">M</span>[_], <span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.bsonArrayToCollectionReader.T">T</span>, <span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.bsonArrayToCollectionReader.M">M</span>[<span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.bsonArrayToCollectionReader.T">T</span>]]</span>, <span name="reader">reader: <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[_ &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>, <span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.bsonArrayToCollectionReader.T">T</span>]</span>)</span><span class="result">: <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[<a href="BSONArray.html" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a>, <span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.bsonArrayToCollectionReader.M">M</span>[<span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.bsonArrayToCollectionReader.T">T</span>]]</span>
+        <span class="name">bsonArrayToCollectionReader</span><span class="tparams">[<span name="M">M<span class="tparams">[<span name="_">_</span>]</span></span>, <span name="T">T</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="cbf">cbf: <a href="http://www.scala-lang.org/api/2.12.6/scala/collection/generic/CanBuildFrom.html#scala.collection.generic.CanBuildFrom" class="extype" name="scala.collection.generic.CanBuildFrom">CanBuildFrom</a>[<span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.bsonArrayToCollectionReader.M">M</span>[_], <span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.bsonArrayToCollectionReader.T">T</span>, <span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.bsonArrayToCollectionReader.M">M</span>[<span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.bsonArrayToCollectionReader.T">T</span>]]</span>, <span name="reader">reader: <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[_ &lt;: <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a>, <span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.bsonArrayToCollectionReader.T">T</span>]</span>)</span><span class="result">: <a href="BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a>[<a href="BSONArray.html" class="extype" name="reactivemongo.bson.BSONArray">BSONArray</a>, <span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.bsonArrayToCollectionReader.M">M</span>[<span class="extype" name="reactivemongo.bson.DefaultBSONHandlers.bsonArrayToCollectionReader.T">T</span>]]</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DefaultBSONHandlers.html" class="extype" name="reactivemongo.bson.DefaultBSONHandlers">DefaultBSONHandlers</a></dd></dl></div>
@@ -1691,7 +1691,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="BSONArray$.html"><span class="name">BSONArray</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="BSONArray$.html"><span class="name">BSONArray</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       
@@ -1707,7 +1707,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="BSONBinary$.html"><span class="name">BSONBinary</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="BSONBinary$.html"><span class="name">BSONBinary</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       
@@ -1739,7 +1739,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="BSONDBPointer$.html"><span class="name">BSONDBPointer</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/runtime/AbstractFunction2.html#scala.runtime.AbstractFunction2" class="extype" name="scala.runtime.AbstractFunction2">AbstractFunction2</a>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Array">Array</span>[<a href="http://www.scala-lang.org/api/2.12.4/scala/Byte.html#scala.Byte" class="extype" name="scala.Byte">Byte</a>], <a href="BSONDBPointer.html" class="extype" name="reactivemongo.bson.BSONDBPointer">BSONDBPointer</a>] with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="BSONDBPointer$.html"><span class="name">BSONDBPointer</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/runtime/AbstractFunction2.html#scala.runtime.AbstractFunction2" class="extype" name="scala.runtime.AbstractFunction2">AbstractFunction2</a>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Array">Array</span>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Byte.html#scala.Byte" class="extype" name="scala.Byte">Byte</a>], <a href="BSONDBPointer.html" class="extype" name="reactivemongo.bson.BSONDBPointer">BSONDBPointer</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       
@@ -1771,7 +1771,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="BSONDocument$.html"><span class="name">BSONDocument</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="BSONDocument$.html"><span class="name">BSONDocument</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       
@@ -1819,7 +1819,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="BSONElement$.html"><span class="name">BSONElement</span></a><span class="result"> extends <a href="BSONElementLowPriority.html" class="extype" name="reactivemongo.bson.BSONElementLowPriority">BSONElementLowPriority</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="BSONElement$.html"><span class="name">BSONElement</span></a><span class="result"> extends <a href="BSONElementLowPriority.html" class="extype" name="reactivemongo.bson.BSONElementLowPriority">BSONElementLowPriority</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       
@@ -1915,7 +1915,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="BSON null value" href="BSONNull$.html"><span class="name">BSONNull</span></a><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="BSON null value" href="BSONNull$.html"><span class="name">BSONNull</span></a><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">BSON null value</p>
@@ -1947,7 +1947,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="BSONObjectID$.html"><span class="name">BSONObjectID</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="BSONObjectID$.html"><span class="name">BSONObjectID</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       
@@ -1979,7 +1979,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="Timestamp companion" href="BSONTimestamp$.html"><span class="name">BSONTimestamp</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="Timestamp companion" href="BSONTimestamp$.html"><span class="name">BSONTimestamp</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">Timestamp companion</p>
@@ -1995,7 +1995,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="BSON Undefined value" href="BSONUndefined$.html"><span class="name">BSONUndefined</span></a><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="BSON Undefined value" href="BSONUndefined$.html"><span class="name">BSONUndefined</span></a><span class="result"> extends <a href="BSONValue.html" class="extype" name="reactivemongo.bson.BSONValue">BSONValue</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">BSON Undefined value</p>
@@ -2075,7 +2075,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="DefaultBSONHandlers$BSONBinaryHandler$.html"><span class="name">BSONBinaryHandler</span></a><span class="result"> extends <a href="BSONHandler.html" class="extype" name="reactivemongo.bson.BSONHandler">BSONHandler</a>[<a href="BSONBinary.html" class="extype" name="reactivemongo.bson.BSONBinary">BSONBinary</a>, <span class="extype" name="scala.Array">Array</span>[<a href="http://www.scala-lang.org/api/2.12.4/scala/Byte.html#scala.Byte" class="extype" name="scala.Byte">Byte</a>]]</span>
+        <a title="" href="DefaultBSONHandlers$BSONBinaryHandler$.html"><span class="name">BSONBinaryHandler</span></a><span class="result"> extends <a href="BSONHandler.html" class="extype" name="reactivemongo.bson.BSONHandler">BSONHandler</a>[<a href="BSONBinary.html" class="extype" name="reactivemongo.bson.BSONBinary">BSONBinary</a>, <span class="extype" name="scala.Array">Array</span>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Byte.html#scala.Byte" class="extype" name="scala.Byte">Byte</a>]]</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DefaultBSONHandlers.html" class="extype" name="reactivemongo.bson.DefaultBSONHandlers">DefaultBSONHandlers</a></dd></dl></div>
@@ -2107,7 +2107,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="DefaultBSONHandlers$BSONBooleanHandler$.html"><span class="name">BSONBooleanHandler</span></a><span class="result"> extends <a href="BSONHandler.html" class="extype" name="reactivemongo.bson.BSONHandler">BSONHandler</a>[<a href="BSONBoolean.html" class="extype" name="reactivemongo.bson.BSONBoolean">BSONBoolean</a>, <a href="http://www.scala-lang.org/api/2.12.4/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>]</span>
+        <a title="" href="DefaultBSONHandlers$BSONBooleanHandler$.html"><span class="name">BSONBooleanHandler</span></a><span class="result"> extends <a href="BSONHandler.html" class="extype" name="reactivemongo.bson.BSONHandler">BSONHandler</a>[<a href="BSONBoolean.html" class="extype" name="reactivemongo.bson.BSONBoolean">BSONBoolean</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>]</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DefaultBSONHandlers.html" class="extype" name="reactivemongo.bson.DefaultBSONHandlers">DefaultBSONHandlers</a></dd></dl></div>
@@ -2235,7 +2235,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="DefaultBSONHandlers$BSONDoubleHandler$.html"><span class="name">BSONDoubleHandler</span></a><span class="result"> extends <a href="BSONHandler.html" class="extype" name="reactivemongo.bson.BSONHandler">BSONHandler</a>[<a href="BSONDouble.html" class="extype" name="reactivemongo.bson.BSONDouble">BSONDouble</a>, <a href="http://www.scala-lang.org/api/2.12.4/scala/Double.html#scala.Double" class="extype" name="scala.Double">Double</a>]</span>
+        <a title="" href="DefaultBSONHandlers$BSONDoubleHandler$.html"><span class="name">BSONDoubleHandler</span></a><span class="result"> extends <a href="BSONHandler.html" class="extype" name="reactivemongo.bson.BSONHandler">BSONHandler</a>[<a href="BSONDouble.html" class="extype" name="reactivemongo.bson.BSONDouble">BSONDouble</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Double.html#scala.Double" class="extype" name="scala.Double">Double</a>]</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DefaultBSONHandlers.html" class="extype" name="reactivemongo.bson.DefaultBSONHandlers">DefaultBSONHandlers</a></dd></dl></div>
@@ -2267,7 +2267,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="DefaultBSONHandlers$BSONIntegerHandler$.html"><span class="name">BSONIntegerHandler</span></a><span class="result"> extends <a href="BSONHandler.html" class="extype" name="reactivemongo.bson.BSONHandler">BSONHandler</a>[<a href="BSONInteger.html" class="extype" name="reactivemongo.bson.BSONInteger">BSONInteger</a>, <a href="http://www.scala-lang.org/api/2.12.4/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>]</span>
+        <a title="" href="DefaultBSONHandlers$BSONIntegerHandler$.html"><span class="name">BSONIntegerHandler</span></a><span class="result"> extends <a href="BSONHandler.html" class="extype" name="reactivemongo.bson.BSONHandler">BSONHandler</a>[<a href="BSONInteger.html" class="extype" name="reactivemongo.bson.BSONInteger">BSONInteger</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>]</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DefaultBSONHandlers.html" class="extype" name="reactivemongo.bson.DefaultBSONHandlers">DefaultBSONHandlers</a></dd></dl></div>
@@ -2315,7 +2315,7 @@ we cannot be sure that a not yet deserialized value will be processed without er
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="DefaultBSONHandlers$BSONLongHandler$.html"><span class="name">BSONLongHandler</span></a><span class="result"> extends <a href="BSONHandler.html" class="extype" name="reactivemongo.bson.BSONHandler">BSONHandler</a>[<a href="BSONLong.html" class="extype" name="reactivemongo.bson.BSONLong">BSONLong</a>, <a href="http://www.scala-lang.org/api/2.12.4/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a>]</span>
+        <a title="" href="DefaultBSONHandlers$BSONLongHandler$.html"><span class="name">BSONLongHandler</span></a><span class="result"> extends <a href="BSONHandler.html" class="extype" name="reactivemongo.bson.BSONHandler">BSONHandler</a>[<a href="BSONLong.html" class="extype" name="reactivemongo.bson.BSONLong">BSONLong</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a>]</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DefaultBSONHandlers.html" class="extype" name="reactivemongo.bson.DefaultBSONHandlers">DefaultBSONHandlers</a></dd></dl></div>
@@ -2544,9 +2544,9 @@ class implementations by hand.</p><pre><span class="kw">case</span> <span class=
         <div class="parent" name="reactivemongo.bson.DefaultBSONHandlers">
               <h3>Inherited from <a href="DefaultBSONHandlers.html" class="extype" name="reactivemongo.bson.DefaultBSONHandlers">DefaultBSONHandlers</a></h3>
             </div><div class="parent" name="scala.AnyRef">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.AnyRef" class="extype" name="scala.collection.immutable.List">AnyRef</a></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.4/scala/collection/immutable/List.html#scala.Any" class="extype" name="scala.collection.immutable.List">Any</a></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></h3>
             </div>
         
         </div>

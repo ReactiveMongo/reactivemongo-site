@@ -85,8 +85,7 @@ import reactivemongo.api.collections.bson.BSONCollection
 def readFromSecondary2(collection: BSONCollection) = 
   collection.find(BSONDocument("city" -> "San Francisco")).
     // read from any secondary tagged with `dc: "NYC"`
-    one[BSONDocument](ReadPreference.secondaryPreferred(
-      tag = BSONDocument("dc" -> "NYC")))
+    one[BSONDocument](ReadPreference.secondaryPreferred)
 {% endhighlight %}
 
 The custom read preferences and write concerns evaluate the tag sets in different ways. Read preferences consider the value of a tag when selecting a member to read from. Write concerns ignore the value of a tag to when selecting a member, except to consider whether or not the value is unique; See [MongoDB Read Preference Documentation](http://docs.mongodb.org/manual/core/read-preference/#tag-sets))
