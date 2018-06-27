@@ -1,0 +1,58 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/ReactiveMongo/reactivemongo-site
+    parallelism: 1
+    shell: /bin/bash --login
+    environment:
+      CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
+      CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
+      CI_BRANCH: $CIRCLE_BRANCH
+    docker:
+    - image: circleci/ruby:2.3-node-browsers
+    #  command: /sbin/init
+    steps:
+    - checkout
+    - run:
+        name: 'Prepare the artifact directories'
+        command: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
+    - restore_cache:
+        keys:
+        - v1-dep-{{ .Branch }}-
+        - v1-dep-gh-pages-
+        - v1-dep-
+    - run:
+        name: 'Install PIP'
+        working_directory: /tmp
+        command: test -d ~/.local/bin || (wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py --user)
+    - run:
+        name: 'Prepare the build environment'
+        command: ./.ci_scripts/beforeInstall.sh 1.1.0
+    - run:
+        name: 'Build'
+        command: ./.ci_scripts/validate.sh 1.1.0
+    - run:
+        name: 'Run jekyll in background'
+        command: bundle exec jekyll serve
+        background: true
+    - save_cache:
+        key: v1-dep-{{ .Branch }}-{{ epoch }}
+        paths:
+        - ~/.gem
+        - ~/.m2
+        - ~/.ivy2
+        - ~/.sbt
+        - ~/.bundle
+        - ~/.local
+        - ./node_modules
+    - run:
+        name: 'Check the jekyll site'
+        command: ./.ci_scripts/consolidate.sh
+    # Teardown
+    - store_test_results:
+        path: /tmp/circleci-test-results
+    # Save artifacts
+    - store_artifacts:
+        path: /tmp/circleci-artifacts
+    - store_artifacts:
+        path: /tmp/circleci-test-results
