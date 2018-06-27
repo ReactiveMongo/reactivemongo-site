@@ -4,6 +4,10 @@ for D in `ls -v -1 "$HOME/.gem/ruby"`; do
   export PATH="$HOME/.gem/ruby/$D/bin:$PATH"
 done
 
+if [ -d "$HOME/.local/bin" ]; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+
 gem install --no-verbose --user-install jekyll pygments.rb || exit 1
 bundle install || exit 2
 pip install --user Pygments || exit 3
