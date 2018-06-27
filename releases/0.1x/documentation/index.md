@@ -54,7 +54,6 @@ This can be considered as a recommended environment.
 
 1. [Overview of the ReactiveMongo BSON library](bson/overview.html)
 2. [Readers & writers](bson/typeclasses.html)
-    - [Concrete Example: Maps De/Serialization](bson/example-maps.html)
     - [Concrete Example: BigDecimal and BigInteger De/Serialization](bson/example-bigdecimal.html)
     - [Concrete example: Documents](bson/example-document.html)
 
