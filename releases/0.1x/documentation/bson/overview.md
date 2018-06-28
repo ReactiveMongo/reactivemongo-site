@@ -48,6 +48,7 @@ val arrField = BSONDocument("array_field" -> List("written", "values"))
 | [BSONBoolean](../../api/reactivemongo/bson/BSONBoolean.html) | boolean | `Boolean` |
 | [BSONDBPointer](../../api/reactivemongo/bson/BSONDBPointer.html) | _deprecated in the protocol_ | _None_ |
 | [BSONDateTime](../../api/reactivemongo/bson/BSONDateTime.html) | UTC Date Time | `java.util.Date` |
+| [BSONDecimal](../../api/reactivemongo/bson/BSONDecimal$.html) | [Decimal128](https://github.com/mongodb/specifications/blob/master/source/bson-decimal128/decimal128.rst) | `java.math.BigDecimal` |
 | [BSONDouble](../../api/reactivemongo/bson/BSONDouble.html) | 64-bit IEEE 754 floating point | `Double` |
 | [BSONInteger](../../api/reactivemongo/bson/BSONInteger.html) | 32-bit integer | `Int` |
 | [BSONJavaScript](../../api/reactivemongo/bson/BSONJavaScript.html) | JavaScript code | _None_ |

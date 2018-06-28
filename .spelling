@@ -35,9 +35,12 @@ ReactiveMongo
 WebSocket
 KnockoutJS
 MongoDB
+MongoShell
+SNI
 BSON
 BigDecimal
 BSONDocument
+BSONDecimal
 BigInteger
 BSONArray
 BSONBinary
@@ -156,6 +159,11 @@ Resync
 # Jekyll workaround
 index.html
 GenericQueryBuilder.this.pack.Reader
+implicitevidence
+GenericCollection.this.InsertBuilder
+reactivemongo.api.commands.MultiBulkWriteResult
+GenericCollection.this.UpdateBuilder
+GenericCollection.this.DeleteBuilder
 implicitreader
 implicitec
 scala.concurrent.ExecutionContext

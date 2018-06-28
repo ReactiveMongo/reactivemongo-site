@@ -57,7 +57,9 @@ The following options can be used with `MongoConnectionOptions` to configure the
 - **`keyStorePassword`**: (optional) If `keyStore` is set, then provides the password to load it (if required).
 - **`keyStoreType`**: (optional) If `keyStore` is set, indicates the [type of the store](https://docs.oracle.com/javase/7/docs/technotes/guides/security/StandardNames.html#KeyStore).
 
-> The option `sslEnabled` is needed if the MongoDB server is requiring SSL (`mongod --sslMode requireSSL`). The related option `sslAllowsInvalidCert` is required if the server allows invalid certificate (`mongod --sslAllowInvalidCertificates`).
+The option `ssl` is needed if the MongoDB server is requiring SSL (`mongod --sslMode requireSSL`). The related option `sslAllowsInvalidCert` is required if the server allows invalid certificate (`mongod --sslAllowInvalidCertificates`).
+
+> [SNI](https://en.wikipedia.org/wiki/Server_Name_Indication) is supported for the SSL connection.
 
 *Network, timeouts & failover:*
 
@@ -233,6 +235,13 @@ database.onComplete {
 {% endhighlight %}
 
 Note that [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) is supported, using `mongodb+srv://` scheme in the connection URI.
+
+{% highlight scala %}
+import reactivemongo.api._
+
+def seedListCon(driver: MongoDriver) =
+  driver.connection("mongodb+srv://usr:pass@mymongo.mydomain.tld/mydb")
+{% endhighlight %}
 
 ### Additional Notes
 

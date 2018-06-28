@@ -10,7 +10,7 @@ MongoDB offers different kinds of write operations: insertion, update or removal
 
 ### Insert a document
 
-Insertions are done with the [`insert`](../../api/reactivemongo/api/collections/GenericCollection.GenericCollection#insert[T]%28document:T,writeConcern:reactivemongo.api.commands.WriteConcern%29%28implicitwriter:GenericCollection.this.pack.Writer[T],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.commands.WriteResult]) function.
+Insertions are done with the [`insert`](../../api/reactivemongo/api/collections/GenericCollection.html#insert[T](ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern)(implicitevidence$2:GenericCollection.this.pack.Writer[T]):GenericCollection.this.InsertBuilder[T]) function.
 
 {% highlight scala %}
 import scala.util.{ Failure, Success }
@@ -19,7 +19,7 @@ import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.bson.BSONDocument
-import reactivemongo.api.commands.WriteResult
+import reactivemongo.api.commands.{ MultiBulkWriteResult, WriteResult }
 import reactivemongo.api.collections.bson.BSONCollection
 
 val document1 = BSONDocument(
@@ -27,8 +27,28 @@ val document1 = BSONDocument(
   "lastName" -> "Godbillon",
   "age" -> 29)
 
-def insertDoc1(coll: BSONCollection, doc: BSONDocument): Future[Unit] = {
-  val writeRes: Future[WriteResult] = coll.insert(document1)
+// Simple: .insert[T].one(t)
+def simpleInsert(coll: BSONCollection): Future[Unit] = {
+  val writeRes: Future[WriteResult] =
+    coll.insert[BSONDocument](ordered = false).one(document1)
+
+  writeRes.onComplete { // Dummy callbacks
+    case Failure(e) => e.printStackTrace()
+    case Success(writeResult) =>
+      println(s"successfully inserted document with result: $writeResult")
+  }
+
+  writeRes.map(_ => {}) // in this example, do nothing with the success
+}
+
+// Bulk: .insert[T].many(Seq(t1, t2, ..., tN))
+def bulkInsert(coll: BSONCollection): Future[Unit] = {
+  val writeRes: Future[MultiBulkWriteResult] =
+    coll.insert[BSONDocument](ordered = false).
+    many(Seq(document1, BSONDocument(
+      "firstName" -> "Foo",
+      "lastName" -> "Bar",
+      "age" -> 1)))
 
   writeRes.onComplete { // Dummy callbacks
     case Failure(e) => e.printStackTrace()
@@ -39,8 +59,6 @@ def insertDoc1(coll: BSONCollection, doc: BSONDocument): Future[Unit] = {
   writeRes.map(_ => {}) // in this example, do nothing with the success
 }
 {% endhighlight %}
-
-> The type `Future[LastError]` previously returned by the write operations is replaced by `Future[WriteResult]` in the new API.
 
 **What does `WriteResult` mean?**
 
@@ -54,14 +72,18 @@ Like all the other collection operations (in [`GenericCollection`](../../api/rea
 import scala.util.{ Failure, Success }
 import scala.concurrent.ExecutionContext.Implicits.global
 
+import reactivemongo.api.collections.bson.BSONCollection
+
 val person = Person("Stephane Godbillon", 29)
 
-val future2 = personColl.insert(person)
+def testInsert(personColl: BSONCollection) = {
+  val future2 = personColl.insert(person)
 
-future2.onComplete {
-  case Failure(e) => throw e
-  case Success(writeResult) => {
-    println(s"successfully inserted document: $writeResult")
+  future2.onComplete {
+    case Failure(e) => throw e
+    case Success(writeResult) => {
+      println(s"successfully inserted document: $writeResult")
+    }
   }
 }
 {% endhighlight %}
@@ -79,117 +101,116 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api.commands.WriteResult
 
-val future: Future[WriteResult] = personColl.insert(person)
+import reactivemongo.api.collections.bson.BSONCollection
 
-val end: Future[Unit] = future.map(_ => {}).recover {
-  case WriteResult.Code(11000) =>
-    // if the result is defined with the error code 11000 (duplicate error)
-    println("Match the code 11000")
+def insertErrors(personColl: BSONCollection) = {
+  val future: Future[WriteResult] = personColl.insert(person)
 
-  case WriteResult.Message("Must match this exact message") =>
-    println("Match the error message")
+  val end: Future[Unit] = future.map(_ => {}).recover {
+    case WriteResult.Code(11000) =>
+      // if the result is defined with the error code 11000 (duplicate error)
+      println("Match the code 11000")
 
-  case _ => ()
+    case WriteResult.Message("Must match this exact message") =>
+      println("Match the error message")
+
+    case _ => ()
+  }
 }
 {% endhighlight %}
 
-### Insert multiple document
+### Update a document
 
-The operation [`bulkInsert`](../../api/reactivemongo/api/collections/GenericCollection.GenericCollection#bulkInsert%28ordered:Boolean%29%28documents:GenericCollection.this.ImplicitlyDocumentProducer*%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.commands.MultiBulkWriteResult]) makes it possible to insert multiple documents.
+Updates are done with the [`update`](../../api/collections/GenericCollection.html#update(ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern):GenericCollection.this.UpdateBuilder) operation, which follows the same logic as `insert`.
 
 {% highlight scala %}
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.bson.BSONDocument
-import reactivemongo.api.commands.MultiBulkWriteResult
 
-def bsonCollection: reactivemongo.api.collections.bson.BSONCollection = ???
-def persons: List[Person] = ???
+import reactivemongo.api.collections.bson.BSONCollection
 
-val personColl = bsonCollection
+def update1(personColl: BSONCollection) = {
+  val selector = BSONDocument("name" -> "Jack")
 
-val bulkResult1: Future[MultiBulkWriteResult] =
-  personColl.bulkInsert(ordered = false)(
-    BSONDocument("name" -> "document1"),
-    BSONDocument("name" -> "document2"),
-    BSONDocument("name" -> "document3"))
+  val modifier = BSONDocument(
+    "$set" -> BSONDocument(
+      "lastName" -> "London",
+      "firstName" -> "Jack"),
+      "$unset" -> BSONDocument("name" -> 1))
 
-// Considering `persons` a `Seq[Person]`, 
-// provided a `BSONDocumentWriter[Person]` can be resolved.
-val bulkDocs = // prepare the person documents to be inserted
-  persons.map(implicitly[personColl.ImplicitlyDocumentProducer](_))
-  
-val bulkResult2 = personColl.bulkInsert(ordered = true)(bulkDocs: _*)
-{% endhighlight %}
+  // Simple update: get a future update
+  val futureUpdate1 = personColl.
+    update(ordered = false).one(selector, modifier,
+      upsert = false, multi = false)
 
-### Update a document
+  // Bulk update: multiple update
+  val updateBuilder1 = personColl.update(ordered = true)
+  val updates = Future.sequence(Seq(
+    updateBuilder1.element(
+      q = BSONDocument("firstName" -> "Jane", "lastName" -> "Doh"),
+      u = BSONDocument("age" -> 18),
+      upsert = true,
+      multi = false),
+    updateBuilder1.element(
+      q = BSONDocument("firstName" -> "Bob"),
+      u = BSONDocument("age" -> 19),
+      upsert = false,
+      multi = true)))
 
-Updates are done with the [`update()`](../../api/reactivemongo/api/collections/GenericCollection.GenericCollection#update[S,U]%28selector:S,update:U,writeConcern:reactivemongo.api.commands.WriteConcern,upsert:Boolean,multi:Boolean%29%28implicitselectorWriter:GenericCollection.this.pack.Writer[S],implicitupdateWriter:GenericCollection.this.pack.Writer[U],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.commands.WriteResult]) method, which follows the same logic as `insert`.
-
-{% highlight scala %}
-import scala.concurrent.ExecutionContext.Implicits.global
-
-import reactivemongo.bson.BSONDocument
-
-val selector = BSONDocument("name" -> "Jack")
-
-val modifier = BSONDocument(
-  "$set" -> BSONDocument(
-    "lastName" -> "London",
-    "firstName" -> "Jack"),
-    "$unset" -> BSONDocument("name" -> 1))
-
-// get a future update
-val futureUpdate1 = personColl.update(selector, modifier)
+  val bulkUpdateRes1 = updates.flatMap { ops => updateBuilder1.many(ops) }
+}
 {% endhighlight %}
 
 By default, the update operation only updates a single matching document. You can also indicate that the update should be applied to all the documents that are matching, with the `multi` parameter.
 
-{% highlight scala %}
-import scala.concurrent.ExecutionContext.Implicits.global
-
-// get a future update
-val futureUpdate2 = personColl.update(selector, modifier, multi = true)
-{% endhighlight %}
-
 It's possible to automatically insert data if there is no matching document using the `upsert` parameter.
 
-{% highlight scala %}
-import scala.concurrent.ExecutionContext.Implicits.global
+### Delete a document
 
-val futureUpdate3 = personColl.update(selector, modifier, upsert = true)
-{% endhighlight %}
-
-### Remove a document
+The [`.delete`](../../api/reactivemongo/api/collections/GenericCollection.html#delete[S](ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern):GenericCollection.this.DeleteBuilder) function returns a [`DeleteBuilder`](../../api/reactivemongo/api/collections/DeleteOps$DeleteBuilder.html), which allows to perform simple or bulk delete.
 
 {% highlight scala %}
 import scala.util.{ Failure, Success }
+
+import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.bson.BSONDocument
 
-val selector1 = BSONDocument("firstName" -> "Stephane")
+import reactivemongo.api.collections.bson.BSONCollection
 
-val futureRemove1 = personColl.remove(selector1)
+def simpleDelete1(personColl: BSONCollection) = {
+  val selector1 = BSONDocument("firstName" -> "Stephane")
 
-futureRemove1.onComplete { // callback
-  case Failure(e) => throw e
-  case Success(writeResult) => println("successfully removed document")
+  val futureRemove1 =
+    personColl.delete[BSONDocument](ordered = false).one(selector1)
+
+  futureRemove1.onComplete { // callback
+    case Failure(e) => throw e
+    case Success(writeResult) => println("successfully removed document")
+  }
+}
+
+def bulkDelete1(personColl: BSONCollection) = {
+  val deleteBuilder = personColl.delete[BSONDocument](ordered = false)
+
+  val deletes = Future.sequence(Seq(
+    deleteBuilder.element(
+      q = BSONDocument("firstName" -> "Stephane"),
+      limit = Some(1), // former option firstMatch
+      collation = None),
+    deleteBuilder.element(
+      q = BSONDocument("lastName" -> "Doh"),
+      limit = None, // delete all the matching document
+      collation = None)))
+
+  deletes.flatMap { ops => deleteBuilder.many(ops) }
 }
 {% endhighlight %}
 
-By default, this [`remove`](../../api/reactivemongo/api/collections/GenericCollection.GenericCollection#remove[T]%28query:T,writeConcern:reactivemongo.api.commands.WriteConcern,firstMatchOnly:Boolean%29%28implicitwriter:GenericCollection.this.pack.Writer[T],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.commands.WriteResult]) function deletes all the documents that match the `selector`. You can change this behaviour by setting the `firstMatchOnly` parameter to `true`:
-
-{% highlight scala %}
-import scala.concurrent.ExecutionContext.Implicits.global
-import reactivemongo.bson.BSONDocument
-
-def removeFirst(selector: BSONDocument) =
-  personColl.remove(selector, firstMatchOnly = true)
-{% endhighlight %}
-
-> ReactiveMongo can even store instances of a custom class directly by defining a [custom writer](../bson/typeclasses.html#custom-writer).
+> The `.remove` operation is now deprecated.
 
 ### Find and modify
 

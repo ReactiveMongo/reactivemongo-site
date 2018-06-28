@@ -227,7 +227,7 @@ The other options available to configure the typeclasses generation at compile t
 
 Some annotations are also available to configure the macros.
 
-The [`@Key`](../../api/reactivemongo/bson/Macros$$Annotations$@KeyextendsAnnotationwithStaticAnnotationwithProductwithSerializable) annotation allows to specify the field name for a class property.
+The [`@Key`](../../api/reactivemongo/bson/Macros$$Annotations$$Key.html) annotation allows to specify the field name for a class property.
 
 For example, it is convenient to use when you'd like to leverage the MongoDB `_id` index but you don't want to actually use `_id` in your code.
 
@@ -238,7 +238,7 @@ case class Website(@Key("_id") url: String)
 // Generated handler will map the `url` field in your code to as `_id` field
 {% endhighlight %}
 
-The [`@Ignore`](../../api/reactivemongo/bson/Macros$$Annotations$@IgnoreextendsAnnotationwithStaticAnnotationwithProductwithSerializable) can be applied on the class properties to be ignored.
+The [`@Ignore`](../../api/reactivemongo/bson/Macros$$Annotations$$Ignore.html) can be applied on the class properties to be ignored.
 
 {% highlight scala %}
 import reactivemongo.bson.Macros.Annotations.Ignore
@@ -247,6 +247,26 @@ case class Foo(
   bar: String,
   @Ignore lastAccessed: Long = -1L
 )
+{% endhighlight %}
+
+The [`@Flatten`](../../api/reactivemongo/bson/Macros$$Annotations$$Flatten.html) can be used to indicate to the macros that the representation of a property must be flatten rather than a nested document.
+
+{% highlight scala %}
+import reactivemongo.bson.BSONDocument
+import reactivemongo.bson.Macros.Annotations.Flatten
+
+case class Range(start: Int, end: Int)
+
+case class LabelledRange(
+  name: String,
+  @Flatten range: Range)
+
+// Flattened with macro as bellow:
+BSONDocument("name" -> "foo", "start" -> 0, "end" -> 1)
+
+// Rather than:
+// BSONDocument("name" -> "foo", "range" -> BSONDocument(
+//   "start" -> 0, "end" -> 1))
 {% endhighlight %}
 
 **Troubleshooting:**
@@ -271,13 +291,14 @@ The following handlers are provided by ReactiveMongo, to read and write the [BSO
 | BSON type    | Value type     |
 | ------------ | -------------- |
 | BSONArray    | Any collection |
-| BSONString   | String         |
 | BSONBinary   | Array[Byte]    |
 | BSONBoolean  | Boolean        |
+| BSONDocument | Map[K, V]      |
+| BSONDateTime | java.util.Date |
+| BSONDouble   | Double         |
 | BSONInteger  | Int            |
 | BSONLong     | Long           |
-| BSONDouble   | Double         |
-| BSONDateTime | java.util.Date |
+| BSONString   | String         |
 
 #### Optional value
 
@@ -303,7 +324,6 @@ Using [`BSONNumberLike`](../../api/reactivemongo/bson/BSONNumberLike), it is pos
 ### Concrete examples
 
 - [BigDecimal](example-bigdecimal.html)
-- [Map](example-maps.html)
 - [Document](example-document.html)
 
 ### Troubleshooting
