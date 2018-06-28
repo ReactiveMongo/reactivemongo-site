@@ -8,10 +8,10 @@ title: Aggregation Framework
 
 The [MongoDB Aggregation Framework](http://docs.mongodb.org/manual/reference/operator/aggregation/) is available through ReactiveMongo.
 
-- **[`$project`](#project)**: Reshapes each document in the stream, such as by [adding new fields or removing](https://docs.mongodb.com/manual/reference/operator/aggregation/project/#pipe._S_project) existing fields ([API](../../api/reactivemongo/api/commands/AggregationFramework#ProjectextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
-- **[`$match`](#match)**: Filters the document stream to allow only [matching documents](https://docs.mongodb.com/manual/reference/operator/aggregation/match/#pipe._S_match) ([API](../../api/reactivemongo/api/commands/AggregationFramework#MatchextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
-- **[`$redact`](#redact)**: Reshapes each document in the stream by [restricting the content](https://docs.mongodb.com/manual/reference/operator/aggregation/redact/) for each document based on information stored in the documents themselves ([API](../../api/reactivemongo/api/commands/AggregationFramework#RedactextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
 - **[`$limit`](#limit)**: Passes the first *n* documents unmodified to the pipeline where *n* is the specified [limit](https://docs.mongodb.com/manual/reference/operator/aggregation/limit/#pipe._S_limit) ([API](../../api/reactivemongo/api/commands/AggregationFramework#LimitextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- **[`$match`](#match)**: Filters the document stream to allow only [matching documents](https://docs.mongodb.com/manual/reference/operator/aggregation/match/#pipe._S_match) ([API](../../api/reactivemongo/api/commands/AggregationFramework#MatchextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- **[`$project`](#project)**: Reshapes each document in the stream, such as by [adding new fields or removing](https://docs.mongodb.com/manual/reference/operator/aggregation/project/#pipe._S_project) existing fields ([API](../../api/reactivemongo/api/commands/AggregationFramework#ProjectextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
+- **[`$redact`](#redact)**: Reshapes each document in the stream by [restricting the content](https://docs.mongodb.com/manual/reference/operator/aggregation/redact/) for each document based on information stored in the documents themselves ([API](../../api/reactivemongo/api/commands/AggregationFramework#RedactextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
 - **[`$skip`](#skip)**: Skips the first *n* documents where *n* is the specified [skip number](https://docs.mongodb.com/manual/reference/operator/aggregation/skip/#pipe._S_skip) and passes the remaining documents unmodified to the pipeline ([API](../../api/reactivemongo/api/commands/AggregationFramework#SkipextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
 - **[`$unwind`](#unwind)**: Deconstructs an array field from the input documents to [output a document for *each* element](https://docs.mongodb.com/manual/reference/operator/aggregation/unwind/#pipe._S_unwind) ([API](../../api/reactivemongo/api/commands/AggregationFramework#UnwindextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
 - **[`$group`](#group)**: Groups the input documents by a specified [identifier expression](https://docs.mongodb.com/manual/reference/operator/aggregation/group/) and possibly applies some accumulators ([API](../../api/reactivemongo/api/commands/GroupAggregation)).
@@ -31,6 +31,7 @@ The [MongoDB Aggregation Framework](http://docs.mongodb.org/manual/reference/ope
 - **[`$lookup`](#lookup)**: Performs a left outer [join to another collection](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#pipe._S_lookup) in the *same* database ([API](../../api/reactivemongo/api/commands/AggregationFramework#LookupextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
 - **[`$out`](#out)**: Writes the resulting documents of the aggregation [pipeline to a collection](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#pipe._S_out) ([API](../../api/reactivemongo/api/commands/AggregationFramework#OutextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
 - **[`$indexStats`](#indexStats)**: Returns statistics regarding the use of [each index for the collection](https://docs.mongodb.com/manual/reference/operator/aggregation/indexStats/#pipe._S_indexStats) ([API](../../api/reactivemongo/api/commands/AggregationFramework#IndexStats)).
+- **[`$replaceRoot`](#replaceRoot)**: Promotes a specified document to the top level and replaces all other fields.
 
 ### Zip codes example
 
@@ -902,6 +903,61 @@ For the current example, the result collection will contain the following docume
 {% highlight javascript %}
 { "_id" : "Homer", "books" : [ "Iliad", "The Odyssey" ] }
 { "_id" : "Dante", "books" : [ "Divine Comedy", "Eclogues", "The Banquet" ] }
+{% endhighlight %}
+
+### Fruit example
+
+The <span id="replaceRoot">[`$replaceRoot`](https://docs.mongodb.com/manual/reference/operator/aggregation/replaceRoot/#pipe._S_replaceRoot)</span> promotes a specified document to the top level and replaces all other fields.
+
+Consider a a collection of fruits as bellow.
+
+{% highlight javascript %}
+{
+   "_id" : 1,
+   "fruit" : [ "apples", "oranges" ],
+   "in_stock" : { "oranges" : 20, "apples" : 60 },
+   "on_order" : { "oranges" : 35, "apples" : 75 }
+}
+{
+   "_id" : 2,
+   "vegetables" : [ "beets", "yams" ],
+   "in_stock" : { "beets" : 130, "yams" : 200 },
+   "on_order" : { "beets" : 90, "yams" : 145 }
+}
+{% endhighlight %}
+
+The stage can be used in aggregation with MongoShell:
+
+{% highlight javascript %}
+db.produce.aggregate([
+   { $replaceRoot: { newRoot: "$in_stock" } }
+])
+{% endhighlight %}
+
+It will return the following documents:
+
+{% highlight javascript %}
+{ "oranges": 20, "apples": 60 }
+{ "beets": 130, "yams": 200 }
+{% endhighlight %}
+
+It can be done using ReactiveMongo.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+
+import reactivemongo.api.collections.bson.BSONCollection
+
+def replaceRootTest(fruits: BSONCollection): Future[Option[BSONDocument]] = {
+  fruits.aggregateWith1[BSONDocument]() { framework =>
+    import framework._
+
+    ReplaceRootField("in_stock") -> List.empty
+  }.headOption
+}
 {% endhighlight %}
 
 ### Database indexes aggregation

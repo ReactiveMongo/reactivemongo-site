@@ -278,68 +278,38 @@ BSONDocument("name" -> "foo", "start" -> 0, "end" -> 1)
 
 ### Aggregation
 
-The [`distinct`](https://docs.mongodb.org/manual/reference/command/distinct/) command to find the distinct values for a specified field across a single collection, is now provided as a [collection operation](../api/reactivemongo/api/collections/GenericCollection.GenericCollection#distinct[T]%28key:String,selector:Option[GenericCollection.this.pack.Document],readConcern:reactivemongo.api.ReadConcern%29%28implicitreader:GenericCollection.this.pack.NarrowValueReader[T],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[scala.collection.immutable.ListSet[T]]).
+There are newly supported [Pipeline Aggregation Stages](https://docs.mongodb.org/manual/reference/operator/aggregation-pipeline/).
 
-{% highlight scala %}
-import scala.concurrent.{ ExecutionContext, Future }
+**replaceRoot:**
 
-import reactivemongo.api.collections.bson.BSONCollection
-
-def distinctStates(col: BSONCollection)(implicit ec: ExecutionContext): Future[Set[String]] = col.distinct[String, Set]("state")
-{% endhighlight %}
-
-The ReactiveMongo collections now has the convenient [`.aggregatorContext`](../api/reactivemongo/api/collections/GenericCollection.html#aggregatorContext%5BT%5D(firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List%5BGenericCollection.this.PipelineOperator%5D,explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option%5Breactivemongo.api.ReadConcern%5D,readPreference:reactivemongo.api.ReadPreference,batchSize:Option%5BInt%5D)(implicitreader:GenericCollection.this.pack.Reader%5BT%5D):GenericCollection.this.AggregatorContext%5BT%5D).
+The <span id="replaceRoot">[`$replaceRoot`](https://docs.mongodb.com/manual/reference/operator/aggregation/replaceRoot/#pipe._S_replaceRoot)</span> stage is now supported.
 
 {% highlight scala %}
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.{ BSONDocument, BSONString }
+import reactivemongo.bson.BSONDocument
+
 import reactivemongo.api.collections.bson.BSONCollection
 
-def populatedStates(col: BSONCollection): Future[List[BSONDocument]] = {
-  import col.BatchCommands.AggregationFramework.{ Group, Match, SumField }
+/* For a fruits collection:
+{
+   "_id" : 1,
+   "fruit" : [ "apples", "oranges" ],
+   "in_stock" : { "oranges" : 20, "apples" : 60 },
+   "on_order" : { "oranges" : 35, "apples" : 75 }
+}, ...
+*/
 
-  col.aggregatorContext[BSONDocument](
-    Group(BSONString("$state"))( "totalPop" -> SumField("population")),
-    List(Match(BSONDocument("totalPop" -> BSONDocument("$gte" -> 10000000L))))).
-    prepared.cursor.collect[List]()
+def replaceRootTest(fruits: BSONCollection): Future[Option[BSONDocument]] = {
+  fruits.aggregateWith1[BSONDocument]() { framework =>
+    import framework._
 
+    ReplaceRootField("in_stock") -> List.empty
+  }.headOption
+  // Results: { "oranges": 20, "apples": 60 }, ...
 }
 {% endhighlight %}
-
-There are also some newly supported [Pipeline Aggregation Stages](https://docs.mongodb.org/manual/reference/operator/aggregation-pipeline/).
-
-**filter:**
-
-The [`$filter` stage](https://docs.mongodb.org/master/reference/operator/aggregation/filter/) is available in this new version.
-
-{% highlight scala %}
-import scala.concurrent.{ ExecutionContext, Future }
-
-import reactivemongo.bson.{ BSONString, Macros, array, document }
-import reactivemongo.api.collections.bson.BSONCollection
-
-object FilterUseCase {
-  case class SaleItem(itemId: Int, quantity: Int, price: Int)
-  case class Sale(_id: Int, items: List[SaleItem])
-
-  implicit val saleItemHandler = Macros.handler[SaleItem]
-  implicit val saleHandler = Macros.handler[Sale]
-
-  def filterSales(sales: BSONCollection)(implicit ec: ExecutionContext): Future[List[Sale]] = {
-    import sales.BatchCommands.AggregationFramework.{ Project, Filter }
-
-    sales.aggregatorContext[Sale](Project(document("items" -> Filter(
-      input = BSONString("$items"),
-      as = "item",
-      cond = document("$gte" -> array("$$item.price", 100))
-    )))).prepared.cursor.collect[List]()
-  }
-}
-{% endhighlight %}
-
-> With the changes, the aggregation framework provides an API for all the stages supported by MongoDB 3.2.
 
 [More: **Aggregation Framework**](./advanced-topics/aggregation.html)
 
