@@ -7,7 +7,9 @@ title: Release details
 ## ReactiveMongo {{site._0_1x_latest_minor}} - Highlights
 
 - New bulk delete operation `.delete.many` on [collection](../api/reactivemongo/api/collections/GenericCollection.html).
-- New [aggregation](./advanced-topics/aggregation.html) stage [`$replaceRoot`](https://docs.mongodb.com/manual/reference/operator/aggregation/replaceRoot/index.html).
+- New [aggregation](./advanced-topics/aggregation.html) stages,
+  - [`$filter`](https://docs.mongodb.com/master/reference/operator/aggregcation/filter/#definition),
+  - [`$replaceRoot`](https://docs.mongodb.com/manual/reference/operator/aggregation/replaceRoot/index.html).
 - [*Connection*](./tutorial/connect-database.html)
   - Support [x.509 certificate](https://docs.mongodb.com/manual/tutorial/configure-x509-client-authentication/) to authenticate.
   - Support [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) in the connection URI.
@@ -97,8 +99,6 @@ The new [`insert`](../api/reactivemongo/api/collections/GenericCollection.html#i
 - and bulk insert with [`.many`](../api/reactivemongo/api/collections/InsertOps$InsertBuilder.html#many(documents:Iterable[T])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.MultiBulkWriteResult]).
 
 {% highlight scala %}
-import scala.util.{ Failure, Success }
-
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -173,8 +173,6 @@ def update1(personColl: BSONCollection) = {
 The [`.delete`](../api/reactivemongo/api/collections/GenericCollection.html#delete[S](ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern):GenericCollection.this.DeleteBuilder) function returns a `DeleteBuilder`, to perform simple or bulk delete.
 
 {% highlight scala %}
-import scala.util.{ Failure, Success }
-
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -280,9 +278,37 @@ BSONDocument("name" -> "foo", "start" -> 0, "end" -> 1)
 
 There are newly supported [Pipeline Aggregation Stages](https://docs.mongodb.org/manual/reference/operator/aggregation-pipeline/).
 
+**filter:**
+
+The [`$filter`](https://docs.mongodb.com/master/reference/operator/aggregation/filter/#definition) stage is now supported.
+
+{% highlight scala %}
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.{ BSONArray, BSONDocument, BSONString }
+
+import reactivemongo.api.Cursor
+import reactivemongo.api.collections.bson.BSONCollection
+
+def salesWithItemGreaterThanHundered(sales: BSONCollection) =
+  sales.aggregateWith1[BSONDocument]() { framework =>
+    import framework._
+
+    val sort = Sort(Ascending("_id"))
+
+    Project(BSONDocument("items" -> Filter(
+      input = BSONString(f"$$items"),
+      as = "item",
+      cond = BSONDocument(
+        f"$$gte" -> BSONArray(f"$$$$item.price", 100))))) -> List(sort)
+
+  }.collect[List](Int.MaxValue, Cursor.FailOnError[List[BSONDocument]]())
+{% endhighlight %}
+
+
 **replaceRoot:**
 
-The <span id="replaceRoot">[`$replaceRoot`](https://docs.mongodb.com/manual/reference/operator/aggregation/replaceRoot/#pipe._S_replaceRoot)</span> stage is now supported.
+The [`$replaceRoot`](https://docs.mongodb.com/manual/reference/operator/aggregation/replaceRoot/#pipe._S_replaceRoot) stage is now supported.
 
 {% highlight scala %}
 import scala.concurrent.Future
