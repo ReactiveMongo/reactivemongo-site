@@ -8,6 +8,7 @@ title: Aggregation Framework
 
 The [MongoDB Aggregation Framework](http://docs.mongodb.org/manual/reference/operator/aggregation/) is available through ReactiveMongo.
 
+- **[`$addFields`](#addFields)**: [Adds new fields](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/) to documents.
 - **[`$limit`](#limit)**: Passes the first *n* documents unmodified to the pipeline where *n* is the specified [limit](https://docs.mongodb.com/manual/reference/operator/aggregation/limit/#pipe._S_limit) ([API](../../api/reactivemongo/api/commands/AggregationFramework#LimitextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
 - **[`$match`](#match)**: Filters the document stream to allow only [matching documents](https://docs.mongodb.com/manual/reference/operator/aggregation/match/#pipe._S_match) ([API](../../api/reactivemongo/api/commands/AggregationFramework#MatchextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
 - **[`$project`](#project)**: Reshapes each document in the stream, such as by [adding new fields or removing](https://docs.mongodb.com/manual/reference/operator/aggregation/project/#pipe._S_project) existing fields ([API](../../api/reactivemongo/api/commands/AggregationFramework#ProjectextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
@@ -34,7 +35,7 @@ The [MongoDB Aggregation Framework](http://docs.mongodb.org/manual/reference/ope
 - **[`$indexStats`](#indexStats)**: Returns statistics regarding the use of [each index for the collection](https://docs.mongodb.com/manual/reference/operator/aggregation/indexStats/#pipe._S_indexStats) ([API](../../api/reactivemongo/api/commands/AggregationFramework#IndexStats)).
 - **[`$replaceRoot`](#replaceRoot)**: Promotes a specified document to the top level and replaces all other fields.
 
-### Zip codes example
+### Zip codes
 
 Considering there is a `zipcodes` collection in a MongoDB, with the following documents.
 
@@ -143,7 +144,7 @@ def populatedStates2(col: BSONCollection): Future[List[State]] = {
 
 *Using cursor:*
 
-The alternative [`.aggregateWith`](../../api/reactivemongo/api/collections/GenericCollection.GenericCollection#aggregateWith[T](explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference,batchSize:Option[Int])(f:GenericCollection.this.AggregationFramework=%3E(GenericCollection.this.PipelineOperator,List[GenericCollection.this.PipelineOperator]))(implicitec:scala.concurrent.ExecutionContext,implicitreader:GenericCollection.this.pack.Reader[T]):scala.concurrent.Future[reactivemongo.api.Cursor[T]]) builder can be used, to process the aggregation result with a [`Cursor`](../../api/reactivemongo/api/Cursor).
+The alternative [`.aggregateWith1`](../../api/reactivemongo/api/collections/GenericCollection.html#aggregateWith1[T](explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference,batchSize:Option[Int])(f:GenericCollection.this.AggregationFramework=>(GenericCollection.this.PipelineOperator,List[GenericCollection.this.PipelineOperator]))(implicitec:scala.concurrent.ExecutionContext,implicitreader:GenericCollection.this.pack.Reader[T],implicitcf:reactivemongo.api.CursorFlattener[reactivemongo.api.Cursor],implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor) builder can be used, to process the aggregation result with a [`Cursor`](../../api/reactivemongo/api/Cursor).
 
 {% highlight scala %}
 import scala.concurrent.ExecutionContext
@@ -153,7 +154,7 @@ import reactivemongo.api.Cursor
 import reactivemongo.api.collections.bson.BSONCollection
 
 def populatedStatesCursor(cities: BSONCollection)(implicit ec: ExecutionContext): Cursor[BSONDocument] =
-  cities.aggregateWith[BSONDocument]() { framework =>
+  cities.aggregateWith1[BSONDocument]() { framework =>
     import framework.{ Group, Match, SumField }
 
     Group(BSONString("$state"))("totalPop" -> SumField("population")) -> List(
@@ -574,7 +575,7 @@ def randomZipCodes(coll: BSONCollection)(implicit ec: ExecutionContext): Future[
 }
 {% endhighlight %}
 
-### Places examples
+### Places
 
 Let consider a collection of different kinds of place (e.g. Central Park ...), with their locations indexed using [`2dsphere`](https://docs.mongodb.com/manual/core/2dsphere/#create-a-2dsphere-index).
 
@@ -679,7 +680,7 @@ def placeArround(places: BSONCollection)(implicit ec: ExecutionContext): Future[
 }
 {% endhighlight %}
 
-### Forecast example
+### Forecast
 
 Consider a collection of forecasts with the following document.
 
@@ -781,7 +782,7 @@ def redactForecasts(forecasts: BSONCollection)(implicit ec: ExecutionContext) = 
 }
 {% endhighlight %}
 
-### Inventory example
+### Inventory
 
 Consider an `inventory` collection, with the following document.
 
@@ -1055,9 +1056,88 @@ def aggregateIndexes(coll: BSONCollection) = {
 }
 {% endhighlight %}
 
+### Students
+
+Considering the following collection of students:
+
+{% highlight javascript %}
+{
+  _id: 1,
+  student: "Maya",
+  homework: [ 10, 5, 10 ],
+  quiz: [ 10, 8 ],
+  extraCredit: 0
+}
+{
+  _id: 2,
+  student: "Ryan",
+  homework: [ 5, 6, 5 ],
+  quiz: [ 8, 8 ],
+  extraCredit: 8
+}
+{% endhighlight %}
+
+Then it's possible to sum the `homework` and `quiz` arrays using the <span id="addFields">[`$addFields`](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/)</span> as bellow in the MongoShell.
+
+{% highlight javascript %}
+db.scores.aggregate([
+  {
+    $addFields: {
+      totalHomework: { $sum: "$homework" } ,
+      totalQuiz: { $sum: "$quiz" }
+    }
+  },
+  {
+    $addFields: { totalScore:
+      { $add: [ "$totalHomework", "$totalQuiz", "$extraCredit" ] } }
+  }
+])
+{% endhighlight %}
+
+It can be done using ReactiveMongo:
+
+{% highlight javascript %}
+import scala.concurrent.ExecutionContext
+
+import reactivemongo.api.collections.BSONCollection
+
+def sumHomeworkQuizz(students: BSONCollection) =
+  students.aggregateWith1[BSONDocument]() { framework =>
+    import framework.AddFields
+
+    AddFields(document(
+      "totalHomework" -> document(f"$$sum" -> f"$$homework"),
+      "totalQuiz" -> document(f"$$sum" -> f"$$quiz"))) -> List(
+      AddFields(document(
+        "totalScore" -> document(f"$$add" -> array(
+        f"$$totalHomework", f"$$totalQuiz", f"$$extraCredit")))))
+  }
+{% endhighlight %}
+
+### Custom stage
+
+You can also implement custom aggregate stage, using the [`PipelineOperator`](../../api/commands/AggregationFramework.html#PipelineOperator) factory.
+
+{% highlight scala %}
+import scala.concurrent.ExecutionContext
+
+import reactivemongo.bson._
+import reactivemongo.api.collections.bson.BSONCollection
+
+def customAgg(coll: BSONCollection)(implicit ec: ExecutionContext) =
+  coll.aggregateWith1[BSONDocument]() { framework =>
+    import framework.PipelineOperator
+
+    val customStage = // { $sample: { size: 2 } }
+      PipelineOperator(BSONDocument("$sample" -> BSONDocument("size" -> 2)))
+
+    customStage -> List.empty
+  }
+{% endhighlight %}
+
 **See also:**
 
-- The operators available to define an aggregation pipeline are documented in the [API reference](../../api/reactivemongo/api/commands/AggregationFramework).
+- The operators available to define an aggregation pipeline are documented in the [API reference](../../api/reactivemongo/api/collections/GenericCollection.html#AggregationFramework=GenericCollection.this.BatchCommands.AggregationFramework.type).
 - The [Aggregation Framework tests](https://github.com/ReactiveMongo/ReactiveMongo/blob/master/driver/src/test/scala/AggregationSpec.scala)
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
