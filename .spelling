@@ -218,6 +218,8 @@ ok
 3Ereactivemongo.api.Cursor.State
 _
 implicitm
+implicitcf
+reactivemongo.api.CursorFlattener
 akka.stream.Materializer
 akka.stream.scaladsl.Source
 akka.NotUsed
