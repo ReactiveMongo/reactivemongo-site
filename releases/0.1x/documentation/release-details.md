@@ -278,6 +278,28 @@ BSONDocument("name" -> "foo", "start" -> 0, "end" -> 1)
 
 There are newly supported [Pipeline Aggregation Stages](https://docs.mongodb.org/manual/reference/operator/aggregation-pipeline/).
 
+**addFields:**
+
+The [`$addFields`](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/) stage can now be used.
+
+{% highlight javascript %}
+import scala.concurrent.ExecutionContext
+
+import reactivemongo.api.collections.BSONCollection
+
+def sumHomeworkQuizz(students: BSONCollection) =
+  students.aggregateWith1[BSONDocument]() { framework =>
+    import framework.AddFields
+
+    AddFields(document(
+      "totalHomework" -> document(f"$$sum" -> f"$$homework"),
+      "totalQuiz" -> document(f"$$sum" -> f"$$quiz"))) -> List(
+      AddFields(document(
+        "totalScore" -> document(f"$$add" -> array(
+        f"$$totalHomework", f"$$totalQuiz", f"$$extraCredit")))))
+  }
+{% endhighlight %}
+
 **filter:**
 
 The [`$filter`](https://docs.mongodb.com/master/reference/operator/aggregation/filter/#definition) stage is now supported.
