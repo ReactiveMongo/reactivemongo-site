@@ -9,6 +9,7 @@ title: Aggregation Framework
 The [MongoDB Aggregation Framework](http://docs.mongodb.org/manual/reference/operator/aggregation/) is available through ReactiveMongo.
 
 - **[`$addFields`](#addFields)**: [Adds new fields](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/) to documents.
+- **[`$bucketAuto`](#bucketAuto)**: [Categorizes incoming documents into a specific number of groups](https://docs.mongodb.com/manual/reference/operator/aggregation/bucketAuto/), called buckets, based on a specified expression.
 - **[`$limit`](#limit)**: Passes the first *n* documents unmodified to the pipeline where *n* is the specified [limit](https://docs.mongodb.com/manual/reference/operator/aggregation/limit/#pipe._S_limit) ([API](../../api/reactivemongo/api/commands/AggregationFramework#LimitextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
 - **[`$match`](#match)**: Filters the document stream to allow only [matching documents](https://docs.mongodb.com/manual/reference/operator/aggregation/match/#pipe._S_match) ([API](../../api/reactivemongo/api/commands/AggregationFramework#MatchextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
 - **[`$project`](#project)**: Reshapes each document in the stream, such as by [adding new fields or removing](https://docs.mongodb.com/manual/reference/operator/aggregation/project/#pipe._S_project) existing fields ([API](../../api/reactivemongo/api/commands/AggregationFramework#ProjectextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
@@ -46,7 +47,7 @@ Considering there is a `zipcodes` collection in a MongoDB, with the following do
   { '_id': "72000", 'city': "LE MANS", 'state': "FR", 
     'population': 148169, 'location': {'long':48.0077, 'lat':0.1984}},
   { '_id': "JP-13", 'city': "TOKYO", 'state': "JP", 
-    'population': 13185502L, 'location': {'lon':35.683333, 'lat':139.683333} },
+    'population': 13185502, 'location': {'lon':35.683333, 'lat':139.683333} },
   { '_id': "AO", 'city': "AOGASHIMA", 'state': "JP",
     'population': 200, 'location': {'lon':32.457, 'lat':139.767} }
 ]
@@ -550,7 +551,7 @@ This will return the sorted documents for the cities `TOKYO` and `AOGASHIMA`.
 
 **Random sample**
 
-The [$sample](https://docs.mongodb.org/manual/reference/operator/aggregation/sample/) aggregation stage can be used (since MongoDB 3.2), in order to randomly selects documents.
+The [`$sample`](https://docs.mongodb.org/manual/reference/operator/aggregation/sample/) aggregation stage can be used (since MongoDB 3.2), in order to randomly selects documents.
 
 In the MongoDB shell, it can be used as following to fetch a sample of 3 random documents.
 
@@ -573,6 +574,40 @@ def randomZipCodes(coll: BSONCollection)(implicit ec: ExecutionContext): Future[
   coll.aggregatorContext[BSONDocument](AggregationFramework.Sample(3)).
     prepared.cursor.collect[List]()
 }
+{% endhighlight %}
+
+**Population buckets**
+
+Since MongoDB 3.4, Using the [`$bucketAuto`](https://docs.mongodb.com/manual/reference/operator/aggregation/bucketAuto/) stage can be used in the MongoShell, to group the cities according their population, in an expected number of group so called 'buckets' (bellow 2).
+
+{% highlight javascript %}
+db.zipcodes.aggregate([
+  { $bucketAuto: { groupBy: '$population', buckets: 2 } }
+])
+{% endhighlight %}
+
+Such aggregation with return the following results.
+
+{% highlight javascript %}
+{ "_id" : { "min" : 200, "max" : 13185502 }, "count" : 2 }
+{ "_id" : { "min" : 13185502, "max" : 19746227 }, "count" : 2 }
+{% endhighlight %}
+
+This stage <span id="bucketAuto">[`$bucketAuto`](../../api/commands/AggregationFramework.html#BucketAutoextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)</span> can be used in ReactiveMongo as bellow.
+
+{% highlight scala %}
+import scala.concurrent.ExecutionContext
+
+import reactivemongo.bson._
+import reactivemongo.api.Cursor
+import reactivemongo.api.collections.bson.BSONCollection
+
+def populationBuckets(zipcodes: BSONCollection)(implicit ec: ExecutionContext) =
+  zipcodes.aggregateWith1[BSONDocument]() { framework =>
+    import framework.BucketAuto
+
+    BucketAuto(BSONString(f"$$population"), 2, None)() -> List.empty
+  }.collect[Set](Int.MaxValue, Cursor.FailOnError[Set[BSONDocument]]())
 {% endhighlight %}
 
 ### Places

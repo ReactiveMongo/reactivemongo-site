@@ -276,7 +276,7 @@ BSONDocument("name" -> "foo", "start" -> 0, "end" -> 1)
 
 ### Aggregation
 
-There are newly supported [Pipeline Aggregation Stages](https://docs.mongodb.org/manual/reference/operator/aggregation-pipeline/).
+There are newly supported by the [Aggregation Framework](./advanced-topics/aggregation.html).
 
 **addFields:**
 
@@ -298,6 +298,25 @@ def sumHomeworkQuizz(students: BSONCollection) =
         "totalScore" -> document(f"$$add" -> array(
         f"$$totalHomework", f"$$totalQuiz", f"$$extraCredit")))))
   }
+{% endhighlight %}
+
+**bucketAuto:**
+
+The [`$bucketAuto`](https://docs.mongodb.com/manual/reference/operator/aggregation/bucketAuto/) stage introduced by MongoDB 3.4 can be used as bellow.
+
+{% highlight scala %}
+import scala.concurrent.ExecutionContext
+
+import reactivemongo.bson._
+import reactivemongo.api.Cursor
+import reactivemongo.api.collections.bson.BSONCollection
+
+def populationBuckets(zipcodes: BSONCollection)(implicit ec: ExecutionContext) =
+  zipcodes.aggregateWith1[BSONDocument]() { framework =>
+    import framework.BucketAuto
+
+    BucketAuto(BSONString(f"$$population"), 2, None)() -> List.empty
+  }.collect[Set](Int.MaxValue, Cursor.FailOnError[Set[BSONDocument]]())
 {% endhighlight %}
 
 **filter:**
@@ -326,7 +345,6 @@ def salesWithItemGreaterThanHundered(sales: BSONCollection) =
 
   }.collect[List](Int.MaxValue, Cursor.FailOnError[List[BSONDocument]]())
 {% endhighlight %}
-
 
 **replaceRoot:**
 
