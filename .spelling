@@ -146,6 +146,7 @@ FindAndModify
 monoid
 geoNear
 replaceRoot
+bucketAuto
 addFields
 indexStats
 Resync
