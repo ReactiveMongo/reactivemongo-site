@@ -25,11 +25,11 @@ The documentation is available [online](index.html), and its code samples are co
 
 - [Compatibility](#compatibility)
 - [Connection options](#connection-options)
+  - [Netty native](#netty-native)
 - [Query and write operations](#query-and-write-operations)
 - [BSON library](#bson-library)
 - [Aggregation](#aggregation)
 - [Administration](#administration)
-- [Dependencies](#dependencies)
 - [Breaking changes](#breaking-changes)
 
 > The next release will be 1.0.0.
@@ -40,7 +40,7 @@ The impatient can have a look at the [release slideshow](../slideshow.html).
 
 This release is compatible with the following runtime.
 
-- [MongoDB](https://www.mongodb.org/) from 2.6 up to 3.6.
+- [MongoDB](https://www.mongodb.org/) from 2.6 up to 4.0.
 - [Akka](http://akka.io/) from 2.3.13 up to 2.5.13 (see [Setup](./tutorial/setup.html))
 - [Play Framework](https://playframework.com) from 2.3.13 to 2.6.1
 
@@ -86,6 +86,14 @@ import reactivemongo.api._
 def seedListCon(driver: MongoDriver) =
   driver.connection("mongodb+srv://usr:pass@mymongo.mydomain.tld/mydb")
 {% endhighlight %}
+
+#### Netty native
+
+The internal [Netty](http://netty.io/) dependency has been updated to the version [4.1](http://netty.io/wiki/new-and-noteworthy-in-4.1.html).
+
+It comes with various improvements (memory consumption, ...), and also to use Netty native support (kqueue for Mac OS X and epoll for Linux, on `x86_64` arch).
+
+*[See the documentation](./tutorial/connect-database.html#netty-native)*
 
 ### Query and write operations
 
@@ -396,18 +404,14 @@ import reactivemongo.api.DefaultDB
 def ping(admin: DefaultDB): Future[Boolean] = admin.ping()
 {% endhighlight %}
 
-### Dependencies
-
-The internal [Netty](http://netty.io/) dependency has been updated to the version [4.1](http://netty.io/wiki/new-and-noteworthy-in-4.1.html).
-
-[![Test coverage](https://img.shields.io/badge/coverage-60%25-yellowgreen.svg)](https://reactivemongo.github.io/ReactiveMongo/coverage/{{site._0_1x_latest_minor}}/)
-
 ### Breaking changes
 
 The [Typesafe Migration Manager](https://github.com/typesafehub/migration-manager#migration-manager-for-scala) has been setup on the ReactiveMongo repository.
 It will validate all the future contributions, and help to make the API more stable.
 
-For the current 0.14 release, it has detected the following breaking changes.
+For the current {{site._0_1x_latest_minor}} release, it has detected the following breaking changes.
+
+[![Test coverage](https://img.shields.io/badge/coverage-60%25-yellowgreen.svg)](https://reactivemongo.github.io/ReactiveMongo/coverage/{{site._0_1x_latest_minor}}/)
 
 **Connection**
 

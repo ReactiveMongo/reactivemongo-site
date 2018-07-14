@@ -150,6 +150,9 @@ bucketAuto
 addFields
 indexStats
 Resync
+kqueue
+logback
+NettyPack
 
 # Dependencies - Versions
 0.10.5.0.akka23
@@ -158,6 +161,7 @@ Resync
 2.4.x
 2.5.x
 2.6.x
+4.1.x
 
 # Jekyll workaround
 index.html
