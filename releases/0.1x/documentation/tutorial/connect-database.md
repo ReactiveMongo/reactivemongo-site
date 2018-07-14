@@ -243,6 +243,26 @@ def seedListCon(driver: MongoDriver) =
   driver.connection("mongodb+srv://usr:pass@mymongo.mydomain.tld/mydb")
 {% endhighlight %}
 
+### Netty native
+
+ReactiveMongo is internally using (as a shaded dependency) [Netty 4.1.x](http://netty.io/wiki/new-and-noteworthy-in-4.1.html).
+
+It makes possible to use the native optimization of Netty. To do so, the `reactivemongo-shaded-native` must be added as runtime dependency, with the appropriate version.
+
+{% highlight ocaml %}
+// For Mac OS X (x86-64), kqueue native support
+libraryDependencies += "org.reactivemongo" % "reactivemongo-shaded-native" % "{{page.major_version}}-osx-x86-64" % "runtime"
+
+// For Linux (x86-64), kqueue native support
+libraryDependencies += "org.reactivemongo" % "reactivemongo-shaded-native" % "{{page.major_version}}-linux-x86-64" % "runtime"
+{% endhighlight %}
+
+In order to make sure such optimization is loaded, you can enable the `INFO` level for the logger `reactivemongo.core.netty.Pack` (e.g. in your logback configuration), then check for a log entry containing "NettyPack".
+
+```
+16:03:43.098 ReactiveMongo INFO  [r.c.n.Pack] :: Instanciated NettyPack(class reactivemongo.io.netty.channel.kqueue.KQueueSocketChannel)
+```
+
 ### Additional Notes
 
 **[`MongoConnection`](../../api/reactivemongo/api/MongoConnection) stands for a pool of connections.**
