@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.14 - reactivemongo.api.commands.DeleteCommand</title>
-          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.api.commands.DeleteCommand" />
-          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.api.commands.DeleteCommand" />
+          <title>ReactiveMongo API 0.16 - reactivemongo.api.commands.DeleteCommand</title>
+          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.api.commands.DeleteCommand" />
+          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.api.commands.DeleteCommand" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -229,10 +229,6 @@
                         <span class="separator"></span>
                         <a class="trait" href="DistinctCommand.html" title="The distinct command."></a>
                         <a href="DistinctCommand.html" title="The distinct command.">DistinctCommand</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="object" href="Drop$.html" title=""></a>
-                        <a href="Drop$.html" title="">Drop</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
                         <a class="object" href="DropCollection$.html" title=""></a>
@@ -452,13 +448,16 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">DeleteCommand</span><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.DeleteCommand.P">P</span>]</span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.16.0) Use the new delete operation">DeleteCommand</span><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.DeleteCommand.P">P</span>]</span>
       </span>
       </h4>
 
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Implements the <a href="https://docs.mongodb.com/manual/reference/command/delete/" target="_blank">delete</a> command.
-</p></div><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Use the new <code>delete</code> operation</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -467,7 +466,7 @@
             <span class="toggle">
               Known Subclasses
             </span>
-            <div class="subClasses hiddenContent"><a href="bson/BSONDeleteCommand$.html" class="extype" name="reactivemongo.api.commands.bson.BSONDeleteCommand">BSONDeleteCommand</a></div>
+            <div class="subClasses hiddenContent"><a href="../collections/DeleteOps$DeleteCommand$.html" class="extype" name="reactivemongo.api.collections.DeleteOps.DeleteCommand">DeleteCommand</a>, <a href="bson/BSONDeleteCommand$.html" class="extype" name="reactivemongo.api.commands.bson.BSONDeleteCommand">BSONDeleteCommand</a></div>
           </div></div>
         
 

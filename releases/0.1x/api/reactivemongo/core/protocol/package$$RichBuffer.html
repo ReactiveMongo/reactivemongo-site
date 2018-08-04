@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.14 - reactivemongo.core.protocol.RichBuffer</title>
-          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.core.protocol.RichBuffer" />
-          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.core.protocol.RichBuffer" />
+          <title>ReactiveMongo API 0.16 - reactivemongo.core.protocol.RichBuffer</title>
+          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.core.protocol.RichBuffer" />
+          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.core.protocol.RichBuffer" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -127,8 +127,8 @@
                         <a href="ChannelBufferWritable.html" title="Something that can be written into a ByteBuf.">ChannelBufferWritable</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="class" href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked (by sending a reactivemongo.core.commands.GetLastError command after)."></a>
-                        <a href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked (by sending a reactivemongo.core.commands.GetLastError command after).">CheckedWriteRequest</a>
+                        <a class="class" href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked (by sending a reactivemongo.api.commands.GetLastError command after)."></a>
+                        <a href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked (by sending a reactivemongo.api.commands.GetLastError command after).">CheckedWriteRequest</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
                         <a class="trait" href="CollectionAwareRequestOp.html" title="A request that needs to know the full collection name."></a>
@@ -198,9 +198,9 @@
                         <a class="class" href="Response.html" title="A Mongo Wire Protocol Response messages."></a>
                         <a href="Response.html" title="A Mongo Wire Protocol Response messages.">Response</a>
                       </li><li class="current-entities indented3">
+                        <span class="separator"></span>
                         <a class="object" href="ResponseInfo$.html" title=""></a>
-                        <a class="class" href="ResponseInfo.html" title="Response meta information."></a>
-                        <a href="ResponseInfo.html" title="Response meta information.">ResponseInfo</a>
+                        <a href="ResponseInfo$.html" title="">ResponseInfo</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
                         <a class="class" href="" title=""></a>
@@ -301,9 +301,9 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="reactivemongo.core.protocol.RichBuffer#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(buffer:shaded.netty.buffer.ByteBuf):reactivemongo.core.protocol.package.RichBuffer"></a><a id="&lt;init&gt;:RichBuffer"></a>
+      <a id="&lt;init&gt;(buffer:reactivemongo.io.netty.buffer.ByteBuf):reactivemongo.core.protocol.package.RichBuffer"></a><a id="&lt;init&gt;:RichBuffer"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/protocol/package$$RichBuffer.html#&lt;init&gt;(buffer:shaded.netty.buffer.ByteBuf):reactivemongo.core.protocol.package.RichBuffer" title="Permalink">
+      <a href="../../../reactivemongo/core/protocol/package$$RichBuffer.html#&lt;init&gt;(buffer:reactivemongo.io.netty.buffer.ByteBuf):reactivemongo.core.protocol.package.RichBuffer" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -312,7 +312,7 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">RichBuffer</span><span class="params">(<span name="buffer">buffer: <span class="extype" name="shaded.netty.buffer.ByteBuf">ByteBuf</span></span>)</span>
+        <span class="name">RichBuffer</span><span class="params">(<span name="buffer">buffer: <span class="extype" name="reactivemongo.io.netty.buffer.ByteBuf">ByteBuf</span></span>)</span>
       </span>
       
       
@@ -434,9 +434,9 @@
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="reactivemongo.core.protocol.RichBuffer#buffer" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="buffer:shaded.netty.buffer.ByteBuf"></a><a id="buffer:ByteBuf"></a>
+      <a id="buffer:reactivemongo.io.netty.buffer.ByteBuf"></a><a id="buffer:ByteBuf"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/protocol/package$$RichBuffer.html#buffer:shaded.netty.buffer.ByteBuf" title="Permalink">
+      <a href="../../../reactivemongo/core/protocol/package$$RichBuffer.html#buffer:reactivemongo.io.netty.buffer.ByteBuf" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -445,7 +445,7 @@
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">buffer</span><span class="result">: <span class="extype" name="shaded.netty.buffer.ByteBuf">ByteBuf</span></span>
+        <span class="name">buffer</span><span class="result">: <span class="extype" name="reactivemongo.io.netty.buffer.ByteBuf">ByteBuf</span></span>
       </span>
       
       
@@ -666,9 +666,9 @@
       
       <p class="shortcomment cmt">Write the contents of the given <a href="ChannelBufferWritable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferWritable">reactivemongo.core.protocol.ChannelBufferWritable</a>.</p>
     </li><li name="reactivemongo.core.protocol.RichBuffer#writeCString" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="writeCString(s:String):shaded.netty.buffer.ByteBuf"></a><a id="writeCString(String):ByteBuf"></a>
+      <a id="writeCString(s:String):reactivemongo.io.netty.buffer.ByteBuf"></a><a id="writeCString(String):ByteBuf"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/protocol/package$$RichBuffer.html#writeCString(s:String):shaded.netty.buffer.ByteBuf" title="Permalink">
+      <a href="../../../reactivemongo/core/protocol/package$$RichBuffer.html#writeCString(s:String):reactivemongo.io.netty.buffer.ByteBuf" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -677,14 +677,14 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">writeCString</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="shaded.netty.buffer.ByteBuf">ByteBuf</span></span>
+        <span class="name">writeCString</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="reactivemongo.io.netty.buffer.ByteBuf">ByteBuf</span></span>
       </span>
       
       <p class="shortcomment cmt">Write a UTF-8 encoded C-Style String.</p>
     </li><li name="reactivemongo.core.protocol.RichBuffer#writeString" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="writeString(s:String):shaded.netty.buffer.ByteBuf"></a><a id="writeString(String):ByteBuf"></a>
+      <a id="writeString(s:String):reactivemongo.io.netty.buffer.ByteBuf"></a><a id="writeString(String):ByteBuf"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/protocol/package$$RichBuffer.html#writeString(s:String):shaded.netty.buffer.ByteBuf" title="Permalink">
+      <a href="../../../reactivemongo/core/protocol/package$$RichBuffer.html#writeString(s:String):reactivemongo.io.netty.buffer.ByteBuf" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -693,7 +693,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">writeString</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="shaded.netty.buffer.ByteBuf">ByteBuf</span></span>
+        <span class="name">writeString</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="reactivemongo.io.netty.buffer.ByteBuf">ByteBuf</span></span>
       </span>
       
       <p class="shortcomment cmt">Write a UTF-8 encoded String.</p>

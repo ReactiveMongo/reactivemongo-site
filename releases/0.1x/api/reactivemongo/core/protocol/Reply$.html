@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.14 - reactivemongo.core.protocol.Reply</title>
-          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.core.protocol.Reply" />
-          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.core.protocol.Reply" />
+          <title>ReactiveMongo API 0.16 - reactivemongo.core.protocol.Reply</title>
+          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.core.protocol.Reply" />
+          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.core.protocol.Reply" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -127,8 +127,8 @@
                         <a href="ChannelBufferWritable.html" title="Something that can be written into a ByteBuf.">ChannelBufferWritable</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="class" href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked (by sending a reactivemongo.core.commands.GetLastError command after)."></a>
-                        <a href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked (by sending a reactivemongo.core.commands.GetLastError command after).">CheckedWriteRequest</a>
+                        <a class="class" href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked (by sending a reactivemongo.api.commands.GetLastError command after)."></a>
+                        <a href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked (by sending a reactivemongo.api.commands.GetLastError command after).">CheckedWriteRequest</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
                         <a class="trait" href="CollectionAwareRequestOp.html" title="A request that needs to know the full collection name."></a>
@@ -198,9 +198,9 @@
                         <a class="class" href="Response.html" title="A Mongo Wire Protocol Response messages."></a>
                         <a href="Response.html" title="A Mongo Wire Protocol Response messages.">Response</a>
                       </li><li class="current-entities indented3">
+                        <span class="separator"></span>
                         <a class="object" href="ResponseInfo$.html" title=""></a>
-                        <a class="class" href="ResponseInfo.html" title="Response meta information."></a>
-                        <a href="ResponseInfo.html" title="Response meta information.">ResponseInfo</a>
+                        <a href="ResponseInfo$.html" title="">ResponseInfo</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
                         <a class="class" href="package$$RichBuffer.html" title=""></a>
@@ -353,9 +353,9 @@
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="reactivemongo.core.protocol.ChannelBufferReadable#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="apply(buffer:shaded.netty.buffer.ByteBuf):T"></a><a id="apply(ByteBuf):Reply"></a>
+      <a id="apply(buffer:reactivemongo.io.netty.buffer.ByteBuf):T"></a><a id="apply(ByteBuf):Reply"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/protocol/Reply$.html#apply(buffer:shaded.netty.buffer.ByteBuf):T" title="Permalink">
+      <a href="../../../reactivemongo/core/protocol/Reply$.html#apply(buffer:reactivemongo.io.netty.buffer.ByteBuf):T" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -364,7 +364,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">apply</span><span class="params">(<span name="buffer">buffer: <span class="extype" name="shaded.netty.buffer.ByteBuf">ByteBuf</span></span>)</span><span class="result">: <a href="Reply.html" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a></span>
+        <span class="name">apply</span><span class="params">(<span name="buffer">buffer: <span class="extype" name="reactivemongo.io.netty.buffer.ByteBuf">ByteBuf</span></span>)</span><span class="result">: <a href="Reply.html" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a></span>
       </span>
       
       <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ChannelBufferReadable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferReadable">ChannelBufferReadable</a></dd><dt>See also</dt><dd><span class="cmt"><p>readFrom</p></span></dd></dl></div>
@@ -587,9 +587,9 @@
               
         </dd></dl></div>
     </li><li name="reactivemongo.core.protocol.Reply#readFrom" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="readFrom(buffer:shaded.netty.buffer.ByteBuf):reactivemongo.core.protocol.Reply"></a><a id="readFrom(ByteBuf):Reply"></a>
+      <a id="readFrom(buffer:reactivemongo.io.netty.buffer.ByteBuf):reactivemongo.core.protocol.Reply"></a><a id="readFrom(ByteBuf):Reply"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/protocol/Reply$.html#readFrom(buffer:shaded.netty.buffer.ByteBuf):reactivemongo.core.protocol.Reply" title="Permalink">
+      <a href="../../../reactivemongo/core/protocol/Reply$.html#readFrom(buffer:reactivemongo.io.netty.buffer.ByteBuf):reactivemongo.core.protocol.Reply" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -598,7 +598,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">readFrom</span><span class="params">(<span name="buffer">buffer: <span class="extype" name="shaded.netty.buffer.ByteBuf">ByteBuf</span></span>)</span><span class="result">: <a href="Reply.html" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a></span>
+        <span class="name">readFrom</span><span class="params">(<span name="buffer">buffer: <span class="extype" name="reactivemongo.io.netty.buffer.ByteBuf">ByteBuf</span></span>)</span><span class="result">: <a href="Reply.html" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a></span>
       </span>
       
       <p class="shortcomment cmt">Once the <a href="Reply.html" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a> is parsed, the buffer can immediately be released.</p><div class="fullcomment"><div class="comment cmt"><p>Once the <a href="Reply.html" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a> is parsed, the buffer can immediately be released.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a> → <a href="ChannelBufferReadable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferReadable">ChannelBufferReadable</a></dd></dl></div>

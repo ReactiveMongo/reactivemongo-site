@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.14 - reactivemongo.api.commands.FindAndModifyCommand</title>
-          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.api.commands.FindAndModifyCommand" />
-          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.api.commands.FindAndModifyCommand" />
+          <title>ReactiveMongo API 0.16 - reactivemongo.api.commands.FindAndModifyCommand</title>
+          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.api.commands.FindAndModifyCommand" />
+          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.api.commands.FindAndModifyCommand" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -229,10 +229,6 @@
                         <span class="separator"></span>
                         <a class="trait" href="DistinctCommand.html" title="The distinct command."></a>
                         <a href="DistinctCommand.html" title="The distinct command.">DistinctCommand</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="object" href="Drop$.html" title=""></a>
-                        <a href="Drop$.html" title="">Drop</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
                         <a class="object" href="DropCollection$.html" title=""></a>
@@ -452,12 +448,15 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">FindAndModifyCommand</span><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.P">P</span>]</span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">FindAndModifyCommand</span><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.P">P</span>]</span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -1040,9 +1039,9 @@
               
         </dd></dl></div>
     </li><li name="reactivemongo.api.commands.FindAndModifyCommand#serialize" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="serialize(cmd:reactivemongo.api.commands.ResolvedCollectionCommand[FindAndModifyCommand.this.FindAndModify]):FindAndModifyCommand.this.pack.Document"></a><a id="serialize(ResolvedCollectionCommand[FindAndModify]):P.Document"></a>
+      <a id="serialize(wireVer:reactivemongo.core.protocol.MongoWireVersion,session:Option[reactivemongo.api.Session]):reactivemongo.api.commands.ResolvedCollectionCommand[FindAndModifyCommand.this.FindAndModify]=&gt;FindAndModifyCommand.this.pack.Document"></a><a id="serialize(MongoWireVersion,Option[Session]):(ResolvedCollectionCommand[FindAndModify])⇒P.Document"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/FindAndModifyCommand.html#serialize(cmd:reactivemongo.api.commands.ResolvedCollectionCommand[FindAndModifyCommand.this.FindAndModify]):FindAndModifyCommand.this.pack.Document" title="Permalink">
+      <a href="../../../reactivemongo/api/commands/FindAndModifyCommand.html#serialize(wireVer:reactivemongo.core.protocol.MongoWireVersion,session:Option[reactivemongo.api.Session]):reactivemongo.api.commands.ResolvedCollectionCommand[FindAndModifyCommand.this.FindAndModify]=&gt;FindAndModifyCommand.this.pack.Document" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -1051,7 +1050,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">serialize</span><span class="params">(<span name="cmd">cmd: <a href="ResolvedCollectionCommand.html" class="extype" name="reactivemongo.api.commands.ResolvedCollectionCommand">ResolvedCollectionCommand</a>[<a href="FindAndModifyCommand$FindAndModify.html" class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.FindAndModify">FindAndModify</a>]</span>)</span><span class="result">: <span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span></span>
+        <span class="name">serialize</span><span class="params">(<span name="wireVer">wireVer: <a href="../../core/protocol/MongoWireVersion.html" class="extype" name="reactivemongo.core.protocol.MongoWireVersion">MongoWireVersion</a></span>, <span name="session">session: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="reactivemongo.api.Session">Session</span>]</span>)</span><span class="result">: (<a href="ResolvedCollectionCommand.html" class="extype" name="reactivemongo.api.commands.ResolvedCollectionCommand">ResolvedCollectionCommand</a>[<a href="FindAndModifyCommand$FindAndModify.html" class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.FindAndModify">FindAndModify</a>]) ⇒ <span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span></span>
       </span>
       
       

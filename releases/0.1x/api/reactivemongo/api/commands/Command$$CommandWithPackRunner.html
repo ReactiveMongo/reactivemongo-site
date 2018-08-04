@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.14 - reactivemongo.api.commands.Command.CommandWithPackRunner</title>
-          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.api.commands.Command.CommandWithPackRunner" />
-          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.api.commands.Command.CommandWithPackRunner" />
+          <title>ReactiveMongo API 0.16 - reactivemongo.api.commands.Command.CommandWithPackRunner</title>
+          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.api.commands.Command.CommandWithPackRunner" />
+          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.api.commands.Command.CommandWithPackRunner" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -160,12 +160,15 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">CommandWithPackRunner</span><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="params">(<span name="pack">pack: <span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.P">P</span></span>, <span name="failover">failover: <a href="../FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="../../index.html">FailoverStrategy()</a></span></span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">CommandWithPackRunner</span><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="params">(<span name="pack">pack: <span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.P">P</span></span>, <span name="failover">failover: <a href="../FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="../../index.html">FailoverStrategy()</a></span></span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -913,105 +916,7 @@ along with the MongoDB response.</p>
 
         
 
-        <div class="values members">
-              <h3>Deprecated Value Members</h3>
-              <ol><li name="reactivemongo.api.commands.Command.CommandWithPackRunner#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="apply[R,C&lt;:reactivemongo.api.commands.CollectionCommandwithreactivemongo.api.commands.CommandWithResult[R]](collection:reactivemongo.api.Collection,command:Cwithreactivemongo.api.commands.CommandWithResult[R])(implicitwriter:CommandWithPackRunner.this.pack.Writer[reactivemongo.api.commands.ResolvedCollectionCommand[C]],implicitreader:CommandWithPackRunner.this.pack.Reader[R],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[R]"></a><a id="apply[R,C&lt;:CollectionCommandwithCommandWithResult[R]](Collection,CwithCommandWithResult[R])(P.Writer[ResolvedCollectionCommand[C]],P.Reader[R],ExecutionContext):Future[R]"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/Command$$CommandWithPackRunner.html#apply[R,C&lt;:reactivemongo.api.commands.CollectionCommandwithreactivemongo.api.commands.CommandWithResult[R]](collection:reactivemongo.api.Collection,command:Cwithreactivemongo.api.commands.CommandWithResult[R])(implicitwriter:CommandWithPackRunner.this.pack.Writer[reactivemongo.api.commands.ResolvedCollectionCommand[C]],implicitreader:CommandWithPackRunner.this.pack.Reader[R],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[R]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.12-RC5) Use the alternative with ReadPreference">apply</span><span class="tparams">[<span name="R">R</span>, <span name="C">C &lt;: <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.apply.R">R</span>]</span>]</span><span class="params">(<span name="collection">collection: <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a></span>, <span name="command">command: <span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.apply.C">C</span> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.apply.R">R</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <span class="extype" name="reactivemongo.api.SerializationPack.Writer">P.Writer</span>[<a href="ResolvedCollectionCommand.html" class="extype" name="reactivemongo.api.commands.ResolvedCollectionCommand">ResolvedCollectionCommand</a>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.apply.C">C</span>]]</span>, <span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">P.Reader</span>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.apply.R">R</span>]</span>, <span name="ec">ec: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/ExecutionContext.html#scala.concurrent.ExecutionContext" class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.apply.R">R</span>]</span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
-                <span class="name">@deprecated</span>
-              
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12-RC5)</i> Use the alternative with <code>ReadPreference</code></p></dd></dl></div>
-    </li><li name="reactivemongo.api.commands.Command.CommandWithPackRunner#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="apply[R,C&lt;:reactivemongo.api.commands.Commandwithreactivemongo.api.commands.CommandWithResult[R]](db:reactivemongo.api.DB,command:Cwithreactivemongo.api.commands.CommandWithResult[R])(implicitwriter:CommandWithPackRunner.this.pack.Writer[C],implicitreader:CommandWithPackRunner.this.pack.Reader[R],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[R]"></a><a id="apply[R,C&lt;:CommandwithCommandWithResult[R]](DB,CwithCommandWithResult[R])(P.Writer[C],P.Reader[R],ExecutionContext):Future[R]"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/Command$$CommandWithPackRunner.html#apply[R,C&lt;:reactivemongo.api.commands.Commandwithreactivemongo.api.commands.CommandWithResult[R]](db:reactivemongo.api.DB,command:Cwithreactivemongo.api.commands.CommandWithResult[R])(implicitwriter:CommandWithPackRunner.this.pack.Writer[C],implicitreader:CommandWithPackRunner.this.pack.Reader[R],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[R]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use alternative with ReadPreference">apply</span><span class="tparams">[<span name="R">R</span>, <span name="C">C &lt;: <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.apply.R">R</span>]</span>]</span><span class="params">(<span name="db">db: <a href="../DB.html" class="extype" name="reactivemongo.api.DB">DB</a></span>, <span name="command">command: <span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.apply.C">C</span> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.apply.R">R</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <span class="extype" name="reactivemongo.api.SerializationPack.Writer">P.Writer</span>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.apply.C">C</span>]</span>, <span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">P.Reader</span>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.apply.R">R</span>]</span>, <span name="ec">ec: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/ExecutionContext.html#scala.concurrent.ExecutionContext" class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.apply.R">R</span>]</span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
-                <span class="name">@deprecated</span>
-              
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Use alternative with <code>ReadPreference</code></p></dd></dl></div>
-    </li><li name="reactivemongo.api.commands.Command.CommandWithPackRunner#unboxed" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="unboxed[A&lt;:AnyVal,R&lt;:reactivemongo.api.commands.BoxedAnyVal[A],C&lt;:reactivemongo.api.commands.CollectionCommandwithreactivemongo.api.commands.CommandWithResult[R]](collection:reactivemongo.api.Collection,command:Cwithreactivemongo.api.commands.CommandWithResult[Rwithreactivemongo.api.commands.BoxedAnyVal[A]])(implicitwriter:CommandWithPackRunner.this.pack.Writer[reactivemongo.api.commands.ResolvedCollectionCommand[C]],implicitreader:CommandWithPackRunner.this.pack.Reader[R],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a><a id="unboxed[A&lt;:AnyVal,R&lt;:BoxedAnyVal[A],C&lt;:CollectionCommandwithCommandWithResult[R]](Collection,CwithCommandWithResult[RwithBoxedAnyVal[A]])(P.Writer[ResolvedCollectionCommand[C]],P.Reader[R],ExecutionContext):Future[A]"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/Command$$CommandWithPackRunner.html#unboxed[A&lt;:AnyVal,R&lt;:reactivemongo.api.commands.BoxedAnyVal[A],C&lt;:reactivemongo.api.commands.CollectionCommandwithreactivemongo.api.commands.CommandWithResult[R]](collection:reactivemongo.api.Collection,command:Cwithreactivemongo.api.commands.CommandWithResult[Rwithreactivemongo.api.commands.BoxedAnyVal[A]])(implicitwriter:CommandWithPackRunner.this.pack.Writer[reactivemongo.api.commands.ResolvedCollectionCommand[C]],implicitreader:CommandWithPackRunner.this.pack.Reader[R],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.12-RC5) Use the alternative with ReadPreference">unboxed</span><span class="tparams">[<span name="A">A &lt;: <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyVal.html#scala.AnyVal" class="extype" name="scala.AnyVal">AnyVal</a></span>, <span name="R">R &lt;: <a href="BoxedAnyVal.html" class="extype" name="reactivemongo.api.commands.BoxedAnyVal">BoxedAnyVal</a>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.unboxed.A">A</span>]</span>, <span name="C">C &lt;: <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.unboxed.R">R</span>]</span>]</span><span class="params">(<span name="collection">collection: <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a></span>, <span name="command">command: <span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.unboxed.C">C</span> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.unboxed.R">R</span> with <a href="BoxedAnyVal.html" class="extype" name="reactivemongo.api.commands.BoxedAnyVal">BoxedAnyVal</a>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.unboxed.A">A</span>]]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <span class="extype" name="reactivemongo.api.SerializationPack.Writer">P.Writer</span>[<a href="ResolvedCollectionCommand.html" class="extype" name="reactivemongo.api.commands.ResolvedCollectionCommand">ResolvedCollectionCommand</a>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.unboxed.C">C</span>]]</span>, <span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">P.Reader</span>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.unboxed.R">R</span>]</span>, <span name="ec">ec: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/ExecutionContext.html#scala.concurrent.ExecutionContext" class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.unboxed.A">A</span>]</span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
-                <span class="name">@deprecated</span>
-              
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12-RC5)</i> Use the alternative with <code>ReadPreference</code></p></dd></dl></div>
-    </li><li name="reactivemongo.api.commands.Command.CommandWithPackRunner#unboxed" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="unboxed[A&lt;:AnyVal,R&lt;:reactivemongo.api.commands.BoxedAnyVal[A],C&lt;:reactivemongo.api.commands.Commandwithreactivemongo.api.commands.CommandWithResult[R]](db:reactivemongo.api.DB,command:Cwithreactivemongo.api.commands.CommandWithResult[Rwithreactivemongo.api.commands.BoxedAnyVal[A]])(implicitwriter:CommandWithPackRunner.this.pack.Writer[C],implicitreader:CommandWithPackRunner.this.pack.Reader[R],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]"></a><a id="unboxed[A&lt;:AnyVal,R&lt;:BoxedAnyVal[A],C&lt;:CommandwithCommandWithResult[R]](DB,CwithCommandWithResult[RwithBoxedAnyVal[A]])(P.Writer[C],P.Reader[R],ExecutionContext):Future[A]"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/Command$$CommandWithPackRunner.html#unboxed[A&lt;:AnyVal,R&lt;:reactivemongo.api.commands.BoxedAnyVal[A],C&lt;:reactivemongo.api.commands.Commandwithreactivemongo.api.commands.CommandWithResult[R]](db:reactivemongo.api.DB,command:Cwithreactivemongo.api.commands.CommandWithResult[Rwithreactivemongo.api.commands.BoxedAnyVal[A]])(implicitwriter:CommandWithPackRunner.this.pack.Writer[C],implicitreader:CommandWithPackRunner.this.pack.Reader[R],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.12-RC5) Use the alternative with ReadPreference">unboxed</span><span class="tparams">[<span name="A">A &lt;: <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyVal.html#scala.AnyVal" class="extype" name="scala.AnyVal">AnyVal</a></span>, <span name="R">R &lt;: <a href="BoxedAnyVal.html" class="extype" name="reactivemongo.api.commands.BoxedAnyVal">BoxedAnyVal</a>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.unboxed.A">A</span>]</span>, <span name="C">C &lt;: <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.unboxed.R">R</span>]</span>]</span><span class="params">(<span name="db">db: <a href="../DB.html" class="extype" name="reactivemongo.api.DB">DB</a></span>, <span name="command">command: <span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.unboxed.C">C</span> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.unboxed.R">R</span> with <a href="BoxedAnyVal.html" class="extype" name="reactivemongo.api.commands.BoxedAnyVal">BoxedAnyVal</a>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.unboxed.A">A</span>]]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <span class="extype" name="reactivemongo.api.SerializationPack.Writer">P.Writer</span>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.unboxed.C">C</span>]</span>, <span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">P.Reader</span>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.unboxed.R">R</span>]</span>, <span name="ec">ec: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/ExecutionContext.html#scala.concurrent.ExecutionContext" class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.unboxed.A">A</span>]</span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
-                <span class="name">@deprecated</span>
-              
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12-RC5)</i> Use the alternative with <code>ReadPreference</code></p></dd></dl></div>
-    </li><li name="reactivemongo.api.commands.Command.CommandWithPackRunner#withResponse" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="withResponse[R,C&lt;:reactivemongo.api.commands.CollectionCommandwithreactivemongo.api.commands.CommandWithResult[R]](collection:reactivemongo.api.Collection,command:C)(implicitwriter:CommandWithPackRunner.this.pack.Writer[reactivemongo.api.commands.ResolvedCollectionCommand[C]],implicitreader:CommandWithPackRunner.this.pack.Reader[R],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.ResponseResult[R]]"></a><a id="withResponse[R,C&lt;:CollectionCommandwithCommandWithResult[R]](Collection,C)(P.Writer[ResolvedCollectionCommand[C]],P.Reader[R],ExecutionContext):Future[ResponseResult[R]]"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/Command$$CommandWithPackRunner.html#withResponse[R,C&lt;:reactivemongo.api.commands.CollectionCommandwithreactivemongo.api.commands.CommandWithResult[R]](collection:reactivemongo.api.Collection,command:C)(implicitwriter:CommandWithPackRunner.this.pack.Writer[reactivemongo.api.commands.ResolvedCollectionCommand[C]],implicitreader:CommandWithPackRunner.this.pack.Reader[R],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.ResponseResult[R]]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.12-RC5) Use the alternative with ReadPreference">withResponse</span><span class="tparams">[<span name="R">R</span>, <span name="C">C &lt;: <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.withResponse.R">R</span>]</span>]</span><span class="params">(<span name="collection">collection: <a href="../Collection.html" class="extype" name="reactivemongo.api.Collection">Collection</a></span>, <span name="command">command: <span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.withResponse.C">C</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <span class="extype" name="reactivemongo.api.SerializationPack.Writer">P.Writer</span>[<a href="ResolvedCollectionCommand.html" class="extype" name="reactivemongo.api.commands.ResolvedCollectionCommand">ResolvedCollectionCommand</a>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.withResponse.C">C</span>]]</span>, <span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">P.Reader</span>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.withResponse.R">R</span>]</span>, <span name="ec">ec: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/ExecutionContext.html#scala.concurrent.ExecutionContext" class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="ResponseResult.html" class="extype" name="reactivemongo.api.commands.ResponseResult">ResponseResult</a>[<span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.withResponse.R">R</span>]]</span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
-                <span class="name">@deprecated</span>
-              
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12-RC5)</i> Use the alternative with <code>ReadPreference</code></p></dd></dl></div>
-    </li></ol>
-            </div>
+        
         </div>
 
         <div id="inheritedMembers">

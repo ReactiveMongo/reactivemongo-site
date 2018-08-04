@@ -155,22 +155,20 @@ val connection7 = driver1.connection(servers7, authentications = credentials7)
 
 Using this `connection` function [with an URI](#connect-using-mongodb-uri) allows to indicates the credentials in this URI.
 
-There is also a [`authenticate`](../../api/reactivemongo/api/DefaultDB#authenticate(user:String,password:String)(implicittimeout:scala.concurrent.duration.FiniteDuration):scala.concurrent.Future[reactivemongo.core.commands.SuccessfulAuthentication]) function for the database references.
+There is also a [`authenticate`](../../api/reactivemongo/api/MongoConnection.html#authenticate(db:String,user:String,password:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.commands.SuccessfulAuthentication]) function for the database references.
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future },
   ExecutionContext.Implicits.global
 import scala.concurrent.duration.FiniteDuration
 
-import reactivemongo.api.DefaultDB
+import reactivemongo.api.MongoConnection
 
-
-def authenticateDB(db: DefaultDB): Future[Unit] = {
+def authenticateDB(con: MongoConnection): Future[Unit] = {
   def username = "anyUser"
   def password = "correspondingPass"
-  implicit def authTimeout = FiniteDuration(5, "seconds")
 
-  val futureAuthenticated = db.authenticate(username, password)
+  val futureAuthenticated = con.authenticate("mydb", username, password)
 
   futureAuthenticated.map { _ =>
     // doSomething
@@ -260,7 +258,7 @@ libraryDependencies += "org.reactivemongo" % "reactivemongo-shaded-native" % "{{
 In order to make sure such optimization is loaded, you can enable the `INFO` level for the logger `reactivemongo.core.netty.Pack` (e.g. in your logback configuration), then check for a log entry containing "NettyPack".
 
 ```
-16:03:43.098 ReactiveMongo INFO  [r.c.n.Pack] :: Instanciated NettyPack(class reactivemongo.io.netty.channel.kqueue.KQueueSocketChannel)
+16:03:43.098 ReactiveMongo INFO  [r.c.n.Pack] :: Instantiated NettyPack(class reactivemongo.io.netty.channel.kqueue.KQueueSocketChannel)
 ```
 
 ### Additional Notes

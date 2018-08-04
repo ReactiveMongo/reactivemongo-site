@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.14 - reactivemongo.api.commands.Command</title>
-          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.api.commands.Command" />
-          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.api.commands.Command" />
+          <title>ReactiveMongo API 0.16 - reactivemongo.api.commands.Command</title>
+          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.api.commands.Command" />
+          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.api.commands.Command" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -229,10 +229,6 @@
                         <span class="separator"></span>
                         <a class="trait" href="DistinctCommand.html" title="The distinct command."></a>
                         <a href="DistinctCommand.html" title="The distinct command.">DistinctCommand</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="object" href="Drop$.html" title=""></a>
-                        <a href="Drop$.html" title="">Drop</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
                         <a class="object" href="DropCollection$.html" title=""></a>
@@ -511,7 +507,7 @@
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="reactivemongo.api.commands.Command.CommandWithPackRunner" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+              <ol><li name="reactivemongo.api.commands.Command.CommandWithPackRunner" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="CommandWithPackRunner[P&lt;:reactivemongo.api.SerializationPack]extendsProductwithSerializable"></a><a id="CommandWithPackRunner[P&lt;:SerializationPack]:CommandWithPackRunner[P]"></a>
       <span class="permalink">
       <a href="../../../reactivemongo/api/commands/Command$.html#CommandWithPackRunner[P&lt;:reactivemongo.api.SerializationPack]extendsProductwithSerializable" title="Permalink">
@@ -523,10 +519,13 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="" href="Command$$CommandWithPackRunner.html"><span class="name">CommandWithPackRunner</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="params">(<span name="pack">pack: <span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.P">P</span></span>, <span name="failover">failover: <a href="../FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="../../index.html">FailoverStrategy()</a></span></span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="Command$$CommandWithPackRunner.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">CommandWithPackRunner</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="params">(<span name="pack">pack: <span class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.P">P</span></span>, <span name="failover">failover: <a href="../FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="../../index.html">FailoverStrategy()</a></span></span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
-      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -623,22 +622,6 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="reactivemongo.api.commands.Command#defaultCursorFetcher" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="defaultCursorFetcher[P&lt;:reactivemongo.api.SerializationPack,A](db:reactivemongo.api.DB,p:P,command:A,failover:reactivemongo.api.FailoverStrategy)(implicitwriter:p.Writer[A]):reactivemongo.api.commands.CursorFetcher[p.type,reactivemongo.api.DefaultCursor.Impl]"></a><a id="defaultCursorFetcher[P&lt;:SerializationPack,A](DB,P,A,FailoverStrategy)(Command.defaultCursorFetcher.P.Writer[A]):CursorFetcher[p.type,Impl]"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/Command$.html#defaultCursorFetcher[P&lt;:reactivemongo.api.SerializationPack,A](db:reactivemongo.api.DB,p:P,command:A,failover:reactivemongo.api.FailoverStrategy)(implicitwriter:p.Writer[A]):reactivemongo.api.commands.CursorFetcher[p.type,reactivemongo.api.DefaultCursor.Impl]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">defaultCursorFetcher</span><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>, <span name="A">A</span>]</span><span class="params">(<span name="db">db: <a href="../DB.html" class="extype" name="reactivemongo.api.DB">DB</a></span>, <span name="p">p: <span class="extype" name="reactivemongo.api.commands.Command.defaultCursorFetcher.P">P</span></span>, <span name="command">command: <span class="extype" name="reactivemongo.api.commands.Command.defaultCursorFetcher.A">A</span></span>, <span name="failover">failover: <a href="../FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <span class="extype" name="reactivemongo.api.SerializationPack.Writer">Command.defaultCursorFetcher.P.Writer</span>[<span class="extype" name="reactivemongo.api.commands.Command.defaultCursorFetcher.A">A</span>]</span>)</span><span class="result">: <a href="CursorFetcher.html" class="extype" name="reactivemongo.api.commands.CursorFetcher">CursorFetcher</a>[<span class="extype" name="reactivemongo.api.commands.Command.defaultCursorFetcher.p">p</span>.type, <span class="extype" name="reactivemongo.api.DefaultCursor.Impl">Impl</span>]</span>
-      </span>
-      
-      
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">
@@ -801,28 +784,6 @@
                 <span class="name">@native</span><span class="args">()</span>
               
         </dd></dl></div>
-    </li><li name="reactivemongo.api.commands.Command#run" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="run[P&lt;:reactivemongo.api.SerializationPack](pack:P,failover:reactivemongo.api.FailoverStrategy):reactivemongo.api.commands.Command.CommandWithPackRunner[pack.type]"></a><a id="run[P&lt;:SerializationPack](P,FailoverStrategy):CommandWithPackRunner[pack.type]"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/Command$.html#run[P&lt;:reactivemongo.api.SerializationPack](pack:P,failover:reactivemongo.api.FailoverStrategy):reactivemongo.api.commands.Command.CommandWithPackRunner[pack.type]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">run</span><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="params">(<span name="pack">pack: <span class="extype" name="reactivemongo.api.commands.Command.run.P">P</span></span>, <span name="failover">failover: <a href="../FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a></span>)</span><span class="result">: <a href="Command$$CommandWithPackRunner.html" class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner">CommandWithPackRunner</a>[<span class="extype" name="reactivemongo.api.commands.Command.run.pack">pack</span>.type]</span>
-      </span>
-      
-      <p class="shortcomment cmt">Returns a command runner.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a command runner.
-</p></div><dl class="paramcmts block"><dt class="param">pack</dt><dd class="cmt"><p>the serialization pack</p></dd><dt class="param">failover</dt><dd class="cmt"><p>the failover strategy</p><pre><span class="kw">import</span> reactivemongo.bson.BSONDocument
-<span class="kw">import</span> reactivemongo.api.BSONSerializationPack
-<span class="kw">import</span> reactivemongo.api.commands.{ Command, Count }
-
-Command.run(BSONSerializationPack).
-  unboxed(aCollection, Count(BSONDocument(<span class="lit">"bulk"</span> -&gt; <span class="kw">true</span>)))</pre></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
@@ -931,10 +892,10 @@ Command.run(BSONSerializationPack).
 
         <div class="values members">
               <h3>Deprecated Value Members</h3>
-              <ol><li name="reactivemongo.api.commands.Command#run" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="run[P&lt;:reactivemongo.api.SerializationPack](pack:P):reactivemongo.api.commands.Command.CommandWithPackRunner[pack.type]"></a><a id="run[P&lt;:SerializationPack](P):CommandWithPackRunner[pack.type]"></a>
+              <ol><li name="reactivemongo.api.commands.Command#defaultCursorFetcher" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="defaultCursorFetcher[P&lt;:reactivemongo.api.SerializationPack,A](db:reactivemongo.api.DB,p:P,command:A,failover:reactivemongo.api.FailoverStrategy)(implicitwriter:p.Writer[A]):reactivemongo.api.commands.CursorFetcher[p.type,reactivemongo.api.DefaultCursor.Impl]"></a><a id="defaultCursorFetcher[P&lt;:SerializationPack,A](DB,P,A,FailoverStrategy)(Command.defaultCursorFetcher.P.Writer[A]):CursorFetcher[p.type,Impl]"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/Command$.html#run[P&lt;:reactivemongo.api.SerializationPack](pack:P):reactivemongo.api.commands.Command.CommandWithPackRunner[pack.type]" title="Permalink">
+      <a href="../../../reactivemongo/api/commands/Command$.html#defaultCursorFetcher[P&lt;:reactivemongo.api.SerializationPack,A](db:reactivemongo.api.DB,p:P,command:A,failover:reactivemongo.api.FailoverStrategy)(implicitwriter:p.Writer[A]):reactivemongo.api.commands.CursorFetcher[p.type,reactivemongo.api.DefaultCursor.Impl]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -943,13 +904,38 @@ Command.run(BSONSerializationPack).
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.12-RC0) Use run with the failoverStrategy parameter">run</span><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="params">(<span name="pack">pack: <span class="extype" name="reactivemongo.api.commands.Command.run.P">P</span></span>)</span><span class="result">: <a href="Command$$CommandWithPackRunner.html" class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner">CommandWithPackRunner</a>[<span class="extype" name="reactivemongo.api.commands.Command.run.pack">pack</span>.type]</span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">defaultCursorFetcher</span><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>, <span name="A">A</span>]</span><span class="params">(<span name="db">db: <a href="../DB.html" class="extype" name="reactivemongo.api.DB">DB</a></span>, <span name="p">p: <span class="extype" name="reactivemongo.api.commands.Command.defaultCursorFetcher.P">P</span></span>, <span name="command">command: <span class="extype" name="reactivemongo.api.commands.Command.defaultCursorFetcher.A">A</span></span>, <span name="failover">failover: <a href="../FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="writer">writer: <span class="extype" name="reactivemongo.api.SerializationPack.Writer">Command.defaultCursorFetcher.P.Writer</span>[<span class="extype" name="reactivemongo.api.commands.Command.defaultCursorFetcher.A">A</span>]</span>)</span><span class="result">: <a href="CursorFetcher.html" class="extype" name="reactivemongo.api.commands.CursorFetcher">CursorFetcher</a>[<span class="extype" name="reactivemongo.api.commands.Command.defaultCursorFetcher.p">p</span>.type, <span class="extype" name="reactivemongo.api.DefaultCursor.Impl">Impl</span>]</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12-RC0)</i> Use <code>run</code> with the <code>failoverStrategy</code> parameter</p></dd></dl></div>
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.Command#run" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="run[P&lt;:reactivemongo.api.SerializationPack](pack:P,failover:reactivemongo.api.FailoverStrategy):reactivemongo.api.commands.Command.CommandWithPackRunner[pack.type]"></a><a id="run[P&lt;:SerializationPack](P,FailoverStrategy):CommandWithPackRunner[pack.type]"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/Command$.html#run[P&lt;:reactivemongo.api.SerializationPack](pack:P,failover:reactivemongo.api.FailoverStrategy):reactivemongo.api.commands.Command.CommandWithPackRunner[pack.type]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">run</span><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="params">(<span name="pack">pack: <span class="extype" name="reactivemongo.api.commands.Command.run.P">P</span></span>, <span name="failover">failover: <a href="../FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a></span>)</span><span class="result">: <a href="Command$$CommandWithPackRunner.html" class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner">CommandWithPackRunner</a>[<span class="extype" name="reactivemongo.api.commands.Command.run.pack">pack</span>.type]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Returns a command runner.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a command runner.
+</p></div><dl class="paramcmts block"><dt class="param">pack</dt><dd class="cmt"><p>the serialization pack</p></dd><dt class="param">failover</dt><dd class="cmt"><p>the failover strategy</p><pre><span class="kw">import</span> reactivemongo.bson.BSONDocument
+<span class="kw">import</span> reactivemongo.api.BSONSerializationPack
+<span class="kw">import</span> reactivemongo.api.commands.{ Command, Count }
+
+Command.run(BSONSerializationPack).
+  unboxed(aCollection, Count(BSONDocument(<span class="lit">"bulk"</span> -&gt; <span class="kw">true</span>)))</pre></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
     </li></ol>
             </div>
         </div>

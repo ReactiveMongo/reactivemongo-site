@@ -34,6 +34,8 @@ Of course you can collect only a limited number of documents.
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.bson.BSONDocument
+
+import reactivemongo.api.Cursor
 import reactivemongo.api.collections.bson.BSONCollection
 
 def findOlder2(collection: BSONCollection) = {
@@ -43,7 +45,8 @@ def findOlder2(collection: BSONCollection) = {
   val projection = BSONDocument("name" -> 1)
 
   collection.find(query, projection).cursor[BSONDocument]().
-    collect[List](25) // get up to 25 documents
+    collect[List](25, // get up to 25 documents
+      Cursor.FailOnError[List[BSONDocument]]())
 }
 {% endhighlight %}
 
@@ -57,7 +60,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.bson.BSONDocument
 
-import reactivemongo.api.QueryOpts
+import reactivemongo.api.{ Cursor, QueryOpts }
 import reactivemongo.api.collections.bson.BSONCollection
 
 def findNOlder(collection: BSONCollection, limit: Int) = {
@@ -66,7 +69,8 @@ def findNOlder(collection: BSONCollection, limit: Int) = {
 
   // Sets options before executing the query
   querybuilder.options(QueryOpts().batchSize(limit)).
-    cursor[BSONDocument]().collect[List](10)
+    cursor[BSONDocument]().collect[List](10, // get up to 10 documents
+      Cursor.FailOnError[List[BSONDocument]]())
  
 }
 {% endhighlight %}
@@ -100,14 +104,16 @@ It must be given a Scala collection type, like [`List`](http://www.scala-lang.or
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
 import reactivemongo.bson.BSONDocument
+
+import reactivemongo.api.Cursor
 import reactivemongo.api.collections.bson.BSONCollection
 
 trait PersonService2 {
   def collection: BSONCollection
 
   def persons(age: Int)(implicit ec: ExecutionContext): Future[List[Person]] =
-    collection.find(BSONDocument("age" -> age)).
-      cursor[Person]().collect[List]()
+    collection.find(BSONDocument("age" -> age)).cursor[Person]().
+    collect[List](-1, Cursor.FailOnError[List[Person]]())
 }
 {% endhighlight %}
 
@@ -120,16 +126,18 @@ The return type of the `find` method is a `GenericQueryBuilder`, which enables t
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global
 import reactivemongo.bson.BSONDocument
+
+import reactivemongo.api.Cursor
 import reactivemongo.api.collections.bson.BSONCollection
 
 def findOlder3(collection: BSONCollection) = {
   val query = BSONDocument("age" -> BSONDocument("$gt" -> 27))
 
   collection.find(query).
-    // sort by lastName
-    sort(BSONDocument("lastName" -> 1)).
-    cursor[BSONDocument]().collect[List]()
-}  
+    sort(BSONDocument("lastName" -> 1)). // sort by lastName
+    cursor[BSONDocument]().
+    collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
+}
 {% endhighlight %}
 
 ### Use Readers to deserialize documents automatically
@@ -139,7 +147,11 @@ def findOlder3(collection: BSONCollection) = {
 {% highlight scala %}
 import reactivemongo.bson._
 
-case class Person(id: BSONObjectID, firstName: String, lastName: String, age: Int)
+case class Person(
+  id: BSONObjectID,
+  firstName: String,
+  lastName: String,
+  age: Int)
 
 object Person {
   implicit object PersonReader extends BSONDocumentReader[Person] {
@@ -163,6 +175,8 @@ This system is fully supported in the Collection API, so you can get the results
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson.{ BSONDocument, BSONDocumentReader }
+
+import reactivemongo.api.Cursor
 import reactivemongo.api.collections.bson.BSONCollection
 
 def findOlder4(collection: BSONCollection)(implicit ec: ExecutionContext, reader: BSONDocumentReader[Person]): Future[List[Person]] = {
@@ -173,8 +187,8 @@ def findOlder4(collection: BSONCollection)(implicit ec: ExecutionContext, reader
      * Indicate that the documents should be transformed into `Person`.
      * A `BSONDocumentReader[Person]` should be in the implicit scope.
      */
-    cursor[Person]().
-    collect[List]() // ... collect in a `List`
+    cursor[Person](). // ... collect in a `List`
+    collect[List](-1, Cursor.FailOnError[List[Person]]())
 
   peopleOlderThanTwentySeven.map { people =>
     for (person <- people) println(s"found $person")

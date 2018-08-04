@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.14 - reactivemongo.api.commands.bson.BSONUpdateCommandImplicits.UpdateResultReader</title>
-          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.api.commands.bson.BSONUpdateCommandImplicits.UpdateResultReader" />
-          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.api.commands.bson.BSONUpdateCommandImplicits.UpdateResultReader" />
+          <title>ReactiveMongo API 0.16 - reactivemongo.api.commands.bson.BSONUpdateCommandImplicits.UpdateResultReader</title>
+          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.api.commands.bson.BSONUpdateCommandImplicits.UpdateResultReader" />
+          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.api.commands.bson.BSONUpdateCommandImplicits.UpdateResultReader" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -145,10 +145,13 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="BSONUpdateCommandImplicits$.html"><span class="name">BSONUpdateCommandImplicits</span></a>
+        <a title="" href="BSONUpdateCommandImplicits$.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">BSONUpdateCommandImplicits</span></a>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="index.html" class="extype" name="reactivemongo.api.commands.bson">bson</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="index.html" class="extype" name="reactivemongo.api.commands.bson">bson</a></dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
     </li><li class="current-entities indented5">
                         <span class="separator"></span>
                         <a class="object" href="BSONUpdateCommandImplicits$$UpdateElementWriter$.html" title=""></a>
@@ -188,12 +191,15 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">UpdateResultReader</span><span class="result"> extends <a href="DealingWithGenericCommandErrorsReader.html" class="extype" name="reactivemongo.api.commands.bson.DealingWithGenericCommandErrorsReader">DealingWithGenericCommandErrorsReader</a>[<a href="BSONUpdateCommand$.html#UpdateResult=reactivemongo.api.commands.UpdateWriteResult" class="extmbr" name="reactivemongo.api.commands.bson.BSONUpdateCommand.UpdateResult">BSONUpdateCommand.UpdateResult</a>]</span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be removed">UpdateResultReader</span><span class="result"> extends <a href="DealingWithGenericCommandErrorsReader.html" class="extype" name="reactivemongo.api.commands.bson.DealingWithGenericCommandErrorsReader">DealingWithGenericCommandErrorsReader</a>[<a href="BSONUpdateCommand$.html#UpdateResult=reactivemongo.api.commands.UpdateWriteResult" class="extmbr" name="reactivemongo.api.commands.bson.BSONUpdateCommand.UpdateResult">BSONUpdateCommand.UpdateResult</a>]</span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be removed</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -570,9 +576,9 @@ If used outside a reader, one should consider <code>readTry(bson: B): Try[T]</co
       
       <p class="shortcomment cmt">Tries to produce an instance of <code>T</code> from the <code>bson</code> value, returns <code>None</code> if an error occurred.</p><div class="fullcomment"><div class="comment cmt"><p>Tries to produce an instance of <code>T</code> from the <code>bson</code> value, returns <code>None</code> if an error occurred.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../../bson/BSONReader.html" class="extype" name="reactivemongo.bson.BSONReader">BSONReader</a></dd></dl></div>
     </li><li name="reactivemongo.api.commands.bson.BSONUpdateCommandImplicits.UpdateResultReader#readResult" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="readResult(doc:reactivemongo.bson.BSONDocument):reactivemongo.api.commands.UpdateWriteResult"></a><a id="readResult(BSONDocument):UpdateWriteResult"></a>
+      <a id="readResult(doc:reactivemongo.bson.BSONDocument):reactivemongo.api.commands.bson.BSONUpdateCommand.UpdateResult"></a><a id="readResult(BSONDocument):BSONUpdateCommand.UpdateResult"></a>
       <span class="permalink">
-      <a href="../../../../reactivemongo/api/commands/bson/BSONUpdateCommandImplicits$$UpdateResultReader$.html#readResult(doc:reactivemongo.bson.BSONDocument):reactivemongo.api.commands.UpdateWriteResult" title="Permalink">
+      <a href="../../../../reactivemongo/api/commands/bson/BSONUpdateCommandImplicits$$UpdateResultReader$.html#readResult(doc:reactivemongo.bson.BSONDocument):reactivemongo.api.commands.bson.BSONUpdateCommand.UpdateResult" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -581,7 +587,7 @@ If used outside a reader, one should consider <code>readTry(bson: B): Try[T]</co
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">readResult</span><span class="params">(<span name="doc">doc: <a href="../../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span><span class="result">: <a href="../UpdateWriteResult.html" class="extype" name="reactivemongo.api.commands.UpdateWriteResult">UpdateWriteResult</a></span>
+        <span class="name">readResult</span><span class="params">(<span name="doc">doc: <a href="../../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span><span class="result">: <a href="BSONUpdateCommand$.html#UpdateResult=reactivemongo.api.commands.UpdateWriteResult" class="extmbr" name="reactivemongo.api.commands.bson.BSONUpdateCommand.UpdateResult">BSONUpdateCommand.UpdateResult</a></span>
       </span>
       
       <p class="shortcomment cmt">Results the successful result (only if <code>ok</code> is true).</p><div class="fullcomment"><div class="comment cmt"><p>Results the successful result (only if <code>ok</code> is true).</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.commands.bson.BSONUpdateCommandImplicits.UpdateResultReader">UpdateResultReader</a> → <a href="DealingWithGenericCommandErrorsReader.html" class="extype" name="reactivemongo.api.commands.bson.DealingWithGenericCommandErrorsReader">DealingWithGenericCommandErrorsReader</a></dd></dl></div>

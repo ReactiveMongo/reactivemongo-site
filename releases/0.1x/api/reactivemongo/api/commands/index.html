@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.14 - reactivemongo.api.commands</title>
-          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.api.commands" />
-          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.api.commands" />
+          <title>ReactiveMongo API 0.16 - reactivemongo.api.commands</title>
+          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.api.commands" />
+          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.api.commands" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -245,10 +245,6 @@
                         <span class="separator"></span>
                         <a class="trait" href="DistinctCommand.html" title="The distinct command."></a>
                         <a href="DistinctCommand.html" title="The distinct command.">DistinctCommand</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="object" href="Drop$.html" title=""></a>
-                        <a href="Drop$.html" title="">Drop</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
                         <a class="object" href="DropCollection$.html" title=""></a>
@@ -557,23 +553,7 @@
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="reactivemongo.api.commands.AbstractCommand" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="AbstractCommandextendsAnyRef"></a><a id="AbstractCommand:AbstractCommand"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#AbstractCommandextendsAnyRef" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier">sealed </span>
-        <span class="kind">trait</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="AbstractCommand.html"><span class="name">AbstractCommand</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
-      </span>
-      
-      
-    </li><li name="reactivemongo.api.commands.AggregationFramework" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
+              <ol><li name="reactivemongo.api.commands.AggregationFramework" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="AggregationFramework[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]withGroupAggregation[P]withAggregationPipeline[P]"></a><a id="AggregationFramework[P&lt;:SerializationPack]:AggregationFramework[P]"></a>
       <span class="permalink">
       <a href="../../../reactivemongo/api/commands/index.html#AggregationFramework[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]withGroupAggregation[P]withAggregationPipeline[P]" title="Permalink">
@@ -602,38 +582,6 @@
       </span>
       <span class="symbol">
         <a title="" href="BoxedAnyVal.html"><span class="name">BoxedAnyVal</span></a><span class="tparams">[<span name="A">A &lt;: <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyVal.html#scala.AnyVal" class="extype" name="scala.AnyVal">AnyVal</a></span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
-      </span>
-      
-      
-    </li><li name="reactivemongo.api.commands.Capped" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="CappedextendsProductwithSerializable"></a><a id="Capped:Capped"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#CappedextendsProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="Capped.html"><span class="name">Capped</span></a><span class="params">(<span name="size">size: <a href="http://www.scala-lang.org/api/2.12.6/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a></span>, <span name="max">max: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      
-    </li><li name="reactivemongo.api.commands.CollStats" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="CollStatsextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.CollStatsResult]withProductwithSerializable"></a><a id="CollStats:CollStats"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#CollStatsextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.CollStatsResult]withProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="CollStats.html"><span class="name">CollStats</span></a><span class="params">(<span name="scale">scale: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="CollStatsResult.html" class="extype" name="reactivemongo.api.commands.CollStatsResult">CollStatsResult</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       
@@ -683,22 +631,6 @@
       </span>
       <span class="symbol">
         <a title="" href="CollectionCommand.html"><span class="name">CollectionCommand</span></a><span class="result"> extends <a href="AbstractCommand.html" class="extype" name="reactivemongo.api.commands.AbstractCommand">AbstractCommand</a></span>
-      </span>
-      
-      
-    </li><li name="reactivemongo.api.commands.CollectionNames" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="CollectionNamesextendsProductwithSerializable"></a><a id="CollectionNames:CollectionNames"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#CollectionNamesextendsProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="CollectionNames.html"><span class="name">CollectionNames</span></a><span class="params">(<span name="names">names: <span class="extype" name="scala.List">List</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       
@@ -766,87 +698,6 @@
       </span>
       
       
-    </li><li name="reactivemongo.api.commands.ConvertToCapped" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="ConvertToCappedextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.UnitBox.type]withProductwithSerializable"></a><a id="ConvertToCapped:ConvertToCapped"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#ConvertToCappedextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.UnitBox.type]withProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="ConvertToCapped.html"><span class="name">ConvertToCapped</span></a><span class="params">(<span name="capped">capped: <a href="Capped.html" class="extype" name="reactivemongo.api.commands.Capped">Capped</a></span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      
-    </li><li name="reactivemongo.api.commands.CountCommand" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="CountCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]"></a><a id="CountCommand[P&lt;:SerializationPack]:CountCommand[P]"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#CountCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">trait</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="CountCommand.html"><span class="name">CountCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.CountCommand.P">P</span>]</span>
-      </span>
-      
-      
-    </li><li name="reactivemongo.api.commands.Create" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="CreateextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.UnitBox.type]withProductwithSerializable"></a><a id="Create:Create"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#CreateextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.UnitBox.type]withProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="Create.html"><span class="name">Create</span></a><span class="params">(<span name="capped">capped: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="Capped.html" class="extype" name="reactivemongo.api.commands.Capped">Capped</a>] = <span class="symbol">None</span></span>, <span name="autoIndexId">autoIndexId: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a> = <span class="symbol">true</span></span>, <span name="flags">flags: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a> = <span class="symbol">1</span></span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      
-    </li><li name="reactivemongo.api.commands.CreateIndexes" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="CreateIndexesextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.WriteResult]withProductwithSerializable"></a><a id="CreateIndexes:CreateIndexes"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#CreateIndexesextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.WriteResult]withProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="Creates the given indexes on the specified collection." href="CreateIndexes.html"><span class="name">CreateIndexes</span></a><span class="params">(<span name="db">db: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="indexes">indexes: <span class="extype" name="scala.List">List</span>[<a href="../indexes/Index.html" class="extype" name="reactivemongo.api.indexes.Index">Index</a>]</span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">Creates the given indexes on the specified collection.</p><div class="fullcomment"><div class="comment cmt"><p>Creates the given indexes on the specified collection.
-</p></div><dl class="paramcmts block"><dt class="param">db</dt><dd class="cmt"><p>the database name</p></dd><dt class="param">indexes</dt><dd class="cmt"><p>the indexes to be created</p></dd></dl></div>
-    </li><li name="reactivemongo.api.commands.CreateUserCommand" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="CreateUserCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]"></a><a id="CreateUserCommand[P&lt;:SerializationPack]:CreateUserCommand[P]"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#CreateUserCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">trait</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="CreateUserCommand.html"><span class="name">CreateUserCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.CreateUserCommand.P">P</span>]</span>
-      </span>
-      
-      
     </li><li name="reactivemongo.api.commands.CursorFetcher" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="CursorFetcher[P&lt;:reactivemongo.api.SerializationPack,+C[_]&lt;:reactivemongo.api.Cursor[_]]extendsAnyRef"></a><a id="CursorFetcher[P&lt;:SerializationPack,+C[_]&lt;:Cursor[_]]:CursorFetcher[P,C]"></a>
       <span class="permalink">
@@ -895,134 +746,6 @@
       </span>
       
       <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">db</dt><dd class="cmt"><p>the name of the database</p></dd></dl></div>
-    </li><li name="reactivemongo.api.commands.DefaultWriteResult" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="DefaultWriteResultextendsWriteResultwithProductwithSerializable"></a><a id="DefaultWriteResult:DefaultWriteResult"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#DefaultWriteResultextendsWriteResultwithProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="DefaultWriteResult.html"><span class="name">DefaultWriteResult</span></a><span class="params">(<span name="ok">ok: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="n">n: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="writeErrors">writeErrors: <span class="extype" name="scala.Seq">Seq</span>[<a href="WriteError.html" class="extype" name="reactivemongo.api.commands.WriteError">WriteError</a>]</span>, <span name="writeConcernError">writeConcernError: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="WriteConcernError.html" class="extype" name="reactivemongo.api.commands.WriteConcernError">WriteConcernError</a>]</span>, <span name="code">code: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>]</span>, <span name="errmsg">errmsg: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result"> extends <a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      
-    </li><li name="reactivemongo.api.commands.DeleteCommand" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="DeleteCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]"></a><a id="DeleteCommand[P&lt;:SerializationPack]:DeleteCommand[P]"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#DeleteCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">trait</span>
-      </span>
-      <span class="symbol">
-        <a title="Implements the delete command." href="DeleteCommand.html"><span class="name">DeleteCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.DeleteCommand.P">P</span>]</span>
-      </span>
-      
-      <p class="shortcomment cmt">Implements the <a href="https://docs.mongodb.com/manual/reference/command/delete/" target="_blank">delete</a> command.</p>
-    </li><li name="reactivemongo.api.commands.DistinctCommand" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="DistinctCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]"></a><a id="DistinctCommand[P&lt;:SerializationPack]:DistinctCommand[P]"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#DistinctCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">trait</span>
-      </span>
-      <span class="symbol">
-        <a title="The distinct command." href="DistinctCommand.html"><span class="name">DistinctCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.DistinctCommand.P">P</span>]</span>
-      </span>
-      
-      <p class="shortcomment cmt">The <a href="https://docs.mongodb.org/manual/reference/command/distinct/" target="_blank">distinct</a> command.</p>
-    </li><li name="reactivemongo.api.commands.DropCollectionResult" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="DropCollectionResultextendsProductwithSerializable"></a><a id="DropCollectionResult:DropCollectionResult"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#DropCollectionResultextendsProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="DropCollectionResult.html"><span class="name">DropCollectionResult</span></a><span class="params">(<span name="dropped">dropped: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">dropped</dt><dd class="cmt"><p>true if the collection existed and was dropped</p></dd></dl></div>
-    </li><li name="reactivemongo.api.commands.DropIndexes" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="DropIndexesextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.DropIndexesResult]withProductwithSerializable"></a><a id="DropIndexes:DropIndexes"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#DropIndexesextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.DropIndexesResult]withProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="DropIndexes.html"><span class="name">DropIndexes</span></a><span class="params">(<span name="index">index: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="DropIndexesResult.html" class="extype" name="reactivemongo.api.commands.DropIndexesResult">DropIndexesResult</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      
-    </li><li name="reactivemongo.api.commands.DropIndexesResult" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="DropIndexesResultextendsBoxedAnyVal[Int]withProductwithSerializable"></a><a id="DropIndexesResult:DropIndexesResult"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#DropIndexesResultextendsBoxedAnyVal[Int]withProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="DropIndexesResult.html"><span class="name">DropIndexesResult</span></a><span class="params">(<span name="value">value: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result"> extends <a href="BoxedAnyVal.html" class="extype" name="reactivemongo.api.commands.BoxedAnyVal">BoxedAnyVal</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      
-    </li><li name="reactivemongo.api.commands.FindAndModifyCommand" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="FindAndModifyCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]"></a><a id="FindAndModifyCommand[P&lt;:SerializationPack]:FindAndModifyCommand[P]"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#FindAndModifyCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">trait</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="FindAndModifyCommand.html"><span class="name">FindAndModifyCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.P">P</span>]</span>
-      </span>
-      
-      
-    </li><li name="reactivemongo.api.commands.GetLastError" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="GetLastErrorextendsCommandwithCommandWithResult[reactivemongo.api.commands.LastError]withProductwithSerializable"></a><a id="GetLastError:GetLastError"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#GetLastErrorextendsCommandwithCommandWithResult[reactivemongo.api.commands.LastError]withProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="GetLastError.html"><span class="name">GetLastError</span></a><span class="params">(<span name="w">w: <a href="GetLastError$$W.html" class="extype" name="reactivemongo.api.commands.GetLastError.W">W</a></span>, <span name="j">j: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="fsync">fsync: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="wtimeout">wtimeout: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="LastError.html" class="extype" name="reactivemongo.api.commands.LastError">LastError</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">wtimeout</dt><dd class="cmt"><p>the <a href="http://docs.mongodb.org/manual/reference/write-concern/#wtimeout" target="_blank">time limit</a></p></dd></dl></div>
     </li><li name="reactivemongo.api.commands.ImplicitCommandHelpers" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="ImplicitCommandHelpers[P&lt;:reactivemongo.api.SerializationPack]extendsAnyRef"></a><a id="ImplicitCommandHelpers[P&lt;:SerializationPack]:ImplicitCommandHelpers[P]"></a>
       <span class="permalink">
@@ -1036,38 +759,6 @@
       </span>
       <span class="symbol">
         <a title="" href="ImplicitCommandHelpers.html"><span class="name">ImplicitCommandHelpers</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
-      </span>
-      
-      
-    </li><li name="reactivemongo.api.commands.InsertCommand" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="InsertCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]"></a><a id="InsertCommand[P&lt;:SerializationPack]:InsertCommand[P]"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#InsertCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">trait</span>
-      </span>
-      <span class="symbol">
-        <a title="Implements the insert command." href="InsertCommand.html"><span class="name">InsertCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.InsertCommand.P">P</span>]</span>
-      </span>
-      
-      <p class="shortcomment cmt">Implements the <a href="https://docs.mongodb.com/manual/reference/command/insert/" target="_blank">insert</a> command.</p>
-    </li><li name="reactivemongo.api.commands.IsMasterCommand" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="IsMasterCommand[P&lt;:reactivemongo.api.SerializationPack]extendsAnyRef"></a><a id="IsMasterCommand[P&lt;:SerializationPack]:IsMasterCommand[P]"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#IsMasterCommand[P&lt;:reactivemongo.api.SerializationPack]extendsAnyRef" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">trait</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="IsMasterCommand.html"><span class="name">IsMasterCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       
@@ -1087,23 +778,6 @@
       </span>
       
       
-    </li><li name="reactivemongo.api.commands.ListIndexes" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ListIndexesextendsCollectionCommandwithCommandWithResult[List[reactivemongo.api.indexes.Index]]withProductwithSerializable"></a><a id="ListIndexes:ListIndexes"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#ListIndexesextendsCollectionCommandwithCommandWithResult[List[reactivemongo.api.indexes.Index]]withProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="Lists the indexes of the specified collection." href="ListIndexes.html"><span class="name">ListIndexes</span></a><span class="params">(<span name="db">db: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<span class="extype" name="scala.List">List</span>[<a href="../indexes/Index.html" class="extype" name="reactivemongo.api.indexes.Index">Index</a>]] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">Lists the indexes of the specified collection.</p><div class="fullcomment"><div class="comment cmt"><p>Lists the indexes of the specified collection.
-</p></div><dl class="paramcmts block"><dt class="param">db</dt><dd class="cmt"><p>the database name</p></dd></dl></div>
     </li><li name="reactivemongo.api.commands.MultiBulkWriteResult" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="MultiBulkWriteResultextendsProductwithSerializable"></a><a id="MultiBulkWriteResult:MultiBulkWriteResult"></a>
       <span class="permalink">
@@ -1120,40 +794,6 @@
       </span>
       
       
-    </li><li name="reactivemongo.api.commands.RenameCollection" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="RenameCollectionextendsCommandwithCommandWithResult[reactivemongo.api.commands.UnitBox.type]withProductwithSerializable"></a><a id="RenameCollection:RenameCollection"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#RenameCollectionextendsCommandwithCommandWithResult[reactivemongo.api.commands.UnitBox.type]withProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="RenameCollection.html"><span class="name">RenameCollection</span></a><span class="params">(<span name="fullyQualifiedCollectionName">fullyQualifiedCollectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="fullyQualifiedTargetName">fullyQualifiedTargetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dropTarget">dropTarget: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      
-    </li><li name="reactivemongo.api.commands.ReplSetMaintenance" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ReplSetMaintenanceextendsCommandwithCommandWithResult[reactivemongo.api.commands.UnitBox.type]withProductwithSerializable"></a><a id="ReplSetMaintenance:ReplSetMaintenance"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#ReplSetMaintenanceextendsCommandwithCommandWithResult[reactivemongo.api.commands.UnitBox.type]withProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="The replSetMaintenance command." href="ReplSetMaintenance.html"><span class="name">ReplSetMaintenance</span></a><span class="params">(<span name="enable">enable: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">The <a href="https://docs.mongodb.org/manual/reference/command/replSetMaintenance/" target="_blank">replSetMaintenance</a> command.</p><div class="fullcomment"><div class="comment cmt"><p>The <a href="https://docs.mongodb.org/manual/reference/command/replSetMaintenance/" target="_blank">replSetMaintenance</a> command.
-It must be executed against the <code>admin</code> database.
-</p></div><dl class="paramcmts block"><dt class="param">enable</dt><dd class="cmt"><p>if true the the member enters the <code>RECOVERING</code> state</p></dd></dl></div>
     </li><li name="reactivemongo.api.commands.ReplSetMember" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ReplSetMemberextendsProductwithSerializable"></a><a id="ReplSetMember:ReplSetMember"></a>
       <span class="permalink">
@@ -1204,22 +844,6 @@ It must be executed against the <code>admin</code> database.
       </span>
       
       <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">collection</dt><dd class="cmt"><p>the name of the collection against which the command is executed</p></dd><dt class="param">command</dt><dd class="cmt"><p>the executed command</p></dd></dl></div>
-    </li><li name="reactivemongo.api.commands.ResponseResult" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ResponseResult[R]extendsProductwithSerializable"></a><a id="ResponseResult[R]:ResponseResult[R]"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#ResponseResult[R]extendsProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="ResponseResult.html"><span class="name">ResponseResult</span></a><span class="tparams">[<span name="R">R</span>]</span><span class="params">(<span name="response">response: <a href="../../core/protocol/Response.html" class="extype" name="reactivemongo.core.protocol.Response">Response</a></span>, <span name="numberToReturn">numberToReturn: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="value">value: <span class="extype" name="reactivemongo.api.commands.ResponseResult.R">R</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">response</dt><dd class="cmt"><p>the response associated with the result</p></dd><dt class="param">numberToReturn</dt><dd class="cmt"><p>the number of documents to return</p></dd><dt class="param">value</dt><dd class="cmt"><p>the value parsed from the response</p></dd></dl></div>
     </li><li name="reactivemongo.api.commands.ResultCursor" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ResultCursorextendsProductwithSerializable"></a><a id="ResultCursor:ResultCursor"></a>
       <span class="permalink">
@@ -1413,22 +1037,6 @@ ServerStatusJournaling</p></span></dd></dl></div>
       </span>
       
       <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">host</dt><dd class="cmt"><p>the system hostname</p></dd><dt class="param">version</dt><dd class="cmt"><p>the MongoDB version</p></dd><dt class="param">process</dt><dd class="cmt"><p>the MongoDB process</p></dd><dt class="param">pid</dt><dd class="cmt"><p>the process ID</p></dd><dt class="param">uptime</dt><dd class="cmt"><p>the number of seconds this process has been active</p></dd><dt class="param">uptimeMillis</dt><dd class="cmt"><p>same as <code>uptime</code> but with millisecond precision</p></dd><dt class="param">uptimeEstimate</dt><dd class="cmt"><p>the uptime in seconds as calculated from MongoDB’s internal course-grained time keeping system</p></dd><dt class="param">localTime</dt><dd class="cmt"><p>the UTC representation of the current server time</p></dd><dt class="param">advisoryHostFQDNs</dt><dd class="cmt"><p>since MongoDB 3.2 (otherwise empty), the array of system fully qualified names</p></dd><dt class="param">asserts</dt><dd class="cmt"><p>the statistics about the assertions raised by the MongoDB process since it starts</p></dd><dt class="param">backgroundFlushing</dt><dd class="cmt"><p>the report on the periodic writes to disk (only for the MMAPv1 storage engine)</p></dd><dt class="param">connections</dt><dd class="cmt"><p>the report about the status of the connection</p></dd><dt class="param">dur</dt><dd class="cmt"><p>the report about the mongod instance’s journaling-related operations (only for the MMAPv1 storage engine with the journaling enabled)</p></dd><dt class="param">extraInfo</dt><dd class="cmt"><p>the additional information regarding the underlying system</p></dd><dt class="param">globalLock</dt><dd class="cmt"><p>the report about the database lock state</p></dd><dt class="param">network</dt><dd class="cmt"><p>the report about the MongoDB network use</p></dd></dl><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p>@see https://docs.mongodb.com/manual/reference/command/serverStatus/</p></span></dd></dl></div>
-    </li><li name="reactivemongo.api.commands.UpdateCommand" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="UpdateCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]"></a><a id="UpdateCommand[P&lt;:SerializationPack]:UpdateCommand[P]"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#UpdateCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">trait</span>
-      </span>
-      <span class="symbol">
-        <a title="Implements the update command." href="UpdateCommand.html"><span class="name">UpdateCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.UpdateCommand.P">P</span>]</span>
-      </span>
-      
-      <p class="shortcomment cmt">Implements the <a href="https://docs.mongodb.com/manual/reference/command/update/" target="_blank">update</a> command.</p>
     </li><li name="reactivemongo.api.commands.UpdateWriteResult" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="UpdateWriteResultextendsWriteResultwithProductwithSerializable"></a><a id="UpdateWriteResult:UpdateWriteResult"></a>
       <span class="permalink">
@@ -1477,22 +1085,6 @@ ServerStatusJournaling</p></span></dd></dl></div>
       </span>
       
       <p class="shortcomment cmt"></p>
-    </li><li name="reactivemongo.api.commands.WriteConcern" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="WriteConcern=reactivemongo.api.commands.GetLastError"></a><a id="WriteConcern:WriteConcern"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#WriteConcern=reactivemongo.api.commands.GetLastError" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">type</span>
-      </span>
-      <span class="symbol">
-        <span class="name">WriteConcern</span><span class="result alias"> = <a href="GetLastError.html" class="extype" name="reactivemongo.api.commands.GetLastError">GetLastError</a></span>
-      </span>
-      
-      
     </li><li name="reactivemongo.api.commands.WriteConcernError" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="WriteConcernErrorextendsProductwithSerializable"></a><a id="WriteConcernError:WriteConcernError"></a>
       <span class="permalink">
@@ -1541,6 +1133,390 @@ ServerStatusJournaling</p></span></dd></dl></div>
       </span>
       
       
+    </li><li name="reactivemongo.api.commands.AbstractCommand" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="AbstractCommandextendsAnyRef"></a><a id="AbstractCommand:AbstractCommand"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#AbstractCommandextendsAnyRef" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="AbstractCommand.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be removed; See Command">AbstractCommand</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be removed; See <code>Command</code></p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.Capped" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="CappedextendsProductwithSerializable"></a><a id="Capped:Capped"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#CappedextendsProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="Capped.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">Capped</span></a><span class="params">(<span name="size">size: <a href="http://www.scala-lang.org/api/2.12.6/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a></span>, <span name="max">max: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.CollStats" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="CollStatsextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.CollStatsResult]withProductwithSerializable"></a><a id="CollStats:CollStats"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#CollStatsextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.CollStatsResult]withProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="CollStats.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">CollStats</span></a><span class="params">(<span name="scale">scale: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="CollStatsResult.html" class="extype" name="reactivemongo.api.commands.CollStatsResult">CollStatsResult</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.CollectionNames" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="CollectionNamesextendsProductwithSerializable"></a><a id="CollectionNames:CollectionNames"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#CollectionNamesextendsProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="CollectionNames.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">CollectionNames</span></a><span class="params">(<span name="names">names: <span class="extype" name="scala.List">List</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.ConvertToCapped" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ConvertToCappedextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.UnitBox.type]withProductwithSerializable"></a><a id="ConvertToCapped:ConvertToCapped"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#ConvertToCappedextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.UnitBox.type]withProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="ConvertToCapped.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">ConvertToCapped</span></a><span class="params">(<span name="capped">capped: <a href="Capped.html" class="extype" name="reactivemongo.api.commands.Capped">Capped</a></span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.CountCommand" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="CountCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]"></a><a id="CountCommand[P&lt;:SerializationPack]:CountCommand[P]"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#CountCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="CountCommand.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Use new reactivemongo.api.collections.CountOp">CountCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.CountCommand.P">P</span>]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Use new <code>reactivemongo.api.collections.CountOp</code></p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.Create" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="CreateextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.UnitBox.type]withProductwithSerializable"></a><a id="Create:Create"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#CreateextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.UnitBox.type]withProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="Create.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">Create</span></a><span class="params">(<span name="capped">capped: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="Capped.html" class="extype" name="reactivemongo.api.commands.Capped">Capped</a>] = <span class="symbol">None</span></span>, <span name="autoIndexId">autoIndexId: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a> = <span class="symbol">true</span></span>, <span name="flags">flags: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a> = <span class="symbol">1</span></span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.CreateIndexes" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="CreateIndexesextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.WriteResult]withProductwithSerializable"></a><a id="CreateIndexes:CreateIndexes"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#CreateIndexesextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.WriteResult]withProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="Creates the given indexes on the specified collection." href="CreateIndexes.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">CreateIndexes</span></a><span class="params">(<span name="db">db: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="indexes">indexes: <span class="extype" name="scala.List">List</span>[<a href="../indexes/Index.html" class="extype" name="reactivemongo.api.indexes.Index">Index</a>]</span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Creates the given indexes on the specified collection.</p><div class="fullcomment"><div class="comment cmt"><p>Creates the given indexes on the specified collection.
+</p></div><dl class="paramcmts block"><dt class="param">db</dt><dd class="cmt"><p>the database name</p></dd><dt class="param">indexes</dt><dd class="cmt"><p>the indexes to be created</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.CreateUserCommand" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="CreateUserCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]"></a><a id="CreateUserCommand[P&lt;:SerializationPack]:CreateUserCommand[P]"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#CreateUserCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="CreateUserCommand.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">CreateUserCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.CreateUserCommand.P">P</span>]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.DefaultWriteResult" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="DefaultWriteResultextendsWriteResultwithProductwithSerializable"></a><a id="DefaultWriteResult:DefaultWriteResult"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#DefaultWriteResultextendsWriteResultwithProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DefaultWriteResult.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">DefaultWriteResult</span></a><span class="params">(<span name="ok">ok: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="n">n: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="writeErrors">writeErrors: <span class="extype" name="scala.Seq">Seq</span>[<a href="WriteError.html" class="extype" name="reactivemongo.api.commands.WriteError">WriteError</a>]</span>, <span name="writeConcernError">writeConcernError: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="WriteConcernError.html" class="extype" name="reactivemongo.api.commands.WriteConcernError">WriteConcernError</a>]</span>, <span name="code">code: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>]</span>, <span name="errmsg">errmsg: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result"> extends <a href="WriteResult.html" class="extype" name="reactivemongo.api.commands.WriteResult">WriteResult</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.DeleteCommand" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="DeleteCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]"></a><a id="DeleteCommand[P&lt;:SerializationPack]:DeleteCommand[P]"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#DeleteCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="Implements the delete command." href="DeleteCommand.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Use the new delete operation">DeleteCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.DeleteCommand.P">P</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Implements the <a href="https://docs.mongodb.com/manual/reference/command/delete/" target="_blank">delete</a> command.</p><div class="fullcomment"><div class="comment cmt"><p>Implements the <a href="https://docs.mongodb.com/manual/reference/command/delete/" target="_blank">delete</a> command.
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Use the new <code>delete</code> operation</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.DistinctCommand" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="DistinctCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]"></a><a id="DistinctCommand[P&lt;:SerializationPack]:DistinctCommand[P]"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#DistinctCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="The distinct command." href="DistinctCommand.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Use .distinct on collection">DistinctCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.DistinctCommand.P">P</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">The <a href="https://docs.mongodb.org/manual/reference/command/distinct/" target="_blank">distinct</a> command.</p><div class="fullcomment"><div class="comment cmt"><p>The <a href="https://docs.mongodb.org/manual/reference/command/distinct/" target="_blank">distinct</a> command.</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Use <code>.distinct</code> on collection</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.DropCollectionResult" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="DropCollectionResultextendsProductwithSerializable"></a><a id="DropCollectionResult:DropCollectionResult"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#DropCollectionResultextendsProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DropCollectionResult.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">DropCollectionResult</span></a><span class="params">(<span name="dropped">dropped: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">dropped</dt><dd class="cmt"><p>true if the collection existed and was dropped</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.DropIndexes" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="DropIndexesextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.DropIndexesResult]withProductwithSerializable"></a><a id="DropIndexes:DropIndexes"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#DropIndexesextendsCollectionCommandwithCommandWithResult[reactivemongo.api.commands.DropIndexesResult]withProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DropIndexes.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">DropIndexes</span></a><span class="params">(<span name="index">index: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="DropIndexesResult.html" class="extype" name="reactivemongo.api.commands.DropIndexesResult">DropIndexesResult</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.DropIndexesResult" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="DropIndexesResultextendsBoxedAnyVal[Int]withProductwithSerializable"></a><a id="DropIndexesResult:DropIndexesResult"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#DropIndexesResultextendsBoxedAnyVal[Int]withProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DropIndexesResult.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">DropIndexesResult</span></a><span class="params">(<span name="value">value: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result"> extends <a href="BoxedAnyVal.html" class="extype" name="reactivemongo.api.commands.BoxedAnyVal">BoxedAnyVal</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.FindAndModifyCommand" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="FindAndModifyCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]"></a><a id="FindAndModifyCommand[P&lt;:SerializationPack]:FindAndModifyCommand[P]"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#FindAndModifyCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="FindAndModifyCommand.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">FindAndModifyCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.P">P</span>]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.GetLastError" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="GetLastErrorextendsCommandwithCommandWithResult[reactivemongo.api.commands.LastError]withProductwithSerializable"></a><a id="GetLastError:GetLastError"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#GetLastErrorextendsCommandwithCommandWithResult[reactivemongo.api.commands.LastError]withProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="GetLastError.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be replaced by reactivemongo.api.commands.WriteConcern">GetLastError</span></a><span class="params">(<span name="w">w: <a href="GetLastError$$W.html" class="extype" name="reactivemongo.api.commands.GetLastError.W">W</a></span>, <span name="j">j: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="fsync">fsync: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="wtimeout">wtimeout: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="LastError.html" class="extype" name="reactivemongo.api.commands.LastError">LastError</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">wtimeout</dt><dd class="cmt"><p>the <a href="http://docs.mongodb.org/manual/reference/write-concern/#wtimeout" target="_blank">time limit</a></p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be replaced by <code>reactivemongo.api.commands.WriteConcern</code></p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.InsertCommand" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="InsertCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]"></a><a id="InsertCommand[P&lt;:SerializationPack]:InsertCommand[P]"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#InsertCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="Implements the insert command." href="InsertCommand.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Use the new insert operation">InsertCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.InsertCommand.P">P</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Implements the <a href="https://docs.mongodb.com/manual/reference/command/insert/" target="_blank">insert</a> command.</p><div class="fullcomment"><div class="comment cmt"><p>Implements the <a href="https://docs.mongodb.com/manual/reference/command/insert/" target="_blank">insert</a> command.
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Use the new insert operation</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.IsMasterCommand" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="IsMasterCommand[P&lt;:reactivemongo.api.SerializationPack]extendsAnyRef"></a><a id="IsMasterCommand[P&lt;:SerializationPack]:IsMasterCommand[P]"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#IsMasterCommand[P&lt;:reactivemongo.api.SerializationPack]extendsAnyRef" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="IsMasterCommand.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">IsMasterCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.ListIndexes" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ListIndexesextendsCollectionCommandwithCommandWithResult[List[reactivemongo.api.indexes.Index]]withProductwithSerializable"></a><a id="ListIndexes:ListIndexes"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#ListIndexesextendsCollectionCommandwithCommandWithResult[List[reactivemongo.api.indexes.Index]]withProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="Lists the indexes of the specified collection." href="ListIndexes.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">ListIndexes</span></a><span class="params">(<span name="db">db: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<span class="extype" name="scala.List">List</span>[<a href="../indexes/Index.html" class="extype" name="reactivemongo.api.indexes.Index">Index</a>]] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Lists the indexes of the specified collection.</p><div class="fullcomment"><div class="comment cmt"><p>Lists the indexes of the specified collection.
+</p></div><dl class="paramcmts block"><dt class="param">db</dt><dd class="cmt"><p>the database name</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
     </li><li name="reactivemongo.api.commands.Mongo26WriteCommand" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="Mongo26WriteCommandextendsAnyRef"></a><a id="Mongo26WriteCommand:Mongo26WriteCommand"></a>
       <span class="permalink">
@@ -1553,13 +1529,111 @@ ServerStatusJournaling</p></span></dd></dl></div>
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="" href="Mongo26WriteCommand.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.7) ">Mongo26WriteCommand</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
+        <a title="" href="Mongo26WriteCommand.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.7) Will be removed as EOL for 2.6">Mongo26WriteCommand</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.7)</i> </p></dd></dl></div>
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.7)</i> Will be removed as EOL for 2.6</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.RenameCollection" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="RenameCollectionextendsCommandwithCommandWithResult[reactivemongo.api.commands.UnitBox.type]withProductwithSerializable"></a><a id="RenameCollection:RenameCollection"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#RenameCollectionextendsCommandwithCommandWithResult[reactivemongo.api.commands.UnitBox.type]withProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="RenameCollection.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">RenameCollection</span></a><span class="params">(<span name="fullyQualifiedCollectionName">fullyQualifiedCollectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="fullyQualifiedTargetName">fullyQualifiedTargetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dropTarget">dropTarget: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.ReplSetMaintenance" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ReplSetMaintenanceextendsCommandwithCommandWithResult[reactivemongo.api.commands.UnitBox.type]withProductwithSerializable"></a><a id="ReplSetMaintenance:ReplSetMaintenance"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#ReplSetMaintenanceextendsCommandwithCommandWithResult[reactivemongo.api.commands.UnitBox.type]withProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="The replSetMaintenance command." href="ReplSetMaintenance.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">ReplSetMaintenance</span></a><span class="params">(<span name="enable">enable: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">The <a href="https://docs.mongodb.org/manual/reference/command/replSetMaintenance/" target="_blank">replSetMaintenance</a> command.</p><div class="fullcomment"><div class="comment cmt"><p>The <a href="https://docs.mongodb.org/manual/reference/command/replSetMaintenance/" target="_blank">replSetMaintenance</a> command.
+It must be executed against the <code>admin</code> database.
+</p></div><dl class="paramcmts block"><dt class="param">enable</dt><dd class="cmt"><p>if true the the member enters the <code>RECOVERING</code> state</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.ResponseResult" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ResponseResult[R]extendsProductwithSerializable"></a><a id="ResponseResult[R]:ResponseResult[R]"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#ResponseResult[R]extendsProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="ResponseResult.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">ResponseResult</span></a><span class="tparams">[<span name="R">R</span>]</span><span class="params">(<span name="response">response: <a href="../../core/protocol/Response.html" class="extype" name="reactivemongo.core.protocol.Response">Response</a></span>, <span name="numberToReturn">numberToReturn: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="value">value: <span class="extype" name="reactivemongo.api.commands.ResponseResult.R">R</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">response</dt><dd class="cmt"><p>the response associated with the result</p></dd><dt class="param">numberToReturn</dt><dd class="cmt"><p>the number of documents to return</p></dd><dt class="param">value</dt><dd class="cmt"><p>the value parsed from the response</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.UpdateCommand" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="UpdateCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]"></a><a id="UpdateCommand[P&lt;:SerializationPack]:UpdateCommand[P]"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#UpdateCommand[P&lt;:reactivemongo.api.SerializationPack]extendsImplicitCommandHelpers[P]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="Implements the update command." href="UpdateCommand.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Use the new update operation">UpdateCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.UpdateCommand.P">P</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Implements the <a href="https://docs.mongodb.com/manual/reference/command/update/" target="_blank">update</a> command.</p><div class="fullcomment"><div class="comment cmt"><p>Implements the <a href="https://docs.mongodb.com/manual/reference/command/update/" target="_blank">update</a> command.
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Use the new update operation</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.WriteConcern" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="WriteConcern=reactivemongo.api.commands.GetLastError"></a><a id="WriteConcern:WriteConcern"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#WriteConcern=reactivemongo.api.commands.GetLastError" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be replaced by reactivemongo.api.commands.WriteConcern">WriteConcern</span><span class="result alias"> = <a href="GetLastError.html" class="extype" name="reactivemongo.api.commands.GetLastError">GetLastError</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be replaced by <code>reactivemongo.api.commands.WriteConcern</code></p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -1568,23 +1642,7 @@ ServerStatusJournaling</p></span></dd></dl></div>
         <div class="values members">
               <h3>Value Members</h3>
               <ol>
-                <li name="reactivemongo.api.commands#WriteConcern" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="WriteConcern:reactivemongo.api.commands.GetLastError.type"></a><a id="WriteConcern:GetLastError.type"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#WriteConcern:reactivemongo.api.commands.GetLastError.type" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">WriteConcern</span><span class="result">: <a href="GetLastError$.html" class="extype" name="reactivemongo.api.commands.GetLastError">GetLastError</a>.type</span>
-      </span>
-      
-      
-    </li><li name="reactivemongo.api.commands.Collation" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+                <li name="reactivemongo.api.commands.Collation" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Collation"></a><a id="Collation:Collation"></a>
       <span class="permalink">
       <a href="../../../reactivemongo/api/commands/index.html#Collation" title="Permalink">
@@ -1632,86 +1690,6 @@ ServerStatusJournaling</p></span></dd></dl></div>
       </span>
       
       
-    </li><li name="reactivemongo.api.commands.DropCollection" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="DropCollection"></a><a id="DropCollection:DropCollection"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#DropCollection" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="DropCollection$.html"><span class="name">DropCollection</span></a><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="DropCollectionResult.html" class="extype" name="reactivemongo.api.commands.DropCollectionResult">DropCollectionResult</a>]</span>
-      </span>
-      
-      
-    </li><li name="reactivemongo.api.commands.DropDatabase" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="DropDatabase"></a><a id="DropDatabase:DropDatabase"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#DropDatabase" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="DropDatabase$.html"><span class="name">DropDatabase</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type]</span>
-      </span>
-      
-      
-    </li><li name="reactivemongo.api.commands.EmptyCapped" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="EmptyCapped"></a><a id="EmptyCapped:EmptyCapped"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#EmptyCapped" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="EmptyCapped$.html"><span class="name">EmptyCapped</span></a><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type]</span>
-      </span>
-      
-      
-    </li><li name="reactivemongo.api.commands.GetLastError" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="GetLastError"></a><a id="GetLastError:GetLastError"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#GetLastError" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="GetLastError$.html"><span class="name">GetLastError</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      
-    </li><li name="reactivemongo.api.commands.ListCollectionNames" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="ListCollectionNames"></a><a id="ListCollectionNames:ListCollectionNames"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#ListCollectionNames" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a title="List the names of DB collections." href="ListCollectionNames$.html"><span class="name">ListCollectionNames</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="CollectionNames.html" class="extype" name="reactivemongo.api.commands.CollectionNames">CollectionNames</a>]</span>
-      </span>
-      
-      <p class="shortcomment cmt">List the names of DB collections.</p>
     </li><li name="reactivemongo.api.commands.MongodProcess" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="MongodProcess"></a><a id="MongodProcess:MongodProcess"></a>
       <span class="permalink">
@@ -1760,56 +1738,6 @@ ServerStatusJournaling</p></span></dd></dl></div>
       </span>
       
       
-    </li><li name="reactivemongo.api.commands.PingCommand" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="PingCommand"></a><a id="PingCommand:PingCommand"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#PingCommand" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a title="The ping command." href="PingCommand$.html"><span class="name">PingCommand</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">The <a href="https://docs.mongodb.com/manual/reference/command/ping/" target="_blank">ping</a> command.</p>
-    </li><li name="reactivemongo.api.commands.ReplSetGetStatus" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="ReplSetGetStatus"></a><a id="ReplSetGetStatus:ReplSetGetStatus"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#ReplSetGetStatus" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a title="The command replSetGetStatus" href="ReplSetGetStatus$.html"><span class="name">ReplSetGetStatus</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="ReplSetStatus.html" class="extype" name="reactivemongo.api.commands.ReplSetStatus">ReplSetStatus</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">The command <a href="http://docs.mongodb.org/manual/reference/command/replSetGetStatus/" target="_blank">replSetGetStatus</a>
-</p>
-    </li><li name="reactivemongo.api.commands.Resync" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="Resync"></a><a id="Resync:Resync"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#Resync" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a title="The command resync" href="Resync$.html"><span class="name">Resync</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="ResyncResult$.html" class="extype" name="reactivemongo.api.commands.ResyncResult">ResyncResult</a>.type]</span>
-      </span>
-      
-      <p class="shortcomment cmt">The command <a href="https://docs.mongodb.org/manual/reference/command/resync/" target="_blank">resync</a>
-</p>
     </li><li name="reactivemongo.api.commands.ResyncResult" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="ResyncResult"></a><a id="ResyncResult:ResyncResult"></a>
       <span class="permalink">
@@ -1842,22 +1770,6 @@ ServerStatusJournaling</p></span></dd></dl></div>
       </span>
       
       
-    </li><li name="reactivemongo.api.commands.ServerStatus" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="ServerStatus"></a><a id="ServerStatus:ServerStatus"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#ServerStatus" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a title="Server status" href="ServerStatus$.html"><span class="name">ServerStatus</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="ServerStatusResult.html" class="extype" name="reactivemongo.api.commands.ServerStatusResult">ServerStatusResult</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">Server <a href="http://docs.mongodb.org/manual/reference/server-status/" target="_blank">status</a></p>
     </li><li name="reactivemongo.api.commands.UnitBox" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="UnitBox"></a><a id="UnitBox:UnitBox"></a>
       <span class="permalink">
@@ -1914,10 +1826,29 @@ ServerStatusJournaling</p></span></dd></dl></div>
 
         <div class="values members">
               <h3>Deprecated Value Members</h3>
-              <ol><li name="reactivemongo.api.commands.Drop" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="Drop"></a><a id="Drop:Drop"></a>
+              <ol><li name="reactivemongo.api.commands#WriteConcern" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="WriteConcern:reactivemongo.api.commands.GetLastError.type"></a><a id="WriteConcern:GetLastError.type"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/index.html#Drop" title="Permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#WriteConcern:reactivemongo.api.commands.GetLastError.type" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be replaced by reactivemongo.api.commands.WriteConcern">WriteConcern</span><span class="result">: <a href="GetLastError$.html" class="extype" name="reactivemongo.api.commands.GetLastError">GetLastError</a>.type</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be replaced by <code>reactivemongo.api.commands.WriteConcern</code></p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.DropCollection" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="DropCollection"></a><a id="DropCollection:DropCollection"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#DropCollection" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -1926,13 +1857,170 @@ ServerStatusJournaling</p></span></dd></dl></div>
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="Drop$.html"><span class="name deprecated" title="Deprecated: (Since version 0.12.0) Use DropCollection">Drop</span></a><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type]</span>
+        <a title="" href="DropCollection$.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">DropCollection</span></a><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="DropCollectionResult.html" class="extype" name="reactivemongo.api.commands.DropCollectionResult">DropCollectionResult</a>]</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.0)</i> Use <a href="DropCollection$.html" class="extype" name="reactivemongo.api.commands.DropCollection">DropCollection</a></p></dd></dl></div>
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.DropDatabase" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="DropDatabase"></a><a id="DropDatabase:DropDatabase"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#DropDatabase" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="DropDatabase$.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">DropDatabase</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.EmptyCapped" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="EmptyCapped"></a><a id="EmptyCapped:EmptyCapped"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#EmptyCapped" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="EmptyCapped$.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">EmptyCapped</span></a><span class="result"> extends <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="UnitBox$.html" class="extype" name="reactivemongo.api.commands.UnitBox">UnitBox</a>.type]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.GetLastError" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="GetLastError"></a><a id="GetLastError:GetLastError"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#GetLastError" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="GetLastError$.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be replaced by reactivemongo.api.commands.WriteConcern">GetLastError</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be replaced by <code>reactivemongo.api.commands.WriteConcern</code></p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.ListCollectionNames" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ListCollectionNames"></a><a id="ListCollectionNames:ListCollectionNames"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#ListCollectionNames" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="List the names of DB collections." href="ListCollectionNames$.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">ListCollectionNames</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="CollectionNames.html" class="extype" name="reactivemongo.api.commands.CollectionNames">CollectionNames</a>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">List the names of DB collections.</p><div class="fullcomment"><div class="comment cmt"><p>List the names of DB collections.</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.PingCommand" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="PingCommand"></a><a id="PingCommand:PingCommand"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#PingCommand" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="The ping command." href="PingCommand$.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">PingCommand</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">The <a href="https://docs.mongodb.com/manual/reference/command/ping/" target="_blank">ping</a> command.</p><div class="fullcomment"><div class="comment cmt"><p>The <a href="https://docs.mongodb.com/manual/reference/command/ping/" target="_blank">ping</a> command.
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.ReplSetGetStatus" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ReplSetGetStatus"></a><a id="ReplSetGetStatus:ReplSetGetStatus"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#ReplSetGetStatus" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="The command replSetGetStatus" href="ReplSetGetStatus$.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">ReplSetGetStatus</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="ReplSetStatus.html" class="extype" name="reactivemongo.api.commands.ReplSetStatus">ReplSetStatus</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">The command <a href="http://docs.mongodb.org/manual/reference/command/replSetGetStatus/" target="_blank">replSetGetStatus</a>
+</p><div class="fullcomment"><div class="comment cmt"><p>The command <a href="http://docs.mongodb.org/manual/reference/command/replSetGetStatus/" target="_blank">replSetGetStatus</a>
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.Resync" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Resync"></a><a id="Resync:Resync"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#Resync" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="The command resync" href="Resync$.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">Resync</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="ResyncResult$.html" class="extype" name="reactivemongo.api.commands.ResyncResult">ResyncResult</a>.type]</span>
+      </span>
+      
+      <p class="shortcomment cmt">The command <a href="https://docs.mongodb.org/manual/reference/command/resync/" target="_blank">resync</a>
+</p><div class="fullcomment"><div class="comment cmt"><p>The command <a href="https://docs.mongodb.org/manual/reference/command/resync/" target="_blank">resync</a>
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.ServerStatus" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ServerStatus"></a><a id="ServerStatus:ServerStatus"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/index.html#ServerStatus" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="Server status" href="ServerStatus$.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">ServerStatus</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a> with <a href="CommandWithResult.html" class="extype" name="reactivemongo.api.commands.CommandWithResult">CommandWithResult</a>[<a href="ServerStatusResult.html" class="extype" name="reactivemongo.api.commands.ServerStatusResult">ServerStatusResult</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Server <a href="http://docs.mongodb.org/manual/reference/server-status/" target="_blank">status</a></p><div class="fullcomment"><div class="comment cmt"><p>Server <a href="http://docs.mongodb.org/manual/reference/server-status/" target="_blank">status</a></p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
     </li></ol>
             </div>
         </div>

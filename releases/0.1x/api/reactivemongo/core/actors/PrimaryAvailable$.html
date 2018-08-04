@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.14 - reactivemongo.core.commands.DropDatabase.ResultMaker</title>
-          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.core.commands.DropDatabase.ResultMaker" />
-          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.core.commands.DropDatabase.ResultMaker" />
+          <title>ReactiveMongo API 0.16 - reactivemongo.core.actors.PrimaryAvailable</title>
+          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.core.actors.PrimaryAvailable" />
+          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.core.actors.PrimaryAvailable" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -101,10 +101,10 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../index.html" class="extype" name="reactivemongo">reactivemongo</a></dd></dl></div>
-    </li><li name="reactivemongo.core.commands" visbl="pub" class="indented3 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="commands"></a><a id="commands:commands"></a>
+    </li><li name="reactivemongo.core.actors" visbl="pub" class="indented3 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="actors"></a><a id="actors:actors"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/core/index.html#commands" title="Permalink">
+      <a href="../../reactivemongo/core/index.html#actors" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -113,33 +113,78 @@
         <span class="kind">package</span>
       </span>
       <span class="symbol">
-        <a title="" href="index.html"><span class="name">commands</span></a>
+        <a title="" href="index.html"><span class="name">actors</span></a>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="reactivemongo.core">core</a></dd></dl></div>
-    </li><li name="reactivemongo.core.commands.DropDatabase" visbl="pub" class="indented4 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="DropDatabaseextendsCommand[Boolean]"></a><a id="DropDatabase:DropDatabase"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/index.html#DropDatabaseextendsCommand[Boolean]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">class</span>
-      </span>
-      <span class="symbol">
-        <a title="Drop a database." href="DropDatabase.html"><span class="name deprecated" title="Deprecated: (Since version 0.11.0) consider using reactivemongo.api.commands.DropDatabase instead">DropDatabase</span></a><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>]</span>
-      </span>
-      
-      <p class="shortcomment cmt">Drop a database.</p><div class="fullcomment"><div class="comment cmt"><p>Drop a database.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="index.html" class="extype" name="reactivemongo.core.commands">commands</a></dd><dt>Annotations</dt><dd>
-                <span class="name">@deprecated</span>
-              
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.0)</i> consider using reactivemongo.api.commands.DropDatabase instead</p></dd></dl></div>
-    </li><li class="current-entities indented4">
+    </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="object" href="" title="Deserializer for this command's result."></a>
-                        <a href="" title="Deserializer for this command's result.">ResultMaker</a>
+                        <a class="class" href="AuthRequest.html" title=""></a>
+                        <a href="AuthRequest.html" title="">AuthRequest</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="CheckedWriteRequestExpectingResponse.html" title="A checked write request expecting a response."></a>
+                        <a href="CheckedWriteRequestExpectingResponse.html" title="A checked write request expecting a response.">CheckedWriteRequestExpectingResponse</a>
+                      </li><li class="current-entities indented3">
+                        <a class="object" href="Close$.html" title="Message to close all active connections."></a>
+                        <a class="class" href="Close.html" title=""></a>
+                        <a href="Close.html" title="">Close</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="Closed$.html" title="MongoDBSystem has been shut down."></a>
+                        <a href="Closed$.html" title="MongoDBSystem has been shut down.">Closed</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="Exceptions$.html" title=""></a>
+                        <a href="Exceptions$.html" title="">Exceptions</a>
+                      </li><li class="current-entities indented3">
+                        <a class="object" href="ExpectingResponse$.html" title=""></a>
+                        <a class="trait" href="ExpectingResponse.html" title="A message expecting a response from database."></a>
+                        <a href="ExpectingResponse.html" title="A message expecting a response from database.">ExpectingResponse</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="GetLastMetadata$.html" title=""></a>
+                        <a href="GetLastMetadata$.html" title="">GetLastMetadata</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="LegacyDBSystem.html" title=""></a>
+                        <a href="LegacyDBSystem.html" title="">LegacyDBSystem</a>
+                      </li><li class="current-entities indented3">
+                        <a class="object" href="MongoDBSystem$.html" title=""></a>
+                        <a class="trait" href="MongoDBSystem.html" title="Main actor that processes the requests."></a>
+                        <a href="MongoDBSystem.html" title="Main actor that processes the requests.">MongoDBSystem</a>
+                      </li><li class="current-entities indented3">
+                        <a class="object" href="" title=""></a>
+                        <a class="class" href="PrimaryAvailable.html" title="Message sent when the primary has been discovered."></a>
+                        <a href="PrimaryAvailable.html" title="Message sent when the primary has been discovered.">PrimaryAvailable</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="PrimaryUnavailable$.html" title="Message sent when the primary has been lost."></a>
+                        <a href="PrimaryUnavailable$.html" title="Message sent when the primary has been lost.">PrimaryUnavailable</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="RegisterMonitor$.html" title="Register a monitor."></a>
+                        <a href="RegisterMonitor$.html" title="Register a monitor.">RegisterMonitor</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="RequestMakerExpectingResponse.html" title="A request expecting a response."></a>
+                        <a href="RequestMakerExpectingResponse.html" title="A request expecting a response.">RequestMakerExpectingResponse</a>
+                      </li><li class="current-entities indented3">
+                        <a class="object" href="SetAvailable$.html" title=""></a>
+                        <a class="class" href="SetAvailable.html" title=""></a>
+                        <a href="SetAvailable.html" title="">SetAvailable</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="object" href="SetUnavailable$.html" title=""></a>
+                        <a href="SetUnavailable$.html" title="">SetUnavailable</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="StandardDBSystem.html" title=""></a>
+                        <a href="StandardDBSystem.html" title="">StandardDBSystem</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="StandardDBSystemWithX509.html" title=""></a>
+                        <a href="StandardDBSystemWithX509.html" title="">StandardDBSystemWithX509</a>
                       </li>
               </ul>
             </div>
@@ -147,14 +192,16 @@
           <div id="content">
             <body class="object value">
       <div id="definition">
-        <div class="big-circle object">o</div>
-        <p id="owner"><a href="../../index.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../index.html" class="extype" name="reactivemongo.core">core</a>.<a href="index.html" class="extype" name="reactivemongo.core.commands">commands</a>.<a href="DropDatabase.html" class="extype" name="reactivemongo.core.commands.DropDatabase">DropDatabase</a></p>
-        <h1>ResultMaker<span class="permalink">
-      <a href="../../../reactivemongo/core/commands/DropDatabase$ResultMaker$.html" title="Permalink">
+        <a href="PrimaryAvailable.html" title="See companion class"><div class="big-circle object-companion-class">o</div></a>
+        <p id="owner"><a href="../../index.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../index.html" class="extype" name="reactivemongo.core">core</a>.<a href="index.html" class="extype" name="reactivemongo.core.actors">actors</a></p>
+        <h1><a href="PrimaryAvailable.html" title="See companion class">PrimaryAvailable</a><span class="permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span></h1>
-        <h3><span class="morelinks"></span></h3>
+        <h3><span class="morelinks"><div>
+            Companion <a href="PrimaryAvailable.html" title="See companion class">class PrimaryAvailable</a>
+          </div></span></h3>
       </div>
 
       <h4 id="signature" class="signature">
@@ -163,17 +210,19 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">ResultMaker</span><span class="result"> extends <a href="BSONCommandResultMaker.html" class="extype" name="reactivemongo.core.commands.BSONCommandResultMaker">BSONCommandResultMaker</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>]</span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">PrimaryAvailable</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/runtime/AbstractFunction1.html#scala.runtime.AbstractFunction1" class="extype" name="scala.runtime.AbstractFunction1">AbstractFunction1</a>[<a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a>, <a href="PrimaryAvailable.html" class="extype" name="reactivemongo.core.actors.PrimaryAvailable">PrimaryAvailable</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Deserializer for this command's result.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DropDatabase.html" class="extype" name="reactivemongo.core.commands.DropDatabase">DropDatabase</a> → <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><a href="BSONCommandResultMaker.html" class="extype" name="reactivemongo.core.commands.BSONCommandResultMaker">BSONCommandResultMaker</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>], <a href="CommandResultMaker.html" class="extype" name="reactivemongo.core.commands.CommandResultMaker">CommandResultMaker</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>], <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.12.6/scala/runtime/AbstractFunction1.html#scala.runtime.AbstractFunction1" class="extype" name="scala.runtime.AbstractFunction1">AbstractFunction1</a>[<a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a>, <a href="PrimaryAvailable.html" class="extype" name="reactivemongo.core.actors.PrimaryAvailable">PrimaryAvailable</a>], (<a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a>) ⇒ <a href="PrimaryAvailable.html" class="extype" name="reactivemongo.core.actors.PrimaryAvailable">PrimaryAvailable</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
         </div></div>
         
 
@@ -199,7 +248,7 @@
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="reactivemongo.core.commands.DropDatabase.ResultMaker"><span>ResultMaker</span></li><li class="in" name="reactivemongo.core.commands.BSONCommandResultMaker"><span>BSONCommandResultMaker</span></li><li class="in" name="reactivemongo.core.commands.CommandResultMaker"><span>CommandResultMaker</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="reactivemongo.core.actors.PrimaryAvailable"><span>PrimaryAvailable</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.runtime.AbstractFunction1"><span>AbstractFunction1</span></li><li class="in" name="scala.Function1"><span>Function1</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
               <span class="filtertype"></span>
@@ -229,7 +278,7 @@
                 <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/DropDatabase$ResultMaker$.html#!=(x$1:Any):Boolean" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html#!=(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -245,7 +294,7 @@
     </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="##():Int"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/DropDatabase$ResultMaker$.html###():Int" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html###():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -261,7 +310,7 @@
     </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/DropDatabase$ResultMaker$.html#==(x$1:Any):Boolean" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html#==(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -274,10 +323,10 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="reactivemongo.core.commands.DropDatabase.ResultMaker#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="apply(doc:reactivemongo.bson.BSONDocument):Either[reactivemongo.core.commands.CommandError,Boolean]"></a><a id="apply(BSONDocument):Either[CommandError,Boolean]"></a>
+    </li><li name="scala.Function1#andThen" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="andThen[A](g:R=&gt;A):T1=&gt;A"></a><a id="andThen[A]((PrimaryAvailable)⇒A):(ProtocolMetadata)⇒A"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/DropDatabase$ResultMaker$.html#apply(doc:reactivemongo.bson.BSONDocument):Either[reactivemongo.core.commands.CommandError,Boolean]" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html#andThen[A](g:R=&gt;A):T1=&gt;A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -286,32 +335,33 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">apply</span><span class="params">(<span name="doc">doc: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>)</span><span class="result">: <span class="extype" name="scala.Either">Either</span>[<a href="CommandError.html" class="extype" name="reactivemongo.core.commands.CommandError">CommandError</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>]</span>
+        <span class="name">andThen</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="g">g: (<a href="PrimaryAvailable.html" class="extype" name="reactivemongo.core.actors.PrimaryAvailable">PrimaryAvailable</a>) ⇒ <span class="extype" name="scala.Function1.andThen.A">A</span></span>)</span><span class="result">: (<a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a>) ⇒ <span class="extype" name="scala.Function1.andThen.A">A</span></span>
       </span>
       
-      <p class="shortcomment cmt">Deserializes the given document into an instance of Result.</p><div class="fullcomment"><div class="comment cmt"><p>Deserializes the given document into an instance of Result.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.core.commands.DropDatabase.ResultMaker">ResultMaker</a> → <a href="BSONCommandResultMaker.html" class="extype" name="reactivemongo.core.commands.BSONCommandResultMaker">BSONCommandResultMaker</a></dd></dl></div>
-    </li><li name="reactivemongo.core.commands.BSONCommandResultMaker#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="apply(response:reactivemongo.core.protocol.Response):Either[reactivemongo.core.commands.CommandError,Result]"></a><a id="apply(Response):Either[CommandError,Boolean]"></a>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Function1</dd><dt>Annotations</dt><dd>
+                <span class="name">@unspecialized</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="reactivemongo.core.actors.PrimaryAvailable#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply(metadata:reactivemongo.core.nodeset.ProtocolMetadata):reactivemongo.core.actors.PrimaryAvailable"></a><a id="apply(ProtocolMetadata):PrimaryAvailable"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/DropDatabase$ResultMaker$.html#apply(response:reactivemongo.core.protocol.Response):Either[reactivemongo.core.commands.CommandError,Result]" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html#apply(metadata:reactivemongo.core.nodeset.ProtocolMetadata):reactivemongo.core.actors.PrimaryAvailable" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
       <span class="modifier_kind">
-        <span class="modifier">final </span>
+        <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">apply</span><span class="params">(<span name="response">response: <a href="../protocol/Response.html" class="extype" name="reactivemongo.core.protocol.Response">Response</a></span>)</span><span class="result">: <span class="extype" name="scala.Either">Either</span>[<a href="CommandError.html" class="extype" name="reactivemongo.core.commands.CommandError">CommandError</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>]</span>
+        <span class="name">apply</span><span class="params">(<span name="metadata">metadata: <a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a></span>)</span><span class="result">: <a href="PrimaryAvailable.html" class="extype" name="reactivemongo.core.actors.PrimaryAvailable">PrimaryAvailable</a></span>
       </span>
       
-      <p class="shortcomment cmt">Deserializes the given response into an instance of Result.</p><div class="fullcomment"><div class="comment cmt"><p>Deserializes the given response into an instance of Result.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BSONCommandResultMaker.html" class="extype" name="reactivemongo.core.commands.BSONCommandResultMaker">BSONCommandResultMaker</a> → <a href="CommandResultMaker.html" class="extype" name="reactivemongo.core.commands.CommandResultMaker">CommandResultMaker</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.core.actors.PrimaryAvailable">PrimaryAvailable</a> → Function1</dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/DropDatabase$ResultMaker$.html#asInstanceOf[T0]:T0" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html#asInstanceOf[T0]:T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -327,7 +377,7 @@
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/DropDatabase$ResultMaker$.html#clone():Object" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html#clone():Object" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -348,10 +398,29 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="scala.Function1#compose" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="compose[A](g:A=&gt;T1):A=&gt;R"></a><a id="compose[A]((A)⇒ProtocolMetadata):(A)⇒PrimaryAvailable"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html#compose[A](g:A=&gt;T1):A=&gt;R" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">compose</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="g">g: (<span class="extype" name="scala.Function1.compose.A">A</span>) ⇒ <a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a></span>)</span><span class="result">: (<span class="extype" name="scala.Function1.compose.A">A</span>) ⇒ <a href="PrimaryAvailable.html" class="extype" name="reactivemongo.core.actors.PrimaryAvailable">PrimaryAvailable</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Function1</dd><dt>Annotations</dt><dd>
+                <span class="name">@unspecialized</span><span class="args">()</span>
+              
+        </dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/DropDatabase$ResultMaker$.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html#eq(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -367,7 +436,7 @@
     </li><li name="scala.AnyRef#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="equals(x$1:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/DropDatabase$ResultMaker$.html#equals(x$1:Any):Boolean" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html#equals(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -383,7 +452,7 @@
     </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/DropDatabase$ResultMaker$.html#finalize():Unit" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html#finalize():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -405,7 +474,7 @@
     </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/DropDatabase$ResultMaker$.html#getClass():Class[_]" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html#getClass():Class[_]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -424,7 +493,7 @@
     </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/DropDatabase$ResultMaker$.html#hashCode():Int" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html#hashCode():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -443,7 +512,7 @@
     </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/DropDatabase$ResultMaker$.html#isInstanceOf[T0]:Boolean" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html#isInstanceOf[T0]:Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -459,7 +528,7 @@
     </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/DropDatabase$ResultMaker$.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html#ne(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -475,7 +544,7 @@
     </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/DropDatabase$ResultMaker$.html#notify():Unit" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html#notify():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -494,7 +563,7 @@
     </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notifyAll():Unit"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/DropDatabase$ResultMaker$.html#notifyAll():Unit" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html#notifyAll():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -513,7 +582,7 @@
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/DropDatabase$ResultMaker$.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -526,10 +595,10 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="scala.Function1#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/DropDatabase$ResultMaker$.html#toString():String" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html#toString():String" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -541,11 +610,27 @@
         <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Function1 → AnyRef → Any</dd></dl></div>
+    </li><li name="reactivemongo.core.actors.PrimaryAvailable#unapply" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="unapply(that:Any):Option[reactivemongo.core.nodeset.ProtocolMetadata]"></a><a id="unapply(Any):Option[ProtocolMetadata]"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html#unapply(that:Any):Option[reactivemongo.core.nodeset.ProtocolMetadata]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">unapply</span><span class="params">(<span name="that">that: <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a>]</span>
+      </span>
+      
+      
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/DropDatabase$ResultMaker$.html#wait():Unit" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html#wait():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -567,7 +652,7 @@
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/DropDatabase$ResultMaker$.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -589,7 +674,7 @@
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/DropDatabase$ResultMaker$.html#wait(x$1:Long):Unit" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/PrimaryAvailable$.html#wait(x$1:Long):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -620,10 +705,14 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="reactivemongo.core.commands.BSONCommandResultMaker">
-              <h3>Inherited from <a href="BSONCommandResultMaker.html" class="extype" name="reactivemongo.core.commands.BSONCommandResultMaker">BSONCommandResultMaker</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>]</h3>
-            </div><div class="parent" name="reactivemongo.core.commands.CommandResultMaker">
-              <h3>Inherited from <a href="CommandResultMaker.html" class="extype" name="reactivemongo.core.commands.CommandResultMaker">CommandResultMaker</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a>]</h3>
+        <div class="parent" name="scala.Serializable">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></h3>
+            </div><div class="parent" name="java.io.Serializable">
+              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="scala.runtime.AbstractFunction1">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/runtime/AbstractFunction1.html#scala.runtime.AbstractFunction1" class="extype" name="scala.runtime.AbstractFunction1">AbstractFunction1</a>[<a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a>, <a href="PrimaryAvailable.html" class="extype" name="reactivemongo.core.actors.PrimaryAvailable">PrimaryAvailable</a>]</h3>
+            </div><div class="parent" name="scala.Function1">
+              <h3>Inherited from (<a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a>) ⇒ <a href="PrimaryAvailable.html" class="extype" name="reactivemongo.core.actors.PrimaryAvailable">PrimaryAvailable</a></h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">

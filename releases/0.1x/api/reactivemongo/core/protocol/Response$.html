@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.14 - reactivemongo.core.protocol.Response</title>
-          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.core.protocol.Response" />
-          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.core.protocol.Response" />
+          <title>ReactiveMongo API 0.16 - reactivemongo.core.protocol.Response</title>
+          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.core.protocol.Response" />
+          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.core.protocol.Response" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -127,8 +127,8 @@
                         <a href="ChannelBufferWritable.html" title="Something that can be written into a ByteBuf.">ChannelBufferWritable</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="class" href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked (by sending a reactivemongo.core.commands.GetLastError command after)."></a>
-                        <a href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked (by sending a reactivemongo.core.commands.GetLastError command after).">CheckedWriteRequest</a>
+                        <a class="class" href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked (by sending a reactivemongo.api.commands.GetLastError command after)."></a>
+                        <a href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked (by sending a reactivemongo.api.commands.GetLastError command after).">CheckedWriteRequest</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
                         <a class="trait" href="CollectionAwareRequestOp.html" title="A request that needs to know the full collection name."></a>
@@ -198,9 +198,9 @@
                         <a class="class" href="Response.html" title="A Mongo Wire Protocol Response messages."></a>
                         <a href="Response.html" title="A Mongo Wire Protocol Response messages.">Response</a>
                       </li><li class="current-entities indented3">
+                        <span class="separator"></span>
                         <a class="object" href="ResponseInfo$.html" title=""></a>
-                        <a class="class" href="ResponseInfo.html" title="Response meta information."></a>
-                        <a href="ResponseInfo.html" title="Response meta information.">ResponseInfo</a>
+                        <a href="ResponseInfo$.html" title="">ResponseInfo</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
                         <a class="class" href="package$$RichBuffer.html" title=""></a>
@@ -242,12 +242,15 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">Response</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">Response</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -353,9 +356,9 @@
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="reactivemongo.core.protocol.Response#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="apply(header:reactivemongo.core.protocol.MessageHeader,reply:reactivemongo.core.protocol.Reply,documents:shaded.netty.buffer.ByteBuf,info:reactivemongo.core.protocol.ResponseInfo):reactivemongo.core.protocol.Response"></a><a id="apply(MessageHeader,Reply,ByteBuf,ResponseInfo):Response"></a>
+      <a id="apply(header:reactivemongo.core.protocol.MessageHeader,reply:reactivemongo.core.protocol.Reply,documents:reactivemongo.io.netty.buffer.ByteBuf,info:reactivemongo.core.protocol.ResponseInfo):reactivemongo.core.protocol.Response"></a><a id="apply(MessageHeader,Reply,ByteBuf,ResponseInfo):Response"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/protocol/Response$.html#apply(header:reactivemongo.core.protocol.MessageHeader,reply:reactivemongo.core.protocol.Reply,documents:shaded.netty.buffer.ByteBuf,info:reactivemongo.core.protocol.ResponseInfo):reactivemongo.core.protocol.Response" title="Permalink">
+      <a href="../../../reactivemongo/core/protocol/Response$.html#apply(header:reactivemongo.core.protocol.MessageHeader,reply:reactivemongo.core.protocol.Reply,documents:reactivemongo.io.netty.buffer.ByteBuf,info:reactivemongo.core.protocol.ResponseInfo):reactivemongo.core.protocol.Response" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -364,7 +367,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">apply</span><span class="params">(<span name="header">header: <a href="MessageHeader.html" class="extype" name="reactivemongo.core.protocol.MessageHeader">MessageHeader</a></span>, <span name="reply">reply: <a href="Reply.html" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a></span>, <span name="documents">documents: <span class="extype" name="shaded.netty.buffer.ByteBuf">ByteBuf</span></span>, <span name="info">info: <a href="ResponseInfo.html" class="extype" name="reactivemongo.core.protocol.ResponseInfo">ResponseInfo</a></span>)</span><span class="result">: <a href="Response.html" class="extype" name="reactivemongo.core.protocol.Response">Response</a></span>
+        <span class="name">apply</span><span class="params">(<span name="header">header: <a href="MessageHeader.html" class="extype" name="reactivemongo.core.protocol.MessageHeader">MessageHeader</a></span>, <span name="reply">reply: <a href="Reply.html" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a></span>, <span name="documents">documents: <span class="extype" name="reactivemongo.io.netty.buffer.ByteBuf">ByteBuf</span></span>, <span name="info">info: <span class="extype" name="reactivemongo.core.protocol.ResponseInfo">ResponseInfo</span></span>)</span><span class="result">: <a href="Response.html" class="extype" name="reactivemongo.core.protocol.Response">Response</a></span>
       </span>
       
       
@@ -619,9 +622,9 @@
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="reactivemongo.core.protocol.Response#unapply" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="unapply(response:reactivemongo.core.protocol.Response):Option[(reactivemongo.core.protocol.MessageHeader,reactivemongo.core.protocol.Reply,shaded.netty.buffer.ByteBuf,reactivemongo.core.protocol.ResponseInfo)]"></a><a id="unapply(Response):Option[(MessageHeader,Reply,ByteBuf,ResponseInfo)]"></a>
+      <a id="unapply(response:reactivemongo.core.protocol.Response):Option[(reactivemongo.core.protocol.MessageHeader,reactivemongo.core.protocol.Reply,reactivemongo.io.netty.buffer.ByteBuf,reactivemongo.core.protocol.ResponseInfo)]"></a><a id="unapply(Response):Option[(MessageHeader,Reply,ByteBuf,ResponseInfo)]"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/protocol/Response$.html#unapply(response:reactivemongo.core.protocol.Response):Option[(reactivemongo.core.protocol.MessageHeader,reactivemongo.core.protocol.Reply,shaded.netty.buffer.ByteBuf,reactivemongo.core.protocol.ResponseInfo)]" title="Permalink">
+      <a href="../../../reactivemongo/core/protocol/Response$.html#unapply(response:reactivemongo.core.protocol.Response):Option[(reactivemongo.core.protocol.MessageHeader,reactivemongo.core.protocol.Reply,reactivemongo.io.netty.buffer.ByteBuf,reactivemongo.core.protocol.ResponseInfo)]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -630,7 +633,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">unapply</span><span class="params">(<span name="response">response: <a href="Response.html" class="extype" name="reactivemongo.core.protocol.Response">Response</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[(<a href="MessageHeader.html" class="extype" name="reactivemongo.core.protocol.MessageHeader">MessageHeader</a>, <a href="Reply.html" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a>, <span class="extype" name="shaded.netty.buffer.ByteBuf">ByteBuf</span>, <a href="ResponseInfo.html" class="extype" name="reactivemongo.core.protocol.ResponseInfo">ResponseInfo</a>)]</span>
+        <span class="name">unapply</span><span class="params">(<span name="response">response: <a href="Response.html" class="extype" name="reactivemongo.core.protocol.Response">Response</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[(<a href="MessageHeader.html" class="extype" name="reactivemongo.core.protocol.MessageHeader">MessageHeader</a>, <a href="Reply.html" class="extype" name="reactivemongo.core.protocol.Reply">Reply</a>, <span class="extype" name="reactivemongo.io.netty.buffer.ByteBuf">ByteBuf</span>, <span class="extype" name="reactivemongo.core.protocol.ResponseInfo">ResponseInfo</span>)]</span>
       </span>
       
       

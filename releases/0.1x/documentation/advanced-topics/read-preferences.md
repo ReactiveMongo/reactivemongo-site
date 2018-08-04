@@ -22,14 +22,14 @@ The Read preference can be chosen globally using the [`MongoConnectionOptions`](
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.bson.BSONDocument
-import reactivemongo.api.ReadPreference
+import reactivemongo.api.{ Cursor, ReadPreference }
 import reactivemongo.api.collections.bson.BSONCollection
 
 def readFromSecondary1(collection: BSONCollection) = 
   collection.find(BSONDocument("city" -> "San Francisco")).
     // read from any secondary whenever possible
     cursor[BSONDocument](ReadPreference.secondaryPreferred).
-    collect[List]()
+    collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
 {% endhighlight %}
 
 > The default read preference can be set in the [connection options](../tutorial/connect-database.html).

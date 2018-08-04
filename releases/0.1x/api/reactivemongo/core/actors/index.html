@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.14 - reactivemongo.core.actors</title>
-          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.core.actors" />
-          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.core.actors" />
+          <title>ReactiveMongo API 0.16 - reactivemongo.core.actors</title>
+          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.core.actors" />
+          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.core.actors" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -154,7 +154,7 @@
                         <a class="trait" href="MongoDBSystem.html" title="Main actor that processes the requests."></a>
                         <a href="MongoDBSystem.html" title="Main actor that processes the requests.">MongoDBSystem</a>
                       </li><li class="current-entities indented3">
-                        <span class="separator"></span>
+                        <a class="object" href="PrimaryAvailable$.html" title=""></a>
                         <a class="class" href="PrimaryAvailable.html" title="Message sent when the primary has been discovered."></a>
                         <a href="PrimaryAvailable.html" title="Message sent when the primary has been discovered.">PrimaryAvailable</a>
                       </li><li class="current-entities indented3">
@@ -167,14 +167,10 @@
                         <a href="RegisterMonitor$.html" title="Register a monitor.">RegisterMonitor</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="object" href="RequestIdGenerator$.html" title=""></a>
-                        <a href="RequestIdGenerator$.html" title="">RequestIdGenerator</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
                         <a class="class" href="RequestMakerExpectingResponse.html" title="A request expecting a response."></a>
                         <a href="RequestMakerExpectingResponse.html" title="A request expecting a response.">RequestMakerExpectingResponse</a>
                       </li><li class="current-entities indented3">
-                        <span class="separator"></span>
+                        <a class="object" href="SetAvailable$.html" title=""></a>
                         <a class="class" href="SetAvailable.html" title=""></a>
                         <a href="SetAvailable.html" title="">SetAvailable</a>
                       </li><li class="current-entities indented3">
@@ -189,10 +185,6 @@
                         <span class="separator"></span>
                         <a class="class" href="StandardDBSystemWithX509.html" title=""></a>
                         <a href="StandardDBSystemWithX509.html" title="">StandardDBSystemWithX509</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="object" href="WaitForPrimary$.html" title="A message to send to a MonitorActor to be warned when a primary has been discovered."></a>
-                        <a href="WaitForPrimary$.html" title="A message to send to a MonitorActor to be warned when a primary has been discovered.">WaitForPrimary</a>
                       </li><li name="reactivemongo.core.commands" visbl="pub" class="indented3 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="commands"></a><a id="commands:commands"></a>
       <span class="permalink">
@@ -222,22 +214,6 @@
       </span>
       <span class="symbol">
         <a title="" href="../errors/index.html"><span class="name">errors</span></a>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="reactivemongo.core">core</a></dd></dl></div>
-    </li><li name="reactivemongo.core.iteratees" visbl="pub" class="indented3 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="iteratees"></a><a id="iteratees:iteratees"></a>
-      <span class="permalink">
-      <a href="../../reactivemongo/core/index.html#iteratees" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">package</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="../iteratees/index.html"><span class="name">iteratees</span></a>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="reactivemongo.core">core</a></dd></dl></div>
@@ -368,91 +344,6 @@
       </span>
       
       
-    </li><li name="reactivemongo.core.actors.CheckedWriteRequestExpectingResponse" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="CheckedWriteRequestExpectingResponseextendsExpectingResponsewithProductwithSerializable"></a><a id="CheckedWriteRequestExpectingResponse:CheckedWriteRequestExpectingResponse"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/core/actors/index.html#CheckedWriteRequestExpectingResponseextendsExpectingResponsewithProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="A checked write request expecting a response." href="CheckedWriteRequestExpectingResponse.html"><span class="name">CheckedWriteRequestExpectingResponse</span></a><span class="params">(<span name="checkedWriteRequest">checkedWriteRequest: <a href="../protocol/CheckedWriteRequest.html" class="extype" name="reactivemongo.core.protocol.CheckedWriteRequest">CheckedWriteRequest</a></span>)</span><span class="result"> extends <a href="ExpectingResponse.html" class="extype" name="reactivemongo.core.actors.ExpectingResponse">ExpectingResponse</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">A checked write request expecting a response.</p><div class="fullcomment"><div class="comment cmt"><p>A checked write request expecting a response.
-</p></div><dl class="paramcmts block"><dt class="param">checkedWriteRequest</dt><dd class="cmt"><p>The request maker.</p></dd></dl></div>
-    </li><li name="reactivemongo.core.actors.ExpectingResponse" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="ExpectingResponseextendsAnyRef"></a><a id="ExpectingResponse:ExpectingResponse"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/core/actors/index.html#ExpectingResponseextendsAnyRef" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier">sealed </span>
-        <span class="kind">trait</span>
-      </span>
-      <span class="symbol">
-        <a title="A message expecting a response from database." href="ExpectingResponse.html"><span class="name">ExpectingResponse</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">A message expecting a response from database.</p><div class="fullcomment"><div class="comment cmt"><p>A message expecting a response from database.
-It holds a promise that will be completed by the MongoDBSystem actor.
-The future can be used to get the error or the successful response.
-</p></div></div>
-    </li><li name="reactivemongo.core.actors.PrimaryAvailable" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="PrimaryAvailableextendsProductwithSerializable"></a><a id="PrimaryAvailable:PrimaryAvailable"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/core/actors/index.html#PrimaryAvailableextendsProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="Message sent when the primary has been discovered." href="PrimaryAvailable.html"><span class="name">PrimaryAvailable</span></a><span class="params">(<span name="metadata">metadata: <a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">Message sent when the primary has been discovered.</p>
-    </li><li name="reactivemongo.core.actors.RequestMakerExpectingResponse" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="RequestMakerExpectingResponseextendsExpectingResponsewithProductwithSerializable"></a><a id="RequestMakerExpectingResponse:RequestMakerExpectingResponse"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/core/actors/index.html#RequestMakerExpectingResponseextendsExpectingResponsewithProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="A request expecting a response." href="RequestMakerExpectingResponse.html"><span class="name">RequestMakerExpectingResponse</span></a><span class="params">(<span name="requestMaker">requestMaker: <a href="../protocol/RequestMaker.html" class="extype" name="reactivemongo.core.protocol.RequestMaker">RequestMaker</a></span>, <span name="isMongo26WriteOp">isMongo26WriteOp: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result"> extends <a href="ExpectingResponse.html" class="extype" name="reactivemongo.core.actors.ExpectingResponse">ExpectingResponse</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">A request expecting a response.</p><div class="fullcomment"><div class="comment cmt"><p>A request expecting a response.
-</p></div><dl class="paramcmts block"><dt class="param">requestMaker</dt><dd class="cmt"><p>the request maker</p></dd><dt class="param">isMongo26WriteOp</dt><dd class="cmt"><p>true if the operation is a MongoDB 2.6 write one</p></dd></dl></div>
-    </li><li name="reactivemongo.core.actors.SetAvailable" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="SetAvailableextendsProductwithSerializable"></a><a id="SetAvailable:SetAvailable"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/core/actors/index.html#SetAvailableextendsProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="SetAvailable.html"><span class="name">SetAvailable</span></a><span class="params">(<span name="metadata">metadata: <a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      
     </li><li name="reactivemongo.core.actors.StandardDBSystemWithX509" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="StandardDBSystemWithX509extendsMongoDBSystemwithMongoX509Authentication"></a><a id="StandardDBSystemWithX509:StandardDBSystemWithX509"></a>
       <span class="permalink">
@@ -469,6 +360,26 @@ The future can be used to get the error or the successful response.
       </span>
       
       
+    </li><li name="reactivemongo.core.actors.CheckedWriteRequestExpectingResponse" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="CheckedWriteRequestExpectingResponseextendsExpectingResponsewithProductwithSerializable"></a><a id="CheckedWriteRequestExpectingResponse:CheckedWriteRequestExpectingResponse"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/core/actors/index.html#CheckedWriteRequestExpectingResponseextendsExpectingResponsewithProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="A checked write request expecting a response." href="CheckedWriteRequestExpectingResponse.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Unused">CheckedWriteRequestExpectingResponse</span></a><span class="params">(<span name="checkedWriteRequest">checkedWriteRequest: <a href="../protocol/CheckedWriteRequest.html" class="extype" name="reactivemongo.core.protocol.CheckedWriteRequest">CheckedWriteRequest</a></span>)</span><span class="result"> extends <a href="ExpectingResponse.html" class="extype" name="reactivemongo.core.actors.ExpectingResponse">ExpectingResponse</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">A checked write request expecting a response.</p><div class="fullcomment"><div class="comment cmt"><p>A checked write request expecting a response.
+</p></div><dl class="paramcmts block"><dt class="param">checkedWriteRequest</dt><dd class="cmt"><p>The request maker.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Unused</p></dd></dl></div>
     </li><li name="reactivemongo.core.actors.Close" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="CloseextendsAnyRef"></a><a id="Close:Close"></a>
       <span class="permalink">
@@ -488,6 +399,28 @@ The future can be used to get the error or the successful response.
                 <span class="name">@deprecated</span>
               
         </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.8)</i> Will be private</p></dd></dl></div>
+    </li><li name="reactivemongo.core.actors.ExpectingResponse" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ExpectingResponseextendsAnyRef"></a><a id="ExpectingResponse:ExpectingResponse"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/core/actors/index.html#ExpectingResponseextendsAnyRef" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="A message expecting a response from database." href="ExpectingResponse.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">ExpectingResponse</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">A message expecting a response from database.</p><div class="fullcomment"><div class="comment cmt"><p>A message expecting a response from database.
+It holds a promise that will be completed by the MongoDBSystem actor.
+The future can be used to get the error or the successful response.
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
     </li><li name="reactivemongo.core.actors.LegacyDBSystem" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="LegacyDBSystemextendsMongoDBSystemwithMongoCrAuthentication"></a><a id="LegacyDBSystem:LegacyDBSystem"></a>
       <span class="permalink">
@@ -526,6 +459,64 @@ The future can be used to get the error or the successful response.
                 <span class="name">@deprecated</span>
               
         </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.14)</i> Internal class: will be made private</p></dd></dl></div>
+    </li><li name="reactivemongo.core.actors.PrimaryAvailable" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="PrimaryAvailableextendsProductwithSerializable"></a><a id="PrimaryAvailable:PrimaryAvailable"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/core/actors/index.html#PrimaryAvailableextendsProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a title="Message sent when the primary has been discovered." href="PrimaryAvailable.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">PrimaryAvailable</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Message sent when the primary has been discovered.</p><div class="fullcomment"><div class="comment cmt"><p>Message sent when the primary has been discovered.</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.core.actors.RequestMakerExpectingResponse" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="RequestMakerExpectingResponseextendsExpectingResponsewithProductwithSerializable"></a><a id="RequestMakerExpectingResponse:RequestMakerExpectingResponse"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/core/actors/index.html#RequestMakerExpectingResponseextendsExpectingResponsewithProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="A request expecting a response." href="RequestMakerExpectingResponse.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">RequestMakerExpectingResponse</span></a><span class="params">(<span name="requestMaker">requestMaker: <a href="../protocol/RequestMaker.html" class="extype" name="reactivemongo.core.protocol.RequestMaker">RequestMaker</a></span>, <span name="isMongo26WriteOp">isMongo26WriteOp: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result"> extends <a href="ExpectingResponse.html" class="extype" name="reactivemongo.core.actors.ExpectingResponse">ExpectingResponse</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">A request expecting a response.</p><div class="fullcomment"><div class="comment cmt"><p>A request expecting a response.
+</p></div><dl class="paramcmts block"><dt class="param">requestMaker</dt><dd class="cmt"><p>the request maker</p></dd><dt class="param">isMongo26WriteOp</dt><dd class="cmt"><p>true if the operation is a MongoDB 2.6 write one</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.core.actors.SetAvailable" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SetAvailableextendsProductwithSerializable"></a><a id="SetAvailable:SetAvailable"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/core/actors/index.html#SetAvailableextendsProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="SetAvailable.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">SetAvailable</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
     </li><li name="reactivemongo.core.actors.StandardDBSystem" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="StandardDBSystemextendsMongoDBSystemwithMongoScramSha1Authentication"></a><a id="StandardDBSystem:StandardDBSystem"></a>
       <span class="permalink">
@@ -553,41 +544,7 @@ The future can be used to get the error or the successful response.
         <div class="values members">
               <h3>Value Members</h3>
               <ol>
-                <li name="reactivemongo.core.actors.Close" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="Close"></a><a id="Close:Close"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/core/actors/index.html#Close" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a title="Message to close all active connections." href="Close$.html"><span class="name">Close</span></a><span class="result"> extends <a href="Close.html" class="extype" name="reactivemongo.core.actors.Close">Close</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">Message to close all active connections.</p><div class="fullcomment"><div class="comment cmt"><p>Message to close all active connections.
-The MongoDBSystem actor must not be used after this message has been sent.
-</p></div></div>
-    </li><li name="reactivemongo.core.actors.Closed" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="Closed"></a><a id="Closed:Closed"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/core/actors/index.html#Closed" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a title="MongoDBSystem has been shut down." href="Closed$.html"><span class="name">Closed</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">MongoDBSystem has been shut down.</p>
-    </li><li name="reactivemongo.core.actors.Exceptions" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+                <li name="reactivemongo.core.actors.Exceptions" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Exceptions"></a><a id="Exceptions:Exceptions"></a>
       <span class="permalink">
       <a href="../../../reactivemongo/core/actors/index.html#Exceptions" title="Permalink">
@@ -603,7 +560,55 @@ The MongoDBSystem actor must not be used after this message has been sent.
       </span>
       
       
-    </li><li name="reactivemongo.core.actors.ExpectingResponse" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+    </li>
+              </ol>
+            </div>
+
+        
+
+        <div class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="reactivemongo.core.actors.Close" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Close"></a><a id="Close:Close"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/core/actors/index.html#Close" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="Message to close all active connections." href="Close$.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">Close</span></a><span class="result"> extends <a href="Close.html" class="extype" name="reactivemongo.core.actors.Close">Close</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Message to close all active connections.</p><div class="fullcomment"><div class="comment cmt"><p>Message to close all active connections.
+The MongoDBSystem actor must not be used after this message has been sent.
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.core.actors.Closed" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Closed"></a><a id="Closed:Closed"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/core/actors/index.html#Closed" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="MongoDBSystem has been shut down." href="Closed$.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">Closed</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">MongoDBSystem has been shut down.</p><div class="fullcomment"><div class="comment cmt"><p>MongoDBSystem has been shut down.</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.core.actors.ExpectingResponse" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ExpectingResponse"></a><a id="ExpectingResponse:ExpectingResponse"></a>
       <span class="permalink">
       <a href="../../../reactivemongo/core/actors/index.html#ExpectingResponse" title="Permalink">
@@ -615,11 +620,14 @@ The MongoDBSystem actor must not be used after this message has been sent.
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="ExpectingResponse$.html"><span class="name">ExpectingResponse</span></a>
+        <a title="" href="ExpectingResponse$.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">ExpectingResponse</span></a>
       </span>
       
-      
-    </li><li name="reactivemongo.core.actors.GetLastMetadata" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.core.actors.GetLastMetadata" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="GetLastMetadata"></a><a id="GetLastMetadata:GetLastMetadata"></a>
       <span class="permalink">
       <a href="../../../reactivemongo/core/actors/index.html#GetLastMetadata" title="Permalink">
@@ -631,67 +639,14 @@ The MongoDBSystem actor must not be used after this message has been sent.
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="GetLastMetadata$.html"><span class="name">GetLastMetadata</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="GetLastMetadata$.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Unused">GetLastMetadata</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
-      
-    </li><li name="reactivemongo.core.actors.PrimaryUnavailable" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="PrimaryUnavailable"></a><a id="PrimaryUnavailable:PrimaryUnavailable"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/core/actors/index.html#PrimaryUnavailable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a title="Message sent when the primary has been lost." href="PrimaryUnavailable$.html"><span class="name">PrimaryUnavailable</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">Message sent when the primary has been lost.</p>
-    </li><li name="reactivemongo.core.actors.RegisterMonitor" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="RegisterMonitor"></a><a id="RegisterMonitor:RegisterMonitor"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/core/actors/index.html#RegisterMonitor" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a title="Register a monitor." href="RegisterMonitor$.html"><span class="name">RegisterMonitor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">Register a monitor.</p>
-    </li><li name="reactivemongo.core.actors.SetUnavailable" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="SetUnavailable"></a><a id="SetUnavailable:SetUnavailable"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/core/actors/index.html#SetUnavailable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="SetUnavailable$.html"><span class="name">SetUnavailable</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      
-    </li>
-              </ol>
-            </div>
-
-        
-
-        <div class="values members">
-              <h3>Deprecated Value Members</h3>
-              <ol><li name="reactivemongo.core.actors.MongoDBSystem" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Unused</p></dd></dl></div>
+    </li><li name="reactivemongo.core.actors.MongoDBSystem" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="MongoDBSystem"></a><a id="MongoDBSystem:MongoDBSystem"></a>
       <span class="permalink">
       <a href="../../../reactivemongo/core/actors/index.html#MongoDBSystem" title="Permalink">
@@ -710,10 +665,10 @@ The MongoDBSystem actor must not be used after this message has been sent.
                 <span class="name">@deprecated</span>
               
         </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.14)</i> Internal class: will be made private</p></dd></dl></div>
-    </li><li name="reactivemongo.core.actors.RequestIdGenerator" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="RequestIdGenerator"></a><a id="RequestIdGenerator:RequestIdGenerator"></a>
+    </li><li name="reactivemongo.core.actors.PrimaryAvailable" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="PrimaryAvailable"></a><a id="PrimaryAvailable:PrimaryAvailable"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/actors/index.html#RequestIdGenerator" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/index.html#PrimaryAvailable" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -722,17 +677,17 @@ The MongoDBSystem actor must not be used after this message has been sent.
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="" href="RequestIdGenerator$.html"><span class="name deprecated" title="Deprecated: (Since version 0.12-RC6) Use the class RequestIdGenerator">RequestIdGenerator</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/runtime/AbstractFunction2.html#scala.runtime.AbstractFunction2" class="extype" name="scala.runtime.AbstractFunction2">AbstractFunction2</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>, <span class="extype" name="reactivemongo.core.actors.RequestIdGenerator">RequestIdGenerator</span>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="" href="PrimaryAvailable$.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">PrimaryAvailable</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/runtime/AbstractFunction1.html#scala.runtime.AbstractFunction1" class="extype" name="scala.runtime.AbstractFunction1">AbstractFunction1</a>[<a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a>, <a href="PrimaryAvailable.html" class="extype" name="reactivemongo.core.actors.PrimaryAvailable">PrimaryAvailable</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12-RC6)</i> Use the class RequestIdGenerator</p></dd></dl></div>
-    </li><li name="reactivemongo.core.actors.WaitForPrimary" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="WaitForPrimary"></a><a id="WaitForPrimary:WaitForPrimary"></a>
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.core.actors.PrimaryUnavailable" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="PrimaryUnavailable"></a><a id="PrimaryUnavailable:PrimaryUnavailable"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/actors/index.html#WaitForPrimary" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/index.html#PrimaryUnavailable" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -741,14 +696,70 @@ The MongoDBSystem actor must not be used after this message has been sent.
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="A message to send to a MonitorActor to be warned when a primary has been discovered." href="WaitForPrimary$.html"><span class="name deprecated" title="Deprecated: (Since version 0.11.10) Will be removed">WaitForPrimary</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="Message sent when the primary has been lost." href="PrimaryUnavailable$.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">PrimaryUnavailable</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
-      <p class="shortcomment cmt">A message to send to a MonitorActor to be warned when a primary has been discovered.</p><div class="fullcomment"><div class="comment cmt"><p>A message to send to a MonitorActor to be warned when a primary has been discovered.
-</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+      <p class="shortcomment cmt">Message sent when the primary has been lost.</p><div class="fullcomment"><div class="comment cmt"><p>Message sent when the primary has been lost.</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.10)</i> Will be removed</p></dd></dl></div>
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.core.actors.RegisterMonitor" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="RegisterMonitor"></a><a id="RegisterMonitor:RegisterMonitor"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/core/actors/index.html#RegisterMonitor" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="Register a monitor." href="RegisterMonitor$.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">RegisterMonitor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Register a monitor.</p><div class="fullcomment"><div class="comment cmt"><p>Register a monitor.</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.core.actors.SetAvailable" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SetAvailable"></a><a id="SetAvailable:SetAvailable"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/core/actors/index.html#SetAvailable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="SetAvailable$.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">SetAvailable</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/runtime/AbstractFunction1.html#scala.runtime.AbstractFunction1" class="extype" name="scala.runtime.AbstractFunction1">AbstractFunction1</a>[<a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a>, <a href="SetAvailable.html" class="extype" name="reactivemongo.core.actors.SetAvailable">SetAvailable</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
+    </li><li name="reactivemongo.core.actors.SetUnavailable" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SetUnavailable"></a><a id="SetUnavailable:SetUnavailable"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/core/actors/index.html#SetUnavailable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="SetUnavailable$.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">SetUnavailable</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl></div>
     </li></ol>
             </div>
         </div>

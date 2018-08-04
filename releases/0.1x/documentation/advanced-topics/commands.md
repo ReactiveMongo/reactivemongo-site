@@ -83,7 +83,10 @@ We do exactly the same thing with `RawCommand`, by making a `BSONDocument` that 
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson.{ BSONArray, BSONDocument }
-import reactivemongo.api.BSONSerializationPack
+
+import reactivemongo.api.{
+  BSONSerializationPack, FailoverStrategy, ReadPreference
+}
 import reactivemongo.api.commands.Command
 
 def commandResult(db: reactivemongo.api.DefaultDB)(implicit ec: ExecutionContext): Future[BSONDocument] = {
@@ -99,9 +102,10 @@ def commandResult(db: reactivemongo.api.DefaultDB)(implicit ec: ExecutionContext
     )
   ) // For example, otherwise rather use `.aggregatorContext` with a collection
 
-  val runner = Command.run(BSONSerializationPack)
+  val runner = Command.run(BSONSerializationPack, FailoverStrategy())
 
-  runner.apply(db, runner.rawCommand(commandDoc)).one[BSONDocument]
+  runner.apply(db, runner.rawCommand(commandDoc)).
+    one[BSONDocument](ReadPreference.Primary)
 }
 {% endhighlight %}
 
@@ -232,17 +236,17 @@ package customcmd.bson2
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson.BSONDocument
-import reactivemongo.api.{ BSONSerializationPack, GenericDB }
+import reactivemongo.api.{ BSONSerializationPack, DefaultDB, FailoverStrategy }
 
 object MyRunner {
   import BSONCustomCommand._
   import BSONCustomCommand.Implicits._
 
   def custom(
-    db: GenericDB[BSONSerializationPack.type],
+    db: DefaultDB,
     name: String,
     query: BSONDocument)(implicit ec: ExecutionContext): Future[CustomResult] =
-    db.runCommand(Custom(name, query))
+    db.runCommand(Custom(name, query), FailoverStrategy())
 }
 {% endhighlight %}
 

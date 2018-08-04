@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.14 - reactivemongo.api.commands.InsertCommand.Insert</title>
-          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.api.commands.InsertCommand.Insert" />
-          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.api.commands.InsertCommand.Insert" />
+          <title>ReactiveMongo API 0.16 - reactivemongo.api.commands.InsertCommand.Insert</title>
+          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.api.commands.InsertCommand.Insert" />
+          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.api.commands.InsertCommand.Insert" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -129,11 +129,14 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="Implements the insert command." href="InsertCommand.html"><span class="name">InsertCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.InsertCommand.P">P</span>]</span>
+        <a title="Implements the insert command." href="InsertCommand.html"><span class="name deprecated" title="Deprecated: (Since version 0.16.0) Use the new insert operation">InsertCommand</span></a><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>]</span><span class="result"> extends <a href="ImplicitCommandHelpers.html" class="extype" name="reactivemongo.api.commands.ImplicitCommandHelpers">ImplicitCommandHelpers</a>[<span class="extype" name="reactivemongo.api.commands.InsertCommand.P">P</span>]</span>
       </span>
       
       <p class="shortcomment cmt">Implements the <a href="https://docs.mongodb.com/manual/reference/command/insert/" target="_blank">insert</a> command.</p><div class="fullcomment"><div class="comment cmt"><p>Implements the <a href="https://docs.mongodb.com/manual/reference/command/insert/" target="_blank">insert</a> command.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="index.html" class="extype" name="reactivemongo.api.commands">commands</a></dd></dl></div>
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="index.html" class="extype" name="reactivemongo.api.commands">commands</a></dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Use the new insert operation</p></dd></dl></div>
     </li><li class="current-entities indented4">
                         <a class="object" href="ImplicitCommandHelpers$ImplicitlyDocumentProducer$.html" title=""></a>
                         <a class="trait" href="ImplicitCommandHelpers$ImplicitlyDocumentProducer.html" title=""></a>
@@ -243,25 +246,6 @@
       </span>
       
       <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">head</dt><dd class="cmt"><p>the first mandatory document</p></dd><dt class="param">tail</dt><dd class="cmt"><p>maybe other documents</p></dd></dl></div>
-    </li><li name="reactivemongo.api.commands.InsertCommand.Insert#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(documents:Seq[InsertCommand.this.pack.Document],ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern):InsertCommand.this.Insert"></a><a id="&lt;init&gt;:Insert"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/InsertCommand$Insert.html#&lt;init&gt;(documents:Seq[InsertCommand.this.pack.Document],ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern):InsertCommand.this.Insert" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">new</span>
-      </span>
-      <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.12.7) Use head+tail">Insert</span><span class="params">(<span name="documents">documents: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>]</span>, <span name="ordered">ordered: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="writeConcern">writeConcern: <a href="index.html#WriteConcern=reactivemongo.api.commands.GetLastError" class="extmbr" name="reactivemongo.api.commands.WriteConcern">WriteConcern</a></span>)</span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
-                <span class="name">@deprecated</span>
-              
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.7)</i> Use head+tail</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -807,29 +791,7 @@
 
         
 
-        <div class="values members">
-              <h3>Deprecated Value Members</h3>
-              <ol><li name="reactivemongo.api.commands.InsertCommand.Insert#documents" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="documents:Seq[InsertCommand.this.pack.Document]"></a><a id="documents:Seq[P.Document]"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/commands/InsertCommand$Insert.html#documents:Seq[InsertCommand.this.pack.Document]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.12.7) Use head+tail">documents</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="reactivemongo.api.SerializationPack.Document">P.Document</span>]</span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
-                <span class="name">@deprecated</span>
-              
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.7)</i> Use head+tail</p></dd></dl></div>
-    </li></ol>
-            </div>
+        
         </div>
 
         <div id="inheritedMembers">

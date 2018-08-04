@@ -77,12 +77,14 @@ This library provides a specialized collection reference called [`JSONCollection
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
 import play.api.libs.json._
-import reactivemongo.api.ReadPreference
+
+import reactivemongo.api.{ Cursor, ReadPreference }
 import reactivemongo.play.json._, collection._
 
 def jsonFind(coll: JSONCollection)(implicit ec: ExecutionContext): Future[List[JsObject]] =
   coll.find(Json.obj()).sort(Json.obj("updated" -> -1)).
-    cursor[JsObject](ReadPreference.primary).collect[List]()
+    cursor[JsObject](ReadPreference.Primary).
+    collect[List](-1, Cursor.FailOnError[List[JsObject]]())
 {% endhighlight %}
 
 Even better, when a client sends a JSON document, you can validate it and transform it before saving it into a MongoDB collection (coast-to-coast approach).
@@ -106,7 +108,8 @@ import reactivemongo.play.json.collection.{
 def jsAll(collection: JSONCollection): Future[JsArray] = {
   type ResultType = JsObject // any type which is provided a `Writes[T]`
 
-  collection.find(Json.obj()).cursor[ResultType](ReadPreference.primary).jsArray()
+  collection.find(Json.obj()).
+    cursor[ResultType](ReadPreference.Primary).jsArray()
 }
 {% endhighlight %}
 
@@ -141,6 +144,8 @@ import scala.concurrent.{ ExecutionContext, Future }
 import play.api.libs.json.{ JsObject, Json }
 
 import reactivemongo.play.json._
+
+import reactivemongo.api.{ ReadPreference, FailoverStrategy }
 import reactivemongo.api.commands.Command
 
 def rawResult(db: reactivemongo.api.DefaultDB)(implicit ec: ExecutionContext): Future[JsObject] = {
@@ -155,9 +160,10 @@ def rawResult(db: reactivemongo.api.DefaultDB)(implicit ec: ExecutionContext): F
       Json.obj("$sort" -> Json.obj("total" -> -1))
     )
   )
-  val runner = Command.run(JSONSerializationPack)
+  val runner = Command.run(JSONSerializationPack, FailoverStrategy())
 
-  runner.apply(db, runner.rawCommand(commandDoc)).one[JsObject]
+  runner.apply(db, runner.rawCommand(commandDoc)).
+    one[JsObject](ReadPreference.Primary)
 }
 {% endhighlight %}
 
