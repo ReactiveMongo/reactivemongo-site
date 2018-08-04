@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.14 - reactivemongo.core.commands.Getnonce</title>
-          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.core.commands.Getnonce" />
-          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.core.commands.Getnonce" />
+          <title>ReactiveMongo API 0.16 - reactivemongo.core.actors.SetAvailable</title>
+          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.core.actors.SetAvailable" />
+          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.core.actors.SetAvailable" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -101,10 +101,10 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../index.html" class="extype" name="reactivemongo">reactivemongo</a></dd></dl></div>
-    </li><li name="reactivemongo.core.commands" visbl="pub" class="indented3 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="commands"></a><a id="commands:commands"></a>
+    </li><li name="reactivemongo.core.actors" visbl="pub" class="indented3 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="actors"></a><a id="actors:actors"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/core/index.html#commands" title="Permalink">
+      <a href="../../reactivemongo/core/index.html#actors" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -113,206 +113,78 @@
         <span class="kind">package</span>
       </span>
       <span class="symbol">
-        <a title="" href="index.html"><span class="name">commands</span></a>
+        <a title="" href="index.html"><span class="name">actors</span></a>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="reactivemongo.core">core</a></dd></dl></div>
     </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="class" href="AddToSet.html" title=""></a>
-                        <a href="AddToSet.html" title="">AddToSet</a>
+                        <a class="class" href="AuthRequest.html" title=""></a>
+                        <a href="AuthRequest.html" title="">AuthRequest</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="trait" href="AdminCommand.html" title="A command that targets the admin database only (administrative commands)."></a>
-                        <a href="AdminCommand.html" title="A command that targets the admin database only (administrative commands).">AdminCommand</a>
+                        <a class="class" href="CheckedWriteRequestExpectingResponse.html" title="A checked write request expecting a response."></a>
+                        <a href="CheckedWriteRequestExpectingResponse.html" title="A checked write request expecting a response.">CheckedWriteRequestExpectingResponse</a>
                       </li><li class="current-entities indented3">
-                        <a class="object" href="Aggregate$.html" title=""></a>
-                        <a class="class" href="Aggregate.html" title="Implements the &quot;aggregation&quot; command, otherwise known as the &quot;Aggregation Framework.&quot; http://docs.mongodb.org/manual/applications/aggregation/"></a>
-                        <a href="Aggregate.html" title="Implements the &quot;aggregation&quot; command, otherwise known as the &quot;Aggregation Framework.&quot; http://docs.mongodb.org/manual/applications/aggregation/">Aggregate</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="Ascending.html" title=""></a>
-                        <a href="Ascending.html" title="">Ascending</a>
+                        <a class="object" href="Close$.html" title="Message to close all active connections."></a>
+                        <a class="class" href="Close.html" title=""></a>
+                        <a href="Close.html" title="">Close</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="class" href="Authenticate.html" title=""></a>
-                        <a href="Authenticate.html" title="">Authenticate</a>
+                        <a class="object" href="Closed$.html" title="MongoDBSystem has been shut down."></a>
+                        <a href="Closed$.html" title="MongoDBSystem has been shut down.">Closed</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="trait" href="AuthenticationResult.html" title="an authentication result"></a>
-                        <a href="AuthenticationResult.html" title="an authentication result">AuthenticationResult</a>
+                        <a class="object" href="Exceptions$.html" title=""></a>
+                        <a href="Exceptions$.html" title="">Exceptions</a>
+                      </li><li class="current-entities indented3">
+                        <a class="object" href="ExpectingResponse$.html" title=""></a>
+                        <a class="trait" href="ExpectingResponse.html" title="A message expecting a response from database."></a>
+                        <a href="ExpectingResponse.html" title="A message expecting a response from database.">ExpectingResponse</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="class" href="Avg.html" title=""></a>
-                        <a href="Avg.html" title="">Avg</a>
+                        <a class="object" href="GetLastMetadata$.html" title=""></a>
+                        <a href="GetLastMetadata$.html" title="">GetLastMetadata</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="trait" href="BSONCommandError.html" title="A command error that optionally holds the original TraversableBSONDocument"></a>
-                        <a href="BSONCommandError.html" title="A command error that optionally holds the original TraversableBSONDocument">BSONCommandError</a>
+                        <a class="class" href="LegacyDBSystem.html" title=""></a>
+                        <a href="LegacyDBSystem.html" title="">LegacyDBSystem</a>
+                      </li><li class="current-entities indented3">
+                        <a class="object" href="MongoDBSystem$.html" title=""></a>
+                        <a class="trait" href="MongoDBSystem.html" title="Main actor that processes the requests."></a>
+                        <a href="MongoDBSystem.html" title="Main actor that processes the requests.">MongoDBSystem</a>
+                      </li><li class="current-entities indented3">
+                        <a class="object" href="PrimaryAvailable$.html" title=""></a>
+                        <a class="class" href="PrimaryAvailable.html" title="Message sent when the primary has been discovered."></a>
+                        <a href="PrimaryAvailable.html" title="Message sent when the primary has been discovered.">PrimaryAvailable</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="trait" href="BSONCommandResultMaker.html" title=""></a>
-                        <a href="BSONCommandResultMaker.html" title="">BSONCommandResultMaker</a>
+                        <a class="object" href="PrimaryUnavailable$.html" title="Message sent when the primary has been lost."></a>
+                        <a href="PrimaryUnavailable$.html" title="Message sent when the primary has been lost.">PrimaryUnavailable</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="class" href="CappedOptions.html" title=""></a>
-                        <a href="CappedOptions.html" title="">CappedOptions</a>
-                      </li><li class="current-entities indented3">
-                        <a class="object" href="CollStatsResult$.html" title=""></a>
-                        <a class="class" href="CollStatsResult.html" title="Various information about a collection."></a>
-                        <a href="CollStatsResult.html" title="Various information about a collection.">CollStatsResult</a>
+                        <a class="object" href="RegisterMonitor$.html" title="Register a monitor."></a>
+                        <a href="RegisterMonitor$.html" title="Register a monitor.">RegisterMonitor</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="trait" href="Command.html" title="A MongoDB Command."></a>
-                        <a href="Command.html" title="A MongoDB Command.">Command</a>
+                        <a class="class" href="RequestMakerExpectingResponse.html" title="A request expecting a response."></a>
+                        <a href="RequestMakerExpectingResponse.html" title="A request expecting a response.">RequestMakerExpectingResponse</a>
                       </li><li class="current-entities indented3">
-                        <a class="object" href="CommandError$.html" title=""></a>
-                        <a class="trait" href="CommandError.html" title="A generic command error."></a>
-                        <a href="CommandError.html" title="A generic command error.">CommandError</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="trait" href="CommandResultMaker.html" title="Handler for deserializing commands results."></a>
-                        <a href="CommandResultMaker.html" title="Handler for deserializing commands results.">CommandResultMaker</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="DefaultCommandError.html" title="A default command error, which may contain the original BSONDocument of the response."></a>
-                        <a href="DefaultCommandError.html" title="A default command error, which may contain the original BSONDocument of the response.">DefaultCommandError</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="Descending.html" title=""></a>
-                        <a href="Descending.html" title="">Descending</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="DropDatabase.html" title="Drop a database."></a>
-                        <a href="DropDatabase.html" title="Drop a database.">DropDatabase</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="FailedAuthentication.html" title="A failed authentication result"></a>
-                        <a href="FailedAuthentication.html" title="A failed authentication result">FailedAuthentication</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="First.html" title=""></a>
-                        <a href="First.html" title="">First</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="object" href="GetCrNonce$.html" title="Getnonce Command for Mongo CR authentication."></a>
-                        <a href="GetCrNonce$.html" title="Getnonce Command for Mongo CR authentication.">GetCrNonce</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
                         <a class="object" href="" title=""></a>
-                        <a href="" title="">Getnonce</a>
+                        <a class="class" href="SetAvailable.html" title=""></a>
+                        <a href="SetAvailable.html" title="">SetAvailable</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="class" href="Group.html" title="Groups documents together to calculate aggregates on document collections."></a>
-                        <a href="Group.html" title="Groups documents together to calculate aggregates on document collections.">Group</a>
+                        <a class="object" href="SetUnavailable$.html" title=""></a>
+                        <a href="SetUnavailable$.html" title="">SetUnavailable</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="class" href="GroupField.html" title="Groups documents together to calculate aggregates on document collections."></a>
-                        <a href="GroupField.html" title="Groups documents together to calculate aggregates on document collections.">GroupField</a>
-                      </li><li class="current-entities indented3">
-                        <a class="object" href="GroupFunction$.html" title="Factory to declare custom call to a group function."></a>
-                        <a class="trait" href="GroupFunction.html" title="Represents one of the group operators for the &quot;Group&quot; Operation."></a>
-                        <a href="GroupFunction.html" title="Represents one of the group operators for the &quot;Group&quot; Operation.">GroupFunction</a>
+                        <a class="class" href="StandardDBSystem.html" title=""></a>
+                        <a href="StandardDBSystem.html" title="">StandardDBSystem</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="class" href="GroupMulti.html" title="Groups documents together to calculate aggregates on document collections."></a>
-                        <a href="GroupMulti.html" title="Groups documents together to calculate aggregates on document collections.">GroupMulti</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="Last.html" title=""></a>
-                        <a href="Last.html" title="">Last</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="Limit.html" title="Limts the number of documents that pass through the stream."></a>
-                        <a href="Limit.html" title="Limts the number of documents that pass through the stream.">Limit</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="MakableCommand.html" title="A makable command, that can produce a request maker ready to be sent to a reactivemongo.core.actors.MongoDBSystem actor."></a>
-                        <a href="MakableCommand.html" title="A makable command, that can produce a request maker ready to be sent to a reactivemongo.core.actors.MongoDBSystem actor.">MakableCommand</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="Match.html" title="Filters out documents from the stream that do not match the predicate."></a>
-                        <a href="Match.html" title="Filters out documents from the stream that do not match the predicate.">Match</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="Max.html" title=""></a>
-                        <a href="Max.html" title="">Max</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="Min.html" title=""></a>
-                        <a href="Min.html" title="">Min</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="trait" href="Modify.html" title="A modify operation, part of a FindAndModify command"></a>
-                        <a href="Modify.html" title="A modify operation, part of a FindAndModify command">Modify</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="trait" href="PipelineOperator.html" title="One of MongoDBs pipeline operators for aggregation."></a>
-                        <a href="PipelineOperator.html" title="One of MongoDBs pipeline operators for aggregation.">PipelineOperator</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="Project.html" title="Reshapes a document stream by renaming, adding, or removing fields."></a>
-                        <a href="Project.html" title="Reshapes a document stream by renaming, adding, or removing fields.">Project</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="Push.html" title=""></a>
-                        <a href="Push.html" title="">Push</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="PushMulti.html" title=""></a>
-                        <a href="PushMulti.html" title="">PushMulti</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="object" href="ReplStatus$.html" title="ReplSetGetStatus Command."></a>
-                        <a href="ReplStatus$.html" title="ReplSetGetStatus Command.">ReplStatus</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="ReplaceRoot.html" title="Promotes a specified document to the top level and replaces all other fields."></a>
-                        <a href="ReplaceRoot.html" title="Promotes a specified document to the top level and replaces all other fields.">ReplaceRoot</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="ReplaceRootField.html" title="Promotes a specified document to the top level and replaces all other fields."></a>
-                        <a href="ReplaceRootField.html" title="Promotes a specified document to the top level and replaces all other fields.">ReplaceRootField</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="object" href="SilentSuccessfulAuthentication$.html" title="A silent successful authentication result (MongoDB &lt;= 2.0)."></a>
-                        <a href="SilentSuccessfulAuthentication$.html" title="A silent successful authentication result (MongoDB &lt;= 2.0).">SilentSuccessfulAuthentication</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="Skip.html" title="Skips over a number of documents before passing all further documents along the stream."></a>
-                        <a href="Skip.html" title="Skips over a number of documents before passing all further documents along the stream.">Skip</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="Sort.html" title="Sorts the stream based on the given fields."></a>
-                        <a href="Sort.html" title="Sorts the stream based on the given fields.">Sort</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="trait" href="SortOrder.html" title="Represents that a field should be sorted on, as well as whether it should be ascending or descending."></a>
-                        <a href="SortOrder.html" title="Represents that a field should be sorted on, as well as whether it should be ascending or descending.">SortOrder</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="object" href="Status$.html" title="ServerStatus Command."></a>
-                        <a href="Status$.html" title="ServerStatus Command.">Status</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="trait" href="SuccessfulAuthentication.html" title="A successful authentication result."></a>
-                        <a href="SuccessfulAuthentication.html" title="A successful authentication result.">SuccessfulAuthentication</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="SumField.html" title=""></a>
-                        <a href="SumField.html" title="">SumField</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="SumValue.html" title=""></a>
-                        <a href="SumValue.html" title="">SumValue</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="Unwind.html" title="Turns a document with an array into multiple documents, one document for each element in the array."></a>
-                        <a href="Unwind.html" title="Turns a document with an array into multiple documents, one document for each element in the array.">Unwind</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="class" href="VerboseSuccessfulAuthentication.html" title="A verbose successful authentication result (MongoDB &gt;= 2.2)."></a>
-                        <a href="VerboseSuccessfulAuthentication.html" title="A verbose successful authentication result (MongoDB &gt;= 2.2).">VerboseSuccessfulAuthentication</a>
+                        <a class="class" href="StandardDBSystemWithX509.html" title=""></a>
+                        <a href="StandardDBSystemWithX509.html" title="">StandardDBSystemWithX509</a>
                       </li>
               </ul>
             </div>
@@ -320,14 +192,16 @@
           <div id="content">
             <body class="object value">
       <div id="definition">
-        <div class="big-circle object">o</div>
-        <p id="owner"><a href="../../index.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../index.html" class="extype" name="reactivemongo.core">core</a>.<a href="index.html" class="extype" name="reactivemongo.core.commands">commands</a></p>
-        <h1>Getnonce<span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html" title="Permalink">
+        <a href="SetAvailable.html" title="See companion class"><div class="big-circle object-companion-class">o</div></a>
+        <p id="owner"><a href="../../index.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="../index.html" class="extype" name="reactivemongo.core">core</a>.<a href="index.html" class="extype" name="reactivemongo.core.actors">actors</a></p>
+        <h1><a href="SetAvailable.html" title="See companion class">SetAvailable</a><span class="permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span></h1>
-        <h3><span class="morelinks"></span></h3>
+        <h3><span class="morelinks"><div>
+            Companion <a href="SetAvailable.html" title="See companion class">class SetAvailable</a>
+          </div></span></h3>
       </div>
 
       <h4 id="signature" class="signature">
@@ -336,7 +210,7 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.11.10) See GetCrNonce">Getnonce</span><span class="result"> extends <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">SetAvailable</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/runtime/AbstractFunction1.html#scala.runtime.AbstractFunction1" class="extype" name="scala.runtime.AbstractFunction1">AbstractFunction1</a>[<a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a>, <a href="SetAvailable.html" class="extype" name="reactivemongo.core.actors.SetAvailable">SetAvailable</a>] with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       </h4>
 
@@ -344,11 +218,11 @@
           <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.10)</i> See <a href="GetCrNonce$.html" class="extype" name="reactivemongo.core.commands.GetCrNonce">GetCrNonce</a></p></dd></dl><div class="toggleContainer block">
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Predef.String">String</span>], <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.12.6/scala/runtime/AbstractFunction1.html#scala.runtime.AbstractFunction1" class="extype" name="scala.runtime.AbstractFunction1">AbstractFunction1</a>[<a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a>, <a href="SetAvailable.html" class="extype" name="reactivemongo.core.actors.SetAvailable">SetAvailable</a>], (<a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a>) ⇒ <a href="SetAvailable.html" class="extype" name="reactivemongo.core.actors.SetAvailable">SetAvailable</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
         </div></div>
         
 
@@ -374,7 +248,7 @@
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="reactivemongo.core.commands.Getnonce"><span>Getnonce</span></li><li class="in" name="reactivemongo.core.commands.Command"><span>Command</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="reactivemongo.core.actors.SetAvailable"><span>SetAvailable</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.runtime.AbstractFunction1"><span>AbstractFunction1</span></li><li class="in" name="scala.Function1"><span>Function1</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
               <span class="filtertype"></span>
@@ -404,7 +278,7 @@
                 <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html#!=(x$1:Any):Boolean" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html#!=(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -420,7 +294,7 @@
     </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="##():Int"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html###():Int" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html###():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -436,7 +310,7 @@
     </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html#==(x$1:Any):Boolean" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html#==(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -449,27 +323,10 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="reactivemongo.core.commands.Getnonce#ResultMaker" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ResultMaker:reactivemongo.core.commands.GetCrNonce.ResultMaker.type"></a><a id="ResultMaker:GetCrNonce.ResultMaker.type"></a>
+    </li><li name="scala.Function1#andThen" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="andThen[A](g:R=&gt;A):T1=&gt;A"></a><a id="andThen[A]((SetAvailable)⇒A):(ProtocolMetadata)⇒A"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html#ResultMaker:reactivemongo.core.commands.GetCrNonce.ResultMaker.type" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">ResultMaker</span><span class="result">: <a href="GetCrNonce$$ResultMaker$.html" class="extype" name="reactivemongo.core.commands.GetCrNonce.ResultMaker">GetCrNonce.ResultMaker</a>.type</span>
-      </span>
-      
-      <p class="shortcomment cmt">Deserializer for this command's result.</p><div class="fullcomment"><div class="comment cmt"><p>Deserializer for this command's result.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.core.commands.Getnonce">Getnonce</a> → <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a></dd></dl></div>
-    </li><li name="reactivemongo.core.commands.Command#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="apply(db:String):reactivemongo.core.commands.MakableCommand"></a><a id="apply(String):MakableCommand"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html#apply(db:String):reactivemongo.core.commands.MakableCommand" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html#andThen[A](g:R=&gt;A):T1=&gt;A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -478,15 +335,33 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">apply</span><span class="params">(<span name="db">db: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="MakableCommand.html" class="extype" name="reactivemongo.core.commands.MakableCommand">MakableCommand</a></span>
+        <span class="name">andThen</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="g">g: (<a href="SetAvailable.html" class="extype" name="reactivemongo.core.actors.SetAvailable">SetAvailable</a>) ⇒ <span class="extype" name="scala.Function1.andThen.A">A</span></span>)</span><span class="result">: (<a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a>) ⇒ <span class="extype" name="scala.Function1.andThen.A">A</span></span>
       </span>
       
-      <p class="shortcomment cmt">Produces a <a href="MakableCommand.html" class="extype" name="reactivemongo.core.commands.MakableCommand">reactivemongo.core.commands.MakableCommand</a> instance of this command.</p><div class="fullcomment"><div class="comment cmt"><p>Produces a <a href="MakableCommand.html" class="extype" name="reactivemongo.core.commands.MakableCommand">reactivemongo.core.commands.MakableCommand</a> instance of this command.
-</p></div><dl class="paramcmts block"><dt class="param">db</dt><dd class="cmt"><p>name of the target database.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Function1</dd><dt>Annotations</dt><dd>
+                <span class="name">@unspecialized</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="reactivemongo.core.actors.SetAvailable#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply(metadata:reactivemongo.core.nodeset.ProtocolMetadata):reactivemongo.core.actors.SetAvailable"></a><a id="apply(ProtocolMetadata):SetAvailable"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html#apply(metadata:reactivemongo.core.nodeset.ProtocolMetadata):reactivemongo.core.actors.SetAvailable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="params">(<span name="metadata">metadata: <a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a></span>)</span><span class="result">: <a href="SetAvailable.html" class="extype" name="reactivemongo.core.actors.SetAvailable">SetAvailable</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.core.actors.SetAvailable">SetAvailable</a> → Function1</dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html#asInstanceOf[T0]:T0" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html#asInstanceOf[T0]:T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -502,7 +377,7 @@
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html#clone():Object" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html#clone():Object" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -523,10 +398,29 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="scala.Function1#compose" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="compose[A](g:A=&gt;T1):A=&gt;R"></a><a id="compose[A]((A)⇒ProtocolMetadata):(A)⇒SetAvailable"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html#compose[A](g:A=&gt;T1):A=&gt;R" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">compose</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="g">g: (<span class="extype" name="scala.Function1.compose.A">A</span>) ⇒ <a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a></span>)</span><span class="result">: (<span class="extype" name="scala.Function1.compose.A">A</span>) ⇒ <a href="SetAvailable.html" class="extype" name="reactivemongo.core.actors.SetAvailable">SetAvailable</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Function1</dd><dt>Annotations</dt><dd>
+                <span class="name">@unspecialized</span><span class="args">()</span>
+              
+        </dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html#eq(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -542,7 +436,7 @@
     </li><li name="scala.AnyRef#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="equals(x$1:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html#equals(x$1:Any):Boolean" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html#equals(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -558,7 +452,7 @@
     </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html#finalize():Unit" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html#finalize():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -580,7 +474,7 @@
     </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html#getClass():Class[_]" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html#getClass():Class[_]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -599,7 +493,7 @@
     </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html#hashCode():Int" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html#hashCode():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -618,7 +512,7 @@
     </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html#isInstanceOf[T0]:Boolean" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html#isInstanceOf[T0]:Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -631,27 +525,10 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="reactivemongo.core.commands.Getnonce#makeDocuments" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="makeDocuments:reactivemongo.bson.BSONDocument"></a><a id="makeDocuments:BSONDocument"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html#makeDocuments:reactivemongo.bson.BSONDocument" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">makeDocuments</span><span class="result">: <a href="../../bson/BSONDocument.html" class="extype" name="reactivemongo.bson.BSONDocument">BSONDocument</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">Makes the <code>BSONDocument</code> for documents that will be send as body of this command's query.</p><div class="fullcomment"><div class="comment cmt"><p>Makes the <code>BSONDocument</code> for documents that will be send as body of this command's query.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.core.commands.Getnonce">Getnonce</a> → <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html#ne(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -667,7 +544,7 @@
     </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html#notify():Unit" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html#notify():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -686,7 +563,7 @@
     </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notifyAll():Unit"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html#notifyAll():Unit" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html#notifyAll():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -702,27 +579,10 @@
                 <span class="name">@native</span><span class="args">()</span>
               
         </dd></dl></div>
-    </li><li name="reactivemongo.core.commands.Command#slaveOk" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="slaveOk:Boolean"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html#slaveOk:Boolean" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">slaveOk</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">States if this command can be run on secondaries.</p><div class="fullcomment"><div class="comment cmt"><p>States if this command can be run on secondaries.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -735,10 +595,10 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="scala.Function1#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html#toString():String" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html#toString():String" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -750,11 +610,27 @@
         <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Function1 → AnyRef → Any</dd></dl></div>
+    </li><li name="reactivemongo.core.actors.SetAvailable#unapply" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="unapply(that:Any):Option[reactivemongo.core.nodeset.ProtocolMetadata]"></a><a id="unapply(Any):Option[ProtocolMetadata]"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html#unapply(that:Any):Option[reactivemongo.core.nodeset.ProtocolMetadata]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">unapply</span><span class="params">(<span name="that">that: <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a>]</span>
+      </span>
+      
+      
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html#wait():Unit" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html#wait():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -776,7 +652,7 @@
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -798,7 +674,7 @@
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/commands/Getnonce$.html#wait(x$1:Long):Unit" title="Permalink">
+      <a href="../../../reactivemongo/core/actors/SetAvailable$.html#wait(x$1:Long):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -829,8 +705,14 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="reactivemongo.core.commands.Command">
-              <h3>Inherited from <a href="Command.html" class="extype" name="reactivemongo.core.commands.Command">Command</a>[<span class="extype" name="scala.Predef.String">String</span>]</h3>
+        <div class="parent" name="scala.Serializable">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></h3>
+            </div><div class="parent" name="java.io.Serializable">
+              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="scala.runtime.AbstractFunction1">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/runtime/AbstractFunction1.html#scala.runtime.AbstractFunction1" class="extype" name="scala.runtime.AbstractFunction1">AbstractFunction1</a>[<a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a>, <a href="SetAvailable.html" class="extype" name="reactivemongo.core.actors.SetAvailable">SetAvailable</a>]</h3>
+            </div><div class="parent" name="scala.Function1">
+              <h3>Inherited from (<a href="../nodeset/ProtocolMetadata.html" class="extype" name="reactivemongo.core.nodeset.ProtocolMetadata">ProtocolMetadata</a>) ⇒ <a href="SetAvailable.html" class="extype" name="reactivemongo.core.actors.SetAvailable">SetAvailable</a></h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">

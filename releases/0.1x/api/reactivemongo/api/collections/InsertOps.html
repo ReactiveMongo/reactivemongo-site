@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.14 - reactivemongo.api.collections.InsertOps</title>
-          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.api.collections.InsertOps" />
-          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.api.collections.InsertOps" />
+          <title>ReactiveMongo API 0.16 - reactivemongo.api.collections.InsertOps</title>
+          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.api.collections.InsertOps" />
+          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.api.collections.InsertOps" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -159,6 +159,10 @@
                         <a href="GenericQueryBuilder.html" title="A builder that helps to make a fine-tuned query to MongoDB.">GenericQueryBuilder</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
+                        <a class="trait" href="Hint.html" title=""></a>
+                        <a href="Hint.html" title="">Hint</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
                         <a class="trait" href="" title=""></a>
                         <a href="" title="">InsertOps</a>
                       </li>
@@ -184,7 +188,7 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">InsertOps</span><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a> with <span class="extype" name="scala.Singleton">Singleton</span></span>]</span><span class="result"> extends <span class="extype" name="reactivemongo.api.commands.CommandCodecs">CommandCodecs</span>[<span class="extype" name="reactivemongo.api.collections.InsertOps.P">P</span>]</span>
+        <span class="name">InsertOps</span><span class="tparams">[<span name="P">P &lt;: <a href="../SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a> with <span class="extype" name="scala.Singleton">Singleton</span></span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       </h4>
 
@@ -193,7 +197,7 @@
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><span class="extype" name="reactivemongo.api.commands.CommandCodecs">CommandCodecs</span>[<span class="extype" name="reactivemongo.api.collections.InsertOps.P">P</span>], <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
         </div><div class="toggleContainer block">
             <span class="toggle">
               Known Subclasses
@@ -224,7 +228,7 @@
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="reactivemongo.api.collections.InsertOps"><span>InsertOps</span></li><li class="in" name="reactivemongo.api.commands.CommandCodecs"><span>CommandCodecs</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="reactivemongo.api.collections.InsertOps"><span>InsertOps</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
                   <span class="filtertype">Implicitly<br />
@@ -270,29 +274,10 @@
     </li></ol>
             </div>
 
-        <div class="values members">
-              <h3>Abstract Value Members</h3>
-              <ol><li name="reactivemongo.api.collections.InsertOps#pack" visbl="prt" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="pack:P"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/api/collections/InsertOps.html#pack:P" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">pack</span><span class="result">: <span class="extype" name="reactivemongo.api.collections.InsertOps.P">P</span></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.collections.InsertOps">InsertOps</a> → CommandCodecs</dd></dl></div>
-    </li></ol>
-            </div>
+        
 
         <div class="values members">
-              <h3>Concrete Value Members</h3>
+              <h3>Value Members</h3>
               <ol>
                 <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
@@ -820,9 +805,7 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="reactivemongo.api.commands.CommandCodecs">
-              <h3>Inherited from <span class="extype" name="reactivemongo.api.commands.CommandCodecs">CommandCodecs</span>[<span class="extype" name="reactivemongo.api.collections.InsertOps.P">P</span>]</h3>
-            </div><div class="parent" name="scala.AnyRef">
+        <div class="parent" name="scala.AnyRef">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></h3>

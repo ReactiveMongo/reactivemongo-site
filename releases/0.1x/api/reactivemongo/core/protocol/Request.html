@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.14 - reactivemongo.core.protocol.Request</title>
-          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.core.protocol.Request" />
-          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.core.protocol.Request" />
+          <title>ReactiveMongo API 0.16 - reactivemongo.core.protocol.Request</title>
+          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.core.protocol.Request" />
+          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.core.protocol.Request" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -127,8 +127,8 @@
                         <a href="ChannelBufferWritable.html" title="Something that can be written into a ByteBuf.">ChannelBufferWritable</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="class" href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked (by sending a reactivemongo.core.commands.GetLastError command after)."></a>
-                        <a href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked (by sending a reactivemongo.core.commands.GetLastError command after).">CheckedWriteRequest</a>
+                        <a class="class" href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked (by sending a reactivemongo.api.commands.GetLastError command after)."></a>
+                        <a href="CheckedWriteRequest.html" title="A helper to build write request which result needs to be checked (by sending a reactivemongo.api.commands.GetLastError command after).">CheckedWriteRequest</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
                         <a class="trait" href="CollectionAwareRequestOp.html" title="A request that needs to know the full collection name."></a>
@@ -198,9 +198,9 @@
                         <a class="class" href="Response.html" title="A Mongo Wire Protocol Response messages."></a>
                         <a href="Response.html" title="A Mongo Wire Protocol Response messages.">Response</a>
                       </li><li class="current-entities indented3">
+                        <span class="separator"></span>
                         <a class="object" href="ResponseInfo$.html" title=""></a>
-                        <a class="class" href="ResponseInfo.html" title="Response meta information."></a>
-                        <a href="ResponseInfo.html" title="Response meta information.">ResponseInfo</a>
+                        <a href="ResponseInfo$.html" title="">ResponseInfo</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
                         <a class="class" href="package$$RichBuffer.html" title=""></a>
@@ -242,7 +242,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">Request</span><span class="params">(<span name="requestID">requestID: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="responseTo">responseTo: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="op">op: <a href="RequestOp.html" class="extype" name="reactivemongo.core.protocol.RequestOp">RequestOp</a></span>, <span name="documents">documents: <a href="../netty/BufferSequence.html" class="extype" name="reactivemongo.core.netty.BufferSequence">BufferSequence</a></span>, <span name="readPreference">readPreference: <a href="../../api/ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> = <span class="symbol"><span class="name"><a href="../../index.html">ReadPreference.primary</a></span></span></span>, <span name="channelIdHint">channelIdHint: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="shaded.netty.channel.ChannelId">ChannelId</span>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="ChannelBufferWritable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferWritable">ChannelBufferWritable</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <span class="name">Request</span><span class="params">(<span name="requestID">requestID: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="responseTo">responseTo: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="op">op: <a href="RequestOp.html" class="extype" name="reactivemongo.core.protocol.RequestOp">RequestOp</a></span>, <span name="documents">documents: <a href="../netty/BufferSequence.html" class="extype" name="reactivemongo.core.netty.BufferSequence">BufferSequence</a></span>, <span name="readPreference">readPreference: <a href="../../api/ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> = <span class="symbol"><span class="name"><a href="../../index.html">ReadPreference.primary</a></span></span></span>, <span name="channelIdHint">channelIdHint: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="reactivemongo.io.netty.channel.ChannelId">ChannelId</span>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="ChannelBufferWritable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferWritable">ChannelBufferWritable</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       </h4>
 
@@ -304,9 +304,9 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="reactivemongo.core.protocol.Request#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(requestID:Int,responseTo:Int,op:reactivemongo.core.protocol.RequestOp,documents:reactivemongo.core.netty.BufferSequence,readPreference:reactivemongo.api.ReadPreference,channelIdHint:Option[shaded.netty.channel.ChannelId]):reactivemongo.core.protocol.Request"></a><a id="&lt;init&gt;:Request"></a>
+      <a id="&lt;init&gt;(requestID:Int,responseTo:Int,op:reactivemongo.core.protocol.RequestOp,documents:reactivemongo.core.netty.BufferSequence,readPreference:reactivemongo.api.ReadPreference,channelIdHint:Option[reactivemongo.io.netty.channel.ChannelId]):reactivemongo.core.protocol.Request"></a><a id="&lt;init&gt;:Request"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/protocol/Request.html#&lt;init&gt;(requestID:Int,responseTo:Int,op:reactivemongo.core.protocol.RequestOp,documents:reactivemongo.core.netty.BufferSequence,readPreference:reactivemongo.api.ReadPreference,channelIdHint:Option[shaded.netty.channel.ChannelId]):reactivemongo.core.protocol.Request" title="Permalink">
+      <a href="../../../reactivemongo/core/protocol/Request.html#&lt;init&gt;(requestID:Int,responseTo:Int,op:reactivemongo.core.protocol.RequestOp,documents:reactivemongo.core.netty.BufferSequence,readPreference:reactivemongo.api.ReadPreference,channelIdHint:Option[reactivemongo.io.netty.channel.ChannelId]):reactivemongo.core.protocol.Request" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -315,7 +315,7 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">Request</span><span class="params">(<span name="requestID">requestID: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="responseTo">responseTo: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="op">op: <a href="RequestOp.html" class="extype" name="reactivemongo.core.protocol.RequestOp">RequestOp</a></span>, <span name="documents">documents: <a href="../netty/BufferSequence.html" class="extype" name="reactivemongo.core.netty.BufferSequence">BufferSequence</a></span>, <span name="readPreference">readPreference: <a href="../../api/ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> = <span class="symbol"><span class="name"><a href="../../index.html">ReadPreference.primary</a></span></span></span>, <span name="channelIdHint">channelIdHint: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="shaded.netty.channel.ChannelId">ChannelId</span>] = <span class="symbol">None</span></span>)</span>
+        <span class="name">Request</span><span class="params">(<span name="requestID">requestID: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="responseTo">responseTo: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="op">op: <a href="RequestOp.html" class="extype" name="reactivemongo.core.protocol.RequestOp">RequestOp</a></span>, <span name="documents">documents: <a href="../netty/BufferSequence.html" class="extype" name="reactivemongo.core.netty.BufferSequence">BufferSequence</a></span>, <span name="readPreference">readPreference: <a href="../../api/ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> = <span class="symbol"><span class="name"><a href="../../index.html">ReadPreference.primary</a></span></span></span>, <span name="channelIdHint">channelIdHint: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="reactivemongo.io.netty.channel.ChannelId">ChannelId</span>] = <span class="symbol">None</span></span>)</span>
       </span>
       
       <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">requestID</dt><dd class="cmt"><p>the ID of this request, so that the response may be identifiable. Should be strictly positive.</p></dd><dt class="param">op</dt><dd class="cmt"><p>request operation.</p></dd><dt class="param">documents</dt><dd class="cmt"><p>body of this request, a <a href="http://netty.io/4.1/api/io/netty/buffer/ByteBuf.html" target="_blank">ByteBuf</a> containing 0, 1, or many documents.</p></dd><dt class="param">channelIdHint</dt><dd class="cmt"><p>a hint for sending this request on a particular channel.</p></dd></dl></div>
@@ -437,9 +437,9 @@
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="reactivemongo.core.protocol.Request#channelIdHint" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="channelIdHint:Option[shaded.netty.channel.ChannelId]"></a><a id="channelIdHint:Option[ChannelId]"></a>
+      <a id="channelIdHint:Option[reactivemongo.io.netty.channel.ChannelId]"></a><a id="channelIdHint:Option[ChannelId]"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/protocol/Request.html#channelIdHint:Option[shaded.netty.channel.ChannelId]" title="Permalink">
+      <a href="../../../reactivemongo/core/protocol/Request.html#channelIdHint:Option[reactivemongo.io.netty.channel.ChannelId]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -448,7 +448,7 @@
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">channelIdHint</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="shaded.netty.channel.ChannelId">ChannelId</span>]</span>
+        <span class="name">channelIdHint</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="reactivemongo.io.netty.channel.ChannelId">ChannelId</span>]</span>
       </span>
       
       
@@ -919,9 +919,9 @@
               
         </dd></dl></div>
     </li><li name="reactivemongo.core.protocol.Request#writeTo" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="writeTo:shaded.netty.buffer.ByteBuf=&gt;Unit"></a><a id="writeTo:(ByteBuf)⇒Unit"></a>
+      <a id="writeTo:reactivemongo.io.netty.buffer.ByteBuf=&gt;Unit"></a><a id="writeTo:(ByteBuf)⇒Unit"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/core/protocol/Request.html#writeTo:shaded.netty.buffer.ByteBuf=&gt;Unit" title="Permalink">
+      <a href="../../../reactivemongo/core/protocol/Request.html#writeTo:reactivemongo.io.netty.buffer.ByteBuf=&gt;Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -930,7 +930,7 @@
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">writeTo</span><span class="result">: (<span class="extype" name="shaded.netty.buffer.ByteBuf">ByteBuf</span>) ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+        <span class="name">writeTo</span><span class="result">: (<span class="extype" name="reactivemongo.io.netty.buffer.ByteBuf">ByteBuf</span>) ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
       </span>
       
       <p class="shortcomment cmt">Write this instance into the given <a href="http://netty.io/4.1/api/io/netty/buffer/ByteBuf.html" target="_blank">ByteBuf</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Write this instance into the given <a href="http://netty.io/4.1/api/io/netty/buffer/ByteBuf.html" target="_blank">ByteBuf</a>.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.core.protocol.Request">Request</a> → <a href="ChannelBufferWritable.html" class="extype" name="reactivemongo.core.protocol.ChannelBufferWritable">ChannelBufferWritable</a></dd></dl></div>

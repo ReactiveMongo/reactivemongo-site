@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.14 - reactivemongo.api.commands.bson.DealingWithGenericCommandErrorsReader</title>
-          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.api.commands.bson.DealingWithGenericCommandErrorsReader" />
-          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.api.commands.bson.DealingWithGenericCommandErrorsReader" />
+          <title>ReactiveMongo API 0.16 - reactivemongo.api.commands.bson.DealingWithGenericCommandErrorsReader</title>
+          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.api.commands.bson.DealingWithGenericCommandErrorsReader" />
+          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.api.commands.bson.DealingWithGenericCommandErrorsReader" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -207,10 +207,6 @@
                         <a href="BSONDropDatabaseImplicits$.html" title="">BSONDropDatabaseImplicits</a>
                       </li><li class="current-entities indented4">
                         <span class="separator"></span>
-                        <a class="object" href="BSONDropImplicits$.html" title=""></a>
-                        <a href="BSONDropImplicits$.html" title="">BSONDropImplicits</a>
-                      </li><li class="current-entities indented4">
-                        <span class="separator"></span>
                         <a class="object" href="BSONDropIndexesImplicits$.html" title=""></a>
                         <a href="BSONDropIndexesImplicits$.html" title="">BSONDropIndexesImplicits</a>
                       </li><li class="current-entities indented4">
@@ -320,12 +316,15 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">DealingWithGenericCommandErrorsReader</span><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="../../../bson/BSONDocumentReader.html" class="extype" name="reactivemongo.bson.BSONDocumentReader">BSONDocumentReader</a>[<span class="extype" name="reactivemongo.api.commands.bson.DealingWithGenericCommandErrorsReader.A">A</span>]</span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">DealingWithGenericCommandErrorsReader</span><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="../../../bson/BSONDocumentReader.html" class="extype" name="reactivemongo.bson.BSONDocumentReader">BSONDocumentReader</a>[<span class="extype" name="reactivemongo.api.commands.bson.DealingWithGenericCommandErrorsReader.A">A</span>]</span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Helper to read a command result, with error handling.</p></div><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Helper to read a command result, with error handling.</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -334,7 +333,7 @@
             <span class="toggle">
               Known Subclasses
             </span>
-            <div class="subClasses hiddenContent"><a href="BSONAggregationImplicits$$AggregationResultReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONAggregationImplicits.AggregationResultReader">AggregationResultReader</a>, <a href="BSONCollStatsImplicits$$CollStatsResultReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONCollStatsImplicits.CollStatsResultReader">CollStatsResultReader</a>, <a href="BSONCountCommandImplicits$$CountResultReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONCountCommandImplicits.CountResultReader">CountResultReader</a>, <a href="BSONDistinctCommandImplicits$$DistinctResultReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONDistinctCommandImplicits.DistinctResultReader">DistinctResultReader</a>, <a href="BSONDropIndexesImplicits$$BSONDropIndexesReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONDropIndexesImplicits.BSONDropIndexesReader">BSONDropIndexesReader</a>, <a href="BSONFindAndModifyImplicits$$FindAndModifyResultReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONFindAndModifyImplicits.FindAndModifyResultReader">FindAndModifyResultReader</a>, <a href="BSONGetLastErrorImplicits$$LastErrorReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONGetLastErrorImplicits.LastErrorReader">LastErrorReader</a>, <a href="BSONIsMasterCommandImplicits$$IsMasterResultReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONIsMasterCommandImplicits.IsMasterResultReader">IsMasterResultReader</a>, <a href="BSONListCollectionNamesImplicits$$BSONCollectionNameReaders$.html" class="extype" name="reactivemongo.api.commands.bson.BSONListCollectionNamesImplicits.BSONCollectionNameReaders">BSONCollectionNameReaders</a>, <a href="BSONListIndexesImplicits$$BSONIndexListReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONListIndexesImplicits.BSONIndexListReader">BSONIndexListReader</a>, <a href="BSONPingCommandImplicits$$PingReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONPingCommandImplicits.PingReader">PingReader</a>, <a href="BSONReplSetGetStatusImplicits$$ReplSetStatusReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONReplSetGetStatusImplicits.ReplSetStatusReader">ReplSetStatusReader</a>, <a href="BSONServerStatusImplicits$$BSONServerStatusResultReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONServerStatusImplicits.BSONServerStatusResultReader">BSONServerStatusResultReader</a>, <a href="BSONUpdateCommandImplicits$$UpdateResultReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONUpdateCommandImplicits.UpdateResultReader">UpdateResultReader</a>, <a href="CommonImplicits$$UnitBoxReader$.html" class="extype" name="reactivemongo.api.commands.bson.CommonImplicits.UnitBoxReader">UnitBoxReader</a>, <a href="BSONCommonWriteCommandsImplicits$$DefaultWriteResultReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONCommonWriteCommandsImplicits.DefaultWriteResultReader">DefaultWriteResultReader</a></div>
+            <div class="subClasses hiddenContent"><a href="BSONAggregationImplicits$$AggregationResultReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONAggregationImplicits.AggregationResultReader">AggregationResultReader</a>, <a href="BSONCollStatsImplicits$$CollStatsResultReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONCollStatsImplicits.CollStatsResultReader">CollStatsResultReader</a>, <a href="BSONCountCommandImplicits$$CountResultReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONCountCommandImplicits.CountResultReader">CountResultReader</a>, <a href="BSONDistinctCommandImplicits$$DistinctResultReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONDistinctCommandImplicits.DistinctResultReader">DistinctResultReader</a>, <a href="BSONDropIndexesImplicits$$BSONDropIndexesReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONDropIndexesImplicits.BSONDropIndexesReader">BSONDropIndexesReader</a>, <a href="BSONFindAndModifyImplicits$$FindAndModifyResultReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONFindAndModifyImplicits.FindAndModifyResultReader">FindAndModifyResultReader</a>, <a href="BSONGetLastErrorImplicits$$LastErrorReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONGetLastErrorImplicits.LastErrorReader">LastErrorReader</a>, <a href="BSONIsMasterCommandImplicits$$IsMasterResultReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONIsMasterCommandImplicits.IsMasterResultReader">IsMasterResultReader</a>, <a href="BSONListCollectionNamesImplicits$$BSONCollectionNameReaders$.html" class="extype" name="reactivemongo.api.commands.bson.BSONListCollectionNamesImplicits.BSONCollectionNameReaders">BSONCollectionNameReaders</a>, <a href="BSONListIndexesImplicits$$BSONIndexListReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONListIndexesImplicits.BSONIndexListReader">BSONIndexListReader</a>, <a href="BSONPingCommandImplicits$$PingReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONPingCommandImplicits.PingReader">PingReader</a>, <a href="BSONReplSetGetStatusImplicits$$ReplSetStatusReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONReplSetGetStatusImplicits.ReplSetStatusReader">ReplSetStatusReader</a>, <a href="BSONServerStatusImplicits$$BSONServerStatusResultReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONServerStatusImplicits.BSONServerStatusResultReader">BSONServerStatusResultReader</a>, <a href="CommonImplicits$$UnitBoxReader$.html" class="extype" name="reactivemongo.api.commands.bson.CommonImplicits.UnitBoxReader">UnitBoxReader</a>, <a href="BSONCommonWriteCommandsImplicits$$DefaultWriteResultReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONCommonWriteCommandsImplicits.DefaultWriteResultReader">DefaultWriteResultReader</a>, <a href="BSONUpdateCommandImplicits$$UpdateResultReader$.html" class="extype" name="reactivemongo.api.commands.bson.BSONUpdateCommandImplicits.UpdateResultReader">UpdateResultReader</a></div>
           </div></div>
         
 

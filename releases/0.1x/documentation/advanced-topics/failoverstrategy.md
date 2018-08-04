@@ -61,9 +61,10 @@ val customStrategy =
 def connection1: reactivemongo.api.MongoConnection = ???
 
 // database-wide strategy
-val db1 = connection1.db("dbname", customStrategy)
+val db1 = connection1.database("dbname", customStrategy)
 
 // collection-wide strategy
-val db2 = connection1.db("dbname", defaultStrategy)
-val collection = db2.collection("collname", customStrategy)
+val db2 = connection1.database("dbname", defaultStrategy)
+
+val collection = db2.map(_.collection("collname", customStrategy))
 {% endhighlight %}

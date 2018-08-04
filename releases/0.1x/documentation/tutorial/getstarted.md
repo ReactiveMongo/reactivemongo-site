@@ -15,7 +15,7 @@ Then the following code, from connection to operations on a collection, can be u
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
 
-import reactivemongo.api.{ DefaultDB, MongoConnection, MongoDriver }
+import reactivemongo.api.{ Cursor, DefaultDB, MongoConnection, MongoDriver }
 import reactivemongo.bson.{
   BSONDocumentWriter, BSONDocumentReader, Macros, document
 }
@@ -60,7 +60,8 @@ object GetStarted {
 
   def findPersonByAge(age: Int): Future[List[Person]] =
     personCollection.flatMap(_.find(document("age" -> age)). // query builder
-      cursor[Person]().collect[List]()) // collect using the result cursor
+      cursor[Person](). // using the result cursor
+      collect[List](-1, Cursor.FailOnError[List[Person]]()))
       // ... deserializes the document using personReader
 
   // Custom persistent types

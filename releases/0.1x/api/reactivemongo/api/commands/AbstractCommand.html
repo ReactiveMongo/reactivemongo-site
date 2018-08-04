@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.14 - reactivemongo.api.commands.AbstractCommand</title>
-          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.api.commands.AbstractCommand" />
-          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.api.commands.AbstractCommand" />
+          <title>ReactiveMongo API 0.16 - reactivemongo.api.commands.AbstractCommand</title>
+          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.api.commands.AbstractCommand" />
+          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.api.commands.AbstractCommand" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -229,10 +229,6 @@
                         <span class="separator"></span>
                         <a class="trait" href="DistinctCommand.html" title="The distinct command."></a>
                         <a href="DistinctCommand.html" title="The distinct command.">DistinctCommand</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="object" href="Drop$.html" title=""></a>
-                        <a href="Drop$.html" title="">Drop</a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
                         <a class="object" href="DropCollection$.html" title=""></a>
@@ -452,12 +448,15 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">AbstractCommand</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be removed; See Command">AbstractCommand</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be removed; See <code>Command</code></p></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -466,7 +465,7 @@
             <span class="toggle">
               Known Subclasses
             </span>
-            <div class="subClasses hiddenContent"><a href="CollStats.html" class="extype" name="reactivemongo.api.commands.CollStats">CollStats</a>, <a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a>, <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a>, <a href="Command$$CommandWithPackRunner$RawCommand.html" class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.RawCommand">RawCommand</a>, <a href="ConvertToCapped.html" class="extype" name="reactivemongo.api.commands.ConvertToCapped">ConvertToCapped</a>, <a href="CountCommand$Count.html" class="extype" name="reactivemongo.api.commands.CountCommand.Count">Count</a>, <a href="Create.html" class="extype" name="reactivemongo.api.commands.Create">Create</a>, <a href="CreateIndexes.html" class="extype" name="reactivemongo.api.commands.CreateIndexes">CreateIndexes</a>, <a href="CreateUserCommand$CreateUser.html" class="extype" name="reactivemongo.api.commands.CreateUserCommand.CreateUser">CreateUser</a>, <a href="DeleteCommand$Delete.html" class="extype" name="reactivemongo.api.commands.DeleteCommand.Delete">Delete</a>, <a href="DistinctCommand$Distinct.html" class="extype" name="reactivemongo.api.commands.DistinctCommand.Distinct">Distinct</a>, <a href="DropCollection$.html" class="extype" name="reactivemongo.api.commands.DropCollection">DropCollection</a>, <a href="DropDatabase$.html" class="extype" name="reactivemongo.api.commands.DropDatabase">DropDatabase</a>, <a href="DropIndexes.html" class="extype" name="reactivemongo.api.commands.DropIndexes">DropIndexes</a>, <a href="EmptyCapped$.html" class="extype" name="reactivemongo.api.commands.EmptyCapped">EmptyCapped</a>, <a href="FindAndModifyCommand$FindAndModify.html" class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.FindAndModify">FindAndModify</a>, <a href="GetLastError.html" class="extype" name="reactivemongo.api.commands.GetLastError">GetLastError</a>, <a href="InsertCommand$Insert.html" class="extype" name="reactivemongo.api.commands.InsertCommand.Insert">Insert</a>, <a href="IsMasterCommand$IsMaster.html" class="extype" name="reactivemongo.api.commands.IsMasterCommand.IsMaster">IsMaster</a>, <a href="IsMasterCommand$IsMaster$.html" class="extype" name="reactivemongo.api.commands.IsMasterCommand.IsMaster">IsMaster</a>, <a href="ListCollectionNames$.html" class="extype" name="reactivemongo.api.commands.ListCollectionNames">ListCollectionNames</a>, <a href="ListIndexes.html" class="extype" name="reactivemongo.api.commands.ListIndexes">ListIndexes</a>, <a href="PingCommand$.html" class="extype" name="reactivemongo.api.commands.PingCommand">PingCommand</a>, <a href="RenameCollection.html" class="extype" name="reactivemongo.api.commands.RenameCollection">RenameCollection</a>, <a href="ReplSetGetStatus$.html" class="extype" name="reactivemongo.api.commands.ReplSetGetStatus">ReplSetGetStatus</a>, <a href="ReplSetMaintenance.html" class="extype" name="reactivemongo.api.commands.ReplSetMaintenance">ReplSetMaintenance</a>, <a href="ResolvedCollectionCommand.html" class="extype" name="reactivemongo.api.commands.ResolvedCollectionCommand">ResolvedCollectionCommand</a>, <a href="Resync$.html" class="extype" name="reactivemongo.api.commands.Resync">Resync</a>, <a href="ServerStatus$.html" class="extype" name="reactivemongo.api.commands.ServerStatus">ServerStatus</a>, <a href="UpdateCommand$Update.html" class="extype" name="reactivemongo.api.commands.UpdateCommand.Update">Update</a>, <a href="AggregationFramework$Aggregate.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Aggregate">Aggregate</a>, <a href="Drop$.html" class="extype" name="reactivemongo.api.commands.Drop">Drop</a></div>
+            <div class="subClasses hiddenContent"><a href="CollectionCommand.html" class="extype" name="reactivemongo.api.commands.CollectionCommand">CollectionCommand</a>, <a href="Command.html" class="extype" name="reactivemongo.api.commands.Command">Command</a>, <a href="Command$$CommandWithPackRunner$RawCommand.html" class="extype" name="reactivemongo.api.commands.Command.CommandWithPackRunner.RawCommand">RawCommand</a>, <a href="CountCommand$Count.html" class="extype" name="reactivemongo.api.commands.CountCommand.Count">Count</a>, <a href="CreateUserCommand$CreateUser.html" class="extype" name="reactivemongo.api.commands.CreateUserCommand.CreateUser">CreateUser</a>, <a href="DeleteCommand$Delete.html" class="extype" name="reactivemongo.api.commands.DeleteCommand.Delete">Delete</a>, <a href="DistinctCommand$Distinct.html" class="extype" name="reactivemongo.api.commands.DistinctCommand.Distinct">Distinct</a>, <a href="FindAndModifyCommand$FindAndModify.html" class="extype" name="reactivemongo.api.commands.FindAndModifyCommand.FindAndModify">FindAndModify</a>, <a href="InsertCommand$Insert.html" class="extype" name="reactivemongo.api.commands.InsertCommand.Insert">Insert</a>, <a href="IsMasterCommand$IsMaster.html" class="extype" name="reactivemongo.api.commands.IsMasterCommand.IsMaster">IsMaster</a>, <a href="IsMasterCommand$IsMaster$.html" class="extype" name="reactivemongo.api.commands.IsMasterCommand.IsMaster">IsMaster</a>, <a href="ResolvedCollectionCommand.html" class="extype" name="reactivemongo.api.commands.ResolvedCollectionCommand">ResolvedCollectionCommand</a>, <a href="UpdateCommand$Update.html" class="extype" name="reactivemongo.api.commands.UpdateCommand.Update">Update</a>, <a href="AggregationFramework$Aggregate.html" class="extype" name="reactivemongo.api.commands.AggregationFramework.Aggregate">Aggregate</a>, <a href="CollStats.html" class="extype" name="reactivemongo.api.commands.CollStats">CollStats</a>, <a href="ConvertToCapped.html" class="extype" name="reactivemongo.api.commands.ConvertToCapped">ConvertToCapped</a>, <a href="Create.html" class="extype" name="reactivemongo.api.commands.Create">Create</a>, <a href="CreateIndexes.html" class="extype" name="reactivemongo.api.commands.CreateIndexes">CreateIndexes</a>, <a href="DropCollection$.html" class="extype" name="reactivemongo.api.commands.DropCollection">DropCollection</a>, <a href="DropDatabase$.html" class="extype" name="reactivemongo.api.commands.DropDatabase">DropDatabase</a>, <a href="DropIndexes.html" class="extype" name="reactivemongo.api.commands.DropIndexes">DropIndexes</a>, <a href="EmptyCapped$.html" class="extype" name="reactivemongo.api.commands.EmptyCapped">EmptyCapped</a>, <a href="GetLastError.html" class="extype" name="reactivemongo.api.commands.GetLastError">GetLastError</a>, <a href="ListCollectionNames$.html" class="extype" name="reactivemongo.api.commands.ListCollectionNames">ListCollectionNames</a>, <a href="ListIndexes.html" class="extype" name="reactivemongo.api.commands.ListIndexes">ListIndexes</a>, <a href="PingCommand$.html" class="extype" name="reactivemongo.api.commands.PingCommand">PingCommand</a>, <a href="RenameCollection.html" class="extype" name="reactivemongo.api.commands.RenameCollection">RenameCollection</a>, <a href="ReplSetGetStatus$.html" class="extype" name="reactivemongo.api.commands.ReplSetGetStatus">ReplSetGetStatus</a>, <a href="ReplSetMaintenance.html" class="extype" name="reactivemongo.api.commands.ReplSetMaintenance">ReplSetMaintenance</a>, <a href="Resync$.html" class="extype" name="reactivemongo.api.commands.Resync">Resync</a>, <a href="ServerStatus$.html" class="extype" name="reactivemongo.api.commands.ServerStatus">ServerStatus</a></div>
           </div></div>
         
 

@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.14 - reactivemongo.api.ReadConcern</title>
-          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.api.ReadConcern" />
-          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.api.ReadConcern" />
+          <title>ReactiveMongo API 0.16 - reactivemongo.api.ReadConcern</title>
+          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.api.ReadConcern" />
+          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.api.ReadConcern" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -222,7 +222,7 @@
                         <a class="object" href="DefaultCursor$.html" title=""></a>
                         <a href="DefaultCursor$.html" title="">DefaultCursor</a>
                       </li><li class="current-entities indented2">
-                        <span class="separator"></span>
+                        <a class="object" href="DefaultDB$.html" title=""></a>
                         <a class="class" href="DefaultDB.html" title="The default DB implementation, that mixes in the database traits."></a>
                         <a href="DefaultDB.html" title="The default DB implementation, that mixes in the database traits.">DefaultDB</a>
                       </li><li class="current-entities indented2">
@@ -230,13 +230,13 @@
                         <a class="object" href="Driver$.html" title="The driver factory"></a>
                         <a href="Driver$.html" title="The driver factory">Driver</a>
                       </li><li class="current-entities indented2">
-                        <a class="object" href="Failover$.html" title=""></a>
+                        <span class="separator"></span>
                         <a class="class" href="Failover.html" title="A helper that sends the given message to the given actor, following a failover strategy."></a>
                         <a href="Failover.html" title="A helper that sends the given message to the given actor, following a failover strategy.">Failover</a>
                       </li><li class="current-entities indented2">
+                        <span class="separator"></span>
                         <a class="object" href="Failover2$.html" title=""></a>
-                        <a class="class" href="Failover2.html" title=""></a>
-                        <a href="Failover2.html" title="">Failover2</a>
+                        <a href="Failover2$.html" title="">Failover2</a>
                       </li><li class="current-entities indented2">
                         <a class="object" href="FailoverStrategy$.html" title=""></a>
                         <a class="class" href="FailoverStrategy.html" title="A failover strategy for sending requests."></a>
@@ -245,10 +245,6 @@
                         <span class="separator"></span>
                         <a class="class" href="FlattenedCursor.html" title=""></a>
                         <a href="FlattenedCursor.html" title="">FlattenedCursor</a>
-                      </li><li class="current-entities indented2">
-                        <span class="separator"></span>
-                        <a class="trait" href="GenericDB.html" title=""></a>
-                        <a href="GenericDB.html" title="">GenericDB</a>
                       </li><li class="current-entities indented2">
                         <a class="object" href="MongoConnection$.html" title=""></a>
                         <a class="class" href="MongoConnection.html" title="A pool of MongoDB connections, obtained from a reactivemongo.api.MongoDriver."></a>
@@ -271,8 +267,8 @@
                         <a href="QueryOpts.html" title="A helper to make the query options.">QueryOpts</a>
                       </li><li class="current-entities indented2">
                         <a class="object" href="ReadConcern$.html" title=""></a>
-                        <a class="trait" href="" title=""></a>
-                        <a href="" title="">ReadConcern</a>
+                        <a class="trait" href="" title="The Read Concern allows to control the consistency and isolation used to read data from replica sets."></a>
+                        <a href="" title="The Read Concern allows to control the consistency and isolation used to read data from replica sets.">ReadConcern</a>
                       </li><li class="current-entities indented2">
                         <a class="object" href="ReadPreference$.html" title=""></a>
                         <a class="trait" href="ReadPreference.html" title="MongoDB Read Preferences enable to read from primary or secondaries with a predefined strategy."></a>
@@ -285,10 +281,6 @@
                         <a class="object" href="SerializationPack$.html" title=""></a>
                         <a class="trait" href="SerializationPack.html" title=""></a>
                         <a href="SerializationPack.html" title="">SerializationPack</a>
-                      </li><li class="current-entities indented2">
-                        <a class="object" href="SortOrder$.html" title=""></a>
-                        <a class="trait" href="SortOrder.html" title=""></a>
-                        <a href="SortOrder.html" title="">SortOrder</a>
                       </li><li class="current-entities indented2">
                         <span class="separator"></span>
                         <a class="object" href="Version$.html" title=""></a>
@@ -331,7 +323,8 @@
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>The <a href="https://docs.mongodb.com/manual/reference/read-concern/" target="_blank">Read Concern</a> allows to control the consistency and isolation used to read data from replica sets.
+</p></div><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -644,10 +637,10 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="equals(x$1:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
+    </li><li name="reactivemongo.api.ReadConcern#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(that:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/api/ReadConcern.html#equals(x$1:Any):Boolean" title="Permalink">
+      <a href="../../reactivemongo/api/ReadConcern.html#equals(that:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -656,10 +649,10 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+        <span class="name">equals</span><span class="params">(<span name="that">that: <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.ReadConcern">ReadConcern</a> → AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <span class="permalink">
@@ -724,7 +717,7 @@
                 <span class="name">@native</span><span class="args">()</span>
               
         </dd></dl></div>
-    </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="reactivemongo.api.ReadConcern#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <span class="permalink">
       <a href="../../reactivemongo/api/ReadConcern.html#hashCode():Int" title="Permalink">
@@ -739,10 +732,7 @@
         <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd><dt>Annotations</dt><dd>
-                <span class="name">@native</span><span class="args">()</span>
-              
-        </dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.ReadConcern">ReadConcern</a> → AnyRef → Any</dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <span class="permalink">

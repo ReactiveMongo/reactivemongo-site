@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.14 - reactivemongo.api.DefaultCursor</title>
-          <meta name="description" content="ReactiveMongo API 0.14 - reactivemongo.api.DefaultCursor" />
-          <meta name="keywords" content="ReactiveMongo API 0.14 reactivemongo.api.DefaultCursor" />
+          <title>ReactiveMongo API 0.16 - reactivemongo.api.DefaultCursor</title>
+          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.api.DefaultCursor" />
+          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.api.DefaultCursor" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.14</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -222,7 +222,7 @@
                         <a class="object" href="" title=""></a>
                         <a href="" title="">DefaultCursor</a>
                       </li><li class="current-entities indented2">
-                        <span class="separator"></span>
+                        <a class="object" href="DefaultDB$.html" title=""></a>
                         <a class="class" href="DefaultDB.html" title="The default DB implementation, that mixes in the database traits."></a>
                         <a href="DefaultDB.html" title="The default DB implementation, that mixes in the database traits.">DefaultDB</a>
                       </li><li class="current-entities indented2">
@@ -230,13 +230,13 @@
                         <a class="object" href="Driver$.html" title="The driver factory"></a>
                         <a href="Driver$.html" title="The driver factory">Driver</a>
                       </li><li class="current-entities indented2">
-                        <a class="object" href="Failover$.html" title=""></a>
+                        <span class="separator"></span>
                         <a class="class" href="Failover.html" title="A helper that sends the given message to the given actor, following a failover strategy."></a>
                         <a href="Failover.html" title="A helper that sends the given message to the given actor, following a failover strategy.">Failover</a>
                       </li><li class="current-entities indented2">
+                        <span class="separator"></span>
                         <a class="object" href="Failover2$.html" title=""></a>
-                        <a class="class" href="Failover2.html" title=""></a>
-                        <a href="Failover2.html" title="">Failover2</a>
+                        <a href="Failover2$.html" title="">Failover2</a>
                       </li><li class="current-entities indented2">
                         <a class="object" href="FailoverStrategy$.html" title=""></a>
                         <a class="class" href="FailoverStrategy.html" title="A failover strategy for sending requests."></a>
@@ -245,10 +245,6 @@
                         <span class="separator"></span>
                         <a class="class" href="FlattenedCursor.html" title=""></a>
                         <a href="FlattenedCursor.html" title="">FlattenedCursor</a>
-                      </li><li class="current-entities indented2">
-                        <span class="separator"></span>
-                        <a class="trait" href="GenericDB.html" title=""></a>
-                        <a href="GenericDB.html" title="">GenericDB</a>
                       </li><li class="current-entities indented2">
                         <a class="object" href="MongoConnection$.html" title=""></a>
                         <a class="class" href="MongoConnection.html" title="A pool of MongoDB connections, obtained from a reactivemongo.api.MongoDriver."></a>
@@ -271,8 +267,8 @@
                         <a href="QueryOpts.html" title="A helper to make the query options.">QueryOpts</a>
                       </li><li class="current-entities indented2">
                         <a class="object" href="ReadConcern$.html" title=""></a>
-                        <a class="trait" href="ReadConcern.html" title=""></a>
-                        <a href="ReadConcern.html" title="">ReadConcern</a>
+                        <a class="trait" href="ReadConcern.html" title="The Read Concern allows to control the consistency and isolation used to read data from replica sets."></a>
+                        <a href="ReadConcern.html" title="The Read Concern allows to control the consistency and isolation used to read data from replica sets.">ReadConcern</a>
                       </li><li class="current-entities indented2">
                         <a class="object" href="ReadPreference$.html" title=""></a>
                         <a class="trait" href="ReadPreference.html" title="MongoDB Read Preferences enable to read from primary or secondaries with a predefined strategy."></a>
@@ -285,10 +281,6 @@
                         <a class="object" href="SerializationPack$.html" title=""></a>
                         <a class="trait" href="SerializationPack.html" title=""></a>
                         <a href="SerializationPack.html" title="">SerializationPack</a>
-                      </li><li class="current-entities indented2">
-                        <a class="object" href="SortOrder$.html" title=""></a>
-                        <a class="trait" href="SortOrder.html" title=""></a>
-                        <a href="SortOrder.html" title="">SortOrder</a>
                       </li><li class="current-entities indented2">
                         <span class="separator"></span>
                         <a class="object" href="Version$.html" title=""></a>
@@ -324,12 +316,15 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">DefaultCursor</span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.16.0) Will be private/internal">DefaultCursor</span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Will be private/internal</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -547,22 +542,6 @@
                 <span class="name">@native</span><span class="args">()</span>
               
         </dd></dl></div>
-    </li><li name="reactivemongo.api.DefaultCursor#getMore" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getMore[P&lt;:reactivemongo.api.SerializationPack,A](pack:P,preload:=&gt;reactivemongo.core.protocol.Response,result:reactivemongo.api.commands.ResultCursor,toReturn:Int,readPreference:reactivemongo.api.ReadPreference,mongoConnection:reactivemongo.api.MongoConnection,failover:reactivemongo.api.FailoverStrategy,isMongo26WriteOp:Boolean)(implicitreader:pack.Reader[A]):reactivemongo.api.DefaultCursor.Impl[A]"></a><a id="getMore[P&lt;:SerializationPack,A](P,⇒Response,ResultCursor,Int,ReadPreference,MongoConnection,FailoverStrategy,Boolean)(DefaultCursor.getMore.P.Reader[A]):Impl[A]"></a>
-      <span class="permalink">
-      <a href="../../reactivemongo/api/DefaultCursor$.html#getMore[P&lt;:reactivemongo.api.SerializationPack,A](pack:P,preload:=&gt;reactivemongo.core.protocol.Response,result:reactivemongo.api.commands.ResultCursor,toReturn:Int,readPreference:reactivemongo.api.ReadPreference,mongoConnection:reactivemongo.api.MongoConnection,failover:reactivemongo.api.FailoverStrategy,isMongo26WriteOp:Boolean)(implicitreader:pack.Reader[A]):reactivemongo.api.DefaultCursor.Impl[A]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">getMore</span><span class="tparams">[<span name="P">P &lt;: <a href="SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>, <span name="A">A</span>]</span><span class="params">(<span name="pack">pack: <span class="extype" name="reactivemongo.api.DefaultCursor.getMore.P">P</span></span>, <span name="preload">preload: ⇒ <a href="../core/protocol/Response.html" class="extype" name="reactivemongo.core.protocol.Response">Response</a></span>, <span name="result">result: <a href="commands/ResultCursor.html" class="extype" name="reactivemongo.api.commands.ResultCursor">ResultCursor</a></span>, <span name="toReturn">toReturn: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="readPreference">readPreference: <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a></span>, <span name="mongoConnection">mongoConnection: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>, <span name="failover">failover: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a></span>, <span name="isMongo26WriteOp">isMongo26WriteOp: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">DefaultCursor.getMore.P.Reader</span>[<span class="extype" name="reactivemongo.api.DefaultCursor.getMore.A">A</span>]</span>)</span><span class="result">: <span class="extype" name="reactivemongo.api.DefaultCursor.Impl">Impl</span>[<span class="extype" name="reactivemongo.api.DefaultCursor.getMore.A">A</span>]</span>
-      </span>
-      
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">toReturn</dt><dd class="cmt"><p>the number to return</p></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <span class="permalink">
@@ -652,22 +631,6 @@
                 <span class="name">@native</span><span class="args">()</span>
               
         </dd></dl></div>
-    </li><li name="reactivemongo.api.DefaultCursor#query" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="query[P&lt;:reactivemongo.api.SerializationPack,A](pack:P,query:reactivemongo.core.protocol.Query,requestBuffer:Int=&gt;reactivemongo.core.netty.BufferSequence,readPreference:reactivemongo.api.ReadPreference,mongoConnection:reactivemongo.api.MongoConnection,failover:reactivemongo.api.FailoverStrategy,isMongo26WriteOp:Boolean,collectionName:String)(implicitreader:pack.Reader[A]):reactivemongo.api.DefaultCursor.Impl[A]"></a><a id="query[P&lt;:SerializationPack,A](P,Query,(Int)⇒BufferSequence,ReadPreference,MongoConnection,FailoverStrategy,Boolean,String)(DefaultCursor.query.P.Reader[A]):Impl[A]"></a>
-      <span class="permalink">
-      <a href="../../reactivemongo/api/DefaultCursor$.html#query[P&lt;:reactivemongo.api.SerializationPack,A](pack:P,query:reactivemongo.core.protocol.Query,requestBuffer:Int=&gt;reactivemongo.core.netty.BufferSequence,readPreference:reactivemongo.api.ReadPreference,mongoConnection:reactivemongo.api.MongoConnection,failover:reactivemongo.api.FailoverStrategy,isMongo26WriteOp:Boolean,collectionName:String)(implicitreader:pack.Reader[A]):reactivemongo.api.DefaultCursor.Impl[A]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">query</span><span class="tparams">[<span name="P">P &lt;: <a href="SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>, <span name="A">A</span>]</span><span class="params">(<span name="pack">pack: <span class="extype" name="reactivemongo.api.DefaultCursor.query.P">P</span></span>, <span name="query">query: <a href="../core/protocol/Query.html" class="extype" name="reactivemongo.core.protocol.Query">Query</a></span>, <span name="requestBuffer">requestBuffer: (<a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>) ⇒ <a href="../core/netty/BufferSequence.html" class="extype" name="reactivemongo.core.netty.BufferSequence">BufferSequence</a></span>, <span name="readPreference">readPreference: <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a></span>, <span name="mongoConnection">mongoConnection: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>, <span name="failover">failover: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a></span>, <span name="isMongo26WriteOp">isMongo26WriteOp: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="collectionName">collectionName: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">DefaultCursor.query.P.Reader</span>[<span class="extype" name="reactivemongo.api.DefaultCursor.query.A">A</span>]</span>)</span><span class="result">: <span class="extype" name="reactivemongo.api.DefaultCursor.Impl">Impl</span>[<span class="extype" name="reactivemongo.api.DefaultCursor.query.A">A</span>]</span>
-      </span>
-      
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">collectionName</dt><dd class="cmt"><p>the fully qualified collection name (even if <code>query.fullCollectionName</code> is <code>$cmd</code>)</p></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
@@ -776,10 +739,10 @@
 
         <div class="values members">
               <h3>Deprecated Value Members</h3>
-              <ol><li name="reactivemongo.api.DefaultCursor#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="apply[P&lt;:reactivemongo.api.SerializationPack,A](pack:P,query:reactivemongo.core.protocol.Query,documents:reactivemongo.core.netty.BufferSequence,readPreference:reactivemongo.api.ReadPreference,mongoConnection:reactivemongo.api.MongoConnection,failover:reactivemongo.api.FailoverStrategy,isMongo26WriteOp:Boolean)(implicitreader:pack.Reader[A]):reactivemongo.api.Cursor[A]"></a><a id="apply[P&lt;:SerializationPack,A](P,Query,BufferSequence,ReadPreference,MongoConnection,FailoverStrategy,Boolean)(DefaultCursor.apply.P.Reader[A]):Cursor[A]"></a>
+              <ol><li name="reactivemongo.api.DefaultCursor#getMore" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getMore[P&lt;:reactivemongo.api.SerializationPack,A](pack:P,preload:=&gt;reactivemongo.core.protocol.Response,result:reactivemongo.api.commands.ResultCursor,toReturn:Int,readPreference:reactivemongo.api.ReadPreference,mongoConnection:reactivemongo.api.MongoConnection,failover:reactivemongo.api.FailoverStrategy,isMongo26WriteOp:Boolean)(implicitreader:pack.Reader[A]):reactivemongo.api.DefaultCursor.Impl[A]"></a><a id="getMore[P&lt;:SerializationPack,A](P,⇒Response,ResultCursor,Int,ReadPreference,MongoConnection,FailoverStrategy,Boolean)(DefaultCursor.getMore.P.Reader[A]):Impl[A]"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/api/DefaultCursor$.html#apply[P&lt;:reactivemongo.api.SerializationPack,A](pack:P,query:reactivemongo.core.protocol.Query,documents:reactivemongo.core.netty.BufferSequence,readPreference:reactivemongo.api.ReadPreference,mongoConnection:reactivemongo.api.MongoConnection,failover:reactivemongo.api.FailoverStrategy,isMongo26WriteOp:Boolean)(implicitreader:pack.Reader[A]):reactivemongo.api.Cursor[A]" title="Permalink">
+      <a href="../../reactivemongo/api/DefaultCursor$.html#getMore[P&lt;:reactivemongo.api.SerializationPack,A](pack:P,preload:=&gt;reactivemongo.core.protocol.Response,result:reactivemongo.api.commands.ResultCursor,toReturn:Int,readPreference:reactivemongo.api.ReadPreference,mongoConnection:reactivemongo.api.MongoConnection,failover:reactivemongo.api.FailoverStrategy,isMongo26WriteOp:Boolean)(implicitreader:pack.Reader[A]):reactivemongo.api.DefaultCursor.Impl[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -788,13 +751,32 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.11.10) Use query">apply</span><span class="tparams">[<span name="P">P &lt;: <a href="SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>, <span name="A">A</span>]</span><span class="params">(<span name="pack">pack: <span class="extype" name="reactivemongo.api.DefaultCursor.apply.P">P</span></span>, <span name="query">query: <a href="../core/protocol/Query.html" class="extype" name="reactivemongo.core.protocol.Query">Query</a></span>, <span name="documents">documents: <a href="../core/netty/BufferSequence.html" class="extype" name="reactivemongo.core.netty.BufferSequence">BufferSequence</a></span>, <span name="readPreference">readPreference: <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a></span>, <span name="mongoConnection">mongoConnection: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>, <span name="failover">failover: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a></span>, <span name="isMongo26WriteOp">isMongo26WriteOp: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">DefaultCursor.apply.P.Reader</span>[<span class="extype" name="reactivemongo.api.DefaultCursor.apply.A">A</span>]</span>)</span><span class="result">: <a href="Cursor.html" class="extype" name="reactivemongo.api.Cursor">Cursor</a>[<span class="extype" name="reactivemongo.api.DefaultCursor.apply.A">A</span>]</span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.16.0) No longer implemented">getMore</span><span class="tparams">[<span name="P">P &lt;: <a href="SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>, <span name="A">A</span>]</span><span class="params">(<span name="pack">pack: <span class="extype" name="reactivemongo.api.DefaultCursor.getMore.P">P</span></span>, <span name="preload">preload: ⇒ <a href="../core/protocol/Response.html" class="extype" name="reactivemongo.core.protocol.Response">Response</a></span>, <span name="result">result: <a href="commands/ResultCursor.html" class="extype" name="reactivemongo.api.commands.ResultCursor">ResultCursor</a></span>, <span name="toReturn">toReturn: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="readPreference">readPreference: <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a></span>, <span name="mongoConnection">mongoConnection: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>, <span name="failover">failover: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a></span>, <span name="isMongo26WriteOp">isMongo26WriteOp: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">DefaultCursor.getMore.P.Reader</span>[<span class="extype" name="reactivemongo.api.DefaultCursor.getMore.A">A</span>]</span>)</span><span class="result">: <span class="extype" name="reactivemongo.api.DefaultCursor.Impl">Impl</span>[<span class="extype" name="reactivemongo.api.DefaultCursor.getMore.A">A</span>]</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.11.10)</i> Use <a href="#query[P&lt;:reactivemongo.api.SerializationPack,A](pack:P,query:reactivemongo.core.protocol.Query,requestBuffer:Int=&gt;reactivemongo.core.netty.BufferSequence,readPreference:reactivemongo.api.ReadPreference,mongoConnection:reactivemongo.api.MongoConnection,failover:reactivemongo.api.FailoverStrategy,isMongo26WriteOp:Boolean,collectionName:String)(implicitreader:pack.Reader[A]):reactivemongo.api.DefaultCursor.Impl[A]" class="extmbr" name="reactivemongo.api.DefaultCursor#query">query</a></p></dd></dl></div>
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> No longer implemented</p></dd></dl></div>
+    </li><li name="reactivemongo.api.DefaultCursor#query" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="query[P&lt;:reactivemongo.api.SerializationPack,A](pack:P,query:reactivemongo.core.protocol.Query,requestBuffer:Int=&gt;reactivemongo.core.netty.BufferSequence,readPreference:reactivemongo.api.ReadPreference,mongoConnection:reactivemongo.api.MongoConnection,failover:reactivemongo.api.FailoverStrategy,isMongo26WriteOp:Boolean,collectionName:String)(implicitreader:pack.Reader[A]):reactivemongo.api.DefaultCursor.Impl[A]"></a><a id="query[P&lt;:SerializationPack,A](P,Query,(Int)⇒BufferSequence,ReadPreference,MongoConnection,FailoverStrategy,Boolean,String)(DefaultCursor.query.P.Reader[A]):Impl[A]"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/api/DefaultCursor$.html#query[P&lt;:reactivemongo.api.SerializationPack,A](pack:P,query:reactivemongo.core.protocol.Query,requestBuffer:Int=&gt;reactivemongo.core.netty.BufferSequence,readPreference:reactivemongo.api.ReadPreference,mongoConnection:reactivemongo.api.MongoConnection,failover:reactivemongo.api.FailoverStrategy,isMongo26WriteOp:Boolean,collectionName:String)(implicitreader:pack.Reader[A]):reactivemongo.api.DefaultCursor.Impl[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.16.0) No longer implemented">query</span><span class="tparams">[<span name="P">P &lt;: <a href="SerializationPack.html" class="extype" name="reactivemongo.api.SerializationPack">SerializationPack</a></span>, <span name="A">A</span>]</span><span class="params">(<span name="pack">pack: <span class="extype" name="reactivemongo.api.DefaultCursor.query.P">P</span></span>, <span name="query">query: <a href="../core/protocol/Query.html" class="extype" name="reactivemongo.core.protocol.Query">Query</a></span>, <span name="requestBuffer">requestBuffer: (<a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>) ⇒ <a href="../core/netty/BufferSequence.html" class="extype" name="reactivemongo.core.netty.BufferSequence">BufferSequence</a></span>, <span name="readPreference">readPreference: <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a></span>, <span name="mongoConnection">mongoConnection: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>, <span name="failover">failover: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a></span>, <span name="isMongo26WriteOp">isMongo26WriteOp: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="collectionName">collectionName: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="reader">reader: <span class="extype" name="reactivemongo.api.SerializationPack.Reader">DefaultCursor.query.P.Reader</span>[<span class="extype" name="reactivemongo.api.DefaultCursor.query.A">A</span>]</span>)</span><span class="result">: <span class="extype" name="reactivemongo.api.DefaultCursor.Impl">Impl</span>[<span class="extype" name="reactivemongo.api.DefaultCursor.query.A">A</span>]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> No longer implemented</p></dd></dl></div>
     </li></ol>
             </div>
         </div>

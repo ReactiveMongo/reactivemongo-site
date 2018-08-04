@@ -247,19 +247,15 @@ class MyController @Inject() (
   // gridFSBodyParser from `MongoController`
   import MongoController.readFileReads
 
-  val fsParser = gridFSBodyParser(reactiveMongoApi.gridFS)
+  val fsParser = gridFSBodyParser(reactiveMongoApi.asyncGridFS)
   
-  def upload = Action.async(fsParser) { request =>
+  def upload = Action(fsParser) { request =>
     // here is the future file!
-    val futureFile: Future[ReadFile[JSONSerializationPack.type, JsValue]] = 
+    val file: ReadFile[JSONSerializationPack.type, JsValue] = 
       request.body.files.head.ref
 
-    futureFile.map { file =>
-      // do something
-      Ok
-    }.recover {
-      case e: Throwable => InternalServerError(e.getMessage)
-    }
+    // do something with `file`
+    Ok
   }
 }
 {% endhighlight %}
@@ -293,8 +289,7 @@ import play.modules.reactivemongo.{ // ReactiveMongo Play2 plugin
 }
 
 // BSON-JSON conversions/collection
-import reactivemongo.play.json._
-import play.modules.reactivemongo.json.collection._
+import reactivemongo.play.json._, collection._
 
 /*
  * Example using ReactiveMongo + Play JSON library.
@@ -381,7 +376,7 @@ class Application @Inject() (
 
     // gather all the JsObjects in a list
     val futurePersonsList: Future[List[JsObject]] =
-      cursor.flatMap(_.collect[List]())
+      cursor.flatMap(_.collect[List](-1, Cursor.FailOnError[List[JsObject]]()))
 
     // transform the list into a JsArray
     val futurePersonsJsonArray: Future[JsArray] =
@@ -539,7 +534,8 @@ class ApplicationUsingJsonReadersWriters @Inject() (
     }
 
     // gather all the JsObjects in a list
-    val futureUsersList: Future[List[User]] = cursor.flatMap(_.collect[List]())
+    val futureUsersList: Future[List[User]] =
+      cursor.flatMap(_.collect[List](-1, Cursor.FailOnError[List[User]]()))
 
     // everything's ok! Let's reply with the array
     futureUsersList.map { persons =>
