@@ -16,12 +16,12 @@ The latest version of this plugin is for Play 2.4+, and can be enabled by adding
 {% highlight ocaml %}
 // only for Play 2.6.x (Scala 2.12)
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "{{page._0_1x_latest_minor_play_module}}-play26"
+  "org.reactivemongo" %% "play2-reactivemongo" % "{{page._0_1x_latest_minor_play_module}}"
 )
 
 // only for Play 2.5.x (Scala 2.11)
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "{{page._0_1x_latest_minor_play_module}}-play25"
+  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._0_1x_latest_minor}}-play25"
 )
 {% endhighlight %}
 
