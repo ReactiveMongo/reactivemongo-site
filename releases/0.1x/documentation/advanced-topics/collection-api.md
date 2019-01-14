@@ -105,7 +105,7 @@ Most of the implementations actually extend the trait `GenericCollection`.
 
 ### The `GenericCollection` trait
 
-This trait is much more complete than `Collection`. It defines common methods, like `find()`, `update()`, `remove()` and `insert()`, among others. One particularity of them is that they may be given ...
+This trait is much more complete than `Collection`. It defines common methods, like `find`, `update`, `delete` and `insert`, among others. One particularity of them is that they may be given ...
 
 Let's take an example of how these types are used for `find()`, which is defined like this:
 

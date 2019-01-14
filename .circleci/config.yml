@@ -27,10 +27,10 @@ jobs:
         command: test -d ~/.local/bin || (wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py --user)
     - run:
         name: 'Prepare the build environment'
-        command: ./.ci_scripts/beforeInstall.sh 1.1.0
+        command: ./.ci_scripts/beforeInstall.sh 1.2.7
     - run:
         name: 'Build'
-        command: ./.ci_scripts/validate.sh 1.1.0
+        command: ./.ci_scripts/validate.sh 1.2.7
     - run:
         name: 'Run jekyll in background'
         command: bundle exec jekyll serve

@@ -30,9 +30,9 @@ libraryDependencies ++= Seq(
 
 As for Play itself, this ReactiveMongo plugin requires a JVM 1.8+.
 
-The [API of this Play module](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_2.12/{{site._0_1x_latest_minor}}/play2-reactivemongo_2.12-{{site._0_1x_latest_minor}}-javadoc.jar/!/index.html) can be browsed online.
+The [API of this Play module](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_2.12/{{site._0_1x_latest_minor}}-play26/play2-reactivemongo_2.12-{{site._0_1x_latest_minor}}-play26-javadoc.jar/!/index.html) can be browsed online.
 
-The API for the standalone JSON serialization is [also available](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.12/{{site._0_1x_latest_minor}}/reactivemongo-play-json_2.12-{{site._0_1x_latest_minor}}-javadoc.jar/!/index.html).
+The API for the standalone JSON serialization is [also available](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.12/{{site._0_1x_latest_minor}}-play26/reactivemongo-play-json_2.12-{{site._0_1x_latest_minor}}-play26-javadoc.jar/!/index.html).
 
 If you want to use the latest snapshot, add the following instead (only for play > 2.4):
 
@@ -50,7 +50,7 @@ libraryDependencies ++= Seq(
 
 **`ReactiveMongoPlugin` is deprecated, long live to `ReactiveMongoModule` and `ReactiveMongoApi`**.
 
-Play has deprecated the plugins in version 2.4, therefore it is recommended to remove the former `ReactiveMongoPlugin` from your project. It must be replaced it by `ReactiveMongoModule` and [`ReactiveMongoApi`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_2.12/{{site._0_1x_latest_minor}}/play2-reactivemongo_2.12-{{site._0_1x_latest_minor}}-javadoc.jar/!/index.html#play.modules.reactivemongo.ReactiveMongoApi) which is the interface to MongoDB.
+Play has deprecated the plugins in version 2.4, therefore it is recommended to remove the former `ReactiveMongoPlugin` from your project. It must be replaced it by `ReactiveMongoModule` and [`ReactiveMongoApi`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_2.12/{{site._0_1x_latest_minor}}-play26/play2-reactivemongo_2.12-{{site._0_1x_latest_minor}}-play26-javadoc.jar/!/index.html#play.modules.reactivemongo.ReactiveMongoApi) which is the interface to MongoDB.
 
 Thus, the dependency injection can be configured, so that the your controllers are given the new ReactiveMongo API.
 First, Add the line bellow to `application.conf`:
@@ -77,7 +77,7 @@ class MyController @Inject() (
 }
 {% endhighlight %}
 
-The traits [`ReactiveMongoComponents`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_2.12/{{site._0_1x_latest_minor}}/play2-reactivemongo_2.12-{{site._0_1x_latest_minor}}-javadoc.jar/!/index.html#play.modules.reactivemongo.ReactiveMongoComponents) and [`ReactiveMongoApiComponents`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_2.12/{{site._0_1x_latest_minor}}/play2-reactivemongo_2.12-{{site._0_1x_latest_minor}}-javadoc.jar/!/index.html#play.modules.reactivemongo.ReactiveMongoApiComponents) can be used for [compile-time dependency injection](https://playframework.com/documentation/latest/ScalaCompileTimeDependencyInjection).
+The traits [`ReactiveMongoComponents`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_2.12/{{site._0_1x_latest_minor}}-play26/play2-reactivemongo_2.12-{{site._0_1x_latest_minor}}-play26-javadoc.jar/!/index.html#play.modules.reactivemongo.ReactiveMongoComponents) and [`ReactiveMongoApiComponents`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_2.12/{{site._0_1x_latest_minor}}-play26/play2-reactivemongo_2.12-{{site._0_1x_latest_minor}}-play26-javadoc.jar/!/index.html#play.modules.reactivemongo.ReactiveMongoApiComponents) can be used for [compile-time dependency injection](https://playframework.com/documentation/latest/ScalaCompileTimeDependencyInjection).
 
 {% highlight scala %}
 import javax.inject.Inject
@@ -337,7 +337,7 @@ class Application @Inject() (
       "age" -> age,
       "created" -> new java.util.Date().getTime())
 
-    collection.flatMap(_.insert(json)).map(lastError =>
+    collection.flatMap(_.insert.one(json)).map(lastError =>
       Ok("Mongo LastError: %s".format(lastError)))
   }
 
@@ -346,8 +346,8 @@ class Application @Inject() (
     /*
      * request.body is a JsValue.
      * There is an implicit Writes that turns this JsValue as a JsObject,
-     * so you can call insert() with this JsValue.
-     * (insert() takes a JsObject as parameter, or anything that can be
+     * so you can call insert.one() with this JsValue.
+     * (insert.one() takes a JsObject as parameter, or anything that can be
      * turned into a JsObject using a Writes.)
      */
     val transformer: Reads[JsObject] =
@@ -356,7 +356,7 @@ class Application @Inject() (
         Reads.jsPickBranch[JsNumber](__ \ "age") reduce
 
     request.body.transform(transformer).map { result =>
-      collection.flatMap(_.insert(result)).map { lastError =>
+      collection.flatMap(_.insert.one(result)).map { lastError =>
         Logger.debug(s"Successfully inserted with LastError: $lastError")
         Created
       }
@@ -499,7 +499,7 @@ class ApplicationUsingJsonReadersWriters @Inject() (
       Feed("Slashdot news", "http://slashdot.org/slashdot.rdf")))
 
     // insert the user
-    val futureResult = collection.flatMap(_.insert(user))
+    val futureResult = collection.flatMap(_.insert.one(user))
 
     // when the insert is performed, send a OK 200 result
     futureResult.map(_ => Ok)
@@ -509,13 +509,13 @@ class ApplicationUsingJsonReadersWriters @Inject() (
     /*
      * request.body is a JsValue.
      * There is an implicit Writes that turns this JsValue as a JsObject,
-     * so you can call insert() with this JsValue.
-     * (insert() takes a JsObject as parameter, or anything that can be
+     * so you can call insert.one() with this JsValue.
+     * (insert.one() takes a JsObject as parameter, or anything that can be
      * turned into a JsObject using a Writes.)
      */
     request.body.validate[User].map { user =>
       // `user` is an instance of the case class `models.User`
-      collection.flatMap(_.insert(user)).map { lastError =>
+      collection.flatMap(_.insert.one(user)).map { lastError =>
         Logger.debug(s"Successfully inserted with LastError: $lastError")
         Created
       }

@@ -42,8 +42,9 @@ object GetStarted {
   implicit def personWriter: BSONDocumentWriter[Person] = Macros.writer[Person]
   // or provide a custom one
 
+  // use personWriter
   def createPerson(person: Person): Future[Unit] =
-    personCollection.flatMap(_.insert(person).map(_ => {})) // use personWriter
+    personCollection.flatMap(_.insert.one(person).map(_ => {})) 
 
   def updatePerson(person: Person): Future[Int] = {
     val selector = document(
@@ -52,7 +53,7 @@ object GetStarted {
     )
 
     // Update the matching person
-    personCollection.flatMap(_.update(selector, person).map(_.n))
+    personCollection.flatMap(_.update.one(selector, person).map(_.n))
   }
 
   implicit def personReader: BSONDocumentReader[Person] = Macros.reader[Person]
