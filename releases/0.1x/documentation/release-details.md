@@ -101,7 +101,7 @@ The collection API provides new operations.
 
 **[`InsertBuilder`](../api/reactivemongo/api/collections/InsertOps$InsertBuilder.html)**
 
-The new [`insert`](../api/reactivemongo/api/collections/GenericCollection.html#insert[T](ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern)(implicitevidence$2:GenericCollection.this.pack.Writer[T]):GenericCollection.this.InsertBuilder[T]) operation is providing an `InsertBuilder`, which supports,
+The new [`insert`](../api/reactivemongo/api/collections/GenericCollection.html#insert(ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern)(implicitevidence$2:GenericCollection.this.pack.Writer[T]):GenericCollection.this.InsertBuilder[T]) operation is providing an `InsertBuilder`, which supports,
 
 - simple insert with [`.one`](../api/reactivemongo/api/collections/InsertOps$InsertBuilder.html#one(document:T)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.WriteResult]),
 - and bulk insert with [`.many`](../api/reactivemongo/api/collections/InsertOps$InsertBuilder.html#many(documents:Iterable[T])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.MultiBulkWriteResult]).
@@ -119,17 +119,17 @@ val document1 = BSONDocument(
   "lastName" -> "Godbillon",
   "age" -> 29)
 
-// Simple: .insert[T].one(t)
+// Simple: .insert.one(t)
 def simpleInsert(coll: BSONCollection): Future[WriteResult] =
-  coll.insert[BSONDocument](ordered = false).one(document1)
+  coll.insert.one(document1)
 
-// Bulk: .insert[T].many(Seq(t1, t2, ..., tN))
+// Bulk: .insert.many(Seq(t1, t2, ..., tN))
 def bulkInsert(coll: BSONCollection): Future[MultiBulkWriteResult] =
-  coll.insert[BSONDocument](ordered = false).
-  many(Seq(document1, BSONDocument(
-    "firstName" -> "Foo",
-    "lastName" -> "Bar",
-    "age" -> 1)))
+  coll.insert(ordered = false).many(Seq(
+    document1, BSONDocument(
+      "firstName" -> "Foo",
+      "lastName" -> "Bar",
+      "age" -> 1)))
 {% endhighlight %}
 
 **`UpdateBuilder`:**
@@ -154,9 +154,9 @@ def update1(personColl: BSONCollection) = {
       "$unset" -> BSONDocument("name" -> 1))
 
   // Simple update: get a future update
-  val futureUpdate1 = personColl.
-    update(ordered = false).one(selector, modifier,
-      upsert = false, multi = false)
+  val futureUpdate1 = personColl.update.one(
+    q = selector, u = modifier,
+    upsert = false, multi = false)
 
   // Bulk update: multiple update
   val updateBuilder1 = personColl.update(ordered = true)
@@ -178,7 +178,7 @@ def update1(personColl: BSONCollection) = {
 
 **[`DeleteBuilder`](../api/reactivemongo/api/collections/DeleteOps$DeleteBuilder.html)**
 
-The [`.delete`](../api/reactivemongo/api/collections/GenericCollection.html#delete[S](ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern):GenericCollection.this.DeleteBuilder) function returns a `DeleteBuilder`, to perform simple or bulk delete.
+The [`.delete`](../api/reactivemongo/api/collections/GenericCollection.html#delete(ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern):GenericCollection.this.DeleteBuilder) function returns a `DeleteBuilder`, to perform simple or bulk delete.
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -189,11 +189,10 @@ import reactivemongo.bson.BSONDocument
 import reactivemongo.api.collections.bson.BSONCollection
 
 def simpleDelete1(personColl: BSONCollection) =
-  personColl.delete[BSONDocument](ordered = false).
-    one(BSONDocument("firstName" -> "Stephane"))
+  personColl.delete.one(BSONDocument("firstName" -> "Stephane"))
 
 def bulkDelete1(personColl: BSONCollection) = {
-  val deleteBuilder = personColl.delete[BSONDocument](ordered = false)
+  val deleteBuilder = personColl.delete(ordered = false)
 
   val deletes = Future.sequence(Seq(
     deleteBuilder.element(

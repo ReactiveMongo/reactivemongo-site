@@ -93,6 +93,7 @@ The option `ssl` is needed if the MongoDB server is requiring SSL (`mongod --ssl
 - **`writeConcernJ`**: Toggle [journaling](http://docs.mongodb.org/manual/reference/write-concern/#j-option) on the default write concern. Of `writeConcern` is specified, its `j` will be replaced by this `writeConcernJ` boolean flag (`true|false`).
 - **`writeConcernTimeout`**: The [time limit](http://docs.mongodb.org/manual/reference/write-concern/#wtimeout) (in milliseconds) for the default write concern. If `writeConcern` is specified, its timeout is replaced by this one.
 - **`readPreference`**: The default [read preference](../advanced-topics/read-preferences.html) (`primary|primaryPreferred|secondary|secondaryPreferred|nearest`) (default is `primary`).
+  - [`nearest`](https://docs.mongodb.com/manual/reference/read-preference/#nearest): Do not consider whether nodes are primary or secondary, but select one according how fast it is to answer an `isMaster` request (ping time).
 
 If the connection pool is defined by an URI, then the options can be given after the `?` separator:
 

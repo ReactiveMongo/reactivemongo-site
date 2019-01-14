@@ -129,7 +129,7 @@ import reactivemongo.api.collections.bson.BSONCollection
 implicit def personWriter: BSONDocumentWriter[Person] = ???
 
 def create(personCollection: BSONCollection, person: Person)(implicit ec: ExecutionContext): Future[Unit] = {
-  val writeResult = personCollection.insert(person)
+  val writeResult = personCollection.insert.one(person)
   writeResult.map(_ => {/*once this is successful, just return successfully*/})
 }
 {% endhighlight %}

@@ -10,7 +10,7 @@ MongoDB offers different kinds of write operations: insertion, update or removal
 
 ### Insert a document
 
-Insertions are done with the [`insert`](../../api/reactivemongo/api/collections/GenericCollection.html#insert[T](ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern)(implicitevidence$2:GenericCollection.this.pack.Writer[T]):GenericCollection.this.InsertBuilder[T]) function.
+Insertions are done with the [`insert`](../../api/reactivemongo/api/collections/GenericCollection.html#insert(ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern)(implicitevidence$2:GenericCollection.this.pack.Writer[T]):GenericCollection.this.InsertBuilder[T]) function.
 
 {% highlight scala %}
 import scala.util.{ Failure, Success }
@@ -27,10 +27,9 @@ val document1 = BSONDocument(
   "lastName" -> "Godbillon",
   "age" -> 29)
 
-// Simple: .insert[T].one(t)
+// Simple: .insert.one(t)
 def simpleInsert(coll: BSONCollection): Future[Unit] = {
-  val writeRes: Future[WriteResult] =
-    coll.insert[BSONDocument](ordered = false).one(document1)
+  val writeRes: Future[WriteResult] = coll.insert.one(document1)
 
   writeRes.onComplete { // Dummy callbacks
     case Failure(e) => e.printStackTrace()
@@ -41,14 +40,14 @@ def simpleInsert(coll: BSONCollection): Future[Unit] = {
   writeRes.map(_ => {}) // in this example, do nothing with the success
 }
 
-// Bulk: .insert[T].many(Seq(t1, t2, ..., tN))
+// Bulk: .insert.many(Seq(t1, t2, ..., tN))
 def bulkInsert(coll: BSONCollection): Future[Unit] = {
   val writeRes: Future[MultiBulkWriteResult] =
-    coll.insert[BSONDocument](ordered = false).
-    many(Seq(document1, BSONDocument(
-      "firstName" -> "Foo",
-      "lastName" -> "Bar",
-      "age" -> 1)))
+    coll.insert(ordered = false).many(Seq(
+      document1, BSONDocument(
+        "firstName" -> "Foo",
+        "lastName" -> "Bar",
+        "age" -> 1)))
 
   writeRes.onComplete { // Dummy callbacks
     case Failure(e) => e.printStackTrace()
@@ -77,7 +76,7 @@ import reactivemongo.api.collections.bson.BSONCollection
 val person = Person("Stephane Godbillon", 29)
 
 def testInsert(personColl: BSONCollection) = {
-  val future2 = personColl.insert(person)
+  val future2 = personColl.insert.one(person)
 
   future2.onComplete {
     case Failure(e) => throw e
@@ -104,7 +103,7 @@ import reactivemongo.api.commands.WriteResult
 import reactivemongo.api.collections.bson.BSONCollection
 
 def insertErrors(personColl: BSONCollection) = {
-  val future: Future[WriteResult] = personColl.insert(person)
+  val future: Future[WriteResult] = personColl.insert.one(person)
 
   val end: Future[Unit] = future.map(_ => {}).recover {
     case WriteResult.Code(11000) =>
@@ -141,9 +140,9 @@ def update1(personColl: BSONCollection) = {
       "$unset" -> BSONDocument("name" -> 1))
 
   // Simple update: get a future update
-  val futureUpdate1 = personColl.
-    update(ordered = false).one(selector, modifier,
-      upsert = false, multi = false)
+  val futureUpdate1 = personColl.update.one(
+    q = selector, u = modifier,
+    upsert = false, multi = false)
 
   // Bulk update: multiple update
   val updateBuilder1 = personColl.update(ordered = true)
@@ -169,7 +168,7 @@ It's possible to automatically insert data if there is no matching document usin
 
 ### Delete a document
 
-The [`.delete`](../../api/reactivemongo/api/collections/GenericCollection.html#delete[S](ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern):GenericCollection.this.DeleteBuilder) function returns a [`DeleteBuilder`](../../api/reactivemongo/api/collections/DeleteOps$DeleteBuilder.html), which allows to perform simple or bulk delete.
+The [`.delete`](../../api/reactivemongo/api/collections/GenericCollection.html#delete(ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern):GenericCollection.this.DeleteBuilder) function returns a [`DeleteBuilder`](../../api/reactivemongo/api/collections/DeleteOps$DeleteBuilder.html), which allows to perform simple or bulk delete.
 
 {% highlight scala %}
 import scala.util.{ Failure, Success }
@@ -184,8 +183,7 @@ import reactivemongo.api.collections.bson.BSONCollection
 def simpleDelete1(personColl: BSONCollection) = {
   val selector1 = BSONDocument("firstName" -> "Stephane")
 
-  val futureRemove1 =
-    personColl.delete[BSONDocument](ordered = false).one(selector1)
+  val futureRemove1 = personColl.delete.one(selector1)
 
   futureRemove1.onComplete { // callback
     case Failure(e) => throw e
@@ -194,7 +192,7 @@ def simpleDelete1(personColl: BSONCollection) = {
 }
 
 def bulkDelete1(personColl: BSONCollection) = {
-  val deleteBuilder = personColl.delete[BSONDocument](ordered = false)
+  val deleteBuilder = personColl.delete(ordered = false)
 
   val deletes = Future.sequence(Seq(
     deleteBuilder.element(
