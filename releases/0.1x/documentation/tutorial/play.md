@@ -13,6 +13,11 @@ This module is based on the [Play JSON serialization](../json/overview.html).
 The latest version of this plugin is for Play 2.4+, and can be enabled by adding the following dependency in your `project/Build.scala` (or `build.sbt`).
 
 {% highlight ocaml %}
+// only for Play 2.7.x (Scala 2.12)
+libraryDependencies ++= Seq(
+  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._0_1x_latest_minor}}-play27"
+)
+
 // only for Play 2.6.x (Scala 2.12)
 libraryDependencies ++= Seq(
   "org.reactivemongo" %% "play2-reactivemongo" % "{{site._0_1x_latest_minor}}-play26"
