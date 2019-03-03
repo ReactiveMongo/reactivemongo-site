@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.16 - reactivemongo.bson.buffer.ArrayBSONBuffer</title>
-          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.bson.buffer.ArrayBSONBuffer" />
-          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.bson.buffer.ArrayBSONBuffer" />
+          <title>ReactiveMongo API 0.17 - reactivemongo.bson.buffer.ArrayBSONBuffer</title>
+          <meta name="description" content="ReactiveMongo API 0.17 - reactivemongo.bson.buffer.ArrayBSONBuffer" />
+          <meta name="keywords" content="ReactiveMongo API 0.17 reactivemongo.bson.buffer.ArrayBSONBuffer" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.17</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -125,10 +125,6 @@
                         <a class="object" href="ArrayReadableBuffer$.html" title=""></a>
                         <a class="class" href="ArrayReadableBuffer.html" title="An array-backed readable buffer."></a>
                         <a href="ArrayReadableBuffer.html" title="An array-backed readable buffer.">ArrayReadableBuffer</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="trait" href="BSONBuffer.html" title=""></a>
-                        <a href="BSONBuffer.html" title="">BSONBuffer</a>
                       </li><li class="current-entities indented3">
                         <a class="object" href="BSONIterator$.html" title=""></a>
                         <a class="trait" href="BSONIterator.html" title=""></a>
@@ -249,9 +245,9 @@
       
       
     </li><li name="reactivemongo.bson.buffer.ArrayBSONBuffer#&lt;init&gt;" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(buffer:scala.collection.mutable.ArrayBuffer[Byte]):reactivemongo.bson.buffer.ArrayBSONBuffer"></a><a id="&lt;init&gt;:ArrayBSONBuffer"></a>
+      <a id="&lt;init&gt;(buffer:reactivemongo.io.netty.buffer.ByteBuf):reactivemongo.bson.buffer.ArrayBSONBuffer"></a><a id="&lt;init&gt;:ArrayBSONBuffer"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/bson/buffer/ArrayBSONBuffer.html#&lt;init&gt;(buffer:scala.collection.mutable.ArrayBuffer[Byte]):reactivemongo.bson.buffer.ArrayBSONBuffer" title="Permalink">
+      <a href="../../../reactivemongo/bson/buffer/ArrayBSONBuffer.html#&lt;init&gt;(buffer:reactivemongo.io.netty.buffer.ByteBuf):reactivemongo.bson.buffer.ArrayBSONBuffer" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -260,7 +256,7 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">ArrayBSONBuffer</span><span class="params">(<span name="buffer">buffer: <a href="http://www.scala-lang.org/api/2.12.6/scala/collection/mutable/ArrayBuffer.html#scala.collection.mutable.ArrayBuffer" class="extype" name="scala.collection.mutable.ArrayBuffer">ArrayBuffer</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Byte.html#scala.Byte" class="extype" name="scala.Byte">Byte</a>]</span>)</span>
+        <span class="name">ArrayBSONBuffer</span><span class="params">(<span name="buffer">buffer: <span class="extype" name="reactivemongo.io.netty.buffer.ByteBuf">ByteBuf</span></span>)</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="index.html" class="extype" name="reactivemongo.bson.buffer">reactivemongo.bson.buffer</a>] </dd></dl></div>
@@ -377,7 +373,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">array</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Byte.html#scala.Byte" class="extype" name="scala.Byte">Byte</a>]</span>
+        <span class="name">array</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Array.html#scala.Array" class="extype" name="scala.Array">Array</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Byte.html#scala.Byte" class="extype" name="scala.Byte">Byte</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Returns an array containing all the data that were put in this buffer.</p>
@@ -397,22 +393,6 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="reactivemongo.bson.buffer.ArrayBSONBuffer#buffer" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="buffer:scala.collection.mutable.ArrayBuffer[Byte]"></a><a id="buffer:ArrayBuffer[Byte]"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/bson/buffer/ArrayBSONBuffer.html#buffer:scala.collection.mutable.ArrayBuffer[Byte]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">buffer</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/collection/mutable/ArrayBuffer.html#scala.collection.mutable.ArrayBuffer" class="extype" name="scala.collection.mutable.ArrayBuffer">ArrayBuffer</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Byte.html#scala.Byte" class="extype" name="scala.Byte">Byte</a>]</span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
     </li><li name="reactivemongo.bson.buffer.ArrayBSONBuffer#bytebuffer" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="bytebuffer(size:Int):java.nio.ByteBuffer"></a><a id="bytebuffer(Int):ByteBuffer"></a>
       <span class="permalink">
@@ -883,6 +863,22 @@
       
       <p class="shortcomment cmt">Writes the given <code>Byte</code> into this buffer.</p><div class="fullcomment"><div class="comment cmt"><p>Writes the given <code>Byte</code> into this buffer.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.buffer.ArrayBSONBuffer">ArrayBSONBuffer</a> → <a href="WritableBuffer.html" class="extype" name="reactivemongo.bson.buffer.WritableBuffer">WritableBuffer</a></dd></dl></div>
     </li><li name="reactivemongo.bson.buffer.ArrayBSONBuffer#writeBytes" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="writeBytes(buf:reactivemongo.bson.buffer.ReadableBuffer):ArrayBSONBuffer.this.type"></a><a id="writeBytes(ReadableBuffer):ArrayBSONBuffer.this.type"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/bson/buffer/ArrayBSONBuffer.html#writeBytes(buf:reactivemongo.bson.buffer.ReadableBuffer):ArrayBSONBuffer.this.type" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">writeBytes</span><span class="params">(<span name="buf">buf: <a href="ReadableBuffer.html" class="extype" name="reactivemongo.bson.buffer.ReadableBuffer">ReadableBuffer</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.buffer.ArrayBSONBuffer">ArrayBSONBuffer</a>.this.type</span>
+      </span>
+      
+      <p class="shortcomment cmt">Writes the bytes stored in the given <code>buffer</code> into this buffer.</p><div class="fullcomment"><div class="comment cmt"><p>Writes the bytes stored in the given <code>buffer</code> into this buffer.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.buffer.ArrayBSONBuffer">ArrayBSONBuffer</a> → <a href="WritableBuffer.html" class="extype" name="reactivemongo.bson.buffer.WritableBuffer">WritableBuffer</a></dd></dl></div>
+    </li><li name="reactivemongo.bson.buffer.ArrayBSONBuffer#writeBytes" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="writeBytes(array:Array[Byte]):ArrayBSONBuffer.this.type"></a><a id="writeBytes(Array[Byte]):ArrayBSONBuffer.this.type"></a>
       <span class="permalink">
       <a href="../../../reactivemongo/bson/buffer/ArrayBSONBuffer.html#writeBytes(array:Array[Byte]):ArrayBSONBuffer.this.type" title="Permalink">
@@ -894,26 +890,10 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">writeBytes</span><span class="params">(<span name="array">array: <span class="extype" name="scala.Array">Array</span>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Byte.html#scala.Byte" class="extype" name="scala.Byte">Byte</a>]</span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.buffer.ArrayBSONBuffer">ArrayBSONBuffer</a>.this.type</span>
+        <span class="name">writeBytes</span><span class="params">(<span name="array">array: <a href="http://www.scala-lang.org/api/2.12.6/scala/Array.html#scala.Array" class="extype" name="scala.Array">Array</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Byte.html#scala.Byte" class="extype" name="scala.Byte">Byte</a>]</span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.buffer.ArrayBSONBuffer">ArrayBSONBuffer</a>.this.type</span>
       </span>
       
       <p class="shortcomment cmt">Writes the bytes stored in the given <code>array</code> into this buffer.</p><div class="fullcomment"><div class="comment cmt"><p>Writes the bytes stored in the given <code>array</code> into this buffer.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.buffer.ArrayBSONBuffer">ArrayBSONBuffer</a> → <a href="WritableBuffer.html" class="extype" name="reactivemongo.bson.buffer.WritableBuffer">WritableBuffer</a></dd></dl></div>
-    </li><li name="reactivemongo.bson.buffer.WritableBuffer#writeBytes" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="writeBytes(buffer:reactivemongo.bson.buffer.ReadableBuffer):WritableBuffer.this.type"></a><a id="writeBytes(ReadableBuffer):ArrayBSONBuffer.this.type"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/bson/buffer/ArrayBSONBuffer.html#writeBytes(buffer:reactivemongo.bson.buffer.ReadableBuffer):WritableBuffer.this.type" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">writeBytes</span><span class="params">(<span name="buffer">buffer: <a href="ReadableBuffer.html" class="extype" name="reactivemongo.bson.buffer.ReadableBuffer">ReadableBuffer</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.buffer.ArrayBSONBuffer">ArrayBSONBuffer</a>.this.type</span>
-      </span>
-      
-      <p class="shortcomment cmt">Writes the bytes stored in the given <code>buffer</code> into this buffer.</p><div class="fullcomment"><div class="comment cmt"><p>Writes the bytes stored in the given <code>buffer</code> into this buffer.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="WritableBuffer.html" class="extype" name="reactivemongo.bson.buffer.WritableBuffer">WritableBuffer</a></dd></dl></div>
     </li><li name="reactivemongo.bson.buffer.WritableBuffer#writeCString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="writeCString(s:String):reactivemongo.bson.buffer.WritableBuffer"></a><a id="writeCString(String):WritableBuffer"></a>
       <span class="permalink">

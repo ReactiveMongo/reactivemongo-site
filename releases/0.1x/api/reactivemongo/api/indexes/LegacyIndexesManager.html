@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.16 - reactivemongo.api.indexes.LegacyIndexesManager</title>
-          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.api.indexes.LegacyIndexesManager" />
-          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.api.indexes.LegacyIndexesManager" />
+          <title>ReactiveMongo API 0.17 - reactivemongo.api.indexes.LegacyIndexesManager</title>
+          <meta name="description" content="ReactiveMongo API 0.17 - reactivemongo.api.indexes.LegacyIndexesManager" />
+          <meta name="keywords" content="ReactiveMongo API 0.17 reactivemongo.api.indexes.LegacyIndexesManager" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.17</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -230,9 +230,9 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="reactivemongo.api.indexes.LegacyIndexesManager#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(db:reactivemongo.api.DB)(implicitcontext:scala.concurrent.ExecutionContext):reactivemongo.api.indexes.LegacyIndexesManager"></a><a id="&lt;init&gt;:LegacyIndexesManager"></a>
+      <a id="&lt;init&gt;(db:reactivemongo.api.DB)(implicitec:scala.concurrent.ExecutionContext):reactivemongo.api.indexes.LegacyIndexesManager"></a><a id="&lt;init&gt;:LegacyIndexesManager"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/api/indexes/LegacyIndexesManager.html#&lt;init&gt;(db:reactivemongo.api.DB)(implicitcontext:scala.concurrent.ExecutionContext):reactivemongo.api.indexes.LegacyIndexesManager" title="Permalink">
+      <a href="../../../reactivemongo/api/indexes/LegacyIndexesManager.html#&lt;init&gt;(db:reactivemongo.api.DB)(implicitec:scala.concurrent.ExecutionContext):reactivemongo.api.indexes.LegacyIndexesManager" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -241,7 +241,7 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">LegacyIndexesManager</span><span class="params">(<span name="db">db: <a href="../DB.html" class="extype" name="reactivemongo.api.DB">DB</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="context">context: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/ExecutionContext.html#scala.concurrent.ExecutionContext" class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</a></span>)</span>
+        <span class="name">LegacyIndexesManager</span><span class="params">(<span name="db">db: <a href="../DB.html" class="extype" name="reactivemongo.api.DB">DB</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/ExecutionContext.html#scala.concurrent.ExecutionContext" class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</a></span>)</span>
       </span>
       
       <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">db</dt><dd class="cmt"><p>The subject database.</p></dd></dl></div>
@@ -419,7 +419,7 @@
       
       <p class="shortcomment cmt">Creates the given index.</p><div class="fullcomment"><div class="comment cmt"><p>Creates the given index.</p><p>Warning: given the options you choose, and the data to index, it can be a long and blocking operation on the database.
 You should really consider reading <a href="http://www.mongodb.org/display/DOCS/Indexes" target="_blank">http://www.mongodb.org/display/DOCS/Indexes</a> before doing this, especially in production.
-</p></div><dl class="paramcmts block"><dt class="param">nsIndex</dt><dd class="cmt"><p>The index to create.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.indexes.LegacyIndexesManager">LegacyIndexesManager</a> → <a href="IndexesManager.html" class="extype" name="reactivemongo.api.indexes.IndexesManager">IndexesManager</a></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">nsIndex</dt><dd class="cmt"><p>the index to create</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.indexes.LegacyIndexesManager">LegacyIndexesManager</a> → <a href="IndexesManager.html" class="extype" name="reactivemongo.api.indexes.IndexesManager">IndexesManager</a></dd></dl></div>
     </li><li name="reactivemongo.api.indexes.LegacyIndexesManager#drop" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="drop(collectionName:String,indexName:String):scala.concurrent.Future[Int]"></a><a id="drop(String,String):Future[Int]"></a>
       <span class="permalink">
@@ -436,7 +436,7 @@ You should really consider reading <a href="http://www.mongodb.org/display/DOCS/
       </span>
       
       <p class="shortcomment cmt">Drops the given index on the given collection.</p><div class="fullcomment"><div class="comment cmt"><p>Drops the given index on the given collection.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>The number of indexes that were dropped.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.indexes.LegacyIndexesManager">LegacyIndexesManager</a> → <a href="IndexesManager.html" class="extype" name="reactivemongo.api.indexes.IndexesManager">IndexesManager</a></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">collectionName</dt><dd class="cmt"><p>the collection name</p></dd><dt class="param">indexName</dt><dd class="cmt"><p>the name of the index to be dropped</p></dd><dt>returns</dt><dd class="cmt"><p>The number of indexes that were dropped.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.indexes.LegacyIndexesManager">LegacyIndexesManager</a> → <a href="IndexesManager.html" class="extype" name="reactivemongo.api.indexes.IndexesManager">IndexesManager</a></dd></dl></div>
     </li><li name="reactivemongo.api.indexes.IndexesManager#drop" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="drop(nsIndex:reactivemongo.api.indexes.NSIndex):scala.concurrent.Future[Int]"></a><a id="drop(NSIndex):Future[Int]"></a>
       <span class="permalink">
@@ -470,7 +470,7 @@ You should really consider reading <a href="http://www.mongodb.org/display/DOCS/
       </span>
       
       <p class="shortcomment cmt">Drops all the indexes on the given collection.</p><div class="fullcomment"><div class="comment cmt"><p>Drops all the indexes on the given collection.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.indexes.LegacyIndexesManager">LegacyIndexesManager</a> → <a href="IndexesManager.html" class="extype" name="reactivemongo.api.indexes.IndexesManager">IndexesManager</a></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">collectionName</dt><dd class="cmt"><p>the collection name</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.indexes.LegacyIndexesManager">LegacyIndexesManager</a> → <a href="IndexesManager.html" class="extype" name="reactivemongo.api.indexes.IndexesManager">IndexesManager</a></dd></dl></div>
     </li><li name="reactivemongo.api.indexes.LegacyIndexesManager#ensure" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensure(nsIndex:reactivemongo.api.indexes.NSIndex):scala.concurrent.Future[Boolean]"></a><a id="ensure(NSIndex):Future[Boolean]"></a>
       <span class="permalink">
@@ -490,7 +490,7 @@ You should really consider reading <a href="http://www.mongodb.org/display/DOCS/
 - if <code>nsIndex.isDefined</code>, it checks using the index name,
 - otherwise it checks using the key.</p><p>Warning: given the options you choose, and the data to index, it can be a long and blocking operation on the database.
 You should really consider reading <a href="http://www.mongodb.org/display/DOCS/Indexes" target="_blank">http://www.mongodb.org/display/DOCS/Indexes</a> before doing this, especially in production.
-</p></div><dl class="paramcmts block"><dt class="param">nsIndex</dt><dd class="cmt"><p>the index to create</p></dd><dt>returns</dt><dd class="cmt"><p>a future containing true if the index was created, false if it already exists.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.indexes.LegacyIndexesManager">LegacyIndexesManager</a> → <a href="IndexesManager.html" class="extype" name="reactivemongo.api.indexes.IndexesManager">IndexesManager</a></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">nsIndex</dt><dd class="cmt"><p>the index to create</p></dd><dt>returns</dt><dd class="cmt"><p>true if the index was created, false if it already exists.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.indexes.LegacyIndexesManager">LegacyIndexesManager</a> → <a href="IndexesManager.html" class="extype" name="reactivemongo.api.indexes.IndexesManager">IndexesManager</a></dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a><a id="ensuring((LegacyIndexesManager)⇒Boolean,⇒Any):LegacyIndexesManager"></a>
       <span class="permalink">
@@ -773,9 +773,9 @@ You should really consider reading <a href="http://www.mongodb.org/display/DOCS/
               
         </dd></dl></div>
     </li><li name="reactivemongo.api.indexes.LegacyIndexesManager#onCollection" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="onCollection(name:String):reactivemongo.api.indexes.CollectionIndexesManager"></a><a id="onCollection(String):CollectionIndexesManager"></a>
+      <a id="onCollection(collectionName:String):reactivemongo.api.indexes.CollectionIndexesManager"></a><a id="onCollection(String):CollectionIndexesManager"></a>
       <span class="permalink">
-      <a href="../../../reactivemongo/api/indexes/LegacyIndexesManager.html#onCollection(name:String):reactivemongo.api.indexes.CollectionIndexesManager" title="Permalink">
+      <a href="../../../reactivemongo/api/indexes/LegacyIndexesManager.html#onCollection(collectionName:String):reactivemongo.api.indexes.CollectionIndexesManager" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -784,10 +784,11 @@ You should really consider reading <a href="http://www.mongodb.org/display/DOCS/
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">onCollection</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="CollectionIndexesManager.html" class="extype" name="reactivemongo.api.indexes.CollectionIndexesManager">CollectionIndexesManager</a></span>
+        <span class="name">onCollection</span><span class="params">(<span name="collectionName">collectionName: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="CollectionIndexesManager.html" class="extype" name="reactivemongo.api.indexes.CollectionIndexesManager">CollectionIndexesManager</a></span>
       </span>
       
-      <p class="shortcomment cmt">Gets a manager for the given collection.</p><div class="fullcomment"><div class="comment cmt"><p>Gets a manager for the given collection.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.indexes.LegacyIndexesManager">LegacyIndexesManager</a> → <a href="IndexesManager.html" class="extype" name="reactivemongo.api.indexes.IndexesManager">IndexesManager</a></dd></dl></div>
+      <p class="shortcomment cmt">Returns a manager for the given collection.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a manager for the given collection.
+</p></div><dl class="paramcmts block"><dt class="param">collectionName</dt><dd class="cmt"><p>the collection name</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.indexes.LegacyIndexesManager">LegacyIndexesManager</a> → <a href="IndexesManager.html" class="extype" name="reactivemongo.api.indexes.IndexesManager">IndexesManager</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">

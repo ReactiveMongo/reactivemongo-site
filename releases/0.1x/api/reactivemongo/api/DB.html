@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.16 - reactivemongo.api.DB</title>
-          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.api.DB" />
-          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.api.DB" />
+          <title>ReactiveMongo API 0.17 - reactivemongo.api.DB</title>
+          <meta name="description" content="ReactiveMongo API 0.17 - reactivemongo.api.DB" />
+          <meta name="keywords" content="ReactiveMongo API 0.17 reactivemongo.api.DB" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.17</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -179,6 +179,10 @@
                         <a href="BSONSerializationPack$.html" title="The default serialization pack.">BSONSerializationPack</a>
                       </li><li class="current-entities indented2">
                         <span class="separator"></span>
+                        <a class="object" href="ChangeStreams$.html" title=""></a>
+                        <a href="ChangeStreams$.html" title="">ChangeStreams</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
                         <a class="trait" href="Collection.html" title="A MongoDB Collection, resolved from a reactivemongo.api.DefaultDB."></a>
                         <a href="Collection.html" title="A MongoDB Collection, resolved from a reactivemongo.api.DefaultDB.">Collection</a>
                       </li><li class="current-entities indented2">
@@ -205,6 +209,10 @@
                         <a class="object" href="CursorOps$.html" title=""></a>
                         <a class="trait" href="CursorOps.html" title="Internal cursor operations."></a>
                         <a href="CursorOps.html" title="Internal cursor operations.">CursorOps</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="CursorOptions$.html" title=""></a>
+                        <a class="class" href="CursorOptions.html" title=""></a>
+                        <a href="CursorOptions.html" title="">CursorOptions</a>
                       </li><li class="current-entities indented2">
                         <a class="object" href="CursorProducer$.html" title=""></a>
                         <a class="trait" href="CursorProducer.html" title="Allows to enrich a base cursor."></a>
@@ -289,6 +297,14 @@
                         <span class="separator"></span>
                         <a class="trait" href="WrappedCursor.html" title="Cursor wrapper, to help to define custom cursor classes."></a>
                         <a href="WrappedCursor.html" title="Cursor wrapper, to help to define custom cursor classes.">WrappedCursor</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="WrappedCursorOps.html" title="Internal cursor operations."></a>
+                        <a href="WrappedCursorOps.html" title="Internal cursor operations.">WrappedCursorOps</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="WriteConcern$.html" title=""></a>
+                        <a class="trait" href="WriteConcern.html" title=""></a>
+                        <a href="WriteConcern.html" title="">WriteConcern</a>
                       </li><li class="current-entities indented2">
                         <span class="separator"></span>
                         <a class="object" href="X509Authentication$.html" title="X509 authentication"></a>
@@ -625,7 +641,7 @@
       </span>
       
       <p class="shortcomment cmt">Returns a <a href="Collection.html" class="extype" name="reactivemongo.api.Collection">reactivemongo.api.Collection</a> from this database (alias for the <code>collection</code> method).</p><div class="fullcomment"><div class="comment cmt"><p>Returns a <a href="Collection.html" class="extype" name="reactivemongo.api.Collection">reactivemongo.api.Collection</a> from this database (alias for the <code>collection</code> method).
-</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the name of the collection to resolve</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the name of the collection to resolve</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>the failover strategy to override the default one</p></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
@@ -642,7 +658,7 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="reactivemongo.api.DB#authenticate" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="reactivemongo.api.DB#authenticate" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="authenticate(user:String,password:String)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.commands.SuccessfulAuthentication]"></a><a id="authenticate(String,String)(ExecutionContext):Future[SuccessfulAuthentication]"></a>
       <span class="permalink">
       <a href="../../reactivemongo/api/DB.html#authenticate(user:String,password:String)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.commands.SuccessfulAuthentication]" title="Permalink">
@@ -657,7 +673,8 @@
         <span class="name">authenticate</span><span class="params">(<span name="user">user: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="password">password: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/ExecutionContext.html#scala.concurrent.ExecutionContext" class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="../core/commands/SuccessfulAuthentication.html" class="extype" name="reactivemongo.core.commands.SuccessfulAuthentication">SuccessfulAuthentication</a>]</span>
       </span>
       
-      <p class="shortcomment cmt">Authenticates the connection on this database.</p>
+      <p class="shortcomment cmt">Authenticates the connection on this database.</p><div class="fullcomment"><div class="comment cmt"><p>Authenticates the connection on this database.
+</p></div><dl class="paramcmts block"><dt class="param">user</dt><dd class="cmt"><p>the name of the user</p></dd><dt class="param">password</dt><dd class="cmt"><p>the user password</p></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
       <span class="permalink">
@@ -698,7 +715,7 @@
       </span>
       
       <p class="shortcomment cmt">Returns a <a href="Collection.html" class="extype" name="reactivemongo.api.Collection">reactivemongo.api.Collection</a> from this database.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a <a href="Collection.html" class="extype" name="reactivemongo.api.Collection">reactivemongo.api.Collection</a> from this database.
-</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the name of the collection to resolve</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the name of the collection to resolve</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>the failover strategy to override the default one</p></dd></dl></div>
     </li><li name="reactivemongo.api.DB#defaultReadPreference" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="defaultReadPreference:reactivemongo.api.ReadPreference"></a><a id="defaultReadPreference:ReadPreference"></a>
       <span class="permalink">
@@ -999,7 +1016,7 @@
       </span>
       
       <p class="shortcomment cmt">Returns the database of the given name on the same MongoConnection.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the database of the given name on the same MongoConnection.
-</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the name of the collection to resolve</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the name of the collection to resolve</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>the failover strategy to override the default one</p></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
@@ -1128,26 +1145,7 @@
 
         <div class="values members">
               <h3>Deprecated Value Members</h3>
-              <ol><li name="reactivemongo.api.DB#authenticate" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="authenticate(user:String,password:String)(implicittimeout:scala.concurrent.duration.FiniteDuration):scala.concurrent.Future[reactivemongo.core.commands.SuccessfulAuthentication]"></a><a id="authenticate(String,String)(FiniteDuration):Future[SuccessfulAuthentication]"></a>
-      <span class="permalink">
-      <a href="../../reactivemongo/api/DB.html#authenticate(user:String,password:String)(implicittimeout:scala.concurrent.duration.FiniteDuration):scala.concurrent.Future[reactivemongo.core.commands.SuccessfulAuthentication]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.16.0) Use authenticate without timeout">authenticate</span><span class="params">(<span name="user">user: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="password">password: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="timeout">timeout: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/duration/FiniteDuration.html#scala.concurrent.duration.FiniteDuration" class="extype" name="scala.concurrent.duration.FiniteDuration">FiniteDuration</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="../core/commands/SuccessfulAuthentication.html" class="extype" name="reactivemongo.core.commands.SuccessfulAuthentication">SuccessfulAuthentication</a>]</span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
-                <span class="name">@deprecated</span>
-              
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Use <code>authenticate</code> without <code>timeout</code></p></dd></dl></div>
-    </li><li name="reactivemongo.api.DB#sibling" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+              <ol><li name="reactivemongo.api.DB#sibling" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sibling(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext):reactivemongo.api.DefaultDB"></a><a id="sibling(String,FailoverStrategy)(ExecutionContext):DefaultDB"></a>
       <span class="permalink">
       <a href="../../reactivemongo/api/DB.html#sibling(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext):reactivemongo.api.DefaultDB" title="Permalink">
@@ -1163,7 +1161,7 @@
       </span>
       
       <p class="shortcomment cmt">Returns the database of the given name on the same MongoConnection.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the database of the given name on the same MongoConnection.
-</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the name of the collection to resolve</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the name of the collection to resolve</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>the failover strategy to override the default one</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
         </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.0)</i> Use <a href="#sibling1(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DefaultDB]" class="extmbr" name="reactivemongo.api.DB#sibling1">sibling1</a></p></dd><dt>See also</dt><dd><span class="cmt"><p><a href="#sibling1(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DefaultDB]" class="extmbr" name="reactivemongo.api.DB#sibling1">sibling1</a></p></span></dd></dl></div>

@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.16 - reactivemongo.bson.buffer.ReadableBuffer</title>
-          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.bson.buffer.ReadableBuffer" />
-          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.bson.buffer.ReadableBuffer" />
+          <title>ReactiveMongo API 0.17 - reactivemongo.bson.buffer.ReadableBuffer</title>
+          <meta name="description" content="ReactiveMongo API 0.17 - reactivemongo.bson.buffer.ReadableBuffer" />
+          <meta name="keywords" content="ReactiveMongo API 0.17 reactivemongo.bson.buffer.ReadableBuffer" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.17</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -126,10 +126,6 @@
                         <a class="class" href="ArrayReadableBuffer.html" title="An array-backed readable buffer."></a>
                         <a href="ArrayReadableBuffer.html" title="An array-backed readable buffer.">ArrayReadableBuffer</a>
                       </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="trait" href="BSONBuffer.html" title=""></a>
-                        <a href="BSONBuffer.html" title="">BSONBuffer</a>
-                      </li><li class="current-entities indented3">
                         <a class="object" href="BSONIterator$.html" title=""></a>
                         <a class="trait" href="BSONIterator.html" title=""></a>
                         <a href="BSONIterator.html" title="">BSONIterator</a>
@@ -187,7 +183,7 @@
             <span class="toggle">
               Known Subclasses
             </span>
-            <div class="subClasses hiddenContent"><a href="ArrayReadableBuffer.html" class="extype" name="reactivemongo.bson.buffer.ArrayReadableBuffer">ArrayReadableBuffer</a>, <a href="../../core/netty/ChannelBufferReadableBuffer.html" class="extype" name="reactivemongo.core.netty.ChannelBufferReadableBuffer">ChannelBufferReadableBuffer</a>, <a href="BSONBuffer.html" class="extype" name="reactivemongo.bson.buffer.BSONBuffer">BSONBuffer</a></div>
+            <div class="subClasses hiddenContent"><a href="ArrayReadableBuffer.html" class="extype" name="reactivemongo.bson.buffer.ArrayReadableBuffer">ArrayReadableBuffer</a>, <a href="../../core/netty/ChannelBufferReadableBuffer.html" class="extype" name="reactivemongo.core.netty.ChannelBufferReadableBuffer">ChannelBufferReadableBuffer</a></div>
           </div></div>
         
 
@@ -334,7 +330,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">readBytes</span><span class="params">(<span name="bytes">bytes: <span class="extype" name="scala.Array">Array</span>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Byte.html#scala.Byte" class="extype" name="scala.Byte">Byte</a>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+        <span class="name">readBytes</span><span class="params">(<span name="bytes">bytes: <a href="http://www.scala-lang.org/api/2.12.6/scala/Array.html#scala.Array" class="extype" name="scala.Array">Array</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Byte.html#scala.Byte" class="extype" name="scala.Byte">Byte</a>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
       </span>
       
       <p class="shortcomment cmt">Fills the given array with the bytes read from this buffer.</p>
@@ -867,7 +863,7 @@ which starts at the current index and contains <code>n</code> bytes.</p><p>This 
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">readArray</span><span class="params">(<span name="length">length: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Byte.html#scala.Byte" class="extype" name="scala.Byte">Byte</a>]</span>
+        <span class="name">readArray</span><span class="params">(<span name="length">length: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Array.html#scala.Array" class="extype" name="scala.Array">Array</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Byte.html#scala.Byte" class="extype" name="scala.Byte">Byte</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Reads an array of Byte of the given length.</p><div class="fullcomment"><div class="comment cmt"><p>Reads an array of Byte of the given length.
