@@ -69,6 +69,7 @@ The option `ssl` is needed if the MongoDB server is requiring SSL (`mongod --ssl
 - **`rm.keepAlive`**: TCP KeepAlive boolean flag (`true|false`).
 - **`rm.nbChannelsPerNode`**: Number of channels (connections) per node.
 - **`rm.monitorRefreshMS`**: The interval (in milliseconds) used by the ReactiveMongo monitor to refresh the node set (default: 10s); The minimal value is 100ms.
+- **`rm.reconnectDelayMS`**: The delay before trying to reconnect a disconnected channel (in milliseconds; default: `1000`).
 - **`rm.failover`**: The default [failover strategy](../../api/reactivemongo/api/FailoverStrategy).
   - `default`: The default/minimal strategy, with 10 retries with an initial delay of 100ms and a delay factor of `retry count * 1.25` (100ms .. 125ms, 250ms, 375ms, 500ms, 625ms, 750ms, 875ms, 1s, 1125ms, 1250ms).
   - `remote`: The strategy for remote MongoDB node(s); Same as default but with 16 retries.

@@ -10,11 +10,15 @@ title: Release details
 - New [aggregation](./advanced-topics/aggregation.html) stages,
   - [`$filter`](https://docs.mongodb.com/master/reference/operator/aggregcation/filter/#definition),
   - [`$replaceRoot`](https://docs.mongodb.com/manual/reference/operator/aggregation/replaceRoot/index.html).
+  - [`CursorOptions`](../api/reactivemongo/api/CursorOptions.html) parameter when using `.aggregatorContext`.
 - [*Connection*](./tutorial/connect-database.html)
   - Support [x.509 certificate](https://docs.mongodb.com/manual/tutorial/configure-x509-client-authentication/) to authenticate.
   - Support [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) in the connection URI.
+  - New `rm.reconnectDelayMS` setting.
   - Add `credentials` in the [`MongoConnectionOptions`](http://reactivemongo.org/releases/0.1x/api/reactivemongo/api/MongoConnectionOptions.html)
-- [Complete support of BSON Decimal128](https://github.com/mongodb/specifications/blob/master/source/bson-decimal128/decimal128.rst#bson-decimal128-type-handling-in-drivers) (MongoDB 3.4+)
+- [*BSON library*](#bson-library)
+  - [BSON Decimal128](https://github.com/mongodb/specifications/blob/master/source/bson-decimal128/decimal128.rst#bson-decimal128-type-handling-in-drivers)
+  - `Option` support & new `@NoneAsNull` annotation
 - Upgrade to [Netty 4.1](http://netty.io/wiki/new-and-noteworthy-in-4.1.html), with memory optimization, and support of native socket (epoll, kpoll).
 
 ## ReactiveMongo {{site._0_1x_latest_minor}} – Release details
@@ -79,6 +83,7 @@ def connection(driver: MongoDriver) =
 {% endhighlight %}
 
 The [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) is now supported, using `mongodb+srv://` scheme in the connection URI.
+It's also possible to specify the credential directly in the URI.
 
 {% highlight scala %}
 import reactivemongo.api._
@@ -86,6 +91,8 @@ import reactivemongo.api._
 def seedListCon(driver: MongoDriver) =
   driver.connection("mongodb+srv://usr:pass@mymongo.mydomain.tld/mydb")
 {% endhighlight %}
+
+*[See the documentation](./tutorial/connect-database.html)*
 
 #### Netty native
 
@@ -213,6 +220,10 @@ def bulkDelete1(personColl: BSONCollection) = {
 ### BSON library
 
 The BSON library for ReactiveMongo has been updated.
+
+It now supports [BSON Decimal128](https://github.com/mongodb/specifications/blob/master/source/bson-decimal128/decimal128.rst#bson-decimal128-type-handling-in-drivers) (MongoDB 3.4+).
+
+The way `Option` is handled by the macros has been improved, also with a new annotation `@NoneAsNull`, which write `None` values as `BSONNull` (instead of omitting field/value).
 
 [More: **BSON Library overview**](./bson/overview.html)
 
