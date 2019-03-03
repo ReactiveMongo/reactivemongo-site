@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.16 - reactivemongo.api.commands.bson.BSONAggregationFramework</title>
-          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.api.commands.bson.BSONAggregationFramework" />
-          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.api.commands.bson.BSONAggregationFramework" />
+          <title>ReactiveMongo API 0.17 - reactivemongo.api.commands.bson.BSONAggregationFramework</title>
+          <meta name="description" content="ReactiveMongo API 0.17 - reactivemongo.api.commands.bson.BSONAggregationFramework" />
+          <meta name="keywords" content="ReactiveMongo API 0.17 reactivemongo.api.commands.bson.BSONAggregationFramework" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.17</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -415,6 +415,26 @@ based on a specified expression. Bucket boundaries are automatically determined
 in an attempt to evenly distribute the documents into the specified number of buckets.
 Document fields identifier must be prefixed with <code>$</code>.
 https://docs.mongodb.com/manual/reference/operator/aggregation/bucketAuto/</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AggregationFramework.html" class="extype" name="reactivemongo.api.commands.AggregationFramework">AggregationFramework</a></dd></dl></div>
+    </li><li name="reactivemongo.api.commands.AggregationFramework.ChangeStream" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ChangeStreamextendsAggregationFramework.this.PipelineOperator"></a><a id="ChangeStream:ChangeStream"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/api/commands/AggregationFramework.html#ChangeStreamextendsAggregationFramework.this.PipelineOperator" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a title="Low level pipeline operator which allows to open a tailable cursor against subsequent ChangeEvents of a given collection (since MongoDB 3.6)." href="../AggregationFramework$ChangeStream.html"><span class="name">ChangeStream</span></a><span class="result"> extends <a href="../AggregationFramework.html#PipelineOperatorextendsAnyRef" class="extmbr" name="reactivemongo.api.commands.AggregationFramework.PipelineOperator">PipelineOperator</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Low level pipeline operator which allows to open a tailable cursor against subsequent ChangeEvents of a given
+collection (since MongoDB 3.6).</p><div class="fullcomment"><div class="comment cmt"><p>Low level pipeline operator which allows to open a tailable cursor against subsequent ChangeEvents of a given
+collection (since MongoDB 3.6).
+https://docs.mongodb.com/manual/reference/change-events/</p><p>For common use-cases, you might prefer to use the <code>watch</code> operator on a collection.</p><p>Note: the target mongo instance MUST be a replica-set (even in the case of a single node deployement).
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AggregationFramework.html" class="extype" name="reactivemongo.api.commands.AggregationFramework">AggregationFramework</a></dd></dl></div>
     </li><li name="reactivemongo.api.commands.AggregationFramework.Descending" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="DescendingextendsAggregationFramework.this.SortOrderwithProductwithSerializable"></a><a id="Descending:Descending"></a>
       <span class="permalink">

@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.16 - reactivemongo.bson.Macros.Options.SaveClassName</title>
-          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.bson.Macros.Options.SaveClassName" />
-          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.bson.Macros.Options.SaveClassName" />
+          <title>ReactiveMongo API 0.17 - reactivemongo.api.WriteConcern.WaitForAcknowledgments</title>
+          <meta name="description" content="ReactiveMongo API 0.17 - reactivemongo.api.WriteConcern.WaitForAcknowledgments" />
+          <meta name="keywords" content="ReactiveMongo API 0.17 reactivemongo.api.WriteConcern.WaitForAcknowledgments" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.17</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -85,10 +85,10 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../index.html" class="extype" name="_root_">root</a></dd></dl></div>
-    </li><li name="reactivemongo.bson" visbl="pub" class="indented2 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="bson"></a><a id="bson:bson"></a>
+    </li><li name="reactivemongo.api" visbl="pub" class="indented2 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="api"></a><a id="api:api"></a>
       <span class="permalink">
-      <a href="../reactivemongo/index.html#bson" title="Permalink">
+      <a href="../reactivemongo/index.html#api" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -97,14 +97,14 @@
         <span class="kind">package</span>
       </span>
       <span class="symbol">
-        <a title="" href="index.html"><span class="name">bson</span></a>
+        <a title="" href="index.html"><span class="name">api</span></a>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="reactivemongo">reactivemongo</a></dd></dl></div>
-    </li><li name="reactivemongo.bson.Macros" visbl="pub" class="indented3 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="Macros"></a><a id="Macros:Macros"></a>
+    </li><li name="reactivemongo.api.WriteConcern" visbl="pub" class="indented3 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="WriteConcern"></a><a id="WriteConcern:WriteConcern"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/index.html#Macros" title="Permalink">
+      <a href="../../reactivemongo/api/index.html#WriteConcern" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -113,78 +113,37 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="Macros for generating BSONReader and BSONWriter implementations for case at compile time." href="Macros$.html"><span class="name">Macros</span></a>
+        <a title="" href="WriteConcern$.html"><span class="name">WriteConcern</span></a>
       </span>
       
-      <p class="shortcomment cmt">Macros for generating <code>BSONReader</code> and <code>BSONWriter</code> implementations for case
-at compile time.</p><div class="fullcomment"><div class="comment cmt"><p>Macros for generating <code>BSONReader</code> and <code>BSONWriter</code> implementations for case
-at compile time. Invoking these macros is equivalent to writing anonymous
-class implementations by hand.</p><pre><span class="kw">case</span> <span class="kw">class</span> Person(name: <span class="std">String</span>, surname: <span class="std">String</span>)
-<span class="kw">implicit</span> <span class="kw">val</span> personHandler = Macros.handler[Person]</pre></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="index.html" class="extype" name="reactivemongo.bson">bson</a></dd><dt>See also</dt><dd><span class="cmt"><p>Macros.Options for specific options</p></span></dd></dl></div>
-    </li><li name="reactivemongo.bson.Macros.Options" visbl="pub" class="indented4 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="Options"></a><a id="Options:Options"></a>
-      <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$.html#Options" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a title="Methods with 'Opts' postfix will take additional options in the form of type parameters that will customize behaviour of the macros during compilation." href="Macros$$Options$.html"><span class="name">Options</span></a>
-      </span>
-      
-      <p class="shortcomment cmt">Methods with 'Opts' postfix will take additional options in the form of
-type parameters that will customize behaviour of
-the macros during compilation.</p><div class="fullcomment"><div class="comment cmt"><p>Methods with 'Opts' postfix will take additional options in the form of
-type parameters that will customize behaviour of
-the macros during compilation.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Macros$.html" class="extype" name="reactivemongo.bson.Macros">Macros</a></dd></dl></div>
-    </li><li class="current-entities indented4">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="index.html" class="extype" name="reactivemongo.api">api</a></dd></dl></div>
+    </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="trait" href="Macros$$Options$$AutomaticMaterialization.html" title="For a sealed family (all implementations of a sealed trait or defined explicit union types), this option enables the automatic materialization of handlers for the member types."></a>
-                        <a href="Macros$$Options$$AutomaticMaterialization.html" title="For a sealed family (all implementations of a sealed trait or defined explicit union types), this option enables the automatic materialization of handlers for the member types.">AutomaticMaterialization</a>
-                      </li><li class="current-entities indented4">
+                        <a class="trait" href="WriteConcern$$Majority.html" title=""></a>
+                        <a href="WriteConcern$$Majority.html" title="">Majority</a>
+                      </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="trait" href="Macros$$Options$$Default.html" title="The default options that are implied if invoking &quot;non-Opts&quot; method."></a>
-                        <a href="Macros$$Options$$Default.html" title="The default options that are implied if invoking &quot;non-Opts&quot; method.">Default</a>
-                      </li><li class="current-entities indented4">
+                        <a class="class" href="WriteConcern$$TagSet.html" title=""></a>
+                        <a href="WriteConcern$$TagSet.html" title="">TagSet</a>
+                      </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="trait" href="" title="In write method also store class name (dynamic type) as a string in a property named &quot;className&quot;."></a>
-                        <a href="" title="In write method also store class name (dynamic type) as a string in a property named &quot;className&quot;.">SaveClassName</a>
-                      </li><li class="current-entities indented4">
+                        <a class="trait" href="WriteConcern$$W.html" title=""></a>
+                        <a href="WriteConcern$$W.html" title="">W</a>
+                      </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="trait" href="Macros$$Options$$SaveSimpleName.html" title="Same as SaveClassName but using the class simple name (i.e."></a>
-                        <a href="Macros$$Options$$SaveSimpleName.html" title="Same as SaveClassName but using the class simple name (i.e.">SaveSimpleName</a>
-                      </li><li class="current-entities indented4">
-                        <span class="separator"></span>
-                        <a class="trait" href="Macros$$Options$$SimpleUnionType.html" title="Same as UnionType but saving the class’ simple name io."></a>
-                        <a href="Macros$$Options$$SimpleUnionType.html" title="Same as UnionType but saving the class’ simple name io.">SimpleUnionType</a>
-                      </li><li class="current-entities indented4">
-                        <span class="separator"></span>
-                        <a class="trait" href="Macros$$Options$$UnionType.html" title="Use type parameter A as static type but use pattern matching to handle different possible subtypes."></a>
-                        <a href="Macros$$Options$$UnionType.html" title="Use type parameter A as static type but use pattern matching to handle different possible subtypes.">UnionType</a>
-                      </li><li class="current-entities indented4">
-                        <span class="separator"></span>
-                        <a class="trait" href="Macros$$Options$$Verbose.html" title="Print out generated code during compilation."></a>
-                        <a href="Macros$$Options$$Verbose.html" title="Print out generated code during compilation.">Verbose</a>
-                      </li><li class="current-entities indented4">
-                        <span class="separator"></span>
-                        <a class="trait" href="Macros$$Options$$$bslash$div.html" title="Type for making type-level lists for UnionType."></a>
-                        <a href="Macros$$Options$$$bslash$div.html" title="Type for making type-level lists for UnionType.">\/</a>
+                        <a class="class" href="" title=""></a>
+                        <a href="" title="">WaitForAcknowledgments</a>
                       </li>
               </ul>
             </div>
           </div>
           <div id="content">
-            <body class="trait type">
+            <body class="class type">
       <div id="definition">
-        <div class="big-circle trait">t</div>
-        <p id="owner"><a href="../index.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="index.html" class="extype" name="reactivemongo.bson">bson</a>.<a href="Macros$.html" class="extype" name="reactivemongo.bson.Macros">Macros</a>.<a href="Macros$$Options$.html" class="extype" name="reactivemongo.bson.Macros.Options">Options</a></p>
-        <h1>SaveClassName<span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html" title="Permalink">
+        <div class="big-circle class">c</div>
+        <p id="owner"><a href="../index.html" class="extype" name="reactivemongo">reactivemongo</a>.<a href="index.html" class="extype" name="reactivemongo.api">api</a>.<a href="WriteConcern$.html" class="extype" name="reactivemongo.api.WriteConcern">WriteConcern</a></p>
+        <h1>WaitForAcknowledgments<span class="permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span></h1>
@@ -193,30 +152,25 @@ the macros during compilation.
 
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">trait</span>
+        <span class="modifier">sealed </span>
+        <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.12-RC2) Default behaviour for sealed trait, if union types are not explicitly defined">SaveClassName</span><span class="result"> extends <a href="Macros$$Options$$Default.html" class="extype" name="reactivemongo.bson.Macros.Options.Default">Default</a></span>
+        <span class="name">WaitForAcknowledgments</span><span class="result"> extends <a href="WriteConcern$$W.html" class="extype" name="reactivemongo.api.WriteConcern.W">W</a></span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>In <code>write</code> method also store class name (dynamic type) as a string
-in a property named &quot;className&quot;.
-</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
-                <span class="name">@deprecated</span>
-              
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12-RC2)</i> Default behaviour for sealed trait, if union types are not explicitly defined</p></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><a href="Macros$$Options$$Default.html" class="extype" name="reactivemongo.bson.Macros.Options.Default">Default</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
+          <div class="superTypes hiddenContent"><a href="WriteConcern$$W.html" class="extype" name="reactivemongo.api.WriteConcern.W">W</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
         </div><div class="toggleContainer block">
             <span class="toggle">
               Known Subclasses
             </span>
-            <div class="subClasses hiddenContent"><a href="Macros$$Options$$SaveSimpleName.html" class="extype" name="reactivemongo.bson.Macros.Options.SaveSimpleName">SaveSimpleName</a>, <a href="Macros$$Options$$SimpleUnionType.html" class="extype" name="reactivemongo.bson.Macros.Options.SimpleUnionType">SimpleUnionType</a>, <a href="Macros$$Options$$UnionType.html" class="extype" name="reactivemongo.bson.Macros.Options.UnionType">UnionType</a></div>
+            <div class="subClasses hiddenContent"><a href="commands/GetLastError$$WaitForAcknowledgments.html" class="extype" name="reactivemongo.api.commands.GetLastError.WaitForAcknowledgments">WaitForAcknowledgments</a>, <a href="commands/GetLastError$$WaitForAknowledgments.html" class="extype" name="reactivemongo.api.commands.GetLastError.WaitForAknowledgments">WaitForAknowledgments</a></div>
           </div></div>
         
 
@@ -242,7 +196,7 @@ in a property named &quot;className&quot;.
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="reactivemongo.bson.Macros.Options.SaveClassName"><span>SaveClassName</span></li><li class="in" name="reactivemongo.bson.Macros.Options.Default"><span>Default</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments"><span>WaitForAcknowledgments</span></li><li class="in" name="reactivemongo.api.WriteConcern.W"><span>W</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
                   <span class="filtertype">Implicitly<br />
@@ -265,7 +219,26 @@ in a property named &quot;className&quot;.
 
       <div id="template">
         <div id="allMembers">
-        
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="reactivemongo.api.WriteConcern.WaitForAcknowledgments#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(i:Int):reactivemongo.api.WriteConcern.WaitForAcknowledgments"></a><a id="&lt;init&gt;:WaitForAcknowledgments"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#&lt;init&gt;(i:Int):reactivemongo.api.WriteConcern.WaitForAcknowledgments" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">WaitForAcknowledgments</span><span class="params">(<span name="i">i: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span>
+      </span>
+      
+      
+    </li></ol>
+            </div>
 
         
 
@@ -277,7 +250,7 @@ in a property named &quot;className&quot;.
                 <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#!=(x$1:Any):Boolean" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#!=(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -293,7 +266,7 @@ in a property named &quot;className&quot;.
     </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="##():Int"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html###():Int" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html###():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -309,7 +282,7 @@ in a property named &quot;className&quot;.
     </li><li name="scala.Predef.any2stringadd#+" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="+(other:String):String"></a><a id="+(String):String"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#+(other:String):String" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#+(other:String):String" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -322,14 +295,14 @@ in a property named &quot;className&quot;.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a> to
-            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a>] performed by method any2stringadd in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a> to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a>] performed by method any2stringadd in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="-&gt;[B](y:B):(A,B)"></a><a id="-&gt;[B](B):(SaveClassName,B)"></a>
+      <a id="-&gt;[B](y:B):(A,B)"></a><a id="-&gt;[B](B):(WaitForAcknowledgments,B)"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#-&gt;[B](y:B):(A,B)" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#-&gt;[B](y:B):(A,B)" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -338,12 +311,12 @@ in a property named &quot;className&quot;.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a> to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a>] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a>] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -352,7 +325,7 @@ in a property named &quot;className&quot;.
     </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#==(x$1:Any):Boolean" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#==(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -368,7 +341,7 @@ in a property named &quot;className&quot;.
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#asInstanceOf[T0]:T0" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#asInstanceOf[T0]:T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -384,7 +357,7 @@ in a property named &quot;className&quot;.
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#clone():Object" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#clone():Object" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -406,9 +379,9 @@ in a property named &quot;className&quot;.
               
         </dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a><a id="ensuring((SaveClassName)⇒Boolean,⇒Any):SaveClassName"></a>
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a><a id="ensuring((WaitForAcknowledgments)⇒Boolean,⇒Any):WaitForAcknowledgments"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -417,18 +390,18 @@ in a property named &quot;className&quot;.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a>) ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a>) ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a>] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:A=&gt;Boolean):A"></a><a id="ensuring((SaveClassName)⇒Boolean):SaveClassName"></a>
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a><a id="ensuring((WaitForAcknowledgments)⇒Boolean):WaitForAcknowledgments"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#ensuring(cond:A=&gt;Boolean):A" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#ensuring(cond:A=&gt;Boolean):A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -437,18 +410,18 @@ in a property named &quot;className&quot;.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a>) ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a>) ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a>] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a><a id="ensuring(Boolean,⇒Any):SaveClassName"></a>
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a><a id="ensuring(Boolean,⇒Any):WaitForAcknowledgments"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -457,18 +430,18 @@ in a property named &quot;className&quot;.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a>] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:Boolean):A"></a><a id="ensuring(Boolean):SaveClassName"></a>
+      <a id="ensuring(cond:Boolean):A"></a><a id="ensuring(Boolean):WaitForAcknowledgments"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#ensuring(cond:Boolean):A" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#ensuring(cond:Boolean):A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -477,18 +450,18 @@ in a property named &quot;className&quot;.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a>] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#eq(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -504,7 +477,7 @@ in a property named &quot;className&quot;.
     </li><li name="scala.AnyRef#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="equals(x$1:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#equals(x$1:Any):Boolean" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#equals(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -520,7 +493,7 @@ in a property named &quot;className&quot;.
     </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#finalize():Unit" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#finalize():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -542,7 +515,7 @@ in a property named &quot;className&quot;.
     </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="formatted(fmtstr:String):String"></a><a id="formatted(String):String"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#formatted(fmtstr:String):String" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#formatted(fmtstr:String):String" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -555,8 +528,8 @@ in a property named &quot;className&quot;.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a> to
-            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a>] performed by method StringFormat in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a> to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a>] performed by method StringFormat in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -565,7 +538,7 @@ in a property named &quot;className&quot;.
     </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#getClass():Class[_]" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#getClass():Class[_]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -584,7 +557,7 @@ in a property named &quot;className&quot;.
     </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#hashCode():Int" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#hashCode():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -600,10 +573,26 @@ in a property named &quot;className&quot;.
                 <span class="name">@native</span><span class="args">()</span>
               
         </dd></dl></div>
+    </li><li name="reactivemongo.api.WriteConcern.WaitForAcknowledgments#i" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="i:Int"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#i:Int" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">i</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
+      </span>
+      
+      
     </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#isInstanceOf[T0]:Boolean" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#isInstanceOf[T0]:Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -619,7 +608,7 @@ in a property named &quot;className&quot;.
     </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#ne(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -635,7 +624,7 @@ in a property named &quot;className&quot;.
     </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#notify():Unit" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#notify():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -654,7 +643,7 @@ in a property named &quot;className&quot;.
     </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notifyAll():Unit"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#notifyAll():Unit" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#notifyAll():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -673,7 +662,7 @@ in a property named &quot;className&quot;.
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -689,7 +678,7 @@ in a property named &quot;className&quot;.
     </li><li name="scala.AnyRef#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#toString():String" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#toString():String" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -705,7 +694,7 @@ in a property named &quot;className&quot;.
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#wait():Unit" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#wait():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -727,7 +716,7 @@ in a property named &quot;className&quot;.
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -749,7 +738,7 @@ in a property named &quot;className&quot;.
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#wait(x$1:Long):Unit" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#wait(x$1:Long):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -771,9 +760,9 @@ in a property named &quot;className&quot;.
               
         </dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="→[B](y:B):(A,B)"></a><a id="→[B](B):(SaveClassName,B)"></a>
+      <a id="→[B](y:B):(A,B)"></a><a id="→[B](B):(WaitForAcknowledgments,B)"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/bson/Macros$$Options$$SaveClassName.html#→[B](y:B):(A,B)" title="Permalink">
+      <a href="../../reactivemongo/api/WriteConcern$$WaitForAcknowledgments.html#→[B](y:B):(A,B)" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -782,12 +771,12 @@ in a property named &quot;className&quot;.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a> to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a>] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a>] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
     </li>
@@ -800,8 +789,8 @@ in a property named &quot;className&quot;.
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="reactivemongo.bson.Macros.Options.Default">
-              <h3>Inherited from <a href="Macros$$Options$$Default.html" class="extype" name="reactivemongo.bson.Macros.Options.Default">Default</a></h3>
+        <div class="parent" name="reactivemongo.api.WriteConcern.W">
+              <h3>Inherited from <a href="WriteConcern$$W.html" class="extype" name="reactivemongo.api.WriteConcern.W">W</a></h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">
@@ -809,19 +798,19 @@ in a property named &quot;className&quot;.
             </div>
         <div class="conversion" name="scala.Predef.any2stringadd">
               <h3>Inherited by implicit conversion any2stringadd from
-                <a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a>]
+                <a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a>]
               </h3>
             </div><div class="conversion" name="scala.Predef.StringFormat">
               <h3>Inherited by implicit conversion StringFormat from
-                <a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a>]
+                <a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a>]
               </h3>
             </div><div class="conversion" name="scala.Predef.Ensuring">
               <h3>Inherited by implicit conversion Ensuring from
-                <a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a>]
+                <a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a>]
               </h3>
             </div><div class="conversion" name="scala.Predef.ArrowAssoc">
               <h3>Inherited by implicit conversion ArrowAssoc from
-                <a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a>]
+                <a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="reactivemongo.api.WriteConcern.WaitForAcknowledgments">WaitForAcknowledgments</a>]
               </h3>
             </div>
         </div>

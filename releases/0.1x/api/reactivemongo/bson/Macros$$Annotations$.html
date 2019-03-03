@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.16 - reactivemongo.bson.Macros.Annotations</title>
-          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.bson.Macros.Annotations" />
-          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.bson.Macros.Annotations" />
+          <title>ReactiveMongo API 0.17 - reactivemongo.bson.Macros.Annotations</title>
+          <meta name="description" content="ReactiveMongo API 0.17 - reactivemongo.bson.Macros.Annotations" />
+          <meta name="keywords" content="ReactiveMongo API 0.17 reactivemongo.bson.Macros.Annotations" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.17</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -286,6 +286,29 @@ Convenient to use when you'd like to leverage mongo's <code>_id</code> index
 but don't want to actually use <code>_id</code> in your code.</p><pre><span class="kw">case</span> <span class="kw">class</span> Website(@Key(<span class="lit">"_id"</span>) url: <span class="std">String</span>)</pre><p>Generated handler will map the <code>url</code> field in your code
 to <code>_id</code> field in BSON
 </p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>the desired key to use in BSON</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@param</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="reactivemongo.bson.Macros.Annotations.NoneAsNull" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="NoneAsNullextendsAnnotationwithStaticAnnotationwithProductwithSerializable"></a><a id="NoneAsNull:NoneAsNull"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/bson/Macros$$Annotations$.html#NoneAsNullextendsAnnotationwithStaticAnnotationwithProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="Indicates that if an Option property is empty, it will be represented by BSONNull rather than being omitted." href="Macros$$Annotations$$NoneAsNull.html"><span class="name">NoneAsNull</span></a><span class="params">()</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/annotation/Annotation.html#scala.annotation.Annotation" class="extype" name="scala.annotation.Annotation">Annotation</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/annotation/StaticAnnotation.html#scala.annotation.StaticAnnotation" class="extype" name="scala.annotation.StaticAnnotation">StaticAnnotation</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Indicates that if an <code>Option</code> property is empty,
+it will be represented by <code>BSONNull</code> rather than being omitted.</p><div class="fullcomment"><div class="comment cmt"><p>Indicates that if an <code>Option</code> property is empty,
+it will be represented by <code>BSONNull</code> rather than being omitted.</p><pre><span class="kw">case</span> <span class="kw">class</span> Foo(
+  title: <span class="std">String</span>,
+  @NoneAsNull description: <span class="std">Option</span>[<span class="std">String</span>])</pre></div><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@param</span><span class="args">()</span>
               
         </dd></dl></div>

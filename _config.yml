@@ -4,7 +4,7 @@ description: "The reactive Scala driver for MongoDB"
 url: http://reactivemongo.org/
 markdown: kramdown
 latest_major_release: 0.1x
-latest_release: 0.16.2
+latest_release: 0.16.3
 exclude: [vendor,target]
 plugins:
   - jekyll-sitemap
@@ -12,7 +12,7 @@ plugins:
 
 _0_11_latest_minor: 0.11.14
 _0_12_latest_minor: 0.12.6
-_0_1x_latest_minor: 0.16.2
+_0_1x_latest_minor: 0.16.3
 
 algolia:
   application_id: 'Y0CQ010OIG'

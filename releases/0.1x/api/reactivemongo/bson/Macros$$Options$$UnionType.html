@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.16 - reactivemongo.bson.Macros.Options.UnionType</title>
-          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.bson.Macros.Options.UnionType" />
-          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.bson.Macros.Options.UnionType" />
+          <title>ReactiveMongo API 0.17 - reactivemongo.bson.Macros.Options.UnionType</title>
+          <meta name="description" content="ReactiveMongo API 0.17 - reactivemongo.bson.Macros.Options.UnionType" />
+          <meta name="keywords" content="ReactiveMongo API 0.17 reactivemongo.bson.Macros.Options.UnionType" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.17</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -152,12 +152,8 @@ the macros during compilation.
                         <a href="Macros$$Options$$Default.html" title="The default options that are implied if invoking &quot;non-Opts&quot; method.">Default</a>
                       </li><li class="current-entities indented4">
                         <span class="separator"></span>
-                        <a class="trait" href="Macros$$Options$$SaveClassName.html" title="In write method also store class name (dynamic type) as a string in a property named &quot;className&quot;."></a>
-                        <a href="Macros$$Options$$SaveClassName.html" title="In write method also store class name (dynamic type) as a string in a property named &quot;className&quot;.">SaveClassName</a>
-                      </li><li class="current-entities indented4">
-                        <span class="separator"></span>
-                        <a class="trait" href="Macros$$Options$$SaveSimpleName.html" title="Same as SaveClassName but using the class simple name (i.e."></a>
-                        <a href="Macros$$Options$$SaveSimpleName.html" title="Same as SaveClassName but using the class simple name (i.e.">SaveSimpleName</a>
+                        <a class="trait" href="Macros$$Options$$SaveSimpleName.html" title="Uses the class simple name (i.e."></a>
+                        <a href="Macros$$Options$$SaveSimpleName.html" title="Uses the class simple name (i.e.">SaveSimpleName</a>
                       </li><li class="current-entities indented4">
                         <span class="separator"></span>
                         <a class="trait" href="Macros$$Options$$SimpleUnionType.html" title="Same as UnionType but saving the class’ simple name io."></a>
@@ -197,7 +193,7 @@ the macros during compilation.
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">UnionType</span><span class="tparams">[<span name="Types">Types &lt;: <a href="Macros$$Options$$$bslash$div.html" class="extype" name="reactivemongo.bson.Macros.Options.\/">\/</a>[_, _]</span>]</span><span class="result"> extends <a href="Macros$$Options$$SaveClassName.html" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a> with <a href="Macros$$Options$$Default.html" class="extype" name="reactivemongo.bson.Macros.Options.Default">Default</a></span>
+        <span class="name">UnionType</span><span class="tparams">[<span name="Types">Types &lt;: <a href="Macros$$Options$$$bslash$div.html" class="extype" name="reactivemongo.bson.Macros.Options.\/">\/</a>[_, _]</span>]</span><span class="result"> extends <a href="Macros$$Options$$Default.html" class="extype" name="reactivemongo.bson.Macros.Options.Default">Default</a></span>
       </span>
       </h4>
 
@@ -207,14 +203,12 @@ different possible subtypes. This makes it easy to persist algebraic
 data types(pattern where you have a sealed trait and several implementing
 case classes). When writing a case class into BSON its dynamic type
 will be pattern matched, when reading from BSON the pattern matching
-will be done on the <code>className</code> string. This option extends
-<a href="Macros$$Options$$SaveClassName.html" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">reactivemongo.bson.Macros.Options.SaveClassName</a> in to ensure class
-names are always serialized.
+will be done on the <code>className</code> string.
 </p></div><dl class="paramcmts block"><dt class="tparam">Types</dt><dd class="cmt"><p>to use in pattern matching. Listed in a &quot;type list&quot; \/</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><a href="Macros$$Options$$SaveClassName.html" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a>, <a href="Macros$$Options$$Default.html" class="extype" name="reactivemongo.bson.Macros.Options.Default">Default</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
+          <div class="superTypes hiddenContent"><a href="Macros$$Options$$Default.html" class="extype" name="reactivemongo.bson.Macros.Options.Default">Default</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
         </div><div class="toggleContainer block">
             <span class="toggle">
               Known Subclasses
@@ -245,7 +239,7 @@ names are always serialized.
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="reactivemongo.bson.Macros.Options.UnionType"><span>UnionType</span></li><li class="in" name="reactivemongo.bson.Macros.Options.SaveClassName"><span>SaveClassName</span></li><li class="in" name="reactivemongo.bson.Macros.Options.Default"><span>Default</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="reactivemongo.bson.Macros.Options.UnionType"><span>UnionType</span></li><li class="in" name="reactivemongo.bson.Macros.Options.Default"><span>Default</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
                   <span class="filtertype">Implicitly<br />
@@ -803,9 +797,7 @@ names are always serialized.
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="reactivemongo.bson.Macros.Options.SaveClassName">
-              <h3>Inherited from <a href="Macros$$Options$$SaveClassName.html" class="extype" name="reactivemongo.bson.Macros.Options.SaveClassName">SaveClassName</a></h3>
-            </div><div class="parent" name="reactivemongo.bson.Macros.Options.Default">
+        <div class="parent" name="reactivemongo.bson.Macros.Options.Default">
               <h3>Inherited from <a href="Macros$$Options$$Default.html" class="extype" name="reactivemongo.bson.Macros.Options.Default">Default</a></h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></h3>

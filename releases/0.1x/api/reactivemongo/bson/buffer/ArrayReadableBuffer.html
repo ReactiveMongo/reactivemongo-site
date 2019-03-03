@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.16 - reactivemongo.bson.buffer.ArrayReadableBuffer</title>
-          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.bson.buffer.ArrayReadableBuffer" />
-          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.bson.buffer.ArrayReadableBuffer" />
+          <title>ReactiveMongo API 0.17 - reactivemongo.bson.buffer.ArrayReadableBuffer</title>
+          <meta name="description" content="ReactiveMongo API 0.17 - reactivemongo.bson.buffer.ArrayReadableBuffer" />
+          <meta name="keywords" content="ReactiveMongo API 0.17 reactivemongo.bson.buffer.ArrayReadableBuffer" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.17</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -125,10 +125,6 @@
                         <a class="object" href="ArrayReadableBuffer$.html" title=""></a>
                         <a class="class" href="" title="An array-backed readable buffer."></a>
                         <a href="" title="An array-backed readable buffer.">ArrayReadableBuffer</a>
-                      </li><li class="current-entities indented3">
-                        <span class="separator"></span>
-                        <a class="trait" href="BSONBuffer.html" title=""></a>
-                        <a href="BSONBuffer.html" title="">BSONBuffer</a>
                       </li><li class="current-entities indented3">
                         <a class="object" href="BSONIterator$.html" title=""></a>
                         <a class="trait" href="BSONIterator.html" title=""></a>
@@ -348,22 +344,6 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="reactivemongo.bson.buffer.ArrayReadableBuffer#bytebuffer" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="bytebuffer:java.nio.ByteBuffer"></a><a id="bytebuffer:ByteBuffer"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/bson/buffer/ArrayReadableBuffer.html#bytebuffer:java.nio.ByteBuffer" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">bytebuffer</span><span class="result">: <span class="extype" name="java.nio.ByteBuffer">ByteBuffer</span></span>
-      </span>
-      
-      
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
       <span class="permalink">
@@ -694,7 +674,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">readArray</span><span class="params">(<span name="length">length: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Byte.html#scala.Byte" class="extype" name="scala.Byte">Byte</a>]</span>
+        <span class="name">readArray</span><span class="params">(<span name="length">length: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Array.html#scala.Array" class="extype" name="scala.Array">Array</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Byte.html#scala.Byte" class="extype" name="scala.Byte">Byte</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Reads an array of Byte of the given length.</p><div class="fullcomment"><div class="comment cmt"><p>Reads an array of Byte of the given length.
@@ -727,7 +707,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">readBytes</span><span class="params">(<span name="array">array: <span class="extype" name="scala.Array">Array</span>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Byte.html#scala.Byte" class="extype" name="scala.Byte">Byte</a>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+        <span class="name">readBytes</span><span class="params">(<span name="array">array: <a href="http://www.scala-lang.org/api/2.12.6/scala/Array.html#scala.Array" class="extype" name="scala.Array">Array</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Byte.html#scala.Byte" class="extype" name="scala.Byte">Byte</a>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
       </span>
       
       <p class="shortcomment cmt">Fills the given array with the bytes read from this buffer.</p><div class="fullcomment"><div class="comment cmt"><p>Fills the given array with the bytes read from this buffer.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.bson.buffer.ArrayReadableBuffer">ArrayReadableBuffer</a> → <a href="ReadableBuffer.html" class="extype" name="reactivemongo.bson.buffer.ReadableBuffer">ReadableBuffer</a></dd></dl></div>

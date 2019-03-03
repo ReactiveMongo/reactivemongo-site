@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.16 - reactivemongo.api.AsyncDriver</title>
-          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.api.AsyncDriver" />
-          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.api.AsyncDriver" />
+          <title>ReactiveMongo API 0.17 - reactivemongo.api.AsyncDriver</title>
+          <meta name="description" content="ReactiveMongo API 0.17 - reactivemongo.api.AsyncDriver" />
+          <meta name="keywords" content="ReactiveMongo API 0.17 reactivemongo.api.AsyncDriver" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.17</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -179,6 +179,10 @@
                         <a href="BSONSerializationPack$.html" title="The default serialization pack.">BSONSerializationPack</a>
                       </li><li class="current-entities indented2">
                         <span class="separator"></span>
+                        <a class="object" href="ChangeStreams$.html" title=""></a>
+                        <a href="ChangeStreams$.html" title="">ChangeStreams</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
                         <a class="trait" href="Collection.html" title="A MongoDB Collection, resolved from a reactivemongo.api.DefaultDB."></a>
                         <a href="Collection.html" title="A MongoDB Collection, resolved from a reactivemongo.api.DefaultDB.">Collection</a>
                       </li><li class="current-entities indented2">
@@ -205,6 +209,10 @@
                         <a class="object" href="CursorOps$.html" title=""></a>
                         <a class="trait" href="CursorOps.html" title="Internal cursor operations."></a>
                         <a href="CursorOps.html" title="Internal cursor operations.">CursorOps</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="CursorOptions$.html" title=""></a>
+                        <a class="class" href="CursorOptions.html" title=""></a>
+                        <a href="CursorOptions.html" title="">CursorOptions</a>
                       </li><li class="current-entities indented2">
                         <a class="object" href="CursorProducer$.html" title=""></a>
                         <a class="trait" href="CursorProducer.html" title="Allows to enrich a base cursor."></a>
@@ -289,6 +297,14 @@
                         <span class="separator"></span>
                         <a class="trait" href="WrappedCursor.html" title="Cursor wrapper, to help to define custom cursor classes."></a>
                         <a href="WrappedCursor.html" title="Cursor wrapper, to help to define custom cursor classes.">WrappedCursor</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="WrappedCursorOps.html" title="Internal cursor operations."></a>
+                        <a href="WrappedCursorOps.html" title="Internal cursor operations.">WrappedCursorOps</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="WriteConcern$.html" title=""></a>
+                        <a class="trait" href="WriteConcern.html" title=""></a>
+                        <a href="WriteConcern.html" title="">WriteConcern</a>
                       </li><li class="current-entities indented2">
                         <span class="separator"></span>
                         <a class="object" href="X509Authentication$.html" title="X509 authentication"></a>
@@ -531,9 +547,9 @@
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="reactivemongo.api.Driver#askClose" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="askClose(timeout:scala.concurrent.duration.FiniteDuration)(implicitexecutionContext:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a><a id="askClose(FiniteDuration)(ExecutionContext):Future[Unit]"></a>
+      <a id="askClose(timeout:scala.concurrent.duration.FiniteDuration)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a><a id="askClose(FiniteDuration)(ExecutionContext):Future[Unit]"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/api/AsyncDriver.html#askClose(timeout:scala.concurrent.duration.FiniteDuration)(implicitexecutionContext:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]" title="Permalink">
+      <a href="../../reactivemongo/api/AsyncDriver.html#askClose(timeout:scala.concurrent.duration.FiniteDuration)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -542,7 +558,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">askClose</span><span class="params">(<span name="timeout">timeout: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/duration/FiniteDuration.html#scala.concurrent.duration.FiniteDuration" class="extype" name="scala.concurrent.duration.FiniteDuration">FiniteDuration</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="executionContext">executionContext: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/ExecutionContext.html#scala.concurrent.ExecutionContext" class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a>]</span>
+        <span class="name">askClose</span><span class="params">(<span name="timeout">timeout: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/duration/FiniteDuration.html#scala.concurrent.duration.FiniteDuration" class="extype" name="scala.concurrent.duration.FiniteDuration">FiniteDuration</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/ExecutionContext.html#scala.concurrent.ExecutionContext" class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Closes this driver (and all its connections and resources).</p><div class="fullcomment"><div class="comment cmt"><p>Closes this driver (and all its connections and resources).
@@ -608,9 +624,9 @@ Will wait until the timeout for proper closing of connections before forcing har
               
         </dd></dl></div>
     </li><li name="reactivemongo.api.AsyncDriver#close" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="close(timeout:scala.concurrent.duration.FiniteDuration)(implicitexecutionContext:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a><a id="close(FiniteDuration)(ExecutionContext):Future[Unit]"></a>
+      <a id="close(timeout:scala.concurrent.duration.FiniteDuration)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]"></a><a id="close(FiniteDuration)(ExecutionContext):Future[Unit]"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/api/AsyncDriver.html#close(timeout:scala.concurrent.duration.FiniteDuration)(implicitexecutionContext:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]" title="Permalink">
+      <a href="../../reactivemongo/api/AsyncDriver.html#close(timeout:scala.concurrent.duration.FiniteDuration)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Unit]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -619,7 +635,7 @@ Will wait until the timeout for proper closing of connections before forcing har
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">close</span><span class="params">(<span name="timeout">timeout: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/duration/FiniteDuration.html#scala.concurrent.duration.FiniteDuration" class="extype" name="scala.concurrent.duration.FiniteDuration">FiniteDuration</a> = <span class="symbol">FiniteDuration(2, SECONDS)</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="executionContext">executionContext: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/ExecutionContext.html#scala.concurrent.ExecutionContext" class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a>]</span>
+        <span class="name">close</span><span class="params">(<span name="timeout">timeout: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/duration/FiniteDuration.html#scala.concurrent.duration.FiniteDuration" class="extype" name="scala.concurrent.duration.FiniteDuration">FiniteDuration</a> = <span class="symbol">FiniteDuration(2, SECONDS)</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/ExecutionContext.html#scala.concurrent.ExecutionContext" class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="http://www.scala-lang.org/api/2.12.6/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Closes this driver (and all its connections and resources).</p><div class="fullcomment"><div class="comment cmt"><p>Closes this driver (and all its connections and resources).
