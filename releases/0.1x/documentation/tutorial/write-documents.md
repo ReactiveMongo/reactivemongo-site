@@ -166,6 +166,21 @@ By default, the update operation only updates a single matching document. You ca
 
 It's possible to automatically insert data if there is no matching document using the `upsert` parameter.
 
+The [`arrayFilters`](https://docs.mongodb.com/manual/reference/command/update/#update-elements-match-arrayfilters-criteria) criteria can also be specified on update.
+
+{% highlight scala %}
+def updateArrayFilters(personColl: BSONCollection) =
+  personColl.update.one(
+    q = BSONDocument("grades" -> BSONDocument(f"$$gte" -> 100)),
+    u = BSONDocument(f"$$set" -> BSONDocument(
+      f"grades.$$[element]" -> 100)),
+    upsert = false,
+    multi = true,
+    collation = None,
+    arrayFilters = Seq(
+      BSONDocument("element" -> BSONDocument(f"$$gte" -> 100))))
+{% endhighlight %}
+
 ### Delete a document
 
 The [`.delete`](../../api/reactivemongo/api/collections/GenericCollection.html#delete(ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern):GenericCollection.this.DeleteBuilder) function returns a [`DeleteBuilder`](../../api/reactivemongo/api/collections/DeleteOps$DeleteBuilder.html), which allows to perform simple or bulk delete.

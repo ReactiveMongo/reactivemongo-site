@@ -6,9 +6,11 @@ title: Release details
 
 ## ReactiveMongo {{site._0_1x_latest_minor}} - Highlights
 
-- New bulk delete operation `.delete.many` on [collection](../api/reactivemongo/api/collections/GenericCollection.html).
-- New [aggregation](./advanced-topics/aggregation.html) stages,
-  - [`$filter`](https://docs.mongodb.com/master/reference/operator/aggregcation/filter/#definition),
+- New [query and write operations](#query-and-write-operations),
+  - bulk operations (e.g. `.delete.many`) on [collection](../api/reactivemongo/api/collections/GenericCollection.html),
+  - `arrayFilters` on update operations.
+- New [aggregation](./advanced-topics/aggregation.html) stages (`$addFields`, `$bucketAuto`, ..., `$slice`),
+  - [`$filter`](https://docs.mongodb.com/master/reference/operator/aggregation/filter/#definition),
   - [`$replaceRoot`](https://docs.mongodb.com/manual/reference/operator/aggregation/replaceRoot/index.html).
   - [`CursorOptions`](../api/reactivemongo/api/CursorOptions.html) parameter when using `.aggregatorContext`.
 - [*Connection*](./tutorial/connect-database.html)
@@ -33,6 +35,12 @@ The documentation is available [online](index.html), and its code samples are co
 - [Query and write operations](#query-and-write-operations)
 - [BSON library](#bson-library)
 - [Aggregation](#aggregation)
+  - [`$addFields`](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/)
+  - [`$bucketAuto`](https://docs.mongodb.com/manual/reference/operator/aggregation/bucketAuto/)
+  - [`$count`](https://docs.mongodb.com/manual/reference/operator/aggregation/count/)
+  - [`$filter`](https://docs.mongodb.com/master/reference/operator/aggregcation/filter/#definition)
+  - [`$replaceRoot`](https://docs.mongodb.com/manual/reference/operator/aggregation/replaceRoot/index.html)
+  - [`$slice`](https://docs.mongodb.com/manual/reference/operator/aggregation/slice)
 - [Administration](#administration)
 - [Breaking changes](#breaking-changes)
 
@@ -91,6 +99,8 @@ import reactivemongo.api._
 def seedListCon(driver: MongoDriver) =
   driver.connection("mongodb+srv://usr:pass@mymongo.mydomain.tld/mydb")
 {% endhighlight %}
+
+The option `rm.monitorRefreshMS` is renamed [`heartbeatFrequencyMS`](https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-discovery-and-monitoring.rst#heartbeatfrequencyms).
 
 *[See the documentation](./tutorial/connect-database.html)*
 
@@ -217,6 +227,49 @@ def bulkDelete1(personColl: BSONCollection) = {
 
 > The `.remove` operation is now deprecated.
 
+**`arrayFilters`**
+
+The [`arrayFilters`](https://docs.mongodb.com/manual/release-notes/3.6/#arrayfilters) option is supported for [`findAndModify`](./tutorial/write-documents.html#find-and-modify).
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+
+import reactivemongo.api.collections.bson.BSONCollection
+
+def findAndUpdateArrayFilters(personColl: BSONCollection) =
+  personColl.findAndUpdate(
+    selector = BSONDocument.empty,
+    modifier = collection.updateModifier(
+      update = BSONDocument(f"$$set" -> BSONDocument(
+        f"grades.$$[element]" -> 100)),
+      fetchNewObject = true,
+      upsert = false),
+    sort = None,
+    fields = None,
+    bypassDocumentValidation = false,
+    writeConcern = WriteConcern.Journaled,
+    maxTime = None,
+    collation = None,
+    arrayFilters = Seq(
+      BSONDocument("elem.grade" -> BSONDocument(f"$$gte" -> 85))))
+
+def updateArrayFilters(personColl: BSONCollection) =
+  personColl.update.one(
+    q = BSONDocument("grades" -> BSONDocument(f"$$gte" -> 100)),
+    u = BSONDocument(f"$$set" -> BSONDocument(
+      f"grades.$$[element]" -> 100)),
+    upsert = false,
+    multi = true,
+    collation = None,
+    arrayFilters = Seq(
+      BSONDocument("element" -> BSONDocument(f"$$gte" -> 100))))
+{% endhighlight %}
+
+More: [**Find documents**](./tutorial/find-documents.html), [**Write documents**](./tutorial/write-documents.html)
+
 ### BSON library
 
 The BSON library for ReactiveMongo has been updated.
@@ -225,7 +278,7 @@ It now supports [BSON Decimal128](https://github.com/mongodb/specifications/blob
 
 The way `Option` is handled by the macros has been improved, also with a new annotation `@NoneAsNull`, which write `None` values as `BSONNull` (instead of omitting field/value).
 
-[More: **BSON Library overview**](./bson/overview.html)
+More: [**BSON Library overview**](./bson/overview.html)
 
 #### Types
 
@@ -337,6 +390,8 @@ def populationBuckets(zipcodes: BSONCollection)(implicit ec: ExecutionContext) =
   }.collect[Set](Int.MaxValue, Cursor.FailOnError[Set[BSONDocument]]())
 {% endhighlight %}
 
+TODO: count
+
 **filter:**
 
 The [`$filter`](https://docs.mongodb.com/master/reference/operator/aggregation/filter/#definition) stage is now supported.
@@ -395,7 +450,30 @@ def replaceRootTest(fruits: BSONCollection): Future[Option[BSONDocument]] = {
 }
 {% endhighlight %}
 
-[More: **Aggregation Framework**](./advanced-topics/aggregation.html)
+**slice:**
+
+The [`$slice`](https://docs.mongodb.com/manual/reference/operator/aggregation/slice) operator is also supported as bellow.
+
+{% highlight scala %}
+import scala.concurrent.ExecutionContext
+
+import reactivemongo.bson._
+import reactivemongo.api.Cursor
+import reactivemongo.api.collections.bson.BSONCollection
+
+def sliceFavorites(coll: BSONCollection)(implicit ec: ExecutionContext) =
+  coll.aggregateWith1[BSONDocument]() { framework =>
+    import framework.{ Project, Slice }
+
+    Project(BSONDocument(
+      "name" -> 1,
+      "favorites" -> Slice(
+        array = BSONString(f"$$favorites"),
+        n = BSONInteger(3)).makePipe)) -> List.empty
+  }.collect[Seq](4, Cursor.FailOnError[Seq[BSONDocument]]())
+{% endhighlight %}
+
+More: [**Aggregation Framework**](./advanced-topics/aggregation.html)
 
 ### Administration
 
