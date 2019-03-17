@@ -124,6 +124,33 @@ Then when calling `populatedStates(theZipCodeCol)`, the asynchronous result will
 
 > Note that for the state "JP", the population of Aogashima (200) and of Tokyo (13185502) have been summed.
 
+If the goal is only to count the populated states, the <span id="count">[`$count`](https://docs.mongodb.com/manual/reference/operator/aggregation/count/index.html)</span> stage can be used.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.{ BSONDocument, BSONDocumentReader, BSONString }
+
+import reactivemongo.api.Cursor
+import reactivemongo.api.collections.bson.BSONCollection
+
+def countPopulatedStates1(col: BSONCollection): Future[Int] = {
+  implicit val countReader = BSONDocumentReader[Int] { doc =>
+    doc.getAsTry[Int]("popCount").get
+  }
+
+  col.aggregateWith[Int]() { framework =>
+    import framework.{ Count, Group, Match, SumField }
+
+    Group(BSONString("$state"))(
+      "totalPop" -> SumField("population")) -> List(
+        Match(BSONDocument("totalPop" -> BSONDocument("$gte" -> 10000000L))),
+        Count("popCount"))
+  }.head
+}
+{% endhighlight %}
+
 As for the other commands in ReactiveMongo, it's possible to return the aggregation result as custom types (see [BSON readers](../bson/typeclasses.html)), rather than generic documents, for example considering a class `State` as bellow.
 
 {% highlight scala %}

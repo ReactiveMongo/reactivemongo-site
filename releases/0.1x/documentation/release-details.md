@@ -229,7 +229,7 @@ def bulkDelete1(personColl: BSONCollection) = {
 
 **`arrayFilters`**
 
-The [`arrayFilters`](https://docs.mongodb.com/manual/release-notes/3.6/#arrayfilters) option is supported for [`findAndModify`](./tutorial/write-documents.html#find-and-modify).
+The [`arrayFilters`](https://docs.mongodb.com/manual/release-notes/3.6/#arrayfilters) criteria is supported for [`findAndModify` and `update`](./tutorial/write-documents.html#find-and-modify) operations.
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -237,12 +237,13 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.bson.BSONDocument
 
+import reactivemongo.api.WriteConcern
 import reactivemongo.api.collections.bson.BSONCollection
 
 def findAndUpdateArrayFilters(personColl: BSONCollection) =
-  personColl.findAndUpdate(
+  personColl.findAndModify(
     selector = BSONDocument.empty,
-    modifier = collection.updateModifier(
+    modifier = personColl.updateModifier(
       update = BSONDocument(f"$$set" -> BSONDocument(
         f"grades.$$[element]" -> 100)),
       fetchNewObject = true,
