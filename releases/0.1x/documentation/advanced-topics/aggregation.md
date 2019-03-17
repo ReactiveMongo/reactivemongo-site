@@ -10,6 +10,7 @@ The [MongoDB Aggregation Framework](http://docs.mongodb.org/manual/reference/ope
 
 - **[`$addFields`](#addFields)**: [Adds new fields](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/) to documents.
 - **[`$bucketAuto`](#bucketAuto)**: [Categorizes incoming documents into a specific number of groups](https://docs.mongodb.com/manual/reference/operator/aggregation/bucketAuto/), called buckets, based on a specified expression.
+- **[`$count`](#count)**: [Count](https://docs.mongodb.com/manual/reference/operator/aggregation/count/) the input documents.
 - **[`$limit`](#limit)**: Passes the first *n* documents unmodified to the pipeline where *n* is the specified [limit](https://docs.mongodb.com/manual/reference/operator/aggregation/limit/#pipe._S_limit) ([API](../../api/reactivemongo/api/commands/AggregationFramework#LimitextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
 - **[`$match`](#match)**: Filters the document stream to allow only [matching documents](https://docs.mongodb.com/manual/reference/operator/aggregation/match/#pipe._S_match) ([API](../../api/reactivemongo/api/commands/AggregationFramework#MatchextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
 - **[`$project`](#project)**: Reshapes each document in the stream, such as by [adding new fields or removing](https://docs.mongodb.com/manual/reference/operator/aggregation/project/#pipe._S_project) existing fields ([API](../../api/reactivemongo/api/commands/AggregationFramework#ProjectextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
@@ -35,6 +36,7 @@ The [MongoDB Aggregation Framework](http://docs.mongodb.org/manual/reference/ope
 - **[`$out`](#out)**: Writes the resulting documents of the aggregation [pipeline to a collection](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#pipe._S_out) ([API](../../api/reactivemongo/api/commands/AggregationFramework#OutextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
 - **[`$indexStats`](#indexStats)**: Returns statistics regarding the use of [each index for the collection](https://docs.mongodb.com/manual/reference/operator/aggregation/indexStats/#pipe._S_indexStats) ([API](../../api/reactivemongo/api/commands/AggregationFramework#IndexStats)).
 - **[`$replaceRoot`](#replaceRoot)**: Promotes a specified document to the top level and replaces all other fields.
+- **[`$slice`](#slice)**: Returns a subset of an array.
 
 ### Zip codes
 
@@ -121,6 +123,33 @@ Then when calling `populatedStates(theZipCodeCol)`, the asynchronous result will
 {% endhighlight %}
 
 > Note that for the state "JP", the population of Aogashima (200) and of Tokyo (13185502) have been summed.
+
+If the goal is only to count the populated states, the <span id="count">[`$count`](https://docs.mongodb.com/manual/reference/operator/aggregation/count/index.html)</span> stage can be used.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.{ BSONDocument, BSONDocumentReader, BSONString }
+
+import reactivemongo.api.Cursor
+import reactivemongo.api.collections.bson.BSONCollection
+
+def countPopulatedStates1(col: BSONCollection): Future[Int] = {
+  implicit val countReader = BSONDocumentReader[Int] { doc =>
+    doc.getAsTry[Int]("popCount").get
+  }
+
+  col.aggregateWith[Int]() { framework =>
+    import framework.{ Count, Group, Match, SumField }
+
+    Group(BSONString("$state"))(
+      "totalPop" -> SumField("population")) -> List(
+        Match(BSONDocument("totalPop" -> BSONDocument("$gte" -> 10000000L))),
+        Count("popCount"))
+  }.head
+}
+{% endhighlight %}
 
 As for the other commands in ReactiveMongo, it's possible to return the aggregation result as custom types (see [BSON readers](../bson/typeclasses.html)), rather than generic documents, for example considering a class `State` as bellow.
 
@@ -1194,6 +1223,46 @@ def sumHomeworkQuizz(students: BSONCollection) =
         "totalScore" -> document(f"$$add" -> array(
         f"$$totalHomework", f"$$totalQuiz", f"$$extraCredit")))))
   }
+{% endhighlight %}
+
+### Users
+
+Consider the following user collection.
+
+{% highlight javascript %}
+{ "_id" : 1, "name" : "dave123", favorites: [ "chocolate", "cake", "butter", "apples" ] }
+{ "_id" : 2, "name" : "li", favorites: [ "apples", "pudding", "pie" ] }
+{ "_id" : 3, "name" : "ahn", favorites: [ "pears", "pecans", "chocolate", "cherries" ] }
+{ "_id" : 4, "name" : "ty", favorites: [ "ice cream" ] }
+{% endhighlight %}
+
+The favorites of each user can be [sliced](https://docs.mongodb.com/manual/reference/operator/aggregation/slice/#example) to keep only the 3 top favorites:
+
+{% highlight javascript %}
+db.users.aggregate([
+   { $project: { name: 1, favorites: { $slice: [ "$favorites", 3 ] } } }
+])
+{% endhighlight %}
+
+It's also supported by ReactiveMongo as bellow.
+
+{% highlight scala %}
+import scala.concurrent.ExecutionContext
+
+import reactivemongo.bson._
+import reactivemongo.api.Cursor
+import reactivemongo.api.collections.bson.BSONCollection
+
+def sliceFavorites(coll: BSONCollection)(implicit ec: ExecutionContext) =
+  coll.aggregateWith1[BSONDocument]() { framework =>
+    import framework.{ Project, Slice }
+
+    Project(BSONDocument(
+      "name" -> 1,
+      "favorites" -> Slice(
+        array = BSONString(f"$$favorites"),
+        n = BSONInteger(3)).makePipe)) -> List.empty
+  }.collect[Seq](4, Cursor.FailOnError[Seq[BSONDocument]]())
 {% endhighlight %}
 
 ### Custom stage

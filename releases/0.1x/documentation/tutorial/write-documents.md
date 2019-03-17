@@ -166,6 +166,27 @@ By default, the update operation only updates a single matching document. You ca
 
 It's possible to automatically insert data if there is no matching document using the `upsert` parameter.
 
+The [`arrayFilters`](https://docs.mongodb.com/manual/reference/command/update/#update-elements-match-arrayfilters-criteria) criteria can also be specified on update.
+
+{% highlight scala %}
+import scala.concurrent.ExecutionContext
+
+import reactivemongo.bson.BSONDocument
+import reactivemongo.api.collections.bson.BSONCollection
+
+def updateArrayFilters(personColl: BSONCollection)(
+  implicit ec: ExecutionContext) =
+  personColl.update.one(
+    q = BSONDocument("grades" -> BSONDocument(f"$$gte" -> 100)),
+    u = BSONDocument(f"$$set" -> BSONDocument(
+      f"grades.$$[element]" -> 100)),
+    upsert = false,
+    multi = true,
+    collation = None,
+    arrayFilters = Seq(
+      BSONDocument("element" -> BSONDocument(f"$$gte" -> 100))))
+{% endhighlight %}
+
 ### Delete a document
 
 The [`.delete`](../../api/reactivemongo/api/collections/GenericCollection.html#delete(ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern):GenericCollection.this.DeleteBuilder) function returns a [`DeleteBuilder`](../../api/reactivemongo/api/collections/DeleteOps$DeleteBuilder.html), which allows to perform simple or bulk delete.
@@ -267,6 +288,35 @@ import reactivemongo.api.collections.bson.BSONCollection
 def removedPerson(coll: BSONCollection, name: String)(implicit ec: ExecutionContext, reader: BSONDocumentReader[Person]): Future[Option[Person]] =
   coll.findAndRemove(BSONDocument("name" -> name)).
     map(_.result[Person])
+{% endhighlight %}
+
+As when [using `update`](#update-a-document) [`arrayFilters`](https://docs.mongodb.com/manual/reference/command/findAndModify/index.html#specify-arrayfilters-for-an-array-update-operations) criteria can be specified for a `findAndModify` operation.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.BSONDocument
+
+import reactivemongo.api.WriteConcern
+import reactivemongo.api.collections.bson.BSONCollection
+
+def findAndUpdateArrayFilters(personColl: BSONCollection) =
+  personColl.findAndModify(
+    selector = BSONDocument.empty,
+    modifier = personColl.updateModifier(
+      update = BSONDocument(f"$$set" -> BSONDocument(
+        f"grades.$$[element]" -> 100)),
+      fetchNewObject = true,
+      upsert = false),
+    sort = None,
+    fields = None,
+    bypassDocumentValidation = false,
+    writeConcern = WriteConcern.Journaled,
+    maxTime = None,
+    collation = None,
+    arrayFilters = Seq(
+      BSONDocument("elem.grade" -> BSONDocument(f"$$gte" -> 85))))
 {% endhighlight %}
 
 ### Troubleshooting
