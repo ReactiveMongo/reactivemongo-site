@@ -6,7 +6,7 @@ val majorVer = "0"
 
 version := majorVer
 
-val Release = s"${majorVer}.16.4"
+val Release = s"${majorVer}.16.5"
 
 scalaVersion := "2.12.8"
 
@@ -16,15 +16,15 @@ libraryDependencies ++= Seq(
 
 libraryDependencies ++= {
   val playVer = Release.span(_ != '-') match {
-    case (major, "") => s"${major}-play26"
-    case (major, mod) => s"${major}-play26${mod}"
+    case (major, "") => s"${major}-play27"
+    case (major, mod) => s"${major}-play27${mod}"
   }
 
   Seq("play2-reactivemongo", "reactivemongo-play-json").map(
     "org.reactivemongo" %% _ % playVer changing())
 }
 
-libraryDependencies += "com.typesafe.play" %% "play" % "2.6.7"
+libraryDependencies += "com.typesafe.play" %% "play" % "2.7.0"
 
 resolvers ++= Seq(
   "Typesafe releases" at "http://repo.typesafe.com/typesafe/releases/",
