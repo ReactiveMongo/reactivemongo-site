@@ -29,4 +29,7 @@ Framework to unit test a ReactiveMongo persistence.
 [Enumeratum for ReactiveMongo](https://github.com/lloydmeta/enumeratum/#reactivemongo-bson):
 BSON codecs to use Enumeratum with MongoDB.
 
+[Circe BSON](https://github.com/circe/circe-bson):
+Conversions for circe and ReactiveMongo.
+
 [ReactiveMongo Silhouette](https://github.com/mohiva/play-silhouette-persistence-reactivemongo): An implementation of the Silhouette persistence layer using ReactiveMongo.
