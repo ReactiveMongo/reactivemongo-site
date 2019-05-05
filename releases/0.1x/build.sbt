@@ -6,7 +6,7 @@ val majorVer = "0"
 
 version := majorVer
 
-val Release = s"${majorVer}.16.5"
+val Release = s"${majorVer}.16.6"
 
 scalaVersion := "2.12.8"
 
