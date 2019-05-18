@@ -67,7 +67,8 @@ The option `ssl` is needed if the MongoDB server is requiring SSL (`mongod --ssl
 - [**`maxIdleTimeMS`**](https://docs.mongodb.com/manual/reference/connection-string/#urioption.maxIdleTimeMS): The maximum number of milliseconds that a connection can remain idle in the pool before being removed and closed.
 - **`rm.tcpNoDelay`**: TCPNoDelay boolean flag (`true|false`).
 - **`rm.keepAlive`**: TCP KeepAlive boolean flag (`true|false`).
-- **`rm.nbChannelsPerNode`**: Number of channels (connections) per node.
+- **`rm.nbChannelsPerNode`**: The number of user channels (connections) per node (default: 10). Note that an extra signaling channel is always created, to manage the pool state.
+- **`rm.maxInFlightRequestsPerChannel`** (EXPERIMENTAL): The maximum number of in flight/concurrent requests per user channel (default: 200).
 - [**`heartbeatFrequencyMS`**](https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-discovery-and-monitoring.rst#heartbeatfrequencyms) (formerly `rm.monitorRefreshMS`): The interval (in milliseconds) used by the ReactiveMongo monitor to refresh the node set (default: 10s); The minimal value is 100ms.
 - **`rm.failover`**: The default [failover strategy](../../api/reactivemongo/api/FailoverStrategy).
   - `default`: The default/minimal strategy, with 10 retries with an initial delay of 100ms and a delay factor of `retry count * 1.25` (100ms .. 125ms, 250ms, 375ms, 500ms, 625ms, 750ms, 875ms, 1s, 1125ms, 1250ms).

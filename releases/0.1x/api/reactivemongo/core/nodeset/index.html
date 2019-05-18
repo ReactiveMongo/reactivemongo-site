@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.16 - reactivemongo.core.nodeset</title>
-          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.core.nodeset" />
-          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.core.nodeset" />
+          <title>ReactiveMongo API 0.17 - reactivemongo.core.nodeset</title>
+          <meta name="description" content="ReactiveMongo API 0.17 - reactivemongo.core.nodeset" />
+          <meta name="keywords" content="ReactiveMongo API 0.17 reactivemongo.core.nodeset" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.17</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -202,7 +202,7 @@
                         <a class="trait" href="CanonicalNodeStatus.html" title=""></a>
                         <a href="CanonicalNodeStatus.html" title="">CanonicalNodeStatus</a>
                       </li><li class="current-entities indented3">
-                        <span class="separator"></span>
+                        <a class="object" href="Connection$.html" title=""></a>
                         <a class="class" href="Connection.html" title=""></a>
                         <a href="Connection.html" title="">Connection</a>
                       </li><li class="current-entities indented3">
@@ -222,7 +222,7 @@
                         <a class="class" href="NodeSet.html" title=""></a>
                         <a href="NodeSet.html" title="">NodeSet</a>
                       </li><li class="current-entities indented3">
-                        <span class="separator"></span>
+                        <a class="object" href="NodeSetInfo$.html" title=""></a>
                         <a class="class" href="NodeSetInfo.html" title=""></a>
                         <a href="NodeSetInfo.html" title="">NodeSetInfo</a>
                       </li><li class="current-entities indented3">
@@ -392,22 +392,6 @@
       </span>
       
       
-    </li><li name="reactivemongo.core.nodeset.Connection" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="ConnectionextendsProductwithSerializable"></a><a id="Connection:Connection"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/core/nodeset/index.html#ConnectionextendsProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="Connection.html"><span class="name">Connection</span></a><span class="params">(<span name="channel">channel: <span class="extype" name="reactivemongo.io.netty.channel.Channel">Channel</span></span>, <span name="status">status: <a href="ConnectionStatus.html" class="extype" name="reactivemongo.core.nodeset.ConnectionStatus">ConnectionStatus</a></span>, <span name="authenticated">authenticated: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="Authenticated.html" class="extype" name="reactivemongo.core.nodeset.Authenticated">Authenticated</a>]</span>, <span name="authenticating">authenticating: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="Authenticating.html" class="extype" name="reactivemongo.core.nodeset.Authenticating">Authenticating</a>]</span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.8/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      
     </li><li name="reactivemongo.core.nodeset.ConnectionStatus" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="ConnectionStatusextendsAnyRef"></a><a id="ConnectionStatus:ConnectionStatus"></a>
       <span class="permalink">
@@ -475,22 +459,6 @@
                 <span class="name">@SerialVersionUID</span><span class="args">()</span>
               
         </dd></dl></div>
-    </li><li name="reactivemongo.core.nodeset.NodeSetInfo" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="NodeSetInfoextendsProductwithSerializable"></a><a id="NodeSetInfo:NodeSetInfo"></a>
-      <span class="permalink">
-      <a href="../../../reactivemongo/core/nodeset/index.html#NodeSetInfoextendsProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="NodeSetInfo.html"><span class="name">NodeSetInfo</span></a><span class="params">(<span name="name">name: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="version">version: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="http://www.scala-lang.org/api/2.12.8/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a>]</span>, <span name="nodes">nodes: <span class="extype" name="scala.Vector">Vector</span>[<a href="NodeInfo.html" class="extype" name="reactivemongo.core.nodeset.NodeInfo">NodeInfo</a>]</span>, <span name="primary">primary: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="NodeInfo.html" class="extype" name="reactivemongo.core.nodeset.NodeInfo">NodeInfo</a>]</span>, <span name="mongos">mongos: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="NodeInfo.html" class="extype" name="reactivemongo.core.nodeset.NodeInfo">NodeInfo</a>]</span>, <span name="secondaries">secondaries: <span class="extype" name="scala.Vector">Vector</span>[<a href="NodeInfo.html" class="extype" name="reactivemongo.core.nodeset.NodeInfo">NodeInfo</a>]</span>, <span name="nearest">nearest: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="NodeInfo.html" class="extype" name="reactivemongo.core.nodeset.NodeInfo">NodeInfo</a>]</span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.8/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
-      </span>
-      
-      
     </li><li name="reactivemongo.core.nodeset.NodeStatus" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="NodeStatusextendsAnyRef"></a><a id="NodeStatus:NodeStatus"></a>
       <span class="permalink">
@@ -606,6 +574,44 @@
                 <span class="name">@deprecated</span>
               
         </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.14.0)</i> Internal: will be made private</p></dd></dl></div>
+    </li><li name="reactivemongo.core.nodeset.Connection" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ConnectionextendsProductwithSerializable"></a><a id="Connection:Connection"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/core/nodeset/index.html#ConnectionextendsProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="Connection.html"><span class="name deprecated" title="Deprecated: (Since version 0.17.0) Internal: will be made private">Connection</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.8/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.17.0)</i> Internal: will be made private</p></dd></dl></div>
+    </li><li name="reactivemongo.core.nodeset.NodeSetInfo" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="NodeSetInfoextendsProductwithSerializable"></a><a id="NodeSetInfo:NodeSetInfo"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/core/nodeset/index.html#NodeSetInfoextendsProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="NodeSetInfo.html"><span class="name deprecated" title="Deprecated: (Since version 0.17.0) Will be final">NodeSetInfo</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.8/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.17.0)</i> Will be final</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -643,6 +649,22 @@
       </span>
       <span class="symbol">
         <a title="" href="ConnectionStatus$.html"><span class="name">ConnectionStatus</span></a>
+      </span>
+      
+      
+    </li><li name="reactivemongo.core.nodeset.NodeSetInfo" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="NodeSetInfo"></a><a id="NodeSetInfo:NodeSetInfo"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/core/nodeset/index.html#NodeSetInfo" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="NodeSetInfo$.html"><span class="name">NodeSetInfo</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.8/scala/runtime/AbstractFunction7.html#scala.runtime.AbstractFunction7" class="extype" name="scala.runtime.AbstractFunction7">AbstractFunction7</a>[<a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>], <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="http://www.scala-lang.org/api/2.12.8/scala/Long.html#scala.Long" class="extype" name="scala.Long">Long</a>], <span class="extype" name="scala.Vector">Vector</span>[<a href="NodeInfo.html" class="extype" name="reactivemongo.core.nodeset.NodeInfo">NodeInfo</a>], <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="NodeInfo.html" class="extype" name="reactivemongo.core.nodeset.NodeInfo">NodeInfo</a>], <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="NodeInfo.html" class="extype" name="reactivemongo.core.nodeset.NodeInfo">NodeInfo</a>], <span class="extype" name="scala.Vector">Vector</span>[<a href="NodeInfo.html" class="extype" name="reactivemongo.core.nodeset.NodeInfo">NodeInfo</a>], <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="NodeInfo.html" class="extype" name="reactivemongo.core.nodeset.NodeInfo">NodeInfo</a>], <a href="NodeSetInfo.html" class="extype" name="reactivemongo.core.nodeset.NodeSetInfo">NodeSetInfo</a>] with <a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       
@@ -700,7 +722,29 @@
 
         
 
-        
+        <div class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="reactivemongo.core.nodeset.Connection" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Connection"></a><a id="Connection:Connection"></a>
+      <span class="permalink">
+      <a href="../../../reactivemongo/core/nodeset/index.html#Connection" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="Connection$.html"><span class="name deprecated" title="Deprecated: (Since version 0.17.0) Internal: will be made private">Connection</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.8/scala/runtime/AbstractFunction4.html#scala.runtime.AbstractFunction4" class="extype" name="scala.runtime.AbstractFunction4">AbstractFunction4</a>[<span class="extype" name="reactivemongo.io.netty.channel.Channel">Channel</span>, <a href="ConnectionStatus.html" class="extype" name="reactivemongo.core.nodeset.ConnectionStatus">ConnectionStatus</a>, <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="Authenticated.html" class="extype" name="reactivemongo.core.nodeset.Authenticated">Authenticated</a>], <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="Authenticating.html" class="extype" name="reactivemongo.core.nodeset.Authenticating">Authenticating</a>], <a href="Connection.html" class="extype" name="reactivemongo.core.nodeset.Connection">Connection</a>] with <a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.17.0)</i> Internal: will be made private</p></dd></dl></div>
+    </li></ol>
+            </div>
         </div>
 
         <div id="inheritedMembers">
