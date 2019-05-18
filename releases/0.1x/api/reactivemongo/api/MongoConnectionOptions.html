@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.16 - reactivemongo.api.MongoConnectionOptions</title>
-          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.api.MongoConnectionOptions" />
-          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.api.MongoConnectionOptions" />
+          <title>ReactiveMongo API 0.17 - reactivemongo.api.MongoConnectionOptions</title>
+          <meta name="description" content="ReactiveMongo API 0.17 - reactivemongo.api.MongoConnectionOptions" />
+          <meta name="keywords" content="ReactiveMongo API 0.17 reactivemongo.api.MongoConnectionOptions" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.17</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -331,16 +331,16 @@
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">case class</span>
+        <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">MongoConnectionOptions</span><span class="params">(<span name="connectTimeoutMS">connectTimeoutMS: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a> = <span class="symbol">0</span></span>, <span name="authenticationDatabase">authenticationDatabase: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="sslEnabled">sslEnabled: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a> = <span class="symbol">false</span></span>, <span name="sslAllowsInvalidCert">sslAllowsInvalidCert: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a> = <span class="symbol">false</span></span>, <span name="authenticationMechanism">authenticationMechanism: <a href="AuthenticationMode.html" class="extype" name="reactivemongo.api.AuthenticationMode">AuthenticationMode</a> = <span class="symbol"><span class="name"><a href="ScramSha1Authentication$.html">ScramSha1Authentication</a></span></span></span>, <span name="tcpNoDelay">tcpNoDelay: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a> = <span class="symbol">false</span></span>, <span name="keepAlive">keepAlive: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a> = <span class="symbol">false</span></span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a> = <span class="symbol">10</span></span>, <span name="reconnectDelayMS">reconnectDelayMS: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a> = <span class="symbol">1000</span></span>, <span name="writeConcern">writeConcern: <a href="commands/index.html#WriteConcern=reactivemongo.api.commands.GetLastError" class="extmbr" name="reactivemongo.api.commands.WriteConcern">commands.WriteConcern</a> = <span class="symbol"><span class="name"><a href="../index.html">WC.Default</a></span></span></span>, <span name="readPreference">readPreference: <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> = <span class="symbol"><span class="name"><a href="ReadPreference$.html">ReadPreference.primary</a></span></span></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="FailoverStrategy$.html">FailoverStrategy.default</a></span></span></span>, <span name="heartbeatFrequencyMS">heartbeatFrequencyMS: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a> = <span class="symbol">10000</span></span>, <span name="maxIdleTimeMS">maxIdleTimeMS: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a> = <span class="symbol">0</span></span>, <span name="maxHistorySize">maxHistorySize: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a> = <span class="symbol">25</span></span>, <span name="credentials">credentials: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <a href="MongoConnectionOptions$$Credential.html" class="extype" name="reactivemongo.api.MongoConnectionOptions.Credential">Credential</a>] = <span class="symbol">Map.empty</span></span>, <span name="keyStore">keyStore: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="MongoConnectionOptions$$KeyStore.html" class="extype" name="reactivemongo.api.MongoConnectionOptions.KeyStore">KeyStore</a>] = <span class="symbol">Option.empty</span></span>, <span name="readConcern">readConcern: <a href="ReadConcern.html" class="extype" name="reactivemongo.api.ReadConcern">ReadConcern</a> = <span class="symbol"><span class="name"><a href="ReadConcern$.html">ReadConcern.default</a></span></span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.8/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <span class="name">MongoConnectionOptions</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.8/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       </h4>
 
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Options for MongoConnection.
-</p></div><dl class="paramcmts block"><dt class="param">connectTimeoutMS</dt><dd class="cmt"><p>The number of milliseconds to wait for a connection to be established before giving up.</p></dd><dt class="param">authenticationDatabase</dt><dd class="cmt"><p>the name of the database used for authentication</p></dd><dt class="param">sslEnabled</dt><dd class="cmt"><p>Enable SSL connection (required to be accepted on server-side).</p></dd><dt class="param">sslAllowsInvalidCert</dt><dd class="cmt"><p>If <code>sslEnabled</code> is true, this one indicates whether to accept invalid certificates (e.g. self-signed).</p></dd><dt class="param">tcpNoDelay</dt><dd class="cmt"><p>TCPNoDelay flag (ReactiveMongo-specific option). The default value is false (see <a href="http://docs.oracle.com/javase/8/docs/api/java/net/StandardSocketOptions.html#TCP_NODELAY" target="_blank">TCP_NODELAY</a>).</p></dd><dt class="param">keepAlive</dt><dd class="cmt"><p>TCP KeepAlive flag (ReactiveMongo-specific option). The default value is false (see <a href="http://docs.oracle.com/javase/8/docs/api/java/net/StandardSocketOptions.html#SO_KEEPALIVE" target="_blank">SO_KEEPALIVE</a>).</p></dd><dt class="param">nbChannelsPerNode</dt><dd class="cmt"><p>Number of channels (connections) per node (ReactiveMongo-specific option).</p></dd><dt class="param">writeConcern</dt><dd class="cmt"><p>the default <a href="https://docs.mongodb.com/manual/reference/write-concern/" target="_blank">write concern</a></p></dd><dt class="param">readPreference</dt><dd class="cmt"><p>the default read preference</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>the default failover strategy</p></dd><dt class="param">heartbeatFrequencyMS</dt><dd class="cmt"><p>the interval in milliseconds used by monitor to refresh the node set (default: 10000 aka 10s)</p></dd><dt class="param">maxIdleTimeMS</dt><dd class="cmt"><p>the maximum number of milliseconds that a <a href="https://docs.mongodb.com/manual/reference/connection-string/#urioption.maxIdleTimeMS" target="_blank">channel can remain idle</a> in the connection pool before being removed and closed (default: 0 to disable, as implemented using <a href="http://netty.io/4.1/api/io/netty/handler/timeout/IdleStateHandler.html" target="_blank">Netty IdleStateHandler</a>); If not 0, must be greater or equal to <a href="#heartbeatFrequencyMS:Int" class="extmbr" name="reactivemongo.api.MongoConnectionOptions#heartbeatFrequencyMS">#heartbeatFrequencyMS</a></p></dd><dt class="param">maxHistorySize</dt><dd class="cmt"><p>the maximum size of the pool history (default: 25)</p></dd><dt class="param">credentials</dt><dd class="cmt"><p>the credentials per authentication database names</p></dd><dt class="param">keyStore</dt><dd class="cmt"><p>an optional key store</p></dd><dt class="param">readConcern</dt><dd class="cmt"><p>the default <a href="https://docs.mongodb.com/manual/reference/read-concern/" target="_blank">read concern</a></p></dd></dl><div class="toggleContainer block">
+</p></div><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -393,26 +393,7 @@
 
       <div id="template">
         <div id="allMembers">
-        <div id="constructors" class="members">
-              <h3>Instance Constructors</h3>
-              <ol><li name="reactivemongo.api.MongoConnectionOptions#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(connectTimeoutMS:Int,authenticationDatabase:Option[String],sslEnabled:Boolean,sslAllowsInvalidCert:Boolean,authenticationMechanism:reactivemongo.api.AuthenticationMode,tcpNoDelay:Boolean,keepAlive:Boolean,nbChannelsPerNode:Int,reconnectDelayMS:Int,writeConcern:reactivemongo.api.commands.WriteConcern,readPreference:reactivemongo.api.ReadPreference,failoverStrategy:reactivemongo.api.FailoverStrategy,heartbeatFrequencyMS:Int,maxIdleTimeMS:Int,maxHistorySize:Int,credentials:Map[String,reactivemongo.api.MongoConnectionOptions.Credential],keyStore:Option[reactivemongo.api.MongoConnectionOptions.KeyStore],readConcern:reactivemongo.api.ReadConcern):reactivemongo.api.MongoConnectionOptions"></a><a id="&lt;init&gt;:MongoConnectionOptions"></a>
-      <span class="permalink">
-      <a href="../../reactivemongo/api/MongoConnectionOptions.html#&lt;init&gt;(connectTimeoutMS:Int,authenticationDatabase:Option[String],sslEnabled:Boolean,sslAllowsInvalidCert:Boolean,authenticationMechanism:reactivemongo.api.AuthenticationMode,tcpNoDelay:Boolean,keepAlive:Boolean,nbChannelsPerNode:Int,reconnectDelayMS:Int,writeConcern:reactivemongo.api.commands.WriteConcern,readPreference:reactivemongo.api.ReadPreference,failoverStrategy:reactivemongo.api.FailoverStrategy,heartbeatFrequencyMS:Int,maxIdleTimeMS:Int,maxHistorySize:Int,credentials:Map[String,reactivemongo.api.MongoConnectionOptions.Credential],keyStore:Option[reactivemongo.api.MongoConnectionOptions.KeyStore],readConcern:reactivemongo.api.ReadConcern):reactivemongo.api.MongoConnectionOptions" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">new</span>
-      </span>
-      <span class="symbol">
-        <span class="name">MongoConnectionOptions</span><span class="params">(<span name="connectTimeoutMS">connectTimeoutMS: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a> = <span class="symbol">0</span></span>, <span name="authenticationDatabase">authenticationDatabase: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="sslEnabled">sslEnabled: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a> = <span class="symbol">false</span></span>, <span name="sslAllowsInvalidCert">sslAllowsInvalidCert: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a> = <span class="symbol">false</span></span>, <span name="authenticationMechanism">authenticationMechanism: <a href="AuthenticationMode.html" class="extype" name="reactivemongo.api.AuthenticationMode">AuthenticationMode</a> = <span class="symbol"><span class="name"><a href="ScramSha1Authentication$.html">ScramSha1Authentication</a></span></span></span>, <span name="tcpNoDelay">tcpNoDelay: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a> = <span class="symbol">false</span></span>, <span name="keepAlive">keepAlive: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a> = <span class="symbol">false</span></span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a> = <span class="symbol">10</span></span>, <span name="reconnectDelayMS">reconnectDelayMS: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a> = <span class="symbol">1000</span></span>, <span name="writeConcern">writeConcern: <a href="commands/index.html#WriteConcern=reactivemongo.api.commands.GetLastError" class="extmbr" name="reactivemongo.api.commands.WriteConcern">commands.WriteConcern</a> = <span class="symbol"><span class="name"><a href="../index.html">WC.Default</a></span></span></span>, <span name="readPreference">readPreference: <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> = <span class="symbol"><span class="name"><a href="ReadPreference$.html">ReadPreference.primary</a></span></span></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="FailoverStrategy$.html">FailoverStrategy.default</a></span></span></span>, <span name="heartbeatFrequencyMS">heartbeatFrequencyMS: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a> = <span class="symbol">10000</span></span>, <span name="maxIdleTimeMS">maxIdleTimeMS: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a> = <span class="symbol">0</span></span>, <span name="maxHistorySize">maxHistorySize: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a> = <span class="symbol">25</span></span>, <span name="credentials">credentials: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <a href="MongoConnectionOptions$$Credential.html" class="extype" name="reactivemongo.api.MongoConnectionOptions.Credential">Credential</a>] = <span class="symbol">Map.empty</span></span>, <span name="keyStore">keyStore: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="MongoConnectionOptions$$KeyStore.html" class="extype" name="reactivemongo.api.MongoConnectionOptions.KeyStore">KeyStore</a>] = <span class="symbol">Option.empty</span></span>, <span name="readConcern">readConcern: <a href="ReadConcern.html" class="extype" name="reactivemongo.api.ReadConcern">ReadConcern</a> = <span class="symbol"><span class="name"><a href="ReadConcern$.html">ReadConcern.default</a></span></span></span>)</span>
-      </span>
-      
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">connectTimeoutMS</dt><dd class="cmt"><p>The number of milliseconds to wait for a connection to be established before giving up.</p></dd><dt class="param">authenticationDatabase</dt><dd class="cmt"><p>the name of the database used for authentication</p></dd><dt class="param">sslEnabled</dt><dd class="cmt"><p>Enable SSL connection (required to be accepted on server-side).</p></dd><dt class="param">sslAllowsInvalidCert</dt><dd class="cmt"><p>If <code>sslEnabled</code> is true, this one indicates whether to accept invalid certificates (e.g. self-signed).</p></dd><dt class="param">tcpNoDelay</dt><dd class="cmt"><p>TCPNoDelay flag (ReactiveMongo-specific option). The default value is false (see <a href="http://docs.oracle.com/javase/8/docs/api/java/net/StandardSocketOptions.html#TCP_NODELAY" target="_blank">TCP_NODELAY</a>).</p></dd><dt class="param">keepAlive</dt><dd class="cmt"><p>TCP KeepAlive flag (ReactiveMongo-specific option). The default value is false (see <a href="http://docs.oracle.com/javase/8/docs/api/java/net/StandardSocketOptions.html#SO_KEEPALIVE" target="_blank">SO_KEEPALIVE</a>).</p></dd><dt class="param">nbChannelsPerNode</dt><dd class="cmt"><p>Number of channels (connections) per node (ReactiveMongo-specific option).</p></dd><dt class="param">writeConcern</dt><dd class="cmt"><p>the default <a href="https://docs.mongodb.com/manual/reference/write-concern/" target="_blank">write concern</a></p></dd><dt class="param">readPreference</dt><dd class="cmt"><p>the default read preference</p></dd><dt class="param">failoverStrategy</dt><dd class="cmt"><p>the default failover strategy</p></dd><dt class="param">heartbeatFrequencyMS</dt><dd class="cmt"><p>the interval in milliseconds used by monitor to refresh the node set (default: 10000 aka 10s)</p></dd><dt class="param">maxIdleTimeMS</dt><dd class="cmt"><p>the maximum number of milliseconds that a <a href="https://docs.mongodb.com/manual/reference/connection-string/#urioption.maxIdleTimeMS" target="_blank">channel can remain idle</a> in the connection pool before being removed and closed (default: 0 to disable, as implemented using <a href="http://netty.io/4.1/api/io/netty/handler/timeout/IdleStateHandler.html" target="_blank">Netty IdleStateHandler</a>); If not 0, must be greater or equal to <a href="#heartbeatFrequencyMS:Int" class="extmbr" name="reactivemongo.api.MongoConnectionOptions#heartbeatFrequencyMS">#heartbeatFrequencyMS</a></p></dd><dt class="param">maxHistorySize</dt><dd class="cmt"><p>the maximum size of the pool history (default: 25)</p></dd><dt class="param">credentials</dt><dd class="cmt"><p>the credentials per authentication database names</p></dd><dt class="param">keyStore</dt><dd class="cmt"><p>an optional key store</p></dd><dt class="param">readConcern</dt><dd class="cmt"><p>the default <a href="https://docs.mongodb.com/manual/reference/read-concern/" target="_blank">read concern</a></p></dd></dl></div>
-    </li></ol>
-            </div>
+        
 
         
 
@@ -580,6 +561,22 @@
       </span>
       
       
+    </li><li name="reactivemongo.api.MongoConnectionOptions#canEqual" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="canEqual(that:Any):Boolean"></a><a id="canEqual(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/api/MongoConnectionOptions.html#canEqual(that:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">canEqual</span><span class="params">(<span name="that">that: <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a> → Equals</dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
       <span class="permalink">
@@ -617,6 +614,22 @@
       </span>
       <span class="symbol">
         <span class="name">connectTimeoutMS</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
+      </span>
+      
+      
+    </li><li name="reactivemongo.api.MongoConnectionOptions#copy" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="copy(connectTimeoutMS:Int,authenticationDatabase:Option[String],sslEnabled:Boolean,sslAllowsInvalidCert:Boolean,authenticationMechanism:reactivemongo.api.AuthenticationMode,tcpNoDelay:Boolean,keepAlive:Boolean,nbChannelsPerNode:Int,maxInFlightRequestsPerChannel:Option[Int],writeConcern:reactivemongo.api.commands.WriteConcern,readPreference:reactivemongo.api.ReadPreference,failoverStrategy:reactivemongo.api.FailoverStrategy,heartbeatFrequencyMS:Int,maxIdleTimeMS:Int,maxHistorySize:Int,credentials:Map[String,reactivemongo.api.MongoConnectionOptions.Credential],keyStore:Option[reactivemongo.api.MongoConnectionOptions.KeyStore],readConcern:reactivemongo.api.ReadConcern):reactivemongo.api.MongoConnectionOptions"></a><a id="copy(Int,Option[String],Boolean,Boolean,AuthenticationMode,Boolean,Boolean,Int,Option[Int],commands.WriteConcern,ReadPreference,FailoverStrategy,Int,Int,Int,Map[String,Credential],Option[KeyStore],ReadConcern):MongoConnectionOptions"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/api/MongoConnectionOptions.html#copy(connectTimeoutMS:Int,authenticationDatabase:Option[String],sslEnabled:Boolean,sslAllowsInvalidCert:Boolean,authenticationMechanism:reactivemongo.api.AuthenticationMode,tcpNoDelay:Boolean,keepAlive:Boolean,nbChannelsPerNode:Int,maxInFlightRequestsPerChannel:Option[Int],writeConcern:reactivemongo.api.commands.WriteConcern,readPreference:reactivemongo.api.ReadPreference,failoverStrategy:reactivemongo.api.FailoverStrategy,heartbeatFrequencyMS:Int,maxIdleTimeMS:Int,maxHistorySize:Int,credentials:Map[String,reactivemongo.api.MongoConnectionOptions.Credential],keyStore:Option[reactivemongo.api.MongoConnectionOptions.KeyStore],readConcern:reactivemongo.api.ReadConcern):reactivemongo.api.MongoConnectionOptions" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">copy</span><span class="params">(<span name="connectTimeoutMS">connectTimeoutMS: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a> = <span class="symbol"><span class="name"><a href="#connectTimeoutMS:Int">this.connectTimeoutMS</a></span></span></span>, <span name="authenticationDatabase">authenticationDatabase: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol"><span class="name"><a href="#authenticationDatabase:Option[String]">this.authenticationDatabase</a></span></span></span>, <span name="sslEnabled">sslEnabled: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a> = <span class="symbol"><span class="name"><a href="#sslEnabled:Boolean">this.sslEnabled</a></span></span></span>, <span name="sslAllowsInvalidCert">sslAllowsInvalidCert: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a> = <span class="symbol"><span class="name"><a href="#sslAllowsInvalidCert:Boolean">this.sslAllowsInvalidCert</a></span></span></span>, <span name="authenticationMechanism">authenticationMechanism: <a href="AuthenticationMode.html" class="extype" name="reactivemongo.api.AuthenticationMode">AuthenticationMode</a> = <span class="symbol"><span class="name"><a href="#authenticationMechanism:reactivemongo.api.AuthenticationMode">this.authenticationMechanism</a></span></span></span>, <span name="tcpNoDelay">tcpNoDelay: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a> = <span class="symbol"><span class="name"><a href="#tcpNoDelay:Boolean">this.tcpNoDelay</a></span></span></span>, <span name="keepAlive">keepAlive: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a> = <span class="symbol"><span class="name"><a href="#keepAlive:Boolean">this.keepAlive</a></span></span></span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a> = <span class="symbol"><span class="name"><a href="#nbChannelsPerNode:Int">this.nbChannelsPerNode</a></span></span></span>, <span name="maxInFlightRequestsPerChannel">maxInFlightRequestsPerChannel: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>] = <span class="symbol"><span class="name"><a href="#maxInFlightRequestsPerChannel:Option[Int]">this.maxInFlightRequestsPerChannel</a></span></span></span>, <span name="writeConcern">writeConcern: <a href="commands/index.html#WriteConcern=reactivemongo.api.commands.GetLastError" class="extmbr" name="reactivemongo.api.commands.WriteConcern">commands.WriteConcern</a> = <span class="symbol"><span class="name"><a href="#writeConcern:reactivemongo.api.commands.WriteConcern">this.writeConcern</a></span></span></span>, <span name="readPreference">readPreference: <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a> = <span class="symbol"><span class="name"><a href="#readPreference:reactivemongo.api.ReadPreference">this.readPreference</a></span></span></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a> = <span class="symbol"><span class="name"><a href="#failoverStrategy:reactivemongo.api.FailoverStrategy">this.failoverStrategy</a></span></span></span>, <span name="heartbeatFrequencyMS">heartbeatFrequencyMS: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a> = <span class="symbol"><span class="name"><a href="#heartbeatFrequencyMS:Int">this.heartbeatFrequencyMS</a></span></span></span>, <span name="maxIdleTimeMS">maxIdleTimeMS: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a> = <span class="symbol"><span class="name"><a href="#maxIdleTimeMS:Int">this.maxIdleTimeMS</a></span></span></span>, <span name="maxHistorySize">maxHistorySize: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a> = <span class="symbol"><span class="name"><a href="#maxHistorySize:Int">this.maxHistorySize</a></span></span></span>, <span name="credentials">credentials: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <a href="MongoConnectionOptions$$Credential.html" class="extype" name="reactivemongo.api.MongoConnectionOptions.Credential">Credential</a>] = <span class="symbol"><span class="name"><a href="#credentials:Map[String,reactivemongo.api.MongoConnectionOptions.Credential]">this.credentials</a></span></span></span>, <span name="keyStore">keyStore: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="MongoConnectionOptions$$KeyStore.html" class="extype" name="reactivemongo.api.MongoConnectionOptions.KeyStore">KeyStore</a>] = <span class="symbol"><span class="name"><a href="#keyStore:Option[reactivemongo.api.MongoConnectionOptions.KeyStore]">this.keyStore</a></span></span></span>, <span name="readConcern">readConcern: <a href="ReadConcern.html" class="extype" name="reactivemongo.api.ReadConcern">ReadConcern</a> = <span class="symbol"><span class="name"><a href="#readConcern:reactivemongo.api.ReadConcern">this.readConcern</a></span></span></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>
       </span>
       
       
@@ -732,6 +745,22 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="reactivemongo.api.MongoConnectionOptions#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(that:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/api/MongoConnectionOptions.html#equals(that:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="that">that: <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a> → Equals → AnyRef → Any</dd></dl></div>
     </li><li name="reactivemongo.api.MongoConnectionOptions#failoverStrategy" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="failoverStrategy:reactivemongo.api.FailoverStrategy"></a><a id="failoverStrategy:FailoverStrategy"></a>
       <span class="permalink">
@@ -812,6 +841,22 @@
                 <span class="name">@native</span><span class="args">()</span>
               
         </dd></dl></div>
+    </li><li name="reactivemongo.api.MongoConnectionOptions#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/api/MongoConnectionOptions.html#hashCode():Int" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a> → AnyRef → Any</dd></dl></div>
     </li><li name="reactivemongo.api.MongoConnectionOptions#heartbeatFrequencyMS" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="heartbeatFrequencyMS:Int"></a>
       <span class="permalink">
@@ -908,6 +953,22 @@
       </span>
       
       
+    </li><li name="reactivemongo.api.MongoConnectionOptions#maxInFlightRequestsPerChannel" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="maxInFlightRequestsPerChannel:Option[Int]"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/api/MongoConnectionOptions.html#maxInFlightRequestsPerChannel:Option[Int]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">maxInFlightRequestsPerChannel</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>]</span>
+      </span>
+      
+      
     </li><li name="reactivemongo.api.MongoConnectionOptions#nbChannelsPerNode" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="nbChannelsPerNode:Int"></a>
       <span class="permalink">
@@ -978,6 +1039,38 @@
                 <span class="name">@native</span><span class="args">()</span>
               
         </dd></dl></div>
+    </li><li name="scala.Product#productIterator" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="productIterator:Iterator[Any]"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/api/MongoConnectionOptions.html#productIterator:Iterator[Any]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">productIterator</span><span class="result">: <span class="extype" name="scala.Iterator">Iterator</span>[<a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a>]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Product</dd></dl></div>
+    </li><li name="scala.Product#productPrefix" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="productPrefix:String"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/api/MongoConnectionOptions.html#productPrefix:String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">productPrefix</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Product</dd></dl></div>
     </li><li name="reactivemongo.api.MongoConnectionOptions#readConcern" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="readConcern:reactivemongo.api.ReadConcern"></a><a id="readConcern:ReadConcern"></a>
       <span class="permalink">
@@ -1074,6 +1167,22 @@
       </span>
       
       
+    </li><li name="reactivemongo.api.MongoConnectionOptions#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/api/MongoConnectionOptions.html#toString():String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a> → AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <span class="permalink">
@@ -1208,6 +1317,25 @@
                 <span class="name">@inline</span><span class="args">()</span>
               
         </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.12.7)</i> Use <a href="#authenticationDatabase:Option[String]" class="extmbr" name="reactivemongo.api.MongoConnectionOptions#authenticationDatabase">authenticationDatabase</a></p></dd></dl></div>
+    </li><li name="reactivemongo.api.MongoConnectionOptions#copy" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="copy(connectTimeoutMS:Int,authenticationDatabase:Option[String],sslEnabled:Boolean,sslAllowsInvalidCert:Boolean,authenticationMechanism:reactivemongo.api.AuthenticationMode,tcpNoDelay:Boolean,keepAlive:Boolean,nbChannelsPerNode:Int,reconnectDelayMS:Int,writeConcern:reactivemongo.api.commands.WriteConcern,readPreference:reactivemongo.api.ReadPreference,failoverStrategy:reactivemongo.api.FailoverStrategy,heartbeatFrequencyMS:Int,maxIdleTimeMS:Int,maxHistorySize:Int,credentials:Map[String,reactivemongo.api.MongoConnectionOptions.Credential],keyStore:Option[reactivemongo.api.MongoConnectionOptions.KeyStore],readConcern:reactivemongo.api.ReadConcern):reactivemongo.api.MongoConnectionOptions"></a><a id="copy(Int,Option[String],Boolean,Boolean,AuthenticationMode,Boolean,Boolean,Int,Int,commands.WriteConcern,ReadPreference,FailoverStrategy,Int,Int,Int,Map[String,Credential],Option[KeyStore],ReadConcern):MongoConnectionOptions"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/api/MongoConnectionOptions.html#copy(connectTimeoutMS:Int,authenticationDatabase:Option[String],sslEnabled:Boolean,sslAllowsInvalidCert:Boolean,authenticationMechanism:reactivemongo.api.AuthenticationMode,tcpNoDelay:Boolean,keepAlive:Boolean,nbChannelsPerNode:Int,reconnectDelayMS:Int,writeConcern:reactivemongo.api.commands.WriteConcern,readPreference:reactivemongo.api.ReadPreference,failoverStrategy:reactivemongo.api.FailoverStrategy,heartbeatFrequencyMS:Int,maxIdleTimeMS:Int,maxHistorySize:Int,credentials:Map[String,reactivemongo.api.MongoConnectionOptions.Credential],keyStore:Option[reactivemongo.api.MongoConnectionOptions.KeyStore],readConcern:reactivemongo.api.ReadConcern):reactivemongo.api.MongoConnectionOptions" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.17.0) Use the other copy">copy</span><span class="params">(<span name="connectTimeoutMS">connectTimeoutMS: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="authenticationDatabase">authenticationDatabase: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="sslEnabled">sslEnabled: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="sslAllowsInvalidCert">sslAllowsInvalidCert: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="authenticationMechanism">authenticationMechanism: <a href="AuthenticationMode.html" class="extype" name="reactivemongo.api.AuthenticationMode">AuthenticationMode</a></span>, <span name="tcpNoDelay">tcpNoDelay: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="keepAlive">keepAlive: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="nbChannelsPerNode">nbChannelsPerNode: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="reconnectDelayMS">reconnectDelayMS: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="writeConcern">writeConcern: <a href="commands/index.html#WriteConcern=reactivemongo.api.commands.GetLastError" class="extmbr" name="reactivemongo.api.commands.WriteConcern">commands.WriteConcern</a></span>, <span name="readPreference">readPreference: <a href="ReadPreference.html" class="extype" name="reactivemongo.api.ReadPreference">ReadPreference</a></span>, <span name="failoverStrategy">failoverStrategy: <a href="FailoverStrategy.html" class="extype" name="reactivemongo.api.FailoverStrategy">FailoverStrategy</a></span>, <span name="heartbeatFrequencyMS">heartbeatFrequencyMS: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="maxIdleTimeMS">maxIdleTimeMS: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="maxHistorySize">maxHistorySize: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>, <span name="credentials">credentials: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <a href="MongoConnectionOptions$$Credential.html" class="extype" name="reactivemongo.api.MongoConnectionOptions.Credential">Credential</a>]</span>, <span name="keyStore">keyStore: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="MongoConnectionOptions$$KeyStore.html" class="extype" name="reactivemongo.api.MongoConnectionOptions.KeyStore">KeyStore</a>]</span>, <span name="readConcern">readConcern: <a href="ReadConcern.html" class="extype" name="reactivemongo.api.ReadConcern">ReadConcern</a></span>)</span><span class="result">: <a href="" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.17.0)</i> Use the other <code>copy</code></p></dd></dl></div>
     </li><li name="reactivemongo.api.MongoConnectionOptions#monitorRefreshMS" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="monitorRefreshMS:Int"></a>
       <span class="permalink">
@@ -1229,10 +1357,10 @@
                 <span class="name">@inline</span><span class="args">()</span>
               
         </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.4)</i> Use heartbeatFrequencyMS</p></dd></dl></div>
-    </li><li name="reactivemongo.api.MongoConnectionOptions#reconnectDelayMS" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="reconnectDelayMS:Int"></a>
+    </li><li name="reactivemongo.api.MongoConnectionOptions#productArity" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="productArity:Int"></a>
       <span class="permalink">
-      <a href="../../reactivemongo/api/MongoConnectionOptions.html#reconnectDelayMS:Int" title="Permalink">
+      <a href="../../reactivemongo/api/MongoConnectionOptions.html#productArity:Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -1241,13 +1369,32 @@
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.16.4) Unused, see heartbeatFrequencyMS">reconnectDelayMS</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.17.0) Will no longer be a Product">productArity</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a> → Product</dd><dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.16.4)</i> Unused, see heartbeatFrequencyMS</p></dd></dl></div>
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.17.0)</i> Will no longer be a <code>Product</code></p></dd></dl></div>
+    </li><li name="reactivemongo.api.MongoConnectionOptions#productElement" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="productElement(n:Int):Any"></a><a id="productElement(Int):Any"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/api/MongoConnectionOptions.html#productElement(n:Int):Any" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.17.0) Will no longer be a Product">productElement</span><span class="params">(<span name="n">n: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a> → Product</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.17.0)</i> Will no longer be a <code>Product</code></p></dd></dl></div>
     </li></ol>
             </div>
         </div>

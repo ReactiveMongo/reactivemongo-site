@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>ReactiveMongo API 0.16 - reactivemongo.api.MongoDriver</title>
-          <meta name="description" content="ReactiveMongo API 0.16 - reactivemongo.api.MongoDriver" />
-          <meta name="keywords" content="ReactiveMongo API 0.16 reactivemongo.api.MongoDriver" />
+          <title>ReactiveMongo API 0.17 - reactivemongo.api.MongoDriver</title>
+          <meta name="description" content="ReactiveMongo API 0.17 - reactivemongo.api.MongoDriver" />
+          <meta name="keywords" content="ReactiveMongo API 0.17 reactivemongo.api.MongoDriver" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.16</span></span>
+        <span id="doc-title">ReactiveMongo API<span id="doc-version">0.17</span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -641,23 +641,6 @@ Awaits the termination until the timeout is expired.
 </p><div class="fullcomment"><div class="comment cmt"><p>The custom configuration (otherwise the default options are used)
 </p></div><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="" class="extype" name="reactivemongo.api.MongoDriver">MongoDriver</a> → Driver</dd></dl></div>
     </li><li name="reactivemongo.api.MongoDriver#connection" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI):reactivemongo.api.MongoConnection"></a><a id="connection(ParsedURI):MongoConnection"></a>
-      <span class="permalink">
-      <a href="../../reactivemongo/api/MongoDriver.html#connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI):reactivemongo.api.MongoConnection" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">connection</span><span class="params">(<span name="parsedURI">parsedURI: <a href="MongoConnection$$ParsedURI.html" class="extype" name="reactivemongo.api.MongoConnection.ParsedURI">ParsedURI</a></span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">Creates a new MongoConnection from URI.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection from URI.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
-</p></div><dl class="paramcmts block"><dt class="param">parsedURI</dt><dd class="cmt"><p>the URI parsed by <a href="MongoConnection$.html#parseURI(uri:String):scala.util.Try[reactivemongo.api.MongoConnection.ParsedURI]" class="extmbr" name="reactivemongo.api.MongoConnection#parseURI">reactivemongo.api.MongoConnection.parseURI</a></p></dd></dl></div>
-    </li><li name="reactivemongo.api.MongoDriver#connection" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI,strictUri:Boolean):scala.util.Try[reactivemongo.api.MongoConnection]"></a><a id="connection(ParsedURI,Boolean):Try[MongoConnection]"></a>
       <span class="permalink">
       <a href="../../reactivemongo/api/MongoDriver.html#connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI,strictUri:Boolean):scala.util.Try[reactivemongo.api.MongoConnection]" title="Permalink">
@@ -1235,6 +1218,26 @@ Awaits the termination until the timeout is expired.
         <div class="values members">
               <h3>Deprecated Value Members</h3>
               <ol><li name="reactivemongo.api.MongoDriver#connection" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI):reactivemongo.api.MongoConnection"></a><a id="connection(ParsedURI):MongoConnection"></a>
+      <span class="permalink">
+      <a href="../../reactivemongo/api/MongoDriver.html#connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI):reactivemongo.api.MongoConnection" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 0.17.0) Use a safe connection as Try">connection</span><span class="params">(<span name="parsedURI">parsedURI: <a href="MongoConnection$$ParsedURI.html" class="extype" name="reactivemongo.api.MongoConnection.ParsedURI">ParsedURI</a></span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Creates a new MongoConnection from URI.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection from URI.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
+</p></div><dl class="paramcmts block"><dt class="param">parsedURI</dt><dd class="cmt"><p>the URI parsed by <a href="MongoConnection$.html#parseURI(uri:String):scala.util.Try[reactivemongo.api.MongoConnection.ParsedURI]" class="extmbr" name="reactivemongo.api.MongoConnection#parseURI">reactivemongo.api.MongoConnection.parseURI</a></p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.17.0)</i> Use a safe <code>connection</code> as <code>Try</code></p></dd></dl></div>
+    </li><li name="reactivemongo.api.MongoDriver#connection" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="connection(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions,authentications:Seq[reactivemongo.core.nodeset.Authenticate],name:Option[String]):reactivemongo.api.MongoConnection"></a><a id="connection(Seq[String],MongoConnectionOptions,Seq[Authenticate],Option[String]):MongoConnection"></a>
       <span class="permalink">
       <a href="../../reactivemongo/api/MongoDriver.html#connection(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions,authentications:Seq[reactivemongo.core.nodeset.Authenticate],name:Option[String]):reactivemongo.api.MongoConnection" title="Permalink">
@@ -1246,7 +1249,7 @@ Awaits the termination until the timeout is expired.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 0.14.0) Use connection without authentications (but possibly without options.credentials)">connection</span><span class="params">(<span name="nodes">nodes: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="options">options: <a href="MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a> = <span class="symbol"><span class="name"><a href="MongoConnectionOptions$.html">MongoConnectionOptions()</a></span></span></span>, <span name="authentications">authentications: <span class="extype" name="scala.Seq">Seq</span>[<a href="../core/nodeset/Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>] = <span class="symbol">Seq.empty</span></span>, <span name="name">name: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
+        <span class="name deprecated" title="Deprecated: (Since version 0.14.0) Use connection without authentications (but possibly without options.credentials)">connection</span><span class="params">(<span name="nodes">nodes: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="options">options: <a href="MongoConnectionOptions.html" class="extype" name="reactivemongo.api.MongoConnectionOptions">MongoConnectionOptions</a> = <span class="symbol"><span class="name"><a href="MongoConnectionOptions$.html">MongoConnectionOptions.default</a></span></span></span>, <span name="authentications">authentications: <span class="extype" name="scala.Seq">Seq</span>[<a href="../core/nodeset/Authenticate.html" class="extype" name="reactivemongo.core.nodeset.Authenticate">Authenticate</a>] = <span class="symbol">Seq.empty</span></span>, <span name="name">name: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>)</span><span class="result">: <a href="MongoConnection.html" class="extype" name="reactivemongo.api.MongoConnection">MongoConnection</a></span>
       </span>
       
       <p class="shortcomment cmt">Creates a new MongoConnection.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new MongoConnection.</p><p>See <a href="http://reactivemongo.org/releases/0.12/documentation/tutorial/connect-database.html" target="_blank">how to connect to the database</a>
