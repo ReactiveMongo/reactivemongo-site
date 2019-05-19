@@ -4,25 +4,6 @@ major_version: 0.1x
 title: Release details
 ---
 
-## ReactiveMongo {{site._0_1x_latest_minor}} - Highlights
-
-- New [query and write operations](#query-and-write-operations),
-  - bulk operations (e.g. `.delete.many`) on [collection](../api/reactivemongo/api/collections/GenericCollection.html),
-  - `arrayFilters` on update operations.
-- New [aggregation](./advanced-topics/aggregation.html) stages (`$addFields`, `$bucketAuto`, ..., `$slice`),
-  - [`$filter`](https://docs.mongodb.com/master/reference/operator/aggregation/filter/#definition),
-  - [`$replaceRoot`](https://docs.mongodb.com/manual/reference/operator/aggregation/replaceRoot/index.html).
-  - [`CursorOptions`](../api/reactivemongo/api/CursorOptions.html) parameter when using `.aggregatorContext`.
-- [*Connection*](./tutorial/connect-database.html)
-  - Support [x.509 certificate](https://docs.mongodb.com/manual/tutorial/configure-x509-client-authentication/) to authenticate.
-  - Support [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) in the connection URI.
-  - New `rm.reconnectDelayMS` setting.
-  - Add `credentials` in the [`MongoConnectionOptions`](http://reactivemongo.org/releases/0.1x/api/reactivemongo/api/MongoConnectionOptions.html)
-- [*BSON library*](#bson-library)
-  - [BSON Decimal128](https://github.com/mongodb/specifications/blob/master/source/bson-decimal128/decimal128.rst#bson-decimal128-type-handling-in-drivers)
-  - `Option` support & new `@NoneAsNull` annotation
-- Upgrade to [Netty 4.1](http://netty.io/wiki/new-and-noteworthy-in-4.1.html), with memory optimization, and support of native socket (epoll, kpoll).
-
 ## ReactiveMongo {{site._0_1x_latest_minor}} – Release details
 
 **What's new?**
@@ -31,16 +12,20 @@ The documentation is available [online](index.html), and its code samples are co
 
 - [Compatibility](#compatibility)
 - [Connection options](#connection-options)
+  - Support [x.509 certificate](https://docs.mongodb.com/manual/tutorial/configure-x509-client-authentication/) to authenticate.
+  - Support [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) in the connection URI.
+  - New `rm.reconnectDelayMS` setting.
+  - Add `credentials` in the [`MongoConnectionOptions`](http://reactivemongo.org/releases/0.1x/api/reactivemongo/api/MongoConnectionOptions.html)
   - [Netty native](#netty-native)
-- [Query and write operations](#query-and-write-operations)
+- New [query and write operations](#query-and-write-operations),
+  - bulk operations (e.g. `.delete.many`) on [collection](../api/reactivemongo/api/collections/GenericCollection.html),
+  - `arrayFilters` on update operations.
 - [BSON library](#bson-library)
+  - [BSON Decimal128](https://github.com/mongodb/specifications/blob/master/source/bson-decimal128/decimal128.rst#bson-decimal128-type-handling-in-drivers)
+  - `Option` support & new `@NoneAsNull` annotation
 - [Aggregation](#aggregation)
-  - [`$addFields`](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/)
-  - [`$bucketAuto`](https://docs.mongodb.com/manual/reference/operator/aggregation/bucketAuto/)
-  - [`$count`](https://docs.mongodb.com/manual/reference/operator/aggregation/count/)
-  - [`$filter`](https://docs.mongodb.com/master/reference/operator/aggregcation/filter/#definition)
-  - [`$replaceRoot`](https://docs.mongodb.com/manual/reference/operator/aggregation/replaceRoot/index.html)
-  - [`$slice`](https://docs.mongodb.com/manual/reference/operator/aggregation/slice)
+  - [`CursorOptions`](../api/reactivemongo/api/CursorOptions.html) parameter when using `.aggregatorContext`.
+  - New stages: `$addFields`, `$bucketAuto`, `$count`, `$filter`, `$replaceRoot`, `$slice`
 - [Administration](#administration)
 - [Breaking changes](#breaking-changes)
 
@@ -110,11 +95,13 @@ The internal [Netty](http://netty.io/) dependency has been updated to the versio
 
 It comes with various improvements (memory consumption, ...), and also to use Netty native support (kqueue for Mac OS X and epoll for Linux, on `x86_64` arch).
 
+> Note that the Netty dependency is [shaded](https://maven.apache.org/plugins/maven-shade-plugin/) so it won't conflict with any Netty version in your environment.
+
 *[See the documentation](./tutorial/connect-database.html#netty-native)*
 
 ### Query and write operations
 
-The collection API provides new operations.
+The collection API provides new builders for write operations. This supports bulk operations (e.g. insert many documents at once).
 
 **[`InsertBuilder`](../api/reactivemongo/api/collections/InsertOps$InsertBuilder.html)**
 
@@ -149,7 +136,7 @@ def bulkInsert(coll: BSONCollection): Future[MultiBulkWriteResult] =
       "age" -> 1)))
 {% endhighlight %}
 
-**`UpdateBuilder`:**
+**[`UpdateBuilder`](../api/reactivemongo/api/collections/UpdateOps$UpdateBuilder.html)**
 
 The new [`update`](../api/collections/GenericCollection.html#update(ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern):GenericCollection.this.UpdateBuilder) operation returns an `UpdateBuilder`, which can be used to perform simple or bulk update.
 
@@ -391,7 +378,34 @@ def populationBuckets(zipcodes: BSONCollection)(implicit ec: ExecutionContext) =
   }.collect[Set](Int.MaxValue, Cursor.FailOnError[Set[BSONDocument]]())
 {% endhighlight %}
 
-TODO: count
+**count:**
+
+If the goal is only to count the aggregated documents, the [`$count`](https://docs.mongodb.com/manual/reference/operator/aggregation/count/index.html) stage can be used.
+
+{% highlight scala %}
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.bson.{ BSONDocument, BSONDocumentReader, BSONString }
+
+import reactivemongo.api.Cursor
+import reactivemongo.api.collections.bson.BSONCollection
+
+def countPopulatedStates1(col: BSONCollection): Future[Int] = {
+  implicit val countReader = BSONDocumentReader[Int] { doc =>
+    doc.getAsTry[Int]("popCount").get
+  }
+
+  col.aggregateWith[Int]() { framework =>
+    import framework.{ Count, Group, Match, SumField }
+
+    Group(BSONString("$state"))(
+      "totalPop" -> SumField("population")) -> List(
+        Match(BSONDocument("totalPop" -> BSONDocument("$gte" -> 10000000L))),
+        Count("popCount"))
+  }.head
+}
+{% endhighlight %}
 
 **filter:**
 

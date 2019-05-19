@@ -4,7 +4,7 @@ major_version: 0.1x
 title: Documentation
 ---
 
-## ReactiveMongo 0.1x
+## ReactiveMongo {{site._0_1x_latest_major}}
 
 You can read the [release notes](release-details.html) to know what is new with this major release.
 
