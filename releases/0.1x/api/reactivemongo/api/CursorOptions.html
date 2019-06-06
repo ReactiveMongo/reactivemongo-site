@@ -339,7 +339,7 @@
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"></div><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -394,7 +394,7 @@
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="reactivemongo.api.CursorOptions#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+              <ol><li name="reactivemongo.api.CursorOptions#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="&lt;init&gt;(flags:Int):reactivemongo.api.CursorOptions"></a><a id="&lt;init&gt;:CursorOptions"></a>
       <span class="permalink">
       <a href="../../reactivemongo/api/CursorOptions.html#&lt;init&gt;(flags:Int):reactivemongo.api.CursorOptions" title="Permalink">
@@ -409,7 +409,10 @@
         <span class="name">CursorOptions</span><span class="params">(<span name="flags">flags: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span>
       </span>
       
-      
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">flags</dt><dd class="cmt"><p>the <a href="https://docs.mongodb.com/manual/reference/method/cursor.addOption/#flags" target="_blank">flags</a> representing the current options</p><pre><span class="kw">import</span> reactivemongo.api.CursorOptions
+
+<span class="cmt">// Create a options to specify a cursor is tailable</span>
+<span class="kw">val</span> opts = CursorOptions.empty.tailable</pre></dd></dl></div>
     </li></ol>
             </div>
 

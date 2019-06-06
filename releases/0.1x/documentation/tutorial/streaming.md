@@ -89,7 +89,10 @@ def processPerson2(sourceOfPeople: Source[BSONDocument, NotUsed])(implicit m: Ma
 
 The `cumulateAge` sink extracts the age from the each document, and add it the current result. At the same time, it counts the processed documents. When the `cumulated` age is completed, it is divided by the number of documents to get the mean age.
 
-[More: **ReactiveMongo AkkaStream API**](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.12/{{site._0_1x_latest_minor}}/reactivemongo-akkastream_2.12-{{site._0_1x_latest_minor}}-javadoc.jar/!/index.html#package)
+More:
+
+- [**ReactiveMongo AkkaStream API**](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.12/{{site._0_1x_latest_minor}}/reactivemongo-akkastream_2.12-{{site._0_1x_latest_minor}}-javadoc.jar/!/index.html#package)
+- Streaming with [GridFS](../advanced-topics/gridfs.html)
 
 ### Play Iteratees
 
