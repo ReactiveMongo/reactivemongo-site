@@ -252,6 +252,12 @@ GridFS.this.pack.Writer
 implicitidProducer
 reactivemongo.akkastream.State
 GenericCollection.this.AggregatorContext
+GridFSStreams.this.gridfs.pack.Reader
+GridFSStreams.this.gridfs.ReadFile
+akka.stream.scaladsl.Sink
+akka.util.ByteString
+GridFSStreams.this.gridfs.ReadFile
+akka.util.ByteString
 
 # Geo
 JP

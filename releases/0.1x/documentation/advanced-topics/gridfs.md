@@ -76,6 +76,41 @@ def saveWithComputedMD5(
 
 The reference for a file save in this way will have `Some` [MD5 property](../../api/reactivemongo/gridfs/GridFS.ReadFile@md5:Option[String]).
 
+The [Akka Stream module](../tutorial/streaming.html#akka-stream) is providing the [`GridFSStreams.sinkWithMD5`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.12/{{site._0_1x_latest_minor}}/reactivemongo-akkastream_2.12-{{site._0_1x_latest_minor}}-javadoc.jar/!/reactivemongo/akkastream/GridFSStreams.html#sinkWithMD5[Id%3C:GridFSStreams.this.gridfs.pack.Value](file:reactivemongo.api.gridfs.FileToSave[GridFSStreams.this.gridfs.pack.type,Id],chunkSize:Int)(implicitreadFileReader:GridFSStreams.this.gridfs.pack.Reader[GridFSStreams.this.gridfs.ReadFile[Id]],implicitec:scala.concurrent.ExecutionContext,implicitidProducer:reactivemongo.api.gridfs.IdProducer[Id],implicitdocWriter:reactivemongo.bson.BSONDocumentWriter[file.pack.Document]):akka.stream.scaladsl.Sink[akka.util.ByteString,scala.concurrent.Future[GridFSStreams.this.gridfs.ReadFile[Id]]]), which allows to stream data to a GridFS file.
+
+{% highlight scala %}
+import scala.concurrent.Future
+
+import akka.NotUsed
+import akka.util.ByteString
+
+import akka.stream.Materializer
+import akka.stream.scaladsl.{ Sink, Source }
+
+import reactivemongo.api.BSONSerializationPack
+import reactivemongo.api.gridfs.{ DefaultFileToSave, GridFS }
+import reactivemongo.api.gridfs.Implicits._
+
+import reactivemongo.akkastream.GridFSStreams
+
+def saveWithComputedMD5(
+  gridfs: GridFS[BSONSerializationPack.type],
+  filename: String, 
+  contentType: Option[String], 
+  data: Source[ByteString, NotUsed]
+)(implicit m: Materializer): Future[BSONFile] = {
+  implicit def ec = m.executionContext
+
+  // Prepare the GridFS object to the file to be pushed
+  val gridfsObj = DefaultFileToSave(Some(filename), contentType)
+
+  val streams = GridFSStreams(gridfs)
+  val upload = streams.sinkWithMD5(gridfsObj)
+
+  data.runWith(upload)
+}
+{% endhighlight %}
+
 ### Find a file from GridFS
 
 A file previously stored in a GridFS can be retrieved as any MongoDB, using a [`find`](../../api/reactivemongo/gridfs/GridFS.GridFS#find[S,T%3C:GridFS.this.ReadFile[_]](selector:S)(implicitsWriter:GridFS.this.pack.Writer[S],implicitreadFileReader:GridFS.this.pack.Reader[T],implicitctx:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor) operation.
@@ -94,6 +129,39 @@ def gridfsByFilename(
 )(implicit ec: ExecutionContext): Future[ReadFile[BSONSerializationPack.type, BSONValue]] = {
   def cursor = gridfs.find(BSONDocument("filename" -> filename))
   cursor.head
+}
+{% endhighlight %}
+
+The [Akka Stream module](../tutorial/streaming.html#akka-stream) is providing the [`GridFSStreams.source`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.12/{{site._0_1x_latest_minor}}/reactivemongo-akkastream_2.12-{{site._0_1x_latest_minor}}-javadoc.jar/!/reactivemongo/akkastream/GridFSStreams.html#source[Id%3C:GridFSStreams.this.gridfs.pack.Value](file:GridFSStreams.this.gridfs.ReadFile[Id],readPreference:reactivemongo.api.ReadPreference)(implicitm:akka.stream.Materializer,implicitidProducer:reactivemongo.api.gridfs.IdProducer[Id]):akka.stream.scaladsl.Source[akka.util.ByteString,scala.concurrent.Future[reactivemongo.akkastream.State]]) to stream data from GridFS file.
+
+{% highlight scala %}
+import scala.concurrent.Future
+
+import akka.util.ByteString
+
+import akka.stream.Materializer
+import akka.stream.scaladsl.Source
+
+import reactivemongo.api.BSONSerializationPack
+import reactivemongo.api.gridfs.{ GridFS, ReadFile }
+import reactivemongo.api.gridfs.Implicits._
+import reactivemongo.bson.{ BSONDocument, BSONValue }
+
+import reactivemongo.akkastream.{ GridFSStreams, State }
+
+def downloadGridFSFile(
+  gridfs: GridFS[BSONSerializationPack.type],
+  filename: String
+)(implicit m: Materializer): Source[ByteString, Future[State]] = {
+  implicit def ec = m.executionContext
+
+  val src = gridfs.find(BSONDocument("filename" -> filename)).head.map { file =>
+    val streams = GridFSStreams(gridfs)
+
+    streams.source(file)
+  }
+
+  Source.fromFutureSource(src).mapMaterializedValue(_.flatten)
 }
 {% endhighlight %}
 
