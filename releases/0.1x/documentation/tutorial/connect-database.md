@@ -243,7 +243,7 @@ def seedListCon(driver: MongoDriver) =
   driver.connection("mongodb+srv://usr:pass@mymongo.mydomain.tld/mydb")
 {% endhighlight %}
 
-*See:**
+*See:*
 
 - How to [connect to Azure CosmosDB](./azure-cosmos.html)
 
