@@ -243,6 +243,10 @@ def seedListCon(driver: MongoDriver) =
   driver.connection("mongodb+srv://usr:pass@mymongo.mydomain.tld/mydb")
 {% endhighlight %}
 
+*See:**
+
+- How to [connect to Azure CosmosDB](./azure-cosmos.html)
+
 ### Netty native
 
 ReactiveMongo is internally using (as a shaded dependency) [Netty 4.1.x](http://netty.io/wiki/new-and-noteworthy-in-4.1.html).

@@ -22,6 +22,7 @@ MONGODB-CR
 SCRAM-SHA-1
 play23
 Heroku
+CosmosDB
 Play2-ReactiveMongo
 Int
 JsObject
