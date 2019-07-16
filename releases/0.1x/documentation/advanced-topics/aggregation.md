@@ -1265,31 +1265,12 @@ def sliceFavorites(coll: BSONCollection)(implicit ec: ExecutionContext) =
   }.collect[Seq](4, Cursor.FailOnError[Seq[BSONDocument]]())
 {% endhighlight %}
 
-### Custom stage
-
-You can also implement custom aggregate stage, using the [`PipelineOperator`](../../api/commands/AggregationFramework.html#PipelineOperator) factory.
-
-{% highlight scala %}
-import scala.concurrent.ExecutionContext
-
-import reactivemongo.bson._
-import reactivemongo.api.collections.bson.BSONCollection
-
-def customAgg(coll: BSONCollection)(implicit ec: ExecutionContext) =
-  coll.aggregateWith1[BSONDocument]() { framework =>
-    import framework.PipelineOperator
-
-    val customStage = // { $sample: { size: 2 } }
-      PipelineOperator(BSONDocument("$sample" -> BSONDocument("size" -> 2)))
-
-    customStage -> List.empty
-  }
-{% endhighlight %}
-
 **See also:**
 
 - The operators available to define an aggregation pipeline are documented in the [API reference](../../api/reactivemongo/api/collections/GenericCollection.html#AggregationFramework=GenericCollection.this.BatchCommands.AggregationFramework.type).
 - The [Aggregation Framework tests](https://github.com/ReactiveMongo/ReactiveMongo/blob/master/driver/src/test/scala/AggregationSpec.scala)
+
+[Next: Custom stage](./agg-custom-stage.html)
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="/javascripts/highlight.min.js"></script>
