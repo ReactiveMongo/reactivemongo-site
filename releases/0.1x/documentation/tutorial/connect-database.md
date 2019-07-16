@@ -245,6 +245,7 @@ def seedListCon(driver: MongoDriver) =
 
 *See:*
 
+- How to [connect to MongoDB Atlas](./mongodb-atlas.html)
 - How to [connect to Azure CosmosDB](./azure-cosmos.html)
 
 ### Netty native

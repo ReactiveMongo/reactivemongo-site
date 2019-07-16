@@ -20,13 +20,3 @@ pkill -f jekyll
 if [ $RES -ne 0 ]; then
   exit $RES
 fi
-
-if [ "x$CI_BRANCH" = "xgh-pages" ]; then
-  echo "[INFO] Indexing to Algolia"
-  bundle exec jekyll algolia || (
-    echo "!! fails to push to Algolia"
-    false
-  )
-else
-  echo "[WARN] Skip the Algolia stage: branch = $CI_BRANCH"
-fi

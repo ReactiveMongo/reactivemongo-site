@@ -7,6 +7,7 @@ Decimal128
 kpoll
 epoll
 Enumeratum
+dialog
 Logback
 logback-classic
 Log4J

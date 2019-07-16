@@ -7,7 +7,6 @@ jobs:
     environment:
       CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
       CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
-      CI_BRANCH: $CIRCLE_BRANCH
     docker:
     - image: circleci/ruby:2.3-node-browsers
     #  command: /sbin/init
@@ -48,6 +47,9 @@ jobs:
     - run:
         name: 'Check the jekyll site'
         command: ./.ci_scripts/consolidate.sh
+    - run:
+        name: 'Indexing to Algolia'
+        command: test "x$CIRCLE_BRANCH" = "xgh-pages" && bundle exec jekyll algolia || echo "Skip on branch $CIRCLE_BRANCH"
     # Teardown
     - store_test_results:
         path: /tmp/circleci-test-results
