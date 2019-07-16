@@ -11,7 +11,7 @@ plugins:
   - jekyll-algolia
 
 _0_11_latest_minor: 0.11.14
-_0_12_latest_minor: 0.12.6
+_0_12_latest_minor: 0.12.8
 
 _0_1x_latest_major: 0.18
 _0_1x_latest_minor: 0.18.1
@@ -20,6 +20,6 @@ algolia:
   application_id: 'Y0CQ010OIG'
   index_name: 'reactivemongo'
   search_only_api_key: 'ab9de0dae62c589128703e9076090b2f'
-  nodes_to_index: 'p,ul'
+  nodes_to_index: '#main p, #main > ul'
   settings:
     attributesForFaceting: ['major_version']
