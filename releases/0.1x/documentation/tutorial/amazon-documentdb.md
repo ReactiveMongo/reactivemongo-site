@@ -24,7 +24,7 @@ From there, the connection URI can be copied, with placeholder `<insertYourPassw
 
 Note the `ssl=true` and the `ssl_ca_certs=rds-combined-ca-bundle.pem` options, as AWS DocumentDB is configured by default with SSL using the AWS RDS certificates.
 
-As indicated in the [AWS documentation](https://docs.aws.amazon.com/fr_fr/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html), the [`rds-combined-ca-bundle.pem`](https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem) or the [`rds-ca-2015-root.pem`](https://s3.amazonaws.com/rds-downloads/rds-ca-2015-root.pem) can be downloaded.
+As indicated in the [AWS documentation](https://docs.aws.amazon.com/en_us/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html), the [`rds-combined-ca-bundle.pem`](https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem) or the [`rds-ca-2015-root.pem`](https://s3.amazonaws.com/rds-downloads/rds-ca-2015-root.pem) can be downloaded.
 The later is sufficient for client connection.
 
 As the certificates are not available in the [Java KeyStore format](https://en.wikipedia.org/wiki/Java_KeyStore) (JKS), the certificates provided in [PEM format must be converted](https://docs.oracle.com/cd/E35976_01/server.740/es_admin/src/tadm_ssl_convert_pem_to_jks.html), thereafter as `rds-ca-2015-root.jks` with password `rds-ca-2015-root`.
