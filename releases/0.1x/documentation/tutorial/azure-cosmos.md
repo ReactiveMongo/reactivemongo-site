@@ -6,7 +6,7 @@ title: Azure Cosmos DB
 
 ## Azure Cosmos DB
 
-[Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction) is the database service available in Microsoft Azure.
+[Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction) is the database service available in Microsoft Azure, with some [compatibility with MongoDB](https://www.mongodb.com/cloud/atlas/compare).
 
 Once registered, the MongoDB credentials are shown.
 
