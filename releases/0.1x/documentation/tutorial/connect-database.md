@@ -96,6 +96,8 @@ The option `ssl` is needed if the MongoDB server is requiring SSL (`mongod --ssl
 - **`readPreference`**: The default [read preference](../advanced-topics/read-preferences.html) (`primary|primaryPreferred|secondary|secondaryPreferred|nearest`) (default is `primary`).
   - [`nearest`](https://docs.mongodb.com/manual/reference/read-preference/#nearest): Do not consider whether nodes are primary or secondary, but select one according how fast it is to answer an `isMaster` request (ping time).
 
+- **`appName`**: The optional application name
+
 If the connection pool is defined by an URI, then the options can be given after the `?` separator:
 
 {% highlight javascript %}
@@ -248,6 +250,7 @@ def seedListCon(driver: MongoDriver) =
 - How to [connect to MongoDB Atlas](./mongodb-atlas.html)
 - How to [connect to Azure CosmosDB](./azure-cosmos.html)
 - How to [connect to Amazon DocumentDB](./amazon-documentdb.html)
+- How to [connect to Alibaba ApsaraDB](./alibaba-apsaradb.html)
 
 ### Netty native
 

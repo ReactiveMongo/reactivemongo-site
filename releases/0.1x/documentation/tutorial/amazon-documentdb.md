@@ -8,7 +8,7 @@ title: Amazon DocumentDB
 
 [Amazon DocumentDB](https://aws.amazon.com/documentdb/) is the database service available on Amazon AWS platform, with some [compatibility with MongoDB](https://www.mongodb.com/atlas-vs-amazon-documentdb).
 
-Once DocumentDB service is enable, a [cluster can be created](https://console.aws.amazon.com/docdb/) in the AWS console, its name and authentication can be checked in the configuration.
+Once DocumentDB service is enabled, a [cluster can be created](https://console.aws.amazon.com/docdb/) in the AWS console, its name and authentication can be checked in the configuration.
 
 <img src="../images/aws-docdb1.png" alt="Amazon DocumentDB configuration" class="screenshot" />
 
