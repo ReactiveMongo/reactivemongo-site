@@ -26,7 +26,7 @@ ReactiveMongo is composed of subprojects.
 **[Acolyte for ReactiveMongo](http://acolyte.eu.org/reactive-mongo/):** 
 Framework to unit test a ReactiveMongo persistence.
 
-**[Akka Persistence Mongo](https://github.com/scullxbones/akka-persistence-mongo):** 
+**[Akka Persistence MongoDB](https://github.com/scullxbones/akka-persistence-mongo):** 
 MongoDB support for [Akka Persistence](https://doc.akka.io/docs/akka/current/persistence.html), including a ReactiveMongo implementation.
 
 **[Circe BSON](https://github.com/circe/circe-bson):**
