@@ -6,9 +6,9 @@ val majorVer = "0"
 
 version := majorVer
 
-val Release = s"${majorVer}.18.3"
+val Release = s"${majorVer}.18.4"
 
-scalaVersion := "2.12.8"
+scalaVersion := "2.12.9"
 
 libraryDependencies ++= Seq(
   "reactivemongo-iteratees", "reactivemongo-akkastream").map(
@@ -25,7 +25,7 @@ libraryDependencies ++= {
 }
 
 libraryDependencies ++= Seq(
-  "com.typesafe.play" %% "play" % "2.7.0",
+  "com.typesafe.play" %% "play" % "2.7.1",
   "com.typesafe.play" %% "play-iteratees" % "2.6.1"/*streaming doc*/)
 
 resolvers ++= Seq(
