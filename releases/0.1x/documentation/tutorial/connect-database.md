@@ -45,6 +45,7 @@ The following options can be used with `MongoConnectionOptions` to configure the
 - **`authenticationDatabase`**: (optional) The database source for authentication credentials.
 - **`authenticationMechanism`**: (optional) The authentication mechanism, by default set to `scram-sha1` for [SCRAM-SHA-1](http://docs.mongodb.org/manual/core/authentication/#scram-sha-1-authentication). Can be configured with:
   - `scram-sha1` (the default since MongoDB 3.x),
+  - `scram-sha256` (since MongoDB 4.0),
   - `mongocr` for the backward compatible [MONGODB-CR](http://docs.mongodb.org/manual/core/authentication/#mongodb-cr-authentication),
   - `x509` for [x.509 certificate authentication](https://docs.mongodb.com/manual/core/security-x.509/#security-auth-x509).
 
