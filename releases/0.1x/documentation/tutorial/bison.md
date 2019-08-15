@@ -20,7 +20,7 @@ It can be configured in a `build.sbt` as below.
 libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-api" % "{{site._0_1x_latest_minor}}"
 {% endhighlight %}
 
-*See [Scaladoc](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}})
+*See [Scaladoc](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}})*
 
 #### Documents and values
 
