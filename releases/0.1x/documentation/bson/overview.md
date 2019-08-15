@@ -66,6 +66,18 @@ val arrField = BSONDocument("array_field" -> List("written", "values"))
 
 The traits [`BSONNumberLike`](../../api/reactivemongo/bson/BSONNumberLike.html) and [`BSONBooleanLike`](../../api/reactivemongo/bson/BSONBooleanLike.html) can be used to generalize the handling of numerical and boolean values.
 
+{% highlight scala %}
+import reactivemongo.bson.{ BSONBooleanLike, BSONDocument, BSONNumberLike }
+
+val doc = BSONDocument("ok" -> 1.0D /* BSON double */ )
+
+val bsonNumLike: Option[BSONNumberLike] = doc.getAs[BSONNumberLike]("ok")
+val intLike: Option[Int] = bsonNumLike.map(_.toInt) // = Some(1)
+
+val bsonBoolLike: Option[BSONBooleanLike] = doc.getAs[BSONBooleanLike]("ok")
+val boolLike: Option[Boolean] = bsonBoolLike.map(_.toBoolean) // = Some(true)
+{% endhighlight %}
+
 All these classes extend [BSONValue](../../api/reactivemongo/bson/BSONValue.html).
 
 > See how to handle the [optional values](./typeclasses.html#optional-value).

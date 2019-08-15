@@ -11,7 +11,10 @@ val Release = s"${majorVer}.18.4"
 scalaVersion := "2.12.9"
 
 libraryDependencies ++= Seq(
-  "reactivemongo-iteratees", "reactivemongo-akkastream").map(
+  "reactivemongo-iteratees",
+  "reactivemongo-akkastream",
+  "reactivemongo-bson-api"
+).map(
   "org.reactivemongo" %% _ % Release changing())
 
 libraryDependencies ++= {
