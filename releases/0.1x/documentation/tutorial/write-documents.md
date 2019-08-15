@@ -321,7 +321,7 @@ def findAndUpdateArrayFilters(personColl: BSONCollection) =
 
 ### Session/transaction
 
-Starting in 3.6, MongoDB offers [session management](https://docs.mongodb.com/manual/reference/server-sessions/) to gather operations, and since MongoDB 4.0, [transactions](the transaction) can be defined for session.
+Starting in 3.6, MongoDB offers [session management](https://docs.mongodb.com/manual/reference/server-sessions/) to gather operations, and since MongoDB 4.0, [transactions](https://docs.mongodb.com/master/core/transactions/) can be defined for session.
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
