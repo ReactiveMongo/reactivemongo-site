@@ -12,10 +12,10 @@ The latest minor release is {{site._0_1x_latest_minor}}, and the core dependency
 
 {% highlight ocaml %}
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "reactivemongo" % "{{site._0_1x_latest_minor}}"
+  "org.reactivemongo" %% "reactivemongo" % "{{site._0_1x_latest_minor}}")
 {% endhighlight %}
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.12/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.12/)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_{{site._0_1x_scala_major}}/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_{{site._0_1x_scala_major}}/)
 [![Test coverage](https://img.shields.io/badge/coverage-60%25-yellowgreen.svg)](http://reactivemongo.github.io/ReactiveMongo/coverage/{{site._0_1x_latest_minor}}/)
 
 > MongoDB versions older than 2.6 are no longer supported by ReactiveMongo, as the End of Life for MongoDB 2.4 was reached in [April 2015](https://www.mongodb.com/support-policy).
@@ -25,10 +25,10 @@ libraryDependencies ++= Seq(
 The various API of the ReactiveMongo driver itself, and also of the related libraries, are available online.
 
 - [Driver API](../api/index.html): Core driver, BSON
-- [Play JSON API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.12/{{site._0_1x_latest_minor}}/reactivemongo-play-json_2.12-{{site._0_1x_latest_minor}}-javadoc.jar/!/index.html)
-- [Play module API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_2.12/{{site._0_1x_latest_minor}}/play2-reactivemongo_2.12-{{site._0_1x_latest_minor}}-javadoc.jar/!/index.html)
-- ReactiveMongo [AkkaStream](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.12/{{site._0_1x_latest_minor}}/reactivemongo-akkastream_2.12-{{site._0_1x_latest_minor}}-javadoc.jar/!/index.html)
-- ReactiveMongo [Iteratees](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-iteratees_2.12/{{site._0_1x_latest_minor}}/reactivemongo-iteratees_2.12-{{site._0_1x_latest_minor}}-javadoc.jar/!/index.html)
+- [Play JSON API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo-play-json_{{site._0_1x_scala_major}}-{{site._0_1x_latest_minor}}-javadoc.jar/!/index.html)
+- [Play module API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/play2-reactivemongo_{{site._0_1x_scala_major}}-{{site._0_1x_latest_minor}}-javadoc.jar/!/index.html)
+- ReactiveMongo [AkkaStream](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo-akkastream_{{site._0_1x_scala_major}}-{{site._0_1x_latest_minor}}-javadoc.jar/!/index.html)
+- ReactiveMongo [Iteratees](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-iteratees_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo-iteratees_{{site._0_1x_scala_major}}-{{site._0_1x_latest_minor}}-javadoc.jar/!/index.html)
 
 **Recommended configuration:**
 

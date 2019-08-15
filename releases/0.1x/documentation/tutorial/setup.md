@@ -14,7 +14,7 @@ ReactiveMongo is available on [Maven Central](http://search.maven.org/#browse%7C
 
 {% include sbt-dependency.md %}
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.12/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.12/)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_{{site._0_1x_scala_major}}/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_{{site._0_1x_scala_major}}/)
 
 Or if you want to be on the bleeding edge using snapshots:
 

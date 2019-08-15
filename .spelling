@@ -1,4 +1,7 @@
 # Tech stack
+
+typesafe
+typelevel
 Alibaba
 Apsara
 ApsaraDB
@@ -235,6 +238,7 @@ implicitctx
 scala.concurrent.duration.Duration
 ok
 3Ereactivemongo.api.Cursor.State
+sən
 _
 implicitm
 implicitcf
