@@ -101,6 +101,26 @@ class MyController @Inject() (
 
 > When using Play dependency injection for a controller, the [injected routes need to be enabled](https://www.playframework.com/documentation/latest/ScalaRouting#Dependency-Injection) by adding `routesGenerator := InjectedRoutesGenerator` to your build.
 
+The base class `ReactiveMongoApiFromContext` is also available to help implementing custom provisioning/loading (e.g. for application loader).
+
+{% highlight scala %}
+import play.api.ApplicationLoader
+
+import play.modules.reactivemongo.ReactiveMongoApiFromContext
+
+class MyApplicationLoader extends ApplicationLoader {
+  def load(context: ApplicationLoader.Context) =
+    new MyComponents(context).application
+}
+
+class MyComponents(context: ApplicationLoader.Context)
+    extends ReactiveMongoApiFromContext(context) {
+
+  lazy val router = play.api.routing.Router.empty
+  lazy val httpFilters = Seq.empty[play.api.mvc.EssentialFilter]
+}
+{% endhighlight %}
+
 **Multiple pools**
 
 In your Play application, you can use ReactiveMongo with multiple connection pools (possibly with different replica sets and/or different options), using the `@NamedDatabase` annotation.

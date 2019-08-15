@@ -319,6 +319,52 @@ def findAndUpdateArrayFilters(personColl: BSONCollection) =
       BSONDocument("elem.grade" -> BSONDocument(f"$$gte" -> 85))))
 {% endhighlight %}
 
+### Session/transaction
+
+Starting in 3.6, MongoDB offers [session management](https://docs.mongodb.com/manual/reference/server-sessions/) to gather operations, and since MongoDB 4.0, [transactions](https://docs.mongodb.com/master/core/transactions/) can be defined for session.
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+
+import reactivemongo.bson.BSONDocument
+
+import reactivemongo.api.DefaultDB
+
+def testTx(db: DefaultDB)(implicit ec: ExecutionContext): Future[Unit] = 
+  db.startSession().flatMap {
+    case Some(dbWithSession) => dbWithSession.startTransaction(None) match {
+      case Some(dbWithTx) => {
+        val coll = dbWithTx.collection("foo")
+
+        for {
+          _ <- coll.insert.one(BSONDocument("id" -> 1, "bar" -> "lorem"))
+          r <- coll.find(BSONDocument("id" -> 1)).one[BSONDocument] // found
+
+          _ <- db.collection("foo").find(
+            BSONDocument("id" -> 1)).one[BSONDocument]
+            // not found for DB outside transaction
+
+          _ <- dbWithTx.commitTransaction() // or abortTransaction()
+          // session still open, can start another transaction, or other ops
+
+          _ <- dbWithSession.endSession()
+        } yield ()
+      }
+
+      case _ => Future.successful(println("No transaction"))
+    }
+
+    case _ => Future.successful(println("No session"))
+  }
+{% endhighlight %}
+
+The support for session and transaction is defined in the database API (still experimental).
+
+- [`startSession`](../../api/reactivemongo/api/DefaultDB.html#startSession()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Option[reactivemongo.api.DefaultDB]])
+- [`startTransaction`](../../api/reactivemongo/api/DefaultDB.html#startTransaction(writeConcern:Option[reactivemongo.api.WriteConcern]):Option[DefaultDB.this.DBType]), for a DB reference with a session started.
+- [`abortTransaction`](../../api/reactivemongo/api/DefaultDB.html#abortTransaction()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Option[DefaultDB.this.DBType]]) or [`commitTransaction`](../../api/reactivemongo/api/DefaultDB.html#commitTransaction()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Option[DefaultDB.this.DBType]]) on a DB reference with transaction.
+- [`endSession`](../../api/reactivemongo/api/DefaultDB.html#endSession()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Option[reactivemongo.api.DefaultDB]]) or [`killSession`](../../api/reactivemongo/api/DefaultDB.html#killSession()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DefaultDB])
+
 ### Troubleshooting
 
 The synchronous [`.db` has been deprecated](../release-details.html#database-resolution) as it didn't offer a sufficient guaranty that it can initially find an active channel in the connection pool (`MongoConnection`).

@@ -200,6 +200,8 @@ pre {
 
 #siteSearch #search-input { width: 99% }
 
+#poweredByAlgolia { max-width: 16px }
+
 img.screenshot {
   -webkit-border-radius: .5em;
   -moz-border-radius: .5em;

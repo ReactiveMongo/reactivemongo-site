@@ -273,6 +273,7 @@ akka.stream.scaladsl.Sink
 akka.util.ByteString
 GridFSStreams.this.gridfs.ReadFile
 akka.util.ByteString
+DefaultDB.this.DBType
 
 # Geo
 JP
