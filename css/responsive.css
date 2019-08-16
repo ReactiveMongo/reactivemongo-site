@@ -200,7 +200,7 @@ pre {
 
 #siteSearch #search-input { width: 99% }
 
-#poweredByAlgolia { max-width: 16px }
+#poweredByAlgolia { max-height: 16px }
 
 img.screenshot {
   -webkit-border-radius: .5em;
