@@ -37,9 +37,9 @@ The impatient can have a look at the [release slideshow](../slideshow.html).
 
 This release is compatible with the following runtime.
 
-- [MongoDB](https://www.mongodb.org/) from 2.6 up to 4.0.
-- [Akka](http://akka.io/) from 2.3.13 up to 2.5.13 (see [Setup](./tutorial/setup.html))
-- [Play Framework](https://playframework.com) from 2.3.13 to 2.7.0
+- [MongoDB](https://www.mongodb.org/) from 2.6 up to 4.2.
+- [Akka](http://akka.io/) from 2.3.13 up to 2.5.23 (see [Setup](./tutorial/setup.html))
+- [Play Framework](https://playframework.com) from 2.3.13 to 2.7.1
 
 > MongoDB versions older than 2.6 are not longer supported by ReactiveMongo.
 
