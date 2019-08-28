@@ -54,6 +54,7 @@ h1, h2, h3, h4 {
   content: "";
   clear: both;
 }
+#siteSearch pre { width: 100% }
 #poweredByAlgolia {
   float: right;
   padding-right: 1em
