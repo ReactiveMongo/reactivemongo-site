@@ -774,7 +774,7 @@ def placeArround(places: BSONCollection)(implicit ec: ExecutionContext): Future[
     maxDistance = Some(5000),
     query = Some(document("type" -> "public")),
     includeLocs = Some("dist.loc"),
-    limit = 5,
+    limit = Some(5),
     spherical = true)).prepared.cursor.
     collect[List](-1, Cursor.FailOnError[List[GeoPlace]]())
 }
