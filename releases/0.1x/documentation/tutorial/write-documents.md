@@ -331,31 +331,23 @@ import reactivemongo.bson.BSONDocument
 import reactivemongo.api.DefaultDB
 
 def testTx(db: DefaultDB)(implicit ec: ExecutionContext): Future[Unit] = 
-  db.startSession().flatMap {
-    case Some(dbWithSession) => dbWithSession.startTransaction(None) match {
-      case Some(dbWithTx) => {
-        val coll = dbWithTx.collection("foo")
+  for {
+    dbWithSession <- db.startSession()
+    dbWithTx <- dbWithSession.startTransaction(None)
+    coll = dbWithTx.collection("foo")
 
-        for {
-          _ <- coll.insert.one(BSONDocument("id" -> 1, "bar" -> "lorem"))
-          r <- coll.find(BSONDocument("id" -> 1)).one[BSONDocument] // found
+    _ <- coll.insert.one(BSONDocument("id" -> 1, "bar" -> "lorem"))
+    r <- coll.find(BSONDocument("id" -> 1)).one[BSONDocument] // found
 
-          _ <- db.collection("foo").find(
-            BSONDocument("id" -> 1)).one[BSONDocument]
-            // not found for DB outside transaction
+    _ <- db.collection("foo").find(
+      BSONDocument("id" -> 1)).one[BSONDocument]
+      // not found for DB outside transaction
 
-          _ <- dbWithTx.commitTransaction() // or abortTransaction()
-          // session still open, can start another transaction, or other ops
+    _ <- dbWithTx.commitTransaction() // or abortTransaction()
+      // session still open, can start another transaction, or other ops
 
-          _ <- dbWithSession.endSession()
-        } yield ()
-      }
-
-      case _ => Future.successful(println("No transaction"))
-    }
-
-    case _ => Future.successful(println("No session"))
-  }
+    _ <- dbWithSession.endSession()
+  } yield ()
 {% endhighlight %}
 
 The support for session and transaction is defined in the database API (still experimental).
