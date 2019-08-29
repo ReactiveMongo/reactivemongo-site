@@ -8,7 +8,7 @@ jobs:
       CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
       CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
     docker:
-    - image: circleci/ruby:2.3-node-browsers
+    - image: circleci/ruby:2.4-node-browsers
     #  command: /sbin/init
     steps:
     - checkout
