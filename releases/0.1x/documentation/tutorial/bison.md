@@ -170,7 +170,19 @@ This macro utilities offer new [configuration mechanism](https://static.javadoc.
 The macro configuration can be used to specify a [field naming](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/FieldNaming.html), to customize the name of each BSON field corresponding to Scala field.
 
 {% highlight scala %}
-// TODO: example
+import reactivemongo.api.bson._
+
+val withPascalCase: BSONDocumentHandler[Person] = {
+  implicit def cfg: MacroConfiguration = MacroConfiguration(
+    fieldNaming = FieldNaming.PascalCase)
+
+  Macros.handler[Person]
+}
+
+withPascalCase.writeTry(Person(name = "Jane", age = 32))
+/* Success {
+  BSONDocument("Name" -> "Jane", "Age" -> 32)
+} */
 {% endhighlight %}
 
 In a similar way, when using macros with sealed family/trait, the strategy to name the [discriminator field](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/MacroConfiguration.html#discriminator:String) and to set a Scala type as [discriminator value](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/TypeNaming.html) can be configured.
