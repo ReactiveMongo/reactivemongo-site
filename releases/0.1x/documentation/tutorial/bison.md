@@ -110,6 +110,8 @@ val bsonBoolLike: Try[BSONBooleanLike] = doc.getAsTry[BSONBooleanLike]("ok")
 val boolLike: Try[Boolean] = bsonBoolLike.flatMap(_.toBoolean) // =Success(true)
 {% endhighlight %}
 
+<!-- TODO: Handler for float as BSONDouble -->
+
 <!-- TODO: trait for constant type such as BSONNUll -->
 
 #### Reader and writer typeclasses
@@ -163,8 +165,26 @@ val personReader: BSONDocumentReader[Person] = Macros.reader[Person]
 val personWriter: BSONDocumentWriter[Person] = Macros.writer[Person]
 {% endhighlight %}
 
+This macro utilities offer new [configuration mechanism](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/MacroConfiguration.html).
+
+The macro configuration can be used to specify a [field naming](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/FieldNaming.html), to customize the name of each BSON field corresponding to Scala field.
+
+{% highlight scala %}
+// TODO: example
+{% endhighlight %}
+
+In a similar way, when using macros with sealed family/trait, the strategy to name the [discriminator field](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/MacroConfiguration.html#discriminator:String) and to set a Scala type as [discriminator value](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/TypeNaming.html) can be configured.
+
+{% highlight scala %}
+// TODO: example
+{% endhighlight %}
+
+> Note: The `Macros.Options.SaveSimpleName` of the previous BSON library has been removed in favour of a [configuration factory](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/MacroConfiguration$.html#simpleTypeName[Opts%3C:reactivemongo.api.bson.MacroOptions](implicitevidence$2:reactivemongo.api.bson.MacroOptions.ValueOf[Opts]):reactivemongo.api.bson.MacroConfiguration.Aux[Opts]) using similar `TypeNaming`.
+
 <!-- TODO:
-Improved macros: MacroOptions SaveSimpleName => MacroConfiguration
+Rename Macro.Options to MacroOptions
+Improved macros: MacroOptions
+option to disable warning
 -->
 
 <!-- TODO: Changelog

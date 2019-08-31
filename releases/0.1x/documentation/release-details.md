@@ -260,7 +260,7 @@ More: [**Find documents**](./tutorial/find-documents.html), [**Write documents**
 
 ### BSON library
 
-The BSON library for ReactiveMongo has been updated.
+The current BSON library for ReactiveMongo has been updated.
 
 It now supports [BSON Decimal128](https://github.com/mongodb/specifications/blob/master/source/bson-decimal128/decimal128.rst#bson-decimal128-type-handling-in-drivers) (MongoDB 3.4+).
 
