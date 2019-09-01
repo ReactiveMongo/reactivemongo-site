@@ -174,7 +174,7 @@ Like the current BSON library, some specific typeclasses are available (with sam
 
 <!-- TODO: BSONDocumentReader + .from factory (plus de trait) -->
 
-The new library also provide similar macros, to easily materialized document readers and writers for Scala case classes and sealed traits.
+The new library also provide similar macros, to easily materialized document readers and writers for Scala case classes and sealed/unsealed traits.
 
 {% highlight scala %}
 case class Person(name: String, age: Int)
@@ -211,7 +211,7 @@ withPascalCase.writeTry(Person(name = "Jane", age = 32))
 In a similar way, when using macros with sealed family/trait, the strategy to name the [discriminator field](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/MacroConfiguration.html#discriminator:String) and to set a Scala type as [discriminator value](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/TypeNaming.html) can be configured.
 
 {% highlight scala %}
-// TODO: example
+implicit val cfg = MacroConfiguration(discriminator = "_type")
 {% endhighlight %}
 
 > Note: The `Macros.Options.SaveSimpleName` of the previous BSON library has been removed in favour of a [configuration factory](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/MacroConfiguration$.html#simpleTypeName[Opts%3C:reactivemongo.api.bson.MacroOptions](implicitevidence$2:reactivemongo.api.bson.MacroOptions.ValueOf[Opts]):reactivemongo.api.bson.MacroConfiguration.Aux[Opts]) using similar `TypeNaming`.
