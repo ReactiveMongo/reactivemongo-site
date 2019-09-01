@@ -22,6 +22,8 @@ libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-api" % "{{site
 
 *See [Scaladoc](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}})*
 
+<!-- TODO: Public handler API is recommending Try -->
+
 #### Documents and values
 
 The names of the BSON value types are the [same as the current BSON library](../bson/overview.html#documents-and-values), except the package that is `reactivemongo.api.bson` (instead of `reactivemongo.bson`).
@@ -110,9 +112,27 @@ val bsonBoolLike: Try[BSONBooleanLike] = doc.getAsTry[BSONBooleanLike]("ok")
 val boolLike: Try[Boolean] = bsonBoolLike.flatMap(_.toBoolean) // =Success(true)
 {% endhighlight %}
 
-<!-- TODO: Handler for float as BSONDouble -->
+Now `Float` is handled as a BSON double (as `Double`, as it's now possible to have several Scala types corresponding to the same BSON type).
 
-<!-- TODO: trait for constant type such as BSONNUll -->
+{% highlight scala %}
+import scala.util.Try
+import reactivemongo.api.bson._
+
+def readFloat(
+  doc: BSONDocument,
+  n: String
+)(implicit r: BSONReader[Float]): Try[Float] = doc.getAsTry[Float](n)
+{% endhighlight %}
+
+Still to make the API simpler, the BSON singleton types (e.g. `BSONNull`) are also defined with a trait, to be able to reference them without `.type` suffix.
+
+{% highlight scala %}
+import reactivemongo.api.bson.BSONNull
+
+def useNullBefore(bson: BSONNull.type) = println(".type was required")
+
+def useNullNow(bson: BSONNull) = print("Suffix no longer required")
+{% endhighlight %}
 
 #### Reader and writer typeclasses
 
@@ -143,7 +163,10 @@ def stringReader: BSONReader[String] = ???
 Not only it makes the API simpler, but it also allows to read different BSON types as a target Scala type (before only supported for numeric/boolean, using the dedicated typeclasses).
 For example, the Scala numeric types (`BigDecimal`, `Double`, `Float`, `Int`, `Long`) can be directly read from any consistent BSON numeric type (e.g. `1.0` as integer `1`), without having to use `BSONNumberLike`.
 
-<!-- TODO: BSON handler BSONDateTime Date => Instant; Java time handlers -->
+<!-- TODO: BSON handler BSONDateTime
+Date => Instant;
+Java time handlers
+-->
 
 The new API is also safer, replacing `BSONReader.read` and `BSONWriter.write` respectively with `BSONReader.readTry` and `BSONWriter.writeTry`, so that serialization errors can be handle at typelevel.
 
