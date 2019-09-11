@@ -275,6 +275,7 @@ GridFSStreams.this.gridfs.ReadFile
 akka.util.ByteString
 DefaultDB.this.DBType
 reactivemongo.api.bson.MacroConfiguration.Aux
+reactivemongo.api.bson.BSONValue
 
 # Geo
 JP
