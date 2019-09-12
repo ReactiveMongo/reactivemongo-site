@@ -22,8 +22,6 @@ libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-api" % "{{site
 
 *See [Scaladoc](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}})*
 
-<!-- TODO: Public handler API is recommending Try -->
-
 #### Documents and values
 
 The names of the BSON value types are the [same as the current BSON library](../bson/overview.html#documents-and-values), except the package that is `reactivemongo.api.bson` (instead of `reactivemongo.bson`).
@@ -163,6 +161,8 @@ def stringReader: BSONReader[String] = ???
 Not only it makes the API simpler, but it also allows to read different BSON types as a target Scala type (before only supported for numeric/boolean, using the dedicated typeclasses).
 For example, the Scala numeric types (`BigDecimal`, `Double`, `Float`, `Int`, `Long`) can be directly read from any consistent BSON numeric type (e.g. `1.0` as integer `1`), without having to use `BSONNumberLike`.
 
+Also, handler functions [`readTry`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONHandler.html#readTry(bson:reactivemongo.api.bson.BSONValue):scala.util.Try[T]) and [`writeTry`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONHandler.html#writeTry(t:T):scala.util.Try[reactivemongo.api.bson.BSONValue]) returns `Try`, for a safer representation of possible failures.
+
 <!-- TODO: BSON handler BSONDateTime
 Date => Instant;
 Java time handlers
@@ -211,7 +211,22 @@ withPascalCase.writeTry(Person(name = "Jane", age = 32))
 In a similar way, when using macros with sealed family/trait, the strategy to name the [discriminator field](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/MacroConfiguration.html#discriminator:String) and to set a Scala type as [discriminator value](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/TypeNaming.html) can be configured.
 
 {% highlight scala %}
-// TODO: example
+import reactivemongo.api.bson._
+
+sealed trait Family1
+case class Foo1(bar: String) extends Family1
+case class Lorem1(ipsum: Int) extends Family1
+
+implicit val foo1Handler = Macros.handler[Foo1]
+implicit val lorem1Handler = Macros.handler[Lorem1]
+
+val family1Handler: BSONDocumentHandler[Family1] = {
+  implicit val cfg: MacroConfiguration = MacroConfiguration(
+    discriminator = "_type",
+    typeNaming = TypeNaming.SimpleName.andThen(_.toLowerCase))
+
+  Macros.handler[Family1]
+}
 {% endhighlight %}
 
 > Note: The `Macros.Options.SaveSimpleName` of the previous BSON library has been removed in favour of a [configuration factory](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/MacroConfiguration$.html#simpleTypeName[Opts%3C:reactivemongo.api.bson.MacroOptions](implicitevidence$2:reactivemongo.api.bson.MacroOptions.ValueOf[Opts]):reactivemongo.api.bson.MacroConfiguration.Aux[Opts]) using similar `TypeNaming`.
