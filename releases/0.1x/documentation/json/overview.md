@@ -28,7 +28,7 @@ Then, the following code enables this JSON serialization pack.
 import reactivemongo.play.json._
 {% endhighlight %}
 
-**API documentations:** [ReactiveMongo Play JSON API](https://static.javadoc.io/org.reactivemongo/reactivemongo-play-json_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}-play27/index.html)
+**API documentations:** [ReactiveMongo Play JSON API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}-play27/reactivemongo-play-json_{{site._0_1x_scala_major}}-{{site._0_1x_latest_minor}}-play27-javadoc.jar/!/index.html)
 
 > If you want to use this JSON serialization outside of Play application, the dependency to the standalone Play JSON library must then be added: `"com.typesafe.play" %% "play-json" % version`.
 
