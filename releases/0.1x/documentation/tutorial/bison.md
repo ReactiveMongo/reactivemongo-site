@@ -163,16 +163,16 @@ For example, the Scala numeric types (`BigDecimal`, `Double`, `Float`, `Int`, `L
 
 Also, handler functions [`readTry`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONHandler.html#readTry(bson:reactivemongo.api.bson.BSONValue):scala.util.Try[T]) and [`writeTry`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONHandler.html#writeTry(t:T):scala.util.Try[reactivemongo.api.bson.BSONValue]) returns `Try`, for a safer representation of possible failures.
 
-<!-- TODO: BSON handler BSONDateTime
-Date => Instant;
-Java time handlers
--->
-
 The new API is also safer, replacing `BSONReader.read` and `BSONWriter.write` respectively with `BSONReader.readTry` and `BSONWriter.writeTry`, so that serialization errors can be handle at typelevel.
+In a similar way, [`BSONObjectID.parse`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONObjectID$.html#parse(bytes:Array[Byte]):scala.util.Try[reactivemongo.api.bson.BSONObjectID]) now returns `Try`.
 
-Like the current BSON library, some specific typeclasses are available (with same names) to read and write using BSON documents: `BSONDocumentReader` and `BSONDocumentWriter`.
+Like the current BSON library, some specific typeclasses are available (with same names) to only work with BSON documents: `BSONDocumentReader` and `BSONDocumentWriter`.
 
-<!-- TODO: BSONDocumentReader + .from factory (plus de trait) -->
+Some new handlers are provided by default, like those for [Java Time](https://docs.oracle.com/javase/8/docs/api/java/time/package-summary.html) types.
+
+> Note: The handler for `java.util.Date` is replaced the handler for `java.time.Instant`.
+
+##### Macros
 
 The new library also provide similar macros, to easily materialized document readers and writers for Scala case classes and sealed traits.
 
@@ -229,13 +229,11 @@ val family1Handler: BSONDocumentHandler[Family1] = {
 }
 {% endhighlight %}
 
+The nested type `Macros.Options` is replaced by similar type [`MacrosOptions`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/MacroOptions.html).
+
 > Note: The `Macros.Options.SaveSimpleName` of the previous BSON library has been removed in favour of a [configuration factory](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/MacroConfiguration$.html#simpleTypeName[Opts%3C:reactivemongo.api.bson.MacroOptions](implicitevidence$2:reactivemongo.api.bson.MacroOptions.ValueOf[Opts]):reactivemongo.api.bson.MacroConfiguration.Aux[Opts]) using similar `TypeNaming`.
 
-<!-- TODO:
-Rename Macro.Options to MacroOptions
-Improved macros: MacroOptions
-option to disable warning
--->
+> Note: A new option `MacroOptions.DisableWarnings` allows to specifically exclude macro warnings.
 
 <!-- TODO: Changelog
 
@@ -246,8 +244,6 @@ BSONArray no longer ElementProducer (only values)
 BSONBinary.unapply only Subtype (no byte array)
 BSONObjectID.valueAsArray => byteArray
 DocumentKeyNotFoundException => BSONValueNotFoundException & improved exceptions more explicit
-
-BSONObjectID parse => Try
 
 TODO: BSONDocument varArg factory optimized and support more cases
 -->
