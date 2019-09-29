@@ -276,6 +276,7 @@ akka.util.ByteString
 DefaultDB.this.DBType
 reactivemongo.api.bson.MacroConfiguration.Aux
 reactivemongo.api.bson.BSONValue
+reactivemongo.api.bson.BSONObjectID
 
 # Geo
 JP
