@@ -12,7 +12,7 @@ You can setup this serialization pack by adding the following dependency in your
 
 {% highlight ocaml %}
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "reactivemongo-play-json" % "{{site._0_1x_latest_minor}}"
+  "org.reactivemongo" %% "reactivemongo-play-json" % "{{site._0_1x_latest_minor}}-play27"
 )
 {% endhighlight %}
 
