@@ -181,4 +181,16 @@ import reactivemongo.play.json._
 // import the default BSON/JSON conversions
 {% endhighlight %}
 
+If the following error is raised;
+
+    Error:(X, Y) type mismatch;
+      found   : reactivemongo.api.collections.bson.BSONCollection
+      required: ... reactivemongo.play.json.collection.JSONCollection ...
+
+It's necessary to also make sure the right imports are there.
+
+{% highlight scala %}
+import reactivemongo.play.json.collection._
+{% endhighlight %}
+
 [Next: Integration with Play Framework](../tutorial/play.html)
