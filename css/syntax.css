@@ -1,3 +1,4 @@
+.highlight > .highlight { border:none }
 .highlight { border: 1px #59b25b solid }
 .highlight, .highlight > pre  { background: #fff }
 .highlight .c { color: #999988; font-style: italic } /* Comment */
