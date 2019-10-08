@@ -72,6 +72,10 @@ mongo-async-driver {
 }
 {% endhighlight %}
 
+About Akka logging, also note that the dead letters logging can be safely ignored when the driver is closing (doesn't indicate an issue).
+
+> `log-dead-letters-during-shutdown = off` can be added to previous configuration to disable the related debug (default since akka 2.6).
+
 **Troubleshooting:**
 
 If the following error is raised, you need to make sure to provide a [SLF4J binding](http://www.slf4j.org/manual.html#swapping) (e.g. [logback-classic](http://logback.qos.ch/)).
