@@ -6,14 +6,15 @@ val majorVer = "0"
 
 version := majorVer
 
-val Release = s"${majorVer}.18.6"
+val Release = s"${majorVer}.19.0"
 
 scalaVersion := "2.12.10"
 
 libraryDependencies ++= Seq(
   "reactivemongo-iteratees",
   "reactivemongo-akkastream",
-  "reactivemongo-bson-api"
+  "reactivemongo-bson-api",
+  "reactivemongo-bson-macros"
 ).map(
   "org.reactivemongo" %% _ % Release changing())
 
