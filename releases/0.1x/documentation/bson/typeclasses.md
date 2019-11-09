@@ -140,6 +140,11 @@ def create(personCollection: BSONCollection, person: Person)(implicit ec: Execut
 
 To ease the definition of reader and writer instances for your custom types, ReactiveMongo provides some helper [Macros](../../api/reactivemongo/bson/Macros).
 
+{% highlight ocaml %}
+libraryDependencies ++= Seq(
+  "org.reactivemongo" %% "reactivemongo-bson-macros" % "{{site._0_1x_latest_minor}}")
+{% endhighlight %}
+
 {% highlight scala %}
 case class Person(name: String, age: Int)
 
@@ -331,5 +336,10 @@ Using [`BSONNumberLike`](../../api/reactivemongo/bson/BSONNumberLike), it is pos
 When using the compiler option `-Ywarn-unused` and the BSON macro (e.g. `Macros.handler`), you can get a warning as bellow. It can be safely ignore (there for compatibility).
 
     private val in <$anon: reactivemongo.bson.BSONDocumentReader[foo.Bar] with reactivemongo.bson.BSONDocumentWriter[foo.Bar] with reactivemongo.bson.BSONHandler[reactivemongo.bson.BSONDocument,foo.Bar]> is never used
+
+If the following compilation error is raised, then `reactivemongo-bson-macros` must be add to the build.
+
+    [error] /path/to.scala:L:C: object Macros is not a member of package reactivemongo.bson
+    [error]   import reactivemongo.bson.Macros
 
 [Previous: Overview of the ReactiveMongo BSON library](overview.html)

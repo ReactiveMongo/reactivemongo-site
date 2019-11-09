@@ -8,7 +8,7 @@ title: ReactiveMongo Biːsən
 
 These libraries are intended to replace (at some point after release 1.0) the [current BSON library](../bson/overview.html) (shipped along with ReactiveMongo driver).
 
-The motivation for that is to fix some issues, to bring multiple API and performance improvements (simpler & better).
+The motivation for that is to fix some issues ([OOM](https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/memleaks002.html)), to bring multiple API and performance improvements (simpler & better).
 
 ### BSON types and handlers
 
@@ -95,6 +95,8 @@ val bsonMaxKey = BSONMaxKey
 
 The API for [`BSONDocument`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONDocument.html) has been slightly updated, with the function `getAs` renamed as `getAsOpt` (to be consistent with `getAsTry`).
 
+> Note: The `BSONDocument` factories have been optimized and support more use cases.
+
 The traits [`BSONNumberLike`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONNumberLike.html) and [`BSONBooleanLike`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONBooleanLike.html) are also kept in the new API, to generalize the handling of numerical and boolean values.
 
 {% highlight scala %}
@@ -131,6 +133,26 @@ def useNullBefore(bson: BSONNull.type) = println(".type was required")
 
 def useNullNow(bson: BSONNull) = print("Suffix no longer required")
 {% endhighlight %}
+
+The `BSONBinary` extractor now only bind subtype:
+
+{% highlight scala %}
+import reactivemongo.api.bson.{ BSONBinary, Subtype }
+
+def binExtractor = {
+  BSONBinary(Array[Byte](0, 1, 2), Subtype.GenericBinarySubtype) match {
+    case genBin @ BSONBinary(Subtype.GenericBinarySubtype) =>
+      genBin.byteArray
+
+    case _ => ???
+  }
+}
+{% endhighlight %}
+
+**Miscellaneous:**
+
+- Type `BSONArray` is no longer an `ElementProducer` (only a value producer).
+- The function `BSONObjectID.valueAsArray` is renamed to `byteArray`.
 
 #### Reader and writer typeclasses
 
@@ -171,6 +193,8 @@ Like the current BSON library, some specific typeclasses are available (with sam
 Some new handlers are provided by default, like those for [Java Time](https://docs.oracle.com/javase/8/docs/api/java/time/package-summary.html) types.
 
 > Note: The handler for `java.util.Date` is replaced the handler for `java.time.Instant`.
+
+The error handling has also been improved, with more details (Note: `DocumentKeyNotFoundException` is the previous API is replaced with `BSONValueNotFoundException` in the new one).
 
 ##### Macros
 
@@ -234,16 +258,3 @@ The nested type `Macros.Options` is replaced by similar type [`MacrosOptions`](h
 > Note: The `Macros.Options.SaveSimpleName` of the previous BSON library has been removed in favour of a [configuration factory](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/MacroConfiguration$.html#simpleTypeName[Opts%3C:reactivemongo.api.bson.MacroOptions](implicitevidence$2:reactivemongo.api.bson.MacroOptions.ValueOf[Opts]):reactivemongo.api.bson.MacroConfiguration.Aux[Opts]) using similar `TypeNaming`.
 
 > Note: A new option `MacroOptions.DisableWarnings` allows to specifically exclude macro warnings.
-
-<!-- TODO: Changelog
-
-BSONIterator
-serialization (OOM with reactivemongo.bson)
-BSONArray no longer ElementProducer (only values)
-
-BSONBinary.unapply only Subtype (no byte array)
-BSONObjectID.valueAsArray => byteArray
-DocumentKeyNotFoundException => BSONValueNotFoundException & improved exceptions more explicit
-
-TODO: BSONDocument varArg factory optimized and support more cases
--->

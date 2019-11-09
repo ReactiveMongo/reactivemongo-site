@@ -364,4 +364,20 @@ The new [`.database` resolution](../../api/reactivemongo/api/MongoConnection#dat
 
 If the deprecated database resolution is still used, a runtime error such as `ConnectionNotInitialized` can be raised when writing documents.
 
+Due to the refactoring of the BSON API, the following warnings can be raised.
+
+{% highlight text %}
+Use reactivemongo-bson-api or use reactivemongo-bson-compat: import reactivemongo.api.bson.compat._
+
+- OR -
+
+Use reactivemongo-bson-api
+{% endhighlight %}
+
+In this case either update the code to the [new BSON API](./bison.html), or use the compatibility library to ease the migration.
+
+{% highlight scala %}
+import reactivemongo.api.bson.compat._
+{% endhighlight %}
+
 [Previous: Database and collections](./database-and-collection.html) / [Next: Find documents](./find-documents.html)

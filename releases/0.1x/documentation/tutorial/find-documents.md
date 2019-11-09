@@ -228,4 +228,20 @@ method collect in trait Cursor is deprecated: Use `collect` with an [[Cursor.Err
 
 The [new `collect`](../../api/reactivemongo/api/Cursor#collect[M[_]](maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[M[T]])(implicitcbf:scala.collection.generic.CanBuildFrom[M[_],T,M[T]],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[M[T]]) function must be used instead.
 
+Due to the refactoring of the BSON API, the following warnings can be raised.
+
+{% highlight text %}
+Use reactivemongo-bson-api or use reactivemongo-bson-compat: import reactivemongo.api.bson.compat._
+
+- OR -
+
+Use reactivemongo-bson-api
+{% endhighlight %}
+
+In this case either update the code to the [new BSON API](./bison.html), or use the compatibility library to ease the migration.
+
+{% highlight scala %}
+import reactivemongo.api.bson.compat._
+{% endhighlight %}
+
 [Previous: Write Documents](./write-documents.html) / [Next: Streaming](./streaming.html)
