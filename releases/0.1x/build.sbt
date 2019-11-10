@@ -14,7 +14,10 @@ libraryDependencies ++= Seq(
   "reactivemongo-iteratees",
   "reactivemongo-akkastream",
   "reactivemongo-bson-api",
-  "reactivemongo-bson-macros"
+  "reactivemongo-bson-macros",
+  "reactivemongo-bson-geo",
+  "reactivemongo-bson-monocle",
+  "reactivemongo-bson-msb-compat"
 ).map(
   "org.reactivemongo" %% _ % Release changing())
 
