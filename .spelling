@@ -281,8 +281,23 @@ reactivemongo.api.bson.BSONObjectID
 
 # Geo
 JP
+GeoPolygon
+GeoMultiPoint
 Aogashima
 japanese
+GeoJSON
+GeoPosition
+LineString
+GeoLineString
+LinearRing
+GeoLinearRing
+MultiLineString
+GeoMultiLineString
+MultiPolygon
+GeoMultiPolygon
+GeometryCollection
+GeoGeometryCollection
+GeoPoint
 
 warry
 Maxime

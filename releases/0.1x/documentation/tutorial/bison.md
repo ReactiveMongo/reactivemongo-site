@@ -10,6 +10,13 @@ These libraries are intended to replace (at some point after release 1.0) the [c
 
 The motivation for that is to fix some issues ([OOM](https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/memleaks002.html)), to bring multiple API and performance improvements (simpler & better).
 
+### Highlights
+
+- Simpler and more efficient API
+- Compatibility (with previous API and with `org.bson`)
+- New [GeoJSON](#geojson) library
+- New [Monocle](#monocle) (optics) library
+
 ### BSON types and handlers
 
 The main API library migrates both the BSON value types and the handler typeclasses.
@@ -153,6 +160,30 @@ def binExtractor = {
 
 - Type `BSONArray` is no longer an `ElementProducer` (only a value producer).
 - The function `BSONObjectID.valueAsArray` is renamed to `byteArray`.
+- The deprecated type `BSONDBPointer` is removed.
+
+**Summary:**
+
+| BSON | Description | JVM type |
+| ---- | ----------- | -------- |
+| [BSONBinary](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONBinary.html) | binary data | `Array[Byte]` |
+| [BSONBoolean](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONBoolean.html) | boolean | `Boolean` |
+| [BSONDateTime](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONDateTime.html) | UTC Date Time | `java.util.Date` |
+| [BSONDecimal](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONDecimal$.html) | [Decimal128](https://github.com/mongodb/specifications/blob/master/source/bson-decimal128/decimal128.rst) | `java.math.BigDecimal` |
+| [BSONDouble](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONDouble.html) | 64-bit IEEE 754 floating point | `Double` |
+| [BSONInteger](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONInteger.html) | 32-bit integer | `Int` |
+| [BSONJavaScript](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONJavaScript.html) | JavaScript code | _None_ |
+| [BSONJavaScriptWS](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONJavaScriptWS.html) | JavaScript scoped code | _None_ |
+| [BSONLong](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONLong.html) | 64-bit integer | `Long` |
+| [BSONMaxKey](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONMaxKey$.html) | max key | _None_ |
+| [BSONMinKey](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONMinKey$.html) | min key | _None_ |
+| [BSONNull](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONNull$.html) | null | _None_ |
+| [BSONObjectID](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONObjectID.html) | [12 bytes default id type in MongoDB](http://docs.mongodb.org/manual/reference/object-id/) | _None_ |
+| [BSONRegex](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONRegex.html) | regular expression | _None_ |
+| [BSONString](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONString.html) | UTF-8 string | `String` |
+| [BSONSymbol](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONSymbol.html) | _deprecated in the protocol_ | _None_ |
+| [BSONTimestamp](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONTimestamp.html) | special date type used in MongoDB internals | _None_ |
+| [BSONUndefined](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONUndefined$.html) | _deprecated in the protocol_ | _None_ |
 
 #### Reader and writer typeclasses
 
@@ -258,3 +289,113 @@ The nested type `Macros.Options` is replaced by similar type [`MacrosOptions`](h
 > Note: The `Macros.Options.SaveSimpleName` of the previous BSON library has been removed in favour of a [configuration factory](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/MacroConfiguration$.html#simpleTypeName[Opts%3C:reactivemongo.api.bson.MacroOptions](implicitevidence$2:reactivemongo.api.bson.MacroOptions.ValueOf[Opts]):reactivemongo.api.bson.MacroConfiguration.Aux[Opts]) using similar `TypeNaming`.
 
 > Note: A new option `MacroOptions.DisableWarnings` allows to specifically exclude macro warnings.
+
+#### Compatibility and migration
+
+A compatibility library is available, that provides conversions between the previous and the new APIs. It can be configured in the `build.sbt` as below.
+
+{% highlight ocaml %}
+libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-compat" % "{{site._0_1x_latest_minor}}"
+{% endhighlight %}
+
+Then the conversions can be imported where required:
+
+{% highlight scala %}
+import reactivemongo.api.bson.compat._
+{% endhighlight %}
+
+Another compatibility library is available for the [package `org.bson`](https://mongodb.github.io/mongo-java-driver/3.7/javadoc/org/bson/package-summary.html).
+
+{% highlight ocaml %}
+libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-msb-compat" % "{{site._0_1x_latest_minor}}"
+{% endhighlight %}
+
+Then the conversions between those two API/packages can be imported as below.
+
+{% highlight scala %}
+import reactivemongo.api.bson.msb._
+{% endhighlight %}
+
+### GeoJSON
+
+A new [GeoJSON](https://docs.mongodb.com/manual/reference/geojson/) library is provided, with the geometry types and the corresponding handlers to read from and write them to appropriate BSON representation.
+
+It can be configured in the `build.sbt` as below.
+
+{% highlight ocaml %}
+libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-geo" % "{{site._0_1x_latest_minor}}"
+{% endhighlight %}
+
+Then the GeoJSON types can be imported and used:
+
+{% highlight scala %}
+import reactivemongo.api.bson._
+
+// { type: "Point", coordinates: [ 40, 5 ] }
+val geoPoint = GeoPoint(40, 5)
+
+// { type: "LineString", coordinates: [ [ 40, 5 ], [ 41, 6 ] ] }
+val geoLineString = GeoLineString(
+  GeoPosition(40D, 5D, None),
+  GeoPosition(41D, 6D))
+{% endhighlight %}
+
+> More [GeoJSON examples](https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/geo/src/test/scala/GeometrySpec.scala)
+
+| GeoJSON | ReactiveMongo | Description |
+| ------- | ------------- | ----------- |
+| Position | [GeoPosition](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-geo_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/GeoPosition.html) | Position coordinates
+| [Point](https://docs.mongodb.com/manual/reference/geojson/#point) | [GeoPoint](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-geo_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/GeoPoint.html) | Single point with single position
+| [LineString](https://docs.mongodb.com/manual/reference/geojson/#linestring) | [GeoLineString](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-geo_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/GeoLineString.html) | Simple line
+| LinearRing | [GeoLinearRing](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-geo_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/GeoLinearRing.html) | Simple (closed) ring
+| [Polygon](https://docs.mongodb.com/manual/reference/geojson/#polygon) | [GeoPolygon](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-geo_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/GeoPolygon.html) | Polygon with at least one ring
+| [MultiPoint](https://docs.mongodb.com/manual/reference/geojson/#multipoint) | [GeoMultiPoint](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-geo_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/GeoMultiPoint.html) | Collection of points
+| [MultiLineString](https://docs.mongodb.com/manual/reference/geojson/#multilinestring) | [GeoMultiLineString](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-geo_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/GeoMultiLineString.html) | Collection of `LineString`
+| [MultiPolygon](https://docs.mongodb.com/manual/reference/geojson/#multipolygon) | [GeoMultiPolygon](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-geo_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/GeoMultiPolygon.html) | Collection of polygon
+| [GeometryCollection](https://docs.mongodb.com/manual/reference/geojson/#geometrycollection) | [GeoGeometryCollection](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-geo_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/GeoGeometryCollection.html) | Collection of geometry objects
+
+*See [Scaladoc](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-geo_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/index.html)*
+
+### Monocle
+
+*(Experimental)*
+
+The library that provides [Monocle](http://julien-truffaut.github.io/Monocle/) based optics, for BSON values.
+
+It can be configured in the `build.sbt` as below.
+
+{% highlight ocaml %}
+libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-monocle" % "{{site._0_1x_latest_minor}}"
+{% endhighlight %}
+
+Then the utilities can be imported and used:
+
+{% highlight scala %}
+import reactivemongo.api.bson._
+
+import reactivemongo.api.bson.monocle._ // new library
+
+val barDoc = BSONDocument(
+  "lorem" -> 2,
+  "ipsum" -> BSONDocument("dolor" -> 3))
+
+val topDoc = BSONDocument(
+  "foo" -> 1,
+  "bar" -> barDoc)
+
+// Simple field
+val lens1 = field[BSONInteger]("foo")
+val updDoc1: BSONDocument = lens1.set(BSONInteger(2))(topDoc)
+// --> { "foo": 1, ... }
+
+// Nested field
+val lens2 = field[BSONDocument]("bar").
+  composeOptional(field[Double]("lorem"))
+
+val updDoc2 = lens2.set(1.23D)(topDoc)
+// --> { ..., "bar": { "lorem": 1.23, ... } }
+{% endhighlight %}
+
+> More [monocle examples](https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/monocle/src/test/scala/MonocleSpec.scala)
+
+*See [Scaladoc](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-monocle_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/monocle/index.html)*
