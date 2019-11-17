@@ -104,6 +104,13 @@ The API for [`BSONDocument`](https://static.javadoc.io/org.reactivemongo/reactiv
 
 > Note: The `BSONDocument` factories have been optimized and support more use cases.
 
+<figure>
+  <img src="../images/bison-bench-doc.png"
+    style="max-width:75%" alt="Document benchmarks" />
+
+  <figcaption style="font-size:x-small">Coefficient between new/old throughput (op/s; =1: no change, 1+: better thrpt). Source: <a rel="me external" href="https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/benchmarks/src/main/scala/BSONDocumentBenchmark.scala">BSONDocumentBenchmark</a>, <a rel="me external" href="https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/benchmarks/src/main/scala/BSONDocumentHandlerBenchmark.scala">BSONDocumentHandlerBenchmark</a></figcaption>
+</figure>
+
 The traits [`BSONNumberLike`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONNumberLike.html) and [`BSONBooleanLike`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONBooleanLike.html) are also kept in the new API, to generalize the handling of numerical and boolean values.
 
 {% highlight scala %}
