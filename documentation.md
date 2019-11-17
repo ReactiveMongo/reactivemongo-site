@@ -12,6 +12,8 @@ title: Documentation
     * [JSON API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}-play26/reactivemongo-play-json_{{site._0_1x_scala_major}}-{{site._0_1x_latest_minor}}-play26-javadoc.jar/!/index.html)
     * [Play module API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}-play26/play2-reactivemongo_{{site._0_1x_scala_major}}-{{site._0_1x_latest_minor}}-play26-javadoc.jar/!/index.html)
 * Older releases
+  * [0.12](/releases/0.12/documentation/index.html)
+    * [Release Notes](/releases/0.12/documentation/release-details.html)
   * [0.11](/releases/0.11/documentation/index.html)
     * [Release Notes](/releases/0.11/documentation/release-details.html)
 
