@@ -17,12 +17,12 @@ The documentation is available [online](index.html), and its code samples are co
   - New `rm.reconnectDelayMS` setting.
   - Add `credentials` in the [`MongoConnectionOptions`](http://reactivemongo.org/releases/0.1x/api/reactivemongo/api/MongoConnectionOptions.html)
   - [Netty native](#netty-native)
-- New [query and write operations](#query-and-write-operations),
-  - bulk operations (e.g. `.delete.many`) on [collection](../api/reactivemongo/api/collections/GenericCollection.html),
-  - `arrayFilters` on update operations.
 - [BSON library](#bson-library)
   - [BSON Decimal128](https://github.com/mongodb/specifications/blob/master/source/bson-decimal128/decimal128.rst#bson-decimal128-type-handling-in-drivers)
   - `Option` support & new `@NoneAsNull` annotation
+- New [query and write operations](#query-and-write-operations),
+  - bulk operations (e.g. `.delete.many`) on [collection](../api/reactivemongo/api/collections/GenericCollection.html),
+  - `arrayFilters` on update operations.
 - [Aggregation](#aggregation)
   - [`CursorOptions`](../api/reactivemongo/api/CursorOptions.html) parameter when using `.aggregatorContext`.
   - New stages: `$addFields`, `$bucketAuto`, `$count`, `$filter`, `$replaceRoot`, `$slice`
@@ -37,11 +37,11 @@ The impatient can have a look at the [release slideshow](../slideshow.html).
 
 This release is compatible with the following runtime.
 
-- [MongoDB](https://www.mongodb.org/) from 2.6 up to 4.2.
+- [MongoDB](https://www.mongodb.org/) from 3.0 up to 4.2.
 - [Akka](http://akka.io/) from 2.3.13 up to 2.5.23 (see [Setup](./tutorial/setup.html))
 - [Play Framework](https://playframework.com) from 2.3.13 to 2.7.1
 
-> MongoDB versions older than 2.6 are not longer supported by ReactiveMongo.
+> MongoDB versions older than 3.0 are not longer (end of life 2018-2).
 
 **Recommended configuration:**
 
@@ -99,6 +99,84 @@ It comes with various improvements (memory consumption, ...), and also to use Ne
 
 *[See the documentation](./tutorial/connect-database.html#netty-native)*
 
+### BSON library
+
+<!-- TODO: Bison -->
+
+The current BSON library for ReactiveMongo has been updated.
+
+It now supports [BSON Decimal128](https://github.com/mongodb/specifications/blob/master/source/bson-decimal128/decimal128.rst#bson-decimal128-type-handling-in-drivers) (MongoDB 3.4+).
+
+The way `Option` is handled by the macros has been improved, also with a new annotation `@NoneAsNull`, which write `None` values as `BSONNull` (instead of omitting field/value).
+
+More: [**BSON Library overview**](./bson/overview.html)
+
+#### Types
+
+The [Decimal128](https://github.com/mongodb/specifications/blob/master/source/bson-decimal128/decimal128.rst) type introduced by MongoDB 3.4 is supported, as [`BSONDecimal`](../api/reactivemongo/bson/BSONDecimal$.html), and can be read or write as `java.math.BigDecimal`.
+
+#### Handlers
+
+A handler is now available to write and read Scala `Map` as BSON, provided the key and value types are themselves supported.
+
+{% highlight scala %}
+import scala.util.Try
+import reactivemongo.api.bson._
+
+def bsonMap = {
+  val input: Map[String, Int] = Map("a" -> 1, "b" -> 2)
+
+  // Ok as key and value (String, Int) are provided BSON handlers
+  val doc: Try[BSONDocument] = BSON.writeDocument(input)
+
+  val output = doc.flatMap { BSON.readDocument[Map[String, Int]](_) }
+}
+{% endhighlight %}
+
+#### Macros
+
+The compile-time option `AutomaticMaterialization` has been added, when using the macros with sealed family, to explicitly indicate when you want to automatically materialize required instances for the subtypes (if missing from the implicit scope).
+
+{% highlight scala %}
+sealed trait Color
+
+case object Red extends Color
+case object Blue extends Color
+case class Green(brightness: Int) extends Color
+case class CustomColor(code: String) extends Color
+
+object Color {
+  import reactivemongo.api.bson.{ Macros, MacroOptions },
+    MacroOptions.{ AutomaticMaterialization, UnionType, \/ }
+
+  // Use `UnionType` to define a subset of the `Color` type,
+  type PredefinedColor =
+    UnionType[Red.type \/ Green \/ Blue.type] with AutomaticMaterialization
+
+  val predefinedColor = Macros.handlerOpts[Color, PredefinedColor]
+}
+{% endhighlight %}
+
+A new annotation [`@Flatten`](../api/reactivemongo/bson/Macros$$Annotations$$Flatten.html) has been added, to indicate to the macros that the representation of a property must be flatten rather than a nested document.
+
+{% highlight scala %}
+import reactivemongo.api.bson.BSONDocument
+import reactivemongo.api.bson.Macros.Annotations.Flatten
+
+case class Range(start: Int, end: Int)
+
+case class LabelledRange(
+  name: String,
+  @Flatten range: Range)
+
+// Flattened with macro as bellow:
+BSONDocument("name" -> "foo", "start" -> 0, "end" -> 1)
+
+// Rather than:
+// BSONDocument("name" -> "foo", "range" -> BSONDocument(
+//   "start" -> 0, "end" -> 1))
+{% endhighlight %}
+
 ### Query and write operations
 
 The collection API provides new builders for write operations. This supports bulk operations (e.g. insert many documents at once).
@@ -114,9 +192,10 @@ The new [`insert`](../api/reactivemongo/api/collections/GenericCollection.html#i
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.BSONDocument
 import reactivemongo.api.commands.{ MultiBulkWriteResult, WriteResult }
-import reactivemongo.api.collections.bson.BSONCollection
+
+import reactivemongo.api.bson.BSONDocument
+import reactivemongo.api.bson.collection.BSONCollection
 
 val document1 = BSONDocument(
   "firstName" -> "Stephane",
@@ -144,9 +223,8 @@ The new [`update`](../api/collections/GenericCollection.html#update(ordered:Bool
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.BSONDocument
-
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.BSONDocument
+import reactivemongo.api.bson.collection.BSONCollection
 
 def update1(personColl: BSONCollection) = {
   val selector = BSONDocument("name" -> "Jack")
@@ -188,9 +266,8 @@ The [`.delete`](../api/reactivemongo/api/collections/GenericCollection.html#dele
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.BSONDocument
-
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.BSONDocument
+import reactivemongo.api.bson.collection.BSONCollection
 
 def simpleDelete1(personColl: BSONCollection) =
   personColl.delete.one(BSONDocument("firstName" -> "Stephane"))
@@ -222,10 +299,9 @@ The [`arrayFilters`](https://docs.mongodb.com/manual/release-notes/3.6/#arrayfil
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.BSONDocument
-
 import reactivemongo.api.WriteConcern
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.BSONDocument
+import reactivemongo.api.bson.collection.BSONCollection
 
 def findAndUpdateArrayFilters(personColl: BSONCollection) =
   personColl.findAndModify(
@@ -258,81 +334,6 @@ def updateArrayFilters(personColl: BSONCollection) =
 
 More: [**Find documents**](./tutorial/find-documents.html), [**Write documents**](./tutorial/write-documents.html)
 
-### BSON library
-
-The current BSON library for ReactiveMongo has been updated.
-
-It now supports [BSON Decimal128](https://github.com/mongodb/specifications/blob/master/source/bson-decimal128/decimal128.rst#bson-decimal128-type-handling-in-drivers) (MongoDB 3.4+).
-
-The way `Option` is handled by the macros has been improved, also with a new annotation `@NoneAsNull`, which write `None` values as `BSONNull` (instead of omitting field/value).
-
-More: [**BSON Library overview**](./bson/overview.html)
-
-#### Types
-
-The [Decimal128](https://github.com/mongodb/specifications/blob/master/source/bson-decimal128/decimal128.rst) type introduced by MongoDB 3.4 is supported, as [`BSONDecimal`](../api/reactivemongo/bson/BSONDecimal$.html), and can be read or write as `java.math.BigDecimal`.
-
-#### Handlers
-
-A handler is now available to write and read Scala `Map` as BSON, provided the key and value types are themselves supported.
-
-{% highlight scala %}
-import reactivemongo.bson._
-
-def bsonMap = {
-  val input: Map[String, Int] = Map("a" -> 1, "b" -> 2)
-
-  // Ok as key and value (String, Int) are provided BSON handlers
-  val doc: BSONDocument = BSON.write(input)
-
-  val output = BSON.read[BSONDocument, Map[String, Int]](doc)
-}
-{% endhighlight %}
-
-#### Macros
-
-The compile-time option `AutomaticMaterialization` has been added, when using the macros with sealed family, to explicitly indicate when you want to automatically materialize required instances for the subtypes (if missing from the implicit scope).
-
-{% highlight scala %}
-sealed trait Color
-
-case object Red extends Color
-case object Blue extends Color
-case class Green(brightness: Int) extends Color
-case class CustomColor(code: String) extends Color
-
-object Color {
-  import reactivemongo.bson.Macros,
-    Macros.Options.{ AutomaticMaterialization, UnionType, \/ }
-
-  // Use `UnionType` to define a subset of the `Color` type,
-  type PredefinedColor =
-    UnionType[Red.type \/ Green \/ Blue.type] with AutomaticMaterialization
-
-  val predefinedColor = Macros.handlerOpts[Color, PredefinedColor]
-}
-{% endhighlight %}
-
-A new annotation [`@Flatten`](../api/reactivemongo/bson/Macros$$Annotations$$Flatten.html) has been added, to indicate to the macros that the representation of a property must be flatten rather than a nested document.
-
-{% highlight scala %}
-import reactivemongo.bson.BSONDocument
-import reactivemongo.bson.Macros.Annotations.Flatten
-
-case class Range(start: Int, end: Int)
-
-case class LabelledRange(
-  name: String,
-  @Flatten range: Range)
-
-// Flattened with macro as bellow:
-BSONDocument("name" -> "foo", "start" -> 0, "end" -> 1)
-
-// Rather than:
-// BSONDocument("name" -> "foo", "range" -> BSONDocument(
-//   "start" -> 0, "end" -> 1))
-{% endhighlight %}
-
 ### Aggregation
 
 There are newly supported by the [Aggregation Framework](./advanced-topics/aggregation.html).
@@ -344,7 +345,7 @@ The [`$addFields`](https://docs.mongodb.com/manual/reference/operator/aggregatio
 {% highlight javascript %}
 import scala.concurrent.ExecutionContext
 
-import reactivemongo.api.collections.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def sumHomeworkQuizz(students: BSONCollection) =
   students.aggregateWith1[BSONDocument]() { framework =>
@@ -366,9 +367,10 @@ The [`$bucketAuto`](https://docs.mongodb.com/manual/reference/operator/aggregati
 {% highlight scala %}
 import scala.concurrent.ExecutionContext
 
-import reactivemongo.bson._
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+
+import reactivemongo.api.bson._
+import reactivemongo.api.bson.collection.BSONCollection
 
 def populationBuckets(zipcodes: BSONCollection)(implicit ec: ExecutionContext) =
   zipcodes.aggregateWith1[BSONDocument]() { framework =>
@@ -386,10 +388,10 @@ If the goal is only to count the aggregated documents, the [`$count`](https://do
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.{ BSONDocument, BSONDocumentReader, BSONString }
-
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+
+import reactivemongo.api.bson.{ BSONDocument, BSONDocumentReader, BSONString }
+import reactivemongo.api.bson.collection.BSONCollection
 
 def countPopulatedStates1(col: BSONCollection): Future[Int] = {
   implicit val countReader = BSONDocumentReader[Int] { doc =>
@@ -414,10 +416,10 @@ The [`$filter`](https://docs.mongodb.com/master/reference/operator/aggregation/f
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.{ BSONArray, BSONDocument, BSONString }
-
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+
+import reactivemongo.api.bson.{ BSONArray, BSONDocument, BSONString }
+import reactivemongo.api.bson.collection.BSONCollection
 
 def salesWithItemGreaterThanHundered(sales: BSONCollection) =
   sales.aggregateWith1[BSONDocument]() { framework =>
@@ -442,9 +444,8 @@ The [`$replaceRoot`](https://docs.mongodb.com/manual/reference/operator/aggregat
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.BSONDocument
-
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.BSONDocument
+import reactivemongo.api.bson.collection.BSONCollection
 
 /* For a fruits collection:
 {
@@ -472,9 +473,10 @@ The [`$slice`](https://docs.mongodb.com/manual/reference/operator/aggregation/sl
 {% highlight scala %}
 import scala.concurrent.ExecutionContext
 
-import reactivemongo.bson._
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+
+import reactivemongo.api.bson._
+import reactivemongo.api.bson.collection.BSONCollection
 
 def sliceFavorites(coll: BSONCollection)(implicit ec: ExecutionContext) =
   coll.aggregateWith1[BSONDocument]() { framework =>
