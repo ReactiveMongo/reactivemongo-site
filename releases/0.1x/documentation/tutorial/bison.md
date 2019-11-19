@@ -100,7 +100,26 @@ val bsonMinKey = BSONMinKey
 val bsonMaxKey = BSONMaxKey
 {% endhighlight %}
 
+**Documents:**
+
 The API for [`BSONDocument`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONDocument.html) has been slightly updated, with the function `getAs` renamed as `getAsOpt` (to be consistent with `getAsTry`).
+
+New field utilities are provided for the most common types:
+
+{% highlight scala %}
+import reactivemongo.api.bson._
+
+def foo(doc: BSONDocument): Unit = {
+  val i: Option[Int] = doc.int("fieldNameInt")
+  val d: Option[Double] = doc.double("fieldNameDouble")
+  val l: Option[Long] = doc.long("fieldNameLong")
+  val s: Option[String] = doc.string("fieldNameStr")
+  val a: Option[Seq[BSONValue]] = doc.array("fieldNameArr")
+  val b: Option[Boolean] = doc.booleanLike("fieldNameBool")
+  val c: Option[BSONDocument] = doc.child("nestedDoc")
+  val _: List[BSONDocument] = doc.children("arrayOfDocs")
+}
+{% endhighlight %}
 
 > Note: The `BSONDocument` factories have been optimized and support more use cases.
 
@@ -110,6 +129,10 @@ The API for [`BSONDocument`](https://static.javadoc.io/org.reactivemongo/reactiv
 
   <figcaption style="font-size:x-small">Coefficient between new/old throughput (op/s; =1: no change, 1+: better thrpt). Source: <a rel="me external" href="https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/benchmarks/src/main/scala/BSONDocumentBenchmark.scala">BSONDocumentBenchmark</a>, <a rel="me external" href="https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/benchmarks/src/main/scala/BSONDocumentHandlerBenchmark.scala">BSONDocumentHandlerBenchmark</a></figcaption>
 </figure>
+
+<!-- TODO: ../images/bison-bench-array.png -->
+
+**Numeric values:**
 
 The traits [`BSONNumberLike`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONNumberLike.html) and [`BSONBooleanLike`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONBooleanLike.html) are also kept in the new API, to generalize the handling of numerical and boolean values.
 
@@ -127,6 +150,8 @@ val boolLike: Try[Boolean] = bsonBoolLike.flatMap(_.toBoolean) // =Success(true)
 {% endhighlight %}
 
 Now `Float` is handled as a BSON double (as `Double`, as it's now possible to have several Scala types corresponding to the same BSON type).
+
+The [Decimal128](https://github.com/mongodb/specifications/blob/master/source/bson-decimal128/decimal128.rst) type introduced by MongoDB 3.4 is also supported, as [`BSONDecimal`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONDecimal.html), and can be read or write as `java.math.BigDecimal`.
 
 {% highlight scala %}
 import scala.util.Try
@@ -147,6 +172,8 @@ def useNullBefore(bson: BSONNull.type) = println(".type was required")
 
 def useNullNow(bson: BSONNull) = print("Suffix no longer required")
 {% endhighlight %}
+
+**Binary values:**
 
 The `BSONBinary` extractor now only bind subtype:
 
