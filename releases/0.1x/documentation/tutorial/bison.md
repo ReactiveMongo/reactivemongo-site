@@ -195,6 +195,7 @@ def binExtractor = {
 - Type `BSONArray` is no longer an `ElementProducer` (only a value producer).
 - The function `BSONObjectID.valueAsArray` is renamed to `byteArray`.
 - The deprecated type `BSONDBPointer` is removed.
+- The scope property is now supported by `BSONJavascriptWS`
 
 **Summary:**
 
@@ -260,6 +261,13 @@ Some new handlers are provided by default, like those for [Java Time](https://do
 > Note: The handler for `java.util.Date` is replaced the handler for `java.time.Instant`.
 
 The error handling has also been improved, with more details (Note: `DocumentKeyNotFoundException` is the previous API is replaced with `BSONValueNotFoundException` in the new one).
+
+<figure>
+  <img src="../images/bison-bench-reader.png"
+    style="max-width:75%" alt="Reader benchmarks" />
+
+  <figcaption style="font-size:x-small">Coefficient between new/old throughput (op/s; =1: no change, 1+: better thrpt). Source: <a rel="me external" href="https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/benchmarks/src/main/scala/">BSON reader benchmarks</a></figcaption>
+</figure>
 
 ##### Macros
 
