@@ -6,6 +6,8 @@ title: Aggregation Framework
 
 ## Aggregation Framework
 
+<!-- TODO: Facet -->
+
 The [MongoDB Aggregation Framework](http://docs.mongodb.org/manual/reference/operator/aggregation/) is available through ReactiveMongo.
 
 - **[`$addFields`](#addFields)**: [Adds new fields](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/) to documents.

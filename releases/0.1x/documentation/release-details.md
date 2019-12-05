@@ -409,6 +409,33 @@ def countPopulatedStates1(col: BSONCollection): Future[Int] = {
 }
 {% endhighlight %}
 
+**facet:**
+
+The [`$facet`](https://docs.mongodb.com/manual/reference/operator/aggregation/facet/) stage is now supported, to create multi-faceted aggregations which characterize data across multiple dimensions, or facets.
+
+{% highlight scala %}
+import reactivemongo.api.bson.collection.BSONCollection
+
+def useFacetAgg(coll: BSONCollection) = {
+  import coll.aggregationFramework.{ Count, Facet, Out, UnwindField }
+
+  Facet(Seq(
+    "foo" -> (UnwindField("bar"), List(Count("c"))),
+    "lorem" -> (Out("ipsum"), List.empty)))
+  /* {
+    $facet: {
+      'foo': [
+        { '$unwind': '$bar' },
+        { '$count': 'c' }
+      ],
+      'lorem': [
+        { '$out': 'ipsum' }
+      ]
+    }
+  } */
+}
+{% endhighlight %}
+
 **filter:**
 
 The [`$filter`](https://docs.mongodb.com/master/reference/operator/aggregation/filter/#definition) stage is now supported.
