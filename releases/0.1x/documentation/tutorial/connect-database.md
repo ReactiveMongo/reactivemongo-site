@@ -6,22 +6,23 @@ title: Connect to the database
 
 ## Connect to the database
 
-The first thing you need, is to create a new [`MongoDriver`](../../api/reactivemongo/api/MongoDriver) instance.
+The first thing you need, is to create a new [`AsyncDriver`](../../api/reactivemongo/api/AsyncDriver) instance.
 
 {% highlight scala %}
-val driver1 = new reactivemongo.api.MongoDriver
+val driver1 = new reactivemongo.api.AsyncDriver
 {% endhighlight %}
 
-Then you can [connect](../../api/reactivemongo/api/MongoDriver#connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI,strictUri:Boolean):scala.util.Try[reactivemongo.api.MongoConnection]) to a MongoDB server.
+Then you can [connect](../../api/reactivemongo/api/AsyncDriver#connect(parsedURI:reactivemongo.api.MongoConnection.ParsedURI):scala.util.Try[reactivemongo.api.MongoConnection]) to a MongoDB server.
 
 {% highlight scala %}
+import scala.concurrent.Future
 import reactivemongo.api.MongoConnection
 
-val connection3: MongoConnection = driver1.connection(List("localhost"))
+val connection3: Future[MongoConnection] = driver1.connect(List("localhost"))
 {% endhighlight %}
 
-A `MongoDriver` instance manages the shared resources (e.g. the [actor system](http://akka.io) for the asynchronous processing); A connection manages a pool of network channels.
-In general, a `MongoDriver` or a [`MongoConnection`](../../api/reactivemongo/api/MongoConnection) should not be instantiated more than once.
+A `AsyncDriver` instance manages the shared resources (e.g. the [actor system](http://akka.io) for the asynchronous processing); A connection manages a pool of network channels.
+In general, a `AsyncDriver` or a [`MongoConnection`](../../api/reactivemongo/api/MongoConnection) should not be instantiated more than once.
 
 You can provide a list of one or more servers, the driver will guess if it's a standalone server or a replica set configuration. Even with one replica node, the driver will probe for other nodes and add them automatically.
 
@@ -33,7 +34,7 @@ Some options can be provided while creating a connection.
 import reactivemongo.api.MongoConnectionOptions
 
 val conOpts = MongoConnectionOptions(/* connection options */)
-val connection4 = driver1.connection(List("localhost"), options = conOpts)
+val connection4 = driver1.connect(List("localhost"), options = conOpts)
 {% endhighlight %}
 
 The following options can be used with `MongoConnectionOptions` to configure the connection behaviour.
@@ -120,7 +121,7 @@ Connecting to a replica set is pretty much the same as connecting to a unique se
 
 {% highlight scala %}
 val servers6 = List("server1:27017", "server2:27017", "server3:27017")
-val connection6 = driver1.connection(servers6)
+val connection6 = driver1.connect(servers6)
 {% endhighlight %}
 
 There is no obligation to give all the nodes in the replica set. Actually, just one of them is required.
@@ -128,23 +129,23 @@ ReactiveMongo will ask the nodes it can reach for the addresses of the other nod
 
 ### Using many connection instances
 
-In some (rare) cases it is perfectly viable to create as many [`MongoConnection`](../../api/reactivemongo/api/MongoConnection) instances you need, from a single [`MongoDriver`](../../api/reactivemongo/api/MongoDriver) instance.
+In some (rare) cases it is perfectly viable to create as many [`MongoConnection`](../../api/reactivemongo/api/MongoConnection) instances you need, from a single [`AsyncDriver`](../../api/reactivemongo/api/AsyncDriver) instance.
 
 In that case, you will get different connection pools. This is useful when your application has to connect to two or more independent MongoDB nodes (i.e. that do not belong to the same replica set), or different replica sets.
 
 {% highlight scala %}
 val serversReplicaSet1 = List("rs11", "rs12", "rs13")
-val connectionReplicaSet1 = driver1.connection(serversReplicaSet1)
+val connectionReplicaSet1 = driver1.connect(serversReplicaSet1)
 
 val serversReplicaSet2 = List("rs21", "rs22", "rs23")
-val connectionReplicaSet2 = driver1.connection(serversReplicaSet2)
+val connectionReplicaSet2 = driver1.connect(serversReplicaSet2)
 {% endhighlight %}
 
 ### Handling Authentication
 
 There are two ways to give ReactiveMongo your credentials.
 
-It can be done using [`driver.connection`](../../api/reactivemongo/api/MongoDriver#connection(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions,authentications:Seq[reactivemongo.core.nodeset.Authenticate],name:Option[String]):reactivemongo.api.MongoConnection).
+It can be done using [`driver.connection`](../../api/reactivemongo/api/AsyncDriver#connect(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions,authentications:Seq[reactivemongo.core.nodeset.Authenticate],name:Option[String]):reactivemongo.api.MongoConnection).
 
 {% highlight scala %}
 import reactivemongo.core.nodeset.Authenticate
@@ -155,7 +156,7 @@ val dbName = "somedatabase"
 val userName = "username"
 val password = "password"
 val credentials7 = List(Authenticate(dbName, userName, Some(password)))
-val connection7 = driver1.connection(servers7, authentications = credentials7)
+val connection7 = driver1.connect(servers7, authentications = credentials7)
 {% endhighlight %}
 
 Using this `connection` function [with an URI](#connect-using-mongodb-uri) allows to indicates the credentials in this URI.
@@ -193,22 +194,24 @@ If credentials and the database name are included in the URI, ReactiveMongo will
 
 {% highlight scala %}
 import scala.util.Try
-import reactivemongo.api.MongoConnection
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+import reactivemongo.api.{ AsyncDriver, MongoConnection }
 
 // connect to the replica set composed of `host1:27018`, `host2:27019` and `host3:27020`
 // and authenticate on the database `somedb` with user `user123` and password `passwd123`
 val uri = "mongodb://user123:passwd123@host1:27018,host2:27019,host3:27020/somedb"
 
-def connection7a(driver: reactivemongo.api.MongoDriver): Try[MongoConnection] =
-  MongoConnection.parseURI(uri).map { parsedUri =>
-    driver.connection(parsedUri)
+def connection7a(driver: AsyncDriver): Future[MongoConnection] =
+  Future.fromTry(MongoConnection parseURI uri).flatMap { parsedUri =>
+    driver.connect(parsedUri)
   }
 
-def connection7b(driver: reactivemongo.api.MongoDriver): Try[MongoConnection] =
+def connection7b(driver: AsyncDriver): Future[MongoConnection] =
   for {
-    parsedUri <- MongoConnection.parseURI(uri)
-    connection <- driver.connection(parsedUri, strictUri = true)
-  } yield connection // strictUri ~> validate all URI options are supported
+    parsedUri <- Future.fromTry(MongoConnection parseURI uri)
+    connection <- driver.connect(parsedUri)
+  } yield connection
 
 {% endhighlight %}
 
@@ -217,15 +220,15 @@ The following example is using a connection to asynchronously resolve a database
 {% highlight scala %}
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
-import reactivemongo.api.{ MongoDriver, MongoConnection }
+import reactivemongo.api.{ AsyncDriver, MongoConnection }
 
 val mongoUri = "mongodb://host:port/db"
 
-val driver = new MongoDriver
+val driver = new AsyncDriver
 
 val database = for {
   uri <- Future.fromTry(MongoConnection.parseURI(mongoUri))
-  con = driver.connection(uri)
+  con <- driver.connect(uri)
   dn <- Future(uri.db.get)
   db <- con.database(dn)
 } yield db
@@ -242,8 +245,8 @@ Note that [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-st
 {% highlight scala %}
 import reactivemongo.api._
 
-def seedListCon(driver: MongoDriver) =
-  driver.connection("mongodb+srv://usr:pass@mymongo.mydomain.tld/mydb")
+def seedListCon(driver: AsyncDriver) =
+  driver.connect("mongodb+srv://usr:pass@mymongo.mydomain.tld/mydb")
 {% endhighlight %}
 
 *See:*
@@ -279,13 +282,13 @@ In order to make sure such optimization is loaded, you can enable the `INFO` lev
 
 Do not get confused here: a `MongoConnection` is a _logical_ connection, not a physical one (not a network channel); It's actually a _connection pool_. By default, a `MongoConnection` creates 10 _physical_ network channels to each node; It can be tuned this by setting the `rm.nbChannelsPerNode` options (see the [connection options](#connection-options]).
 
-**Why are `MongoDriver` and `MongoConnection` distinct?**
+**Why are `AsyncDriver` and `MongoConnection` distinct?**
 
-They manage two different things. `MongoDriver` holds the actor system, and `MongoConnection` the references to the actors. This is useful because it enables to work with many different single nodes or replica sets. Thus, your application can communicate with different replica sets or single nodes, with only one `MongoDriver` instance.
+They manage two different things. `AsyncDriver` holds the actor system, and `MongoConnection` the references to the actors. This is useful because it enables to work with many different single nodes or replica sets. Thus, your application can communicate with different replica sets or single nodes, with only one `AsyncDriver` instance.
 
 **Creation Costs:**
 
-`MongoDriver` and `MongoConnection` involve creation costs:
+`AsyncDriver` and `MongoConnection` involve creation costs:
 
 - the driver creates a new [`actor system`](http://akka.io/),
 - and the connection, will connect to the servers (creating network channels).
@@ -329,7 +332,7 @@ If one of the error is seen, first retry/refresh to check it wasn't a temporary 
 
 If using the [Play module](./play.html), the `strictUri` setting can be enabled (e.g. `mongodb.connection.strictUri=true`).
 
-If calling directly the function [`MongoDriver.connection`](../../api/reactivemongo/api/MongoDriver#connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI,strictUri:Boolean):scala.util.Try[reactivemongo.api.MongoConnection]), the `strictUri` parameter can be set to `true`.
+If calling directly the function [`AsyncDriver.connection`](../../api/reactivemongo/api/AsyncDriver#connect(parsedURI:reactivemongo.api.MongoConnection.ParsedURI,strictUri:Boolean):scala.util.Try[reactivemongo.api.MongoConnection]), the `strictUri` parameter can be set to `true`.
 
 Connect without any non mandatory options (e.g. `connectTimeoutMS`), using the [SBT Playground](https://github.com/cchantep/RM-SBT-Playground) to try the alternative URI.
 
@@ -346,9 +349,9 @@ def troubleshootAuth() = {
   val dbname = "db-name"
   val user = "your-user"
   val pass = "your-password"
-  val driver = MongoDriver()
+  val driver = AsyncDriver()
   
-  Future.fromTry(driver.connection(strictUri)).flatMap {
+  driver.connect(strictUri).flatMap {
     _.authenticate(dbname, user, pass)
   }.onComplete {
     case res => println(s"Auth: $res")

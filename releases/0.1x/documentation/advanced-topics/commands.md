@@ -44,7 +44,7 @@ def run1(collection: BSONCollection) = {
 
 Some widely used commands, like [`Count`](../../api/reactivemongo/api/commands/CountCommand) or [`FindAndModify`](../../api/reactivemongo/api/commands/FindAndModifyCommand), are available in ReactiveMongo. But how to run commands that are not yet provided as operations?
 
-### Run any command with `RawCommand`
+### Run a raw command
 
 It is possible to run any kind of command, even if they are not yet specifically implemented in ReactiveMongo. Since a command in MongoDB is nothing more than a query on the special collection `$cmd`, you can make your own command.
 
@@ -77,35 +77,33 @@ var command =
 db.runCommand(command)
 {% endhighlight %}
 
-We do exactly the same thing with `RawCommand`, by making a `BSONDocument` that contains the same fields:
+We do exactly the same thing with raw command, using document that contains the same fields:
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
 
-import reactivemongo.bson.{ BSONArray, BSONDocument }
+import reactivemongo.api.bson.{ BSONArray, BSONDocument }
 
 import reactivemongo.api.{
-  BSONSerializationPack, FailoverStrategy, ReadPreference
+  DefaultDB, FailoverStrategy, ReadPreference
 }
 import reactivemongo.api.commands.Command
 
-def commandResult(db: reactivemongo.api.DefaultDB)(implicit ec: ExecutionContext): Future[BSONDocument] = {
+def commandResult(db: DefaultDB)(implicit ec: ExecutionContext): Future[BSONDocument] = {
   val commandDoc = BSONDocument(
     "aggregate" -> "orders", // we aggregate on collection `orders`
     "pipeline" -> BSONArray(
-      BSONDocument("$match" -> BSONDocument("status" -> "A")),
+      BSONDocument(f"$$match" -> BSONDocument("status" -> "A")),
       BSONDocument(
-        "$group" -> BSONDocument(
-          "_id" -> "$cust_id",
-          "total" -> BSONDocument("$sum" -> "$amount"))),
-      BSONDocument("$sort" -> BSONDocument("total" -> -1))
+        f"$$group" -> BSONDocument(
+          "_id" -> f"$$cust_id",
+          "total" -> BSONDocument(f"$$sum" -> f"$$amount"))),
+      BSONDocument(f"$$sort" -> BSONDocument("total" -> -1))
     )
   ) // For example, otherwise rather use `.aggregatorContext` with a collection
 
-  val runner = Command.run(BSONSerializationPack, FailoverStrategy())
-
-  runner.apply(db, runner.rawCommand(commandDoc)).
-    one[BSONDocument](ReadPreference.Primary)
+  db.runCommand(commandDoc, FailoverStrategy.default).
+    cursor[BSONDocument](ReadPreference.primaryPreferred).head
 }
 {% endhighlight %}
 

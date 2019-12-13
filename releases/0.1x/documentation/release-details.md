@@ -54,7 +54,9 @@ This can be considered as a recommended environment.
 
 ### Connection options
 
-The following options are deprecated:
+The `MongoDriver` type is replaced by `AsyncDriver`, with asynchronous methods.
+
+Also, the following options are deprecated:
 
 - `authSource` replaced by `authenticationDatabase` (as the MongoShell option)
 - `authMode` replaced by `authenticationMechanism` (as the MongoShell option)
@@ -71,8 +73,8 @@ The [x.509 certificate authentication](https://docs.mongodb.com/manual/tutorial/
 {% highlight scala %}
 import reactivemongo.api._
 
-def connection(driver: MongoDriver) =
-  driver.connection("mongodb://server:27017/db?ssl=true&authenticationMechanism=x509&keyStore=file:///path/to/keystore.p12&keyStoreType=PKCS12")
+def connection(driver: AsyncDriver) =
+  driver.connect("mongodb://server:27017/db?ssl=true&authenticationMechanism=x509&keyStore=file:///path/to/keystore.p12&keyStoreType=PKCS12")
 {% endhighlight %}
 
 The [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) is now supported, using `mongodb+srv://` scheme in the connection URI.
@@ -81,8 +83,8 @@ It's also possible to specify the credential directly in the URI.
 {% highlight scala %}
 import reactivemongo.api._
 
-def seedListCon(driver: MongoDriver) =
-  driver.connection("mongodb+srv://usr:pass@mymongo.mydomain.tld/mydb")
+def seedListCon(driver: AsyncDriver) =
+  driver.connect("mongodb+srv://usr:pass@mymongo.mydomain.tld/mydb")
 {% endhighlight %}
 
 The option `rm.monitorRefreshMS` is renamed [`heartbeatFrequencyMS`](https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-discovery-and-monitoring.rst#heartbeatfrequencyms).
@@ -379,6 +381,9 @@ def populationBuckets(zipcodes: BSONCollection)(implicit ec: ExecutionContext) =
     BucketAuto(BSONString(f"$$population"), 2, None)() -> List.empty
   }.collect[Set](Int.MaxValue, Cursor.FailOnError[Set[BSONDocument]]())
 {% endhighlight %}
+
+<!-- TODO: stage: replaceWith, set, sortByCount, unset, currentOp, listLocalSessions, listSessions, merge, bucket, collStats, planCacheStats, abs, acos, acosh, allElementsTrue, and -->
+<!-- TODO: group accumulators: mergeObjects -->
 
 **count:**
 

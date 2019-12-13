@@ -15,7 +15,7 @@ Then the following code, from connection to operations on a collection, can be u
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
 
-import reactivemongo.api.{ Cursor, DefaultDB, MongoConnection, MongoDriver }
+import reactivemongo.api.{ Cursor, DefaultDB, MongoConnection, AsyncDriver }
 import reactivemongo.bson.{
   BSONDocumentWriter, BSONDocumentReader, Macros, document
 }
@@ -27,12 +27,11 @@ object GetStarted {
   import ExecutionContext.Implicits.global // use any appropriate context
 
   // Connect to the database: Must be done only once per application
-  val driver = MongoDriver()
-  val parsedUri = MongoConnection.parseURI(mongoUri)
-  val connection = parsedUri.map(driver.connection(_))
+  val driver = AsyncDriver()
+  val parsedUri = Future.fromTry(MongoConnection parseURI mongoUri)
 
   // Database and collections: Get references
-  val futureConnection = Future.fromTry(connection)
+  val futureConnection = parsedUri.flatMap(driver.connect(_))
   def db1: Future[DefaultDB] = futureConnection.flatMap(_.database("firstdb"))
   def db2: Future[DefaultDB] = futureConnection.flatMap(_.database("anotherdb"))
   def personCollection = db1.map(_.collection("person"))
