@@ -48,10 +48,10 @@ This serialization is based on the [MongoDB Extension JSON](https://docs.mongodb
 | [BSONBoolean](../../api/reactivemongo/bson/BSONBoolean.html) | [JsBoolean](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.JsBoolean) |
 | [BSONDBPointer](../../api/reactivemongo/bson/BSONDBPointer.html) | *No JSON type* |
 | [BSONDateTime](../../api/reactivemongo/bson/BSONDateTime.html) | `JsObject` with a `$date` `JsNumber` field with the timestamp (milliseconds) as value |
-| [BSONDouble](../../api/reactivemongo/bson/BSONDouble.html) | [JsNumber](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.JsNumber) |
-| [BSONInteger](../../api/reactivemongo/bson/BSONInteger.html) | `JsNumber` |
+| [BSONDouble](../../api/reactivemongo/bson/BSONDouble.html) | [JsNumber](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.JsNumber) or `JsObject` with `$numberDouble` value |
+| [BSONInteger](../../api/reactivemongo/bson/BSONInteger.html) | `JsNumber` or `JsObject` with `$numberInt` value |
 | [BSONJavaScript](../../api/reactivemongo/bson/BSONJavaScript.html) | `JsObject` with a `$javascript` `JsString` value representing the [JavaScript code](../../api/reactivemongo/bson/BSONJavaScript#value:String) |
-| [BSONLong](../../api/reactivemongo/bson/BSONLong.html) | `JsNumber` |
+| [BSONLong](../../api/reactivemongo/bson/BSONLong.html) | `JsNumber` or `JsObject` with `$numberLong` value |
 | [BSONMaxKey](../../api/reactivemongo/bson/BSONMaxKey$.html) | `JsObject` as constant `{ "$maxKey": 1 }` |
 [BSONMinKey](../../api/reactivemongo/bson/BSONMinKey$.html) | `JsObject` as constant `{ "$minKey": 1 }` |
 | [BSONNull](../../api/reactivemongo/bson/BSONNull$.html) | *No JSON type* |
