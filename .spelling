@@ -281,6 +281,23 @@ DefaultDB.this.DBType
 reactivemongo.api.bson.MacroConfiguration.Aux
 reactivemongo.api.bson.BSONValue
 reactivemongo.api.bson.BSONObjectID
+reactivemongo.api.bson.BSONString
+reactivemongo.api.bson.BSONJavaScript
+reactivemongo.api.bson.BSONDateTime
+reactivemongo.api.bson.BSONTimestamp
+reactivemongo.api.bson.BSONBinary
+reactivemongo.api.bson.BSONRegex
+reactivemongo.api.bson.BSONDouble
+reactivemongo.api.bson.BSONInteger
+reactivemongo.api.bson.BSONLong
+reactivemongo.api.bson.BSONBoolean
+reactivemongo.api.bson.BSONMinKey.type
+reactivemongo.api.bson.BSONMaxKey.type
+reactivemongo.api.bson.BSONNull.type
+reactivemongo.api.bson.BSONSymbol
+reactivemongo.api.bson.BSONArray
+reactivemongo.api.bson.BSONDocument
+reactivemongo.api.bson.BSONUndefined.type
 
 # Geo
 JP

@@ -35,8 +35,8 @@ import scala.concurrent.Future
 import akka.stream.Materializer
 import akka.stream.scaladsl.{ Sink, Source }
 
-import reactivemongo.bson.BSONDocument
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.BSONDocument
+import reactivemongo.api.bson.collection.BSONCollection
 
 import reactivemongo.akkastream.{ State, cursorProducer }
 // Provides the cursor producer with the Akka Stream capabilities
@@ -65,13 +65,13 @@ import akka.NotUsed
 import akka.stream.Materializer
 import akka.stream.scaladsl.{ Sink, Source }
 
-import reactivemongo.bson.BSONDocument
+import reactivemongo.api.bson.BSONDocument
 
 def processPerson2(sourceOfPeople: Source[BSONDocument, NotUsed])(implicit m: Materializer): Future[Float] = {
   val cumulateAge: Sink[BSONDocument, Future[(Int, Int)]] =
     Sink.fold(0 -> 0) {
       case ((cumulatedAge, n), doc) =>
-        val age = doc.getAs[Int]("age").getOrElse(0)
+        val age = doc.getAsOpt[Int]("age").getOrElse(0)
         (cumulatedAge + age, n + 1)
     }
 
@@ -123,8 +123,8 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 import play.api.libs.iteratee._
 
-import reactivemongo.bson.BSONDocument
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.BSONDocument
+import reactivemongo.api.bson.collection.BSONCollection
 
 import reactivemongo.play.iteratees.cursorProducer
 // Provides the cursor producer with the Iteratees capabilities
@@ -135,7 +135,7 @@ def processPerson3(collection: BSONCollection, query: BSONDocument): Future[Unit
 
   val processDocuments: Iteratee[BSONDocument, Unit] =
     Iteratee.foreach { person =>
-      val lastName = person.getAs[String]("lastName")
+      val lastName = person.getAsOpt[String]("lastName")
       val prettyBson = BSONDocument.pretty(person)
       println(s"found $lastName: $prettyBson")
     }
@@ -184,13 +184,13 @@ import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import play.api.libs.iteratee._
-import reactivemongo.bson.BSONDocument
+import reactivemongo.api.bson.BSONDocument
 
 def processPerson4(enumeratorOfPeople: Enumerator[BSONDocument]) = {
   val cumulateAge: Iteratee[BSONDocument, (Int, Int)] =
     Iteratee.fold(0 -> 0) {
       case ((cumulatedAge, n), doc) =>
-        val age = doc.getAs[Int]("age").getOrElse(0)
+        val age = doc.getAsOpt[Int]("age").getOrElse(0)
         (cumulatedAge + age, n + 1)
     }
 

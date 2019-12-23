@@ -12,7 +12,7 @@ Once you have a connection and [resolved the database](./connect-database.html),
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 import reactivemongo.api.MongoConnection
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def dbFromConnection(connection: MongoConnection): Future[BSONCollection] =
   connection.database("somedatabase").

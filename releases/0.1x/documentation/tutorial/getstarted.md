@@ -16,7 +16,7 @@ Then the following code, from connection to operations on a collection, can be u
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.{ Cursor, DefaultDB, MongoConnection, AsyncDriver }
-import reactivemongo.bson.{
+import reactivemongo.api.bson.{
   BSONDocumentWriter, BSONDocumentReader, Macros, document
 }
 

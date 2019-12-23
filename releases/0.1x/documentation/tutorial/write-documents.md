@@ -18,9 +18,9 @@ import scala.util.{ Failure, Success }
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.BSONDocument
+import reactivemongo.api.bson.BSONDocument
 import reactivemongo.api.commands.{ MultiBulkWriteResult, WriteResult }
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 val document1 = BSONDocument(
   "firstName" -> "Stephane",
@@ -71,7 +71,7 @@ Like all the other collection operations (in [`GenericCollection`](../../api/rea
 import scala.util.{ Failure, Success }
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 val person = Person("Stephane Godbillon", 29)
 
@@ -100,7 +100,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api.commands.WriteResult
 
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def insertErrors(personColl: BSONCollection) = {
   val future: Future[WriteResult] = personColl.insert.one(person)
@@ -126,9 +126,9 @@ Updates are done with the [`update`](../../api/collections/GenericCollection.htm
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.BSONDocument
+import reactivemongo.api.bson.BSONDocument
 
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def update1(personColl: BSONCollection) = {
   val selector = BSONDocument("name" -> "Jack")
@@ -171,8 +171,8 @@ The [`arrayFilters`](https://docs.mongodb.com/manual/reference/command/update/#u
 {% highlight scala %}
 import scala.concurrent.ExecutionContext
 
-import reactivemongo.bson.BSONDocument
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.BSONDocument
+import reactivemongo.api.bson.collection.BSONCollection
 
 def updateArrayFilters(personColl: BSONCollection)(
   implicit ec: ExecutionContext) =
@@ -197,9 +197,9 @@ import scala.util.{ Failure, Success }
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.BSONDocument
+import reactivemongo.api.bson.BSONDocument
 
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def simpleDelete1(personColl: BSONCollection) = {
   val selector1 = BSONDocument("firstName" -> "Stephane")
@@ -241,16 +241,15 @@ In the case you want to update the age of a document in a collection of persons,
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.{ BSONDocument, Macros }
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.{ BSONDocument, Macros }
+import reactivemongo.api.bson.collection.BSONCollection
 
 case class Person(name: String, age: Int)
 
 def update(collection: BSONCollection, age: Int): Future[Option[Person]] = {
-  import collection.BatchCommands.FindAndModifyCommand.FindAndModifyResult
   implicit val reader = Macros.reader[Person]  
   
-  val result: Future[FindAndModifyResult] = collection.findAndUpdate(
+  val result = collection.findAndUpdate(
     BSONDocument("name" -> "James"),
     BSONDocument("$set" -> BSONDocument("age" -> 17)),
     fetchNewObject = true)
@@ -265,12 +264,12 @@ As on a simple update, it's possible to insert a new document when one does not 
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.{ BSONDocument, Macros }
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.{ BSONDocument, Macros }
+import reactivemongo.api.bson.collection.BSONCollection
 
 implicit val writer = Macros.writer[Person]
 
-def result(coll: BSONCollection): Future[coll.BatchCommands.FindAndModifyCommand.FindAndModifyResult] = coll.findAndUpdate(
+def result(coll: BSONCollection) = coll.findAndUpdate(
   BSONDocument("name" -> "James"),
   Person(name = "Foo", age = 25),
   upsert = true)
@@ -282,8 +281,8 @@ The [`findAndModify`](../../api/reactivemongo/api/collections/GenericCollection.
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
 
-import reactivemongo.bson.{ BSONDocument, BSONDocumentReader }
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.{ BSONDocument, BSONDocumentReader }
+import reactivemongo.api.bson.collection.BSONCollection
 
 def removedPerson(coll: BSONCollection, name: String)(implicit ec: ExecutionContext, reader: BSONDocumentReader[Person]): Future[Option[Person]] =
   coll.findAndRemove(BSONDocument("name" -> name)).
@@ -296,10 +295,10 @@ As when [using `update`](#update-a-document) [`arrayFilters`](https://docs.mongo
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.BSONDocument
+import reactivemongo.api.bson.BSONDocument
 
 import reactivemongo.api.WriteConcern
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def findAndUpdateArrayFilters(personColl: BSONCollection) =
   personColl.findAndModify(
@@ -326,7 +325,7 @@ Starting in 3.6, MongoDB offers [session management](https://docs.mongodb.com/ma
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
 
-import reactivemongo.bson.BSONDocument
+import reactivemongo.api.bson.BSONDocument
 
 import reactivemongo.api.DefaultDB
 

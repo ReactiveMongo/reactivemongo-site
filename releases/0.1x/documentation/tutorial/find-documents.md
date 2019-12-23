@@ -16,8 +16,8 @@ Queries are performed in quite the same way as in the MongoDB Shell.
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson._
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson._
+import reactivemongo.api.bson.collection.BSONCollection
 
 def findOlder1(collection: BSONCollection): Future[Option[BSONDocument]] = {
   // { "age": { "$gt": 27 } }
@@ -33,10 +33,10 @@ Of course you can collect only a limited number of documents.
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.BSONDocument
+import reactivemongo.api.bson.BSONDocument
 
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def findOlder2(collection: BSONCollection) = {
   val query = BSONDocument("age" -> BSONDocument("$gt" -> 27))
@@ -58,10 +58,10 @@ It gives you the opportunity to add options to the query, like a sort order, pro
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.BSONDocument
+import reactivemongo.api.bson.BSONDocument
 
 import reactivemongo.api.{ Cursor, QueryOpts }
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def findNOlder(collection: BSONCollection, limit: Int) = {
   val querybuilder =
@@ -85,8 +85,8 @@ When your query is ready to be sent to MongoDB, you may just call one of the fol
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
-import reactivemongo.bson.BSONDocument
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.BSONDocument
+import reactivemongo.api.bson.collection.BSONCollection
 
 trait PersonService1 {
   def collection: BSONCollection
@@ -103,10 +103,10 @@ It must be given a Scala collection type, like [`List`](http://www.scala-lang.or
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
-import reactivemongo.bson.BSONDocument
+import reactivemongo.api.bson.BSONDocument
 
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 trait PersonService2 {
   def collection: BSONCollection
@@ -125,10 +125,10 @@ The return type of the `find` method is a `GenericQueryBuilder`, which enables t
 
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global
-import reactivemongo.bson.BSONDocument
+import reactivemongo.api.bson.BSONDocument
 
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def findOlder3(collection: BSONCollection) = {
   val query = BSONDocument("age" -> BSONDocument("$gt" -> 27))
@@ -145,7 +145,7 @@ def findOlder3(collection: BSONCollection) = {
 [As explained here](), you can use the `BSONDocumentReader` and `BSONDocumentWriter` typeclasses to handle de/serialization between `BSONDocument` and your model classes.
 
 {% highlight scala %}
-import reactivemongo.bson._
+import reactivemongo.api.bson._
 
 case class Person(
   id: BSONObjectID,
@@ -155,14 +155,12 @@ case class Person(
 
 object Person {
   implicit object PersonReader extends BSONDocumentReader[Person] {
-    def read(doc: BSONDocument): Person = {
-      val id = doc.getAs[BSONObjectID]("_id").get
-      val firstName = doc.getAs[String]("firstName").get
-      val lastName = doc.getAs[String]("lastName").get
-      val age = doc.getAs[Int]("age").get
-
-      Person(id, firstName, lastName, age)
-    }
+    def readDocument(doc: BSONDocument) = for {
+      id <- doc.getAsTry[BSONObjectID]("_id")
+      firstName <- doc.getAsTry[String]("firstName")
+      lastName <- doc.getAsTry[String]("lastName")
+      age <- doc.getAsTry[Int]("age")
+    } yield Person(id, firstName, lastName, age)
   }
 }
 {% endhighlight %}
@@ -174,10 +172,10 @@ This system is fully supported in the Collection API, so you can get the results
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
 
-import reactivemongo.bson.{ BSONDocument, BSONDocumentReader }
+import reactivemongo.api.bson.{ BSONDocument, BSONDocumentReader }
 
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def findOlder4(collection: BSONCollection)(implicit ec: ExecutionContext, reader: BSONDocumentReader[Person]): Future[List[Person]] = {
   val query = BSONDocument("age" -> BSONDocument("$gt" -> 27))

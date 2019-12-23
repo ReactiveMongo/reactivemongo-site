@@ -19,8 +19,8 @@ For example, let consider the case of the [support of Play JSON](https://github.
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.{ BSONDocument, BSONDocumentReader, Macros }
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.{ BSONDocument, BSONDocumentReader, Macros }
+import reactivemongo.api.bson.collection.BSONCollection
 
 case class Person(name: String, age: Int)
 
@@ -128,5 +128,5 @@ This function takes a `selector` (or query) of type `S`. This object is then tra
 
 ### Examples
 
-- The default implementation in ReactiveMongo: [`BSONCollection`](../../api/index.html#reactivemongo.api.collections.bson.BSONCollection). It relies on the embedded BSON library, with `BSONDocumentReader` and `BSONDocumentWriter` as the de/serializer typeclasses.
+- The default implementation in ReactiveMongo: [`BSONCollection`](../../api/index.html#reactivemongo.api.bson.collection.BSONCollection). It relies on the embedded BSON library, with `BSONDocumentReader` and `BSONDocumentWriter` as the de/serializer typeclasses.
 - The implementation in the Play JSON support, [`JSONCollection`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo-play-json_{{site._0_1x_scala_major}}-{{site._0_1x_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.play.json.collection.JSONCollection). It uses `JsObject` (a JSON object), and the de/serializer typeclasses `Writes` and `Reads`.
