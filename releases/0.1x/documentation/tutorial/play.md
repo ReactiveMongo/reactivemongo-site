@@ -203,7 +203,7 @@ For example, consider an action as follows.
 import javax.inject.Inject
 
 import play.api.mvc.{ AbstractController, ControllerComponents }
-import reactivemongo.bson.BSONObjectID
+import reactivemongo.api.bson.BSONObjectID
 
 class Application @Inject() (
   components: ControllerComponents) extends AbstractController(components) {
@@ -215,7 +215,7 @@ class Application @Inject() (
 
 This action can be configured with a [`BSONObjectID`](../../api/reactivemongo/bson/BSONObjectID.html) binding, in the `conf/routes` file.
 
-    GET /foo/:id controllers.Application.foo(id: reactivemongo.bson.BSONObjectID)
+    GET /foo/:id controllers.Application.foo(id: reactivemongo.api.bson.BSONObjectID)
 
 When using BSON types in the route bindings, the Play plugin for SBT must also be set up (in your `build.sbt` or `project/Build.scala`), to be able to install the appropriate import in the generated routes.
 
@@ -227,7 +227,7 @@ RoutesKeys.routesImport += "play.modules.reactivemongo.PathBindables._"
 
 If this routes import is not configured, errors as following will occur.
 
-    [error] /path/to/conf/routes:19: No URL path binder found for type reactivemongo.bson.BSONObjectID. Try to implement an implicit PathBindable for this type.
+    [error] /path/to/conf/routes:19: No URL path binder found for type reactivemongo.api.bson.BSONObjectID. Try to implement an implicit PathBindable for this type.
 
 Once this is properly set up, any BSON types can be used in your routes, and the appropriate validations are used.
 

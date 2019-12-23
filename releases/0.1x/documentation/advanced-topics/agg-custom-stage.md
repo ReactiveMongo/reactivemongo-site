@@ -11,8 +11,8 @@ You can also implement custom aggregate stage, using the [`PipelineOperator`](..
 {% highlight scala %}
 import scala.concurrent.ExecutionContext
 
-import reactivemongo.bson._
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson._
+import reactivemongo.api.bson.collection.BSONCollection
 
 def customAgg(coll: BSONCollection)(implicit ec: ExecutionContext) =
   coll.aggregateWith1[BSONDocument]() { framework =>

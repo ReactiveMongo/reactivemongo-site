@@ -13,14 +13,19 @@ title: Handle BigDecimal and BigInteger with the BSON Library
 #### Naive implementation using doubles
 
 {% highlight scala %}
-import reactivemongo.bson.{ BSONDouble, BSONHandler }
+import scala.util.{ Failure, Success }
+import reactivemongo.api.bson.{ BSONDouble, BSONHandler, BSONValue }
 
 // BigDecimal to BSONDouble Example
 // naive implementation, does not support values > Double.MAX_VALUE
 object BigDecimalBSONNaive {
-  implicit object BigDecimalHandler extends BSONHandler[BSONDouble, BigDecimal] {
-    def read(double: BSONDouble) = BigDecimal(double.value)
-    def write(bd: BigDecimal) = BSONDouble(bd.toDouble)
+  implicit object BigDecimalHandler extends BSONHandler[BigDecimal] {
+    def readTry(v: BSONValue) = v match {
+      case BSONDouble(double) => Success(BigDecimal(double))
+      case _ => Failure(new IllegalArgumentException())
+    }
+
+    def writeTry(bd: BigDecimal) = Success(BSONDouble(bd.toDouble))
   }
 }
 
@@ -29,7 +34,9 @@ object BigDecimalBSONNaive {
 ##### Example of Usage
 
 {% highlight scala %}
-import reactivemongo.bson.{
+import scala.util.Success
+
+import reactivemongo.api.bson.{
   BSON, BSONDocument, BSONDocumentReader, BSONDocumentWriter
 }
 
@@ -37,35 +44,41 @@ case class SomeClass(bigd: BigDecimal)
 
 // USING HAND WRITTEN HANDLER
 implicit object SomeClassHandler extends BSONDocumentReader[SomeClass] with BSONDocumentWriter[SomeClass] {
-  def read(doc: BSONDocument) = SomeClass(doc.getAs[BigDecimal]("bigd").get)
+  def readDocument(doc: BSONDocument) =
+    doc.getAsTry[BigDecimal]("bigd").map(SomeClass(_))
 
-  def write(sc: SomeClass) = BSONDocument("bigd" -> sc.bigd)
+  def writeTry(sc: SomeClass) = Success(BSONDocument("bigd" -> sc.bigd))
 }
+
 // OR, USING MACROS
 // implicit val someClassHandler = Macros.handler[SomeClass]
 
 val sc1 = SomeClass(BigDecimal(1786381))
-val bsonSc1 = BSON.write(sc1)
-val sc1FromBSON = BSON.readDocument[SomeClass](bsonSc1)
+val bsonSc1 = BSON.writeDocument(sc1)
+val sc1FromBSON = bsonSc1.flatMap { b => BSON.readDocument[SomeClass](b) }
 {% endhighlight %}
 
 #### Exact BigDecimal de/serialization
 
 {% highlight scala %}
-import reactivemongo.bson.{
+import scala.util.Success
+
+import reactivemongo.api.bson.{
   BSONDocument, BSONDocumentReader, BSONDocumentWriter
 }
 
 object BSONBigDecimalBigInteger {
   implicit object BigDecimalHandler extends BSONDocumentReader[BigDecimal] with BSONDocumentWriter[BigDecimal] {
-    def write(bigDecimal: BigDecimal) = BSONDocument(
+    def writeTry(bigDecimal: BigDecimal) = Success(BSONDocument(
       "scale" -> bigDecimal.scale,
       "precision" -> bigDecimal.precision,
-      "value" -> BigInt(bigDecimal.underlying.unscaledValue()))
-    def read(doc: BSONDocument) = BigDecimal.apply(
-      doc.getAs[BigInt]("value").get,
-      doc.getAs[Int]("scale").get,
-      new java.math.MathContext(doc.getAs[Int]("precision").get))
+      "value" -> BigInt(bigDecimal.underlying.unscaledValue())))
+
+    def readDocument(doc: BSONDocument) = for {
+      v <- doc.getAsTry[BigInt]("value")
+      s <- doc.getAsTry[Int]("scale")
+      p <- doc.getAsTry[Int]("precision").map { new java.math.MathContext(_) }
+    } yield BigDecimal(v, s, p)
   }
 }
 {% endhighlight %}
@@ -73,33 +86,36 @@ object BSONBigDecimalBigInteger {
 ##### Example of usage
 
 {% highlight scala %}
-import reactivemongo.bson.BSON
+import reactivemongo.api.bson.BSON
 
 val bigDecimal = BigDecimal(1908713, 12)
 
 val someClassValue = SomeClass(BigDecimal(1908713, 12))
 val bsonBigDecimal = BSON.writeDocument(someClassValue)
-val someClassValueFromBSON = BSON.readDocument[SomeClass](bsonBigDecimal)
+
+val someClassValueFromBSON =
+  bsonBigDecimal.flatMap { BSON.readDocument[SomeClass](_) }
 {% endhighlight %}
 
 ### BigInteger
 
 {% highlight scala %}
-import reactivemongo.bson.{
+import scala.util.Success
+
+import reactivemongo.api.bson.{
   BSONBinary, BSONDocument, BSONDocumentReader, BSONDocumentWriter, Subtype
 }
 
 implicit object BigIntHandler 
   extends BSONDocumentReader[BigInt] with BSONDocumentWriter[BigInt] {
 
-  def write(bigInt: BigInt): BSONDocument = BSONDocument(
+  def writeTry(bigInt: BigInt) = Success(BSONDocument(
     "signum" -> bigInt.signum,
-    "value" -> BSONBinary(bigInt.toByteArray, Subtype.UserDefinedSubtype))
-  def read(doc: BSONDocument): BigInt = BigInt(
-    doc.getAs[Int]("signum").get,
-    {
-      val buf = doc.getAs[BSONBinary]("value").get.value
-      buf.readArray(buf.readable)
-    })
+    "value" -> BSONBinary(bigInt.toByteArray, Subtype.UserDefinedSubtype)))
+
+  def readDocument(doc: BSONDocument) = for {
+    sig <- doc.getAsTry[Int]("signum")
+    bin <- doc.getAsTry[BSONBinary]("value")
+  } yield BigInt(sig, bin.byteArray)
 }
 {% endhighlight %}

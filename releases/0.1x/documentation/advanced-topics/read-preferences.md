@@ -21,9 +21,9 @@ The Read preference can be chosen globally using the [`MongoConnectionOptions`](
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.BSONDocument
+import reactivemongo.api.bson.BSONDocument
 import reactivemongo.api.{ Cursor, ReadPreference }
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def readFromSecondary1(collection: BSONCollection) = 
   collection.find(BSONDocument("city" -> "San Francisco")).
@@ -78,9 +78,9 @@ Then we can tell ReactiveMongo to query only from the nodes which are tagged wit
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.BSONDocument
+import reactivemongo.api.bson.BSONDocument
 import reactivemongo.api.ReadPreference
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def readFromSecondary2(collection: BSONCollection) = 
   collection.find(BSONDocument("city" -> "San Francisco")).
