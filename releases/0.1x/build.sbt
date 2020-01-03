@@ -6,7 +6,7 @@ val majorVer = "0"
 
 version := majorVer
 
-val Release = s"${majorVer}.19.7"
+val Release = s"${majorVer}.20.0"
 
 scalaVersion := "2.12.10"
 
@@ -34,7 +34,3 @@ libraryDependencies ++= {
 libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play" % "2.7.1",
   "com.typesafe.play" %% "play-iteratees" % "2.6.1"/*streaming doc*/)
-
-resolvers ++= Seq(
-  "Typesafe releases" at "http://repo.typesafe.com/typesafe/releases/",
-  "Sonatype Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/")

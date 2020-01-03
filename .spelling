@@ -318,6 +318,7 @@ GeoMultiPolygon
 GeometryCollection
 GeoGeometryCollection
 GeoPoint
+BSONArrayBenchmark
 
 warry
 Maxime

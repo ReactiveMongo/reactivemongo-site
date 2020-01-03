@@ -121,7 +121,7 @@ def foo(doc: BSONDocument): Unit = {
 }
 {% endhighlight %}
 
-> Note: The `BSONDocument` factories have been optimized and support more use cases.
+> Note: The `BSONDocument` and `BSONArray` factories have been optimized and support more use cases.
 
 <figure>
   <img src="../images/bison-bench-doc.png"
@@ -130,7 +130,12 @@ def foo(doc: BSONDocument): Unit = {
   <figcaption style="font-size:x-small">Coefficient between new/old throughput (op/s; =1: no change, 1+: better thrpt). Source: <a rel="me external" href="https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/benchmarks/src/main/scala/BSONDocumentBenchmark.scala">BSONDocumentBenchmark</a>, <a rel="me external" href="https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/benchmarks/src/main/scala/BSONDocumentHandlerBenchmark.scala">BSONDocumentHandlerBenchmark</a></figcaption>
 </figure>
 
-<!-- TODO: ../images/bison-bench-array.png -->
+<figure>
+  <img src="../images/bison-bench-array.png"
+    style="max-width:75%" alt="Array benchmarks" />
+
+  <figcaption style="font-size:x-small">Coefficient between new/old throughput (op/s; =1: no change, 1+: better thrpt). Source: <a rel="me external" href="https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/benchmarks/src/main/scala/BSONArrayBenchmark.scala">BSONArrayBenchmark</a></figcaption>
+</figure>
 
 **Numeric values:**
 
