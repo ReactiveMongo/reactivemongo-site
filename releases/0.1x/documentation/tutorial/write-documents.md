@@ -264,16 +264,17 @@ As on a simple update, it's possible to insert a new document when one does not 
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.api.bson.{ BSONDocument, Macros }
+import reactivemongo.api.bson.{ BSONDocument, BSONDocumentHandler, Macros }
 import reactivemongo.api.bson.collection.BSONCollection
 
-implicit val writer = Macros.writer[Person]
+implicit val handler: BSONDocumentHandler[Person] = Macros.handler[Person]
 
-def result(coll: BSONCollection) = coll.findAndUpdate(
-  BSONDocument("name" -> "James"),
-  Person(name = "Foo", age = 25),
-  upsert = true)
-  // insert a new document if a matching one does not already exist
+/** Insert a new document if a matching one does not already exist. */
+def result(coll: BSONCollection): Future[Option[Person]] =
+  coll.findAndUpdate(
+    BSONDocument("name" -> "James"),
+    Person(name = "Foo", age = 25),
+    upsert = true).map(_.result[Person])
 {% endhighlight %}
 
 The [`findAndModify`](../../api/reactivemongo/api/collections/GenericCollection.GenericCollection#findAndModify[Q]%28selector:Q,modifier:GenericCollection.this.BatchCommands.FindAndModifyCommand.Modify,sort:Option[GenericCollection.this.pack.Document]%29%28implicitselectorWriter:GenericCollection.this.pack.Writer[Q],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[GenericCollection.this.BatchCommands.FindAndModifyCommand.FindAndModifyResult]) approach can be used on removal.

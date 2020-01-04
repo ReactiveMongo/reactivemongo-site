@@ -202,17 +202,10 @@ import reactivemongo.api.{ AsyncDriver, MongoConnection }
 // and authenticate on the database `somedb` with user `user123` and password `passwd123`
 val uri = "mongodb://user123:passwd123@host1:27018,host2:27019,host3:27020/somedb"
 
-def connection7a(driver: AsyncDriver): Future[MongoConnection] =
-  Future.fromTry(MongoConnection parseURI uri).flatMap { parsedUri =>
-    driver.connect(parsedUri)
-  }
-
-def connection7b(driver: AsyncDriver): Future[MongoConnection] =
-  for {
-    parsedUri <- Future.fromTry(MongoConnection parseURI uri)
-    connection <- driver.connect(parsedUri)
-  } yield connection
-
+def connection7(driver: AsyncDriver): Future[MongoConnection] = for {
+  parsedUri <- MongoConnection.fromString(uri)
+  con <- driver.connect(parsedUri)
+} yield con
 {% endhighlight %}
 
 The following example is using a connection to asynchronously resolve a database.
@@ -227,7 +220,7 @@ val mongoUri = "mongodb://host:port/db"
 val driver = new AsyncDriver
 
 val database = for {
-  uri <- Future.fromTry(MongoConnection.parseURI(mongoUri))
+  uri <- MongoConnection.fromString(mongoUri)
   con <- driver.connect(uri)
   dn <- Future(uri.db.get)
   db <- con.database(dn)

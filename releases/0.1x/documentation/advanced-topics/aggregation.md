@@ -6,17 +6,16 @@ title: Aggregation Framework
 
 ## Aggregation Framework
 
-<!-- TODO: Facet -->
-
 The [MongoDB Aggregation Framework](http://docs.mongodb.org/manual/reference/operator/aggregation/) is available through ReactiveMongo.
 
 - **[`$addFields`](#addFields)**: [Adds new fields](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/) to documents.
 - **[`$bucketAuto`](#bucketAuto)**: [Categorizes incoming documents into a specific number of groups](https://docs.mongodb.com/manual/reference/operator/aggregation/bucketAuto/), called buckets, based on a specified expression.
 - **[`$count`](#count)**: [Count](https://docs.mongodb.com/manual/reference/operator/aggregation/count/) the input documents.
+- **[`$facet`](#facet)**: Create [multi-faceted aggregations](https://docs.mongodb.com/manual/reference/operator/aggregation/facet/).
+- **[`$filter`](#filter)**: Selects a subset of an array to return based on the [specified condition](https://docs.mongodb.com/master/reference/operator/aggregation/filter/#definition).
 - **[`$limit`](#limit)**: Passes the first *n* documents unmodified to the pipeline where *n* is the specified [limit](https://docs.mongodb.com/manual/reference/operator/aggregation/limit/#pipe._S_limit) ([API](../../api/reactivemongo/api/commands/AggregationFramework#LimitextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
 - **[`$match`](#match)**: Filters the document stream to allow only [matching documents](https://docs.mongodb.com/manual/reference/operator/aggregation/match/#pipe._S_match) ([API](../../api/reactivemongo/api/commands/AggregationFramework#MatchextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
 - **[`$project`](#project)**: Reshapes each document in the stream, such as by [adding new fields or removing](https://docs.mongodb.com/manual/reference/operator/aggregation/project/#pipe._S_project) existing fields ([API](../../api/reactivemongo/api/commands/AggregationFramework#ProjectextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
-- **[`$filter`](#filter)**: Selects a subset of an array to return based on the [specified condition](https://docs.mongodb.com/master/reference/operator/aggregation/filter/#definition).
 - **[`$redact`](#redact)**: Reshapes each document in the stream by [restricting the content](https://docs.mongodb.com/manual/reference/operator/aggregation/redact/) for each document based on information stored in the documents themselves ([API](../../api/reactivemongo/api/commands/AggregationFramework#RedactextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
 - **[`$skip`](#skip)**: Skips the first *n* documents where *n* is the specified [skip number](https://docs.mongodb.com/manual/reference/operator/aggregation/skip/#pipe._S_skip) and passes the remaining documents unmodified to the pipeline ([API](../../api/reactivemongo/api/commands/AggregationFramework#SkipextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
 - **[`$unwind`](#unwind)**: Deconstructs an array field from the input documents to [output a document for *each* element](https://docs.mongodb.com/manual/reference/operator/aggregation/unwind/#pipe._S_unwind) ([API](../../api/reactivemongo/api/commands/AggregationFramework#UnwindextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
@@ -72,7 +71,7 @@ Using the ReactiveMongo API, it can be done with the corresponding [collection o
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
 
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def distinctStates(col: BSONCollection)(implicit ec: ExecutionContext): Future[Set[String]] = col.distinct[String, Set]("state")
 {% endhighlight %}
@@ -96,15 +95,15 @@ With ReactiveMongo, it <span id="match">can be done</span> using the [`.aggregat
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.{ BSONDocument, BSONString }
+import reactivemongo.api.bson.{ BSONDocument, BSONString }
 
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
-def populatedStates1(col: BSONCollection): Future[List[BSONDocument]] = {
-  import col.BatchCommands.AggregationFramework.{ Group, Match, SumField }
+def populatedStates1(coll: BSONCollection): Future[List[BSONDocument]] = {
+  import coll.aggregationFramework.{ Group, Match, SumField }
 
-  col.aggregatorContext[BSONDocument](
+  coll.aggregatorContext[BSONDocument](
     Group(BSONString("$state"))( "totalPop" -> SumField("population")),
     List(Match(BSONDocument("totalPop" -> BSONDocument("$gte" -> 10000000L))))).
     prepared.cursor.
@@ -113,7 +112,7 @@ def populatedStates1(col: BSONCollection): Future[List[BSONDocument]] = {
 }
 {% endhighlight %}
 
-> The local `import col.BatchCommands.AggregationFramework._` is required, and cannot be replaced by a global static `import reactivemongo.api.collections.BSONCollection.BatchCommands.AggregationFramework._`.
+> The local `import col.aggregationFramework._` is required, and cannot be replaced by a global static `import reactivemongo.api.collections.BSONCollection.aggregationFramework._`.
 
 Then when calling `populatedStates(theZipCodeCol)`, the asynchronous result will be as bellow.
 
@@ -132,17 +131,17 @@ If the goal is only to count the populated states, the <span id="count">[`$count
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.{ BSONDocument, BSONDocumentReader, BSONString }
+import reactivemongo.api.bson.{ BSONDocument, BSONDocumentReader, BSONString }
 
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
-def countPopulatedStates1(col: BSONCollection): Future[Int] = {
+def countPopulatedStates1(coll: BSONCollection): Future[Int] = {
   implicit val countReader = BSONDocumentReader[Int] { doc =>
     doc.getAsTry[Int]("popCount").get
   }
 
-  col.aggregateWith[Int]() { framework =>
+  coll.aggregateWith[Int]() { framework =>
     import framework.{ Count, Group, Match, SumField }
 
     Group(BSONString("$state"))(
@@ -159,19 +158,19 @@ As for the other commands in ReactiveMongo, it's possible to return the aggregat
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson._
+import reactivemongo.api.bson._
 
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 case class State(name: String, population: Long)
 
 implicit val reader = Macros.reader[State]
 
-def populatedStates2(col: BSONCollection): Future[List[State]] = {
-  import col.BatchCommands.AggregationFramework.{ Group, Match, SumField }
+def populatedStates2(coll: BSONCollection): Future[List[State]] = {
+  import coll.aggregationFramework.{ Group, Match, SumField }
 
-  col.aggregatorContext[State]( // <--
+  coll.aggregatorContext[State]( // <--
     Group(BSONString("$state"))( "totalPop" -> SumField("population")),
     List(Match(BSONDocument("totalPop" -> BSONDocument("$gte" -> 10000000L))))).
     prepared.cursor.
@@ -187,9 +186,9 @@ The alternative [`.aggregateWith1`](../../api/reactivemongo/api/collections/Gene
 {% highlight scala %}
 import scala.concurrent.ExecutionContext
 
-import reactivemongo.bson._
+import reactivemongo.api.bson._
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def populatedStatesCursor(cities: BSONCollection)(implicit ec: ExecutionContext): Cursor[BSONDocument] =
   cities.aggregateWith1[BSONDocument]() { framework =>
@@ -203,7 +202,7 @@ def populatedStatesCursor(cities: BSONCollection)(implicit ec: ExecutionContext)
 
 The [`GroupField`](../../api/reactivemongo/api/commands/AggregationFramework#GroupFieldextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable) operator can be used instead of the `Group` one, to simply work with a single field.
 
-> In the previous example the dependent import `myCol.BatchCommands.AggregationFramework._` are replaced by a simpler import using the instance of the aggregation framework provided by the builder: `import framework.{ Group, Match, SumField }`
+> In the previous example the dependent import `myCol.aggregationFramework._` are replaced by a simpler import using the instance of the aggregation framework provided by the builder: `import framework.{ Group, Match, SumField }`
 
 **Most populated city per state**
 
@@ -232,14 +231,14 @@ Using ReactiveMongo:
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
 
-import reactivemongo.bson._
+import reactivemongo.api.bson._
 
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def mostPopulated(cities: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
-  import cities.BatchCommands.AggregationFramework
-  import AggregationFramework.{ Group, MaxField }
+  import cities.aggregationFramework
+  import aggregationFramework.{ Group, MaxField }
 
   cities.aggregatorContext[BSONDocument](Group(BSONString("$state"))(
     "maxPop" -> MaxField("population")
@@ -253,14 +252,14 @@ Similarly, the <span id="min">[`$min`](https://docs.mongodb.com/manual/reference
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
 
-import reactivemongo.bson._
+import reactivemongo.api.bson._
 
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def leastPopulated(cities: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
-  import cities.BatchCommands.AggregationFramework
-  import AggregationFramework.{ Group, MinField }
+  import cities.aggregationFramework
+  import aggregationFramework.{ Group, MinField }
 
   cities.aggregatorContext[BSONDocument](Group(BSONString("$state"))(
     "minPop" -> MinField("population")
@@ -296,13 +295,13 @@ It will return the aggregation results:
 {% highlight javascript %}
 import scala.concurrent.{ ExecutionContext, Future }
 
-import reactivemongo.bson._
+import reactivemongo.api.bson._
 
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def citiesPerState1(cities: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
-  import cities.BatchCommands.AggregationFramework.{ Group, PushField }
+  import cities.aggregationFramework.{ Group, PushField }
 
   cities.aggregatorContext[BSONDocument](Group(BSONString("$state"))(
     "cities" -> PushField("city"))).prepared.cursor.
@@ -315,13 +314,13 @@ Similarly the <span id="addToSet">[`$addToSet` accumulator](https://docs.mongodb
 {% highlight javascript %}
 import scala.concurrent.{ ExecutionContext, Future }
 
-import reactivemongo.bson._
+import reactivemongo.api.bson._
 
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def citiesPerState1(cities: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
-  import cities.BatchCommands.AggregationFramework.{ Group, AddFieldToSet }
+  import cities.aggregationFramework.{ Group, AddFieldToSet }
 
   cities.aggregatorContext[BSONDocument](Group(BSONString("$state"))(
     "cities" -> AddFieldToSet("city"))).prepared.cursor.
@@ -352,13 +351,13 @@ Using ReactiveMongo, it can be written as bellow.
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
 
-import reactivemongo.bson.{ BSONDocument, BSONString }
+import reactivemongo.api.bson.{ BSONDocument, BSONString }
 
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def avgPopByState(col: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
-  import col.BatchCommands.AggregationFramework.{ AvgField, Group, SumField }
+  import col.aggregationFramework.{ AvgField, Group, SumField }
 
   col.aggregatorContext[BSONDocument](
     Group(BSONDocument("state" -> "$state", "city" -> "$city"))(
@@ -413,10 +412,10 @@ A ReactiveMongo function can be written <span id="sort">as bellow</span>.
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.{ BSONDocument, BSONString, Macros }
+import reactivemongo.api.bson.{ BSONDocument, BSONString, Macros }
 
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 case class City(name: String, population: Long)
 
@@ -431,7 +430,7 @@ object StateStats {
 }
 
 def stateStats(col: BSONCollection): Future[List[StateStats]] = {
-  import col.BatchCommands.AggregationFramework.{
+  import col.aggregationFramework.{
     Ascending, FirstField, Group, LastField, Project, Sort, SumField
   }
 
@@ -477,13 +476,13 @@ The <span id="limit">[`$limit`](https://docs.mongodb.com/manual/reference/operat
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson._
+import reactivemongo.api.bson._
 
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def paginatedStats(col: BSONCollection, max: Int, offset: Int = 0): Future[List[StateStats]] = {
-  import col.BatchCommands.AggregationFramework.{
+  import col.aggregationFramework.{
     Ascending, FirstField, Group, LastField, Limit,
     Project, Skip, Sort, SumField
   }
@@ -539,12 +538,12 @@ It can be done with ReactiveMongo as bellow.
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
 
-import reactivemongo.bson._
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson._
+import reactivemongo.api.bson.collection.BSONCollection
 
 def populationStdDeviation(cities: BSONCollection)(implicit ec: ExecutionContext): Future[Option[BSONDocument]] = {
-  import cities.BatchCommands.AggregationFramework
-  import AggregationFramework.{ StdDevPopField, Group, Match }
+  import cities.aggregationFramework
+  import aggregationFramework.{ StdDevPopField, Group, Match }
 
   cities.aggregatorContext[BSONDocument](Group(BSONString("$state"))(
     "popDev" -> StdDevPopField("population")),
@@ -552,8 +551,8 @@ def populationStdDeviation(cities: BSONCollection)(implicit ec: ExecutionContext
 }
 
 def populationSampleDeviation(cities: BSONCollection)(implicit ec: ExecutionContext): Future[Option[BSONDocument]] = {
-  import cities.BatchCommands.AggregationFramework
-  import AggregationFramework.{ StdDevSampField, Group, Match }
+  import cities.aggregationFramework
+  import aggregationFramework.{ StdDevSampField, Group, Match }
 
   cities.aggregatorContext[BSONDocument](Group(BSONString("$state"))(
     "popDev" -> StdDevSampField("population")),
@@ -588,14 +587,14 @@ A ReactiveMongo function can be written as bellow.
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.BSONDocument
+import reactivemongo.api.bson.BSONDocument
 
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def textFind(coll: BSONCollection): Future[List[BSONDocument]] = {
-  import coll.BatchCommands.AggregationFramework
-  import AggregationFramework.{ Match, MetadataSort, Sort, TextScore }
+  import coll.aggregationFramework
+  import aggregationFramework.{ Match, MetadataSort, Sort, TextScore }
 
   val firstOp = Match(BSONDocument(
     "$text" -> BSONDocument("$search" -> "JP")))
@@ -626,15 +625,15 @@ With ReactiveMongo, the <span id="sample">[`$sample`](../../api/reactivemongo/ap
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
 
-import reactivemongo.bson.BSONDocument
+import reactivemongo.api.bson.BSONDocument
 
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def randomZipCodes(coll: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
-  import coll.BatchCommands.AggregationFramework
+  import coll.aggregationFramework
 
-  coll.aggregatorContext[BSONDocument](AggregationFramework.Sample(3)).
+  coll.aggregatorContext[BSONDocument](aggregationFramework.Sample(3)).
     prepared.cursor.
     collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
 }
@@ -662,9 +661,9 @@ This stage <span id="bucketAuto">[`$bucketAuto`](../../api/commands/AggregationF
 {% highlight scala %}
 import scala.concurrent.ExecutionContext
 
-import reactivemongo.bson._
+import reactivemongo.api.bson._
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def populationBuckets(zipcodes: BSONCollection)(implicit ec: ExecutionContext) =
   zipcodes.aggregateWith1[BSONDocument]() { framework =>
@@ -744,10 +743,10 @@ It can be done with ReactiveMongo as follows.
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
 
-import reactivemongo.bson.{ array, document, Macros }
+import reactivemongo.api.bson.{ array, document, Macros }
 
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 case class GeoPoint(coordinates: List[Double])
 case class GeoDistance(calculated: Double, loc: GeoPoint)
@@ -766,7 +765,7 @@ object GeoPlace {
 }
 
 def placeArround(places: BSONCollection)(implicit ec: ExecutionContext): Future[List[GeoPlace]] = {
-  import places.BatchCommands.AggregationFramework.GeoNear
+  import places.aggregationFramework.GeoNear
 
   places.aggregatorContext[GeoPlace](GeoNear(document(
     "type" -> "Point",
@@ -862,13 +861,13 @@ With ReactiveMongo, the aggregation framework can perform a similar redaction.
 {% highlight scala %}
 import scala.concurrent.ExecutionContext
 
-import reactivemongo.bson._
+import reactivemongo.api.bson._
 
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def redactForecasts(forecasts: BSONCollection)(implicit ec: ExecutionContext) = {
-  import forecasts.BatchCommands.AggregationFramework.{ Match, Redact }
+  import forecasts.aggregationFramework.{ Match, Redact }
 
   forecasts.aggregatorContext[BSONDocument](
     Match(document("year" -> 2014)), List(
@@ -914,13 +913,13 @@ With ReactiveMongo, it can be done using [`Unwind`](../../api/reactivemongo/api/
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.BSONDocument
+import reactivemongo.api.bson.BSONDocument
 
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def sized(inventory: BSONCollection) = {
-  import inventory.BatchCommands.AggregationFramework.UnwindField
+  import inventory.aggregationFramework.UnwindField
 
   inventory.aggregatorContext[BSONDocument](UnwindField("sizes")).
     prepared.cursor.
@@ -965,18 +964,58 @@ It can be done with ReactiveMongo using the [`Lookup`](../../api/reactivemongo/a
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.BSONDocument
+import reactivemongo.api.bson.BSONDocument
 
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def priced(inventory: BSONCollection, prices: BSONCollection) = {
-  import prices.BatchCommands.AggregationFramework.Lookup
+  import prices.aggregationFramework.Lookup
 
   prices.aggregatorContext[BSONDocument](
     Lookup(inventory.name, "item", "item", "prices")
   ).prepared.cursor.
     collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
+}
+{% endhighlight %}
+
+The [`$facet`](https://docs.mongodb.com/manual/reference/operator/aggregation/facet/) allow to create multi-faceted aggregations, which characterize data across multiple dimensions (or facets); e.g.
+
+{% highlight javascript %}
+db.inventory.aggregate([{
+  $facet: {
+    'foo': [
+      { '$unwind': '$sizes' },
+      { '$count': 'c' }
+    ],
+    'lorem': [
+      { '$out': 'item_stats' }
+    ]
+  }
+}])
+{% endhighlight %}
+
+Such aggregation can be executed with ReactiveMongo as bellow.
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+
+import reactivemongo.api.Cursor
+import reactivemongo.api.bson.BSONDocument
+import reactivemongo.api.bson.collection.BSONCollection
+
+def useFacetAgg(inventory: BSONCollection)(
+  implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
+  import inventory.aggregationFramework.{ Count, Facet, Out, UnwindField }
+
+  val facet = Facet(Seq(
+    "foo" -> (UnwindField("bar"), List(Count("c"))),
+    "lorem" -> (Out("ipsum"), List.empty)))
+
+  inventory.aggregatorContext[BSONDocument](facet).
+    prepared.cursor.
+    collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
+
 }
 {% endhighlight %}
 
@@ -998,12 +1037,12 @@ Then its documents can be aggregated and outputted to another collection, using 
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.{ BSONDocument, BSONString }
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.{ BSONDocument, BSONString }
+import reactivemongo.api.bson.collection.BSONCollection
 
 def outputBooks(books: BSONCollection, outColl: String): Future[Unit] = {
-  import books.BatchCommands.AggregationFramework
-  import AggregationFramework.{ Ascending, Group, PushField, Out, Sort }
+  import books.aggregationFramework
+  import aggregationFramework.{ Ascending, Group, PushField, Out, Sort }
 
   books.aggregatorContext[BSONDocument](Sort(Ascending("title")), List(
     Group(BSONString("$author"))("books" -> PushField("title")),
@@ -1060,9 +1099,9 @@ It can be done using ReactiveMongo.
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.BSONDocument
+import reactivemongo.api.bson.BSONDocument
 
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def replaceRootTest(fruits: BSONCollection): Future[Option[BSONDocument]] = {
   fruits.aggregateWith1[BSONDocument]() { framework =>
@@ -1122,10 +1161,10 @@ The same can be done using ReactiveMongo:
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.bson.{ BSONArray, BSONDocument, BSONString }
+import reactivemongo.api.bson.{ BSONArray, BSONDocument, BSONString }
 
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def salesWithItemGreaterThanHundered(sales: BSONCollection) =
   sales.aggregateWith1[BSONDocument]() { framework =>
@@ -1151,10 +1190,10 @@ import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def aggregateIndexes(coll: BSONCollection) = {
-  import coll.BatchCommands.AggregationFramework.{ Ascending, IndexStats, Sort }
+  import coll.aggregationFramework.{ Ascending, IndexStats, Sort }
   import reactivemongo.api.commands.{ bson => bsoncommands }
   import bsoncommands.BSONAggregationFramework.IndexStatsResult
   import bsoncommands.BSONAggregationResultImplicits.BSONIndexStatsReader
@@ -1251,9 +1290,9 @@ It's also supported by ReactiveMongo as bellow.
 {% highlight scala %}
 import scala.concurrent.ExecutionContext
 
-import reactivemongo.bson._
+import reactivemongo.api.bson._
 import reactivemongo.api.Cursor
-import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.api.bson.collection.BSONCollection
 
 def sliceFavorites(coll: BSONCollection)(implicit ec: ExecutionContext) =
   coll.aggregateWith1[BSONDocument]() { framework =>
@@ -1269,7 +1308,7 @@ def sliceFavorites(coll: BSONCollection)(implicit ec: ExecutionContext) =
 
 **See also:**
 
-- The operators available to define an aggregation pipeline are documented in the [API reference](../../api/reactivemongo/api/collections/GenericCollection.html#AggregationFramework=GenericCollection.this.BatchCommands.AggregationFramework.type).
+- The operators available to define an aggregation pipeline are documented in the [API reference](../../api/reactivemongo/api/collections/GenericCollection.html#AggregationFramework=GenericCollection.this.aggregationFramework.type).
 - The [Aggregation Framework tests](https://github.com/ReactiveMongo/ReactiveMongo/blob/master/driver/src/test/scala/AggregationSpec.scala)
 
 [Next: Custom stage](./agg-custom-stage.html)

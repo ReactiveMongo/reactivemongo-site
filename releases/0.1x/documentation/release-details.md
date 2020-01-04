@@ -382,9 +382,6 @@ def populationBuckets(zipcodes: BSONCollection)(implicit ec: ExecutionContext) =
   }.collect[Set](Int.MaxValue, Cursor.FailOnError[Set[BSONDocument]]())
 {% endhighlight %}
 
-<!-- TODO: stage: replaceWith, set, sortByCount, unset, currentOp, listLocalSessions, listSessions, merge, bucket, collStats, planCacheStats, abs, acos, acosh, allElementsTrue, and -->
-<!-- TODO: group accumulators: mergeObjects -->
-
 **count:**
 
 If the goal is only to count the aggregated documents, the [`$count`](https://docs.mongodb.com/manual/reference/operator/aggregation/count/index.html) stage can be used.
@@ -522,6 +519,25 @@ def sliceFavorites(coll: BSONCollection)(implicit ec: ExecutionContext) =
   }.collect[Seq](4, Cursor.FailOnError[Seq[BSONDocument]]())
 {% endhighlight %}
 
+**Miscellaneous:** Other stages are also supported.
+
+- [`$and`](https://docs.mongodb.com/manual/reference/operator/aggregation/and)
+- [`$allElementsTrue`](https://docs.mongodb.com/manual/reference/operator/aggregation/allElementsTrue)
+- [`$acosh`](https://docs.mongodb.com/manual/reference/operator/aggregation/acosh)
+- [`$acos`](https://docs.mongodb.com/manual/reference/operator/aggregation/acos)
+- [`$abs`](https://docs.mongodb.com/manual/reference/operator/aggregation/abs)
+- [`$planCacheStats`](https://docs.mongodb.com/manual/reference/operator/aggregation/planCacheStats)
+- [`$collStats`](https://docs.mongodb.com/manual/reference/operator/aggregation/collStats)
+- [`$bucket`](https://docs.mongodb.com/manual/reference/operator/aggregation/bucket)
+- [`$merge`](https://docs.mongodb.com/manual/reference/operator/aggregation/merge)
+- [`$listSessions`](https://docs.mongodb.com/manual/reference/operator/aggregation/listSessions)
+- [`$listLocalSessions`](https://docs.mongodb.com/manual/reference/operator/aggregation/listLocalSessions)
+- [`$currentOp`](https://docs.mongodb.com/manual/reference/operator/aggregation/currentOp)
+- [`$unset`](https://docs.mongodb.com/manual/reference/operator/aggregation/unset)
+- [`$sortByCount`](https://docs.mongodb.com/manual/reference/operator/aggregation/sortByCount)
+- [`$set`](https://docs.mongodb.com/manual/reference/operator/aggregation/set)
+- [`$replaceWith`](https://docs.mongodb.com/manual/reference/operator/aggregation/replaceWith)
+
 More: [**Aggregation Framework**](./advanced-topics/aggregation.html)
 
 ### Administration
@@ -561,3 +577,19 @@ For the current {{site._0_1x_latest_minor}} release, it has detected the followi
 **Core/internal**
 
 - `reactivemongo.core` packages after Netty 4.1.25 upgrade.
+
+<!-- TODO: MongoConnection.parseURI~>fromString -->
+<!-- TODO: Change stream -->
+
+<!-- TODO: https://docs.mongodb.com/v3.2/reference/command/find/#dbcmd.find
+
+       - singleBatch: boolean; Optional. Determines whether to close the cursor after the first batch. Defaults to false.
+       - maxScan: boolean; Optional. Maximum number of documents or index keys to scan when executing the query.
+       - max: document; Optional. The exclusive upper bound for a specific index; https://docs.mongodb.com/v3.4/reference/method/cursor.max/#cursor.max
+       - min: document; Optional. The exclusive upper bound for a specific index; https://docs.mongodb.com/v3.4/reference/method/cursor.min/#cursor.min
+       - returnKey: boolean; Optional. If true, returns only the index keys in the resulting documents.
+       - showRecordId: boolean; Optional. Determines whether to return the record identifier for each document.
+
+       - collation: document; Optional; Specifies the collation to use for the operation (since 3.4)
+
+-->

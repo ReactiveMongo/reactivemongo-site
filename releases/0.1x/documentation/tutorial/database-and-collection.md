@@ -11,6 +11,7 @@ Once you have a connection and [resolved the database](./connect-database.html),
 {% highlight scala %}
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
+
 import reactivemongo.api.MongoConnection
 import reactivemongo.api.bson.collection.BSONCollection
 
