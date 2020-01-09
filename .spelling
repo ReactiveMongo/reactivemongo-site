@@ -1,5 +1,6 @@
 # Tech stack
 
+mongos
 BSONDocumentBenchmark
 BSONDocumentHandlerBenchmark
 thrpt
@@ -31,6 +32,8 @@ SLF4J
 slf4j-simple
 x.509
 JMX
+Kamon
+APM
 Netty
 Typesafe
 JConsole
@@ -343,3 +346,4 @@ Lichess.org
 5BT
 5D
 3.x
+IsMaster
