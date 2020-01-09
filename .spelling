@@ -322,6 +322,7 @@ GeometryCollection
 GeoGeometryCollection
 GeoPoint
 BSONArrayBenchmark
+reactivemongo.api.MongoConnection.ParsedURI
 
 warry
 Maxime

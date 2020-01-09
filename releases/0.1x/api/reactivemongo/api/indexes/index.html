@@ -3,12 +3,11 @@ var toRoot = '../../../';</script></head><body><div id="search"><span id="doc-ti
 <span class="kw">import</span> reactivemongo.api.bson.collection.BSONSerializationPack
 <span class="kw">import</span> reactivemongo.api.indexes.{ Index, IndexType }
 
-<span class="kw">val</span> bsonIndex = Index(BSONSerializationPack)(
+<span class="kw">val</span> bsonIndex = Index(
   key = <span class="std">Seq</span>(<span class="lit">"name"</span> -&gt; IndexType.Ascending),
   name = <span class="std">Some</span>(<span class="lit">"name_idx"</span>),
   unique = <span class="kw">false</span>,
   background = <span class="kw">false</span>,
-  dropDups = <span class="kw">false</span>,
   sparse = <span class="kw">false</span>,
   expireAfterSeconds = <span class="std">None</span>,
   storageEngine = <span class="std">None</span>,
