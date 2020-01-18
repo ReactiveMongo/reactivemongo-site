@@ -11,7 +11,7 @@ title: Release details
 The documentation is available [online](index.html), and its code samples are compiled to make sure it's up-to-date.
 
 - [Compatibility](#compatibility)
-- [Connection options](#connection-options)
+- [Connection](#connection)
   - Support [x.509 certificate](https://docs.mongodb.com/manual/tutorial/configure-x509-client-authentication/) to authenticate.
   - Support [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) in the connection URI.
   - New `rm.reconnectDelayMS` setting.
@@ -26,6 +26,7 @@ The documentation is available [online](index.html), and its code samples are co
 - [Aggregation](#aggregation)
   - [`CursorOptions`](../api/reactivemongo/api/CursorOptions.html) parameter when using `.aggregatorContext`.
   - New stages: `$addFields`, `$bucketAuto`, `$count`, `$filter`, `$replaceRoot`, `$slice`
+- [Monitoring](#monitoring)
 - [Administration](#administration)
 - [Breaking changes](#breaking-changes)
 
@@ -52,9 +53,14 @@ The driver core and the modules are tested in a [container based environment](ht
 
 This can be considered as a recommended environment.
 
-### Connection options
+### Connection
 
 The `MongoDriver` type is replaced by `AsyncDriver`, with asynchronous methods.
+
+- `MongoDriver.connection` replaced by [`AsyncDriver.connect`](../api/reactivemongo/api/AsyncDriver.html#connect(uriStrict:String):scala.concurrent.Future[reactivemongo.api.MongoConnection])
+- `close` is asynchronous.
+
+The utility function `MongoConnection.parseURI` is replaced by asynchronous function [`.fromString`](../api/reactivemongo/api/MongoConnection$.html#fromString(uri:String)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.MongoConnection.ParsedURI]).
 
 Also, the following options are deprecated:
 
@@ -180,6 +186,16 @@ BSONDocument("name" -> "foo", "start" -> 0, "end" -> 1)
 {% endhighlight %}
 
 ### Query and write operations
+
+The [query builder](../api/reactivemongo/api/collections/GenericQueryBuilder.html) supports more options (see [`find`](https://docs.mongodb.com/v4.2/reference/command/find/#dbcmd.find)).
+
+- **`singleBatch`**: `boolean`; Optional. Determines whether to close the cursor after the first batch. Defaults to `false`.
+- **`maxScan`**: `boolean`; Optional. Maximum number of documents or index keys to scan when executing the query.
+- [**`max`**](https://docs.mongodb.com/v4.2/reference/method/cursor.max): `document`; Optional. The exclusive upper bound for a specific index.
+- [**`min`**](https://docs.mongodb.com/v4.2/reference/method/cursor.min/#cursor.min): `document`; Optional. The exclusive upper bound for a specific index.
+- **`returnKey`**: `boolean`; Optional. If true, returns only the index keys in the resulting documents.
+- **`showRecordId`**: `boolean`; Optional. Determines whether to return the record identifier for each document.
+- **`collation`**: `document`; Optional; Specifies the collation to use for the operation (since 3.4).
 
 The collection API provides new builders for write operations. This supports bulk operations (e.g. insert many documents at once).
 
@@ -540,6 +556,21 @@ def sliceFavorites(coll: BSONCollection)(implicit ec: ExecutionContext) =
 
 More: [**Aggregation Framework**](./advanced-topics/aggregation.html)
 
+### Monitoring
+
+A [new module](./advanced-topics/monitoring.html#kamon) is available to collect ReactiveMongo metrics with [Kamon](https://kamon.io/).
+
+{% highlight ocaml %}
+"org.reactivemongo" %% "reactivemongo-kamon" % "{{site._0_1x_latest_minor}}"
+{% endhighlight %}
+
+Then the metrics can be configured in dashboards, according the used Kamon reporters.
+For example if using [Kamon APM](https://kamon.io/docs/latest/reporters/apm/).
+
+<img src="../images/kamon-apm-graph-view.png" alt="Graph about established connections" class="screenshot" />
+
+More: [**Monitoring**](./advanced-topics/monitoring.html)
+
 ### Administration
 
 The operations to manage a MongoDB instance can be executed using ReactiveMongo. This new release has new functions for DB administration.
@@ -578,18 +609,4 @@ For the current {{site._0_1x_latest_minor}} release, it has detected the followi
 
 - `reactivemongo.core` packages after Netty 4.1.25 upgrade.
 
-<!-- TODO: MongoConnection.parseURI~>fromString -->
 <!-- TODO: Change stream -->
-<!-- TODO: Kamon monitoring -->
-<!-- TODO: https://docs.mongodb.com/v3.2/reference/command/find/#dbcmd.find
-
-       - singleBatch: boolean; Optional. Determines whether to close the cursor after the first batch. Defaults to false.
-       - maxScan: boolean; Optional. Maximum number of documents or index keys to scan when executing the query.
-       - max: document; Optional. The exclusive upper bound for a specific index; https://docs.mongodb.com/v3.4/reference/method/cursor.max/#cursor.max
-       - min: document; Optional. The exclusive upper bound for a specific index; https://docs.mongodb.com/v3.4/reference/method/cursor.min/#cursor.min
-       - returnKey: boolean; Optional. If true, returns only the index keys in the resulting documents.
-       - showRecordId: boolean; Optional. Determines whether to return the record identifier for each document.
-
-       - collation: document; Optional; Specifies the collation to use for the operation (since 3.4)
-
--->

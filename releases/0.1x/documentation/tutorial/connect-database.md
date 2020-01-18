@@ -97,6 +97,7 @@ The option `ssl` is needed if the MongoDB server is requiring SSL (`mongod --ssl
 - **`writeConcernTimeout`**: The [time limit](http://docs.mongodb.org/manual/reference/write-concern/#wtimeout) (in milliseconds) for the default write concern. If `writeConcern` is specified, its timeout is replaced by this one.
 - **`readPreference`**: The default [read preference](../advanced-topics/read-preferences.html) (`primary|primaryPreferred|secondary|secondaryPreferred|nearest`) (default is `primary`).
   - [`nearest`](https://docs.mongodb.com/manual/reference/read-preference/#nearest): Do not consider whether nodes are primary or secondary, but select one according how fast it is to answer an `isMaster` request (ping time).
+- **`readConcernLevel`**: The level for the default [read concern](https://docs.mongodb.com/manual/reference/read-concern/#read-concern-levels).
 
 - **`appName`**: The optional application name
 

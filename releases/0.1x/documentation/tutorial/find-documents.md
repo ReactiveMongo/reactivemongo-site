@@ -8,7 +8,7 @@ title: Find Documents
 
 > Note: the following snippets of code use a [`BSONCollection`](../../api/reactivemongo/api/collections/bson/BSONCollection.html) (the default collection implementation return by `db.collection()`).
 
-### Performing a simple query
+### Perform a simple query
 
 Queries are performed in quite the same way as in the MongoDB Shell.
 
@@ -119,7 +119,7 @@ trait PersonService2 {
 
 [More: **Streaming**](./streaming.html)
 
-## Find and sort documents
+### Find and sort documents
 
 The return type of the `find` method is a `GenericQueryBuilder`, which enables to customize the query, especially to add sort information. Like in the MongoDB console, you sort by giving a document containing the field names associated with an order (1 for ascending, -1 descending). Let's sort our previous query by last name, in the alphabetical order (the sort document is also `{ lastName: 1 }`).
 
@@ -139,6 +139,8 @@ def findOlder3(collection: BSONCollection) = {
     collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
 }
 {% endhighlight %}
+
+See: [**Query builder**](../../api/reactivemongo/api/collections/GenericQueryBuilder.html)
 
 ### Use Readers to deserialize documents automatically
 
