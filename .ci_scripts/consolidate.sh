@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+set -e
+
 for F in `grep -rl 'java\$lang.html' _site`
 do
   #echo $F

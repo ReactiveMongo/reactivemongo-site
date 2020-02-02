@@ -9,9 +9,9 @@ if [ -d "$HOME/.local/bin" ]; then
 fi
 
 gem install --no-verbose --user-install jekyll pygments.rb || exit 1
-bundle install || exit 2
+bundle install --path "$HOME/.bundle" || exit 2
 pip install --user Pygments || exit 3
-npm i markdown-spellcheck -u
+npm i markdown-spellcheck -u || exit 4
 
 find $HOME/.local -type f -print
 
@@ -23,6 +23,6 @@ if [ ! -r "$SBT_LAUNCHER_JAR" ]; then
   mkdir -p $SBT_LAUNCHER_HOME
   curl -L -o "$SBT_LAUNCHER_JAR" "https://repo1.maven.org/maven2/org/scala-sbt/sbt-launch/$SBT_VER/sbt-launch-$SBT_VER.jar"
 else
-  echo -n "SBT already set up: "
+  echo -n "[INFO] SBT already set up: "
   ls -v -1 "$SBT_LAUNCHER_JAR"
 fi

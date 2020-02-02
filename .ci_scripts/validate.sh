@@ -7,28 +7,29 @@ SBT_VER="$1"
 
 export SBT_OPTS="-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
 
-export JAVA_HOME=/usr/lib/jvm/java-8-oracle
-export PATH="$JAVA_HOME/bin:$PATH"
+if [ "x$JAVA_HOME" = "x" ]; then
+  export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+  export PATH="$JAVA_HOME/bin:$PATH"
+fi
 
-for D in `ls -v -1 "$HOME/.gem/ruby"`; do
+for D in `ls -v -1 "$HOME/.gem/ruby" | sort -r | head -n 1`; do
   export PATH="$HOME/.gem/ruby/$D/bin:$PATH"
   export GEM_PATH="$HOME/.gem/ruby/$D:$GEM_PATH"
 done
 
-# Sonatype staging (avoid Central sync delay)
-perl -pe "s|resolvers |resolvers in ThisBuild += \"Sonatype Staging\" at \"https://oss.sonatype.org/content/repositories/staging/\",\r\nresolvers |" < "$SCRIPT_DIR/../build.sbt" > /tmp/build.sbt && mv /tmp/build.sbt "$SCRIPT_DIR/../build.sbt"
+if [ "x$SBT_JAR" = "x" ]; then
+  SBT_JAR="$HOME/.sbt/launchers/$SBT_VER/sbt-launch.jar"
+fi
 
-R=0
-for REPO in `curl -s https://oss.sonatype.org/content/repositories/ | grep 'href="https://oss.sonatype.org/content/repositories/orgreactivemongo' | cut -d '"' -f 2`; do
-  perl -pe "s|resolvers |resolvers += \"Staging $R\" at \"$REPO\",\r\nresolvers |" < "$SCRIPT_DIR/../build.sbt" > /tmp/build.sbt && mv /tmp/build.sbt "$SCRIPT_DIR/../build.sbt"
-done
+echo "[INFO] Compiling code samples ..."
 
-SBT_JAR="$HOME/.sbt/launchers/$SBT_VER/sbt-launch.jar"
+java $SBT_OPTS -jar "$SBT_JAR" error compile || exit 1
 
-(java $SBT_OPTS -jar "$SBT_JAR" compile && \
-  bundle exec jekyll build) || exit 2
+echo "[INFO] Building documentation ..."
 
-echo "[INFO] Spell checking"
+bundle exec jekyll build || exit 2
+
+echo "[INFO] Spell checking ..."
 ./node_modules/markdown-spellcheck/bin/mdspell -r --en-gb -n `find . -not -path '*/node_modules/*' -type f -name '*.md' | perl -pe 's|^\./||;s|[A-Za-z0-9.-]+|*|g' | sort -u | sed -e 's/$/.md/'` '!**/node_modules/**/*.md' '!**/vendor/**/*.md' || exit 3
 
-echo "[INFO] Documentation built"
+echo "[INFO] Documentation is checked"

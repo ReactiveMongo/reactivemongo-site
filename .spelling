@@ -1,5 +1,7 @@
 # Tech stack
 
+Specs2
+specs2
 mongos
 BSONDocumentBenchmark
 BSONDocumentHandlerBenchmark
@@ -204,6 +206,7 @@ cp.ProducedCursor
 scala.util.Try
 reactivemongo.api.MongoConnection
 java.util.Date
+java.time.Instant
 scala.concurrent.duration.FiniteDuration
 implicittimeout
 reactivemongo.core.commands.SuccessfulAuthentication
@@ -211,6 +214,7 @@ scala.concurrent.Future
 implicitproducer
 reactivemongo.api.CollectionProducer
 reactivemongo.api.DefaultDB
+reactivemongo.api.DB
 GenericCollection.this.pack.Writer
 implicitswriter
 implicitcontext
@@ -259,16 +263,14 @@ GridFS.this.ReadFile
 implicitidProducer
 reactivemongo.api.gridfs.IdProducer
 implicitdocWriter
-reactivemongo.bson.BSONDocumentWriter
 file.pack.Document
 GridFS.this.ReadFile
 implicitreadFileReader
 GridFS.this.pack.Reader
 GridFS.this.ReadFile
 implicitidProducer
-reactivemongo.api.gridfs.IdProducer
-implicitdocWriter
 reactivemongo.bson.BSONDocumentWriter
+reactivemongo.api.bson.BSONDocumentWriter
 file.pack.Document
 GridFS.this.pack.Writer
 implicitidProducer
@@ -281,6 +283,7 @@ akka.util.ByteString
 GridFSStreams.this.gridfs.ReadFile
 akka.util.ByteString
 DefaultDB.this.DBType
+DB.this.DBType
 reactivemongo.api.bson.MacroConfiguration.Aux
 reactivemongo.api.bson.BSONValue
 reactivemongo.api.bson.BSONObjectID
