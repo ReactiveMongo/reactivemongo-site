@@ -293,7 +293,6 @@ def removedPerson(coll: BSONCollection, name: String)(implicit ec: ExecutionCont
 As when [using `update`](#update-a-document) [`arrayFilters`](https://docs.mongodb.com/manual/reference/command/findAndModify/index.html#specify-arrayfilters-for-an-array-update-operations) criteria can be specified for a `findAndModify` operation.
 
 {% highlight scala %}
-import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api.bson.BSONDocument

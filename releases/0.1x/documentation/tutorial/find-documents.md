@@ -146,12 +146,12 @@ See: [**Query builder**](../../api/reactivemongo/api/collections/GenericQueryBui
 
 [As explained here](), you can use the `BSONDocumentReader` and `BSONDocumentWriter` typeclasses to handle de/serialization between `BSONDocument` and your model classes.
 
+<!-- TODO: id=java.util.UUID -->
 {% highlight scala %}
-import java.util.UUID
 import reactivemongo.api.bson._
 
 case class Person(
-  id: UUID,
+  id: String,
   firstName: String,
   lastName: String,
   age: Int)
@@ -159,7 +159,7 @@ case class Person(
 object Person {
   implicit object PersonReader extends BSONDocumentReader[Person] {
     def readDocument(doc: BSONDocument) = for {
-      id <- doc.getAsTry[UUID]("_id")
+      id <- doc.getAsTry[BSONObjectID]("_id").map(_.stringify)
       firstName <- doc.getAsTry[String]("firstName")
       lastName <- doc.getAsTry[String]("lastName")
       age <- doc.getAsTry[Int]("age")
