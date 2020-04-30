@@ -85,11 +85,10 @@ import akka.NotUsed
 import akka.util.ByteString
 
 import akka.stream.Materializer
-import akka.stream.scaladsl.{ Sink, Source }
+import akka.stream.scaladsl.Source
 
 import reactivemongo.api.BSONSerializationPack
 import reactivemongo.api.gridfs.{ DefaultFileToSave, GridFS }
-import reactivemongo.api.gridfs.Implicits._
 
 import reactivemongo.akkastream.GridFSStreams
 
@@ -143,9 +142,8 @@ import akka.stream.Materializer
 import akka.stream.scaladsl.Source
 
 import reactivemongo.api.BSONSerializationPack
-import reactivemongo.api.gridfs.{ GridFS, ReadFile }
-import reactivemongo.api.gridfs.Implicits._
-import reactivemongo.bson.{ BSONDocument, BSONValue }
+import reactivemongo.api.gridfs.GridFS
+import reactivemongo.bson.BSONDocument
 
 import reactivemongo.akkastream.{ GridFSStreams, State }
 

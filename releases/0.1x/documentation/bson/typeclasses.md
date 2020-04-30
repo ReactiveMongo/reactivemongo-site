@@ -181,7 +181,7 @@ For example if you have `case class Foo(bar: Bar)` and want to create a handler 
 Sealed traits are also supported as [union types](https://en.wikipedia.org/wiki/Union_type), with each of their subclasses considered as a disjoint case.
 
 {% highlight scala %}
-import reactivemongo.api.bson.{ BSONDocument, BSONHandler, Macros }
+import reactivemongo.api.bson.{ BSONHandler, Macros }
 
 sealed trait Tree
 case class Node(left: Tree, right: Tree) extends Tree
