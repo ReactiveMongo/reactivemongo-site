@@ -610,3 +610,9 @@ For the current {{site._0_1x_latest_minor}} release, it has detected the followi
 - `reactivemongo.core` packages after Netty 4.1.25 upgrade.
 
 <!-- TODO: Change stream -->
+<!-- TODO:
+reactivemongo.api.gridfs.DefaultFileToSave : gridfs.fileToSave
+reactivemongo.api.gridfs.DefaultReadFile : remove
+reactivemongo.api.gridfs.{ComputedMetadata,BasicMetadata,CustomMetadata} => merge with ReadFile
+reactivemongo.api.gridfs.ReadFile ~> type parameters
+-->
