@@ -11,6 +11,7 @@ title: Release details
 The documentation is available [online](index.html), and its code samples are compiled to make sure it's up-to-date.
 
 - [Compatibility](#compatibility)
+- [Migration](#migration)
 - [Connection](#connection)
   - Support [x.509 certificate](https://docs.mongodb.com/manual/tutorial/configure-x509-client-authentication/) to authenticate.
   - Support [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) in the connection URI.
@@ -18,7 +19,10 @@ The documentation is available [online](index.html), and its code samples are co
   - Add `credentials` in the [`MongoConnectionOptions`](http://reactivemongo.org/releases/0.1x/api/reactivemongo/api/MongoConnectionOptions.html)
   - [Netty native](#netty-native)
 - [BSON library](#bson-library)
-  - [BSON Decimal128](https://github.com/mongodb/specifications/blob/master/source/bson-decimal128/decimal128.rst#bson-decimal128-type-handling-in-drivers)
+  - [Documents and values](#documents-and-values)
+  - [Reader and writer typeclasses](#reader-and-writer-typeclasses)
+  - [Macros](#macros)
+  - [Extra libraries](#extra-libraries)
   - `Option` support & new `@NoneAsNull` annotation
 - New [query and write operations](#query-and-write-operations),
   - bulk operations (e.g. `.delete.many`) on [collection](../api/reactivemongo/api/collections/GenericCollection.html),
@@ -51,6 +55,24 @@ The driver core and the modules are tested in a [container based environment](ht
 - 4 GB of system memory, with a maximum of 2 GB for the JVM
 
 This can be considered as a recommended environment.
+
+### Migration
+
+A Scalafix module is available to migrate from ReactiveMongo 0.12+ to 1.0.
+
+To apply the migration rules, first [setup Scalafix](https://scalacenter.github.io/scalafix/docs/users/installation.html) in the SBT build, then configure the ReactiveMongo rules as bellow.
+
+{% highlight ocaml %}
+libraryDependencies ++= Seq(
+  "org.reactivemongo" %% "reactivemongo-scalafix" % "{{site._1_0_latest_minor}}")
+{% endhighlight %}
+
+Once the rules are configured, they can be applied from SBT.
+
+{% highlight sh %}
+test:scalafix ReactiveMongoUpgrade
+test:scalafix ReactiveMongoLinter --check
+{% endhighlight %}
 
 ### Connection
 
@@ -99,7 +121,7 @@ def seedListCon(driver: AsyncDriver) =
 
 The option `rm.monitorRefreshMS` is renamed [`heartbeatFrequencyMS`](https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-discovery-and-monitoring.rst#heartbeatfrequencyms).
 
-*[See the documentation](./tutorial/connect-database.html)*
+*[See documentation](./tutorial/connect-database.html)*
 
 #### Netty native
 
@@ -109,7 +131,7 @@ It comes with various improvements (memory consumption, ...), and also to use Ne
 
 > Note that the Netty dependency is [shaded](https://maven.apache.org/plugins/maven-shade-plugin/) so it won't conflict with any Netty version in your environment.
 
-*[See the documentation](./tutorial/connect-database.html#netty-native)*
+*[See documentation](./tutorial/connect-database.html#netty-native)*
 
 ### BSON library
 
@@ -146,14 +168,14 @@ def foo(doc: BSONDocument): Unit = {
 > Note: The `BSONDocument` and `BSONArray` factories have been optimized and support more use cases.
 
 <figure>
-  <img src="../images/bison-bench-doc.png"
+  <img src="./images/bison-bench-doc.png"
     style="max-width:75%" alt="Document benchmarks" />
 
   <figcaption style="font-size:x-small">Coefficient between new/old throughput (op/s; =1: no change, 1+: better thrpt). Source: <a rel="me external" href="https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/benchmarks/src/main/scala/BSONDocumentBenchmark.scala">BSONDocumentBenchmark</a>, <a rel="me external" href="https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/benchmarks/src/main/scala/BSONDocumentHandlerBenchmark.scala">BSONDocumentHandlerBenchmark</a></figcaption>
 </figure>
 
 <figure>
-  <img src="../images/bison-bench-array.png"
+  <img src="./images/bison-bench-array.png"
     style="max-width:75%" alt="Array benchmarks" />
 
   <figcaption style="font-size:x-small">Coefficient between new/old throughput (op/s; =1: no change, 1+: better thrpt). Source: <a rel="me external" href="https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/benchmarks/src/main/scala/BSONArrayBenchmark.scala">BSONArrayBenchmark</a></figcaption>
@@ -161,7 +183,7 @@ def foo(doc: BSONDocument): Unit = {
 
 The Biːsən library supports [BSON Decimal128](https://github.com/mongodb/specifications/blob/master/source/bson-decimal128/decimal128.rst#bson-decimal128-type-handling-in-drivers) (MongoDB 3.4+).
 
-More: [**BSON Library overview**](./bson/overview.html)
+*[See documentation](./bson/overview.html)*
 
 #### Reader and writer typeclasses
 
@@ -204,7 +226,7 @@ Some new handlers are provided by default, like those for [Java Time](https://do
 The error handling has also been improved, with more details (Note: `DocumentKeyNotFoundException` is the previous API is replaced with `BSONValueNotFoundException` in the new one).
 
 <figure>
-  <img src="../images/bison-bench-reader.png"
+  <img src="./images/bison-bench-reader.png"
     style="max-width:75%" alt="Reader benchmarks" />
 
   <figcaption style="font-size:x-small">Coefficient between new/old throughput (op/s; =1: no change, 1+: better thrpt). Source: <a rel="me external" href="https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/benchmarks/src/main/scala/">BSON reader benchmarks</a></figcaption>
@@ -574,7 +596,7 @@ def updateArrayFilters(personColl: BSONCollection) =
 
 The `.count(..)` collection operation now return a `Long` value (rather than `Int`).
 
-More: [**Find documents**](./tutorial/find-documents.html), [**Write documents**](./tutorial/write-documents.html)
+**More:** [Find documents](./tutorial/find-documents.html), [Write documents](./tutorial/write-documents.html)
 
 ### Aggregation
 
@@ -791,7 +813,7 @@ A [new module](./advanced-topics/monitoring.html#kamon) is available to collect 
 Then the metrics can be configured in dashboards, according the used Kamon reporters.
 For example if using [Kamon APM](https://kamon.io/docs/latest/reporters/apm/).
 
-<img src="../images/kamon-apm-graph-view.png" alt="Graph about established connections" class="screenshot" />
+<img src="./images/kamon-apm-graph-view.png" alt="Graph about established connections" class="screenshot" />
 
 More: [**Monitoring**](./advanced-topics/monitoring.html)
 
