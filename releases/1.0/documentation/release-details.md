@@ -23,7 +23,7 @@ The documentation is available [online](index.html), and its code samples are co
   - [Reader and writer typeclasses](#reader-and-writer-typeclasses)
   - [Macros](#macros)
   - [Extra libraries](#extra-libraries)
-  - `Option` support & new `@NoneAsNull` annotation
+  - `Option` support & new annotations
 - New [query and write operations](#query-and-write-operations),
   - bulk operations (e.g. `.delete.many`) on [collection](../api/reactivemongo/api/collections/GenericCollection.html),
   - `arrayFilters` on update operations.
@@ -365,6 +365,24 @@ object Color {
 
 > Note: A new option `MacroOptions.DisableWarnings` allows to specifically exclude macro warnings.
 
+Using the new option `MacroOptions.ReadDefaultValues`, the default values can be used by BSON reader when there is no corresponding BSON value.
+
+{% highlight scala %}
+import reactivemongo.api.bson.{
+  BSONDocument, BSONDocumentReader, Macros, MacroOptions
+}
+
+case class FooWithDefault1(id: Int, title: String = "default")
+
+{
+  val reader: BSONDocumentReader[FooWithDefault1] =
+    Macros.using[MacroOptions.ReadDefaultValues].reader[FooWithDefault1]
+
+  reader.readTry(BSONDocument("id" -> 1)) // missing BSON title
+  // => Success: FooWithDefault1(id = 1, title = "default")
+}
+{% endhighlight %}
+
 **Annotations:**
 
 The way `Option` is handled by the macros has been improved, also with a new annotation `@NoneAsNull`, which write `None` values as `BSONNull` (instead of omitting field/value).
@@ -387,6 +405,75 @@ BSONDocument("name" -> "foo", "start" -> 0, "end" -> 1)
 // Rather than:
 // BSONDocument("name" -> "foo", "range" -> BSONDocument(
 //   "start" -> 0, "end" -> 1))
+{% endhighlight %}
+
+The new [`@DefaultValue`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/Macros$$Annotations$$DefaultValue.html) can be used with `MacroOptions.ReadDefaultValues` to specify a default value only used when reading from BSON.
+
+{% highlight scala %}
+import reactivemongo.api.bson.{
+  BSONDocument, BSONDocumentReader, Macros, MacroOptions
+}
+import Macros.Annotations.DefaultValue
+
+case class FooWithDefault2(
+  id: Int,
+  @DefaultValue("default") title: String)
+
+{
+  val reader: BSONDocumentReader[FooWithDefault2] =
+    Macros.using[MacroOptions.ReadDefaultValues].reader[FooWithDefault2]
+
+  reader.readTry(BSONDocument("id" -> 1)) // missing BSON title
+  // => Success: FooWithDefault2(id = 1, title = "default")
+}
+{% endhighlight %}
+
+The new [`@Reader`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/Macros$$Annotations$$Reader.html) allows to indicate a specific BSON reader that must be used for a property, instead of resolving such reader from the implicit scope.
+
+{% highlight scala %}
+import reactivemongo.api.bson.{
+  BSONDocument, BSONDouble, BSONString, BSONReader
+}
+import reactivemongo.api.bson.Macros,
+  Macros.Annotations.Reader
+
+val scoreReader: BSONReader[Double] = BSONReader.collect[Double] {
+  case BSONString(v) => v.toDouble
+  case BSONDouble(b) => b
+}
+
+case class CustomFoo1(
+  title: String,
+  @Reader(scoreReader) score: Double)
+
+val reader = Macros.reader[CustomFoo1]
+
+reader.readTry(BSONDocument(
+  "title" -> "Bar",
+  "score" -> "1.23" // accepted by annotated scoreReader
+))
+// Success: CustomFoo1(title = "Bar", score = 1.23D)
+{% endhighlight %}
+
+In a similar way, the new [`@Writer`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/Macros$$Annotations$$Writer.html) allows to indicate a specific BSON writer that must be used for a property, instead of resolving such writer from the implicit scope.
+
+{% highlight scala %}
+import reactivemongo.api.bson.{ BSONString, BSONWriter }
+import reactivemongo.api.bson.Macros,
+  Macros.Annotations.Writer
+
+val scoreWriter: BSONWriter[Double] = BSONWriter[Double] { d =>
+  BSONString(d.toString) // write double as string
+}
+
+case class CustomFoo2(
+  title: String,
+  @Writer(scoreWriter) score: Double)
+
+val writer = Macros.writer[CustomFoo2]
+
+writer.writeTry(CustomFoo2(title = "Bar", score = 1.23D))
+// Success: BSONDocument("title" -> "Bar", "score" -> "1.23")
 {% endhighlight %}
 
 #### Extra libraries

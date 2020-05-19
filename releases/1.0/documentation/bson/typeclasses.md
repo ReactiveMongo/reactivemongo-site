@@ -172,6 +172,24 @@ For example if you have `case class Foo(bar: Bar)` and want to create a handler 
 
 > The macros are currently limited to case classes whose constructor doesn't take more than 22 parameters (due to Scala not generating `apply` and `unapply` in the other cases).
 
+The default values for the class properties can be used by BSON reader when the corresponding BSON value is missing, with `MacroOptions.ReadDefaultValues`.
+
+{% highlight scala %}
+import reactivemongo.api.bson.{
+  BSONDocument, BSONDocumentReader, Macros, MacroOptions
+}
+
+case class FooWithDefault1(id: Int, title: String = "default")
+
+{
+  val reader: BSONDocumentReader[FooWithDefault1] =
+    Macros.using[MacroOptions.ReadDefaultValues].reader[FooWithDefault1]
+
+  reader.readTry(BSONDocument("id" -> 1)) // missing BSON title
+  // => Success: FooWithDefault1(id = 1, title = "default")
+}
+{% endhighlight %}
+
 **Sealed trait and union types:**
 
 Sealed traits are also supported as [union types](https://en.wikipedia.org/wiki/Union_type), with each of their subclasses considered as a disjoint case.
@@ -311,6 +329,75 @@ BSONDocument("name" -> "foo", "start" -> 0, "end" -> 1)
 // Rather than:
 // BSONDocument("name" -> "foo", "range" -> BSONDocument(
 //   "start" -> 0, "end" -> 1))
+{% endhighlight %}
+
+The [`@DefaultValue`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/Macros$$Annotations$$DefaultValue.html) can be used with `MacroOptions.ReadDefaultValues` to specify a default value only used when reading from BSON.
+
+{% highlight scala %}
+import reactivemongo.api.bson.{
+  BSONDocument, BSONDocumentReader, Macros, MacroOptions
+}
+import Macros.Annotations.DefaultValue
+
+case class FooWithDefault2(
+  id: Int,
+  @DefaultValue("default") title: String)
+
+{
+  val reader: BSONDocumentReader[FooWithDefault2] =
+    Macros.using[MacroOptions.ReadDefaultValues].reader[FooWithDefault2]
+
+  reader.readTry(BSONDocument("id" -> 1)) // missing BSON title
+  // => Success: FooWithDefault2(id = 1, title = "default")
+}
+{% endhighlight %}
+
+The [`@Reader`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/Macros$$Annotations$$Reader.html) allows to indicate a specific BSON reader that must be used for a property, instead of resolving such reader from the implicit scope.
+
+{% highlight scala %}
+import reactivemongo.api.bson.{
+  BSONDocument, BSONDouble, BSONString, BSONReader
+}
+import reactivemongo.api.bson.Macros,
+  Macros.Annotations.Reader
+
+val scoreReader: BSONReader[Double] = BSONReader.collect[Double] {
+  case BSONString(v) => v.toDouble
+  case BSONDouble(b) => b
+}
+
+case class CustomFoo1(
+  title: String,
+  @Reader(scoreReader) score: Double)
+
+val reader = Macros.reader[CustomFoo1]
+
+reader.readTry(BSONDocument(
+  "title" -> "Bar",
+  "score" -> "1.23" // accepted by annotated scoreReader
+))
+// Success: CustomFoo1(title = "Bar", score = 1.23D)
+{% endhighlight %}
+
+In a similar way, the [`@Writer`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/Macros$$Annotations$$Writer.html) allows to indicate a specific BSON writer that must be used for a property, instead of resolving such writer from the implicit scope.
+
+{% highlight scala %}
+import reactivemongo.api.bson.{ BSONString, BSONWriter }
+import reactivemongo.api.bson.Macros,
+  Macros.Annotations.Writer
+
+val scoreWriter: BSONWriter[Double] = BSONWriter[Double] { d =>
+  BSONString(d.toString) // write double as string
+}
+
+case class CustomFoo2(
+  title: String,
+  @Writer(scoreWriter) score: Double)
+
+val writer = Macros.writer[CustomFoo2]
+
+writer.writeTry(CustomFoo2(title = "Bar", score = 1.23D))
+// Success: BSONDocument("title" -> "Bar", "score" -> "1.23")
 {% endhighlight %}
 
 **Troubleshooting:**
