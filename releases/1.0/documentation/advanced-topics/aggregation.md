@@ -1298,6 +1298,28 @@ def sliceFavorites(coll: BSONCollection)(implicit ec: ExecutionContext) =
   }.collect[Seq](4, Cursor.FailOnError[Seq[BSONDocument]]())
 {% endhighlight %}
 
+### Change stream
+
+Since MongoDB 3.6, it's possible to [watch the changes](https://docs.mongodb.com/manual/changeStreams/) applied on a collection.
+
+Using ReactiveMongo, a pipeline can be used to aggregate the change stream.
+
+{% highlight scala %}
+import reactivemongo.api.Cursor
+import reactivemongo.api.bson.BSONDocument
+import reactivemongo.api.bson.collection.BSONCollection
+
+def filteredWatch(
+  coll: BSONCollection,
+  filter: BSONDocument): Cursor[BSONDocument] = {
+  import coll.AggregationFramework.{ Match, PipelineOperator }
+
+  coll.watch[BSONDocument](
+    pipeline = List[PipelineOperator](Match(filter))).
+    cursor[Cursor.WithOps]
+}
+{% endhighlight %}
+
 **See also:**
 
 - The operators available to define an aggregation pipeline are documented in the [API reference](../../api/reactivemongo/api/collections/GenericCollection.html#AggregationFramework=GenericCollection.this.AggregationFramework.type).
