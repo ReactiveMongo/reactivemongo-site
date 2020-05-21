@@ -327,6 +327,7 @@ GeoGeometryCollection
 GeoPoint
 BSONArrayBenchmark
 reactivemongo.api.MongoConnection.ParsedURI
+GridFS.this.FileToSave
 
 warry
 Maxime
@@ -334,7 +335,11 @@ Dantec
 slideshow
 Joline
 Lichess.org
+Color
 
+ffffff
+56b458
+e9def1
 100ms
 125ms
 250ms

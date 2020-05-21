@@ -22,14 +22,23 @@ The documentation is available [online](index.html), and its code samples are co
   - [Documents and values](#documents-and-values)
   - [Reader and writer typeclasses](#reader-and-writer-typeclasses)
   - [Macros](#macros)
+    - `Option` support & [`@NoneAsNull`](#none-as-null)
+    - [`@Flatten`](#a-flatten)
+    - [`@DefaultValue`](#a-defaultvalue)
+    - [`@Reader`](#a-reader) & [`@Writer`](#a-writer)
   - [Extra libraries](#extra-libraries)
-  - `Option` support & new annotations
-- New [query and write operations](#query-and-write-operations),
-  - bulk operations (e.g. `.delete.many`) on [collection](../api/reactivemongo/api/collections/GenericCollection.html),
+    - [GeoJSON](#geojson)
+    - [Monocle](#monocle)
+    - [Specs2](#specs2)
+- [Query and write operations](#query-and-write-operations),
+  - Bulk operations (e.g. `.delete.many`) on [collection](../api/reactivemongo/api/collections/GenericCollection.html),
   - `arrayFilters` on update operations.
+- [Play](#play)
 - [Aggregation](#aggregation)
   - [`CursorOptions`](../api/reactivemongo/api/CursorOptions.html) parameter when using `.aggregatorContext`.
   - New stages: `$addFields`, `$bucketAuto`, `$count`, `$filter`, `$replaceRoot`, `$slice`
+  - [Change stream](#change-stream)
+- [GridFS](#gridfs)
 - [Monitoring](#monitoring)
 - [Administration](#administration)
 - [Breaking changes](#breaking-changes)
@@ -385,9 +394,9 @@ case class FooWithDefault1(id: Int, title: String = "default")
 
 **Annotations:**
 
-The way `Option` is handled by the macros has been improved, also with a new annotation `@NoneAsNull`, which write `None` values as `BSONNull` (instead of omitting field/value).
+The way `Option` is handled by the macros has been improved, also with a new annotation <span id="none-as-null">`@NoneAsNull`</span>, which write `None` values as `BSONNull` (instead of omitting field/value).
 
-A new annotation [`@Flatten`](../api/reactivemongo/bson/Macros$$Annotations$$Flatten.html) has been added, to indicate to the macros that the representation of a property must be flatten rather than a nested document.
+A <span id="a-flatten">new annotation [`@Flatten`](../api/reactivemongo/bson/Macros$$Annotations$$Flatten.html)</span> has been added, to indicate to the macros that the representation of a property must be flatten rather than a nested document.
 
 {% highlight scala %}
 import reactivemongo.api.bson.BSONDocument
@@ -407,7 +416,7 @@ BSONDocument("name" -> "foo", "start" -> 0, "end" -> 1)
 //   "start" -> 0, "end" -> 1))
 {% endhighlight %}
 
-The new [`@DefaultValue`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/Macros$$Annotations$$DefaultValue.html) can be used with `MacroOptions.ReadDefaultValues` to specify a default value only used when reading from BSON.
+The new <span id="a-defaultvalue">[`@DefaultValue`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/Macros$$Annotations$$DefaultValue.html)</span> can be used with `MacroOptions.ReadDefaultValues` to specify a default value only used when reading from BSON.
 
 {% highlight scala %}
 import reactivemongo.api.bson.{
@@ -428,7 +437,7 @@ case class FooWithDefault2(
 }
 {% endhighlight %}
 
-The new [`@Reader`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/Macros$$Annotations$$Reader.html) allows to indicate a specific BSON reader that must be used for a property, instead of resolving such reader from the implicit scope.
+The new <span id="a-reader">[`@Reader`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/Macros$$Annotations$$Reader.html)</span> allows to indicate a specific BSON reader that must be used for a property, instead of resolving such reader from the implicit scope.
 
 {% highlight scala %}
 import reactivemongo.api.bson.{
@@ -455,7 +464,7 @@ reader.readTry(BSONDocument(
 // Success: CustomFoo1(title = "Bar", score = 1.23D)
 {% endhighlight %}
 
-In a similar way, the new [`@Writer`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/Macros$$Annotations$$Writer.html) allows to indicate a specific BSON writer that must be used for a property, instead of resolving such writer from the implicit scope.
+In a similar way, the new <span id="a-writer">[`@Writer`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/Macros$$Annotations$$Writer.html)</span> allows to indicate a specific BSON writer that must be used for a property, instead of resolving such writer from the implicit scope.
 
 {% highlight scala %}
 import reactivemongo.api.bson.{ BSONString, BSONWriter }
@@ -480,7 +489,7 @@ writer.writeTry(CustomFoo2(title = "Bar", score = 1.23D))
 
 Some [extra libraries](./bson/extra.html) are provided along the new BSON one, to improve the integration.
 
-**[GeoJSON](./bson/extra.html#geojson):**
+<strong id="geojson">[GeoJSON](./bson/extra.html#geojson):</strong>
 
 A new [GeoJSON](https://docs.mongodb.com/manual/reference/geojson/) library is provided, with the geometry types and the corresponding handlers to read from and write them to appropriate BSON representation.
 
@@ -492,7 +501,7 @@ libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-geo" % "{{site
 
 *See [Scaladoc](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-geo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/index.html)*
 
-**[Monocle](./bson/extra.html#monocle):**
+<strong id="monocle">[Monocle](./bson/extra.html#monocle):</strong>
 
 The library that provides [Monocle](http://julien-truffaut.github.io/Monocle/) based optics, for BSON values.
 
@@ -504,7 +513,7 @@ libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-monocle" % "{{
 
 *See [Scaladoc](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-monocle_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/monocle/index.html)*
 
-**[Specs2](./bson/extra.html#specs2):**
+<strong id="specs2">[Specs2](./bson/extra.html#specs2):</strong>
 
 The Specs2 library provides utilities to write tests using [specs2](https://etorreborre.github.io/specs2/) with BSON values.
 
@@ -684,6 +693,20 @@ def updateArrayFilters(personColl: BSONCollection) =
 The `.count(..)` collection operation now return a `Long` value (rather than `Int`).
 
 **More:** [Find documents](./tutorial/find-documents.html), [Write documents](./tutorial/write-documents.html)
+
+### Play
+
+[Play integration](./tutorial/play.html) has been upgraded, to support new versions and be compatible with the new [BSON library](#bson-library).
+
+The `JSONCollection` and `JSONSerializationPack` (from package `reactivemongo.play.json.collection`) have been removed, and JSON compatibility can be applied using standard collection and JSON conversions.
+
+{% highlight javascript %}
+import reactivemongo.play.json.compat._,
+  json2bson._,
+  bson2json._
+{% endhighlight %}
+
+> The `play.modules.reactivemongo.JSONFileToSave` has also been removed.
 
 ### Aggregation
 
@@ -887,7 +910,37 @@ def sliceFavorites(coll: BSONCollection)(implicit ec: ExecutionContext) =
 - [`$set`](https://docs.mongodb.com/manual/reference/operator/aggregation/set)
 - [`$replaceWith`](https://docs.mongodb.com/manual/reference/operator/aggregation/replaceWith)
 
-More: [**Aggregation Framework**](./advanced-topics/aggregation.html)
+<strong id="change-stream">Change stream:</strong>
+
+Since MongoDB 3.6, it's possible to [watch the changes](https://docs.mongodb.com/manual/changeStreams/) applied on a collection.
+
+Now ReactiveMongo can obtain a stream of changes, and aggregate it.
+
+{% highlight scala %}
+import reactivemongo.api.Cursor
+import reactivemongo.api.bson.BSONDocument
+import reactivemongo.api.bson.collection.BSONCollection
+
+def filteredWatch(
+  coll: BSONCollection,
+  filter: BSONDocument): Cursor[BSONDocument] = {
+  import coll.AggregationFramework.{ Match, PipelineOperator }
+
+  coll.watch[BSONDocument](
+    pipeline = List[PipelineOperator](Match(filter))).
+    cursor[Cursor.WithOps]
+}
+{% endhighlight %}
+
+**More:** [Aggregation Framework](./advanced-topics/aggregation.html)
+
+### GridFS
+
+The [GridFS API](./advanced-topics/gridfs.html) has been refactored, to be simpler and more safe.
+
+The `DefaultFileToSave` has been moved to the factory [`fileToSave`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/gridfs/GridFS.html#fileToSave[Id<:GridFS.this.pack.Value](filename:Option[String],contentType:Option[String],uploadDate:Option[Long],metadata:GridFS.this.pack.Document,id:Id):GridFS.this.FileToSave[Id]).
+
+Separate classes and traits `DefaultReadFile`, `ComputedMetadata`, `BasicMetadata` and `CustomMetadata` have been merged with the single class [`ReadFile`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/gridfs/ReadFile.html).
 
 ### Monitoring
 
@@ -902,7 +955,7 @@ For example if using [Kamon APM](https://kamon.io/docs/latest/reporters/apm/).
 
 <img src="./images/kamon-apm-graph-view.png" alt="Graph about established connections" class="screenshot" />
 
-More: [**Monitoring**](./advanced-topics/monitoring.html)
+**More:** [Monitoring](./advanced-topics/monitoring.html)
 
 ### Administration
 
@@ -941,17 +994,3 @@ For the current {{site._1_0_latest_minor}} release, it has detected the followin
 **Core/internal**
 
 - `reactivemongo.core` packages after Netty 4.1.25 upgrade.
-
-<!-- TODO: Change stream -->
-<!-- TODO:
-reactivemongo.api.gridfs.DefaultFileToSave : gridfs.fileToSave
-reactivemongo.api.gridfs.DefaultReadFile : remove
-reactivemongo.api.gridfs.{ComputedMetadata,BasicMetadata,CustomMetadata} => merge with ReadFile
-reactivemongo.api.gridfs.ReadFile ~> type parameters
-play.modules.reactivemongo.JSONFileToSave : remove
-
--->
-
-<!-- TODO: Play:
-No longer JSONCollection, JSONSerializationPack ~> JSON compat conversions
--->
