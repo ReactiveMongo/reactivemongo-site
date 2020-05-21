@@ -6,6 +6,8 @@ title: Release details
 
 ## ReactiveMongo {{site._1_0_latest_minor}} – Release details
 
+<strong style="color:red">This is a Release Candidate</strong>
+
 **What's new?**
 
 The documentation is available [online](index.html), and its code samples are compiled to make sure it's up-to-date.
