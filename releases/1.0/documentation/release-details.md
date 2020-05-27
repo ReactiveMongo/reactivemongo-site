@@ -38,7 +38,7 @@ The documentation is available [online](index.html), and its code samples are co
 - [Play](#play)
 - [Aggregation](#aggregation)
   - [`CursorOptions`](../api/reactivemongo/api/CursorOptions.html) parameter when using `.aggregatorContext`.
-  - New stages: `$addFields`, `$bucketAuto`, `$count`, `$filter`, `$replaceRoot`, `$slice`
+  - New stages: `$addFields`, `$bucketAuto`, `$count`, `$filter`, `$replaceRoot`, `$search`, `$slice`
   - [Change stream](#change-stream)
 - [GridFS](#gridfs)
 - [Monitoring](#monitoring)
@@ -69,7 +69,7 @@ This can be considered as a recommended environment.
 
 ### Migration
 
-A Scalafix module is available to migrate from ReactiveMongo 0.12+ to 1.0.
+A Scalafix module is available to migrate from ReactiveMongo 0.12+ to 1.0 (not yet available for Scala 2.13).
 
 To apply the migration rules, first [setup Scalafix](https://scalacenter.github.io/scalafix/docs/users/installation.html) in the SBT build, then configure the ReactiveMongo rules as bellow.
 
@@ -522,7 +522,7 @@ The Specs2 library provides utilities to write tests using [specs2](https://etor
 It can be configured in the `build.sbt` as below.
 
 {% highlight ocaml %}
-libraryDependencies += "org.reactivemongo" %% "reactivemongo-specs2" % "{{site._1_0_latest_minor}}"
+libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-specs2" % "{{site._1_0_latest_minor}}"
 {% endhighlight %}
 
 *See [Scaladoc](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-bson-geo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo-bson-geo_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-javadoc.jar/!/reactivemongo/api/bson/geo/index.html)*
@@ -866,6 +866,32 @@ def replaceRootTest(fruits: BSONCollection): Future[Option[BSONDocument]] = {
     ReplaceRootField("in_stock") -> List.empty
   }.headOption
   // Results: { "oranges": 20, "apples": 60 }, ...
+}
+{% endhighlight %}
+
+**search:**
+
+In ReactiveMongo the [Atlas Search](https://docs.atlas.mongodb.com/reference/atlas-search/tutorial/) feature can be applied through the aggregation framework.
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+
+import reactivemongo.api.Cursor
+import reactivemongo.api.bson.BSONDocument
+import reactivemongo.api.bson.collection.BSONCollection
+
+def foo(col: BSONCollection)(
+  implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
+
+  import col.AggregationFramework.AtlasSearch, AtlasSearch.Term
+
+  col.aggregatorContext[BSONDocument](AtlasSearch(Term(
+    path = "description",
+    query = "s*l*",
+    modifier = Some(Term.Wildcard) // wildcard: true
+  ))).prepared.cursor.
+    collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
+
 }
 {% endhighlight %}
 

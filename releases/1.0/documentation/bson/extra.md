@@ -99,7 +99,7 @@ The Specs2 library provides utilities to write tests using [specs2](https://etor
 It can be configured in the `build.sbt` as below.
 
 {% highlight ocaml %}
-libraryDependencies += "org.reactivemongo" %% "reactivemongo-specs2" % "{{site._1_0_latest_minor}}"
+libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-specs2" % "{{site._1_0_latest_minor}}"
 {% endhighlight %}
 
 {% highlight scala %}
