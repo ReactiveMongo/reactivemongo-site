@@ -37,6 +37,7 @@ The [MongoDB Aggregation Framework](http://docs.mongodb.org/manual/reference/ope
 - **[`$out`](#out)**: Writes the resulting documents of the aggregation [pipeline to a collection](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#pipe._S_out) ([API](../../api/reactivemongo/api/commands/AggregationFramework#OutextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)).
 - **[`$indexStats`](#indexStats)**: Returns statistics regarding the use of [each index for the collection](https://docs.mongodb.com/manual/reference/operator/aggregation/indexStats/#pipe._S_indexStats) ([API](../../api/reactivemongo/api/commands/AggregationFramework#IndexStats)).
 - **[`$replaceRoot`](#replaceRoot)**: Promotes a specified document to the top level and replaces all other fields.
+- **[`$search`](#search)**: Applies the [Atlas Search](https://docs.atlas.mongodb.com/reference/atlas-search/tutorial/).
 - **[`$slice`](#slice)**: Returns a subset of an array.
 
 ### Zip codes
@@ -84,8 +85,8 @@ In the MongoDB shell, such aggregation is written as bellow (see the [example](h
 
 {% highlight javascript %}
 db.zipcodes.aggregate([
-   { $group: { _id: "$state", totalPop: { $sum: "$pop" } } },
-   { $match: { totalPop: { $gte: 10000000 } } }
+  { $group: { _id: "$state", totalPop: { $sum: "$pop" } } },
+  { $match: { totalPop: { $gte: 10000000 } } }
 ])
 {% endhighlight %}
 
@@ -211,7 +212,7 @@ In the MongoDB shell, it would be executed as following.
 
 {% highlight javascript %}
 db.zipcodes.aggregate([
-   { $group: { _id: "$state", maxPop: { $max: "$population" } } }
+  { $group: { _id: "$state", maxPop: { $max: "$population" } } }
 ])
 {% endhighlight %}
 
@@ -1317,6 +1318,65 @@ def filteredWatch(
   coll.watch[BSONDocument](
     pipeline = List[PipelineOperator](Match(filter))).
     cursor[Cursor.WithOps]
+}
+{% endhighlight %}
+
+### Atlas Search
+
+When using [MongoDB Atlas](../tutorial/mongodb-atlas.html), the specific aggregation stage <span id="search">[`$search`](https://docs.atlas.mongodb.com/reference/atlas-search/query-syntax/)</span> is available to apply [advanced search features](https://docs.atlas.mongodb.com/reference/atlas-search/tutorial/).
+
+For example with a `fruit` collection on MongoDB Atlas with the following documents:
+
+{% highlight javascript %}
+{
+  "_id" : 1,
+  "type" : "apple",
+  "description" : "Apples come in several varieties, including Fuji, Granny Smith, and Honeycrisp."
+},
+{
+  "_id" : 2,
+  "type" : "banana",
+  "description" : "Bananas are usually sold in bunches of five or six."
+}
+{% endhighlight %}
+
+In the MongoDB shell, the search features can be used with a [term query](https://docs.atlas.mongodb.com/reference/atlas-search/term/) as below.
+
+{% highlight javascript %}
+db.fruit.aggregate([
+  {
+    $search: {
+      "term": {
+        "query": "s*l*",
+        "path": "description",
+        "wildcard": true
+      }
+    }
+  }
+])
+{% endhighlight %}
+
+In ReactiveMongo, such search aggregation can be applied using the corresponding [API](../../api/reactivemongo/api/commands/AggregationFramework). <!-- TODO: More precise link -->
+
+{% highlight scala %}
+import scala.concurrent.{ ExecutionContext, Future }
+
+import reactivemongo.api.Cursor
+import reactivemongo.api.bson.BSONDocument
+import reactivemongo.api.bson.collection.BSONCollection
+
+def foo(col: BSONCollection)(
+  implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
+
+  import col.AggregationFramework.AtlasSearch, AtlasSearch.Term
+
+  col.aggregatorContext[BSONDocument](AtlasSearch(Term(
+    path = "description",
+    query = "s*l*",
+    modifier = Some(Term.Wildcard) // wildcard: true
+  ))).prepared.cursor.
+    collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
+
 }
 {% endhighlight %}
 
