@@ -74,16 +74,18 @@ A Scalafix module is available to migrate from ReactiveMongo 0.12+ to 1.0 (not y
 To apply the migration rules, first [setup Scalafix](https://scalacenter.github.io/scalafix/docs/users/installation.html) in the SBT build, then configure the ReactiveMongo rules as bellow.
 
 {% highlight ocaml %}
-libraryDependencies ++= Seq(
+scalafixDependencies in ThisBuild ++= Seq(
   "org.reactivemongo" %% "reactivemongo-scalafix" % "{{site._1_0_latest_minor}}")
 {% endhighlight %}
 
 Once the rules are configured, they can be applied from SBT.
 
 {% highlight sh %}
-test:scalafix ReactiveMongoUpgrade
-test:scalafix ReactiveMongoLinter --check
+scalafix ReactiveMongoUpgrade
+scalafix ReactiveMongoLinter --check
 {% endhighlight %}
+
+Then upgrade the appropriate `libraryDependencies` in the SBT build.
 
 ### Connection
 
