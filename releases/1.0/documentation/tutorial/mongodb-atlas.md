@@ -24,7 +24,7 @@ Then the connection URI is displayed, and can be copied with user/password place
 mongodb.uri = "mongodb+srv://${ATLAS_USERNAME}:${ATLAS_PASSWORD}@cluster0-p8ccg.mongodb.net/test?retryWrites=true&w=majority"
 {% endhighlight %}
 
-> *Note:* The URI is [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) format, supported by ReactiveMongo. The options are resolved from there.
+> *Note:* The URI is [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) format, supported by ReactiveMongo. The required options are resolved from there. As for `retryWrites=true&w=majority` direct options that are client specific, they must be removed.
 
 In order to substitute the placeholders `ATLAS_USERNAME` and `ATLAS_PASSWORD`, actual users can be check in the Security settings.
 
