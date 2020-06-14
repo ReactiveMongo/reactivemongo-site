@@ -85,7 +85,11 @@ scalafix ReactiveMongoUpgrade
 scalafix ReactiveMongoLinter --check
 {% endhighlight %}
 
-Then upgrade the appropriate `libraryDependencies` in the SBT build.
+Then upgrade the appropriate `libraryDependencies` in the SBT build, and re-recompile it.
+
+{% highlight sh %}
+sbt clean compile
+{% endhighlight %}
 
 ### Connection
 
@@ -160,6 +164,17 @@ The Biːsən is the new default BSON library, that fixes some issues ([OOM](http
 #### Documents and values
 
 The API for [`BSONDocument`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/BSONDocument.html) has been slightly updated, with the function `getAs` renamed as `getAsOpt` (to be consistent with `getAsTry`).
+
+New `getOrElse` function is also added.
+
+{% highlight scala %}
+import reactivemongo.api.bson._
+
+def withFallback(doc: BSONDocument): String = {
+  doc.getOrElse[String]("strField", "defaultValue")
+  // Equivalent to: doc.getAsOpt[String]("strField").getOrElse("defaultValue")
+}
+{% endhighlight %}
 
 New field utilities are provided for the most common types:
 
