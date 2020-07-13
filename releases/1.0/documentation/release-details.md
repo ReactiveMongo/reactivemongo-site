@@ -20,7 +20,6 @@ TODO: GridFS.update
 TODO: JSON compat
 
 -->
-<!-- TODO: WriteResult.Exception -->
 
 **What's new?**
 
@@ -728,6 +727,22 @@ def updateArrayFilters(personColl: BSONCollection) =
 {% endhighlight %}
 
 The `.count(..)` collection operation now return a `Long` value (rather than `Int`).
+
+**[`WriteResult`](../api/reactivemongo/api/commands/WriteResult.html)**
+
+A new utility is provided to extract exception details from an erroneous result.
+
+{% highlight scala %}
+import reactivemongo.api.commands.WriteResult
+
+def printExceptionIfFailed(res: WriteResult) = res match {
+  case WriteResult.Exception(cause) =>
+    cause.printStackTrace()
+
+  case _ =>
+    println("OK")
+}
+{% endhighlight %}
 
 **More:** [Find documents](./tutorial/find-documents.html), [Write documents](./tutorial/write-documents.html)
 
