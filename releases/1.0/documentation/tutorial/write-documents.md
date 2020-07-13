@@ -93,6 +93,7 @@ When calling a write operation, it's possible to handle some specific error case
 
 - [`WriteResult.Code`](../../api/reactivemongo/api/commands/WriteResult$@Code): matches the errors according the specified code (e.g. the 11000 code for the Duplicate error)
 - [`WriteResult.Message`](../../api/reactivemongo/api/commands/WriteResult$@Message): matches the errors according the message
+- [`WriteResult.Exception`](../../api/reactivemongo/api/commands/WriteResult$@Exception): matches the exception details
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -112,6 +113,9 @@ def insertErrors(personColl: BSONCollection) = {
 
     case WriteResult.Message("Must match this exact message") =>
       println("Match the error message")
+
+    case WriteResult.Exception(cause) =>
+      cause.printStackTrace() // Print any other Exception
 
     case _ => ()
   }

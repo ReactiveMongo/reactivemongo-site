@@ -21,7 +21,7 @@ def customAgg(coll: BSONCollection)(implicit ec: ExecutionContext) =
     val customStage = // { $sample: { size: 2 } }
       PipelineOperator(BSONDocument("$sample" -> BSONDocument("size" -> 2)))
 
-    customStage -> List.empty
+    List(customStage)
   }
 {% endhighlight %}
 

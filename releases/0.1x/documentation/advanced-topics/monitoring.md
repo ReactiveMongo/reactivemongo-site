@@ -34,23 +34,6 @@ Once connected, you can select the "MBeans" tab on the top of JConsole, to check
 
 <img src="../images/jconsole3.png" alt="JConsole Node MBean" class="screenshot" />
 
-## Kamon
-
-[Kamon](https://kamon.io/) is an instrumentation and monitoring library for JVM application.
-
-For projects where Kamon is [set up](https://kamon.io/docs/latest/guides/), the module `reactivemongo-kamon` can to added as bellow, to collect metrics about the connection pools.
-
-{% highlight ocaml %}
-"org.reactivemongo" %% "reactivemongo-kamon" % "{{site._0_1x_latest_minor}}"
-{% endhighlight %}
-
-Then the metrics can be configured in dashboards, according the used Kamon reporters.
-For example if using [Kamon APM](https://kamon.io/docs/latest/reporters/apm/).
-
-<img src="../images/kamon-apm-create-graph.png" alt="Create a graph in Kamon APM" class="screenshot" />
-
-<img src="../images/kamon-apm-graph-view.png" alt="Graph about established connections" class="screenshot" />
-
 The collected metrics are the following.
 
 **Pool metrics:** (tagged by pool name)

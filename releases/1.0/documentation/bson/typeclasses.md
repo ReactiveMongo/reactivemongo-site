@@ -482,7 +482,7 @@ object FooKey {
   val bar = new FooKey("bar")
   val lorem = new FooKey("lorem")
 
-  implicit val keyWriter: KeyWriter[FooKey] = KeyWriter.safe[FooKey](_.value)
+  implicit val keyWriter: KeyWriter[FooKey] = KeyWriter[FooKey](_.value)
 
   implicit val keyReader: KeyReader[FooKey] =
     KeyReader[FooKey] { new FooKey(_) }
@@ -504,5 +504,12 @@ def bsonMapCustomKey = {
 
 - [BigDecimal](example-bigdecimal.html)
 - [Document](example-document.html)
+
+### Troubleshooting
+
+{% highlight text %}{% raw %}
+could not find implicit value for parameter e: reactivemongo.api.bson.BSONDocumentReader[Map[..not string..,String]]
+{% endraw %}{% endhighlight %}
+
 
 [Previous: Overview of the ReactiveMongo BSON library](overview.html) / [Next: BSON extra libraries](extra.html)

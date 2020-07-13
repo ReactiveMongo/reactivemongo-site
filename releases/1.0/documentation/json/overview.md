@@ -6,13 +6,20 @@ title: Play JSON support
 
 The [ReactiveMongo Play JSON](https://github.com/reactivemongo/reactivemongo-play-json) library provides a JSON serialization pack for ReactiveMongo, based on the [Play Framework JSON library](https://www.playframework.com/documentation/latest/ScalaJson).
 
+<!-- TODO:
+
+ https://gist.github.com/cchantep/3da3ab798802e433ec9f7a35d8bd1140
+https://groups.google.com/forum/#!msg/reactivemongo/-2fa1Cp2OzM/xQreqBovBAAJ
+
+-->
+
 ## Setup
 
-You can setup this serialization pack by adding the following dependency in your `project/Build.scala` (or `build.sbt`).
+You can setup the Play JSON compatibility for ReactiveMongo by adding the following dependency in your `project/Build.scala` (or `build.sbt`).
 
 {% highlight ocaml %}
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "reactivemongo-play-json" % "{{site._1_0_latest_minor}}-play27"
+  "org.reactivemongo" %% "reactivemongo-play-json-compat" % "{{site._1_0_latest_minor}}-play27" // For Play 2.7.x (ajust accordingly)
 )
 {% endhighlight %}
 
@@ -22,10 +29,21 @@ libraryDependencies ++= Seq(
 
 > If the dependency for the [Play plugin](../tutorial/play.html) (with the right version) is present, it already provides the JSON support and this JSON serialization pack must not be added as a separate dependency.
 
-Then, the following code enables this JSON serialization pack.
+The following import enables the compatibility.
 
 {% highlight scala %}
-import reactivemongo.play.json._
+import reactivemongo.play.json.compat._
+{% endhighlight %}
+
+Then JSON values can be converted to BSON, and it's possible to convert BSON values to JSON.
+
+{% highlight scala %}
+import play.api.libs.json.JsValue
+import reactivemongo.api.bson.BSONValue
+
+import reactivemongo.play.json.compat._
+
+def foo(v: BSONValue): JsValue = v // ValueConverters.fromValue
 {% endhighlight %}
 
 **API documentations:** [ReactiveMongo Play JSON API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}-play27/reactivemongo-play-json_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-play27-javadoc.jar/!/index.html)
@@ -69,5 +87,25 @@ Using that, any type that can be serialized as JSON can be also be serialized as
 A document is represented by `JsObject`, which is basically an immutable list of key-value pairs. Since it is the most used JSON type when working with MongoDB, the ReactiveMongo Play JSON library handles such `JsObject`s as seamless as possible. The encoding of such JSON object needs an instance of the typeclass [`OWrites`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.OWrites) (a `Writes` specialized for object).
 
 The default JSON serialization can also be customized, using the functions [`BSONFormats.readAsBSONValue`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo-play-json_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.play.json.BSONFormats$@readAsBSONValue(json:play.api.libs.json.JsValue)(implicitstring:BSONFormats.this.PartialReads[reactivemongo.api.bson.BSONString],implicitobjectID:BSONFormats.this.PartialReads[reactivemongo.api.bson.BSONObjectID],implicitjavascript:BSONFormats.this.PartialReads[reactivemongo.api.bson.BSONJavaScript],implicitdateTime:BSONFormats.this.PartialReads[reactivemongo.api.bson.BSONDateTime],implicittimestamp:BSONFormats.this.PartialReads[reactivemongo.api.bson.BSONTimestamp],implicitbinary:BSONFormats.this.PartialReads[reactivemongo.api.bson.BSONBinary],implicitregex:BSONFormats.this.PartialReads[reactivemongo.api.bson.BSONRegex],implicitdouble:BSONFormats.this.PartialReads[reactivemongo.api.bson.BSONDouble],implicitinteger:BSONFormats.this.PartialReads[reactivemongo.api.bson.BSONInteger],implicitlong:BSONFormats.this.PartialReads[reactivemongo.api.bson.BSONLong],implicitboolean:BSONFormats.this.PartialReads[reactivemongo.api.bson.BSONBoolean],implicitminKey:BSONFormats.this.PartialReads[reactivemongo.api.bson.BSONMinKey.type],implicitmaxKey:BSONFormats.this.PartialReads[reactivemongo.api.bson.BSONMaxKey.type],implicitbnull:BSONFormats.this.PartialReads[reactivemongo.api.bson.BSONNull.type],implicitsymbol:BSONFormats.this.PartialReads[reactivemongo.api.bson.BSONSymbol],implicitarray:BSONFormats.this.PartialReads[reactivemongo.api.bson.BSONArray],implicitdoc:BSONFormats.this.PartialReads[reactivemongo.api.bson.BSONDocument],implicitundef:BSONFormats.this.PartialReads[reactivemongo.api.bson.BSONUndefined.type]):play.api.libs.json.JsResult[reactivemongo.api.bson.BSONValue]) and [`BSONFormats.writeAsJsValue`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo-play-json_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.play.json.BSONFormats$@writeAsJsValue(bson:reactivemongo.api.bson.BSONValue)(implicitstring:BSONFormats.this.PartialWrites[reactivemongo.api.bson.BSONString],implicitobjectID:BSONFormats.this.PartialWrites[reactivemongo.api.bson.BSONObjectID],implicitjavascript:BSONFormats.this.PartialWrites[reactivemongo.api.bson.BSONJavaScript],implicitdateTime:BSONFormats.this.PartialWrites[reactivemongo.api.bson.BSONDateTime],implicittimestamp:BSONFormats.this.PartialWrites[reactivemongo.api.bson.BSONTimestamp],implicitbinary:BSONFormats.this.PartialWrites[reactivemongo.api.bson.BSONBinary],implicitregex:BSONFormats.this.PartialWrites[reactivemongo.api.bson.BSONRegex],implicitdouble:BSONFormats.this.PartialWrites[reactivemongo.api.bson.BSONDouble],implicitinteger:BSONFormats.this.PartialWrites[reactivemongo.api.bson.BSONInteger],implicitlong:BSONFormats.this.PartialWrites[reactivemongo.api.bson.BSONLong],implicitboolean:BSONFormats.this.PartialWrites[reactivemongo.api.bson.BSONBoolean],implicitminKey:BSONFormats.this.PartialWrites[reactivemongo.api.bson.BSONMinKey.type],implicitmaxKey:BSONFormats.this.PartialWrites[reactivemongo.api.bson.BSONMaxKey.type],implicitbnull:BSONFormats.this.PartialWrites[reactivemongo.api.bson.BSONNull.type],implicitsymbol:BSONFormats.this.PartialWrites[reactivemongo.api.bson.BSONSymbol],implicitarray:BSONFormats.this.PartialWrites[reactivemongo.api.bson.BSONArray],implicitdoc:BSONFormats.this.PartialWrites[reactivemongo.api.bson.BSONDocument],implicitundef:BSONFormats.this.PartialWrites[reactivemongo.api.bson.BSONUndefined.type]):play.api.libs.json.JsValue).
+
+<!-- TODO: compat -->
+
+<!-- TODO: Troubleshot
+
+could not find implicit value for parameter e: reactivemongo.api.bson.BSONDocumentWriter[play.api.libs.json.JsObject]
+~> import reactivemongo.play.json.compat._, json2bson._
+
+Implicit not found for '..': reactivemongo.api.bson.BSONReader[play.api.libs.json.JsObject]
+~> import reactivemongo.play.json.compat._, json2bson._
+
+Implicit not found for '..': reactivemongo.api.bson.BSONReader[play.api.libs.json.JsValue]
+~> import reactivemongo.play.json.compat._, json2bson._
+
+Implicit not found for '..': reactivemongo.api.bson.BSONWriter[play.api.libs.json.JsValue]
+~> import reactivemongo.play.json.compat.json2bson._
+
+JsError(List((,List(JsonValidationError(List(Fails to handle _id: BSONString != BSONObjectID),WrappedArray())))))
+~> redefined BSONReader with lax
+-->
 
 [Next: Integration with Play Framework](../tutorial/play.html)

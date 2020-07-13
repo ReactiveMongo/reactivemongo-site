@@ -6,6 +6,10 @@ title: Documentation
 
 ## ReactiveMongo {{site._1_0_latest_major}}
 
+{% if site._1_0_latest_minor contains "-rc." %}
+<strong style="color:red">This is a Release Candidate</strong>
+{% endif %}
+
 You can read the [release notes](release-details.html) to know what is new with this major release.
 
 The latest minor release is {{site._1_0_latest_minor}}, and the core dependency can be added in your SBT project as following.

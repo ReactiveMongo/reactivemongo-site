@@ -6,7 +6,21 @@ title: Release details
 
 ## ReactiveMongo {{site._1_0_latest_minor}} – Release details
 
+{% if site._1_0_latest_minor contains "-rc." %}
 <strong style="color:red">This is a Release Candidate</strong>
+{% endif %}
+
+<!-- TODO: BSON .iterable, .sequence, .tupleX, collectFrom partial, valueReader -->
+
+<!-- TODO: Troubleshoot
+[error] /Users/cchantep/Projects/paperjam/server/incoming/meteolux/src/main/scala/lu/paperjam/incoming/meteolux/models/MeteoStatus.scala:3:18: Symbol 'type reactivemongo.bson.BSONHandler' is missing from the classpath.
+[error] This symbol is required by 'value enumeratum.ReactiveMongoBsonEnum.bsonHandler'.
+
+TODO: GridFS.update
+TODO: JSON compat
+
+-->
+<!-- TODO: WriteResult.Exception -->
 
 **What's new?**
 
@@ -90,6 +104,10 @@ Then upgrade the appropriate `libraryDependencies` in the SBT build, and re-reco
 {% highlight sh %}
 sbt clean compile
 {% endhighlight %}
+
+Finally, apply manually the remaining fixes due to the breaking changes.
+
+*[Suggest an improvement](https://github.com/ReactiveMongo/ReactiveMongo-Scalafix/issues/new/choose) to these rules*
 
 ### Connection
 
@@ -290,7 +308,7 @@ object FooKey {
   val bar = new FooKey("bar")
   val lorem = new FooKey("lorem")
 
-  implicit val keyWriter: KeyWriter[FooKey] = KeyWriter.safe[FooKey](_.value)
+  implicit val keyWriter: KeyWriter[FooKey] = KeyWriter[FooKey](_.value)
 
   implicit val keyReader: KeyReader[FooKey] =
     KeyReader[FooKey] { new FooKey(_) }
@@ -731,6 +749,8 @@ import reactivemongo.play.json.compat._,
 
 There are newly supported by the [Aggregation Framework](./advanced-topics/aggregation.html).
 
+> An aggregation pipeline is now a list of operator(s), possibly empty.
+
 **addFields:**
 
 The [`$addFields`](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/) stage can now be used.
@@ -744,9 +764,9 @@ def sumHomeworkQuizz(students: BSONCollection) =
   students.aggregateWith1[BSONDocument]() { framework =>
     import framework.AddFields
 
-    AddFields(document(
+    List(AddFields(document(
       "totalHomework" -> document(f"$$sum" -> f"$$homework"),
-      "totalQuiz" -> document(f"$$sum" -> f"$$quiz"))) -> List(
+      "totalQuiz" -> document(f"$$sum" -> f"$$quiz"))), (
       AddFields(document(
         "totalScore" -> document(f"$$add" -> array(
         f"$$totalHomework", f"$$totalQuiz", f"$$extraCredit")))))
@@ -769,7 +789,7 @@ def populationBuckets(zipcodes: BSONCollection)(implicit ec: ExecutionContext) =
   zipcodes.aggregateWith[BSONDocument]() { framework =>
     import framework.BucketAuto
 
-    BucketAuto(BSONString(f"$$population"), 2, None)() -> List.empty
+    List(BucketAuto(BSONString(f"$$population"), 2, None)())
   }.collect[Set](Int.MaxValue, Cursor.FailOnError[Set[BSONDocument]]())
 {% endhighlight %}
 
@@ -795,7 +815,7 @@ def countPopulatedStates1(col: BSONCollection): Future[Int] = {
     import framework.{ Count, Group, Match, SumField }
 
     Group(BSONString("$state"))(
-      "totalPop" -> SumField("population")) -> List(
+      "totalPop" -> SumField("population")) +: List(
         Match(BSONDocument("totalPop" -> BSONDocument("$gte" -> 10000000L))),
         Count("popCount"))
   }.head
@@ -813,8 +833,8 @@ def useFacetAgg(coll: BSONCollection) = {
   import coll.AggregationFramework.{ Count, Facet, Out, UnwindField }
 
   Facet(Seq(
-    "foo" -> (UnwindField("bar"), List(Count("c"))),
-    "lorem" -> (Out("ipsum"), List.empty)))
+    "foo" -> List(UnwindField("bar"), Count("c")),
+    "lorem" -> List(Out("ipsum"))))
   /* {
     $facet: {
       'foo': [
@@ -851,7 +871,7 @@ def salesWithItemGreaterThanHundered(sales: BSONCollection) =
       input = BSONString(f"$$items"),
       as = "item",
       cond = BSONDocument(
-        f"$$gte" -> BSONArray(f"$$$$item.price", 100))))) -> List(sort)
+        f"$$gte" -> BSONArray(f"$$$$item.price", 100))))) +: List(sort)
 
   }.collect[List](Int.MaxValue, Cursor.FailOnError[List[BSONDocument]]())
 {% endhighlight %}
@@ -880,7 +900,7 @@ def replaceRootTest(fruits: BSONCollection): Future[Option[BSONDocument]] = {
   fruits.aggregateWith[BSONDocument]() { framework =>
     import framework._
 
-    ReplaceRootField("in_stock") -> List.empty
+    List(ReplaceRootField("in_stock"))
   }.headOption
   // Results: { "oranges": 20, "apples": 60 }, ...
 }
@@ -902,13 +922,11 @@ def foo(col: BSONCollection)(
 
   import col.AggregationFramework.AtlasSearch, AtlasSearch.Term
 
-  col.aggregatorContext[BSONDocument](AtlasSearch(Term(
+  col.aggregatorContext[BSONDocument](pipeline = List(AtlasSearch(Term(
     path = "description",
     query = "s*l*",
     modifier = Some(Term.Wildcard) // wildcard: true
-  ))).prepared.cursor.
-    collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
-
+  )))).prepared.cursor.collect[List]()
 }
 {% endhighlight %}
 
@@ -928,12 +946,12 @@ def sliceFavorites(coll: BSONCollection)(implicit ec: ExecutionContext) =
   coll.aggregateWith[BSONDocument]() { framework =>
     import framework.{ Project, Slice }
 
-    Project(BSONDocument(
+    List(Project(BSONDocument(
       "name" -> 1,
       "favorites" -> Slice(
         array = BSONString(f"$$favorites"),
-        n = BSONInteger(3)))) -> List.empty
-  }.collect[Seq](4, Cursor.FailOnError[Seq[BSONDocument]]())
+        n = BSONInteger(3)))))
+  }.collect[Seq](4)
 {% endhighlight %}
 
 **Miscellaneous:** Other stages are also supported.
