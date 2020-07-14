@@ -13,11 +13,10 @@ title: Release details
 <!-- TODO: BSON .iterable, .sequence, .tupleX, collectFrom partial, valueReader -->
 
 <!-- TODO: Troubleshoot
-[error] /Users/cchantep/Projects/paperjam/server/incoming/meteolux/src/main/scala/lu/paperjam/incoming/meteolux/models/MeteoStatus.scala:3:18: Symbol 'type reactivemongo.bson.BSONHandler' is missing from the classpath.
+[error] Foo.scala:3:18: Symbol 'type reactivemongo.bson.BSONHandler' is missing from the classpath.
 [error] This symbol is required by 'value enumeratum.ReactiveMongoBsonEnum.bsonHandler'.
 
-TODO: GridFS.update
-TODO: JSON compat
+TODO: JSON compat ~> ~/Projects/ReactiveMongo-Play-Json/compat/src/test/scala/HandlerUseCaseSpec.scala
 
 -->
 
@@ -1016,9 +1015,24 @@ def filteredWatch(
 
 The [GridFS API](./advanced-topics/gridfs.html) has been refactored, to be simpler and more safe.
 
-The `DefaultFileToSave` has been moved to the factory [`fileToSave`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/gridfs/GridFS.html#fileToSave[Id<:GridFS.this.pack.Value](filename:Option[String],contentType:Option[String],uploadDate:Option[Long],metadata:GridFS.this.pack.Document,id:Id):GridFS.this.FileToSave[Id]).
+The `DefaultFileToSave` has been moved to the factory [`fileToSave`](https://static.javadoc.io/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/gridfs/GridFS.html#fileToSave[Id<:GridFS.this.pack.Value](filename:Option[String],contentType:Option[String],uploadDate:Option[Long],metadata:GridFS.this.pack.Document,id:Id):GridFS.this.FileToSave[Id]).
 
-Separate classes and traits `DefaultReadFile`, `ComputedMetadata`, `BasicMetadata` and `CustomMetadata` have been merged with the single class [`ReadFile`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/gridfs/ReadFile.html).
+Separate classes and traits `DefaultReadFile`, `ComputedMetadata`, `BasicMetadata` and `CustomMetadata` have been merged with the single class [`ReadFile`](https://static.javadoc.io/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/gridfs/ReadFile.html).
+
+As the underlying `files` and `chunks` collections are no longer part of the public GridFS API, a new function [`update`](https://static.javadoc.io/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/gridfs/GridFS.html#update) is provided to update the file metadata (also note the `DB.gridfs` utility).
+
+{% highlight scala %}
+import scala.concurrent.ExecutionContext
+
+import reactivemongo.api.bson.{ BSONDocument, BSONObjectID }
+
+import reactivemongo.api.DB
+import reactivemongo.api.gridfs.GridFS
+
+def updateFile(db: DB, fileId: BSONObjectID)(implicit ec: ExecutionContext) =
+  db.gridfs.update(fileId, BSONDocument(f"$$set" ->
+    BSONDocument("meta" -> "data")))
+{% endhighlight %}
 
 ### Monitoring
 

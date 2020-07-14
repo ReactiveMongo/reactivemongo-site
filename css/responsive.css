@@ -74,7 +74,8 @@ h2, h3, p, .highlight {
   margin: 0
 }
 #main > .highlight + ul,
-#main > .highlight + h4 {
+#main > * + h3,
+#main > * + h4 {
   margin-top: 1em;
 }
 

@@ -45,6 +45,21 @@ def saveToGridFS(
 }
 {% endhighlight %}
 
+A function [`update`](https://static.javadoc.io/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/gridfs/GridFS.html#update) is provided to update the file metadata.
+
+{% highlight scala %}
+import scala.concurrent.ExecutionContext
+
+import reactivemongo.api.bson.{ BSONDocument, BSONObjectID }
+
+import reactivemongo.api.DB
+import reactivemongo.api.gridfs.GridFS
+
+def updateFile(db: DB, fileId: BSONObjectID)(implicit ec: ExecutionContext) =
+  db.gridfs.update(fileId, BSONDocument(f"$$set" ->
+    BSONDocument("meta" -> "data")))
+{% endhighlight %}
+
 The GridFS [`writeFromInputStream`](../../api/reactivemongo/gridfs/GridFS.html) operation will return a reference to the stored object, represented with the [`ReadFile`](../../api/reactivemongo/gridfs/GridFS.ReadFile) type.
 
 The reference for a file save in this way will have `Some` [MD5 property](../../api/reactivemongo/gridfs/GridFS.ReadFile@md5:Option[String]).

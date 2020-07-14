@@ -311,6 +311,8 @@ case class Foo(
 )
 {% endhighlight %}
 
+When a field annotated with `@Ignore` must be read (using `Macros.reader` or `Macros.handler`), then a default value must be defined for this field, either using standard Scala syntax (in previous example ` = -1`) or using `@DefaultValue` annotation (see below).
+
 The [`@Flatten`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/Macros$$Annotations$$Flatten.html) can be used to indicate to the macros that the representation of a property must be flatten rather than a nested document.
 
 {% highlight scala %}
