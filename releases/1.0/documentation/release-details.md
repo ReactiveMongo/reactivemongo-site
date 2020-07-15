@@ -10,11 +10,6 @@ title: Release details
 <strong style="color:red">This is a Release Candidate</strong>
 {% endif %}
 
-<!--
-TODO: JSON compat ~> ~/Projects/ReactiveMongo-Play-Json/compat/src/test/scala/HandlerUseCaseSpec.scala
-
--->
-
 **What's new?**
 
 The documentation is available [online](index.html), and its code samples are compiled to make sure it's up-to-date.
@@ -43,6 +38,7 @@ The documentation is available [online](index.html), and its code samples are co
   - Bulk operations (e.g. `.delete.many`) on [collection](../api/reactivemongo/api/collections/GenericCollection.html),
   - `arrayFilters` on update operations.
 - [Play](#play)
+  - [JSON compatibility](#json-compatibility)
 - [Aggregation](#aggregation)
   - [`CursorOptions`](../api/reactivemongo/api/CursorOptions.html) parameter when using `.aggregatorContext`.
   - New stages: `$addFields`, `$bucketAuto`, `$count`, `$filter`, `$replaceRoot`, `$search`, `$slice`
@@ -880,13 +876,223 @@ def printExceptionIfFailed(res: WriteResult) = res match {
 
 The `JSONCollection` and `JSONSerializationPack` (from package `reactivemongo.play.json.collection`) have been removed, and JSON compatibility can be applied using standard collection and JSON conversions.
 
-{% highlight javascript %}
-import reactivemongo.play.json.compat._,
-  json2bson._,
-  bson2json._
+> The `play.modules.reactivemongo.JSONFileToSave` has also been removed.
+
+#### JSON compatibility
+
+The JSON/BSON compatibility has been refactored.
+
+Considering the following `User` class:
+
+{% highlight scala %}
+package object jsonexamples1 {
+  import reactivemongo.api.bson._
+
+  case class User(
+    _id: BSONObjectID, // Rather use UUID or String
+    username: String,
+    role: String,
+    created: BSONTimestamp, // Rather use Instance
+    lastModified: BSONDateTime,
+    sym: Option[BSONSymbol]) // Rather use String
+
+  object User {
+    implicit val bsonWriter: BSONDocumentWriter[User] = Macros.writer[User]
+
+    implicit val bsonReader: BSONDocumentReader[User] = Macros.reader[User]
+  }
+}
 {% endhighlight %}
 
-> The `play.modules.reactivemongo.JSONFileToSave` has also been removed.
+The main import is:
+
+{% highlight scala %}
+import reactivemongo.play.json.compat._
+{% endhighlight %}
+
+Then specific imports are available to enable conversions, according the use cases.
+
+{% highlight scala %}
+import reactivemongo.play.json.compat._
+
+// Conversions from BSON to JSON extended syntax
+import bson2json._
+
+// Override conversions with lax syntax
+import lax._
+
+// Conversions from JSON to BSON
+import json2bson._
+{% endhighlight %}
+
+**Convert BSON to JSON extended syntax:**
+
+*Scala:*
+
+{% highlight scala %}
+import _root_.play.api.libs.json._
+
+import _root_.reactivemongo.api.bson._
+
+// Global compatibility import:
+import reactivemongo.play.json.compat._
+
+// Import BSON to JSON extended syntax (default)
+import bson2json._ // Required import
+
+import jsonexamples1.User
+
+val userJs = Json.toJson(User(
+  BSONObjectID.generate(), "lorem", "ipsum",
+  created = BSONTimestamp(987654321L),
+  lastModified = BSONDateTime(123456789L),
+  sym = Some(BSONSymbol("foo"))))
+{% endhighlight %}
+
+*JSON output:* (`userJs`)
+
+{% highlight javascript %}
+{
+  "_id": {"$$oid":"..."},
+  "username": "lorem",
+  "role": "ipsum",
+  "created": {
+    "$$timestamp": {"t":0,"i":987654321}
+          },
+  "lastModified": {
+    "$$date": {"$$numberLong":"123456789"}
+          },
+  "sym": {
+    "$$symbol":"foo"
+  }
+}
+{% endhighlight %}
+
+**Convert BSON to JSON lax syntax:**
+
+*Scala:*
+
+{% highlight scala %}
+import _root_.play.api.libs.json._
+
+import _root_.reactivemongo.api.bson._
+
+// Global compatibility import:
+import reactivemongo.play.json.compat._
+
+// Import BSON to JSON extended syntax (default)
+import bson2json._ // Required import
+
+// Import lax overrides
+import lax._
+
+import jsonexamples1.User
+
+// Overrides BSONWriters for OID/Timestamp/DateTime
+// so that the BSON representation matches the JSON lax one
+implicit val bsonWriter: BSONDocumentWriter[User] = Macros.writer[User]
+
+// Resolved from bsonWriter
+val laxJsonWriter: OWrites[User] = implicitly[OWrites[User]]
+
+val laxUserJs = laxJsonWriter.writes(User(
+  BSONObjectID.generate(), "lorem", "ipsum",
+  created = BSONTimestamp(987654321L),
+  lastModified = BSONDateTime(123456789L),
+  sym = Some(BSONSymbol("foo"))))
+{% endhighlight %}
+
+*JSON output:* (`userLaxJs`)
+
+{% highlight javascript %}
+{
+  "_id": "...",
+  "username": "lorem",
+  "role": "ipsum",
+  "created": 987654321,
+  "lastModified": 123456789,
+  "sym": "foo"
+}
+{% endhighlight %}
+
+**Convert JSON to BSON:**
+
+Considering the `Street` class:
+
+{% highlight scala %}
+package object jsonexamples2 {
+ case class Street(
+   number: Option[Int],
+   name: String)
+}
+{% endhighlight %}
+
+The BSON representation can be derived from the JSON as below.
+
+{% highlight scala %}
+import _root_.play.api.libs.json._
+import _root_.reactivemongo.api.bson._
+
+// Global compatibility import:
+import reactivemongo.play.json.compat._
+
+// Import JSON to BSON conversions
+import json2bson._ // Required import
+
+import jsonexamples2.Street
+
+implicit val jsonFormat: OFormat[Street] = Json.format[Street]
+
+// Expected BSON:
+val doc = BSONDocument(
+  "number" -> 1,
+  "name" -> "rue de la lune")
+
+val street = Street(Some(1), "rue de la lune")
+
+// Resolved from jsonFormat
+val bsonStreetWriter = implicitly[BSONDocumentWriter[Street]]
+
+bsonStreetWriter.writeTry(street)
+/* Success: doc = {
+  'number': 1,
+  'name': 'rue de la lune'
+} */
+{% endhighlight %}
+
+**Value converters:**
+
+Using the implicit value conversions provided by `json2bson`, it's possible to pass a JSON object wherever a BSON document is expected.
+
+{% highlight scala %}
+import scala.concurrent.ExecutionContext
+
+import reactivemongo.api.bson.BSONDocument
+
+def expectDoc(document: BSONDocument) =
+  println(s"doc = ${BSONDocument pretty document}")
+
+// ---
+
+import _root_.play.api.libs.json._
+import _root_.reactivemongo.api.bson._
+
+// Global compatibility import:
+import reactivemongo.play.json.compat._
+
+// Import JSON to BSON conversions
+import json2bson._ // Required import
+
+expectDoc(
+  document = Json.obj("age" -> Json.obj(f"$$gt" -> 1)))
+  /* doc = {
+  'age': {
+    '$gt': 1
+  }
+} */
+{% endhighlight %}
+
+*[See documentation](./json/overview.html)*
 
 ### Aggregation
 
