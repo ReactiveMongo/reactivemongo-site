@@ -389,7 +389,55 @@ reader.readTry(BSONDocument("name" -> "Foo", "age" -> 20))
 // => Success(("Foo", 20))
 {% endhighlight %}
 
-<!-- TODO: collectFrom partial -->
+**Partial function:**
+
+There are new factories based on partial functions: `collect` and `collectFrom`.
+
+*BSON reader:*
+
+{% highlight scala %}
+import reactivemongo.api.bson.{ BSONReader, BSONInteger }
+
+val intToStrCodeReader = BSONReader.collect[String] {
+  case BSONInteger(0) => "zero"
+  case BSONInteger(1) => "one"
+}
+
+intToStrCodeReader.readTry(BSONInteger(0)) // Success("zero")
+
+intToStrCodeReader.readTry(BSONInteger(2))
+// => Failure(ValueDoesNotMatchException(..))
+{% endhighlight %}
+
+*BSON writer:*
+
+{% highlight scala %}
+import scala.util.Success
+import reactivemongo.api.bson.{ BSONWriter, BSONInteger }
+
+val strCodeToIntWriter = BSONWriter.collect[String] {
+  case "zero" => BSONInteger(0)
+  case "one" => BSONInteger(1)
+}
+
+strCodeToIntWriter.writeTry("zero") // Success(BSONInteger(0))
+
+strCodeToIntWriter.writeTry("3")
+// => Failure(IllegalArgumentException(..))
+{% endhighlight %}
+
+*BSON document writer:*
+
+{% highlight scala %}
+import reactivemongo.api.bson.{ BSONDocument, BSONDocumentWriter }
+
+case class Bar(value: String)
+
+val writer2 = BSONDocumentWriter.collectFrom[Bar] {
+  case Bar(value) if value.nonEmpty =>
+    scala.util.Success(BSONDocument("value" -> value))
+}
+{% endhighlight %}
 
 #### Macros
 
