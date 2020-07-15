@@ -10,12 +10,7 @@ title: Release details
 <strong style="color:red">This is a Release Candidate</strong>
 {% endif %}
 
-<!-- TODO: BSON .iterable, .sequence, .tupleX, collectFrom partial, valueReader -->
-
-<!-- TODO: Troubleshoot
-[error] Foo.scala:3:18: Symbol 'type reactivemongo.bson.BSONHandler' is missing from the classpath.
-[error] This symbol is required by 'value enumeratum.ReactiveMongoBsonEnum.bsonHandler'.
-
+<!--
 TODO: JSON compat ~> ~/Projects/ReactiveMongo-Play-Json/compat/src/test/scala/HandlerUseCaseSpec.scala
 
 -->
@@ -324,6 +319,78 @@ def bsonMapCustomKey = {
 }
 {% endhighlight %}
 
+**`Iterable` factories:**
+
+New factories to handle BSON array are provided: `{ BSONReader, BSONWriter }.{ iterable, sequence }`
+
+{% highlight scala %}
+import reactivemongo.api.bson.{ BSONReader, BSONWriter, Macros }
+
+case class Element(str: String, v: Int)
+
+val elementHandler = Macros.handler[Element]
+
+val setReader: BSONReader[Set[Element]] =
+  BSONReader.iterable[Element, Set](elementHandler readTry _)
+
+val seqWriter: BSONWriter[Seq[Element]] =
+  BSONWriter.sequence[Element](elementHandler writeTry _)
+
+// ---
+
+import reactivemongo.api.bson.{ BSONArray, BSONDocument }
+
+val fixture = BSONArray(
+  BSONDocument("str" -> "foo", "v" -> 1),
+  BSONDocument("str" -> "bar", "v" -> 2))
+
+setReader.readTry(fixture)
+// Success: Set(Element("foo", 1), Element("bar", 2))
+
+seqWriter.writeTry(Seq(Element("foo", 1), Element("bar", 2)))
+// Success: fixture
+{% endhighlight %}
+
+**Tuple factories:**
+
+New factories to create handler for tuple types (up to 5-arity) are provided.
+
+If an array is the wanted BSON representation:
+
+{% highlight scala %}
+import reactivemongo.api.bson.{ BSONArray, BSONReader, BSONWriter }
+
+val readerArrAsStrInt = BSONReader.tuple2[String, Int]
+val writerStrIntToArr = BSONWriter.tuple2[String, Int]
+
+val arr = BSONArray("Foo", 20)
+
+readerArrAsStrInt.readTry(arr) // => Success(("Foo", 20))
+
+writerStrIntToArr.writeTry("Foo" -> 20)
+// => Success: arr = ['Foo', 20]
+{% endhighlight %}
+
+If a document representation is wanted: 
+
+{% highlight scala %}
+import reactivemongo.api.bson.{
+  BSONDocument, BSONDocumentReader, BSONDocumentWriter
+}
+
+val writerStrIntToDoc = BSONDocumentWriter.tuple2[String, Int]("name", "age")
+
+writerStrIntToDoc.writeTry("Foo" -> 20)
+// => Success: {'name': 'Foo', 'age': 20}
+
+val readerDocAsStrInt = BSONDocumentReader.tuple2[String, Int]("name", "age")
+
+reader.readTry(BSONDocument("name" -> "Foo", "age" -> 20))
+// => Success(("Foo", 20))
+{% endhighlight %}
+
+<!-- TODO: collectFrom partial -->
+
 #### Macros
 
 The new library also provide similar macros, to easily materialized document readers and writers for Scala case classes and sealed traits.
@@ -424,6 +491,20 @@ case class FooWithDefault1(id: Int, title: String = "default")
 
   reader.readTry(BSONDocument("id" -> 1)) // missing BSON title
   // => Success: FooWithDefault1(id = 1, title = "default")
+}
+{% endhighlight %}
+
+New macros for [Value classes](https://docs.scala-lang.org/overviews/core/value-classes.html) are new available.
+
+{% highlight scala %}
+package object relexamples {
+  import reactivemongo.api.bson.{ BSONHandler, BSONReader, BSONWriter, Macros }
+
+  final class FooVal(val value: String) extends AnyVal
+
+  val vh: BSONHandler[FooVal] = Macros.valueHandler[FooVal]
+  val vr: BSONReader[FooVal] = Macros.valueReader[FooVal]
+  val vw: BSONWriter[FooVal] = Macros.valueWriter[FooVal]
 }
 {% endhighlight %}
 

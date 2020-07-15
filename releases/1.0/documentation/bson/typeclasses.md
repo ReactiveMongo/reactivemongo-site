@@ -35,11 +35,11 @@ val albumTitle3 = album2.getAsTry[BSONString]("title")
 
 In order to read values of custom types, a custom instance of [`BSONReader`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/BSONReader), or of [`BSONDocumentReader`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/BSONDocumentReader), must be resolved (in the implicit scope).
 
-*A `BSONReader` for a custom value class:*
+*A `BSONReader` for a custom class:*
 
 {% highlight scala %}
 package object custom {
-  class Score(val value: Float) extends AnyVal
+  class Score(val value: Float)
 
   import reactivemongo.api.bson._
 
@@ -136,6 +136,82 @@ def create(personCollection: BSONCollection, person: Person)(implicit ec: Execut
 {% endhighlight %}
 
 *See [how to write documents](../tutorial/write-documents.html).*
+
+### Utility factories
+
+Some factories are available to create handlers for common types.
+
+**Iterable:**
+
+Factories to handle BSON array are provided: `{ BSONReader, BSONWriter }.{ iterable, sequence }`
+
+{% highlight scala %}
+import reactivemongo.api.bson.{ BSONReader, BSONWriter, Macros }
+
+case class Element(str: String, v: Int)
+
+val elementHandler = Macros.handler[Element]
+
+val setReader: BSONReader[Set[Element]] =
+  BSONReader.iterable[Element, Set](elementHandler readTry _)
+
+val seqWriter: BSONWriter[Seq[Element]] =
+  BSONWriter.sequence[Element](elementHandler writeTry _)
+
+// ---
+
+import reactivemongo.api.bson.{ BSONArray, BSONDocument }
+
+val fixture = BSONArray(
+  BSONDocument("str" -> "foo", "v" -> 1),
+  BSONDocument("str" -> "bar", "v" -> 2))
+
+setReader.readTry(fixture)
+// Success: Set(Element("foo", 1), Element("bar", 2))
+
+seqWriter.writeTry(Seq(Element("foo", 1), Element("bar", 2)))
+// Success: fixture
+{% endhighlight %}
+
+**Tuples:**
+
+Factories to create handler for tuple types (up to 5-arity) are provided.
+
+If an array is the wanted BSON representation:
+
+{% highlight scala %}
+import reactivemongo.api.bson.{ BSONArray, BSONReader, BSONWriter }
+
+val readerArrAsStrInt = BSONReader.tuple2[String, Int]
+val writerStrIntToArr = BSONWriter.tuple2[String, Int]
+
+val arr = BSONArray("Foo", 20)
+
+readerArrAsStrInt.readTry(arr) // => Success(("Foo", 20))
+
+writerStrIntToArr.writeTry("Foo" -> 20)
+// => Success: arr = ['Foo', 20]
+{% endhighlight %}
+
+If a document representation is wanted: 
+
+{% highlight scala %}
+import reactivemongo.api.bson.{
+  BSONDocument, BSONDocumentReader, BSONDocumentWriter
+}
+
+val writerStrIntToDoc = BSONDocumentWriter.tuple2[String, Int]("name", "age")
+
+writerStrIntToDoc.writeTry("Foo" -> 20)
+// => Success: {'name': 'Foo', 'age': 20}
+
+val readerDocAsStrInt = BSONDocumentReader.tuple2[String, Int]("name", "age")
+
+reader.readTry(BSONDocument("name" -> "Foo", "age" -> 20))
+// => Success(("Foo", 20))
+{% endhighlight %}
+
+<!-- TODO: collectFrom partial -->
 
 ### Macros
 
@@ -241,6 +317,22 @@ The other options available to configure the typeclasses generation at compile t
 
 - [`Verbose`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/MacroOptions$@VerboseextendsMacroOptions.Default): Print out generated code during compilation.
 - [`SaveClassName`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/MacroOptions$@SaveClassNameextendsMacroOptions.Default): Indicate to the `BSONWriter` to add a "className" field in the written document along with the other properties. The value for this meta field is the fully qualified name of the class. This is the default behaviour when the target type is a sealed trait (the "className" field is used as discriminator).
+
+**Value classes**
+
+Specific macros are new available for [Value classes](https://docs.scala-lang.org/overviews/core/value-classes.html) (any type which complies with `<: AnyVal`).
+
+{% highlight scala %}
+package object values {
+  import reactivemongo.api.bson.{ BSONHandler, BSONReader, BSONWriter, Macros }
+
+  final class FooVal(val value: String) extends AnyVal
+
+  val vh: BSONHandler[FooVal] = Macros.valueHandler[FooVal]
+  val vr: BSONReader[FooVal] = Macros.valueReader[FooVal]
+  val vw: BSONWriter[FooVal] = Macros.valueWriter[FooVal]
+}
+{% endhighlight %}
 
 #### Configuration
 
@@ -509,9 +601,10 @@ def bsonMapCustomKey = {
 
 ### Troubleshooting
 
+Make sure an instance of `KeyReader` (or `KeyWriter`) can be resolved from the implicit scope for the key type.
+
 {% highlight text %}{% raw %}
 could not find implicit value for parameter e: reactivemongo.api.bson.BSONDocumentReader[Map[..not string..,String]]
 {% endraw %}{% endhighlight %}
-
 
 [Previous: Overview of the ReactiveMongo BSON library](overview.html) / [Next: BSON extra libraries](extra.html)
