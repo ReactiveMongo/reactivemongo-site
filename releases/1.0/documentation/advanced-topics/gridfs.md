@@ -8,7 +8,7 @@ title: GridFS
 
 [GridFS](https://docs.mongodb.com/manual/core/gridfs/) is a way to store and retrieve files using MongoDB.
 
-ReactiveMongo provides an [API for MongoDB GridFS](../../api/reactivemongo/gridfs/GridFS.GridFS), whose references can be resolved as bellow.
+ReactiveMongo provides an [API for MongoDB GridFS](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{_1_0_scala_major}}/{{_1_0_latest_minor}}/reactivemongo/api/gridfs/GridFS.html), whose references can be resolved as bellow.
 
 {% highlight scala %}
 import reactivemongo.api.DB
@@ -60,9 +60,9 @@ def updateFile(db: DB, fileId: BSONObjectID)(implicit ec: ExecutionContext) =
     BSONDocument("meta" -> "data")))
 {% endhighlight %}
 
-The GridFS [`writeFromInputStream`](../../api/reactivemongo/gridfs/GridFS.html) operation will return a reference to the stored object, represented with the [`ReadFile`](../../api/reactivemongo/gridfs/GridFS.ReadFile) type.
+The GridFS [`writeFromInputStream`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{_1_0_scala_major}}/{{_1_0_latest_minor}}/reactivemongo/api/gridfs/GridFS.html#writeFromInputStream[Id%3C:GridFS.this.pack.Value](file:GridFS.this.FileToSave[Id],input:java.io.InputStream,chunkSize:Int)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[GridFS.this.ReadFile[Id]]) operation will return a reference to the stored object, represented with the [`ReadFile`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{_1_0_scala_major}}/{{_1_0_latest_minor}}/reactivemongo/api/gridfs/ReadFile.html) type.
 
-The reference for a file save in this way will have `Some` [MD5 property](../../api/reactivemongo/gridfs/GridFS.ReadFile@md5:Option[String]).
+The reference for a file save in this way will have `Some` [MD5 property](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{_1_0_scala_major}}/{{_1_0_latest_minor}}/reactivemongo/api/gridfs/ReadFile.html#md5:Option[String]).
 
 The [Akka Stream module](../tutorial/streaming.html#akka-stream) is providing the [`GridFSStreams.sinkWithMD5`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo-akkastream_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-javadoc.jar/!/reactivemongo/akkastream/GridFSStreams.html#sinkWithMD5[Id%3C:GridFSStreams.this.gridfs.pack.Value](file:reactivemongo.api.gridfs.FileToSave[GridFSStreams.this.gridfs.pack.type,Id],chunkSize:Int)(implicitreadFileReader:GridFSStreams.this.gridfs.pack.Reader[GridFSStreams.this.gridfs.ReadFile[Id]],implicitec:scala.concurrent.ExecutionContext,implicitidProducer:reactivemongo.api.gridfs.IdProducer[Id],implicitdocWriter:reactivemongo.api.bson.BSONDocumentWriter[file.pack.Document]):akka.stream.scaladsl.Sink[akka.util.ByteString,scala.concurrent.Future[GridFSStreams.this.gridfs.ReadFile[Id]]]), which allows to stream data to a GridFS file.
 
@@ -102,7 +102,7 @@ def saveWithComputedMD5(
 
 ### Find a file from GridFS
 
-A file previously stored in a GridFS can be retrieved as any MongoDB, using a [`find`](../../api/reactivemongo/gridfs/GridFS.GridFS#find[S,T%3C:GridFS.this.ReadFile[_]](selector:S)(implicitsWriter:GridFS.this.pack.Writer[S],implicitreadFileReader:GridFS.this.pack.Reader[T],implicitctx:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor) operation.
+A file previously stored in a GridFS can be retrieved as any MongoDB, using a [`find`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{_1_0_scala_major}}/{{_1_0_latest_minor}}/reactivemongo/api/gridfs/GridFS.html#find(selector:GridFS.this.pack.Document)(implicitcp:reactivemongo.api.CursorProducer[GridFS.this.ReadFile[GridFS.this.pack.Value]]):cp.ProducedCursor) operation.
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
@@ -154,7 +154,7 @@ def downloadGridFSFile(
 
 ### Delete a file
 
-A file can be removed from a GridFS using the [appropriate operation](../../api/reactivemongo/gridfs/GridFS.GridFS#remove[Id%3C:GridFS.this.pack.Value](id:Id)(implicitctx:scala.concurrent.ExecutionContext,implicitidProducer:reactivemongo.api.gridfs.IdProducer[Id]):scala.concurrent.Future[reactivemongo.api.commands.WriteResult]).
+A file can be removed from a GridFS using the [appropriate operation](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{_1_0_scala_major}}/{{_1_0_latest_minor}}/reactivemongo/api/gridfs/GridFS.html#remove[Id%3C:GridFS.this.pack.Value](id:Id)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.WriteResult]).
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }

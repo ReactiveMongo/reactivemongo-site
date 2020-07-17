@@ -102,5 +102,4 @@ This function takes a `selector` (or query) of type `S`. This object is then tra
 
 ### Examples
 
-- The default implementation in ReactiveMongo: [`BSONCollection`](../../api/index.html#reactivemongo.api.bson.collection.BSONCollection). It relies on the embedded BSON library, with `BSONDocumentReader` and `BSONDocumentWriter` as the de/serializer typeclasses.
-- The implementation in the Play JSON support, [`JSONCollection`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo-play-json_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.play.json.collection.JSONCollection). It uses `JsObject` (a JSON object), and the de/serializer typeclasses `Writes` and `Reads`.
+The default implementation in ReactiveMongo: [`BSONCollection`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/collection/index.html#BSONCollection=reactivemongo.api.collections.GenericCollection[reactivemongo.api.bson.collection.package.Pack]withreactivemongo.api.CollectionMetaCommands). It relies on the embedded BSON library, with `BSONDocumentReader` and `BSONDocumentWriter` as the de/serializer typeclasses.

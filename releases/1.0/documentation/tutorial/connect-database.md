@@ -6,13 +6,13 @@ title: Connect to the database
 
 ## Connect to the database
 
-The first thing you need, is to create a new [`AsyncDriver`](../../api/reactivemongo/api/AsyncDriver) instance.
+The first thing you need, is to create a new [`AsyncDriver`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/AsyncDriver.html) instance.
 
 {% highlight scala %}
 val driver1 = new reactivemongo.api.AsyncDriver
 {% endhighlight %}
 
-Then you can [connect](../../api/reactivemongo/api/AsyncDriver#connect(parsedURI:reactivemongo.api.MongoConnection.ParsedURI):scala.util.Try[reactivemongo.api.MongoConnection]) to a MongoDB server.
+Then you can [connect](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/AsyncDriver.html#connect(uriStrict:String):scala.concurrent.Future[reactivemongo.api.MongoConnection]) to a MongoDB server.
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -22,7 +22,7 @@ val connection3: Future[MongoConnection] = driver1.connect(List("localhost"))
 {% endhighlight %}
 
 A `AsyncDriver` instance manages the shared resources (e.g. the [actor system](http://akka.io) for the asynchronous processing); A connection manages a pool of network channels.
-In general, a `AsyncDriver` or a [`MongoConnection`](../../api/reactivemongo/api/MongoConnection) should not be instantiated more than once.
+In general, a `AsyncDriver` or a [`MongoConnection`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/MongoConnection.html) should not be instantiated more than once.
 
 You can provide a list of one or more servers, the driver will guess if it's a standalone server or a replica set configuration. Even with one replica node, the driver will probe for other nodes and add them automatically.
 
@@ -72,12 +72,12 @@ The option `ssl` is needed if the MongoDB server is requiring SSL (`mongod --ssl
 - **`rm.nbChannelsPerNode`**: The number of user channels (connections) per node (default: 10). Note that an extra signaling channel is always created, to manage the pool state.
 - **`rm.maxInFlightRequestsPerChannel`** (EXPERIMENTAL): The maximum number of in flight/concurrent requests per user channel (default: 200).
 - [**`heartbeatFrequencyMS`**](https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-discovery-and-monitoring.rst#heartbeatfrequencyms) (formerly `rm.monitorRefreshMS`): The interval (in milliseconds) used by the ReactiveMongo monitor to refresh the node set (default: 10s); The minimal value is 100ms.
-- **`rm.failover`**: The default [failover strategy](../../api/reactivemongo/api/FailoverStrategy).
+- **`rm.failover`**: The default [failover strategy](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/FailoverStrategy.html).
   - `default`: The default/minimal strategy, with 10 retries with an initial delay of 100ms and a delay factor of `retry count * 1.25` (100ms .. 125ms, 250ms, 375ms, 500ms, 625ms, 750ms, 875ms, 1s, 1125ms, 1250ms).
   - `remote`: The strategy for remote MongoDB node(s); Same as default but with 16 retries.
   - `strict`: A more strict strategy; Same as default but with only 5 retries.
   - `<delay>:<retries>x<factor>`: The definition of a custom strategy;
-      - *delay*: The [initial delay](../../api/reactivemongo/api/FailoverStrategy#initialDelay:scala.concurrent.duration.FiniteDuration) as a finite duration string accepted by the [`Duration` factory](http://www.scala-lang.org/api/current/index.html#scala.concurrent.duration.Duration$@apply(s:String):scala.concurrent.duration.Duration).
+      - *delay*: The [initial delay](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/FailoverStrategy.html#initialDelay:scala.concurrent.duration.FiniteDuration) as a finite duration string accepted by the [`Duration` factory](http://www.scala-lang.org/api/current/index.html#scala.concurrent.duration.Duration$@apply(s:String):scala.concurrent.duration.Duration).
       - *retries*: The number of retry (`Int`).
       - *factor*: The `Double` value to multiply the retry counter with, to define the delay factor (`retryCount * factor`).
 
@@ -130,7 +130,7 @@ ReactiveMongo will ask the nodes it can reach for the addresses of the other nod
 
 ### Using many connection instances
 
-In some (rare) cases it is perfectly viable to create as many [`MongoConnection`](../../api/reactivemongo/api/MongoConnection) instances you need, from a single [`AsyncDriver`](../../api/reactivemongo/api/AsyncDriver) instance.
+In some (rare) cases it is perfectly viable to create as many [`MongoConnection`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/MongoConnection.html) instances you need, from a single [`AsyncDriver`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/AsyncDriver.html) instance.
 
 In that case, you will get different connection pools. This is useful when your application has to connect to two or more independent MongoDB nodes (i.e. that do not belong to the same replica set), or different replica sets.
 
@@ -146,7 +146,7 @@ val connectionReplicaSet2 = driver1.connect(serversReplicaSet2)
 
 There are two ways to give ReactiveMongo your credentials.
 
-It can be done using [`driver.connection`](../../api/reactivemongo/api/AsyncDriver#connect(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions,authentications:Seq[reactivemongo.core.nodeset.Authenticate],name:Option[String]):reactivemongo.api.MongoConnection).
+It can be done using [`driver.connect`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/AsyncDriver.html#connect(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions):scala.concurrent.Future[reactivemongo.api.MongoConnection]).
 
 {% highlight scala %}
 import reactivemongo.api.MongoConnectionOptions
@@ -165,7 +165,7 @@ val connection7 = driver1.connect(
 
 Using this `connection` function [with an URI](#connect-using-mongodb-uri) allows to indicates the credentials in this URI.
 
-There is also a [`authenticate`](../../api/reactivemongo/api/MongoConnection.html#authenticate(db:String,user:String,password:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.core.commands.SuccessfulAuthentication]) function for the database references.
+There is also a [`authenticate`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/DB.html#authenticate(user:String,password:String)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.SuccessfulAuthentication]) function for the database references.
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future },
@@ -273,7 +273,7 @@ In order to make sure such optimization is loaded, you can enable the `INFO` lev
 
 ### Additional Notes
 
-**[`MongoConnection`](../../api/reactivemongo/api/MongoConnection) stands for a pool of connections.**
+**[`MongoConnection`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/MongoConnection.html) stands for a pool of connections.**
 
 Do not get confused here: a `MongoConnection` is a _logical_ connection, not a physical one (not a network channel); It's actually a _connection pool_. By default, a `MongoConnection` creates 10 _physical_ network channels to each node; It can be tuned this by setting the `rm.nbChannelsPerNode` options (see the [connection options](#connection-options]).
 
@@ -290,8 +290,8 @@ They manage two different things. `AsyncDriver` holds the actor system, and `Mon
 
 It is also a good idea to store the driver and connection instances to reuse them.
 
-On the contrary, [`DB`](../../api/reactivemongo/api/DB) and [`Collection`](../../api/reactivemongo/api/Collection) are just plain objects that store references and nothing else.
-Getting such references is lightweight, and calling [`connection.database(..)`](../../api/reactivemongo/api/MongoConnection#database(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitcontext:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DB]) or [`db.collection(..)`](../../api/reactivemongo/api/DB#collection[C%3C:reactivemongo.api.Collection](name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitproducer:reactivemongo.api.CollectionProducer[C]):C) may be done many times without any performance hit.
+On the contrary, [`DB`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/DB.html) and [`Collection`](../../api/reactivemongo/api/Collection) are just plain objects that store references and nothing else.
+Getting such references is lightweight, and calling [`connection.database(..)`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/MongoConnection.html#database(name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DB]) or [`db.collection(..)`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/DB.html#collection[C%3C:reactivemongo.api.Collection](name:String,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitproducer:reactivemongo.api.CollectionProducer[C]):C) may be done many times without any performance hit.
 
 > It's generally a good practice not to assign the database and collection references to `val` (even to `lazy val`), as it's better to get a fresh reference each time, to automatically recover from any previous issues (e.g. network failure).
 
@@ -326,8 +326,6 @@ If one of the error is seen, first retry/refresh to check it wasn't a temporary 
 *Is the connection URI used with ReactiveMongo valid?*
 
 If using the [Play module](./play.html), the `strictUri` setting can be enabled (e.g. `mongodb.connection.strictUri=true`).
-
-If calling directly the function [`AsyncDriver.connection`](../../api/reactivemongo/api/AsyncDriver#connect(parsedURI:reactivemongo.api.MongoConnection.ParsedURI,strictUri:Boolean):scala.util.Try[reactivemongo.api.MongoConnection]), the `strictUri` parameter can be set to `true`.
 
 Connect without any non mandatory options (e.g. `connectTimeoutMS`), using the [SBT Playground](https://github.com/cchantep/RM-SBT-Playground) to try the alternative URI.
 

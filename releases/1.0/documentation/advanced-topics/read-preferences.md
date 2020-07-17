@@ -8,7 +8,7 @@ title: Read Preferences
 
 > Read preference describes how MongoDB clients route read operations to members of a replica set. ([MongoDB Read Preference Documentation](http://docs.mongodb.org/manual/core/read-preference/))
 
-The following [read preferences](../../api/reactivemongo/api/ReadPreference) are supported:
+The following [read preferences](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{_1_0_scala_major}}/{{_1_0_latest_minor}}/reactivemongo/api/ReadPreference.html) are supported:
 
 - primary, 
 - primary preferred, 
@@ -16,7 +16,7 @@ The following [read preferences](../../api/reactivemongo/api/ReadPreference) are
 - secondary preferred,
 - nearest.
 
-The Read preference can be chosen globally using the [`MongoConnectionOptions`](../../api/reactivemongo/api/MongoConnectionOptions), or for each [cursor](../../api/reactivemongo/api/collections/GenericQueryBuilder.GenericQueryBuilder#cursor[T](readPreference:reactivemongo.api.ReadPreference,isMongo26WriteOp:Boolean)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor).
+The Read preference can be chosen globally using the [`MongoConnectionOptions`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{_1_0_scala_major}}/{{_1_0_latest_minor}}/reactivemongo/api/MongoConnectionOptions.html), or for each [cursor](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{_1_0_scala_major}}/{{_1_0_latest_minor}}/reactivemongo/api/Cursor.html).
 
 {% highlight scala %}
 import scala.concurrent.ExecutionContext.Implicits.global
