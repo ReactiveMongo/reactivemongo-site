@@ -105,11 +105,10 @@ def populatedStates1(coll: BSONCollection): Future[List[BSONDocument]] = {
   import coll.AggregationFramework.{ Group, Match, SumField }
 
   coll.aggregatorContext[BSONDocument](
-    Group(BSONString("$state"))( "totalPop" -> SumField("population")),
-    List(Match(BSONDocument("totalPop" -> BSONDocument("$gte" -> 10000000L))))).
-    prepared.cursor.
-    collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
-
+    pipeline = List(
+      Group(BSONString("$state"))( "totalPop" -> SumField("population")),
+      Match(BSONDocument("totalPop" -> BSONDocument("$gte" -> 10000000L))))).
+    prepared.cursor.collect[List]()
 }
 {% endhighlight %}
 
@@ -144,10 +143,10 @@ def countPopulatedStates1(coll: BSONCollection): Future[Int] = {
   coll.aggregateWith[Int]() { framework =>
     import framework.{ Count, Group, Match, SumField }
 
-    Group(BSONString("$state"))(
-      "totalPop" -> SumField("population")) -> List(
-        Match(BSONDocument("totalPop" -> BSONDocument("$gte" -> 10000000L))),
-        Count("popCount"))
+    List(
+      Group(BSONString("$state"))("totalPop" -> SumField("population")),
+      Match(BSONDocument("totalPop" -> BSONDocument("$gte" -> 10000000L))),
+      Count("popCount"))
   }.head
 }
 {% endhighlight %}
@@ -171,11 +170,11 @@ def populatedStates2(coll: BSONCollection): Future[List[State]] = {
   import coll.AggregationFramework.{ Group, Match, SumField }
 
   coll.aggregatorContext[State]( // <--
-    Group(BSONString("$state"))( "totalPop" -> SumField("population")),
-    List(Match(BSONDocument("totalPop" -> BSONDocument("$gte" -> 10000000L))))).
-    prepared.cursor.
-    collect[List](-1, Cursor.FailOnError[List[State]]())
-
+    pipeline = List(
+      Group(BSONString("$state"))( "totalPop" -> SumField("population")),
+      Match(BSONDocument(
+        "totalPop" -> BSONDocument("$gte" -> 10000000L))))).
+    prepared.cursor.collect[List]()
 }
 {% endhighlight %}
 
@@ -194,7 +193,8 @@ def populatedStatesCursor(cities: BSONCollection)(implicit ec: ExecutionContext)
   cities.aggregateWith[BSONDocument]() { framework =>
     import framework.{ Group, Match, SumField }
 
-    Group(BSONString("$state"))("totalPop" -> SumField("population")) -> List(
+    List(
+      Group(BSONString("$state"))("totalPop" -> SumField("population")),
       Match(document("totalPop" -> document("$gte" -> 10000000L)))
     )
   }
@@ -239,10 +239,10 @@ import reactivemongo.api.bson.collection.BSONCollection
 def mostPopulated(cities: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
   import cities.AggregationFramework.{ Group, MaxField }
 
-  cities.aggregatorContext[BSONDocument](Group(BSONString("$state"))(
-    "maxPop" -> MaxField("population")
-  )).prepared.cursor.
-    collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
+  cities.aggregatorContext[BSONDocument](
+    pipeline = List(Group(BSONString("$state"))(
+      "maxPop" -> MaxField("population")
+    ))).prepared.cursor.collect[List]()
 }
 {% endhighlight %}
 
@@ -259,10 +259,10 @@ import reactivemongo.api.bson.collection.BSONCollection
 def leastPopulated(cities: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
   import cities.AggregationFramework.{ Group, MinField }
 
-  cities.aggregatorContext[BSONDocument](Group(BSONString("$state"))(
-    "minPop" -> MinField("population")
-  )).prepared.cursor.
-    collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
+  cities.aggregatorContext[BSONDocument](
+    pipeline = List(Group(BSONString("$state"))(
+      "minPop" -> MinField("population")
+    ))).prepared.cursor.collect[List]()
 }
 {% endhighlight %}
 
@@ -301,9 +301,10 @@ import reactivemongo.api.bson.collection.BSONCollection
 def citiesPerState1(cities: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
   import cities.AggregationFramework.{ Group, PushField }
 
-  cities.aggregatorContext[BSONDocument](Group(BSONString("$state"))(
-    "cities" -> PushField("city"))).prepared.cursor.
-    collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
+  cities.aggregatorContext[BSONDocument](
+    pipeline = List(Group(BSONString("$state"))(
+      "cities" -> PushField("city")))).
+    prepared.cursor.collect[List]()
 }
 {% endhighlight %}
 
@@ -357,12 +358,11 @@ import reactivemongo.api.bson.collection.BSONCollection
 def avgPopByState(col: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
   import col.AggregationFramework.{ AvgField, Group, SumField }
 
-  col.aggregatorContext[BSONDocument](
+  col.aggregatorContext[BSONDocument](pipeline = List(
     Group(BSONDocument("state" -> "$state", "city" -> "$city"))(
-    "pop" -> SumField("population")),
-    List(Group(BSONString("$_id.state"))("avgCityPop" -> AvgField("pop")))).
-    prepared.cursor.
-    collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
+      "pop" -> SumField("population")),
+    Group(BSONString("$_id.state"))("avgCityPop" -> AvgField("pop")))).
+    prepared.cursor.collect[List]()
 }
 {% endhighlight %}
 
@@ -432,10 +432,10 @@ def stateStats(col: BSONCollection): Future[List[StateStats]] = {
     Ascending, FirstField, Group, LastField, Project, Sort, SumField
   }
 
-  col.aggregatorContext[StateStats](
+  col.aggregatorContext[StateStats](pipeline = List(
     Group(BSONDocument("state" -> "$state", "city" -> "$city"))(
-    "pop" -> SumField("population")),
-    List(Sort(Ascending("population")), Group(BSONString("$_id.state"))(
+      "pop" -> SumField("population")),
+    Sort(Ascending("population")), Group(BSONString("$_id.state"))(
         "biggestCity" -> LastField("_id.city"),
         "biggestPop" -> LastField("pop"),
         "smallestCity" -> FirstField("_id.city"),
@@ -485,25 +485,23 @@ def paginatedStats(col: BSONCollection, max: Int, offset: Int = 0): Future[List[
     Project, Skip, Sort, SumField
   }
 
-  col.aggregatorContext[StateStats](
+  col.aggregatorContext[StateStats](pipeline = List(
     Group(BSONDocument("state" -> "$state", "city" -> "$city"))(
-    "pop" -> SumField("population")),
-    List(
-      Skip(offset), // <-- skip some states if offset > 0
-      Limit(max), // <-- limit the state groups
-      Sort(Ascending("population")), 
-      Group(BSONString("$_id.state"))(
-        "biggestCity" -> LastField("_id.city"),
-        "biggestPop" -> LastField("pop"),
-        "smallestCity" -> FirstField("_id.city"),
-        "smallestPop" -> FirstField("pop")),
-      Project(BSONDocument("_id" -> 0, "state" -> "$_id",
-        "biggestCity" -> BSONDocument("name" -> "$biggestCity",
-          "population" -> "$biggestPop"),
-        "smallestCity" -> BSONDocument("name" -> "$smallestCity",
-          "population" -> "$smallestPop"))))).
-    prepared.cursor.
-    collect[List](-1, Cursor.FailOnError[List[StateStats]]())
+      "pop" -> SumField("population")),
+    Skip(offset), // <-- skip some states if offset > 0
+    Limit(max), // <-- limit the state groups
+    Sort(Ascending("population")), 
+    Group(BSONString("$_id.state"))(
+      "biggestCity" -> LastField("_id.city"),
+      "biggestPop" -> LastField("pop"),
+      "smallestCity" -> FirstField("_id.city"),
+      "smallestPop" -> FirstField("pop")),
+    Project(BSONDocument("_id" -> 0, "state" -> "$_id",
+      "biggestCity" -> BSONDocument("name" -> "$biggestCity",
+        "population" -> "$biggestPop"),
+      "smallestCity" -> BSONDocument("name" -> "$smallestCity",
+        "population" -> "$smallestPop"))))).
+    prepared.cursor.collect[List]()
 }
 {% endhighlight %}
 
@@ -542,17 +540,17 @@ import reactivemongo.api.bson.collection.BSONCollection
 def populationStdDeviation(cities: BSONCollection)(implicit ec: ExecutionContext): Future[Option[BSONDocument]] = {
   import cities.AggregationFramework.{ StdDevPopField, Group, Match }
 
-  cities.aggregatorContext[BSONDocument](Group(BSONString("$state"))(
-    "popDev" -> StdDevPopField("population")),
-    List(Match(document("_id" -> "JP")))).prepared.cursor.headOption
+  cities.aggregatorContext[BSONDocument](pipeline = List(
+    Group(BSONString("$state"))("popDev" -> StdDevPopField("population")),
+    Match(document("_id" -> "JP")))).prepared.cursor.headOption
 }
 
 def populationSampleDeviation(cities: BSONCollection)(implicit ec: ExecutionContext): Future[Option[BSONDocument]] = {
   import cities.AggregationFramework.{ StdDevSampField, Group, Match }
 
-  cities.aggregatorContext[BSONDocument](Group(BSONString("$state"))(
-    "popDev" -> StdDevSampField("population")),
-    List(Match(document("_id" -> "JP")))).prepared.cursor.headOption
+  cities.aggregatorContext[BSONDocument](pipeline = List(
+    Group(BSONString("$state"))("popDev" -> StdDevSampField("population")),
+    Match(document("_id" -> "JP")))).prepared.cursor.headOption
 }
 {% endhighlight %}
 
@@ -591,13 +589,12 @@ import reactivemongo.api.bson.collection.BSONCollection
 def textFind(coll: BSONCollection): Future[List[BSONDocument]] = {
   import coll.AggregationFramework.{ Match, MetadataSort, Sort, TextScore }
 
-  val firstOp = Match(BSONDocument(
-    "$text" -> BSONDocument("$search" -> "JP")))
+  val pipeline = List(
+    Match(BSONDocument("$text" -> BSONDocument("$search" -> "JP"))),
+    Sort(MetadataSort("score", TextScore)))
 
-  val pipeline = List(Sort(MetadataSort("score", TextScore)))
-
-  coll.aggregatorContext[BSONDocument](firstOp, pipeline).prepared.cursor.
-    collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
+  coll.aggregatorContext[BSONDocument](pipeline).
+    prepared.cursor.collect[List]()
 }
 {% endhighlight %}
 
@@ -628,9 +625,8 @@ import reactivemongo.api.bson.collection.BSONCollection
 def randomZipCodes(coll: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = {
   import coll.AggregationFramework.Sample
 
-  coll.aggregatorContext[BSONDocument](Sample(3)).
-    prepared.cursor.
-    collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
+  coll.aggregatorContext[BSONDocument](List(Sample(3))).
+    prepared.cursor.collect[List]()
 }
 {% endhighlight %}
 
@@ -664,7 +660,7 @@ def populationBuckets(zipcodes: BSONCollection)(implicit ec: ExecutionContext) =
   zipcodes.aggregateWith[BSONDocument]() { framework =>
     import framework.BucketAuto
 
-    BucketAuto(BSONString(f"$$population"), 2, None)() -> List.empty
+    List(BucketAuto(BSONString(f"$$population"), 2, None)())
   }.collect[Set](Int.MaxValue, Cursor.FailOnError[Set[BSONDocument]]())
 {% endhighlight %}
 
@@ -762,7 +758,7 @@ object GeoPlace {
 def placeArround(places: BSONCollection)(implicit ec: ExecutionContext): Future[List[GeoPlace]] = {
   import places.AggregationFramework.GeoNear
 
-  places.aggregatorContext[GeoPlace](GeoNear(document(
+  places.aggregatorContext[GeoPlace](List(GeoNear(document(
     "type" -> "Point",
     "coordinates" -> array(-73.9667, 40.78)
   ), distanceField = Some("dist.calculated"),
@@ -771,8 +767,7 @@ def placeArround(places: BSONCollection)(implicit ec: ExecutionContext): Future[
     query = Some(document("type" -> "public")),
     includeLocs = Some("dist.loc"),
     limit = Some(5),
-    spherical = true)).prepared.cursor.
-    collect[List](-1, Cursor.FailOnError[List[GeoPlace]]())
+    spherical = true))).prepared.cursor.collect[List]()
 }
 {% endhighlight %}
 
@@ -864,8 +859,8 @@ import reactivemongo.api.bson.collection.BSONCollection
 def redactForecasts(forecasts: BSONCollection)(implicit ec: ExecutionContext) = {
   import forecasts.AggregationFramework.{ Match, Redact }
 
-  forecasts.aggregatorContext[BSONDocument](
-    Match(document("year" -> 2014)), List(
+  forecasts.aggregatorContext[BSONDocument](pipeline = List(
+    Match(document("year" -> 2014)), 
     Redact(document("$cond" -> document(
       "if" -> document(
         "$gt" -> array(document(
@@ -876,8 +871,7 @@ def redactForecasts(forecasts: BSONCollection)(implicit ec: ExecutionContext) = 
       ),
       "then" -> "$$DESCEND",
       "else" -> "$$PRUNE"
-    ))))).prepared.cursor.
-      collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
+    ))))).prepared.cursor.collect[List]()
 }
 {% endhighlight %}
 
@@ -916,9 +910,8 @@ import reactivemongo.api.bson.collection.BSONCollection
 def sized(inventory: BSONCollection) = {
   import inventory.AggregationFramework.UnwindField
 
-  inventory.aggregatorContext[BSONDocument](UnwindField("sizes")).
-    prepared.cursor.
-    collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
+  inventory.aggregatorContext[BSONDocument](List(UnwindField("sizes"))).
+    prepared.cursor.collect[List]()
 }
 {% endhighlight %}
 
@@ -968,9 +961,8 @@ def priced(inventory: BSONCollection, prices: BSONCollection) = {
   import prices.AggregationFramework.Lookup
 
   prices.aggregatorContext[BSONDocument](
-    Lookup(inventory.name, "item", "item", "prices")
-  ).prepared.cursor.
-    collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
+    pipeline = List(Lookup(inventory.name, "item", "item", "prices"))
+  ).prepared.cursor.collect[List]()
 }
 {% endhighlight %}
 
@@ -1004,12 +996,11 @@ def useFacetAgg(inventory: BSONCollection)(
   import inventory.AggregationFramework.{ Count, Facet, Out, UnwindField }
 
   val facet = Facet(Seq(
-    "foo" -> (UnwindField("bar"), List(Count("c"))),
-    "lorem" -> (Out("ipsum"), List.empty)))
+    "foo" -> List(UnwindField("bar"), Count("c")),
+    "lorem" -> List(Out("ipsum"))))
 
-  inventory.aggregatorContext[BSONDocument](facet).
-    prepared.cursor.
-    collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
+  inventory.aggregatorContext[BSONDocument](pipeline = List(facet)).
+    prepared.cursor.collect[List]()
 
 }
 {% endhighlight %}
@@ -1038,9 +1029,11 @@ import reactivemongo.api.bson.collection.BSONCollection
 def outputBooks(books: BSONCollection, outColl: String): Future[Unit] = {
   import books.AggregationFramework.{ Ascending, Group, PushField, Out, Sort }
 
-  books.aggregatorContext[BSONDocument](Sort(Ascending("title")), List(
+  books.aggregatorContext[BSONDocument](pipeline = List(
+    Sort(Ascending("title")),
     Group(BSONString(f"$$author"))("books" -> PushField("title")),
-    Out(outColl))).prepared.cursor.head.map(_ => {})
+    Out(outColl))).
+    prepared.cursor.head.map(_ => {})
 }
 {% endhighlight %}
 
@@ -1101,7 +1094,7 @@ def replaceRootTest(fruits: BSONCollection): Future[Option[BSONDocument]] = {
   fruits.aggregateWith[BSONDocument]() { framework =>
     import framework._
 
-    ReplaceRootField("in_stock") -> List.empty
+    List(ReplaceRootField("in_stock"))
   }.headOption
 }
 {% endhighlight %}
@@ -1164,15 +1157,14 @@ def salesWithItemGreaterThanHundered(sales: BSONCollection) =
   sales.aggregateWith[BSONDocument]() { framework =>
     import framework._
 
-    val sort = Sort(Ascending("_id"))
-
-    Project(BSONDocument("items" -> Filter(
-      input = BSONString(f"$$items"),
-      as = "item",
-      cond = BSONDocument(
-        f"$$gte" -> BSONArray(f"$$$$item.price", 100))))) -> List(sort)
-
-  }.collect[List](Int.MaxValue, Cursor.FailOnError[List[BSONDocument]]())
+    List(
+      Project(BSONDocument("items" -> Filter(
+        input = BSONString(f"$$items"),
+        as = "item",
+        cond = BSONDocument(
+          f"$$gte" -> BSONArray(f"$$$$item.price", 100))))),
+      Sort(Ascending("_id")))
+  }.collect[List]()
 {% endhighlight %}
 
 ### Database indexes aggregation
@@ -1193,9 +1185,8 @@ def aggregateIndexes(coll: BSONCollection) = {
 
   val result: Future[List[IndexStatsResult]] =
     coll.aggregatorContext[IndexStatsResult](
-      IndexStats, List(Sort(Ascending("name")))).
-      prepared.cursor.
-      collect[List](-1, Cursor.FailOnError[List[IndexStatsResult]]())
+      pipeline = List(IndexStats, Sort(Ascending("name")))).
+      prepared.cursor.collect[List]()
 
   result
 }
@@ -1291,11 +1282,11 @@ def sliceFavorites(coll: BSONCollection)(implicit ec: ExecutionContext) =
   coll.aggregateWith[BSONDocument]() { framework =>
     import framework.{ Project, Slice }
 
-    Project(BSONDocument(
+    List(Project(BSONDocument(
       "name" -> 1,
       "favorites" -> Slice(
         array = BSONString(f"$$favorites"),
-        n = BSONInteger(3)))) -> List.empty
+        n = BSONInteger(3)))))
   }.collect[Seq](4, Cursor.FailOnError[Seq[BSONDocument]]())
 {% endhighlight %}
 
@@ -1370,13 +1361,11 @@ def foo(col: BSONCollection)(
 
   import col.AggregationFramework.AtlasSearch, AtlasSearch.Term
 
-  col.aggregatorContext[BSONDocument](AtlasSearch(Term(
+  col.aggregatorContext[BSONDocument](pipeline = List(AtlasSearch(Term(
     path = "description",
     query = "s*l*",
     modifier = Some(Term.Wildcard) // wildcard: true
-  ))).prepared.cursor.
-    collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
-
+  )))).prepared.cursor.collect[List]()
 }
 {% endhighlight %}
 

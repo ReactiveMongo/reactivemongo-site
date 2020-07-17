@@ -5,6 +5,8 @@ title: Design
 
 Thanks to <a href="http://warry.fr" title="Maxime Dantec">@warry</a> for designing ReactiveMongo's logo and site.
 
+*See the [Store](https://www.redbubble.com/shop/ap/50649315)*
+
 ## Logo
 
 **Medium PNG:**

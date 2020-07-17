@@ -6,7 +6,9 @@ title: Release details
 
 ## ReactiveMongo {{site._1_0_latest_minor}} – Release details
 
+{% if site._1_0_latest_minor contains "-rc." %}
 <strong style="color:red">This is a Release Candidate</strong>
+{% endif %}
 
 **What's new?**
 
@@ -36,6 +38,7 @@ The documentation is available [online](index.html), and its code samples are co
   - Bulk operations (e.g. `.delete.many`) on [collection](../api/reactivemongo/api/collections/GenericCollection.html),
   - `arrayFilters` on update operations.
 - [Play](#play)
+  - [JSON compatibility](#json-compatibility)
 - [Aggregation](#aggregation)
   - [`CursorOptions`](../api/reactivemongo/api/CursorOptions.html) parameter when using `.aggregatorContext`.
   - New stages: `$addFields`, `$bucketAuto`, `$count`, `$filter`, `$replaceRoot`, `$search`, `$slice`
@@ -85,7 +88,15 @@ scalafix ReactiveMongoUpgrade
 scalafix ReactiveMongoLinter --check
 {% endhighlight %}
 
-Then upgrade the appropriate `libraryDependencies` in the SBT build.
+Then upgrade the appropriate `libraryDependencies` in the SBT build, and re-recompile it.
+
+{% highlight sh %}
+sbt clean compile
+{% endhighlight %}
+
+Finally, apply manually the remaining fixes due to the breaking changes.
+
+*[Suggest an improvement](https://github.com/ReactiveMongo/ReactiveMongo-Scalafix/issues/new/choose) to these rules*
 
 ### Connection
 
@@ -160,6 +171,17 @@ The Biːsən is the new default BSON library, that fixes some issues ([OOM](http
 #### Documents and values
 
 The API for [`BSONDocument`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/BSONDocument.html) has been slightly updated, with the function `getAs` renamed as `getAsOpt` (to be consistent with `getAsTry`).
+
+New `getOrElse` function is also added.
+
+{% highlight scala %}
+import reactivemongo.api.bson._
+
+def withFallback(doc: BSONDocument): String = {
+  doc.getOrElse[String]("strField", "defaultValue")
+  // Equivalent to: doc.getAsOpt[String]("strField").getOrElse("defaultValue")
+}
+{% endhighlight %}
 
 New field utilities are provided for the most common types:
 
@@ -275,7 +297,7 @@ object FooKey {
   val bar = new FooKey("bar")
   val lorem = new FooKey("lorem")
 
-  implicit val keyWriter: KeyWriter[FooKey] = KeyWriter.safe[FooKey](_.value)
+  implicit val keyWriter: KeyWriter[FooKey] = KeyWriter[FooKey](_.value)
 
   implicit val keyReader: KeyReader[FooKey] =
     KeyReader[FooKey] { new FooKey(_) }
@@ -290,6 +312,126 @@ def bsonMapCustomKey = {
   val doc: Try[BSONDocument] = BSON.writeDocument(input)
 
   val output = doc.flatMap { BSON.readDocument[Map[FooKey, Int]](_) }
+}
+{% endhighlight %}
+
+**`Iterable` factories:**
+
+New factories to handle BSON array are provided: `{ BSONReader, BSONWriter }.{ iterable, sequence }`
+
+{% highlight scala %}
+import reactivemongo.api.bson.{ BSONReader, BSONWriter, Macros }
+
+case class Element(str: String, v: Int)
+
+val elementHandler = Macros.handler[Element]
+
+val setReader: BSONReader[Set[Element]] =
+  BSONReader.iterable[Element, Set](elementHandler readTry _)
+
+val seqWriter: BSONWriter[Seq[Element]] =
+  BSONWriter.sequence[Element](elementHandler writeTry _)
+
+// ---
+
+import reactivemongo.api.bson.{ BSONArray, BSONDocument }
+
+val fixture = BSONArray(
+  BSONDocument("str" -> "foo", "v" -> 1),
+  BSONDocument("str" -> "bar", "v" -> 2))
+
+setReader.readTry(fixture)
+// Success: Set(Element("foo", 1), Element("bar", 2))
+
+seqWriter.writeTry(Seq(Element("foo", 1), Element("bar", 2)))
+// Success: fixture
+{% endhighlight %}
+
+**Tuple factories:**
+
+New factories to create handler for tuple types (up to 5-arity) are provided.
+
+If an array is the wanted BSON representation:
+
+{% highlight scala %}
+import reactivemongo.api.bson.{ BSONArray, BSONReader, BSONWriter }
+
+val readerArrAsStrInt = BSONReader.tuple2[String, Int]
+val writerStrIntToArr = BSONWriter.tuple2[String, Int]
+
+val arr = BSONArray("Foo", 20)
+
+readerArrAsStrInt.readTry(arr) // => Success(("Foo", 20))
+
+writerStrIntToArr.writeTry("Foo" -> 20)
+// => Success: arr = ['Foo', 20]
+{% endhighlight %}
+
+If a document representation is wanted: 
+
+{% highlight scala %}
+import reactivemongo.api.bson.{
+  BSONDocument, BSONDocumentReader, BSONDocumentWriter
+}
+
+val writerStrIntToDoc = BSONDocumentWriter.tuple2[String, Int]("name", "age")
+
+writerStrIntToDoc.writeTry("Foo" -> 20)
+// => Success: {'name': 'Foo', 'age': 20}
+
+val readerDocAsStrInt = BSONDocumentReader.tuple2[String, Int]("name", "age")
+
+reader.readTry(BSONDocument("name" -> "Foo", "age" -> 20))
+// => Success(("Foo", 20))
+{% endhighlight %}
+
+**Partial function:**
+
+There are new factories based on partial functions: `collect` and `collectFrom`.
+
+*BSON reader:*
+
+{% highlight scala %}
+import reactivemongo.api.bson.{ BSONReader, BSONInteger }
+
+val intToStrCodeReader = BSONReader.collect[String] {
+  case BSONInteger(0) => "zero"
+  case BSONInteger(1) => "one"
+}
+
+intToStrCodeReader.readTry(BSONInteger(0)) // Success("zero")
+
+intToStrCodeReader.readTry(BSONInteger(2))
+// => Failure(ValueDoesNotMatchException(..))
+{% endhighlight %}
+
+*BSON writer:*
+
+{% highlight scala %}
+import scala.util.Success
+import reactivemongo.api.bson.{ BSONWriter, BSONInteger }
+
+val strCodeToIntWriter = BSONWriter.collect[String] {
+  case "zero" => BSONInteger(0)
+  case "one" => BSONInteger(1)
+}
+
+strCodeToIntWriter.writeTry("zero") // Success(BSONInteger(0))
+
+strCodeToIntWriter.writeTry("3")
+// => Failure(IllegalArgumentException(..))
+{% endhighlight %}
+
+*BSON document writer:*
+
+{% highlight scala %}
+import reactivemongo.api.bson.{ BSONDocument, BSONDocumentWriter }
+
+case class Bar(value: String)
+
+val writer2 = BSONDocumentWriter.collectFrom[Bar] {
+  case Bar(value) if value.nonEmpty =>
+    scala.util.Success(BSONDocument("value" -> value))
 }
 {% endhighlight %}
 
@@ -393,6 +535,20 @@ case class FooWithDefault1(id: Int, title: String = "default")
 
   reader.readTry(BSONDocument("id" -> 1)) // missing BSON title
   // => Success: FooWithDefault1(id = 1, title = "default")
+}
+{% endhighlight %}
+
+New macros for [Value classes](https://docs.scala-lang.org/overviews/core/value-classes.html) are new available.
+
+{% highlight scala %}
+package object relexamples {
+  import reactivemongo.api.bson.{ BSONHandler, BSONReader, BSONWriter, Macros }
+
+  final class FooVal(val value: String) extends AnyVal
+
+  val vh: BSONHandler[FooVal] = Macros.valueHandler[FooVal]
+  val vr: BSONReader[FooVal] = Macros.valueReader[FooVal]
+  val vw: BSONWriter[FooVal] = Macros.valueWriter[FooVal]
 }
 {% endhighlight %}
 
@@ -696,6 +852,22 @@ def updateArrayFilters(personColl: BSONCollection) =
 
 The `.count(..)` collection operation now return a `Long` value (rather than `Int`).
 
+**[`WriteResult`](../api/reactivemongo/api/commands/WriteResult.html)**
+
+A new utility is provided to extract exception details from an erroneous result.
+
+{% highlight scala %}
+import reactivemongo.api.commands.WriteResult
+
+def printExceptionIfFailed(res: WriteResult) = res match {
+  case WriteResult.Exception(cause) =>
+    cause.printStackTrace()
+
+  case _ =>
+    println("OK")
+}
+{% endhighlight %}
+
 **More:** [Find documents](./tutorial/find-documents.html), [Write documents](./tutorial/write-documents.html)
 
 ### Play
@@ -704,17 +876,229 @@ The `.count(..)` collection operation now return a `Long` value (rather than `In
 
 The `JSONCollection` and `JSONSerializationPack` (from package `reactivemongo.play.json.collection`) have been removed, and JSON compatibility can be applied using standard collection and JSON conversions.
 
-{% highlight javascript %}
-import reactivemongo.play.json.compat._,
-  json2bson._,
-  bson2json._
+> The `play.modules.reactivemongo.JSONFileToSave` has also been removed.
+
+#### JSON compatibility
+
+The JSON/BSON compatibility has been refactored.
+
+Considering the following `User` class:
+
+{% highlight scala %}
+package object jsonexamples1 {
+  import reactivemongo.api.bson._
+
+  case class User(
+    _id: BSONObjectID, // Rather use UUID or String
+    username: String,
+    role: String,
+    created: BSONTimestamp, // Rather use Instance
+    lastModified: BSONDateTime,
+    sym: Option[BSONSymbol]) // Rather use String
+
+  object User {
+    implicit val bsonWriter: BSONDocumentWriter[User] = Macros.writer[User]
+
+    implicit val bsonReader: BSONDocumentReader[User] = Macros.reader[User]
+  }
+}
 {% endhighlight %}
 
-> The `play.modules.reactivemongo.JSONFileToSave` has also been removed.
+The main import is:
+
+{% highlight scala %}
+import reactivemongo.play.json.compat._
+{% endhighlight %}
+
+Then specific imports are available to enable conversions, according the use cases.
+
+{% highlight scala %}
+import reactivemongo.play.json.compat._
+
+// Conversions from BSON to JSON extended syntax
+import bson2json._
+
+// Override conversions with lax syntax
+import lax._
+
+// Conversions from JSON to BSON
+import json2bson._
+{% endhighlight %}
+
+**Convert BSON to JSON extended syntax:**
+
+*Scala:*
+
+{% highlight scala %}
+import _root_.play.api.libs.json._
+
+import _root_.reactivemongo.api.bson._
+
+// Global compatibility import:
+import reactivemongo.play.json.compat._
+
+// Import BSON to JSON extended syntax (default)
+import bson2json._ // Required import
+
+import jsonexamples1.User
+
+val userJs = Json.toJson(User(
+  BSONObjectID.generate(), "lorem", "ipsum",
+  created = BSONTimestamp(987654321L),
+  lastModified = BSONDateTime(123456789L),
+  sym = Some(BSONSymbol("foo"))))
+{% endhighlight %}
+
+*JSON output:* (`userJs`)
+
+{% highlight javascript %}
+{
+  "_id": {"$$oid":"..."},
+  "username": "lorem",
+  "role": "ipsum",
+  "created": {
+    "$$timestamp": {"t":0,"i":987654321}
+          },
+  "lastModified": {
+    "$$date": {"$$numberLong":"123456789"}
+          },
+  "sym": {
+    "$$symbol":"foo"
+  }
+}
+{% endhighlight %}
+
+**Convert BSON to JSON lax syntax:**
+
+*Scala:*
+
+{% highlight scala %}
+import _root_.play.api.libs.json._
+
+import _root_.reactivemongo.api.bson._
+
+// Global compatibility import:
+import reactivemongo.play.json.compat._
+
+// Import BSON to JSON extended syntax (default)
+import bson2json._ // Required import
+
+// Import lax overrides
+import lax._
+
+import jsonexamples1.User
+
+// Overrides BSONWriters for OID/Timestamp/DateTime
+// so that the BSON representation matches the JSON lax one
+implicit val bsonWriter: BSONDocumentWriter[User] = Macros.writer[User]
+
+// Resolved from bsonWriter
+val laxJsonWriter: OWrites[User] = implicitly[OWrites[User]]
+
+val laxUserJs = laxJsonWriter.writes(User(
+  BSONObjectID.generate(), "lorem", "ipsum",
+  created = BSONTimestamp(987654321L),
+  lastModified = BSONDateTime(123456789L),
+  sym = Some(BSONSymbol("foo"))))
+{% endhighlight %}
+
+*JSON output:* (`userLaxJs`)
+
+{% highlight javascript %}
+{
+  "_id": "...",
+  "username": "lorem",
+  "role": "ipsum",
+  "created": 987654321,
+  "lastModified": 123456789,
+  "sym": "foo"
+}
+{% endhighlight %}
+
+**Convert JSON to BSON:**
+
+Considering the `Street` class:
+
+{% highlight scala %}
+package object jsonexamples2 {
+ case class Street(
+   number: Option[Int],
+   name: String)
+}
+{% endhighlight %}
+
+The BSON representation can be derived from the JSON as below.
+
+{% highlight scala %}
+import _root_.play.api.libs.json._
+import _root_.reactivemongo.api.bson._
+
+// Global compatibility import:
+import reactivemongo.play.json.compat._
+
+// Import JSON to BSON conversions
+import json2bson._ // Required import
+
+import jsonexamples2.Street
+
+implicit val jsonFormat: OFormat[Street] = Json.format[Street]
+
+// Expected BSON:
+val doc = BSONDocument(
+  "number" -> 1,
+  "name" -> "rue de la lune")
+
+val street = Street(Some(1), "rue de la lune")
+
+// Resolved from jsonFormat
+val bsonStreetWriter = implicitly[BSONDocumentWriter[Street]]
+
+bsonStreetWriter.writeTry(street)
+/* Success: doc = {
+  'number': 1,
+  'name': 'rue de la lune'
+} */
+{% endhighlight %}
+
+**Value converters:**
+
+Using the implicit value conversions provided by `json2bson`, it's possible to pass a JSON object wherever a BSON document is expected.
+
+{% highlight scala %}
+import scala.concurrent.ExecutionContext
+
+import reactivemongo.api.bson.BSONDocument
+
+def expectDoc(document: BSONDocument) =
+  println(s"doc = ${BSONDocument pretty document}")
+
+// ---
+
+import _root_.play.api.libs.json._
+import _root_.reactivemongo.api.bson._
+
+// Global compatibility import:
+import reactivemongo.play.json.compat._
+
+// Import JSON to BSON conversions
+import json2bson._ // Required import
+
+expectDoc(
+  document = Json.obj("age" -> Json.obj(f"$$gt" -> 1)))
+  /* doc = {
+  'age': {
+    '$gt': 1
+  }
+} */
+{% endhighlight %}
+
+*[See documentation](./json/overview.html)*
 
 ### Aggregation
 
 There are newly supported by the [Aggregation Framework](./advanced-topics/aggregation.html).
+
+> An aggregation pipeline is now a list of operator(s), possibly empty.
 
 **addFields:**
 
@@ -729,9 +1113,9 @@ def sumHomeworkQuizz(students: BSONCollection) =
   students.aggregateWith1[BSONDocument]() { framework =>
     import framework.AddFields
 
-    AddFields(document(
+    List(AddFields(document(
       "totalHomework" -> document(f"$$sum" -> f"$$homework"),
-      "totalQuiz" -> document(f"$$sum" -> f"$$quiz"))) -> List(
+      "totalQuiz" -> document(f"$$sum" -> f"$$quiz"))), (
       AddFields(document(
         "totalScore" -> document(f"$$add" -> array(
         f"$$totalHomework", f"$$totalQuiz", f"$$extraCredit")))))
@@ -754,7 +1138,7 @@ def populationBuckets(zipcodes: BSONCollection)(implicit ec: ExecutionContext) =
   zipcodes.aggregateWith[BSONDocument]() { framework =>
     import framework.BucketAuto
 
-    BucketAuto(BSONString(f"$$population"), 2, None)() -> List.empty
+    List(BucketAuto(BSONString(f"$$population"), 2, None)())
   }.collect[Set](Int.MaxValue, Cursor.FailOnError[Set[BSONDocument]]())
 {% endhighlight %}
 
@@ -780,7 +1164,7 @@ def countPopulatedStates1(col: BSONCollection): Future[Int] = {
     import framework.{ Count, Group, Match, SumField }
 
     Group(BSONString("$state"))(
-      "totalPop" -> SumField("population")) -> List(
+      "totalPop" -> SumField("population")) +: List(
         Match(BSONDocument("totalPop" -> BSONDocument("$gte" -> 10000000L))),
         Count("popCount"))
   }.head
@@ -798,8 +1182,8 @@ def useFacetAgg(coll: BSONCollection) = {
   import coll.AggregationFramework.{ Count, Facet, Out, UnwindField }
 
   Facet(Seq(
-    "foo" -> (UnwindField("bar"), List(Count("c"))),
-    "lorem" -> (Out("ipsum"), List.empty)))
+    "foo" -> List(UnwindField("bar"), Count("c")),
+    "lorem" -> List(Out("ipsum"))))
   /* {
     $facet: {
       'foo': [
@@ -836,7 +1220,7 @@ def salesWithItemGreaterThanHundered(sales: BSONCollection) =
       input = BSONString(f"$$items"),
       as = "item",
       cond = BSONDocument(
-        f"$$gte" -> BSONArray(f"$$$$item.price", 100))))) -> List(sort)
+        f"$$gte" -> BSONArray(f"$$$$item.price", 100))))) +: List(sort)
 
   }.collect[List](Int.MaxValue, Cursor.FailOnError[List[BSONDocument]]())
 {% endhighlight %}
@@ -865,7 +1249,7 @@ def replaceRootTest(fruits: BSONCollection): Future[Option[BSONDocument]] = {
   fruits.aggregateWith[BSONDocument]() { framework =>
     import framework._
 
-    ReplaceRootField("in_stock") -> List.empty
+    List(ReplaceRootField("in_stock"))
   }.headOption
   // Results: { "oranges": 20, "apples": 60 }, ...
 }
@@ -887,13 +1271,11 @@ def foo(col: BSONCollection)(
 
   import col.AggregationFramework.AtlasSearch, AtlasSearch.Term
 
-  col.aggregatorContext[BSONDocument](AtlasSearch(Term(
+  col.aggregatorContext[BSONDocument](pipeline = List(AtlasSearch(Term(
     path = "description",
     query = "s*l*",
     modifier = Some(Term.Wildcard) // wildcard: true
-  ))).prepared.cursor.
-    collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
-
+  )))).prepared.cursor.collect[List]()
 }
 {% endhighlight %}
 
@@ -913,12 +1295,12 @@ def sliceFavorites(coll: BSONCollection)(implicit ec: ExecutionContext) =
   coll.aggregateWith[BSONDocument]() { framework =>
     import framework.{ Project, Slice }
 
-    Project(BSONDocument(
+    List(Project(BSONDocument(
       "name" -> 1,
       "favorites" -> Slice(
         array = BSONString(f"$$favorites"),
-        n = BSONInteger(3)))) -> List.empty
-  }.collect[Seq](4, Cursor.FailOnError[Seq[BSONDocument]]())
+        n = BSONInteger(3)))))
+  }.collect[Seq](4)
 {% endhighlight %}
 
 **Miscellaneous:** Other stages are also supported.
@@ -968,9 +1350,24 @@ def filteredWatch(
 
 The [GridFS API](./advanced-topics/gridfs.html) has been refactored, to be simpler and more safe.
 
-The `DefaultFileToSave` has been moved to the factory [`fileToSave`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/gridfs/GridFS.html#fileToSave[Id<:GridFS.this.pack.Value](filename:Option[String],contentType:Option[String],uploadDate:Option[Long],metadata:GridFS.this.pack.Document,id:Id):GridFS.this.FileToSave[Id]).
+The `DefaultFileToSave` has been moved to the factory [`fileToSave`](https://static.javadoc.io/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/gridfs/GridFS.html#fileToSave[Id<:GridFS.this.pack.Value](filename:Option[String],contentType:Option[String],uploadDate:Option[Long],metadata:GridFS.this.pack.Document,id:Id):GridFS.this.FileToSave[Id]).
 
-Separate classes and traits `DefaultReadFile`, `ComputedMetadata`, `BasicMetadata` and `CustomMetadata` have been merged with the single class [`ReadFile`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/gridfs/ReadFile.html).
+Separate classes and traits `DefaultReadFile`, `ComputedMetadata`, `BasicMetadata` and `CustomMetadata` have been merged with the single class [`ReadFile`](https://static.javadoc.io/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/gridfs/ReadFile.html).
+
+As the underlying `files` and `chunks` collections are no longer part of the public GridFS API, a new function [`update`](https://static.javadoc.io/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/gridfs/GridFS.html#update) is provided to update the file metadata (also note the `DB.gridfs` utility).
+
+{% highlight scala %}
+import scala.concurrent.ExecutionContext
+
+import reactivemongo.api.bson.{ BSONDocument, BSONObjectID }
+
+import reactivemongo.api.DB
+import reactivemongo.api.gridfs.GridFS
+
+def updateFile(db: DB, fileId: BSONObjectID)(implicit ec: ExecutionContext) =
+  db.gridfs.update(fileId, BSONDocument(f"$$set" ->
+    BSONDocument("meta" -> "data")))
+{% endhighlight %}
 
 ### Monitoring
 

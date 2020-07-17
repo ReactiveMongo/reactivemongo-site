@@ -13,4 +13,4 @@ title: Sponsors
 
 ## Thanks
 
-Special thanks to <a href="http://warry.fr" title="Maxime Dantec">@warry</a> for designing ReactiveMongo's logo and site.
+Special thanks to <a href="http://warry.fr" title="Maxime Dantec">@warry</a> for designing ReactiveMongo's [logo and site](./design.html).

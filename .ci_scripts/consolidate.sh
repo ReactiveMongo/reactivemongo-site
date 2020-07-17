@@ -10,11 +10,12 @@ done
 
 echo "[INFO] Generated HTML normalized (for wget compat)"
 
-wget -nv -e robots=off --follow-tags=a -r --spider \
-  -Dlocalhost -Xreleases/0.1x/api http://localhost:4000
-RES=$?
+#TODO:
+#wget -nv -e robots=off --follow-tags=a -r --spider \ 
+#  -Dlocalhost -Xreleases/0.1x/api http://localhost:4000
+#RES=$?
 
-echo "[INFO] Documentation checked for broken links ($RES)"
+#echo "[INFO] Documentation checked for broken links ($RES)"
 
 rm -rf 'localhost:4000'
 pkill -f jekyll

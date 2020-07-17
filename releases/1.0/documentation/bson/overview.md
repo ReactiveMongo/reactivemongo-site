@@ -120,7 +120,7 @@ albumTitle match {
 }
 {% endhighlight %}
 
-The API for [`BSONDocument`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/BSONDocument.html) provides the function `getAsOpt` and `getAsTry` to get the field values.
+The API for [`BSONDocument`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/BSONDocument.html) provides the function `getAsOpt` and `getAsTry` to get the field values, and `getOrElse`.
 
 {% highlight scala %}
 import scala.util.Try
@@ -131,6 +131,9 @@ def bar(doc: BSONDocument): Unit = {
   val d: Option[Double] = doc.getAsOpt[Double]("fieldNameDouble")
   val l: Try[Long] = doc.getAsTry[Long]("fieldNameLong")
   val s: Try[String] = doc.getAsTry[String]("fieldNameStr")
+
+  val fallback: String = doc.getOrElse[String]("strField", "defaultValue")
+  // Equivalent to: doc.getAsOpt[String]("strField").getOrElse("defaultValue")
 }
 {% endhighlight %}
 
