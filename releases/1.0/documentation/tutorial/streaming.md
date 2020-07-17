@@ -6,9 +6,9 @@ title: Streaming
 
 ## Streaming
 
-Instead of accumulating documents in memory, they can be processed as a stream, using a reactive [`Cursor`](../../api/reactivemongo/api/Cursor).
+Instead of accumulating documents in memory, they can be processed as a stream, using a reactive [`Cursor`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/Cursor.html).
 
-ReactiveMongo can be used with several streaming frameworks: [Play Iteratees](http://www.playframework.com/documentation/latest/Iteratees), [Akka Streams](http://akka.io/docs/), or with custom processors using [`foldWhile`](../../api/reactivemongo/api/Cursor#foldWhile[A](z:=%3EA,maxDocs:Int)(suc:(A,T)=%3Ereactivemongo.api.Cursor.State[A],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]) (and the other similar operations).
+ReactiveMongo can be used with several streaming frameworks: [Play Iteratees](http://www.playframework.com/documentation/latest/Iteratees), [Akka Streams](http://akka.io/docs/), or with custom processors using [`foldWhile`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/Cursor.html#foldWhile[A](z:=%3EA,maxDocs:Int)(suc:(A,T)=%3Ereactivemongo.api.Cursor.State[A],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]) (and the other similar operations).
 
 ### Akka Stream
 
@@ -212,7 +212,7 @@ At each step, this Iteratee will extract the age from the document and add it to
 
 ### Custom streaming
 
-ReactiveMongo streaming is based on the function [`Cursor.foldWhileM[A]`](../../api/reactivemongo/api/Cursor#foldWhileM[A](z:=%3EA,maxDocs:Int)(suc:(A,T)=%3Escala.concurrent.Future[reactivemongo.api.Cursor.State[A]],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]), which also allows you to implement a custom stream processor.
+ReactiveMongo streaming is based on the function [`Cursor.foldWhileM[A]`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/Cursor.html#foldWhileM[A](z:=%3EA,maxDocs:Int)(suc:(A,T)=%3Escala.concurrent.Future[reactivemongo.api.Cursor.State[A]],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]), which also allows you to implement a custom stream processor.
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -243,10 +243,10 @@ At each streaming step, for each new value or error, you choose how you want to 
 
 There are convenient handler functions, that are helpful to implement a custom streaming: `Cursor.{ ContOnError, DoneOnError, FailOnError, Ignore }`.
 
-- [`ContOnError`](../../api/reactivemongo/api/Cursor$#ContOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]): Error handler skipping exception.
-- [`DoneOnError`](../../api/reactivemongo/api/Cursor$#DoneOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]): Error handler stopping successfully.
-- [`FailOnError`](../../api/reactivemongo/api/Cursor$#FailOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]): The default error handler, stopping with failure when an error is encountered.
-- [`Ignore`](../../api/reactivemongo/api/Cursor$#Ignore[A](callback:A=%3EUnit):(Unit,A)=%3Ereactivemongo.api.Cursor.State[Unit]): Consume all the results, but ignoring all the values as `Unit`.
+- [`ContOnError`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/Cursor$.html#ContOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]): Error handler skipping exception.
+- [`DoneOnError`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/Cursor$.html#DoneOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]): Error handler stopping successfully.
+- [`FailOnError`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/Cursor$.html#FailOnError[A](callback:(A,Throwable)=%3EUnit):reactivemongo.api.Cursor.ErrorHandler[A]): The default error handler, stopping with failure when an error is encountered.
+- [`Ignore`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/Cursor$.html#Ignore[A](callback:A=%3EUnit):(Unit,A)=%3Ereactivemongo.api.Cursor.State[Unit]): Consume all the results, but ignoring all the values as `Unit`.
 
 Each fold operations (`foldResponses`, `foldBulks` or `foldWhile`) have variants working with a function returning a `Future[State[T]]` (instead of a synchronous `State[T]`).
 

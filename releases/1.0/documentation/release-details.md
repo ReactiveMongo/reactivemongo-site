@@ -20,7 +20,7 @@ The documentation is available [online](index.html), and its code samples are co
   - Support [x.509 certificate](https://docs.mongodb.com/manual/tutorial/configure-x509-client-authentication/) to authenticate.
   - Support [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) in the connection URI.
   - New `heartbeatFrequencyMS` setting.
-  - Add `credentials` in the [`MongoConnectionOptions`](http://reactivemongo.org/releases/0.1x/api/reactivemongo/api/MongoConnectionOptions.html)
+  - Add `credentials` in the [`MongoConnectionOptions`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/MongoConnectionOptions.html)
   - [Netty native](#netty-native)
 - [BSON library](#bson-library)
   - [Documents and values](#documents-and-values)
@@ -35,12 +35,12 @@ The documentation is available [online](index.html), and its code samples are co
     - [Monocle](#monocle)
     - [Specs2](#specs2)
 - [Query and write operations](#query-and-write-operations),
-  - Bulk operations (e.g. `.delete.many`) on [collection](../api/reactivemongo/api/collections/GenericCollection.html),
+  - Bulk operations (e.g. `.delete.many`) on [collection](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html),
   - `arrayFilters` on update operations.
 - [Play](#play)
   - [JSON compatibility](#json-compatibility)
 - [Aggregation](#aggregation)
-  - [`CursorOptions`](../api/reactivemongo/api/CursorOptions.html) parameter when using `.aggregatorContext`.
+  - [`CursorOptions`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/CursorOptions.html) parameter when using `.aggregatorContext`.
   - New stages: `$addFields`, `$bucketAuto`, `$count`, `$filter`, `$replaceRoot`, `$search`, `$slice`
   - [Change stream](#change-stream)
 - [GridFS](#gridfs)
@@ -102,10 +102,10 @@ Finally, apply manually the remaining fixes due to the breaking changes.
 
 The `MongoDriver` type is replaced by `AsyncDriver`, with asynchronous methods.
 
-- `MongoDriver.connection` replaced by [`AsyncDriver.connect`](../api/reactivemongo/api/AsyncDriver.html#connect(uriStrict:String):scala.concurrent.Future[reactivemongo.api.MongoConnection])
+- `MongoDriver.connection` replaced by [`AsyncDriver.connect`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/AsyncDriver.html#connect[T](parsedURI:reactivemongo.api.MongoConnection.URI[T]):scala.concurrent.Future[reactivemongo.api.MongoConnection])
 - `close` is asynchronous.
 
-The utility function `MongoConnection.parseURI` is replaced by asynchronous function [`.fromString`](../api/reactivemongo/api/MongoConnection$.html#fromString(uri:String)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.MongoConnection.ParsedURI]).
+The utility function `MongoConnection.parseURI` is replaced by asynchronous function [`.fromString`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/MongoConnection$.html#fromString(uri:String)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.MongoConnection.ParsedURI]).
 
 Also, the following options are deprecated:
 
@@ -687,7 +687,7 @@ libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-specs2" % "{{s
 
 ### Query and write operations
 
-The [query builder](../api/reactivemongo/api/collections/GenericQueryBuilder.html) supports more options (see [`find`](https://docs.mongodb.com/v4.2/reference/command/find/#dbcmd.find)).
+The [query builder](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/QueryBuilderFactory$QueryBuilder.html) supports more options (see [`find`](https://docs.mongodb.com/v4.2/reference/command/find/#dbcmd.find)).
 
 - **`singleBatch`**: `boolean`; Optional. Determines whether to close the cursor after the first batch. Defaults to `false`.
 - **`maxScan`**: `boolean`; Optional. Maximum number of documents or index keys to scan when executing the query.
@@ -699,12 +699,12 @@ The [query builder](../api/reactivemongo/api/collections/GenericQueryBuilder.htm
 
 The collection API provides new builders for write operations. This supports bulk operations (e.g. insert many documents at once).
 
-**[`InsertBuilder`](../api/reactivemongo/api/collections/InsertOps$InsertBuilder.html)**
+**[`InsertBuilder`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/InsertOps.html#InsertBuilderextendsAnyRef)**
 
-The new [`insert`](../api/reactivemongo/api/collections/GenericCollection.html#insert(ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern)(implicitevidence$2:GenericCollection.this.pack.Writer[T]):GenericCollection.this.InsertBuilder[T]) operation is providing an `InsertBuilder`, which supports,
+The new [`insert`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#insert:GenericCollection.this.InsertBuilder) operation is providing an `InsertBuilder`, which supports,
 
-- simple insert with [`.one`](../api/reactivemongo/api/collections/InsertOps$InsertBuilder.html#one(document:T)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.WriteResult]),
-- and bulk insert with [`.many`](../api/reactivemongo/api/collections/InsertOps$InsertBuilder.html#many(documents:Iterable[T])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.MultiBulkWriteResult]).
+- simple insert with [`.one`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/InsertOps$InsertBuilder.html#one[T](document:T)(implicitec:scala.concurrent.ExecutionContext,implicitwriter:InsertOps.this.pack.Writer[T]):scala.concurrent.Future[reactivemongo.api.commands.WriteResult]),
+- and bulk insert with [`.many`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/InsertOps$InsertBuilder.html#many[T](documents:Iterable[T])(implicitec:scala.concurrent.ExecutionContext,implicitwriter:InsertOps.this.pack.Writer[T]):scala.concurrent.Future[InsertOps.this.MultiBulkWriteResult]).
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -733,9 +733,9 @@ def bulkInsert(coll: BSONCollection): Future[coll.MultiBulkWriteResult] =
       "age" -> 1)))
 {% endhighlight %}
 
-**[`UpdateBuilder`](../api/reactivemongo/api/collections/UpdateOps$UpdateBuilder.html)**
+**[`UpdateBuilder`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/UpdateOps$UpdateBuilder.html)**
 
-The new [`update`](../api/collections/GenericCollection.html#update(ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern):GenericCollection.this.UpdateBuilder) operation returns an `UpdateBuilder`, which can be used to perform simple or bulk update.
+The new [`update`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#update:GenericCollection.this.UpdateBuilder) operation returns an `UpdateBuilder`, which can be used to perform simple or bulk update.
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -776,9 +776,9 @@ def update1(personColl: BSONCollection) = {
 }
 {% endhighlight %}
 
-**[`DeleteBuilder`](../api/reactivemongo/api/collections/DeleteOps$DeleteBuilder.html)**
+**[`DeleteBuilder`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/DeleteOps$DeleteBuilder.html)**
 
-The [`.delete`](../api/reactivemongo/api/collections/GenericCollection.html#delete(ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern):GenericCollection.this.DeleteBuilder) function returns a `DeleteBuilder`, to perform simple or bulk delete.
+The [`.delete`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#delete:GenericCollection.this.DeleteBuilder) function returns a `DeleteBuilder`, to perform simple or bulk delete.
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -852,7 +852,7 @@ def updateArrayFilters(personColl: BSONCollection) =
 
 The `.count(..)` collection operation now return a `Long` value (rather than `Int`).
 
-**[`WriteResult`](../api/reactivemongo/api/commands/WriteResult.html)**
+**[`WriteResult`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/WriteResult.html)**
 
 A new utility is provided to extract exception details from an erroneous result.
 
@@ -1390,7 +1390,7 @@ The operations to manage a MongoDB instance can be executed using ReactiveMongo.
 
 **Ping:**
 
-The `DB` has now a [`ping`](../api/reactivemongo/api/DB.html#ping(readPreference:reactivemongo.api.ReadPreference)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Boolean]) operation, to execute a [ping command](https://docs.mongodb.com/manual/reference/command/ping/).
+The `DB` has now a [`ping`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/DB.html#ping(readPreference:reactivemongo.api.ReadPreference)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Boolean]) operation, to execute a [ping command](https://docs.mongodb.com/manual/reference/command/ping/).
 
 {% highlight scala %}
 import scala.concurrent.Future

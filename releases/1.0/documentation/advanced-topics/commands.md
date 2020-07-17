@@ -8,7 +8,7 @@ title: Command API
 
 A MongoDB Command is a special query that returns documents. It's executed at either the database level (`db.runCommand` in the MongoDB shell), or at the collection level (`db.aCol.runCommand` in the shell).
 
-In ReactiveMongo, the database command can be executed using [`db.runCommand(<command>)`](https://javadoc.io/static/org.reactivemongo/reactivemongo_2.12/1.0.0-rc.1/reactivemongo/api/DB.html#runCommand(command:DB.this.pack.Document,failoverStrategy:reactivemongo.api.FailoverStrategy):reactivemongo.api.commands.CursorFetcher[DB.this.pack.type,reactivemongo.api.Cursor]).
+In ReactiveMongo, the database command can be executed using [`db.runCommand(<command>)`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{_1_0_scala_major}}/{{_1_0_latest_minor}}/reactivemongo/api/DB.html#runCommand(command:DB.this.pack.Document,failoverStrategy:reactivemongo.api.FailoverStrategy):reactivemongo.api.commands.CursorFetcher[DB.this.pack.type,reactivemongo.api.Cursor]).
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
@@ -32,7 +32,7 @@ def runPing(db: DB)(
   implicit ec: ExecutionContext): Future[Boolean] = db.runCommand(Ping)
 {% endhighlight %}
 
-The collection command can be executed with [`collection.runCommand(<command>)`](https://javadoc.io/static/org.reactivemongo/reactivemongo_2.12/1.0.0-rc.1/reactivemongo/api/collections/GenericCollection.html#runCommand[C%3C:reactivemongo.api.commands.CollectionCommand](command:C)(implicitwriter:GenericCollectionWithCommands.this.pack.Writer[reactivemongo.api.commands.ResolvedCollectionCommand[C]]):reactivemongo.api.commands.CursorFetcher[GenericCollectionWithCommands.this.pack.type,reactivemongo.api.Cursor]).
+The collection command can be executed with [`collection.runCommand(<command>)`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{_1_0_scala_major}}/{{_1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#runCommand[C%3C:reactivemongo.api.commands.CollectionCommand](command:C)(implicitwriter:GenericCollectionWithCommands.this.pack.Writer[reactivemongo.api.commands.ResolvedCollectionCommand[C]]):reactivemongo.api.commands.CursorFetcher[GenericCollectionWithCommands.this.pack.type,reactivemongo.api.Cursor]).
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
@@ -156,7 +156,7 @@ trait CustomCommand[P <: SerializationPack] {
 }
 {% endhighlight %}
 
-It specifies what is the command input (arguments), and what kind of result will be deserialized from the output, using the trait [`CommandWithResult[CustomResult]`](../../api/reactivemongo/api/commands/CommandWithResult). If the command returns a document and you want to directly get that, it can be specified with `CommandWithResult[pack.Document]`.
+It specifies what is the command input (arguments), and what kind of result will be deserialized from the output, using the trait [`CommandWithResult[CustomResult]`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{_1_0_scala_major}}/{{_1_0_latest_minor}}/reactivemongo/api/commands/CommandWithResult.html). If the command returns a document and you want to directly get that, it can be specified with `CommandWithResult[pack.Document]`.
 
 The next step is to implement the custom command.
 
@@ -266,7 +266,7 @@ object MyRunner {
 
 **Collection command:**
 
-For a collection command `db.aCollection.runCommand({ "custom": name, "query": { ... } })`, the ReactiveMongo definition will be similar to those at the database level, but based on [`CollectionCommand`](../../api/reactivemongo/api/commands/CollectionCommand) (rather than `Command`).
+For a collection command `db.aCollection.runCommand({ "custom": name, "query": { ... } })`, the ReactiveMongo definition will be similar to those at the database level, but based on [`CollectionCommand`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{_1_0_scala_major}}/{{_1_0_latest_minor}}/reactivemongo/api/commands/CollectionCommand.html) (rather than `Command`).
 
 {% highlight scala %}
 import reactivemongo.api.SerializationPack
@@ -326,7 +326,7 @@ object BSONCustomCommand extends CustomCommand[BSONSerializationPack.type] {
 }
 {% endhighlight %}
 
-The writer of a collection collection must serialize a `ResolvedCollectionCommand[Custom]`, rather than directly `Custom`. The [`ResolvedCollectionCommand`](../../api/reactivemongo/api/commands/ResolvedCollectionCommand) provides the information about the collection against which the command is executed (e.g. the collection name `colName` in the previous example).
+The writer of a collection collection must serialize a `ResolvedCollectionCommand[Custom]`, rather than directly `Custom`. The [`ResolvedCollectionCommand`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{_1_0_scala_major}}/{{_1_0_latest_minor}}/reactivemongo/api/commands/ResolvedCollectionCommand.html) provides the information about the collection against which the command is executed (e.g. the collection name `colName` in the previous example).
 
 Then the collection command can be executed using `runCommand`.
 

@@ -10,7 +10,7 @@ MongoDB offers different kinds of write operations: insertion, update or removal
 
 ### Insert a document
 
-Insertions are done with the [`insert`](../../api/reactivemongo/api/collections/GenericCollection.html#insert(ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern)(implicitevidence$2:GenericCollection.this.pack.Writer[T]):GenericCollection.this.InsertBuilder[T]) function.
+Insertions are done with the [`insert`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#insert:GenericCollection.this.InsertBuilder) function.
 
 {% highlight scala %}
 import scala.util.{ Failure, Success }
@@ -61,11 +61,11 @@ def bulkInsert(coll: BSONCollection): Future[Unit] = {
 
 **What does `WriteResult` mean?**
 
-A [`WriteResult`](../../api/reactivemongo/api/commands/WriteResult) is a special document that contains information about the write operation, like the number of documents that were updated.
+A [`WriteResult`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/WriteResult.html) is a special document that contains information about the write operation, like the number of documents that were updated.
 
 If the write result actually indicates an error, the `Future` will be in a [`failed` state](http://www.scala-lang.org/api/current/index.html#scala.concurrent.Future$@failed[T](exception:Throwable):scala.concurrent.Future[T]) (no need to check for `WriteResult.ok`).
 
-Like all the other collection operations (in [`GenericCollection`](../../api/reactivemongo/api/collections/GenericCollection.GenericCollection) trait), you can insert any [writeable value](../bson/typeclasses.html) to `insert()`. With the default BSON serialization, that means provided there a [`BSONDocumentWriter`](../../api/reactivemongo/bson/BSONDocumentWriter) for its type in the [implicit scope](http://docs.scala-lang.org/tutorials/FAQ/finding-implicits.html). So, considering the `Person` case class:
+Like all the other collection operations (in [`GenericCollection`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html) trait), you can insert any [writeable value](../bson/typeclasses.html) to `insert()`. With the default BSON serialization, that means provided there a [`BSONDocumentWriter`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/BSONDocumentWriter.html) for its type in the [implicit scope](http://docs.scala-lang.org/tutorials/FAQ/finding-implicits.html). So, considering the `Person` case class:
 
 {% highlight scala %}
 import scala.util.{ Failure, Success }
@@ -91,9 +91,9 @@ def testInsert(personColl: BSONCollection) = {
 
 When calling a write operation, it's possible to handle some specific error case by testing the result, using some pattern matching utilities.
 
-- [`WriteResult.Code`](../../api/reactivemongo/api/commands/WriteResult$@Code): matches the errors according the specified code (e.g. the 11000 code for the Duplicate error)
-- [`WriteResult.Message`](../../api/reactivemongo/api/commands/WriteResult$@Message): matches the errors according the message
-- [`WriteResult.Exception`](../../api/reactivemongo/api/commands/WriteResult$@Exception): matches the exception details
+- [`WriteResult.Code`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/WriteResult$$Code$.html): matches the errors according the specified code (e.g. the 11000 code for the Duplicate error)
+- [`WriteResult.Message`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/WriteResult$$Message$.html): matches the errors according the message
+- [`WriteResult.Exception`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/WriteResult$$Message$.html): matches the exception details
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -124,7 +124,7 @@ def insertErrors(personColl: BSONCollection) = {
 
 ### Update a document
 
-Updates are done with the [`update`](../../api/collections/GenericCollection.html#update(ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern):GenericCollection.this.UpdateBuilder) operation, which follows the same logic as `insert`.
+Updates are done with the [`update`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#update:GenericCollection.this.UpdateBuilder) operation, which follows the same logic as `insert`.
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -193,7 +193,7 @@ def updateArrayFilters(personColl: BSONCollection)(
 
 ### Delete a document
 
-The [`.delete`](../../api/reactivemongo/api/collections/GenericCollection.html#delete(ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern):GenericCollection.this.DeleteBuilder) function returns a [`DeleteBuilder`](../../api/reactivemongo/api/collections/DeleteOps$DeleteBuilder.html), which allows to perform simple or bulk delete.
+The [`.delete`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#delete:GenericCollection.this.DeleteBuilder) function returns a [`DeleteBuilder`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/DeleteOps$DeleteBuilder.html), which allows to perform simple or bulk delete.
 
 {% highlight scala %}
 import scala.util.{ Failure, Success }
@@ -239,7 +239,7 @@ def bulkDelete1(personColl: BSONCollection) = {
 
 ReactiveMongo also supports the MongoDB [`findAndModify`](http://docs.mongodb.org/manual/reference/command/findAndModify/) operation.
 
-In the case you want to update the age of a document in a collection of persons, and at the same time to return the information about the person before this change, it can be done using [`findAndUpdate`](../../api/reactivemongo/api/collections/GenericCollection.GenericCollection#findAndUpdate[Q,U]%28selector:Q,update:U,fetchNewObject:Boolean,upsert:Boolean,sort:Option[GenericCollection.this.pack.Document]%29%28implicitselectorWriter:GenericCollection.this.pack.Writer[Q],implicitupdateWriter:GenericCollection.this.pack.Writer[U],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[GenericCollection.this.BatchCommands.FindAndModifyCommand.FindAndModifyResult]).
+In the case you want to update the age of a document in a collection of persons, and at the same time to return the information about the person before this change, it can be done using [`findAndUpdate`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#findAndUpdate[S,T](selector:S,update:T,fetchNewObject:Boolean,upsert:Boolean,sort:Option[GenericCollection.this.pack.Document],fields:Option[GenericCollection.this.pack.Document],bypassDocumentValidation:Boolean,writeConcern:reactivemongo.api.WriteConcern,maxTime:Option[scala.concurrent.duration.FiniteDuration],collation:Option[reactivemongo.api.Collation],arrayFilters:Seq[GenericCollection.this.pack.Document])(implicitswriter:GenericCollection.this.pack.Writer[S],implicitwriter:GenericCollection.this.pack.Writer[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[GenericCollection.this.FindAndModifyResult]).
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -281,7 +281,7 @@ def result(coll: BSONCollection): Future[Option[Person]] =
     upsert = true).map(_.result[Person])
 {% endhighlight %}
 
-The [`findAndModify`](../../api/reactivemongo/api/collections/GenericCollection.GenericCollection#findAndModify[Q]%28selector:Q,modifier:GenericCollection.this.BatchCommands.FindAndModifyCommand.Modify,sort:Option[GenericCollection.this.pack.Document]%29%28implicitselectorWriter:GenericCollection.this.pack.Writer[Q],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[GenericCollection.this.BatchCommands.FindAndModifyCommand.FindAndModifyResult]) approach can be used on removal.
+The [`findAndModify`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#findAndModify[S](selector:S,modifier:GenericCollection.this.FindAndModifyOp,sort:Option[GenericCollection.this.pack.Document],fields:Option[GenericCollection.this.pack.Document],bypassDocumentValidation:Boolean,writeConcern:reactivemongo.api.WriteConcern,maxTime:Option[scala.concurrent.duration.FiniteDuration],collation:Option[reactivemongo.api.Collation],arrayFilters:Seq[GenericCollection.this.pack.Document])(implicitswriter:GenericCollection.this.pack.Writer[S],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[GenericCollection.this.FindAndModifyResult]) approach can be used on removal.
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
@@ -355,9 +355,9 @@ def testTx(db: DB)(implicit ec: ExecutionContext): Future[Unit] =
 
 The support for session and transaction is defined in the database API (still experimental).
 
-- [`startSession`](../../api/reactivemongo/api/DB.html#startSession()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Option[reactivemongo.api.DB]])
-- [`startTransaction`](../../api/reactivemongo/api/DB.html#startTransaction(writeConcern:Option[reactivemongo.api.WriteConcern]):Option[DB.this.DBType]), for a DB reference with a session started.
-- [`abortTransaction`](../../api/reactivemongo/api/DB.html#abortTransaction()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Option[DB.this.DBType]]) or [`commitTransaction`](../../api/reactivemongo/api/DB.html#commitTransaction()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Option[DB.this.DBType]]) on a DB reference with transaction.
-- [`endSession`](../../api/reactivemongo/api/DB.html#endSession()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Option[reactivemongo.api.DB]]) or [`killSession`](../../api/reactivemongo/api/DB.html#killSession()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DB])
+- [`startSession`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/DB.html#startSession()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DB])
+- [`startTransaction`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/DB.html#startTransaction(writeConcern:Option[reactivemongo.api.WriteConcern])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DB]), for a DB reference with a session started.
+- [`abortTransaction`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/DB.html#abortTransaction()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DB]) or [`commitTransaction`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/DB.html#commitTransaction()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DB]) on a DB reference with transaction.
+- [`endSession`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/DB.html#endSession()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DB]) or [`killSession`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/DB.html#killSession()(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.DB])
 
 [Previous: Database and collections](./database-and-collection.html) / [Next: Find documents](./find-documents.html)

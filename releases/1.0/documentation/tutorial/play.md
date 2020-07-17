@@ -213,7 +213,7 @@ class Application @Inject() (
 }
 {% endhighlight %}
 
-This action can be configured with a [`BSONObjectID`](../../api/reactivemongo/bson/BSONObjectID.html) binding, in the `conf/routes` file.
+This action can be configured with a [`BSONObjectID`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/BSONObjectID.html) binding, in the `conf/routes` file.
 
     GET /foo/:id controllers.Application.foo(id: reactivemongo.api.bson.BSONObjectID)
 
