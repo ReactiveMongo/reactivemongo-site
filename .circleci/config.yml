@@ -96,7 +96,7 @@ jobs:
           name: Check the Jekyll site
           command: ./.ci_scripts/consolidate.sh
 
-      - run:
+      - run: # Separate job depending on buld
           name: Indexing to Algolia
           command: |
                     test "x$CIRCLE_BRANCH" = "xgh-pages" && \
