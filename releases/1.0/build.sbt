@@ -2,7 +2,7 @@ organization := "org.reactivemongo"
 
 name := "release_1_0"
 
-version := "1.0.0-rc.1-SNAPSHOT"
+version := "1.0.0-rc.1"
 
 scalaVersion := "2.12.11"
 
@@ -10,7 +10,6 @@ libraryDependencies ++= Seq(
   "reactivemongo-akkastream",
   "reactivemongo-iteratees",
   "reactivemongo-bson-api",
-  "reactivemongo-bson-macros",
   "reactivemongo-bson-geo",
   "reactivemongo-bson-monocle",
   "reactivemongo-bson-specs2",

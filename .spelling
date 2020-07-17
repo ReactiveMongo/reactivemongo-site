@@ -1,5 +1,6 @@
 # Tech stack
 
+Iterable
 Scalafix
 Specs2
 specs2
@@ -336,6 +337,7 @@ slideshow
 Joline
 Lichess.org
 Color
+5-arity
 
 ffffff
 56b458
