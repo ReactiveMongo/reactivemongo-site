@@ -10,7 +10,7 @@ done
 
 echo "[INFO] Generated HTML normalized (for wget compat)"
 
-wget -nv -e robots=off --follow-tags=a -r --spider \ 
+wget -nv -e robots=off --follow-tags=a -r --spider \
   -Dlocalhost -Xreleases/0.1x/api http://localhost:4000
 RES=$?
 
