@@ -67,7 +67,7 @@ In the MongoDB shell, such command can be used to find the distinct states from 
 db.runCommand({ distinct: "state" })
 {% endhighlight %}
 
-Using the ReactiveMongo API, it can be done with the corresponding [collection operation](../../api/reactivemongo/api/collections/GenericCollection.GenericCollection#distinct[T]%28key:String,selector:Option[GenericCollection.this.pack.Document],readConcern:reactivemongo.api.ReadConcern%29%28implicitreader:GenericCollection.this.pack.NarrowValueReader[T],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[scala.collection.immutable.ListSet[T]]).
+Using the ReactiveMongo API, it can be done with the corresponding [collection operation](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#distinct[T,M[_]%3C:Iterable[_]](key:String,selector:Option[GenericCollectionWithDistinctOps.this.pack.Document],readConcern:reactivemongo.api.ReadConcern,collation:Option[reactivemongo.api.Collation])(implicitreader:GenericCollectionWithDistinctOps.this.pack.NarrowValueReader[T],implicitec:scala.concurrent.ExecutionContext,implicitcbf:scala.collection.generic.CanBuildFrom[M[_],T,M[T]]):scala.concurrent.Future[M[T]]).
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
@@ -90,7 +90,7 @@ db.zipcodes.aggregate([
 ])
 {% endhighlight %}
 
-With ReactiveMongo, it <span id="match">can be done</span> using the [`.aggregatorContext`](../../api/reactivemongo/api/collections/GenericCollection.html#aggregatorContext%5BT%5D(firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List%5BGenericCollection.this.PipelineOperator%5D,explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option%5Breactivemongo.api.ReadConcern%5D,readPreference:reactivemongo.api.ReadPreference,batchSize:Option%5BInt%5D)(implicitreader:GenericCollection.this.pack.Reader%5BT%5D):GenericCollection.this.AggregatorContext%5BT%5D).
+With ReactiveMongo, it <span id="match">can be done</span> using the [`.aggregatorContext`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#aggregatorContext[T](pipeline:List[GenericCollection.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:reactivemongo.api.ReadConcern,readPreference:reactivemongo.api.ReadPreference,writeConcern:reactivemongo.api.WriteConcern,batchSize:Option[Int],cursorOptions:reactivemongo.api.CursorOptions,maxTime:Option[scala.concurrent.duration.FiniteDuration],hint:Option[GenericCollection.this.Hint],comment:Option[String],collation:Option[reactivemongo.api.Collation])(implicitreader:GenericCollection.this.pack.Reader[T]):GenericCollection.this.AggregatorContext[T]).
 
 {% highlight scala %}
 import scala.concurrent.Future
@@ -180,7 +180,7 @@ def populatedStates2(coll: BSONCollection): Future[List[State]] = {
 
 *Using cursor:*
 
-The alternative [`.aggregateWith`](../../api/reactivemongo/api/collections/GenericCollection.html#aggregateWith[T](explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference,batchSize:Option[Int])(f:GenericCollection.this.AggregationFramework=>(GenericCollection.this.PipelineOperator,List[GenericCollection.this.PipelineOperator]))(implicitec:scala.concurrent.ExecutionContext,implicitreader:GenericCollection.this.pack.Reader[T],implicitcf:reactivemongo.api.CursorFlattener[reactivemongo.api.Cursor],implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor) builder can be used, to process the aggregation result with a [`Cursor`](../../api/reactivemongo/api/Cursor).
+The alternative [`.aggregateWith`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#aggregatorContext[T](pipeline:List[GenericCollection.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:reactivemongo.api.ReadConcern,readPreference:reactivemongo.api.ReadPreference,writeConcern:reactivemongo.api.WriteConcern,batchSize:Option[Int],cursorOptions:reactivemongo.api.CursorOptions,maxTime:Option[scala.concurrent.duration.FiniteDuration],hint:Option[GenericCollection.this.Hint],comment:Option[String],collation:Option[reactivemongo.api.Collation])(implicitreader:GenericCollection.this.pack.Reader[T]):GenericCollection.this.AggregatorContext[T]) builder can be used, to process the aggregation result with a [`Cursor`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/Cursor.html).
 
 {% highlight scala %}
 import scala.concurrent.ExecutionContext

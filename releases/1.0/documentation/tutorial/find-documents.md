@@ -6,7 +6,7 @@ title: Find Documents
 
 ## Find documents
 
-> Note: the following snippets of code use a [`BSONCollection`](../../api/reactivemongo/api/collections/bson/BSONCollection.html) (the default collection implementation return by `db.collection()`).
+> Note: the following snippets of code use a [`BSONCollection`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/collection/index.html#BSONCollection=reactivemongo.api.collections.GenericCollection[reactivemongo.api.bson.collection.package.Pack]withreactivemongo.api.CollectionMetaCommands) (the default collection implementation return by `db.collection()`).
 
 ### Perform a simple query
 
@@ -52,7 +52,7 @@ def findOlder2(collection: BSONCollection) = {
 
 > When using a serialization pack other than the BSON default one, then the appropriate document type must be used to define query (e.g. [`JsObject`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.JsObject) for the [JSON serialization](../json/overview.html)).
 
-The `find` method returns a query builder (e.g. a [`BSONQueryBuilder`](../../api/reactivemongo/api/collections/GenericQueryBuilder.default.BSONQueryBuilder)), which means the query is therefore not performed yet.
+The `find` method returns a [query builder](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/QueryBuilderFactory$QueryBuilder.html), which means the query is therefore not performed yet.
 It gives you the opportunity to add options to the query, like a sort order, projection, flags...
 
 {% highlight scala %}
@@ -77,9 +77,9 @@ def findNOlder(collection: BSONCollection, limit: Int) = {
 
 When your query is ready to be sent to MongoDB, you may just call one of the following function.
 
-- The function [`cursor`](../../api/reactivemongo/api/collections/GenericQueryBuilder.GenericQueryBuilder#cursor[T](readPreference:reactivemongo.api.ReadPreference,isMongo26WriteOp:Boolean)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor) which returns a [`Cursor[BSONDocument]`](../../api/reactivemongo/api/Cursor).
-- The function [`one`](../../api/reactivemongo/api/collections/GenericQueryBuilder.GenericQueryBuilder#one[T](readPreference:reactivemongo.api.ReadPreference)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Option[T]]) which returns a `Future[Option[T]]` (the first document that matches the query, if any).
-- The function [`requireOne`](../../api/reactivemongo/api/collections/GenericQueryBuilder.GenericQueryBuilder#requireOne[T](readPreference:reactivemongo.api.ReadPreference)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[T]) which returns a `Future[T]` with the first matching document, or fails if none.
+- The function [`cursor`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/QueryBuilderFactory$QueryBuilder.html#cursor[T](readPreference:reactivemongo.api.ReadPreference)(implicitreader:QueryBuilderFactory.this.pack.Reader[T],implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor) which returns a [`Cursor[BSONDocument]`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/Cursor.html).
+- The function [`one`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/QueryBuilderFactory$QueryBuilder.html#one[T](readPreference:reactivemongo.api.ReadPreference)(implicitreader:QueryBuilderFactory.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Option[T]]) which returns a `Future[Option[T]]` (the first document that matches the query, if any).
+- The function [`requireOne`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/QueryBuilderFactory$QueryBuilder.html#requireOne[T](readPreference:reactivemongo.api.ReadPreference)(implicitreader:QueryBuilderFactory.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[T]) which returns a `Future[T]` with the first matching document, or fails if none.
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
@@ -96,7 +96,7 @@ trait PersonService1 {
 }
 {% endhighlight %}
 
-On a cursor, the [`collect`](../../api/reactivemongo/api/Cursor#collect[M[_]](maxDocs:Int,stopOnError:Boolean)(implicitcbf:scala.collection.generic.CanBuildFrom[M[_],T,M[T]],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[M[T]]) function can be used.
+On a cursor, the [`collect`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/Cursor.html) function can be used.
 It must be given a Scala collection type, like [`List`](http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List) or [`Vector`](http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.Vector). It accumulates all the results in memory.
 
 {% highlight scala %}
@@ -138,7 +138,7 @@ def findOlder3(collection: BSONCollection) = {
 }
 {% endhighlight %}
 
-See: [**Query builder**](../../api/reactivemongo/api/collections/GenericQueryBuilder.html)
+See: [**Query builder**](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/QueryBuilderFactory$QueryBuilder.html)
 
 ### Use Readers to deserialize documents automatically
 
@@ -198,33 +198,5 @@ def findOlder4(collection: BSONCollection)(implicit ec: ExecutionContext, reader
 {% endhighlight %}
 
 > ReactiveMongo can directly return instances of a custom class, by defining a [custom reader](../bson/typeclasses.html#custom-reader).
-
-### Troubleshooting
-
-The synchronous [`.db` has been deprecated](../release-details.html#database-resolution) as it didn't offer a sufficient guaranty that it can initially find an active channel in the connection pool (`MongoConnection`). A corresponding warning is raised by the compiler in such case.
-
-{% highlight text %}
-method db in class MongoConnection is deprecated: Must use [[database]]
-{% endhighlight %}
-
-The new [`.database` resolution](../../api/reactivemongo/api/MongoConnection#database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DB]) must be used (see [connection tutorial](./connect-database.html)).
-
-If the deprecated database resolution is still used, a runtime error such as `ConnectionNotInitialized` can be raised when querying documents.
-
-On query builder, the [previous `cursor`](../../api/reactivemongo/api/collections/GenericQueryBuilder.GenericQueryBuilder#cursor[T](implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor) has been deprecated:
-
-{% highlight text %}
-Use `cursor()` or `cursor(readPreference)`
-{% endhighlight %}
-
-As indicated by this compilation warning, the [new `cursor`](../../api/reactivemongo/api/collections/GenericQueryBuilder.GenericQueryBuilder#cursor[T](readPreference:reactivemongo.api.ReadPreference,isMongo26WriteOp:Boolean)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor) is expecting a [`ReadPreference`](../../api/reactivemongo/api/ReadPreference) as parameter.
-
-When a `Cursor` has been obtained, a warning can be raised if using the [deprecated `collect`](../../api/reactivemongo/api/Cursor#collect[M[_]](maxDocs:Int,stopOnError:Boolean)(implicitcbf:scala.collection.generic.CanBuildFrom[M[_],T,M[T]],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[M[T]]) function:
-
-{% highlight text %}
-method collect in trait Cursor is deprecated: Use `collect` with an [[Cursor.ErrorHandler]].
-{% endhighlight %}
-
-The [new `collect`](../../api/reactivemongo/api/Cursor#collect[M[_]](maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[M[T]])(implicitcbf:scala.collection.generic.CanBuildFrom[M[_],T,M[T]],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[M[T]]) function must be used instead.
 
 [Previous: Write Documents](./write-documents.html) / [Next: Streaming](./streaming.html)

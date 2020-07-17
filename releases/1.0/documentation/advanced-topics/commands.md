@@ -8,7 +8,7 @@ title: Command API
 
 A MongoDB Command is a special query that returns documents. It's executed at either the database level (`db.runCommand` in the MongoDB shell), or at the collection level (`db.aCol.runCommand` in the shell).
 
-In ReactiveMongo, the database command can be executed using [`db.runCommand(<command>)`](../../api/index.html#reactivemongo.api.GenericDB@runCommand[R,C%3C:reactivemongo.api.commands.Commandwithreactivemongo.api.commands.CommandWithResult[R]]%28command:Cwithreactivemongo.api.commands.CommandWithResult[R]%29%28implicitwriter:GenericDB.this.pack.Writer[C],implicitreader:GenericDB.this.pack.Reader[R],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[R]).
+In ReactiveMongo, the database command can be executed using [`db.runCommand(<command>)`](https://javadoc.io/static/org.reactivemongo/reactivemongo_2.12/1.0.0-rc.1/reactivemongo/api/DB.html#runCommand(command:DB.this.pack.Document,failoverStrategy:reactivemongo.api.FailoverStrategy):reactivemongo.api.commands.CursorFetcher[DB.this.pack.type,reactivemongo.api.Cursor]).
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
@@ -32,7 +32,7 @@ def runPing(db: DB)(
   implicit ec: ExecutionContext): Future[Boolean] = db.runCommand(Ping)
 {% endhighlight %}
 
-The collection command can be executed with [`collection.runCommand(<command>)`](../../api/reactivemongo/api/collections/GenericCollection.GenericCollection#runCommand[R,C%3C:reactivemongo.api.commands.CollectionCommandwithreactivemongo.api.commands.CommandWithResult[R]]%28command:Cwithreactivemongo.api.commands.CommandWithResult[R]%29%28implicitwriter:GenericCollectionWithCommands.this.pack.Writer[reactivemongo.api.commands.ResolvedCollectionCommand[C]],implicitreader:GenericCollectionWithCommands.this.pack.Reader[R],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[R]).
+The collection command can be executed with [`collection.runCommand(<command>)`](https://javadoc.io/static/org.reactivemongo/reactivemongo_2.12/1.0.0-rc.1/reactivemongo/api/collections/GenericCollection.html#runCommand[C%3C:reactivemongo.api.commands.CollectionCommand](command:C)(implicitwriter:GenericCollectionWithCommands.this.pack.Writer[reactivemongo.api.commands.ResolvedCollectionCommand[C]]):reactivemongo.api.commands.CursorFetcher[GenericCollectionWithCommands.this.pack.type,reactivemongo.api.Cursor]).
 
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }

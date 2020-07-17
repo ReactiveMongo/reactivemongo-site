@@ -6,7 +6,7 @@ title: Custom Aggregation Stage
 
 ## Custom Aggregation Stage
 
-You can also implement custom aggregate stage, using the [`PipelineOperator`](../../api/commands/AggregationFramework.html#PipelineOperator) factory.
+You can also implement custom aggregate stage, using the [`PipelineOperator`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#PipelineOperator=AggregationOps.this.AggregationFramework.PipelineOperator) factory.
 
 {% highlight scala %}
 import scala.concurrent.ExecutionContext
