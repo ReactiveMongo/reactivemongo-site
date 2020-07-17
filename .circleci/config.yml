@@ -1,20 +1,9 @@
 version: 2.1
 
-jobs:
-  build:
-    docker:
-    - image: circleci/ruby:2.4-node-browsers
-
-    working_directory: ~/repo
-    parallelism: 1
-
-    environment:
-      CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
-      CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
-
+commands:
+  setup:
+    description: Setup
     steps:
-      - checkout
-
       # PIP
       - restore_cache:
           keys:
@@ -36,7 +25,7 @@ jobs:
             - &setup_cache_key gem-{{ checksum "Gemfile" }}-{{ checksum ".ci_scripts/beforeInstall.sh" }}
 
       - run:
-          name: Prepare the build environment
+          name: Prepare build environment
           command: ./.ci_scripts/beforeInstall.sh 1.3.13
 
       - save_cache:
@@ -45,6 +34,23 @@ jobs:
             - ~/.gem
             - ~/.bundle
             - ~/.sbt
+
+jobs:
+  build_n_test:
+    description: 'Build & Test'
+
+    docker:
+    - image: circleci/ruby:2.4-node-browsers
+
+    working_directory: ~/repo
+
+    environment:
+      CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
+      CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
+
+    steps:
+      - checkout
+      - setup
 
       # Validate site
       - run:
@@ -59,11 +65,11 @@ jobs:
             - &branch_cache_key dep-{{ .Branch }}
 
       - run:
-          name: Prepare the artifact directories
+          name: Prepare artifact directories
           command: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
 
       - run:
-          name: Build and validate
+          name: 'Build & validate'
           command: java -version && ./.ci_scripts/validate.sh 1.3.3
 
       - run:
@@ -93,8 +99,20 @@ jobs:
             - ~/.coursier/cache
 
       - run:
-          name: Check the Jekyll site
+          name: Check Jekyll site
           command: ./.ci_scripts/consolidate.sh
+
+  algolia:
+    description: 'Index to Algolia'
+
+    docker:
+    - image: circleci/ruby:2.4-node-browsers
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - setup
 
       - run:
           name: Indexing to Algolia
@@ -103,6 +121,17 @@ jobs:
                     bundle exec jekyll algolia || \
                     echo "Skip on branch $CIRCLE_BRANCH"
 
-      # Teardown
-      - store_test_results:
-          path: /tmp/circleci-test-results
+workflows:
+  version: 2
+
+  main_suite:
+    jobs:
+      - build_n_test
+
+      - algolia:
+          filters:
+            branches:
+              only:
+                - gh-pages
+          requires:
+            - build_n_test
