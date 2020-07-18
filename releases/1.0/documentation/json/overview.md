@@ -297,19 +297,29 @@ A document is represented by `JsObject`, which is basically an immutable list of
 **Missing `json2bson`:** If any of the following errors, then add the imports as below.
 
 {% highlight scala %}
-import reactivemongo.play.json.compat._, json2bson._
+import reactivemongo.play.json.compat.json2bson._
 {% endhighlight %}
 
 *Errors:*
 
 {% highlight text %}
-could not find implicit value for parameter e: reactivemongo.api.bson.BSONDocumentWriter[play.api.libs.json.JsObject]
-
 Implicit not found for '..': reactivemongo.api.bson.BSONReader[play.api.libs.json.JsObject]
 
 Implicit not found for '..': reactivemongo.api.bson.BSONReader[play.api.libs.json.JsValue]
 
 Implicit not found for '..': reactivemongo.api.bson.BSONWriter[play.api.libs.json.JsValue]
+
+could not find implicit value for parameter writer: reactivemongo.api.bson.BSONDocumentWriter[AnyTypeProvideWithOWrites]
+{% endhighlight %}
+
+**Missing `JsObject` writer:**
+
+{% highlight text %}
+could not find implicit value for parameter e: reactivemongo.api.bson.BSONDocumentWriter[play.api.libs.json.JsObject]
+{% endhighlight %}
+
+{% highlight scala %}
+import reactivemongo.play.json.compat.jsObjectWrites
 {% endhighlight %}
 
 **Lax:**

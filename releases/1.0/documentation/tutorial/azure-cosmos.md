@@ -12,7 +12,7 @@ Once registered, you can go to Cosmos DB quickstart.
 
 First open the *MongoDB Shell* to check the connection using MongoShell, make sure the credentials and network access is ok from the application environment.
 
-In case of error at this step, check the access configuration in Azure Cosmos DB.
+In case of error at this step, check the [access configuration](https://docs.microsoft.com/en-us/azure/cosmos-db/connect-mongodb-account) in Azure Cosmos DB.
 
 If ok, then open the *Java* tab:
 
