@@ -70,7 +70,7 @@ jobs:
 
       - run:
           name: 'Build & validate'
-          command: java -version && ./.ci_scripts/validate.sh 1.3.3
+          command: java -version && ./.ci_scripts/validate.sh 1.3.13
 
       - run:
           name: Run Jekyll in background

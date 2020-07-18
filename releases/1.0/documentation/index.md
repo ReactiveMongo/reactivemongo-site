@@ -54,19 +54,19 @@ This can be considered as a recommended environment.
    4. [Find documents](tutorial/find-documents.html)
    5. [Streaming](tutorial/streaming.html)
 
-### BSON Manipulation
+#### BSON Manipulation
 
 1. [Overview of the ReactiveMongo BSON library](bson/overview.html)
 2. [Readers & writers](bson/typeclasses.html)
     - [Concrete Example: BigDecimal and BigInteger De/Serialization](bson/example-bigdecimal.html)
     - [Concrete example: Documents](bson/example-document.html)
 
-### Play Framework
+#### Play Framework
 
 - [Overview of the Play JSON library](json/overview.html): the standalone library to support JSON serialization.
 - [Integration with Play Framework](tutorial/play.html): the complete Play plugin (also using the previous JSON library).
 
-### Advanced Topics
+#### Advanced Topics
 
 - [Aggregation Framework](advanced-topics/aggregation.html)
 - [FailoverStrategy](advanced-topics/failoverstrategy.html)
@@ -75,6 +75,13 @@ This can be considered as a recommended environment.
 - [Collection API](advanced-topics/collection-api.html)
 - [GridFS](advanced-topics/gridfs.html)
 - [Monitoring](advanced-topics/monitoring.html)
+
+#### Cloud
+
+- [Alibaba Apsara](./tutorial/alibaba-apsaradb.html)
+- [Amazon DocumentDB](./tutorial/amazon-documentdb.html)
+- [Azure CosmosDB](./tutorial/azure-cosmos.html)
+- [MongoDB Atlas](./tutorial/mongodb-atlas.html)
 
 ### Samples
 

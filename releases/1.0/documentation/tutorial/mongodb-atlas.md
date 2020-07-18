@@ -8,11 +8,11 @@ title: MongoDB Atlas
 
 [Atlas](https://www.mongodb.com/cloud/atlas) is the official cloud MongoDB service (feature complete and up-to-date).
 
-Once the Atlas account is set up (with a Cluster and Security/users), then the  Command Line tab is accessible.
+Once the Atlas account is set up (with a Cluster and Security/users), then the  connection is accessible.
 
 <img src="../images/mongodb-atlas1.png" alt="MongoDB Atlas Cluster" class="screenshot" />
 
-In the shown dialog, the "Connect Your Application" can be selected as method.
+In the shown dialog, the "Connect your Application" can be selected as method.
 
 <img src="../images/mongodb-atlas2.png" alt="MongoDB Atlas Connection method" class="screenshot" />
 
@@ -20,18 +20,48 @@ Then the connection URI is displayed, and can be copied with user/password place
 
 <img src="../images/mongodb-atlas3.png" alt="MongoDB Atlas Connection URI" class="screenshot" />
 
-{% highlight javascript %}
-mongodb.uri = "mongodb+srv://${ATLAS_USERNAME}:${ATLAS_PASSWORD}@cluster0-p8ccg.mongodb.net/test?retryWrites=true&w=majority"
+First check the MongoShell can connect using the URI:
+
+{% highlight bash %}
+export ATLAS_USERNAME="..."
+export ATLAS_PASSWORD="..."
+
+mongo -u "${ATLAS_USERNAME}" -p "${ATLAS_PASSWORD}" "mongodb+srv://...-cluster-ej8gu.azure.mongodb.net/<dbname>?retryWrites=true&w=majority"
 {% endhighlight %}
 
-> *Note:* The URI is [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) format, supported by ReactiveMongo. The required options are resolved from there. As for `retryWrites=true&w=majority` direct options that are client specific, they must be removed.
+In order to substitute the placeholders `ATLAS_USERNAME` and `ATLAS_PASSWORD`, actual users can be check in the *Database Access*.
 
-In order to substitute the placeholders `ATLAS_USERNAME` and `ATLAS_PASSWORD`, actual users can be check in the Security settings.
+<img src="../images/mongodb-atlas4.png" alt="MongoDB Database Access" class="screenshot" />
 
-<img src="../images/mongodb-atlas4.png" alt="MongoDB Atlas Security" class="screenshot" />
+Check whether one of the following errors is seen while trying to connect with the MongoShell.
 
-It necessary to make sure that the user is granted the appropriate permissions.
+{% highlight text %}{% raw %}
+Unable to reach primary for set ...-cluster-shard-0
+Cannot reach any nodes for set ...-cluster-shard-0.
+...
+Please check network connectivity and the status of the set.
+{% endraw %}{% endhighlight %}
 
-<img src="../images/mongodb-atlas5.png" alt="MongoDB Atlas User" class="screenshot" />
+If such error happens, then it's required to check the *Network Access* to make sure the source address is authorized; At least one entry must be annotated with "includes your current IP address".
+
+<img src="../images/mongodb-atlas5.png" alt="MongoDB Network Access" class="screenshot" />
+
+If the following error is displayed by the MongoShell, then the credentials must be checked.
+
+{% highlight text %}{% raw %}
+can't authenticate against replica set ... caused by :: Authentication failed
+{% endraw %}{% endhighlight %}
+
+When the MongoShell is successfully connected, the application configuration can be defined as below.
+
+{% highlight javascript %}
+mongodb.uri = "mongodb+srv://${ATLAS_USERNAME}:${ATLAS_PASSWORD}@...-cluster-ej8gu.azure.mongodb.net/<dbname>?retryWrites=true&w=majority"
+{% endhighlight %}
+
+> *Note:* The URI is [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) format, supported by ReactiveMongo. 
+
+It's necessary to make sure that the user is granted the appropriate permissions.
+
+<img src="../images/mongodb-atlas6.png" alt="MongoDB Atlas User" class="screenshot" />
 
 *[See the documentation](./connect-database.html)*

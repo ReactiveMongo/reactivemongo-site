@@ -87,14 +87,14 @@ The option `ssl` is needed if the MongoDB server is requiring SSL (`mongod --ssl
   - **`unacknowledged`**: Option `w` set to 0, journaling off (`j`), `fsync` off, no timeout.
   - **`acknowledged`**: Option `w` set to 1, journaling off, `fsync` off, no timeout.
   - **`journaled`**: Option `w` set to 1, journaling on, `fsync` off, no timeout.
-- **`writeConcernW`**: The [option `w`](http://docs.mongodb.org/manual/reference/write-concern/#w-option) for the default write concern. If `writeConcern` is specified, its `w` will be replaced by this `writeConcernW`.
+- **`w`**: The [option `w`](https://docs.mongodb.com/manual/reference/connection-string/#urioption.w) for the default write concern. If `writeConcern` is specified, its `w` will be replaced by this `w`.
   - `majority`: The write operations have to be propagated to the majority of voting nodes.
   - `0`: Disable the acknowledgement.
   - `1`: Acknowledgement from the standalone server or primary one.
   - *positive integer*: Acknowledgement by at least the specified number of replica set members.
   - [tag](http://docs.mongodb.org/manual/tutorial/configure-replica-set-tag-sets/#replica-set-configuration-tag-sets): Acknowledgement by the member of the replica set matching the given tag.
-- **`writeConcernJ`**: Toggle [journaling](http://docs.mongodb.org/manual/reference/write-concern/#j-option) on the default write concern. Of `writeConcern` is specified, its `j` will be replaced by this `writeConcernJ` boolean flag (`true|false`).
-- **`writeConcernTimeout`**: The [time limit](http://docs.mongodb.org/manual/reference/write-concern/#wtimeout) (in milliseconds) for the default write concern. If `writeConcern` is specified, its timeout is replaced by this one.
+- **`journal`**: Toggle [journaling](https://docs.mongodb.com/manual/reference/connection-string/#urioption.journal) on the default write concern. Of `writeConcern` is specified, its `j` will be replaced by this `writeConcernJ` boolean flag (`true|false`).
+- **`wtimeoutMS`**: The [time limit](https://docs.mongodb.com/manual/reference/connection-string/#urioption.wtimeoutMS) (in milliseconds) for the default write concern. If `writeConcern` is specified, its timeout is replaced by this one.
 - **`readPreference`**: The default [read preference](../advanced-topics/read-preferences.html) (`primary|primaryPreferred|secondary|secondaryPreferred|nearest`) (default is `primary`).
   - [`nearest`](https://docs.mongodb.com/manual/reference/read-preference/#nearest): Do not consider whether nodes are primary or secondary, but select one according how fast it is to answer an `isMaster` request (ping time).
 - **`readConcernLevel`**: The level for the default [read concern](https://docs.mongodb.com/manual/reference/read-concern/#read-concern-levels).

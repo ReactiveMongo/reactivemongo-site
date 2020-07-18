@@ -73,6 +73,7 @@ h2, h3, p, .highlight {
 .highlight {
   margin: 0
 }
+
 #main > .highlight + ul,
 #main > * + h3,
 #main > * + h4 {
@@ -200,7 +201,7 @@ pre {
   margin: 0;
   padding: 5px;
   width: 310px;
-  height:40px;
+  height: 40px;
 }
 
 #siteSearch #search-input { width: 99% }
