@@ -10,9 +10,17 @@ a {
   color: #59b25b;
   text-decoration: none;
 }
+
 h1, h2, h3, h4 {
   color: #2f2f2f;
 }
+
+#main > .highlight + ul,
+#main > * + h3,
+#main > * + h4 {
+  margin-top: 1em;
+}
+
 #header > *, #main > *, .container {
   width: 700px;
   margin: 0 auto;

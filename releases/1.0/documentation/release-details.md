@@ -56,7 +56,7 @@ This release is compatible with the following runtime.
 
 - [MongoDB](https://www.mongodb.org/) from 3.0 up to 4.2.
 - [Scala](https://www.scala-lang.org) from 2.11 to 2.13.
-- [Akka](http://akka.io/) from 2.3.13 up to 2.5.23 (see [Setup](./tutorial/setup.html))
+- [Akka](http://akka.io/) from 2.3.13 up to 2.6.5 (see [Setup](./tutorial/setup.html))
 - [Play Framework](https://playframework.com) from 2.3.13 to 2.8.1
 
 > MongoDB versions older than 3.0 are not longer (end of life 2018-2).
@@ -72,7 +72,7 @@ This can be considered as a recommended environment.
 
 ### Migration
 
-A Scalafix module is available to migrate from ReactiveMongo 0.12+ to 1.0 (not yet available for Scala 2.13).
+A Scalafix module is available to migrate from ReactiveMongo 0.12+ to 1.0 (not yet available for Scala 2.13).
 
 To apply the migration rules, first [setup Scalafix](https://scalacenter.github.io/scalafix/docs/users/installation.html) in the SBT build, then configure the ReactiveMongo rules as bellow.
 
