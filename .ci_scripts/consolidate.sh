@@ -10,8 +10,9 @@ done
 
 echo "[INFO] Generated HTML normalized (for wget compat)"
 
-wget -nv -e robots=off --follow-tags=a -r --spider \
-  -Dlocalhost -Xreleases/0.1x/api http://localhost:4000
+wget -nv -e robots=off --follow-tags=a -r --spider -Dlocalhost \
+  -Xreleases/0.1x/api -Xreleases/0.11/api -Xreleases/0.12/api \
+  http://localhost:4000
 RES=$?
 
 echo "[INFO] Documentation checked for broken links ($RES)"

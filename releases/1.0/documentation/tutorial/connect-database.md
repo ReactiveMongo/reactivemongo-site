@@ -71,7 +71,7 @@ The option `ssl` is needed if the MongoDB server is requiring SSL (`mongod --ssl
 - **`rm.keepAlive`**: TCP KeepAlive boolean flag (`true|false`).
 - **`rm.nbChannelsPerNode`**: The number of user channels (connections) per node (default: 10). Note that an extra signaling channel is always created, to manage the pool state.
 - **`rm.maxInFlightRequestsPerChannel`** (EXPERIMENTAL): The maximum number of in flight/concurrent requests per user channel (default: 200).
-- [**`heartbeatFrequencyMS`**](https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-discovery-and-monitoring.rst#heartbeatfrequencyms) (formerly `rm.monitorRefreshMS`): The interval (in milliseconds) used by the ReactiveMongo monitor to refresh the node set (default: 10s); The minimal value is 100ms.
+- [**`heartbeatFrequencyMS`**](https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-discovery-and-monitoring.rst#heartbeatfrequencyms) (formerly `rm.monitorRefreshMS`): The interval (in milliseconds) used by the ReactiveMongo to refresh the node set (default: 10s); The minimal value is 100ms.
 - **`rm.failover`**: The default [failover strategy](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/FailoverStrategy.html).
   - `default`: The default/minimal strategy, with 10 retries with an initial delay of 100ms and a delay factor of `retry count * 1.25` (100ms .. 125ms, 250ms, 375ms, 500ms, 625ms, 750ms, 875ms, 1s, 1125ms, 1250ms).
   - `remote`: The strategy for remote MongoDB node(s); Same as default but with 16 retries.
@@ -363,23 +363,25 @@ troubleshootAuth()
 
 With the [ReactiveMongo logging](./setup.html#logging) enabled, more details can be found (see a trace example thereafter).
 
+{% raw %}
 ```
 reactivemongo.core.actors.Exceptions$InternalState: null (<time:1469208071685>:-1)
-reactivemongo.ChannelClosed(-2079537712, \{\{NodeSet None Node[localhost:27017: Primary (0/0 available connections), latency=5], auth=Set() }})(<time:1469208071685>)
+reactivemongo.ChannelClosed(-2079537712, {{NodeSet None Node[localhost:27017: Primary (0/0 available connections), latency=5], auth=Set() }})(<time:1469208071685>)
 reactivemongo.Shutdown(<time:1469208071673>)
-reactivemongo.ChannelDisconnected(-2079537712, \{\{NodeSet None Node[localhost:27017: Primary (1/1 available connections), latency=5], auth=Set() }})(<time:1469208071663>)
-reactivemongo.ChannelClosed(967102512, \{\{NodeSet None Node[localhost:27017: Primary (1/2 available connections), latency=5], auth=Set() }})(<time:1469208071663>)
-reactivemongo.ChannelDisconnected(967102512, \{\{NodeSet None Node[localhost:27017: Primary (2/2 available connections), latency=5], auth=Set() }})(<time:1469208071663>)
-reactivemongo.ChannelClosed(651496230, \{\{NodeSet None Node[localhost:27017: Primary (2/3 available connections), latency=5], auth=Set() }})(<time:1469208071663>)
-reactivemongo.ChannelDisconnected(651496230, \{\{NodeSet None Node[localhost:27017: Primary (3/3 available connections), latency=5], auth=Set() }})(<time:1469208071663>)
-reactivemongo.ChannelClosed(1503989210, \{\{NodeSet None Node[localhost:27017: Primary (3/4 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
-reactivemongo.ChannelDisconnected(1503989210, \{\{NodeSet None Node[localhost:27017: Primary (4/4 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
-reactivemongo.ChannelClosed(-228911231, \{\{NodeSet None Node[localhost:27017: Primary (4/5 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
-reactivemongo.ChannelDisconnected(-228911231, \{\{NodeSet None Node[localhost:27017: Primary (5/5 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
-reactivemongo.ChannelClosed(-562085577, \{\{NodeSet None Node[localhost:27017: Primary (5/6 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
-reactivemongo.ChannelDisconnected(-562085577, \{\{NodeSet None Node[localhost:27017: Primary (6/6 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
-reactivemongo.ChannelClosed(-857553810, \{\{NodeSet None Node[localhost:27017: Primary (6/7 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
+reactivemongo.ChannelDisconnected(-2079537712, {{NodeSet None Node[localhost:27017: Primary (1/1 available connections), latency=5], auth=Set() }})(<time:1469208071663>)
+reactivemongo.ChannelClosed(967102512, {{NodeSet None Node[localhost:27017: Primary (1/2 available connections), latency=5], auth=Set() }})(<time:1469208071663>)
+reactivemongo.ChannelDisconnected(967102512, {{NodeSet None Node[localhost:27017: Primary (2/2 available connections), latency=5], auth=Set() }})(<time:1469208071663>)
+reactivemongo.ChannelClosed(651496230, {{NodeSet None Node[localhost:27017: Primary (2/3 available connections), latency=5], auth=Set() }})(<time:1469208071663>)
+reactivemongo.ChannelDisconnected(651496230, {{NodeSet None Node[localhost:27017: Primary (3/3 available connections), latency=5], auth=Set() }})(<time:1469208071663>)
+reactivemongo.ChannelClosed(1503989210, {{NodeSet None Node[localhost:27017: Primary (3/4 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
+reactivemongo.ChannelDisconnected(1503989210, {{NodeSet None Node[localhost:27017: Primary (4/4 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
+reactivemongo.ChannelClosed(-228911231, {{NodeSet None Node[localhost:27017: Primary (4/5 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
+reactivemongo.ChannelDisconnected(-228911231, {{NodeSet None Node[localhost:27017: Primary (5/5 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
+reactivemongo.ChannelClosed(-562085577, {{NodeSet None Node[localhost:27017: Primary (5/6 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
+reactivemongo.ChannelDisconnected(-562085577, {{NodeSet None Node[localhost:27017: Primary (6/6 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
+reactivemongo.ChannelClosed(-857553810, {{NodeSet None Node[localhost:27017: Primary (6/7 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
 ```
+{% endraw %}
 
 The [JMX module](../release-details.html#monitoring) can be used to check how the node set is seen by the driver.
 

@@ -44,6 +44,8 @@ GenericCollection.this.FindAndModifyResult
 GenericCollectionWithCommands.this.pack.Writer
 GenericCollectionWithCommands.this.pack.type
 GenericCollectionWithDistinctOps.this.pack.NarrowValueReader
+UpdateOps.this.MultiBulkWriteResult
+DeleteOps.this.MultiBulkWriteResult
 GridFS
 GridFS.this.pack.Value
 Heroku

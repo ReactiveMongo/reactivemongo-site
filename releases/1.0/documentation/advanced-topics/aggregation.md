@@ -138,8 +138,8 @@ import reactivemongo.api.bson.{ BSONDocument, BSONDocumentReader, BSONString }
 import reactivemongo.api.bson.collection.BSONCollection
 
 def countPopulatedStates1(coll: BSONCollection): Future[Int] = {
-  implicit val countReader = BSONDocumentReader[Int] { doc =>
-    doc.getAsTry[Int]("popCount").get
+  implicit val countReader = BSONDocumentReader.from[Int] { doc =>
+    doc.getAsTry[Int]("popCount")
   }
 
   coll.aggregateWith[Int]() { framework =>

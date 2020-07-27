@@ -1,0 +1,57 @@
+\usepackage{enumitem}
+\usepackage{amsfonts}
+\usepackage{bookmark}
+\usepackage{tcolorbox}
+\usepackage{mdframed}
+
+% Colors
+\definecolor{sblue}{HTML}{268BD2}
+\definecolor{sgreen}{HTML}{59b25b}
+\definecolor{sgrey}{HTML}{f8f8f8}
+\definecolor{lightgrey}{HTML}{f4f4f4}
+\definecolor{darkgrey}{HTML}{666666}
+
+\setlist[itemize,1]{label=\textcolor{darkgrey}{$\bullet$}}
+
+\hypersetup{colorlinks=true, linkcolor=sblue, urlcolor=sblue, breaklinks=true}
+
+\setbeamercolor{normal text}{fg=darkgrey}
+
+\setbeamercolor{structure}{fg=sblue}
+
+\setbeamercolor{background canvas}{bg=lightgrey}
+
+\setbeamerfont{title}{size=\Huge}
+\setbeamercolor{titlelike}{fg=black}
+
+\hypersetup{colorlinks=true, linkcolor=sgreen, urlcolor=sgreen}
+
+\renewcommand{\texttt}[1]{\colorbox{sgrey}{\ttfamily{#1}}}
+
+\newenvironment{leftbar}{\vskip 8pt \begin{mdframed}[ %
+  linewidth=2pt,
+  innerrightmargin=2pt,
+  innerleftmargin=6pt,
+  innertopmargin=2pt,
+  innerbottommargin=2pt,
+  backgroundcolor=sgrey,
+  fontcolor=darkgrey,
+  linecolor=darkgrey,
+  topline=false,
+  bottomline=false,
+  rightline=false]
+  \small}{\end{mdframed}\vskip 8pt}
+
+\renewenvironment{quote}{\begin{leftbar}\begin{small}}{\end{small}\end{leftbar}}
+
+\renewenvironment{Shaded}{\vskip 8pt \begin{mdframed}[ %
+  roundcorner=4pt,
+  innerrightmargin=4pt,
+  innerleftmargin=4pt,
+  innertopmargin=4pt,
+  innerbottommargin=4pt,
+  backgroundcolor=white,
+  linecolor=sgreen]
+  \scriptsize}{\end{mdframed}\vskip 8pt}
+
+\usepackage[font=scriptsize]{caption}
