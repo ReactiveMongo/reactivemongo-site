@@ -12,7 +12,7 @@ title: Find Documents
 
 Queries are performed quite the same way as in the MongoDB Shell.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -26,11 +26,11 @@ def findOlder1(collection: BSONCollection): Future[Option[BSONDocument]] = {
   // MongoDB .findOne
   collection.find(query).one[BSONDocument]
 }
-{% endhighlight %}
+```
 
 Of course you can collect only a limited number of documents.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.bson.BSONDocument
@@ -45,13 +45,13 @@ def findOlder2(collection: BSONCollection) = {
   collection.find(query, projection).cursor[BSONDocument]().
     collect[List](25) // get up to 25 documents
 }
-{% endhighlight %}
+```
 
 > When using a serialization pack other than the BSON default one, then the appropriate document type must be used to define query (e.g. [`JsObject`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.JsObject) for the [JSON serialization](../json/overview.html)).
 
 The `find` method returns a [`BSONQueryBuilder`](../../api/index.html#reactivemongo.api.collections.default.BSONQueryBuilder) – the query is therefore not performed yet. It gives you the opportunity to add options to the query, like a sort order, projection, flags...
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.bson.BSONDocument
@@ -68,7 +68,7 @@ def findNOlder(collection: BSONCollection, limit: Int) = {
     cursor[BSONDocument]().collect[List](10)
  
 }
-{% endhighlight %}
+```
 
 The class [`QueryOpts`](../../api/index.html#reactivemongo.api.QueryOpts) is used to prepared the query options.
 
@@ -88,7 +88,7 @@ The `collect` method must be given a Scala collection type, like `List` or `Vect
 
 The return type of the `find` method is a `GenericQueryBuilder`, which enables to customize the query, especially to add sort information. Like in the MongoDB console, you sort by giving a document containing the field names associated with an order (1 for ascending, -1 descending). Let's sort our previous query by last name, in the alphabetical order (the sort document is also `{ lastName: 1 }`).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext.Implicits.global
 import reactivemongo.bson.BSONDocument
 import reactivemongo.api.collections.bson.BSONCollection
@@ -102,13 +102,13 @@ def findOlder3(collection: BSONCollection) = {
     cursor[BSONDocument].
     collect[List]()
 }  
-{% endhighlight %}
+```
 
 ### Use Readers to deserialize documents automatically
 
 [As explained here](), you can use the `BSONDocumentReader` / `BSONDocumentWriter` typeclasses to handle de/serialization between `BSONDocument` and your model classes.
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson._
 
 case class Person(id: BSONObjectID, firstName: String, lastName: String, age: Int)
@@ -125,13 +125,13 @@ object Person {
     }
   }
 }
-{% endhighlight %}
+```
 
 This system is fully supported in the Collection API, so you can get the results of your queries in the right type.
 
 > Any error raised by the `read` function will be caught by ReactiveMongo deserialization, and will result in an explicit `Future` failure.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson.{ BSONDocument, BSONDocumentReader }
@@ -154,7 +154,7 @@ def findOlder4(collection: BSONCollection)(implicit ec: ExecutionContext, reader
 
   peopleOlderThanTwentySeven
 }
-{% endhighlight %}
+```
 
 > ReactiveMongo can directly return instances of a custom class, by defining a [custom reader](../bson/typeclasses.html#custom-reader).
 

@@ -23,9 +23,9 @@ The main API library migrates both the BSON value types and the handler typeclas
 
 It can be configured in a `build.sbt` as below.
 
-{% highlight ocaml %}
+```ocaml
 libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-api" % "{{site._0_1x_latest_minor}}"
-{% endhighlight %}
+```
 
 *See [Scaladoc](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}})*
 
@@ -33,7 +33,7 @@ libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-api" % "{{site
 
 The names of the BSON value types are the [same as the current BSON library](../bson/overview.html#documents-and-values), except the package that is `reactivemongo.api.bson` (instead of `reactivemongo.bson`).
 
-{% highlight scala %}
+```scala
 import scala.util.Try
 import reactivemongo.api.bson._
 
@@ -98,7 +98,7 @@ val bsonNull = BSONNull
 val bsonMinKey = BSONMinKey
 
 val bsonMaxKey = BSONMaxKey
-{% endhighlight %}
+```
 
 **Documents:**
 
@@ -106,7 +106,7 @@ The API for [`BSONDocument`](https://static.javadoc.io/org.reactivemongo/reactiv
 
 New field utilities are provided for the most common types:
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson._
 
 def foo(doc: BSONDocument): Unit = {
@@ -119,7 +119,7 @@ def foo(doc: BSONDocument): Unit = {
   val c: Option[BSONDocument] = doc.child("nestedDoc")
   val _: List[BSONDocument] = doc.children("arrayOfDocs")
 }
-{% endhighlight %}
+```
 
 > Note: The `BSONDocument` and `BSONArray` factories have been optimized and support more use cases.
 
@@ -141,7 +141,7 @@ def foo(doc: BSONDocument): Unit = {
 
 The traits [`BSONNumberLike`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONNumberLike.html) and [`BSONBooleanLike`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONBooleanLike.html) are also kept in the new API, to generalize the handling of numerical and boolean values.
 
-{% highlight scala %}
+```scala
 import scala.util.Try
 import reactivemongo.api.bson._
 
@@ -152,13 +152,13 @@ val intLike: Try[Int] = bsonNumLike.flatMap(_.toInt) // =Success(1)
 
 val bsonBoolLike: Try[BSONBooleanLike] = doc.getAsTry[BSONBooleanLike]("ok")
 val boolLike: Try[Boolean] = bsonBoolLike.flatMap(_.toBoolean) // =Success(true)
-{% endhighlight %}
+```
 
 Now `Float` is handled as a BSON double (as `Double`, as it's now possible to have several Scala types corresponding to the same BSON type).
 
 The [Decimal128](https://github.com/mongodb/specifications/blob/master/source/bson-decimal128/decimal128.rst) type introduced by MongoDB 3.4 is also supported, as [`BSONDecimal`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/BSONDecimal.html), and can be read or write as `java.math.BigDecimal`.
 
-{% highlight scala %}
+```scala
 import scala.util.Try
 import reactivemongo.api.bson._
 
@@ -166,23 +166,23 @@ def readFloat(
   doc: BSONDocument,
   n: String
 )(implicit r: BSONReader[Float]): Try[Float] = doc.getAsTry[Float](n)
-{% endhighlight %}
+```
 
 Still to make the API simpler, the BSON singleton types (e.g. `BSONNull`) are also defined with a trait, to be able to reference them without `.type` suffix.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.BSONNull
 
 def useNullBefore(bson: BSONNull.type) = println(".type was required")
 
 def useNullNow(bson: BSONNull) = print("Suffix no longer required")
-{% endhighlight %}
+```
 
 **Binary values:**
 
 The `BSONBinary` extractor now only bind subtype:
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.{ BSONBinary, Subtype }
 
 def binExtractor = {
@@ -193,7 +193,7 @@ def binExtractor = {
     case _ => ???
   }
 }
-{% endhighlight %}
+```
 
 **Miscellaneous:**
 
@@ -233,23 +233,23 @@ The names of these typeclasses are unchanged ([`BSONReader`](https://static.java
 
 In the current BSON library, `BSONReader` and `BSONWriter` are defined with two type parameters:
 
-{% highlight ocaml %}
+```ocaml
 BSONReader[B <: BSONValue, T]
 
 BSONWriter[T, B <: BSONValue]
-{% endhighlight %}
+```
 
 - `B` being the type of BSON value to be read/written,
 - and `T` being the Scala type to be handled.
 
 The new API has been simplified, with only the `T` type parameter kept.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson._
 
 // read a String from BSON, whatever is the specific BSON value type
 def stringReader: BSONReader[String] = ???
-{% endhighlight %}
+```
 
 Not only it makes the API simpler, but it also allows to read different BSON types as a target Scala type (before only supported for numeric/boolean, using the dedicated typeclasses).
 For example, the Scala numeric types (`BigDecimal`, `Double`, `Float`, `Int`, `Long`) can be directly read from any consistent BSON numeric type (e.g. `1.0` as integer `1`), without having to use `BSONNumberLike`.
@@ -278,7 +278,7 @@ The error handling has also been improved, with more details (Note: `DocumentKey
 
 The new library also provide similar macros, to easily materialized document readers and writers for Scala case classes and sealed traits.
 
-{% highlight scala %}
+```scala
 case class Person(name: String, age: Int)
 
 import reactivemongo.api.bson._
@@ -288,13 +288,13 @@ val personHandler: BSONDocumentHandler[Person] = Macros.handler[Person]
 // Or only ...
 val personReader: BSONDocumentReader[Person] = Macros.reader[Person]
 val personWriter: BSONDocumentWriter[Person] = Macros.writer[Person]
-{% endhighlight %}
+```
 
 This macro utilities offer new [configuration mechanism](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/MacroConfiguration.html).
 
 The macro configuration can be used to specify a [field naming](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/FieldNaming.html), to customize the name of each BSON field corresponding to Scala field.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson._
 
 val withPascalCase: BSONDocumentHandler[Person] = {
@@ -308,11 +308,11 @@ withPascalCase.writeTry(Person(name = "Jane", age = 32))
 /* Success {
   BSONDocument("Name" -> "Jane", "Age" -> 32)
 } */
-{% endhighlight %}
+```
 
 In a similar way, when using macros with sealed family/trait, the strategy to name the [discriminator field](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/MacroConfiguration.html#discriminator:String) and to set a Scala type as [discriminator value](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/TypeNaming.html) can be configured.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson._
 
 sealed trait Family1
@@ -329,7 +329,7 @@ val family1Handler: BSONDocumentHandler[Family1] = {
 
   Macros.handler[Family1]
 }
-{% endhighlight %}
+```
 
 The nested type `Macros.Options` is replaced by similar type [`MacrosOptions`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo/api/bson/MacroOptions.html).
 
@@ -341,27 +341,27 @@ The nested type `Macros.Options` is replaced by similar type [`MacrosOptions`](h
 
 A compatibility library is available, that provides conversions between the previous and the new APIs. It can be configured in the `build.sbt` as below.
 
-{% highlight ocaml %}
+```ocaml
 libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-compat" % "{{site._0_1x_latest_minor}}"
-{% endhighlight %}
+```
 
 Then the conversions can be imported where required:
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.compat._
-{% endhighlight %}
+```
 
 Another compatibility library is available for the [package `org.bson`](https://mongodb.github.io/mongo-java-driver/3.7/javadoc/org/bson/package-summary.html).
 
-{% highlight ocaml %}
+```ocaml
 libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-msb-compat" % "{{site._0_1x_latest_minor}}"
-{% endhighlight %}
+```
 
 Then the conversions between those two API/packages can be imported as below.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.msb._
-{% endhighlight %}
+```
 
 ### GeoJSON
 
@@ -369,13 +369,13 @@ A new [GeoJSON](https://docs.mongodb.com/manual/reference/geojson/) library is p
 
 It can be configured in the `build.sbt` as below.
 
-{% highlight ocaml %}
+```ocaml
 libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-geo" % "{{site._0_1x_latest_minor}}"
-{% endhighlight %}
+```
 
 Then the GeoJSON types can be imported and used:
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson._
 
 // { type: "Point", coordinates: [ 40, 5 ] }
@@ -385,7 +385,7 @@ val geoPoint = GeoPoint(40, 5)
 val geoLineString = GeoLineString(
   GeoPosition(40D, 5D, None),
   GeoPosition(41D, 6D))
-{% endhighlight %}
+```
 
 > More [GeoJSON examples](https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/geo/src/test/scala/GeometrySpec.scala)
 
@@ -411,13 +411,13 @@ The library that provides [Monocle](http://julien-truffaut.github.io/Monocle/) b
 
 It can be configured in the `build.sbt` as below.
 
-{% highlight ocaml %}
+```ocaml
 libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-monocle" % "{{site._0_1x_latest_minor}}"
-{% endhighlight %}
+```
 
 Then the utilities can be imported and used:
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson._
 
 import reactivemongo.api.bson.monocle._ // new library
@@ -441,7 +441,7 @@ val lens2 = field[BSONDocument]("bar").
 
 val updDoc2 = lens2.set(1.23D)(topDoc)
 // --> { ..., "bar": { "lorem": 1.23, ... } }
-{% endhighlight %}
+```
 
 > More [monocle examples](https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/monocle/src/test/scala/MonocleSpec.scala)
 

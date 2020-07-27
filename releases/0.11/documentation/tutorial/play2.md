@@ -12,7 +12,7 @@ This module is based on the [Play JSON serialization](../json/overview.html).
 
 The latest version of this plugin is for Play 2.4, and can be enabled by adding the following dependency in your `project/Build.scala` (or `build.sbt`).
 
-{% highlight ocaml %}
+```ocaml
 // only for Play 2.5.x
 libraryDependencies ++= Seq(
   "org.reactivemongo" %% "play2-reactivemongo" % "{{site._0_11_latest_minor}}"
@@ -22,7 +22,7 @@ libraryDependencies ++= Seq(
 libraryDependencies ++= Seq(
   "org.reactivemongo" %% "play2-reactivemongo" % "{{site._0_11_latest_minor}}-play24"
 )
-{% endhighlight %}
+```
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/play2-reactivemongo_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/play2-reactivemongo_2.11/)
 
@@ -32,11 +32,11 @@ As for Play 2.4 itself, this ReactiveMongo plugin requires a JVM 1.8+.
 
 If you are looking for a stable version for Play 2.3.x, please consider using the 0.11.14-play23 version:
 
-{% highlight ocaml %}
+```ocaml
 libraryDependencies ++= Seq(
   "org.reactivemongo" %% "play2-reactivemongo" % "0.11.14-play23"
 )
-{% endhighlight %}
+```
 
 The [API of this Play module](../../play-api/index.html) can be browsed online.
 
@@ -44,13 +44,13 @@ The API for the standalone JSON serialization is [also available](../../json-api
 
 If you want to use the latest snapshot, add the following instead (only for play > 2.4):
 
-{% highlight ocaml %}
+```ocaml
 resolvers += "Sonatype Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
 
 libraryDependencies ++= Seq(
   "org.reactivemongo" %% "play2-reactivemongo" % "0.12.0-SNAPSHOT"
 )
-{% endhighlight %}
+```
 
 ## Setup
 
@@ -60,7 +60,7 @@ libraryDependencies ++= Seq(
 
 Play has deprecated plugins in version 2.4. Therefore it is recommended to remove it from your project and replace it by `ReactiveMongoModule` and `ReactiveMongoApi` which is the interface to MongoDB.
 
-{% highlight scala %}
+```scala
 package api
 
 import reactivemongo.api.{ DB, MongoConnection, MongoDriver }
@@ -70,18 +70,18 @@ trait ReactiveMongoApi {
   def connection: MongoConnection
   def db: DB
 }
-{% endhighlight %}
+```
 
 Thus, the dependency injection can be configured, so that the your controllers are given the new ReactiveMongo API.
 First, Add the line bellow to `application.conf`:
 
-{% highlight ocaml %}
+```ocaml
 play.modules.enabled += "play.modules.reactivemongo.ReactiveMongoModule"
-{% endhighlight %}
+```
 
 Then use Play's dependency injection mechanism to resolve instance of `ReactiveMongoApi` which is the interface to MongoDB. Example:
 
-{% highlight scala %}
+```scala
 import javax.inject.Inject
 
 import play.api.mvc.Controller
@@ -92,11 +92,11 @@ class MyController @Inject() (val reactiveMongoApi: ReactiveMongoApi)
 
   // ...
 }
-{% endhighlight %}
+```
 
 The trait `ReactiveMongoComponents` can be used for [compile-time dependency injection](https://playframework.com/documentation/2.4.x/ScalaCompileTimeDependencyInjection).
 
-{% highlight scala %}
+```scala
 import javax.inject.Inject
 
 import play.api.mvc.Controller
@@ -106,13 +106,13 @@ class MyController @Inject() (val reactiveMongoApi: ReactiveMongoApi)
   extends Controller with MongoController with ReactiveMongoComponents {
 
 }
-{% endhighlight %}
+```
 
 > When using Play dependency injection for a controller, the [injected routes need to be enabled](https://www.playframework.com/documentation/2.4.0/ScalaRouting#Dependency-Injection) by adding `routesGenerator := InjectedRoutesGenerator` to your build.
 
 It's also possible to get the injected ReactiveMongo API outside of the controllers, using the `injector` of the current Play application.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 
 import play.api.Play.current // should be deprecated in favor of DI
@@ -127,13 +127,13 @@ object Foo {
   def collection(name: String): Future[JSONCollection] =
     reactiveMongoApi.database.map(_.collection[JSONCollection](name))
 }
-{% endhighlight %}
+```
 
 **Multiple pools**
 
 In your Play application, you can use ReactiveMongo with multiple connection pools (possibly with different replica set).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -159,7 +159,7 @@ object MongoEnv {
     mongoDriver
   }
 }
-{% endhighlight %}
+```
 
 > Such custom management also work with ReactiveMongo in a Play application, without the module.
 
@@ -169,9 +169,9 @@ The version `0.11.14-play23` of this plugin is available for Play 2.3.
 
 Add to your `conf/play.plugins`:
 
-{% highlight text %}
+```text
 1100:play.modules.reactivemongo.ReactiveMongoPlugin
-{% endhighlight %}
+```
 
 ### Configure your database access
 
@@ -179,17 +179,17 @@ This plugin reads connection properties from the `application.conf` and gives yo
 
 You can use the URI syntax to point to your MongoDB:
 
-{% highlight text %}
+```text
 mongodb.uri = "mongodb://someuser:somepasswd@localhost:27017/your_db_name"
-{% endhighlight %}
+```
 
 This is especially helpful on platforms like Heroku, where add-ons publish the connection URI in a single environment variable. The URI syntax supports the following format: `mongodb://[username:password@]host1[:port1][,hostN[:portN]]/dbName?option1=value1&option2=value2`
 
 A more complete example:
 
-{% highlight text %}
+```text
 mongodb.uri = "mongodb://someuser:somepasswd@host1:27017,host2:27017,host3:27017/your_db_name?authSource=authdb&rm.nbChannelsPerNode=10"
-{% endhighlight %}
+```
 
 ### Configure underlying Akka system
 
@@ -197,13 +197,13 @@ ReactiveMongo loads its configuration from the key `mongo-async-driver`.
 
 To change the log level (prevent dead-letter logging for example)
 
-{% highlight text %}
+```text
 mongo-async-driver {
   akka {
     loglevel = WARNING
   }
 }
-{% endhighlight %}
+```
 
 ## Main features
 
@@ -213,7 +213,7 @@ The [BSON types](../bson/overview.html) can be used in the bindings of the Play 
 
 For example, consider an action as follows.
 
-{% highlight scala %}
+```scala
 import play.api.mvc.{ Action, Controller }
 import reactivemongo.bson.BSONObjectID
 
@@ -222,7 +222,7 @@ class Application extends Controller {
     Ok(s"Foo: ${id.stringify}")
   }
 }
-{% endhighlight %}
+```
 
 This action can be configured with a [`BSONObjectID`](../../api/reactivemongo/bson/BSONObjectID.html) binding, in the `conf/routes` file.
 
@@ -230,11 +230,11 @@ This action can be configured with a [`BSONObjectID`](../../api/reactivemongo/bs
 
 When using BSON types in the route bindings, the Play plugin for SBT must also be setup (in your `build.sbt` or `project/Build.scala`) to install the appropriate import in the generated routes.
 
-{% highlight ocaml %}
+```ocaml
 import play.sbt.routes.RoutesKeys
 
 RoutesKeys.routesImport += "play.modules.reactivemongo.PathBindables._"
-{% endhighlight %}
+```
 
 If this routes import is not configured, errors as following will occur.
 
@@ -251,7 +251,7 @@ In the current example with `BSONObjectID`, if calling `/foo/bar` (with `bar` bo
 Play2-ReactiveMongo makes it easy to serve and store files in a complete non-blocking manner.
 It provides a body parser for handling file uploads, and a method to serve files from a GridFS store.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 
 import play.api.mvc.{ Action, Controller }
@@ -286,7 +286,7 @@ trait MyController extends Controller
     }
   }
 }
-{% endhighlight %}
+```
 
 > The maximum size of upload using the GridFS provided by a `MongoController` can be configured by the Play [`DefaultMaxDiskLength`](https://www.playframework.com/documentation/2.4.0/api/scala/index.html#play.api.mvc.BodyParsers$parse$@DefaultMaxDiskLength:Long).
 
@@ -294,7 +294,7 @@ trait MyController extends Controller
 
 ### Play controller sample
 
-{% highlight scala %}
+```scala
 package controllers
 
 import javax.inject.Inject
@@ -405,7 +405,7 @@ class Application @Inject() (val reactiveMongoApi: ReactiveMongoApi)
     }
   }
 }
-{% endhighlight %}
+```
 
 > Please Notice:
 >
@@ -417,7 +417,7 @@ class Application @Inject() (val reactiveMongoApi: ReactiveMongoApi)
 
 First, the models:
 
-{% highlight scala %}
+```scala
 package models
 
 case class User(
@@ -437,17 +437,17 @@ object JsonFormats {
   implicit val feedFormat = Json.format[Feed]
   implicit val userFormat = Json.format[User]
 }
-{% endhighlight %}
+```
 
 > The following import is recommended to make sure JSON/BSON conversions are available.
 
-{% highlight scala %}
+```scala
 import reactivemongo.play.json._
-{% endhighlight %}
+```
 
 Then, the controller which uses the ability of the `JSONCollection` to handle JSON's `Reads` and `Writes`:
 
-{% highlight scala %}
+```scala
 package controllers
 
 import javax.inject.Inject
@@ -554,7 +554,7 @@ class ApplicationUsingJsonReadersWriters @Inject() (
     }
   }
 }
-{% endhighlight %}
+```
 
 ## Resources
 

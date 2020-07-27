@@ -10,8 +10,6 @@ lazy val release_1_0 = project.in((file(".") / "releases" / "1.0"))
 lazy val `reactivemongo-site` = (project in file("."))
   .settings(
     excludeFilter in doc := "releases",
-    highlightStartToken in ThisBuild := "{% highlight scala %}",
-    highlightEndToken in ThisBuild := "{% endhighlight %}",
     scalaVersion := "2.11.12",
     scalacOptions in ThisBuild ++= Seq("-Ywarn-unused-import", "-unchecked"),
     libraryDependencies ++= Seq(

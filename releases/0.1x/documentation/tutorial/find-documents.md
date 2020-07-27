@@ -12,7 +12,7 @@ title: Find Documents
 
 Queries are performed in quite the same way as in the MongoDB Shell.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -26,11 +26,11 @@ def findOlder1(collection: BSONCollection): Future[Option[BSONDocument]] = {
   // MongoDB .findOne
   collection.find(query).one[BSONDocument]
 }
-{% endhighlight %}
+```
 
 Of course you can collect only a limited number of documents.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api.bson.BSONDocument
@@ -48,14 +48,14 @@ def findOlder2(collection: BSONCollection) = {
     collect[List](25, // get up to 25 documents
       Cursor.FailOnError[List[BSONDocument]]())
 }
-{% endhighlight %}
+```
 
 > When using a serialization pack other than the BSON default one, then the appropriate document type must be used to define query (e.g. [`JsObject`](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.libs.json.JsObject) for the [JSON serialization](../json/overview.html)).
 
 The `find` method returns a query builder (e.g. a [`BSONQueryBuilder`](../../api/reactivemongo/api/collections/GenericQueryBuilder.default.BSONQueryBuilder)), which means the query is therefore not performed yet.
 It gives you the opportunity to add options to the query, like a sort order, projection, flags...
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api.bson.BSONDocument
@@ -73,7 +73,7 @@ def findNOlder(collection: BSONCollection, limit: Int) = {
       Cursor.FailOnError[List[BSONDocument]]())
  
 }
-{% endhighlight %}
+```
 
 The class [`QueryOpts`](../../api/reactivemongo/api/QueryOpts) is used to prepared the query options.
 
@@ -83,7 +83,7 @@ When your query is ready to be sent to MongoDB, you may just call one of the fol
 - The function [`one`](../../api/reactivemongo/api/collections/GenericQueryBuilder.GenericQueryBuilder#one[T](readPreference:reactivemongo.api.ReadPreference)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Option[T]]) which returns a `Future[Option[T]]` (the first document that matches the query, if any).
 - The function [`requireOne`](../../api/reactivemongo/api/collections/GenericQueryBuilder.GenericQueryBuilder#requireOne[T](readPreference:reactivemongo.api.ReadPreference)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[T]) which returns a `Future[T]` with the first matching document, or fails if none.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 import reactivemongo.api.bson.BSONDocument
 import reactivemongo.api.bson.collection.BSONCollection
@@ -96,12 +96,12 @@ trait PersonService1 {
     "lastName" -> lastName
   )).requireOne[Person]
 }
-{% endhighlight %}
+```
 
 On a cursor, the [`collect`](../../api/reactivemongo/api/Cursor#collect[M[_]](maxDocs:Int,stopOnError:Boolean)(implicitcbf:scala.collection.generic.CanBuildFrom[M[_],T,M[T]],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[M[T]]) function can be used.
 It must be given a Scala collection type, like [`List`](http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List) or [`Vector`](http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.Vector). It accumulates all the results in memory.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 import reactivemongo.api.bson.BSONDocument
 
@@ -115,7 +115,7 @@ trait PersonService2 {
     collection.find(BSONDocument("age" -> age)).cursor[Person]().
     collect[List](-1, Cursor.FailOnError[List[Person]]())
 }
-{% endhighlight %}
+```
 
 [More: **Streaming**](./streaming.html)
 
@@ -123,7 +123,7 @@ trait PersonService2 {
 
 The return type of the `find` method is a `GenericQueryBuilder`, which enables to customize the query, especially to add sort information. Like in the MongoDB console, you sort by giving a document containing the field names associated with an order (1 for ascending, -1 descending). Let's sort our previous query by last name, in the alphabetical order (the sort document is also `{ lastName: 1 }`).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext.Implicits.global
 import reactivemongo.api.bson.BSONDocument
 
@@ -138,7 +138,7 @@ def findOlder3(collection: BSONCollection) = {
     cursor[BSONDocument]().
     collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
 }
-{% endhighlight %}
+```
 
 See: [**Query builder**](../../api/reactivemongo/api/collections/GenericQueryBuilder.html)
 
@@ -147,7 +147,7 @@ See: [**Query builder**](../../api/reactivemongo/api/collections/GenericQueryBui
 [As explained here](), you can use the `BSONDocumentReader` and `BSONDocumentWriter` typeclasses to handle de/serialization between `BSONDocument` and your model classes.
 
 <!-- TODO: id=java.util.UUID -->
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson._
 
 case class Person(
@@ -166,13 +166,13 @@ object Person {
     } yield Person(id, firstName, lastName, age)
   }
 }
-{% endhighlight %}
+```
 
 This system is fully supported in the Collection API, so you can get the results of your queries in the right type.
 
 > Any error raised by the `read` function will be caught by ReactiveMongo deserialization, and will result in an explicit `Future` failure.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.bson.{ BSONDocument, BSONDocumentReader }
@@ -197,7 +197,7 @@ def findOlder4(collection: BSONCollection)(implicit ec: ExecutionContext, reader
 
   peopleOlderThanTwentySeven
 }
-{% endhighlight %}
+```
 
 > ReactiveMongo can directly return instances of a custom class, by defining a [custom reader](../bson/typeclasses.html#custom-reader).
 
@@ -205,9 +205,9 @@ def findOlder4(collection: BSONCollection)(implicit ec: ExecutionContext, reader
 
 The synchronous [`.db` has been deprecated](../release-details.html#database-resolution) as it didn't offer a sufficient guaranty that it can initially find an active channel in the connection pool (`MongoConnection`). A corresponding warning is raised by the compiler in such case.
 
-{% highlight text %}
+```text
 method db in class MongoConnection is deprecated: Must use [[database]]
-{% endhighlight %}
+```
 
 The new [`.database` resolution](../../api/reactivemongo/api/MongoConnection#database%28name:String,failoverStrategy:reactivemongo.api.FailoverStrategy%29%28implicitcontext:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[reactivemongo.api.DefaultDB]) must be used (see [connection tutorial](./connect-database.html)).
 
@@ -215,34 +215,34 @@ If the deprecated database resolution is still used, a runtime error such as `Co
 
 On query builder, the [previous `cursor`](../../api/reactivemongo/api/collections/GenericQueryBuilder.GenericQueryBuilder#cursor[T](implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor) has been deprecated:
 
-{% highlight text %}
+```text
 Use `cursor()` or `cursor(readPreference)`
-{% endhighlight %}
+```
 
 As indicated by this compilation warning, the [new `cursor`](../../api/reactivemongo/api/collections/GenericQueryBuilder.GenericQueryBuilder#cursor[T](readPreference:reactivemongo.api.ReadPreference,isMongo26WriteOp:Boolean)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor) is expecting a [`ReadPreference`](../../api/reactivemongo/api/ReadPreference) as parameter.
 
 When a `Cursor` has been obtained, a warning can be raised if using the [deprecated `collect`](../../api/reactivemongo/api/Cursor#collect[M[_]](maxDocs:Int,stopOnError:Boolean)(implicitcbf:scala.collection.generic.CanBuildFrom[M[_],T,M[T]],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[M[T]]) function:
 
-{% highlight text %}
+```text
 method collect in trait Cursor is deprecated: Use `collect` with an [[Cursor.ErrorHandler]].
-{% endhighlight %}
+```
 
 The [new `collect`](../../api/reactivemongo/api/Cursor#collect[M[_]](maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[M[T]])(implicitcbf:scala.collection.generic.CanBuildFrom[M[_],T,M[T]],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[M[T]]) function must be used instead.
 
 Due to the refactoring of the BSON API, the following warnings can be raised.
 
-{% highlight text %}
+```text
 Use reactivemongo-bson-api or use reactivemongo-bson-compat: import reactivemongo.api.bson.compat._
 
 - OR -
 
 Use reactivemongo-bson-api
-{% endhighlight %}
+```
 
 In this case either update the code to the [new BSON API](./bison.html), or use the compatibility library to ease the migration.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.compat._
-{% endhighlight %}
+```
 
 [Previous: Write Documents](./write-documents.html) / [Next: Streaming](./streaming.html)

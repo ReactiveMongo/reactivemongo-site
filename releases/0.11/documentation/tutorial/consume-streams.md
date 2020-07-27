@@ -17,7 +17,7 @@ The Play Iteratees library can work with document streams as follows.
 - Get an `Enumerator` of documents from ReactiveMongo. This is a producer of data.
 - Run an `Iteratee` (that we build for this purpose), which will consume data and eventually produce a result.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -38,7 +38,7 @@ def processPerson1(collection: BSONCollection, query: BSONDocument): Future[Unit
 
   enumeratorOfPeople.run(processDocuments)
 }
-{% endhighlight %}
+```
 
 The method `cursor.enumerate()` returns an `Enumerator[T]`. In this case, we get a producer of documents (of type `BSONDocument`).
 
@@ -48,7 +48,7 @@ Here, we build an `Iteratee[BSONDocument, Unit]` that takes `BSONDocument` as an
 
 When this snippet is run, we get the following:
 
-{% highlight javascript %}
+```javascript
 found London: {
   _id: BSONObjectID("4f899e7eaf527324ab25c56b"),
   firstName: BSONString(Jack),
@@ -67,7 +67,7 @@ found Hemingway: {
   lastName: BSONString(Hemingway),
   age: BSONInteger(61)
 }
-{% endhighlight %}
+```
 
 The line `enumeratorOfPeople.run(processDocuments)` returns a `Future[Unit]`; it will eventually return the final value of the Iteratee, which is `Unit` in our case.
 
@@ -75,7 +75,7 @@ The line `enumeratorOfPeople.run(processDocuments)` returns a `Future[Unit]`; it
 
 Obviously, we may use a pure `Iteratee` that performs some computation:
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -100,7 +100,7 @@ def processPerson2(enumeratorOfPeople: Enumerator[BSONDocument]) = {
 
   meanAge
 }
-{% endhighlight %}
+```
 
 At each step, this Iteratee will extract the age from the document and add it to the current result; it also counts the number of documents processed. It eventually produces a tuple of two integers; in our case `(173, 3)`. When the `cumulated` future is completed, we divide the cumulated age by the number of documents to get the mean age.
 
@@ -108,7 +108,7 @@ At each step, this Iteratee will extract the age from the document and add it to
 
 ReactiveMongo streaming is based on the function `Cursor.foldWhile[A]`, which also allows you to implement a custom stream processor.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -127,7 +127,7 @@ def streaming(c: Cursor[String]): Future[List[String]] =
         case _ => Cursor.Fail(err) // Stop with current failure -> Future.failed
       }
     })
-{% endhighlight %}
+```
 
 At each streaming step, for each new value or error, you choose how you want to proceed, using the cases `Cursor.{ Cont, Done, Fail }`.
 

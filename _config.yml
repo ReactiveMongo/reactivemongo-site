@@ -3,6 +3,8 @@ name: "ReactiveMongo"
 description: "The reactive Scala driver for MongoDB"
 url: http://reactivemongo.org/
 markdown: kramdown
+kramdown:
+  input: GFM
 latest_major_release: 0.1x
 latest_release: 0.20.11
 exclude: [vendor,target]

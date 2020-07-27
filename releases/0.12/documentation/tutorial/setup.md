@@ -18,13 +18,13 @@ ReactiveMongo is available on [Maven Central](http://search.maven.org/#browse%7C
 
 Or if you want to be on the bleeding edge using snapshots:
 
-{% highlight ocaml %}
+```ocaml
 resolvers += "Sonatype Snapshots" at "http://oss.sonatype.org/content/repositories/snapshots/"
 
 libraryDependencies ++= Seq(
   "org.reactivemongo" %% "reactivemongo" % "1.0.0-SNAPSHOT"
 )
-{% endhighlight %}
+```
 
 **Akka dependency:**
 
@@ -42,7 +42,7 @@ In a Play application, the [Play Framework logging](https://www.playframework.co
 
 *Example of logging configuration with the [Logback binding](http://logback.qos.ch):*
 
-{% highlight xml %}
+```xml
 <configuration>
   <conversionRule conversionWord="coloredLevel"
     converterClass="play.api.Logger$ColoredLevel" />
@@ -59,18 +59,18 @@ In a Play application, the [Play Framework logging](https://www.playframework.co
     <appender-ref ref="STDOUT" />
   </root>
 </configuration>
-{% endhighlight %}
+```
 
 As [Akka](http://akka.io) is used, so it can be useful to also configure its [logging](http://doc.akka.io/docs/akka/2.4.7/scala/logging.html).
 
-{% highlight ocaml %}
+```ocaml
 mongo-async-driver {
   akka {
     loggers = ["akka.event.slf4j.Slf4jLogger"]
     loglevel = DEBUG
   }
 }
-{% endhighlight %}
+```
 
 **Troubleshooting:**
 

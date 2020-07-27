@@ -12,9 +12,9 @@ When running with this module, you can check the state of the ReactiveMongo pool
 
 It can be enabled by adding the dependency as bellow.
 
-{% highlight ocaml %}
+```ocaml
 "org.reactivemongo" %% "reactivemongo-jmx" % "{{site._0_12_latest_minor}}"
-{% endhighlight %}
+```
 
 **Using JConsole:**
 

@@ -10,15 +10,15 @@ In order to get and store data with MongoDB, ReactiveMongo provides an extensibl
 
 As long as you are working with [`BSONValue`s](../../api/reactivemongo/bson/BSONValue), some [default implementations of readers and writers](#provided-handlers) are provided by the following import.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson._
-{% endhighlight %}
+```
 
 ### Custom reader
 
 Getting values follows the same principle using `getAs(String)` method. This method is parametrized with a type that can be transformed into a `BSONValue` using a `BSONReader` instance that is implicitly available in the scope (again, the default readers are already imported if you imported `reactivemongo.api.bson._`.) If the value could not be found, or if the reader could not deserialize it (often because the type did not match), `None` will be returned.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.BSONString
 
 val albumTitle2 = album2.getAsTry[String]("title")
@@ -26,13 +26,13 @@ val albumTitle2 = album2.getAsTry[String]("title")
 
 val albumTitle3 = album2.getAsTry[BSONString]("title")
 // Some(BSONString("Everybody Knows this is Nowhere"))
-{% endhighlight %}
+```
 
 In order to read values of custom types. To do so, a custom instance of [`BSONReader`](../../api/reactivemongo/bson/BSONReader), or of [`BSONDocumentReader`](../../api/reactivemongo/bson/BSONDocumentReader), must be resolved (in the implicit scope).
 
 *A `BSONReader` for a custom value class:*
 
-{% highlight scala %}
+```scala
 package object custom {
   class Score(val value: Float) extends AnyVal
 
@@ -43,7 +43,7 @@ package object custom {
       bson.asTry[BSONNumberLike].flatMap(_.toFloat).map(new Score(_))
   }
 }
-{% endhighlight %}
+```
 
 > When reading a numeric value from MongoDB, it's recommended to use the typeclass [`BSONNumberLike`](../../api/reactivemongo/bson/BSONNumberLike), to benefit from numeric conversions it provides.
 
@@ -51,7 +51,7 @@ Once a custom `BSONReader` (or `BSONDocumentReader`) is defined, it can be used 
 
 *A `BSONDocumentReader` for a custom case class:*
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson._
 
 implicit object PersonReader extends BSONDocumentReader[Person] {
@@ -60,11 +60,11 @@ implicit object PersonReader extends BSONDocumentReader[Person] {
     age <- bson.getAsTry[BSONNumberLike]("personAge").flatMap(_.toInt)
   } yield new Person(name, age)
 }
-{% endhighlight %}
+```
 
 Once a custom `BSONDocumentReader` can be resolved, it can be used when working with a query result.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 import reactivemongo.api.bson.{ BSONDocument, BSONDocumentReader }
 import reactivemongo.api.bson.collection.BSONCollection
@@ -73,7 +73,7 @@ import reactivemongo.api.bson.collection.BSONCollection
 implicit def personReader: BSONDocumentReader[Person] = ???
 
 def findPerson(personCollection: BSONCollection, name: String)(implicit ec: ExecutionContext): Future[Option[Person]] = personCollection.find(BSONDocument("fullName" -> name)).one[Person]
-{% endhighlight %}
+```
 
 *See [how to find documents](../tutorial/find-documents.html).*
 
@@ -81,7 +81,7 @@ def findPerson(personCollection: BSONCollection, name: String)(implicit ec: Exec
 
 Of course it's also possible to write a value of a custom type, a custom instance of [`BSONWriter`](../../api/reactivemongo/bson/BSONWriter), or of [`BSONDocumentWriter`](../../api/reactivemongo/bson/BSONDocumentWriter) must be available.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson._
 
 case class Score(value: Float)
@@ -93,19 +93,19 @@ implicit object ScoreWriter extends BSONWriter[Score] {
 
 // Uses `BSONDouble` to write `Float`,
 // for compatibility with MongoDB numeric values
-{% endhighlight %}
+```
 
 Each value that can be written using a `BSONWriter` can be used directly when calling a `BSONDocument` constructor.
 
-{% highlight scala %}
+```scala
 val album2 = reactivemongo.api.bson.BSONDocument(
   "title" -> "Everybody Knows this is Nowhere",
   "releaseYear" -> 1969)
-{% endhighlight %}
+```
 
 Note that this does _not_ use implicit conversions, but rather implicit type classes.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson._
 
 // Declare it as implicit for resolution
@@ -113,11 +113,11 @@ val personWriter0: BSONDocumentWriter[Person] =
   BSONDocumentWriter[Person] { person =>
     BSONDocument("fullName" -> person.name, "personAge" -> person.age)
   }
-{% endhighlight %}
+```
 
 Once a `BSONDocumentWriter` is available, an instance of the custom class can be inserted or updated to the MongoDB.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.bson.BSONDocumentWriter
@@ -130,7 +130,7 @@ def create(personCollection: BSONCollection, person: Person)(implicit ec: Execut
   val writeResult = personCollection.insert.one(person)
   writeResult.map(_ => {/*once this is successful, just return successfully*/})
 }
-{% endhighlight %}
+```
 
 *See [how to write documents](../tutorial/write-documents.html).*
 
@@ -138,12 +138,12 @@ def create(personCollection: BSONCollection, person: Person)(implicit ec: Execut
 
 To ease the definition of reader and writer instances for your custom types, ReactiveMongo provides some helper [Macros](../../api/reactivemongo/bson/Macros).
 
-{% highlight ocaml %}
+```ocaml
 libraryDependencies ++= Seq(
   "org.reactivemongo" %% "reactivemongo-bson-macros" % "{{site._0_1x_latest_minor}}")
-{% endhighlight %}
+```
 
-{% highlight scala %}
+```scala
 case class Person(name: String, age: Int)
 
 import reactivemongo.api.bson._
@@ -155,7 +155,7 @@ implicit val personHandler: BSONHandler[Person] =
 implicit val personReader: BSONDocumentReader[Person] = Macros.reader[Person]
 implicit val personWriter: BSONDocumentWriter[Person] = Macros.writer[Person]
 */
-{% endhighlight %}
+```
 
 The [`BSONHandler`](../../api/reactivemongo/bson/BSONHandler) provided by [`Macros.handler`](../../api/reactivemongo/bson/Macros$#handler[A]:reactivemongo.api.bson.BSONDocumentReader[A]withreactivemongo.api.bson.BSONDocumentWriter[A]withreactivemongo.api.bson.BSONHandler[reactivemongo.api.bson.BSONDocument,A]) gathers both `BSONReader` and `BSONWriter` traits.
 
@@ -180,7 +180,7 @@ For example if you have `case class Foo(bar: Bar)` and want to create a handler 
 
 Sealed traits are also supported as [union types](https://en.wikipedia.org/wiki/Union_type), with each of their subclasses considered as a disjoint case.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.{ BSONHandler, Macros }
 
 sealed trait Tree
@@ -193,13 +193,13 @@ object Tree {
 
   implicit val bson: BSONHandler[Tree] = Macros.handler[Tree]
 }
-{% endhighlight %}
+```
 
 The `handler`, `reader` and `writer` macros each have a corresponding extended macro: [`readerOpts`](../../api/reactivemongo/bson/Macros$#readerOpts[A,Opts%3C:reactivemongo.api.bson.MacroOptions.Default]:reactivemongo.api.bson.BSONDocumentReader[A]), [`writerOpts`](../../api/reactivemongo/bson/Macros$#writerOpts[A,Opts%3C:reactivemongo.api.bson.MacroOptions.Default]:reactivemongo.api.bson.BSONDocumentWriter[A]) and [`handlerOpts`](../../api/reactivemongo/bson/Macros$#handlerOpts[A,Opts%3C:reactivemongo.api.bson.MacroOptions.Default]:reactivemongo.api.bson.BSONDocumentReader[A]withreactivemongo.api.bson.BSONDocumentWriter[A]withreactivemongo.api.bson.BSONHandler[reactivemongo.api.bson.BSONDocument,A]).
 
 These 'Opts' suffixed macros can be used to explicitly define the [`UnionType`](../../api/reactivemongo/bson/Macros$$Options$@UnionType[Types%3C:reactivemongo.api.bson.MacroOptions.\/[_,_]]extendsMacroOptions.SaveClassNamewithMacroOptions.Default).
 
-{% highlight scala %}
+```scala
 sealed trait Color
 
 case object Red extends Color
@@ -219,7 +219,7 @@ object Color {
 
   val predefinedColor = Macros.handlerOpts[Color, PredefinedColor]
 }
-{% endhighlight %}
+```
 
 As for the `UnionType` definition, `Foo \/ Bar \/ Baz` is interpreted as type `Foo` or type `Bar` or type `Baz`. The option `AutomaticMaterialization` is used there to automatically try to materialize the handlers for the sub-types (disabled by default).
 
@@ -236,27 +236,27 @@ The [`@Key`](../../api/reactivemongo/bson/Macros$$Annotations$$Key.html) annotat
 
 For example, it is convenient to use when you'd like to leverage the MongoDB `_id` index but you don't want to actually use `_id` in your code.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.Macros.Annotations.Key
 
 case class Website(@Key("_id") url: String)
 // Generated handler will map the `url` field in your code to as `_id` field
-{% endhighlight %}
+```
 
 The [`@Ignore`](../../api/reactivemongo/bson/Macros$$Annotations$$Ignore.html) can be applied on the class properties to be ignored.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.Macros.Annotations.Ignore
 
 case class Foo(
   bar: String,
   @Ignore lastAccessed: Long = -1L
 )
-{% endhighlight %}
+```
 
 The [`@Flatten`](../../api/reactivemongo/bson/Macros$$Annotations$$Flatten.html) can be used to indicate to the macros that the representation of a property must be flatten rather than a nested document.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.BSONDocument
 import reactivemongo.api.bson.Macros.Annotations.Flatten
 
@@ -272,13 +272,13 @@ BSONDocument("name" -> "foo", "start" -> 0, "end" -> 1)
 // Rather than:
 // BSONDocument("name" -> "foo", "range" -> BSONDocument(
 //   "start" -> 0, "end" -> 1))
-{% endhighlight %}
+```
 
 **Troubleshooting:**
 
 The mapped type can also be defined inside other classes, objects or traits but not inside functions (known macro limitation). In order to work you should have the case class in scope (where you call the macro), so you can refer to it by it's short name - without package. This is necessary because the generated implementations refer to it by the short name to support nested declarations. You can work around this with local imports.
 
-{% highlight scala %}
+```scala
 object lorem {
   case class Ipsum(v: String)
 }
@@ -287,7 +287,7 @@ implicit val handler = {
   import lorem.Ipsum
   reactivemongo.api.bson.Macros.handler[Ipsum]
 }
-{% endhighlight %}
+```
 
 ### Provided handlers
 

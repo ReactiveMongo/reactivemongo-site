@@ -10,19 +10,19 @@ title: GridFS
 
 ReactiveMongo provides an [API for MongoDB GridFS](../../api/index.html#reactivemongo.api.gridfs.GridFS), whose references can be resolved as bellow.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.{ BSONSerializationPack, DefaultDB }
 import reactivemongo.api.gridfs.GridFS
 
 type BSONGridFS = GridFS[BSONSerializationPack.type]
 def resolveGridFS(db: DefaultDB): BSONGridFS = GridFS(db)
-{% endhighlight %}
+```
 
 ### Save files to GridFS
 
 Once a reference to GridFS is obtained, it can be used to push a file in a streaming way (for now using Play Iteratees).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import play.api.libs.iteratee.Enumerator
@@ -46,13 +46,13 @@ def saveToGridFS(
 
   gridfs.save(data, gridfsObj)
 }
-{% endhighlight %}
+```
 
 The GridFS [`save`](../../api/index.html#reactivemongo.api.gridfs.GridFS@save[Id%3C:GridFS.this.pack.Value](enumerator:play.api.libs.iteratee.Enumerator[Array[Byte]],file:reactivemongo.api.gridfs.FileToSave[GridFS.this.pack.type,Id],chunkSize:Int)(implicitreadFileReader:GridFS.this.pack.Reader[GridFS.this.ReadFile[Id]],implicitctx:scala.concurrent.ExecutionContext,implicitidProducer:reactivemongo.api.gridfs.IdProducer[Id],implicitdocWriter:reactivemongo.bson.BSONDocumentWriter[file.pack.Document]):scala.concurrent.Future[GridFS.this.ReadFile[Id]]) operation will return a reference to the stored object, represented with the [`ReadFile`](../../api/index.html#reactivemongo.api.gridfs.ReadFile) type.
 
 An alternative operation [`saveWithMD5`](../../api/index.html#reactivemongo.api.gridfs.GridFS@saveWithMD5[Id%3C:GridFS.this.pack.Value](enumerator:play.api.libs.iteratee.Enumerator[Array[Byte]],file:reactivemongo.api.gridfs.FileToSave[GridFS.this.pack.type,Id],chunkSize:Int)(implicitreadFileReader:GridFS.this.pack.Reader[GridFS.this.ReadFile[Id]],implicitctx:scala.concurrent.ExecutionContext,implicitidProducer:reactivemongo.api.gridfs.IdProducer[Id],implicitdocWriter:reactivemongo.bson.BSONDocumentWriter[file.pack.Document]):scala.concurrent.Future[GridFS.this.ReadFile[Id]]), which can automatically compute a MD5 checksum for the stored data.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import play.api.libs.iteratee.Enumerator
@@ -73,7 +73,7 @@ def saveWithComputedMD5(
 
   gridfs.saveWithMD5(data, gridfsObj)
 }
-{% endhighlight %}
+```
 
 The reference for a file save in this way will have `Some` [MD5 property](../../api/index.html#reactivemongo.api.gridfs.ReadFile@md5:Option[String]).
 
@@ -81,7 +81,7 @@ The reference for a file save in this way will have `Some` [MD5 property](../../
 
 A file previously stored in a GridFS can be retrieved as any MongoDB, using a [`find`](../../api/index.html#reactivemongo.api.gridfs.GridFS@find[S,T%3C:GridFS.this.ReadFile[_]](selector:S)(implicitsWriter:GridFS.this.pack.Writer[S],implicitreadFileReader:GridFS.this.pack.Reader[T],implicitctx:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor) operation.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import play.api.libs.iteratee.Enumerator
@@ -98,13 +98,13 @@ def gridfsByFilename(
   def cursor = gridfs.find(BSONDocument("filename" -> filename))
   cursor.head
 }
-{% endhighlight %}
+```
 
 ### Delete a file
 
 A file can be removed from a GridFS using the [appropriate operation](../../api/index.html#reactivemongo.api.gridfs.GridFS@remove[Id%3C:GridFS.this.pack.Value](id:Id)(implicitctx:scala.concurrent.ExecutionContext,implicitidProducer:reactivemongo.api.gridfs.IdProducer[Id]):scala.concurrent.Future[reactivemongo.api.commands.WriteResult]).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import play.api.libs.iteratee.Enumerator
@@ -119,7 +119,7 @@ def removeFrom(
   id: BSONValue // see ReadFile.id
 )(implicit ec: ExecutionContext): Future[Unit] =
   gridfs.remove(id).map(_ => {})
-{% endhighlight %}
+```
 
 **See also:**
 

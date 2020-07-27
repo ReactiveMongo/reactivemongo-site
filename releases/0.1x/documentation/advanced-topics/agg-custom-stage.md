@@ -8,7 +8,7 @@ title: Custom Aggregation Stage
 
 You can also implement custom aggregate stage, using the [`PipelineOperator`](../../api/commands/AggregationFramework.html#PipelineOperator) factory.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext
 
 import reactivemongo.api.bson._
@@ -23,6 +23,6 @@ def customAgg(coll: BSONCollection)(implicit ec: ExecutionContext) =
 
     customStage -> List.empty
   }
-{% endhighlight %}
+```
 
 [Previous: Aggregation Framework](./aggregation.html)

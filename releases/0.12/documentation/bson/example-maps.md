@@ -8,7 +8,7 @@ title: Handle Map with BSON Library
 
 *See [BSON readers & writers](typeclasses.html)*.
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson.{
   BSONDocument, BSONDocumentReader, BSONDocumentWriter
 }
@@ -33,11 +33,11 @@ object BSONMap {
     }
   }
 }
-{% endhighlight %}
+```
 
 ### Example of usage
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson.{ BSON, BSONDocument, BSONHandler }
 
 case class Album(
@@ -60,4 +60,4 @@ val map = Map("artist1" -> neilYoung)
 val docFromMap: BSONDocument = BSON.writeDocument(map)
 val mapFromDoc: Map[String, Artist] = 
   BSON.readDocument[Map[String, Artist]](docFromMap)
-{% endhighlight %}
+```

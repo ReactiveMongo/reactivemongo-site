@@ -8,7 +8,7 @@ title: Database and collections
 
 Once you have a connection and [resolved the database](./connect-database.html), the collections can be easily referenced.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -18,7 +18,7 @@ import reactivemongo.api.bson.collection.BSONCollection
 def dbFromConnection(connection: MongoConnection): Future[BSONCollection] =
   connection.database("somedatabase").
     map(_.collection("somecollection"))
-{% endhighlight %}
+```
 
 By default, it returns a [`BSONCollection`](../../api/reactivemongo/api/collections/GenericCollection.bson.BSONCollection), which implements the basic `Collection` trait.
 

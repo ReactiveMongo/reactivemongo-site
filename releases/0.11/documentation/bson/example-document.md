@@ -12,7 +12,7 @@ title: Handle documents with the BSON Library
 
 You can write your own writers and readers for your models. Let's define a model for `Album`, and its `BSONWriter` and `BSONReader`.
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson.{
   BSONDocument, BSONDocumentWriter, BSONDocumentReader
 }
@@ -40,13 +40,13 @@ implicit object SimpleAlbumReader extends BSONDocumentReader[SimpleAlbum] {
       doc.getAs[Double]("allMusicRating"))
   }
 }
-{% endhighlight %}
+```
 
 You should have noted that our reader and writer extend `BSONDocumentReader[T]` and `BSONDocumentWriter[T]`. These two traits are just a shorthand for `BSONReader[B <: BSONValue, T]` and `BSONWriter[T, B <: BSONValue]`.
 
 OK, now, what if I want to store all the tracks names of the album? Or, in other words, how can we deal with collections? First of all, you can safely infer that all sequences and sets can be serialized as `BSONArray`s. Using `BSONArray` follows the same patterns as `BSONDocument`.
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson.{ BSONArray, BSONDocument }
 
 val album4 = BSONDocument(
@@ -70,13 +70,13 @@ val tracksOfAlbum4 = album4.getAs[BSONArray]("tracks").map { array =>
     track.seeAsOpt[String].get
   }
 }
-{% endhighlight %}
+```
 
 Using `BSONArray` does what we want, but this code is pretty verbose. Would it not be nice to deal directly with collections?
 
 Here again, there is a converter for `Traversable`s of types that can be transformed into `BSONValue`s. For example, if you have a `List[Something]`, if there is an implicit `BSONWriter` of `Something` to some `BSONValue` in the scope, you can use it as is, without giving explicitly a `BSONArray`. The same logic applies for reading `BSONArray` values.
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson.BSONDocument
 
 val album5 = BSONDocument(
@@ -95,11 +95,11 @@ val album5 = BSONDocument(
 
 val tracksOfAlbum5 = album5.getAs[List[String]]("tracks")
 // returns an Option[List[String]] if `tracks` is a BSONArray containing BSONStrings :)
-{% endhighlight %}
+```
 
 So, now we can rewrite our reader and writer for albums including tracks.
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson.{
   BSONDocument, BSONDocumentReader, BSONDocumentWriter
 }
@@ -128,11 +128,11 @@ implicit object AlbumReader extends BSONDocumentReader[Album] {
     doc.getAs[Double]("allMusicRating"),
     doc.getAs[List[String]]("tracks").toList.flatten)
 }
-{% endhighlight %}
+```
 
 Obviously, you can combine these readers and writers to de/serialize more complex object graphs. Let's write an Artist model, containing a list of Albums.
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson.{
   BSON, BSONDocument, BSONHandler, BSONDocumentReader, BSONDocumentWriter
 }
@@ -173,14 +173,14 @@ val neilYoung = Artist(
         "Cowgirl in the Sand"))))
 
 val neilYoungDoc = BSON.write(neilYoung)
-{% endhighlight %}
+```
 
 Here, we get an "ambiguous implicit" problem, which is normal because we have more than one Reader of `BSONDocument`s available in our scope (`SimpleArtistReader`, `ArtistReader`, `AlbumReader`, etc.). So we have to explicitly give the type of the instance we want to get from the document.
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson.BSON
 
 implicit def artistReader: reactivemongo.bson.BSONDocumentReader[Artist] = ???
 
 val neilYoungAgain = BSON.readDocument[Artist](neilYoungDoc)
-{% endhighlight %}
+```

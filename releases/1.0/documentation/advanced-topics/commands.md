@@ -10,7 +10,7 @@ A MongoDB Command is a special query that returns documents. It's executed at ei
 
 In ReactiveMongo, the database command can be executed using [`db.runCommand(<command>)`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{_1_0_scala_major}}/{{_1_0_latest_minor}}/reactivemongo/api/DB.html#runCommand(command:DB.this.pack.Document,failoverStrategy:reactivemongo.api.FailoverStrategy):reactivemongo.api.commands.CursorFetcher[DB.this.pack.type,reactivemongo.api.Cursor]).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.DB
@@ -30,11 +30,11 @@ implicit val pingResultReader: BSONDocumentReader[Boolean] =
 
 def runPing(db: DB)(
   implicit ec: ExecutionContext): Future[Boolean] = db.runCommand(Ping)
-{% endhighlight %}
+```
 
 The collection command can be executed with [`collection.runCommand(<command>)`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{_1_0_scala_major}}/{{_1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#runCommand[C%3C:reactivemongo.api.commands.CollectionCommand](command:C)(implicitwriter:GenericCollectionWithCommands.this.pack.Writer[reactivemongo.api.commands.ResolvedCollectionCommand[C]]):reactivemongo.api.commands.CursorFetcher[GenericCollectionWithCommands.this.pack.type,reactivemongo.api.Cursor]).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.bson.collection.BSONCollection
@@ -61,7 +61,7 @@ implicit val countByNameReader = BSONDocumentReader.option[Long](_.long("n"))
 def runCount(coll: BSONCollection, name: String)(
   implicit ec: ExecutionContext): Future[Long] =
   coll.runCommand(new CountByName(name))
-{% endhighlight %}
+```
 
 ### Run a raw command
 
@@ -69,18 +69,18 @@ It is possible to run any kind of command, even if they are not yet specifically
 
 Let's take a look to the following example involving the Aggregation Framework (you can find this example in the [MongoDB documentation](http://docs.mongodb.org/manual/core/aggregation-pipeline/#aggregation-pipeline-behavior)):
 
-{% highlight javascript %}
+```javascript
 // MongoDB Console example of Aggregate command
 db.orders.aggregate([
   { $match: { status: "A" } },
   { $group: { _id: "$cust_id", total: { $sum: "$amount" } } },
   { $sort: { total: -1 } }
 ])
-{% endhighlight %}
+```
 
 Actually, the MongoDB console sends a document that is a little bit more complex to the server:
 
-{% highlight javascript %}
+```javascript
 // document sent to the database using the MongoDB console
 var command =
   {
@@ -94,11 +94,11 @@ var command =
 
 // run the command
 db.runCommand(command)
-{% endhighlight %}
+```
 
 We do exactly the same thing with raw command, using document that contains the same fields:
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.bson.{ BSONArray, BSONDocument }
@@ -122,7 +122,7 @@ def commandResult(db: DB)(implicit ec: ExecutionContext): Future[BSONDocument] =
   db.runCommand(commandDoc, FailoverStrategy.default).
     cursor[BSONDocument](ReadPreference.primaryPreferred).head
 }
-{% endhighlight %}
+```
 
 > The MongoDB aggregation is already provided by ReactiveMongo with a [specific support](./aggregation.html).
 
@@ -134,7 +134,7 @@ It's possible to define a not yet implemented or custom command using the comman
 
 Considering a database command executed in the Shell using `db.runCommand({ "custom": name, "query": { ... } })`, with a result like `{ "count": int, "matching": [ "value1", "value2", ..., "valueN" ] }`, it can be defined as following.
 
-{% highlight scala %}
+```scala
 package customcmd
 
 import reactivemongo.api.SerializationPack
@@ -154,13 +154,13 @@ trait CustomCommand[P <: SerializationPack] {
 
   case class CustomResult(count: Int, matching: List[String])
 }
-{% endhighlight %}
+```
 
 It specifies what is the command input (arguments), and what kind of result will be deserialized from the output, using the trait [`CommandWithResult[CustomResult]`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{_1_0_scala_major}}/{{_1_0_latest_minor}}/reactivemongo/api/commands/CommandWithResult.html). If the command returns a document and you want to directly get that, it can be specified with `CommandWithResult[pack.Document]`.
 
 The next step is to implement the custom command.
 
-{% highlight scala %}
+```scala
 package customcmd
 package bson1
 
@@ -189,7 +189,7 @@ object BSONCustomCommand extends CustomCommand[BSONSerializationPack.type] {
     }
   }
 }
-{% endhighlight %}
+```
 
 In the previous example, the custom command is implemented using the BSON serialization, providing the [writers and readers](../bson/typeclasses.html) for the command input and result.
 
@@ -197,7 +197,7 @@ A command can be implemented with various serialization pack (e.g. it can also b
 
 It's also possible to gather the command definition and implementation, if only one kind of serialization is needed.
 
-{% highlight scala %}
+```scala
 package customcmd
 package bson2
 
@@ -239,11 +239,11 @@ object BSONCustomCommand {
     }
   }
 }
-{% endhighlight %}
+```
 
 Once the command is implemented, it can be executed on the database.
 
-{% highlight scala %}
+```scala
 package customcmd.bson2
 
 import scala.concurrent.{ ExecutionContext, Future }
@@ -262,13 +262,13 @@ object MyRunner {
     query: BSONDocument)(implicit ec: ExecutionContext): Future[CustomResult] =
     db.runCommand(Custom(name, query), FailoverStrategy())
 }
-{% endhighlight %}
+```
 
 **Collection command:**
 
 For a collection command `db.aCollection.runCommand({ "custom": name, "query": { ... } })`, the ReactiveMongo definition will be similar to those at the database level, but based on [`CollectionCommand`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{_1_0_scala_major}}/{{_1_0_latest_minor}}/reactivemongo/api/commands/CollectionCommand.html) (rather than `Command`).
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.SerializationPack
 import reactivemongo.api.commands.{
   CollectionCommand,
@@ -288,11 +288,11 @@ trait CustomCommand[P <: SerializationPack] {
   // { "count": int, "matching": [ "value1", "value2", ..., "valueN" ] }
   case class CustomResult(count: Int, matching: List[String])
 }
-{% endhighlight %}
+```
 
 Once the input and output of a collection command are specified, it must be implemented.
 
-{% highlight scala %}
+```scala
 import scala.util.Try
 import reactivemongo.api.bson.collection.BSONSerializationPack
 
@@ -324,13 +324,13 @@ object BSONCustomCommand extends CustomCommand[BSONSerializationPack.type] {
     }
   }
 }
-{% endhighlight %}
+```
 
 The writer of a collection collection must serialize a `ResolvedCollectionCommand[Custom]`, rather than directly `Custom`. The [`ResolvedCollectionCommand`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{_1_0_scala_major}}/{{_1_0_latest_minor}}/reactivemongo/api/commands/ResolvedCollectionCommand.html) provides the information about the collection against which the command is executed (e.g. the collection name `colName` in the previous example).
 
 Then the collection command can be executed using `runCommand`.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.bson.BSONDocument
@@ -346,7 +346,7 @@ def custom(
 
   col.runCommand(Custom(name, query))
 }
-{% endhighlight %}
+```
 
 **See also:**
 

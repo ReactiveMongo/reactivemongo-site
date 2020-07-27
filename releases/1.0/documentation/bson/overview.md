@@ -16,9 +16,9 @@ The library is designed with the following points in mind:
 
 It can be configured in a `build.sbt` as below.
 
-{% highlight ocaml %}
+```ocaml
 libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-api" % "{{site._1_0_latest_minor}}"
-{% endhighlight %}
+```
 
 *See [Scaladoc](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}})*
 
@@ -26,7 +26,7 @@ libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-api" % "{{site
 
 There is one Scala class for each BSON type, all in the [`reactivemongo.api.bson` package](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/).
 
-{% highlight scala %}
+```scala
 import scala.util.Try
 import reactivemongo.api.bson._
 
@@ -91,13 +91,13 @@ val bsonNull = BSONNull
 val bsonMinKey = BSONMinKey
 
 val bsonMaxKey = BSONMaxKey
-{% endhighlight %}
+```
 
 #### Documents
 
 A document is represented by `BSONDocument`, which is basically an immutable list of key-value pairs. Since it is the most used BSON type, one of the main focuses of the ReactiveMongo BSON library is to make manipulations of BSONDocument as easy as possible.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson._
 
 /* Document: {
@@ -118,11 +118,11 @@ albumTitle match {
     println("""This document does not contain a title 
 (or title is not a BSONString)""")
 }
-{% endhighlight %}
+```
 
 The API for [`BSONDocument`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/BSONDocument.html) provides the function `getAsOpt` and `getAsTry` to get the field values, and `getOrElse`.
 
-{% highlight scala %}
+```scala
 import scala.util.Try
 import reactivemongo.api.bson._
 
@@ -135,11 +135,11 @@ def bar(doc: BSONDocument): Unit = {
   val fallback: String = doc.getOrElse[String]("strField", "defaultValue")
   // Equivalent to: doc.getAsOpt[String]("strField").getOrElse("defaultValue")
 }
-{% endhighlight %}
+```
 
 Field utilities are provided for the most common types:
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson._
 
 def foo(doc: BSONDocument): Unit = {
@@ -152,13 +152,13 @@ def foo(doc: BSONDocument): Unit = {
   val c: Option[BSONDocument] = doc.child("nestedDoc")
   val _: List[BSONDocument] = doc.children("arrayOfDocs")
 }
-{% endhighlight %}
+```
 
 #### Numeric & Boolean values
 
 The traits [`BSONNumberLike`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/BSONNumberLike.html) and [`BSONBooleanLike`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/BSONBooleanLike.html) are also kept in the new API, to generalize the handling of numerical and boolean values.
 
-{% highlight scala %}
+```scala
 import scala.util.Try
 import reactivemongo.api.bson._
 
@@ -169,13 +169,13 @@ val intLike: Try[Int] = bsonNumLike.flatMap(_.toInt) // =Success(1)
 
 val bsonBoolLike: Try[BSONBooleanLike] = doc.getAsTry[BSONBooleanLike]("ok")
 val boolLike: Try[Boolean] = bsonBoolLike.flatMap(_.toBoolean) // =Success(true)
-{% endhighlight %}
+```
 
 Now `Float` is handled as a BSON double (as `Double`, as it's now possible to have several Scala types corresponding to the same BSON type).
 
 The [Decimal128](https://github.com/mongodb/specifications/blob/master/source/bson-decimal128/decimal128.rst) type introduced by MongoDB 3.4 is also supported, as [`BSONDecimal`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/BSONDecimal.html), and can be read or write as `java.math.BigDecimal`.
 
-{% highlight scala %}
+```scala
 import scala.util.Try
 import reactivemongo.api.bson._
 
@@ -183,23 +183,23 @@ def readFloat(
   doc: BSONDocument,
   n: String
 )(implicit r: BSONReader[Float]): Try[Float] = doc.getAsTry[Float](n)
-{% endhighlight %}
+```
 
 Still to make the API simpler, the BSON singleton types (e.g. `BSONNull`) are also defined with a trait, to be able to reference them without `.type` suffix.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.BSONNull
 
 def useNullBefore(bson: BSONNull.type) = println(".type was required")
 
 def useNullNow(bson: BSONNull) = print("Suffix no longer required")
-{% endhighlight %}
+```
 
 #### Binary values
 
 The `BSONBinary` extractor now only bind subtype:
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.{ BSONBinary, Subtype }
 
 def binExtractor = {
@@ -210,7 +210,7 @@ def binExtractor = {
     case _ => ???
   }
 }
-{% endhighlight %}
+```
 
 #### Miscellaneous
 

@@ -18,7 +18,7 @@ The following [read preferences](https://javadoc.io/static/org.reactivemongo/rea
 
 The Read preference can be chosen globally using the [`MongoConnectionOptions`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{_1_0_scala_major}}/{{_1_0_latest_minor}}/reactivemongo/api/MongoConnectionOptions.html), or for each [cursor](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{_1_0_scala_major}}/{{_1_0_latest_minor}}/reactivemongo/api/Cursor.html).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api.bson.BSONDocument
@@ -30,7 +30,7 @@ def readFromSecondary1(collection: BSONCollection) =
     // read from any secondary whenever possible
     cursor[BSONDocument](ReadPreference.secondaryPreferred).
     collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
-{% endhighlight %}
+```
 
 > The default read preference can be set in the [connection options](../tutorial/connect-database.html).
 
@@ -42,7 +42,7 @@ With tagged servers in your replica set, then you can use a tag-aware Read Prefe
 
 Let's suppose that the replica set is configured that way:
 
-{% highlight javascript %}
+```javascript
 {
     "_id" : "rs0",
     "version" : 2,
@@ -71,11 +71,11 @@ Let's suppose that the replica set is configured that way:
              }
      ]
 }
-{% endhighlight %}
+```
 
 Then we can tell ReactiveMongo to query only from the nodes which are tagged with `dc: "NYC"`:
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api.bson.BSONDocument
@@ -86,6 +86,6 @@ def readFromSecondary2(collection: BSONCollection) =
   collection.find(BSONDocument("city" -> "San Francisco")).
     // read from any secondary tagged with `dc: "NYC"`
     one[BSONDocument](ReadPreference.secondaryPreferred)
-{% endhighlight %}
+```
 
 The custom read preferences and write concerns evaluate the tag sets in different ways. Read preferences consider the value of a tag when selecting a member to read from. Write concerns ignore the value of a tag to when selecting a member, except to consider whether or not the value is unique; See [MongoDB Read Preference Documentation](http://docs.mongodb.org/manual/core/read-preference/#tag-sets))

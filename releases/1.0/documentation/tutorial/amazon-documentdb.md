@@ -31,8 +31,8 @@ As the certificates are not available in the [Java KeyStore format](https://en.w
 
 Finally the connection URI can be updated by replacing the option `ssl_ca_certs` with `keyStore` (URI to JKS file, there on local FS using `file://`), `keyStorePassword` (there `rds-ca-2015-root`) and `keyStoreType=JKS`.
 
-{% highlight javascript %}
+```javascript
 mongodb.uri = "mongodb://test:MY_PASSWORD@testdb-2019-07-17-19-05-33.cluster-czwefgzvoxnq.us-east-2.docdb.amazonaws.com:27017/testdb?ssl=true&keyStore=file:///path/on/local/fs/to/rds-ca-2015-root.jks&keyStorePassword=rds-ca-2015-root&keyStoreType=JKS"
-{% endhighlight %}
+```
 
 *[See the documentation](./connect-database.html)*

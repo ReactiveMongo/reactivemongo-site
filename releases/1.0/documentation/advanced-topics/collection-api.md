@@ -10,7 +10,7 @@ The Collection API is designed to be very extensible, allowing the use of third-
 
 *BSON collection:*
 
-{% highlight scala %}
+```scala
 // using the default Collection implementation
 // (relying on the embedded BSON library)
 
@@ -37,7 +37,7 @@ val query1 =
 // run the query then convert the result to a `Person` instance
 // using the implicit (BSON) reader
 val result1: Future[Option[Person]] = collection1.find(query1).one[Person]
-{% endhighlight %}
+```
 
 > Note that the API of features dealing with documents is using `pack.Document` to declare the type of the documents according the serialization pack, by default BSON (so `pack.Document` is resolved as `BSONDocument`).
 
@@ -45,7 +45,7 @@ val result1: Future[Option[Person]] = collection1.find(query1).one[Person]
 
 This trait is almost empty.
 
-{% highlight scala %}
+```scala
 package simplified.api
 
 import reactivemongo.api.DB
@@ -61,11 +61,11 @@ trait Collection {
   /** Gets the full qualified name of this collection. */
   def fullCollectionName = db.name + "." + name
 }
-{% endhighlight %}
+```
 
 All the collection implementations must mix this trait in. They also provide implicit objects of type `CollectionProducer` that make new (specialized) instances of them. Since `db.collection()` is parametrized with `C <: Collection` and accepts an implicit `CollectionProducer[C]`, the returned instance of collection can be inferred to the right type if there is only one producer in the implicit scope, which is a typical situation.
 
-{% highlight scala %}
+```scala
 package simplifiedapi
 
 import reactivemongo.api.{ Collection, CollectionProducer }
@@ -73,7 +73,7 @@ import reactivemongo.api.{ Collection, CollectionProducer }
 trait DB {
   def collection[C <: Collection](name: String)(implicit producer: CollectionProducer[C])
 }
-{% endhighlight %}
+```
 
 Most of the implementations actually extend the trait `GenericCollection`.
 
@@ -83,7 +83,7 @@ This trait is much more complete than `Collection`. It defines common methods, l
 
 Let's take an example of how these types are used for `find()`, which is defined like this:
 
-{% highlight scala %}
+```scala
 package simplifiedapi
 
 trait GenericCollection {
@@ -94,7 +94,7 @@ trait GenericCollection {
 
   sealed trait QueryBuilder { /* ... */ }
 }
-{% endhighlight %}
+```
 
 This function takes a `selector` (or query) of type `S`. This object is then transformed into BSON thanks to the implicit `swriter` parameter. Moreover, you can notice that the return type is another trait, `GenericQueryBuilder`, with the same parameter type
 

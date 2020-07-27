@@ -16,9 +16,9 @@ When running with this module, you can check the state of the ReactiveMongo pool
 
 It can be enabled by adding the dependency as bellow.
 
-{% highlight ocaml %}
+```ocaml
 "org.reactivemongo" %% "reactivemongo-jmx" % "{{site._1_0_latest_minor}}"
-{% endhighlight %}
+```
 
 **Using JConsole:**
 
@@ -40,9 +40,9 @@ Once connected, you can select the "MBeans" tab on the top of JConsole, to check
 
 For projects where Kamon is [set up](https://kamon.io/docs/latest/guides/), the module `reactivemongo-kamon` can to added as bellow, to collect metrics about the connection pools.
 
-{% highlight ocaml %}
+```ocaml
 "org.reactivemongo" %% "reactivemongo-kamon" % "{{site._1_0_latest_minor}}"
-{% endhighlight %}
+```
 
 Then the metrics can be configured in dashboards, according the used Kamon reporters.
 For example if using [Kamon APM](https://kamon.io/docs/latest/reporters/apm/).

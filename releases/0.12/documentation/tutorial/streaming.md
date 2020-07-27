@@ -16,9 +16,9 @@ The [Akka Stream](http://akka.io/) library can be used to consume ReactiveMongo 
 
 The following dependency must be configured in your `project/Build.scala` (or `build.sbt`).
 
-{% highlight ocaml %}
+```ocaml
 libraryDependencies += "org.reactivemongo" %% "reactivemongo-akkastream" % "{{site._0_12_latest_minor}}"
-{% endhighlight %}
+```
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-akkastream_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-akkastream_2.11/)
 
@@ -29,7 +29,7 @@ The main features of this modules are as follows.
 
 To use the Akka Stream support for the ReactiveMongo cursors, [`reactivemongo.akkastream.cursorProducer`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.11/{{site._0_12_latest_minor}}/reactivemongo-akkastream_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.akkastream.package$$cursorFlattener$) must be imported.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -48,7 +48,7 @@ def processPerson1(collection: BSONCollection, query: BSONDocument)(implicit m: 
 
   sourceOfPeople.runWith(Sink.seq[BSONDocument])
 }
-{% endhighlight %}
+```
 
 The operation [`AkkaStreamCursor.documentSource`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.11/{{site._0_12_latest_minor}}/reactivemongo-akkastream_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.akkastream.AkkaStreamCursor@documentSource(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Option[T]])(implicitm:akka.stream.Materializer):akka.stream.scaladsl.Source[T,scala.concurrent.Future[reactivemongo.akkastream.State]]) returns an `Source[T, Future[State]]` (with `Future[State]` representing the completion of the asynchronous materialization). In this case, we get a producer of documents (of type `BSONDocument`).
 
@@ -58,7 +58,7 @@ The line `sourceOfPeople.run(processDocuments)` returns a `Future[Unit]`. It wil
 
 Obviously, we may use a pure `Sink` that performs some computation.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -86,7 +86,7 @@ def processPerson2(sourceOfPeople: Source[BSONDocument, NotUsed])(implicit m: Ma
 
   meanAge
 }
-{% endhighlight %}
+```
 
 The `cumulateAge` sink extracts the age from the each document, and add it the current result. At the same time, it counts the processed documents. When the `cumulated` age is completed, it is divided by the number of documents to get the mean age.
 
@@ -98,7 +98,7 @@ The [Play Iteratees](https://www.playframework.com/documentation/latest/Iteratee
 
 The dependencies can be updated as follows.
 
-{% highlight ocaml %}
+```ocaml
 val reactiveMongoVer = "{{site._0_12_latest_minor}}"
 val playVer = "2.3.10" // or greater
 
@@ -106,7 +106,7 @@ libraryDependencies ++= Seq(
   "org.reactivemongo" %% "rectivemongo" % reactiveMongoVer,
   "org.reactivemongo" %% "reactivemongo-iteratees" % reactiveMongoVer,
   "com.typesafe.play" %% "play-iteratees" % playVer)
-{% endhighlight %}
+```
 
 To use the Iteratees support for the ReactiveMongo cursors, [`reactivemongo.play.iteratees.cursorProducer`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-iteratees_2.11/{{site._0_12_latest_minor}}/reactivemongo-iteratees_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.play.iteratees.package@cursorProducer[T]:reactivemongo.api.CursorProducer[T]{typeProducedCursor=reactivemongo.play.iteratees.PlayIterateesCursor[T]}) must be imported.
 
@@ -115,7 +115,7 @@ Then the corresponding operations are available on the cursors.
 - Get an [`Enumerator`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-iteratees_2.11/{{site._0_12_latest_minor}}/reactivemongo-iteratees_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.play.iteratees.PlayIterateesCursor@enumerator(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Unit])(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[T]) of documents from ReactiveMongo. This is a producer of data.
 - Run an `Iteratee` (that we build for this purpose), which will consume data and eventually produce a result.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -140,7 +140,7 @@ def processPerson3(collection: BSONCollection, query: BSONDocument): Future[Unit
 
   enumeratorOfPeople.run(processDocuments)
 }
-{% endhighlight %}
+```
 
 The operation [`PlayIterateesCursor.enumerator`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-iteratees_2.11/{{site._0_12_latest_minor}}/reactivemongo-iteratees_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.play.iteratees.PlayIterateesCursor@enumerator(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Unit])(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[T]) returns an `Enumerator[T]`. In this case, we get a producer of documents (of type `BSONDocument`).
 
@@ -150,7 +150,7 @@ Here, we build an `Iteratee[BSONDocument, Unit]` that takes `BSONDocument` as an
 
 When this snippet is run, we get the following:
 
-{% highlight javascript %}
+```javascript
 found London: {
   _id: BSONObjectID("4f899e7eaf527324ab25c56b"),
   firstName: BSONString(Jack),
@@ -169,7 +169,7 @@ found Hemingway: {
   lastName: BSONString(Hemingway),
   age: BSONInteger(61)
 }
-{% endhighlight %}
+```
 
 The line `enumeratorOfPeople.run(processDocuments)` returns a `Future[Unit]`. It will eventually return the final value of the Iteratee, which is `Unit` in our case.
 
@@ -177,7 +177,7 @@ The line `enumeratorOfPeople.run(processDocuments)` returns a `Future[Unit]`. It
 
 Obviously, we may use a pure `Iteratee` that performs some computation:
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -202,7 +202,7 @@ def processPerson4(enumeratorOfPeople: Enumerator[BSONDocument]) = {
 
   meanAge
 }
-{% endhighlight %}
+```
 
 At each step, this Iteratee will extract the age from the document and add it to the current result. It also counts the number of documents processed. It eventually produces a tuple of two integers; in our case `(173, 3)`. When the `cumulated` age is completed, we divide it by the number of documents to get the mean age.
 
@@ -212,7 +212,7 @@ At each step, this Iteratee will extract the age from the document and add it to
 
 ReactiveMongo streaming is based on the function [`Cursor.foldWhileM[A]`](../../api/index.html#reactivemongo.api.Cursor@foldWhileM[A](z:=%3EA,maxDocs:Int)(suc:(A,T)=%3Escala.concurrent.Future[reactivemongo.api.Cursor.State[A]],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]), which also allows you to implement a custom stream processor.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -231,7 +231,7 @@ def streaming(c: Cursor[String]): Future[List[String]] =
         case _ => Cursor.Fail(err) // Stop with current failure -> Future.failed
       }
     })
-{% endhighlight %}
+```
 
 At each streaming step, for each new value or error, you choose how you want to proceed, using the cases `Cursor.{ Cont, Done, Fail }`.
 

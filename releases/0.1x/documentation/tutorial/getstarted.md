@@ -12,7 +12,7 @@ First the ReactiveMongo dependencies must be configured. {% include sbt-dependen
 
 Then the following code, from connection to operations on a collection, can be used in your project.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.{ Cursor, DefaultDB, MongoConnection, AsyncDriver }
@@ -67,7 +67,7 @@ object GetStarted {
   // Custom persistent types
   case class Person(firstName: String, lastName: String, age: Int)
 }
-{% endhighlight %}
+```
 
 **Prerequisites:**
 
