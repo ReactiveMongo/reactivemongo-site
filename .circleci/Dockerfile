@@ -1,10 +1,10 @@
 # Build:
 #
-#     docker build --build-arg sbt_version=1.3.13 -t cchantep/circleci-ruby:2.4-node-browsers-sbt-1.3.13 -f circleci.dockerfile .
+#     docker build --build-arg sbt_version=1.3.13 -t cchantep/reactivemongo-site -f circleci.dockerfile .
 
 # Push:
 #
-#     docker push cchantep/circleci-ruby:2.4-node-browsers-sbt-1.3.13
+#     docker push cchantep/reactivemongo-site
 
 FROM circleci/ruby:2.4-node-browsers
 
