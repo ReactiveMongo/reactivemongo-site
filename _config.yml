@@ -9,6 +9,7 @@ exclude: [vendor,target]
 plugins:
   - jekyll-sitemap
   - jekyll-algolia
+  - kramdown-parser-gfm
 
 _0_11_latest_minor: 0.11.14
 _0_12_latest_minor: 0.12.4
@@ -18,7 +19,7 @@ _0_1x_latest_minor: 0.20.11
 _0_1x_scala_major: 2.12
 
 _1_0_latest_major: 1.0
-_1_0_latest_minor: 1.0.0-rc.2
+_1_0_latest_minor: 1.0.0-rc.3
 _1_0_scala_major: 2.13
 
 algolia:
