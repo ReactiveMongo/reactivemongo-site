@@ -32,7 +32,6 @@ The various API of the ReactiveMongo driver itself, and also of the related libr
 - [Play JSON API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo-play-json_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-javadoc.jar/!/index.html)
 - [Play module API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/play2-reactivemongo_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-javadoc.jar/!/index.html)
 - ReactiveMongo [AkkaStream](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo-akkastream_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-javadoc.jar/!/index.html)
-- ReactiveMongo [Iteratees](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-iteratees_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo-iteratees_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-javadoc.jar/!/index.html)
 
 **Recommended configuration:**
 
