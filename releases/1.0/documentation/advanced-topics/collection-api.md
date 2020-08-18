@@ -8,8 +8,6 @@ title: Collection API
 
 The Collection API is designed to be very extensible, allowing the use of third-party libraries to build documents (e.g. use something else than the embedded BSON library).
 
-For example, let consider the case of the [support of Play JSON](https://github.com/reactivemongo/reactivemongo-play-json), which relies on the [Play JSON library](http://www.playframework.com/documentation/latest/ScalaJson) instead of the [BSON library](../bson/overview.html).
-
 *BSON collection:*
 
 {% highlight scala %}
@@ -40,6 +38,8 @@ val query1 =
 // using the implicit (BSON) reader
 val result1: Future[Option[Person]] = collection1.find(query1).one[Person]
 {% endhighlight %}
+
+> Note that the API of features dealing with documents is using `pack.Document` to declare the type of the documents according the serialization pack, by default BSON (so `pack.Document` is resolved as `BSONDocument`).
 
 ### The `Collection` trait
 
