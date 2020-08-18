@@ -26,8 +26,6 @@ Once a reference to GridFS is obtained, it can be used to push a file in a strea
 {% highlight scala %}
 import scala.concurrent.{ ExecutionContext, Future }
 
-import play.api.libs.iteratee.Enumerator
-
 import reactivemongo.api.bson.collection.BSONSerializationPack
 import reactivemongo.api.gridfs.GridFS
 import reactivemongo.api.bson.BSONValue
