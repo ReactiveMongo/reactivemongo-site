@@ -40,6 +40,8 @@ The [MongoDB Aggregation Framework](http://docs.mongodb.org/manual/reference/ope
 - **[`$search`](#search)**: Applies the [Atlas Search](https://docs.atlas.mongodb.com/reference/atlas-search/tutorial/).
 - **[`$slice`](#slice)**: Returns a subset of an array.
 
+*[See custom aggregation stage](./agg-custom-stage.html)*
+
 ### Zip codes
 
 Considering there is a `zipcodes` collection in a MongoDB, with the following documents.
