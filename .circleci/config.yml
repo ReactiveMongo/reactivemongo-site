@@ -154,12 +154,13 @@ jobs:
                     git config --global user.email 'circleci@reactivemongo.org'
                     git config --global user.name 'ReactiveMongo CI'
 
-                    PDF_FILE="reactivemongo-<< parameters.major_version >>_release-details.pdf "
+                    PDF_FILE="reactivemongo-<< parameters.major_version >>_release-details.pdf"
 
                     mv /tmp/slides.pdf "$PDF_FILE"
                     git add "$PDF_FILE"
                     git commit -m "Update $PDF_FILE for $CIRCLE_SHA1"
 
+                    git log -n 1
                     git push
 
 workflows:
