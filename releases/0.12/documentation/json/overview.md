@@ -10,11 +10,11 @@ The [ReactiveMongo Play JSON](https://github.com/reactivemongo/reactivemongo-pla
 
 You can setup this serialization pack by adding the following dependency in your `project/Build.scala` (or `build.sbt`).
 
-{% highlight ocaml %}
+```ocaml
 libraryDependencies ++= Seq(
   "org.reactivemongo" %% "reactivemongo-play-json" % "{{site._0_12_latest_minor}}"
 )
-{% endhighlight %}
+```
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-play-json_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-play-json_2.11/) 
 [![Build Status](https://travis-ci.org/ReactiveMongo/ReactiveMongo-Play-Json.svg?branch=master)](https://travis-ci.org/ReactiveMongo/ReactiveMongo-Play-Json) 
@@ -24,9 +24,9 @@ libraryDependencies ++= Seq(
 
 Then, the following code enables this JSON serialization pack.
 
-{% highlight scala %}
+```scala
 import reactivemongo.play.json._
-{% endhighlight %}
+```
 
 **API documentations:** [ReactiveMongo Play JSON API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.11/{{site._0_12_latest_minor}}/reactivemongo-play-json_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html)
 
@@ -74,7 +74,7 @@ The default JSON serialization can also be customized, using the functions [`BSO
 
 This library provides a specialized collection reference called [`JSONCollection`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.11/{{site._0_12_latest_minor}}/reactivemongo-play-json_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.play.json.collection.JSONCollection) that deals naturally with `JsValue` and `JsObject`. Thanks to it, you can fetch documents from MongoDB in the Play JSON format, transform them by removing and/or adding some properties, and send them to the client.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 import play.api.libs.json._
 import reactivemongo.api.ReadPreference
@@ -83,7 +83,7 @@ import reactivemongo.play.json._, collection._
 def jsonFind(coll: JSONCollection)(implicit ec: ExecutionContext): Future[List[JsObject]] =
   coll.find(Json.obj()).sort(Json.obj("updated" -> -1)).
     cursor[JsObject](ReadPreference.primary).collect[List]()
-{% endhighlight %}
+```
 
 Even better, when a client sends a JSON document, you can validate it and transform it before saving it into a MongoDB collection (coast-to-coast approach).
 
@@ -91,7 +91,7 @@ Even better, when a client sends a JSON document, you can validate it and transf
 
 The support of Play JSON for ReactiveMongo provides some extensions of the result cursors, as `.jsArray()` to read underlying data as a JSON array.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 
 import play.api.libs.json._
@@ -108,7 +108,7 @@ def jsAll(collection: JSONCollection): Future[JsArray] = {
 
   collection.find(Json.obj()).cursor[ResultType](ReadPreference.primary).jsArray()
 }
-{% endhighlight %}
+```
 
 In the previous example, the function `jsAll` will return a JSON array containing all the documents of the given collection (as JSON objects).
 
@@ -116,7 +116,7 @@ In the previous example, the function `jsAll` will return a JSON array containin
 
 There are some helpers coming along with the JSON support.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -127,7 +127,7 @@ import reactivemongo.play.json.collection._
 def importJson(collection: JSONCollection, resource: String): Future[Int] =
   Helpers.bulkInsert(collection, getClass.getResourceAsStream(resource)).
     map(_.totalN)
-{% endhighlight %}
+```
 
 As illustrated by the previous example, the function `Helpers.bulkInsert` provides a JSON import feature.
 
@@ -135,7 +135,7 @@ As illustrated by the previous example, the function `Helpers.bulkInsert` provid
 
 The [command API](../advanced-topics/commands.html) can be used with the JSON serialization to execution a JSON object as a raw command.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import play.api.libs.json.{ JsObject, Json }
@@ -159,7 +159,7 @@ def rawResult(db: reactivemongo.api.DefaultDB)(implicit ec: ExecutionContext): F
 
   runner.apply(db, runner.rawCommand(commandDoc)).one[JsObject]
 }
-{% endhighlight %}
+```
 
 ## Troubleshooting
 
@@ -170,9 +170,9 @@ If the following error is raised;
 
 It's necessary to make sure the right imports are there.
 
-{% highlight scala %}
+```scala
 import reactivemongo.play.json._
 // import the default BSON/JSON conversions
-{% endhighlight %}
+```
 
 [Next: Integration with Play Framework](../tutorial/play.html)

@@ -20,9 +20,9 @@ Then the connection URI is displayed, and can be copied with user/password place
 
 <img src="../images/mongodb-atlas3.png" alt="MongoDB Atlas Connection URI" class="screenshot" />
 
-{% highlight javascript %}
+```javascript
 mongodb.uri = "mongodb+srv://${ATLAS_USERNAME}:${ATLAS_PASSWORD}@cluster0-p8ccg.mongodb.net/test?retryWrites=true&w=majority"
-{% endhighlight %}
+```
 
 > *Note:* The URI is [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) format, supported by ReactiveMongo. The options are resolved from there.
 

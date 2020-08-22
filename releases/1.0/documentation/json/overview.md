@@ -10,11 +10,11 @@ The [ReactiveMongo Play JSON](https://github.com/reactivemongo/reactivemongo-pla
 
 You can setup the Play JSON compatibility for ReactiveMongo by adding the following dependency in your `project/Build.scala` (or `build.sbt`).
 
-{% highlight ocaml %}
+```ocaml
 libraryDependencies ++= Seq(
   "org.reactivemongo" %% "reactivemongo-play-json-compat" % "{{site._1_0_latest_minor}}-play27" // For Play 2.7.x (ajust accordingly)
 )
-{% endhighlight %}
+```
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-play-json_{{site._1_0_scala_major}}/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-play-json_{{site._1_0_scala_major}}/) 
 [![Build Status](https://travis-ci.org/ReactiveMongo/ReactiveMongo-Play-Json.svg?branch=master)](https://travis-ci.org/ReactiveMongo/ReactiveMongo-Play-Json) 
@@ -24,20 +24,20 @@ libraryDependencies ++= Seq(
 
 The following import enables the compatibility.
 
-{% highlight scala %}
+```scala
 import reactivemongo.play.json.compat._
-{% endhighlight %}
+```
 
 Then JSON values can be converted to BSON, and it's possible to convert BSON values to JSON.
 
-{% highlight scala %}
+```scala
 import play.api.libs.json.JsValue
 import reactivemongo.api.bson.BSONValue
 
 import reactivemongo.play.json.compat._
 
 def foo(v: BSONValue): JsValue = v // ValueConverters.fromValue
-{% endhighlight %}
+```
 
 **API documentations:** [ReactiveMongo Play JSON API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}-play27/reactivemongo-play-json_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-play27-javadoc.jar/!/index.html)
 
@@ -79,7 +79,7 @@ Conversions are provided between JSON and BSON handlers.
 
 Considering the following `User` class:
 
-{% highlight scala %}
+```scala
 package object jsonsamples1 {
   import reactivemongo.api.bson._
 
@@ -97,17 +97,17 @@ package object jsonsamples1 {
     implicit val bsonReader: BSONDocumentReader[User] = Macros.reader[User]
   }
 }
-{% endhighlight %}
+```
 
 The main import to use the handler conversions is:
 
-{% highlight scala %}
+```scala
 import reactivemongo.play.json.compat._
-{% endhighlight %}
+```
 
 Then specific imports are available to enable conversions, according the use cases.
 
-{% highlight scala %}
+```scala
 import reactivemongo.play.json.compat._
 
 // Conversions from BSON to JSON extended syntax
@@ -118,13 +118,13 @@ import lax._
 
 // Conversions from JSON to BSON
 import json2bson._
-{% endhighlight %}
+```
 
 **Convert BSON to JSON extended syntax:**
 
 *Scala:*
 
-{% highlight scala %}
+```scala
 import _root_.play.api.libs.json._
 
 import _root_.reactivemongo.api.bson._
@@ -155,11 +155,11 @@ userJs.validate[User](jsonReader)
 val jsonWriter: OWrites[User] = implicitly[OWrites[User]]
 
 jsonWriter.writes(user1) // => userJs
-{% endhighlight %}
+```
 
 *JSON output:* (`userJs`)
 
-{% highlight javascript %}
+```javascript
 {
   "_id": {"$$oid":"..."},
   "username": "lorem",
@@ -174,13 +174,13 @@ jsonWriter.writes(user1) // => userJs
     "$$symbol":"foo"
   }
 }
-{% endhighlight %}
+```
 
 **Convert BSON to JSON lax syntax:**
 
 *Scala:*
 
-{% highlight scala %}
+```scala
 import _root_.play.api.libs.json._
 
 import _root_.reactivemongo.api.bson._
@@ -220,11 +220,11 @@ val laxJsonReader = implicitly[Reads[User]] // resolved from laxBsonReader
 
 laxUserJs.validate[User](laxJsonReader)
 // => JsSuccess(user2)
-{% endhighlight %}
+```
 
 *JSON output:* (`userLaxJs`)
 
-{% highlight javascript %}
+```javascript
 {
   "_id": "...",
   "username": "lorem",
@@ -233,23 +233,23 @@ laxUserJs.validate[User](laxJsonReader)
   "lastModified": 123456789,
   "sym": "foo"
 }
-{% endhighlight %}
+```
 
 **Convert JSON to BSON:**
 
 Considering the `Street` class:
 
-{% highlight scala %}
+```scala
 package object jsonsamples2 {
  case class Street(
    number: Option[Int],
    name: String)
 }
-{% endhighlight %}
+```
 
 The BSON representation can be derived from the JSON as below.
 
-{% highlight scala %}
+```scala
 import _root_.play.api.libs.json._
 import _root_.reactivemongo.api.bson._
 
@@ -284,7 +284,7 @@ val bsonStreetReader = implicitly[BSONDocumentReader[Street]]
 
 bsonStreetReader.readTry(doc)
 // Success: street
-{% endhighlight %}
+```
 
 **Value converters:**
 
@@ -296,13 +296,13 @@ A document is represented by `JsObject`, which is basically an immutable list of
 
 **Missing `json2bson`:** If any of the following errors, then add the imports as below.
 
-{% highlight scala %}
+```scala
 import reactivemongo.play.json.compat.json2bson._
-{% endhighlight %}
+```
 
 *Errors:*
 
-{% highlight text %}
+```text
 Implicit not found for '..': reactivemongo.api.bson.BSONReader[play.api.libs.json.JsObject]
 
 Implicit not found for '..': reactivemongo.api.bson.BSONReader[play.api.libs.json.JsValue]
@@ -310,29 +310,29 @@ Implicit not found for '..': reactivemongo.api.bson.BSONReader[play.api.libs.jso
 Implicit not found for '..': reactivemongo.api.bson.BSONWriter[play.api.libs.json.JsValue]
 
 could not find implicit value for parameter writer: reactivemongo.api.bson.BSONDocumentWriter[AnyTypeProvideWithOWrites]
-{% endhighlight %}
+```
 
 **Missing `JsObject` writer:**
 
-{% highlight text %}
+```text
 could not find implicit value for parameter e: reactivemongo.api.bson.BSONDocumentWriter[play.api.libs.json.JsObject]
-{% endhighlight %}
+```
 
-{% highlight scala %}
+```scala
 import reactivemongo.play.json.compat.jsObjectWrites
-{% endhighlight %}
+```
 
 **Lax:**
 
-{% highlight scala %}
+```scala
 import reactivemongo.play.json.compat._,
   json2bson._, lax._
-{% endhighlight %}
+```
 
 *Errors:*
 
-{% highlight text %}
+```text
 JsError(List((,List(JsonValidationError(List(Fails to handle _id: BSONString != BSONObjectID),WrappedArray())))))
-{% endhighlight %}
+```
 
 [Next: Integration with Play Framework](../tutorial/play.html)

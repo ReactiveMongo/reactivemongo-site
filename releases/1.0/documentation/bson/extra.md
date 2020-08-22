@@ -14,13 +14,13 @@ A new [GeoJSON](https://docs.mongodb.com/manual/reference/geojson/) library is p
 
 It can be configured in the `build.sbt` as below.
 
-{% highlight ocaml %}
+```ocaml
 libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-geo" % "{{site._1_0_latest_minor}}"
-{% endhighlight %}
+```
 
 Then the GeoJSON types can be imported and used:
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson._
 
 // { type: "Point", coordinates: [ 40, 5 ] }
@@ -30,7 +30,7 @@ val geoPoint = GeoPoint(40, 5)
 val geoLineString = GeoLineString(
   GeoPosition(40D, 5D, None),
   GeoPosition(41D, 6D))
-{% endhighlight %}
+```
 
 > More [GeoJSON examples](https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/geo/src/test/scala/GeometrySpec.scala)
 
@@ -56,13 +56,13 @@ The library that provides [Monocle](http://julien-truffaut.github.io/Monocle/) b
 
 It can be configured in the `build.sbt` as below.
 
-{% highlight ocaml %}
+```ocaml
 libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-monocle" % "{{site._1_0_latest_minor}}"
-{% endhighlight %}
+```
 
 Then the utilities can be imported and used:
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson._
 
 import reactivemongo.api.bson.monocle._ // new library
@@ -86,7 +86,7 @@ val lens2 = field[BSONDocument]("bar").
 
 val updDoc2 = lens2.set(1.23D)(topDoc)
 // --> { ..., "bar": { "lorem": 1.23, ... } }
-{% endhighlight %}
+```
 
 > More [monocle examples](https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/monocle/src/test/scala/MonocleSpec.scala)
 
@@ -98,11 +98,11 @@ The Specs2 library provides utilities to write tests using [specs2](https://etor
 
 It can be configured in the `build.sbt` as below.
 
-{% highlight ocaml %}
+```ocaml
 libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-specs2" % "{{site._1_0_latest_minor}}"
-{% endhighlight %}
+```
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.BSONDocument
 import reactivemongo.api.bson.specs2._
 
@@ -117,7 +117,7 @@ final class MySpec extends org.specs2.mutable.Specification {
     }
   }
 }
-{% endhighlight %}
+```
 
 > More [specs2 examples](specs2/src/test/scala/DiffableSpec.scala)
 

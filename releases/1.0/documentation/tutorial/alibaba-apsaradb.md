@@ -44,10 +44,10 @@ After the service is fully configured, the Connection String URI is visible.
 
 Finally for ReactiveMongo connection, the `replicaSet` option can be removed from the URI, and the password placeholder must be replaced with the actual value.
                                     
-{% highlight javascript %}
+```javascript
 # Must be updated according the service configuration
 
 mongodb.uri = "mongodb://root:${APSARADB_PASSWORD}@dds-4e6322c0290348c49176-pub.mongodb.germany.rds.aliyuncs.com:3717,dds-5e2a468b7a9a46b1ab06-pub.mongodb.germany.rds.aliyuncs.com:3717/${APSARADB_DBNAME}"
-{% endhighlight %}
+```
 
 *[See the documentation](./connect-database.html)*

@@ -12,7 +12,7 @@ The [MongoDB Aggregation Framework](http://docs.mongodb.org/manual/reference/ope
 
 Considering there is a `zipcodes` collection in a MongoDB, with the following documents.
 
-{% highlight javascript %}
+```javascript
 [
   { '_id': "10280", 'city': "NEW YORK", 'state': "NY",
     'population': 19746227, 'location': {'lon':-74.016323, 'lat':40.710537} },
@@ -23,7 +23,7 @@ Considering there is a `zipcodes` collection in a MongoDB, with the following do
   { '_id': "AO", 'city': "AOGASHIMA", 'state': "JP",
     'population': 200, 'location': {'lon':32.457, 'lat':139.767} }
 ]
-{% endhighlight %}
+```
 
 **States with population above 10000000**
 
@@ -31,16 +31,16 @@ It's possible to determine the states for which the sum of the population of the
 
 In the MongoDB shell, such aggregation is written as bellow (see the [example](http://docs.mongodb.org/manual/tutorial/aggregation-zip-code-data-set/#return-states-with-populations-above-10-million)).
 
-{% highlight javascript %}
+```javascript
 db.zipcodes.aggregate([
    { $group: { _id: "$state", totalPop: { $sum: "$pop" } } },
    { $match: { totalPop: { $gte: 10000000 } } }
 ])
-{% endhighlight %}
+```
 
 With ReactiveMongo, it can be done as using the [`.aggregate` operation](../../api/index.html#reactivemongo.api.collections.GenericCollection@aggregate%28firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,cursor:Option[GenericCollection.this.BatchCommands.AggregationFramework.Cursor]%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[GenericCollection.this.BatchCommands.AggregationFramework.AggregationResult]).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -58,25 +58,25 @@ def populatedStates(col: BSONCollection): Future[List[BSONDocument]] = {
 
   res.map(_.documents)
 }
-{% endhighlight %}
+```
 
 > The local `import col.BatchCommands.AggregationFramework._` is required, and cannot be replaced by a global static `import reactivemongo.api.collections.BSONCollection.BatchCommands.AggregationFramework._`.
 > The type `.BatchCommands.AggregationFramework.AggregationResult` is a [dependent one](https://en.wikipedia.org/wiki/Dependent_type), used for the intermediary/MongoDB result, and must not be exposed as public return type in your application/API.
 
 Then when calling `populatedStates(theZipCodeCol)`, the asynchronous result will be as bellow.
 
-{% highlight javascript %}
+```javascript
 [
   { "_id" -> "JP", "totalPop" -> 13185702 },
   { "_id" -> "NY", "totalPop" -> 19746227 }
 ]
-{% endhighlight %}
+```
 
 > Note that for the state "JP", the population of Aogashima (200) and of Tokyo (13185502) have been summed.
 
 As for the other commands in ReactiveMongo, it's possible to return the aggregation result as custom types (see [BSON readers](../bson/typeclasses.html)), rather than generic documents, for example considering a class `State` as bellow.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -91,7 +91,7 @@ def aggregate(col: BSONCollection): Future[col.BatchCommands.AggregationFramewor
 
 def states(col: BSONCollection): Future[List[State]] =
   aggregate(col).map(_.result[State])
-{% endhighlight %}
+```
 
 **Average city population by state**
 
@@ -99,19 +99,19 @@ The Aggregation Framework can be used to find [the average population of the cit
 
 In the MongoDB shell, it can be done as following.
 
-{% highlight javascript %}
+```javascript
 db.zipcodes.aggregate([
    { $group: { _id: { state: "$state", city: "$city" }, pop: { $sum: "$pop" } } },
    { $group: { _id: "$_id.state", avgCityPop: { $avg: "$pop" } } }
 ])
-{% endhighlight %}
+```
 
 1. Group the documents by the combination of city and state, to get intermediate documents of the form `{ "_id" : { "state" : "NY", "city" : "NEW YORK" }, "pop" : 19746227 }`.
 2. Group the intermediate documents by the `_id.state` field (i.e. the state field inside the `_id` document), and get the average of population of each group (`$avg: "$pop"`).
 
 Using ReactiveMongo, it can be written as bellow.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -128,13 +128,13 @@ def avgPopByState(col: BSONCollection): Future[List[BSONDocument]] = {
     List(Group(BSONString("$_id.state"))("avgCityPop" -> Avg("pop")))).
     map(_.documents)
 }
-{% endhighlight %}
+```
 
 **Largest and smallest cities by state**
 
 Aggregating the documents can be used to find the [largest and the smallest cities for each state](http://docs.mongodb.org/manual/tutorial/aggregation-zip-code-data-set/#return-largest-and-smallest-cities-by-state):
 
-{% highlight javascript %}
+```javascript
 db.zipcodes.aggregate([
    { $group:
       {
@@ -164,11 +164,11 @@ db.zipcodes.aggregate([
     }
   }
 ])
-{% endhighlight %}
+```
 
 A ReactiveMongo function can be written as bellow.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -198,11 +198,11 @@ def stateStats(col: BSONCollection): Future[List[StateStats]] = {
           "population" -> "$smallestPop"))))).
   map(_.result[StateStats])
 }
-{% endhighlight %}
+```
 
 This function would return statistics like the following.
 
-{% highlight scala %}
+```scala
 List(
   StateStats(state = "NY",
     biggestCity = City(name = "NEW YORK", population = 19746227L),
@@ -213,6 +213,6 @@ List(
   StateStats(state = "JP",
     biggestCity = City(name = "TOKYO", population = 13185502L),
     smallestCity = City(name = "AOGASHIMA", population = 200L)))
-{% endhighlight %}
+```
 
 The operators available to define an aggregation pipeline are documented in the [API reference](../../api/index.html#reactivemongo.api.commands.AggregationFramework).

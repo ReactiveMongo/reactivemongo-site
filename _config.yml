@@ -1,10 +1,13 @@
 highlighter: true
-name: "ReactiveMongo"
-description: "The reactive Scala driver for MongoDB"
+name: 'ReactiveMongo'
+description: 'The reactive Scala driver for MongoDB'
 url: http://reactivemongo.org/
 markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 latest_major_release: 0.1x
-latest_release: 0.20.11
+latest_release: 0.20.12-fix2
 exclude: [vendor,target]
 plugins:
   - jekyll-sitemap

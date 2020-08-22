@@ -12,7 +12,7 @@ title: Handle BigDecimal and BigInteger with the BSON Library
 
 #### Naive implementation using doubles
 
-{% highlight scala %}
+```scala
 import scala.util.{ Failure, Success }
 import reactivemongo.api.bson.{ BSONDouble, BSONHandler, BSONValue }
 
@@ -29,11 +29,11 @@ object BigDecimalBSONNaive {
   }
 }
 
-{% endhighlight %}
+```
 
 ##### Example of Usage
 
-{% highlight scala %}
+```scala
 import scala.util.Success
 
 import reactivemongo.api.bson.{
@@ -56,11 +56,11 @@ implicit object SomeClassHandler extends BSONDocumentReader[SomeClass] with BSON
 val sc1 = SomeClass(BigDecimal(1786381))
 val bsonSc1 = BSON.writeDocument(sc1)
 val sc1FromBSON = bsonSc1.flatMap { b => BSON.readDocument[SomeClass](b) }
-{% endhighlight %}
+```
 
 #### Exact BigDecimal de/serialization
 
-{% highlight scala %}
+```scala
 import scala.util.Success
 
 import reactivemongo.api.bson.{
@@ -81,11 +81,11 @@ object BSONBigDecimalBigInteger {
     } yield BigDecimal(v, s, p)
   }
 }
-{% endhighlight %}
+```
 
 ##### Example of usage
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.BSON
 
 val bigDecimal = BigDecimal(1908713, 12)
@@ -95,11 +95,11 @@ val bsonBigDecimal = BSON.writeDocument(someClassValue)
 
 val someClassValueFromBSON =
   bsonBigDecimal.flatMap { BSON.readDocument[SomeClass](_) }
-{% endhighlight %}
+```
 
 ### BigInteger
 
-{% highlight scala %}
+```scala
 import scala.util.Success
 
 import reactivemongo.api.bson.{
@@ -118,4 +118,4 @@ implicit object BigIntHandler
     bin <- doc.getAsTry[BSONBinary]("value")
   } yield BigInt(sig, bin.byteArray)
 }
-{% endhighlight %}
+```

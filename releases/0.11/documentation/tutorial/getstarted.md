@@ -8,7 +8,7 @@ title: Get started
 
 Here is a complete example, from connection to operations on a collection.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.{ DefaultDB, MongoConnection, MongoDriver }
@@ -62,7 +62,7 @@ object GetStarted {
   // Custom persistent types
   case class Person(firstName: String, lastName: String, age: Int)
 }
-{% endhighlight %}
+```
 
 **Go further:**
 

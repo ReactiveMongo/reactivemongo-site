@@ -1,0 +1,15 @@
+.git
+
+project
+releases
+target
+node_modules
+
+*.md
+*.txt
+_config.yml
+_includes
+_layouts
+css
+images
+javascripts

@@ -12,7 +12,7 @@ title: Handle BigDecimal and BigInteger with the BSON Library
 
 #### Naive implementation using doubles
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson.{ BSONDouble, BSONHandler }
 
 // BigDecimal to BSONDouble Example
@@ -24,11 +24,11 @@ object BigDecimalBSONNaive {
   }
 }
 
-{% endhighlight %}
+```
 
 ##### Example of Usage
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson.{
   BSON, BSONDocument, BSONDocumentReader, BSONDocumentWriter, Macros
 }
@@ -47,11 +47,11 @@ implicit object SomeClassHandler extends BSONDocumentReader[SomeClass] with BSON
 val sc1 = SomeClass(BigDecimal(1786381))
 val bsonSc1 = BSON.write(sc1)
 val sc1FromBSON = BSON.readDocument[SomeClass](bsonSc1)
-{% endhighlight %}
+```
 
 #### Exact BigDecimal de/serialization
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson.{
   BSONDocument, BSONDocumentReader, BSONDocumentWriter
 }
@@ -68,11 +68,11 @@ object BSONBigDecimalBigInteger {
       new java.math.MathContext(doc.getAs[Int]("precision").get))
   }
 }
-{% endhighlight %}
+```
 
 ##### Example of usage
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson.{ BSON, BSONHandler, BSONValue, Macros }
 
 val bigDecimal = BigDecimal(1908713, 12)
@@ -84,11 +84,11 @@ implicit val someClassHandler = Macros.handler[SomeClass]
 val someClassValue = SomeClass(BigDecimal(1908713, 12))
 val bsonBigDecimal = BSON.writeDocument(someClassValue)
 val someClassValueFromBSON = BSON.readDocument[SomeClass](bsonBigDecimal)
-{% endhighlight %}
+```
 
 ### BigInteger
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson.{
   BSONBinary, BSONDocument, BSONDocumentReader, BSONDocumentWriter, Subtype
 }
@@ -106,4 +106,4 @@ implicit object BigIntHandler
       buf.readArray(buf.readable)
     })
 }
-{% endhighlight %}
+```

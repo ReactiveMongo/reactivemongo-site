@@ -8,18 +8,18 @@ title: Connect to the database
 
 The first thing you need, is to create a new [`AsyncDriver`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/AsyncDriver.html) instance.
 
-{% highlight scala %}
+```scala
 val driver1 = new reactivemongo.api.AsyncDriver
-{% endhighlight %}
+```
 
 Then you can [connect](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/AsyncDriver.html#connect(uriStrict:String):scala.concurrent.Future[reactivemongo.api.MongoConnection]) to a MongoDB server.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import reactivemongo.api.MongoConnection
 
 val connection3: Future[MongoConnection] = driver1.connect(List("localhost"))
-{% endhighlight %}
+```
 
 A `AsyncDriver` instance manages the shared resources (e.g. the [actor system](http://akka.io) for the asynchronous processing); A connection manages a pool of network channels.
 In general, a `AsyncDriver` or a [`MongoConnection`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/MongoConnection.html) should not be instantiated more than once.
@@ -30,12 +30,12 @@ You can provide a list of one or more servers, the driver will guess if it's a s
 
 Some options can be provided while creating a connection.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.MongoConnectionOptions
 
 val conOpts = MongoConnectionOptions(/* connection options */)
 val connection4 = driver1.connect(List("localhost"), options = conOpts)
-{% endhighlight %}
+```
 
 The following options can be used with `MongoConnectionOptions` to configure the connection behaviour.
 
@@ -71,7 +71,7 @@ The option `ssl` is needed if the MongoDB server is requiring SSL (`mongod --ssl
 - **`rm.keepAlive`**: TCP KeepAlive boolean flag (`true|false`).
 - **`rm.nbChannelsPerNode`**: The number of user channels (connections) per node (default: 10). Note that an extra signaling channel is always created, to manage the pool state.
 - **`rm.maxInFlightRequestsPerChannel`** (EXPERIMENTAL): The maximum number of in flight/concurrent requests per user channel (default: 200).
-- [**`heartbeatFrequencyMS`**](https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-discovery-and-monitoring.rst#heartbeatfrequencyms) (formerly `rm.monitorRefreshMS`): The interval (in milliseconds) used by the ReactiveMongo monitor to refresh the node set (default: 10s); The minimal value is 100ms.
+- [**`heartbeatFrequencyMS`**](https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-discovery-and-monitoring.rst#heartbeatfrequencyms) (formerly `rm.monitorRefreshMS`): The interval (in milliseconds) used by the ReactiveMongo to refresh the node set (default: 10s); The minimal value is 100ms.
 - **`rm.failover`**: The default [failover strategy](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/FailoverStrategy.html).
   - `default`: The default/minimal strategy, with 10 retries with an initial delay of 100ms and a delay factor of `retry count * 1.25` (100ms .. 125ms, 250ms, 375ms, 500ms, 625ms, 750ms, 875ms, 1s, 1125ms, 1250ms).
   - `remote`: The strategy for remote MongoDB node(s); Same as default but with 16 retries.
@@ -103,9 +103,9 @@ The option `ssl` is needed if the MongoDB server is requiring SSL (`mongod --ssl
 
 If the connection pool is defined by an URI, then the options can be given after the `?` separator:
 
-{% highlight javascript %}
+```javascript
 mongodb.uri = "mongodb://user:pass@host1:27017,host2:27018,host3:27019/mydatabase?authenticationMechanism=scram-sha1&rm.tcpNoDelay=true"
-{% endhighlight %}
+```
 
 [See: Connect using MongoDB URI](#connect-using-mongodb-uri)
 
@@ -120,10 +120,10 @@ ReactiveMongo provides support for replica sets as follows.
 
 Connecting to a replica set is pretty much the same as connecting to a unique server. You may have notice that the connection argument is a `List[String]`, so more than one node can be specified.
 
-{% highlight scala %}
+```scala
 val servers6 = List("server1:27017", "server2:27017", "server3:27017")
 val connection6 = driver1.connect(servers6)
-{% endhighlight %}
+```
 
 There is no obligation to give all the nodes in the replica set. Actually, just one of them is required.
 ReactiveMongo will ask the nodes it can reach for the addresses of the other nodes in the replica set. Obviously it is better to give at least 2 or more nodes, in case of unavailability of one node at the start of the application.
@@ -134,13 +134,13 @@ In some (rare) cases it is perfectly viable to create as many [`MongoConnection`
 
 In that case, you will get different connection pools. This is useful when your application has to connect to two or more independent MongoDB nodes (i.e. that do not belong to the same replica set), or different replica sets.
 
-{% highlight scala %}
+```scala
 val serversReplicaSet1 = List("rs11", "rs12", "rs13")
 val connectionReplicaSet1 = driver1.connect(serversReplicaSet1)
 
 val serversReplicaSet2 = List("rs21", "rs22", "rs23")
 val connectionReplicaSet2 = driver1.connect(serversReplicaSet2)
-{% endhighlight %}
+```
 
 ### Handling Authentication
 
@@ -148,7 +148,7 @@ There are two ways to give ReactiveMongo your credentials.
 
 It can be done using [`driver.connect`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/AsyncDriver.html#connect(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions):scala.concurrent.Future[reactivemongo.api.MongoConnection]).
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.MongoConnectionOptions
 
 def servers7: List[String] = List("server1", "server2")
@@ -161,13 +161,13 @@ val connection7 = driver1.connect(
   options = MongoConnectionOptions(
     credentials = Map(dbName -> MongoConnectionOptions.
       Credential(userName, Some(password)))))
-{% endhighlight %}
+```
 
 Using this `connection` function [with an URI](#connect-using-mongodb-uri) allows to indicates the credentials in this URI.
 
 There is also a [`authenticate`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/DB.html#authenticate(user:String,password:String)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.SuccessfulAuthentication]) function for the database references.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future },
   ExecutionContext.Implicits.global
 
@@ -183,7 +183,7 @@ def authenticateDB(con: MongoConnection): Future[Unit] = {
     // doSomething
   }
 }
-{% endhighlight %}
+```
 
 Like any other operation in ReactiveMongo, authentication is done asynchronously.
 
@@ -195,7 +195,7 @@ You can also give the connection information as a [URI](http://docs.mongodb.org/
 
 If credentials and the database name are included in the URI, ReactiveMongo will authenticate the connections on that database.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 import reactivemongo.api.{ AsyncDriver, MongoConnection }
@@ -208,11 +208,11 @@ def connection7(driver: AsyncDriver): Future[MongoConnection] = for {
   parsedUri <- MongoConnection.fromString(uri)
   con <- driver.connect(parsedUri)
 } yield con
-{% endhighlight %}
+```
 
 The following example is using a connection to asynchronously resolve a database.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 import reactivemongo.api.{ AsyncDriver, MongoConnection }
@@ -233,16 +233,16 @@ database.onComplete {
     println(s"DB resolution: $resolution")
     driver.close()
 }
-{% endhighlight %}
+```
 
 Note that [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) is supported, using `mongodb+srv://` scheme in the connection URI.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api._
 
 def seedListCon(driver: AsyncDriver) =
   driver.connect("mongodb+srv://usr:pass@mymongo.mydomain.tld/mydb")
-{% endhighlight %}
+```
 
 *See:*
 
@@ -257,13 +257,13 @@ ReactiveMongo is internally using (as a shaded dependency) [Netty 4.1.x](http://
 
 It makes possible to use the native optimization of Netty. To do so, the `reactivemongo-shaded-native` must be added as runtime dependency, with the appropriate version.
 
-{% highlight ocaml %}
+```ocaml
 // For Mac OS X (x86-64), kqueue native support
 libraryDependencies += "org.reactivemongo" % "reactivemongo-shaded-native" % "{{page.major_version}}-osx-x86-64" % "runtime"
 
 // For Linux (x86-64), kqueue native support
 libraryDependencies += "org.reactivemongo" % "reactivemongo-shaded-native" % "{{page.major_version}}-linux-x86-64" % "runtime"
-{% endhighlight %}
+```
 
 In order to make sure such optimization is loaded, you can enable the `INFO` level for the logger `reactivemongo.core.netty.Pack` (e.g. in your logback configuration), then check for a log entry containing "NettyPack".
 
@@ -331,7 +331,7 @@ Connect without any non mandatory options (e.g. `connectTimeoutMS`), using the [
 
 Using the following code, make sure there is no authentication issue.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api._
@@ -353,7 +353,7 @@ def troubleshootAuth() = {
 troubleshootAuth()
 
 // Would display something like `Auth: Failure(...)` in case of failure
-{% endhighlight %}
+```
 
 *Connecting to a [MongoDB ReplicaSet](https://docs.mongodb.com/manual/replication/), is status ok?*
 
@@ -363,7 +363,8 @@ troubleshootAuth()
 
 With the [ReactiveMongo logging](./setup.html#logging) enabled, more details can be found (see a trace example thereafter).
 
-{% highlight text %}{% raw %}
+{% raw %}
+```
 reactivemongo.core.actors.Exceptions$InternalState: null (<time:1469208071685>:-1)
 reactivemongo.ChannelClosed(-2079537712, {{NodeSet None Node[localhost:27017: Primary (0/0 available connections), latency=5], auth=Set() }})(<time:1469208071685>)
 reactivemongo.Shutdown(<time:1469208071673>)
@@ -379,7 +380,8 @@ reactivemongo.ChannelDisconnected(-228911231, {{NodeSet None Node[localhost:2701
 reactivemongo.ChannelClosed(-562085577, {{NodeSet None Node[localhost:27017: Primary (5/6 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
 reactivemongo.ChannelDisconnected(-562085577, {{NodeSet None Node[localhost:27017: Primary (6/6 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
 reactivemongo.ChannelClosed(-857553810, {{NodeSet None Node[localhost:27017: Primary (6/7 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
-{% endraw %}{% endhighlight %}
+```
+{% endraw %}
 
 The [JMX module](../release-details.html#monitoring) can be used to check how the node set is seen by the driver.
 

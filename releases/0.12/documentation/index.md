@@ -10,10 +10,10 @@ You can read the [release notes](release-details.html) to know what is new with 
 
 The core dependency can be added in your SBT project as following.
 
-{% highlight ocaml %}
+```ocaml
 libraryDependencies ++= Seq(
   "org.reactivemongo" %% "reactivemongo" % "{{site._0_12_latest_minor}}"
-{% endhighlight %}
+```
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.12/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo_2.12/)
 [![Test coverage](https://img.shields.io/badge/coverage-60%25-yellowgreen.svg)](http://reactivemongo.github.io/ReactiveMongo/coverage/{{site._0_12_latest_minor}}/)

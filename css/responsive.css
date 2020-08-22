@@ -65,8 +65,9 @@ h2 {
 h3 {
   font-size: 16px;
 }
+h5 { font-size: 10pt }
 
-h2, h3, p, .highlight {
+h2, h3, h4, h5, p, .highlight {
   padding: 0 5px;
 }
 
@@ -76,7 +77,8 @@ h2, h3, p, .highlight {
 
 #main > .highlight + ul,
 #main > * + h3,
-#main > * + h4 {
+#main > * + h4,
+#main > * + h5 {
   margin-top: 1em;
 }
 

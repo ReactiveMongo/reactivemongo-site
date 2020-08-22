@@ -70,13 +70,13 @@ The new version fix this assumption with an asynchronous/reactive resolution of 
 
 The new resolution returns a [`Future[DefaultDB]`](../api/index.html#reactivemongo.api.DefaultDB), and should be used instead of the former `connection(..)` (or its alias `connection.db(..)`).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.{ DefaultDB, MongoConnection }
 
 def newResolution(con: MongoConnection, name: String)(implicit ec: ExecutionContext): Future[DefaultDB] = con.database(name)
-{% endhighlight %}
+```
 
 Similarly the function `.db` of the [Play module](./tutorial/play.html) must be replaced by its `.database` equivalent.
 
@@ -88,7 +88,7 @@ Consequently to this change, a runtime error such as `ConnectionNotInitialized` 
 
 Some default [read preference](https://docs.mongodb.org/manual/core/read-preference/) and default [write concern](https://docs.mongodb.org/manual/reference/write-concern/) can be set in the [connection configuration](tutorial/connect-database.html).
 
-{% highlight scala %}
+```scala
 import reactivemongo.api._, commands.WriteConcern
 
 def connection(driver: MongoDriver) =
@@ -96,34 +96,34 @@ def connection(driver: MongoDriver) =
     readPreference = ReadPreference.primary,
     writeConcern = WriteConcern.Default // Acknowledged
   ))
-{% endhighlight %}
+```
 
 The authentication algorithm is now [SCRAM SHA1](https://docs.mongodb.org/manual/core/security-scram-sha-1/) by default. To change it (e.g. for MongoDB 2.6.x), see the [connection options](./tutorial/connect-database.html#connection-options).
 
 The default [failover strategy](../api/index.html#reactivemongo.api.FailoverStrategy) can also be defined in the [connection options](tutorial/connect-database.html).
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.{ FailoverStrategy, MongoConnectionOptions }
 
 val options1 = MongoConnectionOptions(
   failoverStrategy = FailoverStrategy(retries = 10))
-{% endhighlight %}
+```
 
 The option [`maxIdleTimeMS`](https://docs.mongodb.org/manual/reference/connection-string/#urioption.maxIdleTimeMS) is now supported, with a default value 0 (no timeout).
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.MongoConnectionOptions
 
 val options2 = MongoConnectionOptions(maxIdleTimeMS = 2000 /* 2s */)
-{% endhighlight %}
+```
 
 The frequency at which the ReactiveMongo monitor refreshes the information about the MongoDB nodes can be configured in the [connection options](tutorial/connect-database.html). The default interval is 10 seconds.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.MongoConnectionOptions
 
 val options3 = MongoConnectionOptions(monitorRefreshMS = 5000 /* 5s */)
-{% endhighlight %}
+```
 
 ### Query and write operations
 
@@ -133,7 +133,7 @@ The collection API provides new operations.
 
 The MongoDB [`findAndModify`](https://docs.mongodb.com/manual/reference/command/findAndModify/) command modifies and returns a single document. The ReactiveMongo API now has a corresponding [operation](../api/index.html#reactivemongo.api.collections.GenericCollection@findAndModify[Q](selector:Q,modifier:GenericCollection.this.BatchCommands.FindAndModifyCommand.Modify,sort:Option[GenericCollection.this.pack.Document],fields:Option[GenericCollection.this.pack.Document])(implicitselectorWriter:GenericCollection.this.pack.Writer[Q],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[GenericCollection.this.BatchCommands.FindAndModifyCommand.FindAndModifyResult]).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -159,13 +159,13 @@ def findAndModifyTests(coll: BSONCollection) = {
     BSONDocument("name" -> "Jack"), coll.removeModifier).
     map(_.result[Person])
 }
-{% endhighlight %}
+```
 
 In the previous example, the `findAndModify` is used to find and update the person whose name is Joline by setting its age to 35, and it's also used to remove the document about Jack.
 
 The `findAndModify` can be performed more easily to find and update documents, using [`findAndUpdate`](../api/index.html#reactivemongo.api.collections.GenericCollection@findAndUpdate[Q,U]%28selector:Q,update:U,fetchNewObject:Boolean,upsert:Boolean,sort:Option[GenericCollection.this.pack.Document]%29%28implicitselectorWriter:GenericCollection.this.pack.Writer[Q],implicitupdateWriter:GenericCollection.this.pack.Writer[U],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[GenericCollection.this.BatchCommands.FindAndModifyCommand.FindAndModifyResult]).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -182,11 +182,11 @@ def update(collection: BSONCollection, age: Int): Future[Option[Person]] = {
 
   result.map(_.result[Person])
 }
-{% endhighlight %}
+```
 
 For removal, a convenient [`findAndRemove`](../api/index.html#reactivemongo.api.collections.GenericCollection@findAndRemove[Q](selector:Q,sort:Option[GenericCollection.this.pack.Document],fields:Option[GenericCollection.this.pack.Document])(implicitselectorWriter:GenericCollection.this.pack.Writer[Q],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[GenericCollection.this.BatchCommands.FindAndModifyCommand.FindAndModifyResult]) is also available.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson.{ BSONDocument, BSONDocumentReader }
@@ -195,13 +195,13 @@ import reactivemongo.api.collections.bson.BSONCollection
 def removedPerson(coll: BSONCollection, name: String)(implicit ec: ExecutionContext, reader: BSONDocumentReader[Person]): Future[Option[Person]] =
   coll.findAndRemove(BSONDocument("firstName" -> name)).
     map(_.result[Person])
-{% endhighlight %}
+```
 
 **Query builder:**
 
 The new [`requireOne`](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@requireOne[T](readPreference:reactivemongo.api.ReadPreference)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[T]) function, based on the [`head`](../api/index.html#reactivemongo.api.Cursor@headOption(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[Option[T]]) cursor, allows to more easily find and require a single result.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 import reactivemongo.bson.BSONDocument
 import reactivemongo.api.collections.bson.BSONCollection
@@ -214,11 +214,11 @@ trait PersonService {
     "lastName" -> lastName
   )).requireOne[Person]
 }
-{% endhighlight %}
+```
 
 The option [`maxTimeMs`](https://docs.mongodb.org/manual/reference/method/cursor.maxTimeMS/) is supported by the [query builder](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@maxTimeMs%28p:Long%29:GenericQueryBuilder.this.Self), to specify a cumulative time limit in milliseconds for the processing of the operations.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson.BSONDocument
@@ -226,11 +226,11 @@ import reactivemongo.api.collections.bson.BSONCollection
 import reactivemongo.api.ReadPreference
 
 def withMaxTimeMs(col: BSONCollection)(implicit ec: ExecutionContext): Future[List[BSONDocument]] = col.find(BSONDocument("foo" -> "bar")).maxTimeMs(1234L).cursor[BSONDocument](ReadPreference.primary).collect[List]()
-{% endhighlight %}
+```
 
 The [`explain`](https://docs.mongodb.org/manual/reference/explain-results/) operation is now supported, to get information on the query plan.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -246,7 +246,7 @@ def bsonExplain(col: BSONCollection): Future[Option[BSONDocument]] =
 
 def jsonExplain(col: JSONCollection): Future[Option[JsObject]] =
   col.find(Json.obj()).explain().one[JsObject]
-{% endhighlight %}
+```
 
 [More: **Query builder API**](../api/index.html#reactivemongo.api.collections.GenericQueryBuilder)
 
@@ -257,7 +257,7 @@ The [`WriteResult`](../api/index.html#reactivemongo.api.commands.WriteResult) th
 - [`WriteResult.Code`](../api/index.html#reactivemongo.api.commands.WriteResult$@Code): matches the errors according the specified code (e.g. the 11000 code for the Duplicate error)
 - [`WriteResult.Message`](../api/index.html#reactivemongo.api.commands.WriteResult$@Message): matches the errors according the message
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -279,7 +279,7 @@ def insertPerson(personColl: BSONCollection, person: Person) = {
     case _ => ()
   }
 }
-{% endhighlight %}
+```
 
 The same approach can be used with [`CommandError`](../api/index.html#reactivemongo.api.commands.CommandError).
 
@@ -290,7 +290,7 @@ The same approach can be used with [`CommandError`](../api/index.html#reactivemo
 
 The [`GridFS`](../api/index.html#reactivemongo.api.gridfs.GridFS) provides the new `saveWithMD5` and `iterateeWithMD5`, which automatically compute the MD5 digested while storing data.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import play.api.libs.iteratee.Enumerator
@@ -314,7 +314,7 @@ def saveWithComputedMD5(
 
   gridfs.saveWithMD5(data, gridfsObj)
 }
-{% endhighlight %}
+```
 
 ### BSON library
 
@@ -322,18 +322,18 @@ The BSON library for ReactiveMongo has been updated.
 
 A [BSON handler](../api/index.html#reactivemongo.bson.BSONHandler) is provided to respectively, read a [`java.util.Date`](http://docs.oracle.com/javase/8/docs/api/java/util/Date.html) from a [`BSONDateTime`](../api/reactivemongo/bson/BSONDateTime.html), and write a `Date` as `BSONDateTime`.
 
-{% highlight scala %}
+```scala
 import java.util.Date
 import reactivemongo.bson._
 
 def foo(doc: BSONDocument): Option[Date] = doc.getAs[Date]("aBsonDateTime")
 
 def bar(date: Date): BSONDocument = BSONDocument("aBsonDateTime" -> date)
-{% endhighlight %}
+```
 
 The traits [`BSONReader`](../api/index.html#reactivemongo.bson.BSONReader) and [`BSONWriter`](../api/index.html#reactivemongo.bson.BSONWriter) have new combinators, so new instances can be easily defined using the existing ones.
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson._
 
 sealed trait MyEnum
@@ -350,11 +350,11 @@ implicit def MyEnumWriter(implicit underlying: BSONWriter[String, BSONString]): 
   case EnumValA => "A"
   case _ => "B"
 }
-{% endhighlight %}
+```
 
 The companion objects for [`BSONDocumentReader`](../api/index.html#reactivemongo.bson.BSONDocumentReader) and [`BSONDocumentWriter`](../api/index.html#reactivemongo.bson.BSONDocumentWriter) provides new factories.
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson.{
   BSONDocument, BSONDocumentReader, BSONDocumentWriter, BSONNumberLike
 }
@@ -371,30 +371,30 @@ val r1 = BSONDocumentReader[Foo] { doc =>
     lorem <- doc.getAsTry[BSONNumberLike]("ipsum").map(_.toInt)
   } yield Foo(bar, lorem)).get
 }
-{% endhighlight %}
+```
 
 The new instances of [`BSONTimestamp`](../api/index.html#reactivemongo.bson.BSONTimestamp) can be created from a raw numeric value, representing the milliseconds timestamp, with the `time` and `ordinal` properties being extracted.
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson.BSONTimestamp
 
 def foo(millis: Long) = BSONTimestamp(millis)
 
 // or...
 def bar(time: Long, ordinal: Int) = BSONTimestamp(time, ordinal)
-{% endhighlight %}
+```
 
 The generic types are now supported:
 
-{% highlight scala %}
+```scala
 case class GenFoo[T](bar: T, lorem: Int)
 
 reactivemongo.bson.Macros.reader[GenFoo[String]]
-{% endhighlight %}
+```
 
 Some undocumented macro features, such as **union types** and sealed trait support are now [explained](./bson/typeclasses.html#helpful-macros).
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson.{ BSONDocument, BSONHandler, Macros }
 
 sealed trait Tree
@@ -407,7 +407,7 @@ object Tree {
 
   implicit val bson: BSONHandler[BSONDocument, Tree] = Macros.handler[Tree]
 }
-{% endhighlight %}
+```
 
 Taking care of backward compatibility, a refactoring of the BSON types has been started.
 
@@ -429,7 +429,7 @@ The [Akka Stream library](https://oss.sonatype.org/service/local/repositories/re
 
 To enable the Akka Stream support (up to Akka 2.5.x), the import [`reactivemongo.play.akkastream.cursorProducer`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_2.11/{{site._0_12_latest_minor}}/reactivemongo-akkastream_2.11-{{site._0_12_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.akkastream.package$$cursorFlattener$) must be added.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -449,7 +449,7 @@ def processPerson0(collection: BSONCollection, query: BSONDocument)(implicit m: 
 
   sourceOfPeople.runWith(Sink.seq[BSONDocument])
 }
-{% endhighlight %}
+```
 
 [More: **ReactiveMongo AkkaStream**](./tutorial/streaming.html#akka-stream)
 
@@ -457,7 +457,7 @@ def processPerson0(collection: BSONCollection, query: BSONDocument)(implicit m: 
 
 The results from the new [aggregation operation](../api/index.html#reactivemongo.api.collections.GenericCollection@aggregateWith[T](explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:Option[reactivemongo.api.ReadConcern],readPreference:reactivemongo.api.ReadPreference,batchSize:Option[Int])(f:GenericCollection.this.AggregationFramework=%3E(GenericCollection.this.PipelineOperator,List[GenericCollection.this.PipelineOperator]))(implicitec:scala.concurrent.ExecutionContext,implicitreader:GenericCollection.this.pack.Reader[T]):scala.concurrent.Future[reactivemongo.api.Cursor[T]]) can be processed in a streaming way, using the [cursor option](https://docs.mongodb.org/manual/reference/command/aggregate/).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson._
@@ -471,13 +471,13 @@ def populatedStates(cities: BSONCollection)(implicit ec: ExecutionContext): Curs
     Match(document("totalPop" -> document("$gte" -> 10000000L)))
   )
 }
-{% endhighlight %}
+```
 
 #### Custom streaming
 
 The new streaming support is based on the function [`Cursor.foldWhileM[A]`](../api/index.html#reactivemongo.api.Cursor@foldWhileM[A](z:=%3EA,maxDocs:Int)(suc:(A,T)=%3Escala.concurrent.Future[reactivemongo.api.Cursor.State[A]],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitctx:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]) (and its variants), which allows to implement custom stream processing.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -496,11 +496,11 @@ def streaming(c: Cursor[String]): Future[List[String]] =
         case _ => Cursor.Fail(err) // Stop with current failure -> Future.failed
       }
     })
-{% endhighlight %}
+```
 
 An [`ErrorHandler`](../api/index.html#reactivemongo.api.Cursor$@ErrorHandler[A]=%28A,Throwable%29=%3Ereactivemongo.api.Cursor.State[A]) can be used with the [`Cursor`](../api/index.html#reactivemongo.api.Cursor), instead of the previous `stopOnError` boolean flag.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -520,7 +520,7 @@ def foldStrings(cursor: Cursor[String]): Future[Seq[String]] = {
     Cursor.Cont(agg :+ str)
   }, handler)
 }
-{% endhighlight %}
+```
 
 Some convenient error handlers are provided along with the driver:
 
@@ -532,18 +532,18 @@ Some convenient error handlers are provided along with the driver:
 
 The [`distinct`](https://docs.mongodb.org/manual/reference/command/distinct/) command to find the distinct values for a specified field across a single collection, is now provided as a [collection operation](../api/index.html#reactivemongo.api.collections.GenericCollection@distinct[T]%28key:String,selector:Option[GenericCollection.this.pack.Document],readConcern:reactivemongo.api.ReadConcern%29%28implicitreader:GenericCollection.this.pack.NarrowValueReader[T],implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[scala.collection.immutable.ListSet[T]]).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson.BSONDocument
 import reactivemongo.api.collections.bson.BSONCollection
 
 def distinctStates(col: BSONCollection)(implicit ec: ExecutionContext): Future[Set[String]] = col.distinct[String, Set]("state")
-{% endhighlight %}
+```
 
 The ReactiveMongo collections now has the convenient operation [`.aggregate`](../api/index.html#reactivemongo.api.collections.GenericCollection@aggregate%28firstOperator:GenericCollection.this.PipelineOperator,otherOperators:List[GenericCollection.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,cursor:Option[GenericCollection.this.BatchCommands.AggregationFramework.Cursor]%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[GenericCollection.this.BatchCommands.AggregationFramework.AggregationResult]).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -561,7 +561,7 @@ def populatedStates(col: BSONCollection): Future[List[BSONDocument]] = {
 
   res.map(_.documents)
 }
-{% endhighlight %}
+```
 
 About the type `AggregationResult` the property [`documents`](../api/index.html#reactivemongo.api.commands.AggregationFramework$AggregationResult@documents:List[AggregationFramework.this.pack.Document]) has been renamed to `firstBatch`, to clearly indicate it returns the first batch from result (which is frequently the single one).
 
@@ -571,7 +571,7 @@ There are also some newly supported [Pipeline Aggregation Stages](https://docs.m
 
 The [`$filter` stage](https://docs.mongodb.org/master/reference/operator/aggregation/filter/) is available in this new version.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson.{ BSONString, Macros, array, document }
@@ -594,7 +594,7 @@ object FilterUseCase {
     )))).map(_.head[Sale])
   }
 }
-{% endhighlight %}
+```
 
 **geoNear:**
 
@@ -602,7 +602,7 @@ The [$geoNear](https://docs.mongodb.org/manual/reference/operator/aggregation/ge
 
 It can be used in the MongoDB shell as follows.
 
-{% highlight javascript %}
+```javascript
 db.places.aggregate([{
   $geoNear: {
     near: { type: "Point", coordinates: [ -73.9667, 40.78 ] },
@@ -615,11 +615,11 @@ db.places.aggregate([{
     spherical: true
   }
 }])
-{% endhighlight %}
+```
 
 The same can be done with ReactiveMongo.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson.{ array, document, Macros }
@@ -655,13 +655,13 @@ def placeArround(places: BSONCollection)(implicit ec: ExecutionContext): Future[
     limit = 5,
     spherical = true)).map(_.head[GeoPlace])
 }
-{% endhighlight %}
+```
 
 **group:**
 
 Now all the accumulators of the [`$group`](https://docs.mongodb.com/manual/reference/operator/aggregation/group/) aggregation stage are supported, for example the [`$avg` accumulator](https://docs.mongodb.com/manual/reference/operator/aggregation/avg/#grp._S_avg).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson.{ BSONDocument, BSONString }
@@ -677,13 +677,13 @@ def avgPopByState(col: BSONCollection)(implicit ec: ExecutionContext): Future[Li
     List(Group(BSONString("$_id.state"))("avgCityPop" -> AvgField("pop")))).
     map(_.documents)
 }
-{% endhighlight %}
+```
 
 **indexStats:**
 
 The `$indexStats` stage returns statistics regarding the use of each index for the collection.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -703,14 +703,14 @@ def aggregateIndexes(coll: BSONCollection) = {
 
   result
 }
-{% endhighlight %}
+```
 
 **lookup:**
 
 Using the MongoDB aggregation, the [$lookup](https://docs.mongodb.com/v3.2/reference/operator/aggregation/lookup/#pipe._S_lookup) stage performs a left outer join between two collections in the same database (see the [examples](https://docs.mongodb.com/v3.2/reference/operator/aggregation/lookup/#examples)).
 ReactiveMongo now supports this [new stage](../api/index.html#reactivemongo.api.commands.AggregationFramework@LookupextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -744,7 +744,7 @@ object LookupUseCase {
     docs: List[Product] = Nil
   )
 }
-{% endhighlight %}
+```
 
 **out:**
 
@@ -752,17 +752,17 @@ The [$out](https://docs.mongodb.org/manual/reference/operator/aggregation/out/#p
 
 Consider a collection *books* that contains the following documents.
 
-{% highlight javascript %}
+```javascript
 { "_id" : 8751, "title" : "The Banquet", "author" : "Dante", "copies" : 2 }
 { "_id" : 8752, "title" : "Divine Comedy", "author" : "Dante", "copies" : 1 }
 { "_id" : 8645, "title" : "Eclogues", "author" : "Dante", "copies" : 2 }
 { "_id" : 7000, "title" : "The Odyssey", "author" : "Homer", "copies" : 10 }
 { "_id" : 7020, "title" : "Iliad", "author" : "Homer", "copies" : 10 }
-{% endhighlight %}
+```
 
 Then its documents can be aggregated and outputted to another collection.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -777,14 +777,14 @@ def outputBooks(books: BSONCollection, outColl: String): Future[Unit] = {
     Group(BSONString("$author"))("books" -> PushField("title")),
     Out(outColl))).map(_ => {})
 }
-{% endhighlight %}
+```
 
 For the current example, the result collection will contain the following documents.
 
-{% highlight javascript %}
+```javascript
 { "_id" : "Homer", "books" : [ "Iliad", "The Odyssey" ] }
 { "_id" : "Dante", "books" : [ "Divine Comedy", "Eclogues", "The Banquet" ] }
-{% endhighlight %}
+```
 
 **redact:**
 
@@ -792,7 +792,7 @@ The [$redact](https://docs.mongodb.org/manual/reference/operator/aggregation/red
 
 It can be done in the MongoDB shell as follows.
 
-{% highlight javascript %}
+```javascript
 db.forecasts.aggregate([
   { $match: { year: 2014 } },
   { 
@@ -807,11 +807,11 @@ db.forecasts.aggregate([
     }
   }
 ])
-{% endhighlight %}
+```
 
 With ReactiveMongo, the aggregation framework can perform a similar redaction.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson._
@@ -833,14 +833,14 @@ def redactForecasts(forecasts: BSONCollection)(implicit ec: ExecutionContext) = 
       "else" -> "$$PRUNE"
     ))))).map(_.head[BSONDocument])
 }
-{% endhighlight %}
+```
 
 **sample:**
 
 The [$sample](https://docs.mongodb.org/manual/reference/operator/aggregation/sample/) aggregation stage is also supported (only MongoDB >= 3.2). It randomly selects the specified number of documents from its input.
 With ReactiveMongo, the [`Sample`](../api/index.html#reactivemongo.api.commands.AggregationFramework@SampleextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable) stage can be used as follows.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -852,13 +852,13 @@ def randomDocs(coll: BSONCollection, count: Int): Future[List[BSONDocument]] = {
 
   coll.aggregate(AggregationFramework.Sample(count)).map(_.head[BSONDocument])
 }
-{% endhighlight %}
+```
 
 **text:**
 
 When the [`$text` operator](https://docs.mongodb.org/v3.0/reference/operator/query/text/#op._S_text) is used in an aggregation pipeline, then new the results can be [sorted](https://docs.mongodb.org/v3.0/reference/operator/aggregation/sort/#metadata-sort) according the [text scores](https://docs.mongodb.org/v3.0/reference/operator/query/text/#text-operator-text-score).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson.BSONDocument
@@ -885,7 +885,7 @@ def textFind(coll: BSONCollection)(implicit ec: ExecutionContext): Future[List[B
 
   coll.aggregate1[BSONDocument](firstOp, pipeline).collect[List]()
 }
-{% endhighlight %}
+```
 
 > With the changes, the aggregation framework provides an API for all the stages supported by MongoDB 3.2.
 
@@ -920,21 +920,21 @@ This new library increases the JSON support to handle the following BSON types.
 
 To use this JSON library, it's necessary to make sure the right imports are there.
 
-{% highlight scala %}
+```scala
 import reactivemongo.play.json._
 // import the default BSON/JSON conversions
-{% endhighlight %}
+```
 
 Without these imports, the following error can occur.
 
-{% highlight text %}
+```text
 No Json serializer as JsObject found for type play.api.libs.json.JsObject.
 Try to implement an implicit OWrites or OFormat for this type.
-{% endhighlight %}
+```
 
 There are also some helpers coming along with this JSON pack.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -945,16 +945,16 @@ import reactivemongo.play.json.collection._
 def importJson(collection: JSONCollection, resource: String): Future[Int] =
   Helpers.bulkInsert(collection, getClass.getResourceAsStream(resource)).
     map(_.totalN)
-{% endhighlight %}
+```
 
 In order to comply with the [extended JSON syntax for the timestamps](https://docs.mongodb.com/manual/reference/mongodb-extended-json/#data_timestamp), [`BSONTimestamp`](../api/index.html#reactivemongo.bson.BSONTimestamp) values are written with both `$time` and `$timestamp` formats.
 
-{% highlight javascript %}
+```javascript
 {
   "$time": <t>, "$i": <i>,
   "$timestamp": { "t": <t>, "i": <i> }
 }
-{% endhighlight %}
+```
 
 > The deprecated properties `$time` and `$i` will be removed.
 
@@ -962,12 +962,12 @@ These two formats are also supported when reading from JSON.
 
 The extended syntax is also supported for the [`BSONMinKey`](../api/index.html#reactivemongo.bson.BSONMinKey$) and the [`BSONMaxKey`](../api/index.html#reactivemongo.bson.BSONMaxKey$).
 
-{% highlight javascript %}
+```javascript
 {
   "aMinKey": { "$minKey": 1 },
   "aMaxKey" : { "$maxKey": 1 }
 }
-{% endhighlight %}
+```
 
 New functions from the `BSONFormats` provides JSON formats derived from BSON handlers.
 
@@ -975,7 +975,7 @@ New functions from the `BSONFormats` provides JSON formats derived from BSON han
 - The similar [`jsonFormat`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_2.11/{{page.major_version}}/reactivemongo-play-json_2.11-{{page.major_version}}-javadoc.jar/!/index.html#reactivemongo.play.json.BSONFormats$@jsonFormat[T](implicith:reactivemongo.bson.BSONHandler[_%3C:reactivemongo.bson.BSONValue,T]):play.api.libs.json.Format[T]) derives a `BSONWriter` and its corresponding `BSONReader` to provide a Play `Format`.
 - The write-only `jsonOWrites` and `jsonWrites`, and also the read-only `jsonReads`.
 
-{% highlight scala %}
+```scala
 import play.api.libs.json.OFormat
 import reactivemongo.bson._
 import reactivemongo.play.json.BSONFormats
@@ -984,7 +984,7 @@ def derivesBsonHandlers[T](
   implicit bsonWriter: BSONDocumentWriter[T],
   bsonReader: BSONDocumentReader[T]
 ): OFormat[T] = BSONFormats.jsonOFormat[T]
-{% endhighlight %}
+```
 
 [More: **JSON overview**](json/overview.html)
 
@@ -994,17 +994,17 @@ Now multiple connection pools can be injected using the `@NamedDatabase` annotat
 
 For example with the following configuration:
 
-{% highlight text %}
+```text
 # The default URI
 mongodb.uri = "mongodb://someuser:somepasswd@localhost:27017/foo"
 
 # Another one, named with 'bar'
 mongodb.bar.uri = "mongodb://someuser:somepasswd@localhost:27017/lorem"
-{% endhighlight %}
+```
 
 Then the dependency injection can select the API instances using the names.
 
-{% highlight scala %}
+```scala
 import javax.inject.Inject
 
 import play.modules.reactivemongo._
@@ -1015,13 +1015,13 @@ class MyComponent @Inject() (
 ) {
 
 }
-{% endhighlight %}
+```
 
 #### MVC integration
 
 Instances of [Play Formatter](https://www.playframework.com/documentation/latest/api/scala/index.html#play.api.data.format.Formatter) are provided for the [BSON values](./bson/overview.html).
 
-{% highlight scala %}
+```scala
 import play.api.data.format.Formatter
 import play.api.libs.json.Json
 
@@ -1039,7 +1039,7 @@ def playFormat[T <: BSONValue](bson: T)(implicit formatter: Formatter[T]) = {
   formatter.unbind("foo", bson)
   // must == binding
 }
-{% endhighlight %}
+```
 
 #### Routing
 
@@ -1047,7 +1047,7 @@ The [BSON types](bson/overview.html) can be used in the bindings of the Play rou
 
 For example, consider a Play action as follows.
 
-{% highlight scala %}
+```scala
 package mine
 
 import play.api.mvc.{ Action, Controller }
@@ -1058,7 +1058,7 @@ class Application extends Controller {
     Ok(s"Foo: ${id.stringify}")
   }
 }
-{% endhighlight %}
+```
 
 This action can be configured with a [`BSONObjectID`](../api/reactivemongo/bson/BSONObjectID.html) binding, in the `conf/routes` file.
 
@@ -1066,17 +1066,17 @@ This action can be configured with a [`BSONObjectID`](../api/reactivemongo/bson/
 
 When using BSON types in the route bindings, the Play plugin for SBT must be setup (in your `build.sbt` or `project/Build.scala`) to install the appropriate import in the generated routes.
 
-{% highlight ocaml %}
+```ocaml
 import play.sbt.routes.RoutesKeys
 
 RoutesKeys.routesImport += "play.modules.reactivemongo.PathBindables._"
-{% endhighlight %}
+```
 
 #### Play Iteratees
 
 The [`enumerate`](../api/index.html#reactivemongo.api.Cursor@enumerate(maxDocs:Int,stopOnError:Boolean)(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[T]) on the cursors is now deprecated, and the [Play Iteratees](https://www.playframework.com/documentation/latest/Iteratees) support has been moved to a separate module, with a new [`enumerator`](../api/index.html#reactivemongo.play.iteratees.PlayIterateesCursor@enumerator(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Unit])(implicitctx:scala.concurrent.ExecutionContext):play.api.libs.iteratee.Enumerator[T]) operation.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -1098,20 +1098,20 @@ def workWithIteratees(personColl: BSONCollection): Future[Int] = {
 
   source |>>> Iteratee.fold(0) { (r, doc) => r + 1 }
 }
-{% endhighlight %}
+```
 
 To use the Iteratees support for the ReactiveMongo cursors, [`reactivemongo.play.iteratees.cursorProducer`](../api/index.html#reactivemongo.play.iteratees.package@cursorProducer[T]:reactivemongo.api.CursorProducer[T]{typeProducedCursor=reactivemongo.play.iteratees.PlayIterateesCursor[T]}) must be imported.
 
-{% highlight scala %}
+```scala
 import reactivemongo.play.iteratees.cursorProducer
 // Provides the cursor producer with the Iteratees capabilities
-{% endhighlight %}
+```
 
 Without this import, the following error can occur.
 
-{% highlight text %}
+```text
 value enumerator is not a member of reactivemongo.api.CursorProducer[reactivemongo.bson.BSONDocument]#ProducedCursor
-{% endhighlight %}
+```
 
 ### Administration
 
@@ -1121,7 +1121,7 @@ The operations to manage a MongoDB instance can be executed using ReactiveMongo.
 
 The `Database` now has a [`renameCollection`](../api/index.html#reactivemongo.api.DefaultDB@renameCollection[C%3C:reactivemongo.api.Collection](db:String,from:String,to:String,dropExisting:Boolean,failoverStrategy:reactivemongo.api.FailoverStrategy)(implicitec:scala.concurrent.ExecutionContext,implicitproducer:reactivemongo.api.CollectionProducer[C]):scala.concurrent.Future[C]) operation, which can be easily used with the 'admin' database, to rename collections in the other databases.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext.Implicits.global
 import reactivemongo.api.DefaultDB
 
@@ -1131,13 +1131,13 @@ def renameWithSuffix(
   collName: String,
   suffix: String
 ) = admin.renameCollection(otherDb, collName, s"$collName-$suffix")
-{% endhighlight %}
+```
 
 **Drop collection:**
 
 The new [`drop`](../api/index.html#reactivemongo.api.collections.GenericCollection@drop%28failIfNotFound:Boolean%29%28implicitec:scala.concurrent.ExecutionContext%29:scala.concurrent.Future[Boolean]) operation can try to perform, without failing if the collection doesn't exist. The previous behaviour is still available.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -1153,13 +1153,13 @@ def dropNotFail(col: BSONCollection): Future[Boolean] = col.drop(false)
 def dropFail(col: BSONCollection): Future[Unit] = col.drop(true).map(_ => {})
 
 def deprecatedDrop(col: BSONCollection): Future[Unit] = col.drop()
-{% endhighlight %}
+```
 
 **Create user:**
 
 The [`DefaultDB`](../api/index.html#reactivemongo.api.DefaultDB) is defined with a function to create a database user.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -1169,13 +1169,13 @@ import reactivemongo.api.commands.UserRole
 // Creates a 'foo' user, with the 'readWrite' role
 def createFooUser(db: DefaultDB, password: String): Future[Unit] =
   db.createUser("foo", Some(password), roles = List(UserRole("readWrite")))
-{% endhighlight %}
+```
 
 **Indexes:**
 
 In the case class [`Index`](../api/index.html#reactivemongo.api.indexes.Index), the property `partialFilter` has been added to support MongoDB index with [`partialFilterExpression`](https://docs.mongodb.com/manual/core/index-partial/#partial-index-with-unique-constraints).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -1189,31 +1189,31 @@ def createPartialIndex(col: BSONCollection): Future[WriteResult] =
     key = Seq("username" -> IndexType.Ascending),
     unique = true,
     partialFilter = Some(BSONDocument("age" -> BSONDocument("$gte" -> 21)))))
-{% endhighlight %}
+```
 
 **Collection statistics:**
 
 In the case class [`CollStatsResult`](../api/index.html#reactivemongo.api.commands.CollStatsResult), the field `maxSize` has been added.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 import reactivemongo.api.collections.bson.BSONCollection
 import reactivemongo.api.commands.CollStatsResult
 
 def maxSize(coll: BSONCollection)(implicit ec: ExecutionContext): Future[Option[Double]] = coll.stats.map(_.maxSize)
-{% endhighlight %}
+```
 
 **Resync replica set members:**
 
 The replication command [`resync`](https://docs.mongodb.org/manual/reference/command/resync/) is now provided.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 import reactivemongo.api.MongoConnection
 import reactivemongo.api.commands.{ Resync, bson }, bson.BSONResyncImplicits._
 
 def resyncDatabase(con: MongoConnection)(implicit ec: ExecutionContext): Future[Unit] = con.database("admin").flatMap(_.runCommand(Resync)).map(_ => {})
-{% endhighlight %}
+```
 
 ### Logging
 
@@ -1229,7 +1229,8 @@ As SLF4J is now used, if the following error is raised, please make sure to prov
 
 In order to debug the networking issues, the internal state of the node set is provided as details of the related exceptions, as bellow.
 
-{% highlight text %}{% raw %}
+{% raw %}
+```
 reactivemongo.core.actors.Exceptions$InternalState: null (<time:1469208071685>:-1)
 reactivemongo.ChannelClosed(-2079537712, {{NodeSet None Node[localhost:27017: Primary (0/0 available connections), latency=5], auth=Set() }})(<time:1469208071685>)
 reactivemongo.Shutdown(<time:1469208071673>)
@@ -1245,15 +1246,16 @@ reactivemongo.ChannelDisconnected(-228911231, {{NodeSet None Node[localhost:2701
 reactivemongo.ChannelClosed(-562085577, {{NodeSet None Node[localhost:27017: Primary (5/6 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
 reactivemongo.ChannelDisconnected(-562085577, {{NodeSet None Node[localhost:27017: Primary (6/6 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
 reactivemongo.ChannelClosed(-857553810, {{NodeSet None Node[localhost:27017: Primary (6/7 available connections), latency=5], auth=Set() }})(<time:1469208071662>)
-{% endraw %}{% endhighlight %}
+```
+{% endraw %}
 
 ### Monitoring
 
 A new [JMX](https://en.wikipedia.org/wiki/Java_Management_Extensions) module is available. It can be enabled by adding the corresponding dependency:
 
-{% highlight ocaml %}
+```ocaml
 "org.reactivemongo" %% "reactivemongo-jmx" % "{{site._0_12_latest_minor}}"
-{% endhighlight %}
+```
 
 [More: **Monitoring**](advanced-topics/monitoring.html)
 
@@ -1281,10 +1283,10 @@ For the current 0.12 release, it has detected the following breaking changes.
 Since [release 0.11](../../0.11/documentation/release-details.html), the package `reactivemongo.api.collections.default` has been refactored as the package [`reactivemongo.api.collections.bson`](http://reactivemongo.org/releases/0.11/api/index.html#reactivemongo.api.collections.bson.package).
 If you get a compilation error like the following one, you need to update the corresponding imports.
 
-{% highlight text %}
+```text
 object default is not a member of package reactivemongo.api.collections
 [error] import reactivemongo.api.collections.default.BSONCollection
-{% endhighlight %}
+```
 
 **Operation results**
 
@@ -1309,7 +1311,7 @@ In the case class [`GetLastError.TagSet`](../api/index.html#reactivemongo.api.co
 
 The exception case objects [`NodeSetNotReachable`](../api/index.html#reactivemongo.core.actors.Exceptions$@NodeSetNotReachable), [`NodeSetNotReachable`](../api/index.html#reactivemongo.core.actors.Exceptions$@PrimaryUnavailableExceptionextendsExceptionwithDriverExceptionwithNoStackTrace), [`ChannelNotFound`](../api/index.html#reactivemongo.core.actors.Exceptions$@ChannelNotFoundextendsExceptionwithDriverExceptionwithNoStackTrace) and [`ClosedException`](../api/index.html#reactivemongo.core.actors.Exceptions$@ClosedException) have been refactored as sealed classes. When try to catch such exception the class type must be used, rather than the object patterns.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 import reactivemongo.core.actors.Exceptions.{
   ClosedException, NodeSetNotReachable
@@ -1323,7 +1325,7 @@ def handle(mongoOp: Future[String])(implicit ec: ExecutionContext) =
     case err2: NodeSetNotReachable => // rather than `case NodeSetNotReachable`
       "notReachable"
   }
-{% endhighlight %}
+```
 
 **Aggregation framework**
 

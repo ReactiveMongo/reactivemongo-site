@@ -18,7 +18,7 @@ The following Read Preferences are supported:
 
 The Read preference can be chosen globally using the [`MongoConnectionOptions`](../../api/index.html#reactivemongo.api.MongoConnectionOptions), or for each [cursor](../../api/index.html#reactivemongo.api.collections.GenericQueryBuilder@cursor[T](readPreference:reactivemongo.api.ReadPreference,isMongo26WriteOp:Boolean)(implicitreader:GenericQueryBuilder.this.pack.Reader[T],implicitec:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.bson.BSONDocument
@@ -30,7 +30,7 @@ def readFromSecondary1(collection: BSONCollection) =
     // read from any secondary whenever possible
     cursor[BSONDocument](ReadPreference.secondaryPreferred).
     collect[List]()
-{% endhighlight %}
+```
 
 > The default read preference can also be set in the [connection options](../tutorial/connect-database.html).
 
@@ -45,7 +45,7 @@ def readFromSecondary1(collection: BSONCollection) =
 If you properly tagged the servers of your replica set, then you can use Tag-aware Read Preferences.
 
 Let's suppose that the replica set is configured that way:
-{% highlight javascript %}
+```javascript
 {
     "_id" : "rs0",
     "version" : 2,
@@ -74,11 +74,11 @@ Let's suppose that the replica set is configured that way:
              }
      ]
 }
-{% endhighlight %}
+```
 
 Then we can tell ReactiveMongo to query only from the nodes that are tagged with `dc: "NYC"`:
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.bson.BSONDocument
@@ -90,4 +90,4 @@ def readFromSecondary2(collection: BSONCollection) =
     // read from any secondary tagged with `dc: "NYC"`
     one[BSONDocument](ReadPreference.secondaryPreferred(
       tag = BSONDocument("dc" -> "NYC")))
-{% endhighlight %}
+```

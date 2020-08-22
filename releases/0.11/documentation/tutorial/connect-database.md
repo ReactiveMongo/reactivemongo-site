@@ -8,25 +8,25 @@ title: Connect to the database
 
 The first thing you need, is to create a new [`MongoDriver`](../../api/index.html#reactivemongo.api.MongoDriver) instance.
 
-{% highlight scala %}
+```scala
 val driver1 = new reactivemongo.api.MongoDriver
-{% endhighlight %}
+```
 
 Without any parameter, the driver uses a default configuration. Obviously, you may want to indicate a specific configuration.
 
-{% highlight scala %}
+```scala
 def customConfig: com.typesafe.config.Config = ???
 
 val driver2 = new reactivemongo.api.MongoDriver(Some(customConfig))
-{% endhighlight %}
+```
 
 Then you can [connect](../../api/index.html#reactivemongo.api.MongoDriver@connection(parsedURI:reactivemongo.api.MongoConnection.ParsedURI):scala.util.Try[reactivemongo.api.MongoConnection]) to a MongoDB server.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.MongoConnection
 
 val connection3 = driver1.connection(List("localhost"))
-{% endhighlight %}
+```
 
 A `MongoDriver` instance manages the shared resources (e.g. the [actor system](http://akka.io) for the asynchronous processing); A connection manages a pool of network channels.
 In general, a `MongoDriver` or a [`MongoConnection`](../../api/index.html#reactivemongo.api.MongoConnection) should not be instantiated more than once.
@@ -37,12 +37,12 @@ You can provide a list of one or more servers, the driver will guess if it's a s
 
 Some options can be provided while creating a connection.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.MongoConnectionOptions
 
 val conOpts = MongoConnectionOptions(/* connection options */)
 val connection4 = driver2.connection(List("localhost"), options = conOpts)
-{% endhighlight %}
+```
 
 The following options can be used with `MongoConnectionOptions` to configure the connection behaviour.
 
@@ -72,9 +72,9 @@ The following options can be used with `MongoConnectionOptions` to configure the
 
 If the connection pool is defined by an URI, then the options can be given after the `?` separator:
 
-{% highlight javascript %}
+```javascript
 mongodb.uri = "mongodb://user:pass@host1:27017,host2:27018,host3:27019/mydatabase?authMode=scram-sha1&rm.tcpNoDelay=true"
-{% endhighlight %}
+```
 
 [See: Connect using MongoDB URI](#connect-using-mongodb-uri)
 
@@ -89,10 +89,10 @@ ReactiveMongo provides support for replica sets as follows.
 
 Connecting to a replica set is pretty much the same as connecting to a unique server. You may have notice that the connection argument is a `List[String]`, so more than one node can be specified.
 
-{% highlight scala %}
+```scala
 val servers6 = List("server1:27017", "server2:27017", "server3:27017")
 val connection6 = driver1.connection(servers6)
-{% endhighlight %}
+```
 
 There is no obligation to give all the nodes in the replica set – actually, just one of them is required.
 ReactiveMongo will ask the nodes it can reach for the addresses of the other nodes in the replica set. Obviously it is better to give at least 2 or more nodes, in case of unavailability of one node at the start of the application.
@@ -103,13 +103,13 @@ In some (rare) cases it is perfectly viable to create as many [`MongoConnection`
 
 In that case, you will get different connection pools. This is useful when your application has to connect to two or more independent MongoDB nodes (i.e. that do not belong to the same replica set), or different replica sets.
 
-{% highlight scala %}
+```scala
 val serversReplicaSet1 = List("rs11", "rs12", "rs13")
 val connectionReplicaSet1 = driver1.connection(serversReplicaSet1)
 
 val serversReplicaSet2 = List("rs21", "rs22", "rs23")
 val connectionReplicaSet2 = driver1.connection(serversReplicaSet2)
-{% endhighlight %}
+```
 
 ### Handling Authentication
 
@@ -117,7 +117,7 @@ There are two ways to give ReactiveMongo your credentials.
 
 It can be done using [`driver.connection`](../../api/index.html#reactivemongo.api.MongoDriver@connection(nodes:Seq[String],options:reactivemongo.api.MongoConnectionOptions,authentications:Seq[reactivemongo.core.nodeset.Authenticate],name:Option[String]):reactivemongo.api.MongoConnection).
 
-{% highlight scala %}
+```scala
 import reactivemongo.core.nodeset.Authenticate
 
 def servers7: List[String] = List("server1", "server2")
@@ -127,13 +127,13 @@ val userName = "username"
 val password = "password"
 val credentials7 = List(Authenticate(dbName, userName, password))
 val connection7 = driver1.connection(servers7, authentications = credentials7)
-{% endhighlight %}
+```
 
 Using this `connection` function [with an URI](#connect-using-mongodb-uri) allows to indicates the credentials in this URI.
 
 There is also a [`authenticate`](../../api/index.html#reactivemongo.api.DefaultDB@authenticate(user:String,password:String)(implicittimeout:scala.concurrent.duration.FiniteDuration):scala.concurrent.Future[reactivemongo.core.commands.SuccessfulAuthentication]) function for the database references.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future },
   ExecutionContext.Implicits.global
 import scala.concurrent.duration.FiniteDuration
@@ -152,7 +152,7 @@ def authenticateDB(db: DefaultDB): Future[Unit] = {
     // doSomething
   }
 }
-{% endhighlight %}
+```
 
 Like any other operation in ReactiveMongo, authentication is done asynchronously.
 
@@ -164,7 +164,7 @@ You can also give the connection information as a [URI](http://docs.mongodb.org/
 
 If credentials and the database name are included in the URI, ReactiveMongo will authenticate the connections on that database.
 
-{% highlight scala %}
+```scala
 import scala.util.Try
 import reactivemongo.api.MongoConnection
 
@@ -176,11 +176,11 @@ def connection7(driver: reactivemongo.api.MongoDriver): Try[MongoConnection] =
   MongoConnection.parseURI(uri).map { parsedUri =>
     driver.connection(parsedUri)
   }
-{% endhighlight %}
+```
 
 The following example is using a connection to asynchronously resolve a database.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 import reactivemongo.api.{ MongoDriver, MongoConnection }
@@ -201,7 +201,7 @@ database.onComplete {
     println(s"DB resolution: $resolution")
     driver.close()
 }
-{% endhighlight %}
+```
 
 ### Additional Notes
 

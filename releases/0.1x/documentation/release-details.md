@@ -76,22 +76,22 @@ The [x.509 certificate authentication](https://docs.mongodb.com/manual/tutorial/
 - **`keyStorePassword`**: Provides the password to load it (if required)
 - **`keyStoreType`**: Indicates the [type of the store](https://docs.oracle.com/javase/7/docs/technotes/guides/security/StandardNames.html#KeyStore)
 
-{% highlight scala %}
+```scala
 import reactivemongo.api._
 
 def connection(driver: AsyncDriver) =
   driver.connect("mongodb://server:27017/db?ssl=true&authenticationMechanism=x509&keyStore=file:///path/to/keystore.p12&keyStoreType=PKCS12")
-{% endhighlight %}
+```
 
 The [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) is now supported, using `mongodb+srv://` scheme in the connection URI.
 It's also possible to specify the credential directly in the URI.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api._
 
 def seedListCon(driver: AsyncDriver) =
   driver.connect("mongodb+srv://usr:pass@mymongo.mydomain.tld/mydb")
-{% endhighlight %}
+```
 
 The option `rm.monitorRefreshMS` is renamed [`heartbeatFrequencyMS`](https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-discovery-and-monitoring.rst#heartbeatfrequencyms).
 
@@ -127,7 +127,7 @@ The [Decimal128](https://github.com/mongodb/specifications/blob/master/source/bs
 
 A handler is now available to write and read Scala `Map` as BSON, provided the key and value types are themselves supported.
 
-{% highlight scala %}
+```scala
 import scala.util.Try
 import reactivemongo.api.bson._
 
@@ -139,13 +139,13 @@ def bsonMap = {
 
   val output = doc.flatMap { BSON.readDocument[Map[String, Int]](_) }
 }
-{% endhighlight %}
+```
 
 #### Macros
 
 The compile-time option `AutomaticMaterialization` has been added, when using the macros with sealed family, to explicitly indicate when you want to automatically materialize required instances for the subtypes (if missing from the implicit scope).
 
-{% highlight scala %}
+```scala
 sealed trait Color
 
 case object Red extends Color
@@ -163,11 +163,11 @@ object Color {
 
   val predefinedColor = Macros.handlerOpts[Color, PredefinedColor]
 }
-{% endhighlight %}
+```
 
 A new annotation [`@Flatten`](../api/reactivemongo/bson/Macros$$Annotations$$Flatten.html) has been added, to indicate to the macros that the representation of a property must be flatten rather than a nested document.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.BSONDocument
 import reactivemongo.api.bson.Macros.Annotations.Flatten
 
@@ -183,7 +183,7 @@ BSONDocument("name" -> "foo", "start" -> 0, "end" -> 1)
 // Rather than:
 // BSONDocument("name" -> "foo", "range" -> BSONDocument(
 //   "start" -> 0, "end" -> 1))
-{% endhighlight %}
+```
 
 ### Query and write operations
 
@@ -206,7 +206,7 @@ The new [`insert`](../api/reactivemongo/api/collections/GenericCollection.html#i
 - simple insert with [`.one`](../api/reactivemongo/api/collections/InsertOps$InsertBuilder.html#one(document:T)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.WriteResult]),
 - and bulk insert with [`.many`](../api/reactivemongo/api/collections/InsertOps$InsertBuilder.html#many(documents:Iterable[T])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.commands.MultiBulkWriteResult]).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -231,13 +231,13 @@ def bulkInsert(coll: BSONCollection): Future[MultiBulkWriteResult] =
       "firstName" -> "Foo",
       "lastName" -> "Bar",
       "age" -> 1)))
-{% endhighlight %}
+```
 
 **[`UpdateBuilder`](../api/reactivemongo/api/collections/UpdateOps$UpdateBuilder.html)**
 
 The new [`update`](../api/collections/GenericCollection.html#update(ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern):GenericCollection.this.UpdateBuilder) operation returns an `UpdateBuilder`, which can be used to perform simple or bulk update.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -274,13 +274,13 @@ def update1(personColl: BSONCollection) = {
 
   val bulkUpdateRes1 = updates.flatMap { ops => updateBuilder1.many(ops) }
 }
-{% endhighlight %}
+```
 
 **[`DeleteBuilder`](../api/reactivemongo/api/collections/DeleteOps$DeleteBuilder.html)**
 
 The [`.delete`](../api/reactivemongo/api/collections/GenericCollection.html#delete(ordered:Boolean,writeConcern:reactivemongo.api.commands.WriteConcern):GenericCollection.this.DeleteBuilder) function returns a `DeleteBuilder`, to perform simple or bulk delete.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -305,7 +305,7 @@ def bulkDelete1(personColl: BSONCollection) = {
 
   deletes.flatMap { ops => deleteBuilder.many(ops) }
 }
-{% endhighlight %}
+```
 
 > The `.remove` operation is now deprecated.
 
@@ -313,7 +313,7 @@ def bulkDelete1(personColl: BSONCollection) = {
 
 The [`arrayFilters`](https://docs.mongodb.com/manual/release-notes/3.6/#arrayfilters) criteria is supported for [`findAndModify` and `update`](./tutorial/write-documents.html#find-and-modify) operations.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -348,7 +348,7 @@ def updateArrayFilters(personColl: BSONCollection) =
     collation = None,
     arrayFilters = Seq(
       BSONDocument("element" -> BSONDocument(f"$$gte" -> 100))))
-{% endhighlight %}
+```
 
 More: [**Find documents**](./tutorial/find-documents.html), [**Write documents**](./tutorial/write-documents.html)
 
@@ -360,7 +360,7 @@ There are newly supported by the [Aggregation Framework](./advanced-topics/aggre
 
 The [`$addFields`](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/) stage can now be used.
 
-{% highlight javascript %}
+```javascript
 import scala.concurrent.ExecutionContext
 
 import reactivemongo.api.bson.collection.BSONCollection
@@ -376,13 +376,13 @@ def sumHomeworkQuizz(students: BSONCollection) =
         "totalScore" -> document(f"$$add" -> array(
         f"$$totalHomework", f"$$totalQuiz", f"$$extraCredit")))))
   }
-{% endhighlight %}
+```
 
 **bucketAuto:**
 
 The [`$bucketAuto`](https://docs.mongodb.com/manual/reference/operator/aggregation/bucketAuto/) stage introduced by MongoDB 3.4 can be used as bellow.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext
 
 import reactivemongo.api.Cursor
@@ -396,13 +396,13 @@ def populationBuckets(zipcodes: BSONCollection)(implicit ec: ExecutionContext) =
 
     BucketAuto(BSONString(f"$$population"), 2, None)() -> List.empty
   }.collect[Set](Int.MaxValue, Cursor.FailOnError[Set[BSONDocument]]())
-{% endhighlight %}
+```
 
 **count:**
 
 If the goal is only to count the aggregated documents, the [`$count`](https://docs.mongodb.com/manual/reference/operator/aggregation/count/index.html) stage can be used.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -425,13 +425,13 @@ def countPopulatedStates1(col: BSONCollection): Future[Int] = {
         Count("popCount"))
   }.head
 }
-{% endhighlight %}
+```
 
 **facet:**
 
 The [`$facet`](https://docs.mongodb.com/manual/reference/operator/aggregation/facet/) stage is now supported, to create multi-faceted aggregations which characterize data across multiple dimensions, or facets.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.collection.BSONCollection
 
 def useFacetAgg(coll: BSONCollection) = {
@@ -452,13 +452,13 @@ def useFacetAgg(coll: BSONCollection) = {
     }
   } */
 }
-{% endhighlight %}
+```
 
 **filter:**
 
 The [`$filter`](https://docs.mongodb.com/master/reference/operator/aggregation/filter/#definition) stage is now supported.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api.Cursor
@@ -479,13 +479,13 @@ def salesWithItemGreaterThanHundered(sales: BSONCollection) =
         f"$$gte" -> BSONArray(f"$$$$item.price", 100))))) -> List(sort)
 
   }.collect[List](Int.MaxValue, Cursor.FailOnError[List[BSONDocument]]())
-{% endhighlight %}
+```
 
 **replaceRoot:**
 
 The [`$replaceRoot`](https://docs.mongodb.com/manual/reference/operator/aggregation/replaceRoot/#pipe._S_replaceRoot) stage is now supported.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -509,13 +509,13 @@ def replaceRootTest(fruits: BSONCollection): Future[Option[BSONDocument]] = {
   }.headOption
   // Results: { "oranges": 20, "apples": 60 }, ...
 }
-{% endhighlight %}
+```
 
 **slice:**
 
 The [`$slice`](https://docs.mongodb.com/manual/reference/operator/aggregation/slice) operator is also supported as bellow.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext
 
 import reactivemongo.api.Cursor
@@ -533,7 +533,7 @@ def sliceFavorites(coll: BSONCollection)(implicit ec: ExecutionContext) =
         array = BSONString(f"$$favorites"),
         n = BSONInteger(3)).makePipe)) -> List.empty
   }.collect[Seq](4, Cursor.FailOnError[Seq[BSONDocument]]())
-{% endhighlight %}
+```
 
 **Miscellaneous:** Other stages are also supported.
 
@@ -560,9 +560,9 @@ More: [**Aggregation Framework**](./advanced-topics/aggregation.html)
 
 A [new module](./advanced-topics/monitoring.html#kamon) is available to collect ReactiveMongo metrics with [Kamon](https://kamon.io/).
 
-{% highlight ocaml %}
+```ocaml
 "org.reactivemongo" %% "reactivemongo-kamon" % "{{site._0_1x_latest_minor}}"
-{% endhighlight %}
+```
 
 Then the metrics can be configured in dashboards, according the used Kamon reporters.
 For example if using [Kamon APM](https://kamon.io/docs/latest/reporters/apm/).
@@ -579,14 +579,14 @@ The operations to manage a MongoDB instance can be executed using ReactiveMongo.
 
 The `DefaultDB` has now a [`ping`](../api/reactivemongo/api/DefaultDB.html#ping(readPreference:reactivemongo.api.ReadPreference)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Boolean]) operation, to execute a [ping command](https://docs.mongodb.com/manual/reference/command/ping/).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api.DefaultDB
 
 def ping(admin: DefaultDB): Future[Boolean] = admin.ping()
-{% endhighlight %}
+```
 
 ### Breaking changes
 

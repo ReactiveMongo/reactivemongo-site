@@ -2,53 +2,56 @@
 layout: default
 major_version: 1.0
 title: Release details
+date: \today
+fontsize: 11pt
+#monofont: Menlo
+#mainfont: Source Sans Pro
+monofont: Inconsolata
+mainfont: Helvetica
+
+header-includes:
+- \input{releases/1.0/documentation/beamer-includes}
 ---
 
-## ReactiveMongo {{site._1_0_latest_minor}} – Release details
+## Release details
+
+This is the release details for ReactiveMongo {{site._1_0_latest_minor}}.
 
 {% if site._1_0_latest_minor contains "-rc." %}
 <strong style="color:red">This is a Release Candidate</strong>
 {% endif %}
 
-**What's new?**
+The documentation is available [online](./index.html), and its code samples are compiled to make sure it's up-to-date.
 
-The documentation is available [online](index.html), and its code samples are compiled to make sure it's up-to-date.
+### What's new?
 
 - [Compatibility](#compatibility)
 - [Migration](#migration)
-- [Connection](#connection)
+- [Connection](#connection) <!-- pandoc_hidden -->
   - Support [x.509 certificate](https://docs.mongodb.com/manual/tutorial/configure-x509-client-authentication/) to authenticate.
   - Support [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) in the connection URI.
   - New `heartbeatFrequencyMS` setting.
   - Add `credentials` in the [`MongoConnectionOptions`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/MongoConnectionOptions.html)
-  - [Netty native](#netty-native)
-- [BSON library](#bson-library)
+  - Support [Netty native](#netty-native) <!-- end_pandoc_hidden -->
+- [BSON library](#bson-library) <!-- pandoc_hidden -->
   - [Documents and values](#documents-and-values)
   - [Reader and writer typeclasses](#reader-and-writer-typeclasses)
   - [Macros](#macros)
-    - `Option` support & [`@NoneAsNull`](#none-as-null)
-    - [`@Flatten`](#a-flatten)
-    - [`@DefaultValue`](#a-defaultvalue)
-    - [`@Reader`](#a-reader) & [`@Writer`](#a-writer)
   - [Extra libraries](#extra-libraries)
     - [GeoJSON](#geojson)
     - [Monocle](#monocle)
-    - [Specs2](#specs2)
-- [Query and write operations](#query-and-write-operations),
-  - Bulk operations (e.g. `.delete.many`) on [collection](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html),
-  - `arrayFilters` on update operations.
-- [Play](#play)
-  - [JSON compatibility](#json-compatibility)
+    - [Specs2](#specs2) <!-- end_pandoc_hidden -->
+- [Query and write operations](#query-and-write-operations)
+- [Play](#play) <!-- pandoc_hidden -->
+  - [JSON compatibility](#json-compatibility) <!-- end_pandoc_hidden -->
 - [Aggregation](#aggregation)
-  - [`CursorOptions`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/CursorOptions.html) parameter when using `.aggregatorContext`.
-  - New stages: `$addFields`, `$bucketAuto`, `$count`, `$filter`, `$replaceRoot`, `$search`, `$slice`
+  - [`CursorOptions`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/CursorOptions.html) <!-- pandoc_hidden -->parameter when using `.aggregatorContext`<!-- end_pandoc_hidden -->
+  - [New stages](#addfields)
   - [Change stream](#change-stream)
 - [GridFS](#gridfs)
-- [Monitoring](#monitoring)
+- [Monitoring](#monitoring) <!-- pandoc_hidden -->
 - [Administration](#administration)
-- [Breaking changes](#breaking-changes)
-
-<!-- TODO: Slideshow -->
+- [Breaking changes](#breaking-changes) <!-- end_pandoc_hidden -->
 
 ### Compatibility
 
@@ -76,23 +79,24 @@ A Scalafix module is available to migrate from ReactiveMongo 0.12+ to 1.0 (not y
 
 To apply the migration rules, first [setup Scalafix](https://scalacenter.github.io/scalafix/docs/users/installation.html) in the SBT build, then configure the ReactiveMongo rules as bellow.
 
-{% highlight ocaml %}
+```ocaml
 scalafixDependencies in ThisBuild ++= Seq(
   "org.reactivemongo" %% "reactivemongo-scalafix" % "{{site._1_0_latest_minor}}")
-{% endhighlight %}
+```
 
 Once the rules are configured, they can be applied from SBT.
 
-{% highlight sh %}
+```sh
 scalafix ReactiveMongoUpgrade
 scalafix ReactiveMongoLinter --check
-{% endhighlight %}
+```
 
+<!-- pandoc_sep: Migration (upgrade dependencies) -->
 Then upgrade the appropriate `libraryDependencies` in the SBT build, and re-recompile it.
 
-{% highlight sh %}
+```sh
 sbt clean compile
-{% endhighlight %}
+```
 
 Finally, apply manually the remaining fixes due to the breaking changes.
 
@@ -107,43 +111,44 @@ The `MongoDriver` type is replaced by `AsyncDriver`, with asynchronous methods.
 
 The utility function `MongoConnection.parseURI` is replaced by asynchronous function [`.fromString`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/MongoConnection$.html#fromString(uri:String)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[reactivemongo.api.MongoConnection.ParsedURI]).
 
+<!-- pandoc_sep: Deprecated options -->
 Also, the following options are deprecated:
 
-- `authSource` replaced by `authenticationDatabase` (as the MongoShell option)
-- `authMode` replaced by `authenticationMechanism` (as the MongoShell option)
+- `authSource` replaced by [`authenticationDatabase`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/MongoConnectionOptions.html#authenticationDatabase:Option[String]) (as the MongoShell option)
+- `authMode` replaced by [`authenticationMechanism`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/MongoConnectionOptions.html#authenticationMechanism:reactivemongo.api.AuthenticationMode) (as the MongoShell option)
 - `sslEnabled` replaced by `ssl` (as the MongoShell option)
 - `rm.monitorRefreshMS` replaced by `heartbeatFrequencyMS`
-
-New options:
-
-- `heartbeatFrequencyMS`
+The option `rm.monitorRefreshMS` is renamed [`heartbeatFrequencyMS`](https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-discovery-and-monitoring.rst#heartbeatfrequencyms) for the interval (in milliseconds) used to refresh the node set (default: 10s).
 
 > [SNI](https://en.wikipedia.org/wiki/Server_Name_Indication) is now supported for the SSL connection.
 
+<!-- pandoc_sep: x509 authentication -->
 The [x.509 certificate authentication](https://docs.mongodb.com/manual/tutorial/configure-x509-client-authentication/) is now supported, and can be configured by setting `x509` as `authenticationMechanism`, and with the following new options.
 
 - **`keyStore`**: An URI to a key store (e.g. `file:///path/to/keystore.p12`)
 - **`keyStorePassword`**: Provides the password to load it (if required)
 - **`keyStoreType`**: Indicates the [type of the store](https://docs.oracle.com/javase/7/docs/technotes/guides/security/StandardNames.html#KeyStore)
 
-{% highlight scala %}
+```scala
 import reactivemongo.api._
 
-def connection(driver: AsyncDriver) =
-  driver.connect("mongodb://server:27017/db?ssl=true&authenticationMechanism=x509&keyStore=file:///path/to/keystore.p12&keyStoreType=PKCS12")
-{% endhighlight %}
+def connection(driver: AsyncDriver) = driver.connect(
+  "mongodb://server:27017/db?ssl=true"
+  + "&authenticationMechanism=x509"
+  + "&keyStore=file:///path/to/keystore.p12"
+  + "&keyStoreType=PKCS12")
+```
 
+<!-- pandoc_sep: DNS seedlist -->
 The [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) is now supported, using `mongodb+srv://` scheme in the connection URI.
 It's also possible to specify the credential directly in the URI.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api._
 
-def seedListCon(driver: AsyncDriver) =
-  driver.connect("mongodb+srv://usr:pass@mymongo.mydomain.tld/mydb")
-{% endhighlight %}
-
-The option `rm.monitorRefreshMS` is renamed [`heartbeatFrequencyMS`](https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-discovery-and-monitoring.rst#heartbeatfrequencyms).
+def seedListCon(driver: AsyncDriver) = driver.connect(
+  "mongodb+srv://usr:pass@mymongo.mydomain.tld/mydb")
+```
 
 *[See documentation](./tutorial/connect-database.html)*
 
@@ -151,22 +156,22 @@ The option `rm.monitorRefreshMS` is renamed [`heartbeatFrequencyMS`](https://git
 
 The internal [Netty](http://netty.io/) dependency has been updated to the version [4.1](http://netty.io/wiki/new-and-noteworthy-in-4.1.html).
 
-It comes with various improvements (memory consumption, ...), and also to use Netty native support (kqueue for Mac OS X and epoll for Linux, on `x86_64` arch).
+It comes with various improvements (memory consumption, ...), and also to use Netty native support (kqueue for MacOS X and epoll for Linux, on `x86_64` arch).
 
-> Note that the Netty dependency is [shaded](https://maven.apache.org/plugins/maven-shade-plugin/) so it won't conflict with any Netty version in your environment.
+> *Note:* The Netty dependency is [shaded](https://maven.apache.org/plugins/maven-shade-plugin/) so it won't conflict with any Netty version in your environment.
 
 *[See documentation](./tutorial/connect-database.html#netty-native)*
 
 ### BSON library
 
-The Biːsən is the new default BSON library, that fixes some issues ([OOM](https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/memleaks002.html)), and brings multiple API and performance improvements (simpler & better).
+The Biːsən is the new default BSON library, that fixes some issues<!-- pandoc_hidden --> ([OOM](https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/memleaks002.html))<!-- end_pandoc_hidden -->, and brings multiple API and performance improvements (simpler & better).
 
 **Highlights:**
 
 - Simpler and more efficient API
-- New [GeoJSON](./extra.html#geojson) library
-- New [Monocle](./extra.html#monocle) (optics) library
-- New [Specs2](./extra.html#specs) library
+- New [GeoJSON](./bson/extra.html#geojson) library
+- New [Monocle](./bson/extra.html#monocle) (optics) library
+- New [Specs2](./bson/extra.html#specs) library
 
 #### Documents and values
 
@@ -174,18 +179,20 @@ The API for [`BSONDocument`](https://static.javadoc.io/org.reactivemongo/reactiv
 
 New `getOrElse` function is also added.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson._
 
 def withFallback(doc: BSONDocument): String = {
-  doc.getOrElse[String]("strField", "defaultValue")
-  // Equivalent to: doc.getAsOpt[String]("strField").getOrElse("defaultValue")
+  doc.getOrElse[String]("NAME", "defaultValue")
+  // Equivalent to:
+  //   doc.getAsOpt[String]("NAME").getOrElse("defaultValue")
 }
-{% endhighlight %}
+```
 
+<!-- pandoc_sep -->
 New field utilities are provided for the most common types:
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson._
 
 def foo(doc: BSONDocument): Unit = {
@@ -198,27 +205,27 @@ def foo(doc: BSONDocument): Unit = {
   val c: Option[BSONDocument] = doc.child("nestedDoc")
   val _: List[BSONDocument] = doc.children("arrayOfDocs")
 }
-{% endhighlight %}
-
-> Note: The `BSONDocument` and `BSONArray` factories have been optimized and support more use cases.
-
-<figure>
-  <img src="./images/bison-bench-doc.png"
-    style="max-width:75%" alt="Document benchmarks" />
-
-  <figcaption style="font-size:x-small">Coefficient between new/old throughput (op/s; =1: no change, 1+: better thrpt). Source: <a rel="me external" href="https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/benchmarks/src/main/scala/BSONDocumentBenchmark.scala">BSONDocumentBenchmark</a>, <a rel="me external" href="https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/benchmarks/src/main/scala/BSONDocumentHandlerBenchmark.scala">BSONDocumentHandlerBenchmark</a></figcaption>
-</figure>
-
-<figure>
-  <img src="./images/bison-bench-array.png"
-    style="max-width:75%" alt="Array benchmarks" />
-
-  <figcaption style="font-size:x-small">Coefficient between new/old throughput (op/s; =1: no change, 1+: better thrpt). Source: <a rel="me external" href="https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/benchmarks/src/main/scala/BSONArrayBenchmark.scala">BSONArrayBenchmark</a></figcaption>
-</figure>
+```
 
 The Biːsən library supports [BSON Decimal128](https://github.com/mongodb/specifications/blob/master/source/bson-decimal128/decimal128.rst#bson-decimal128-type-handling-in-drivers) (MongoDB 3.4+).
 
 *[See documentation](./bson/overview.html)*
+
+<!-- pandoc_sep -->
+> *Note:* The `BSONDocument` and `BSONArray` factories have been optimized and support more use cases.
+
+![Coefficient between new/old throughput (op/s; =1: no change, 1+: better thrpt)](./images/bison-bench-doc.png){:width="75%"}
+
+<!-- pandoc_hidden -->
+<small>Source: <a rel="me external" href="https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/benchmarks/src/main/scala/BSONDocumentBenchmark.scala">BSONDocumentBenchmark</a>, <a rel="me external" href="https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/benchmarks/src/main/scala/BSONDocumentHandlerBenchmark.scala">BSONDocumentHandlerBenchmark</a></small>
+<!-- end_pandoc_hidden -->
+
+<!-- pandoc_sep -->
+![Coefficient between new/old throughput (op/s; =1: no change, 1+: better thrpt)](./images/bison-bench-array.png){:width="75%"}
+
+<!-- pandoc_hidden -->
+<small>Source: <a rel="me external" href="https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/benchmarks/src/main/scala/BSONArrayBenchmark.scala">BSONArrayBenchmark</a></small>
+<!-- end_pandoc_hidden -->
 
 #### Reader and writer typeclasses
 
@@ -226,53 +233,68 @@ The names of these typeclasses are unchanged ([`BSONReader`](https://static.java
 
 In the previous BSON library, `BSONReader` and `BSONWriter` are defined with two type parameters:
 
-{% highlight ocaml %}
+```ocaml
 BSONReader[B <: BSONValue, T]
 
 BSONWriter[T, B <: BSONValue]
-{% endhighlight %}
+```
 
 - `B` being the type of BSON value to be read/written,
 - and `T` being the Scala type to be handled.
 
+<!-- pandoc_sep: Simpler BSON API -->
 The new API has been simplified, with only the `T` type parameter kept.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson._
 
-// read a String from BSON, whatever is the specific BSON value type
+// Read a String from BSON,
+// whatever is the specific BSON value type
 def stringReader: BSONReader[String] = ???
-{% endhighlight %}
+```
 
-Not only it makes the API simpler, but it also allows to read different BSON types as a target Scala type (before only supported for numeric/boolean, using the dedicated typeclasses).
-For example, the Scala numeric types (`BigDecimal`, `Double`, `Float`, `Int`, `Long`) can be directly read from any consistent BSON numeric type (e.g. `1.0` as integer `1`), without having to use `BSONNumberLike`.
+<!-- pandoc_sep: BSON compatible types -->
+Not only it makes the API simpler, but it also allows to read different BSON types as a target Scala type<!-- pandoc_hidden -->(before it only supported for numeric/boolean, using the dedicated typeclasses)<!-- end_pandoc_hidden -->.
 
+For example, the Scala numeric types (`BigDecimal`, `Double`, `Float`, `Int`, `Long`) can be directly read from any consistent BSON numeric type (e.g. `1.0` as integer `1`)<!-- pandoc_hidden -->, without having to use `BSONNumberLike`<!-- end_pandoc_hidden -->.
+
+```scala
+import reactivemongo.api.bson._
+
+BSONDouble(1.0D).asTry[Int]
+// => Success(1)
+```
+
+<!-- pandoc_sep: Safer BSON API -->
 Also, handler functions [`readTry`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/BSONHandler.html#readTry(bson:reactivemongo.api.bson.BSONValue):scala.util.Try[T]) and [`writeTry`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/BSONHandler.html#writeTry(t:T):scala.util.Try[reactivemongo.api.bson.BSONValue]) returns `Try`, for a safer representation of possible failures.
 
 The new API is also safer, replacing `BSONReader.read` and `BSONWriter.write` respectively with `BSONReader.readTry` and `BSONWriter.writeTry`, so that serialization errors can be handle at typelevel.
 
 In a similar way, [`BSONObjectID.parse`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/BSONObjectID$.html#parse(bytes:Array[Byte]):scala.util.Try[reactivemongo.api.bson.BSONObjectID]) now returns `Try`, and `BSONValue.as` is replaced by [`asOpt`](https://www.javadoc.io/static/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/BSONValue.html#asOpt[T](implicitreader:reactivemongo.api.bson.BSONReader[T]):Option[T]) and [`asTry`](https://www.javadoc.io/static/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/BSONValue.html#asTry[T](implicitreader:reactivemongo.api.bson.BSONReader[T]):scala.util.Try[T]).
 
+<!-- pandoc_sep: Document typeclasses -->
 Like the current BSON library, some specific typeclasses are available (with same names) to only work with BSON documents: `BSONDocumentReader` and `BSONDocumentWriter`.
 
 Some new handlers are provided by default, like those for [Java Time](https://docs.oracle.com/javase/8/docs/api/java/time/package-summary.html) types.
 
-> Note: The handler for `java.util.Date` is replaced the handler for `java.time.Instant`.
+> *Note:* The handler for `java.util.Date` is replaced the handler for `java.time.Instant`.
 
-The error handling has also been improved, with more details (Note: `DocumentKeyNotFoundException` is the previous API is replaced with `BSONValueNotFoundException` in the new one).
+<!-- pandoc_sep -->
+The error handling has also been improved, with more details.
 
-<figure>
-  <img src="./images/bison-bench-reader.png"
-    style="max-width:75%" alt="Reader benchmarks" />
+> *Note:* `DocumentKeyNotFoundException` in the previous API is replaced with `BSONValueNotFoundException` in the new one.
 
-  <figcaption style="font-size:x-small">Coefficient between new/old throughput (op/s; =1: no change, 1+: better thrpt). Source: <a rel="me external" href="https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/benchmarks/src/main/scala/">BSON reader benchmarks</a></figcaption>
-</figure>
+![Coefficient between new/old throughput (op/s; =1: no change, 1+: better thrpt)](./images/bison-bench-reader.png){:width="75%"}
 
-**`Map` handler:**
+<!-- pandoc_hidden -->
+<small>Source: <a rel="me external" href="https://github.com/ReactiveMongo/ReactiveMongo-BSON/blob/master/benchmarks/src/main/scala/">BSON reader benchmarks</a></small>
+<!-- end_pandoc_hidden -->
+
+##### `Map` handler
 
 A handler is now available to write and read Scala `Map` as BSON, provided the value types are supported.
 
-{% highlight scala %}
+```scala
 import scala.util.Try
 import reactivemongo.api.bson._
 
@@ -284,11 +306,12 @@ def bsonMap = {
 
   val output = doc.flatMap { BSON.readDocument[Map[String, Int]](_) }
 }
-{% endhighlight %}
+```
 
-For cases where you can to serialize a `Map` whose key type is not `String` (which is required for BSON document keys), new typeclasses [`KeyWriter`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/KeyWriter.html) and [`KeyReader`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/KeyReader.html) have been introduced.
+You can to serialize a `Map` whose key type is not `String`, using the new typeclasses [`KeyWriter`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/KeyWriter.html) and [`KeyReader`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/KeyReader.html).
 
-{% highlight scala %}
+<!-- pandoc_sep: Map handler example -->
+```scala
 import scala.util.Try
 import reactivemongo.api.bson._
 
@@ -298,63 +321,75 @@ object FooKey {
   val bar = new FooKey("bar")
   val lorem = new FooKey("lorem")
 
-  implicit val keyWriter: KeyWriter[FooKey] = KeyWriter[FooKey](_.value)
-
-  implicit val keyReader: KeyReader[FooKey] =
-    KeyReader[FooKey] { new FooKey(_) }
-
+  implicit val kw: KeyWriter[FooKey] = KeyWriter[FooKey](_.value)
+  implicit val kr: KeyReader[FooKey] = KeyReader[FooKey] { new FooKey(_) }
 }
 
 def bsonMapCustomKey = {
-  val input: Map[FooKey, Int] = Map(
-    FooKey.bar -> 1, FooKey.lorem -> 2)
+  val input: Map[FooKey, Int] = Map(FooKey.bar -> 1, FooKey.lorem -> 2)
 
-  // Ok as key and value (String, Int) are provided BSON handlers
+  // Ok as key and value (String, Int) are provided handlers
   val doc: Try[BSONDocument] = BSON.writeDocument(input)
 
   val output = doc.flatMap { BSON.readDocument[Map[FooKey, Int]](_) }
 }
-{% endhighlight %}
+```
 
-**`Iterable` factories:**
+##### `Iterable` factories
 
-New factories to handle BSON array are provided: `{ BSONReader, BSONWriter }.{ iterable, sequence }`
+New factories to handle BSON array are provided.
 
-{% highlight scala %}
-import reactivemongo.api.bson.{ BSONReader, BSONWriter, Macros }
+Considering the `Element` type as below:
+
+```scala
+import reactivemongo.api.bson.Macros
 
 case class Element(str: String, v: Int)
 
 val elementHandler = Macros.handler[Element]
+```
 
-val setReader: BSONReader[Set[Element]] =
-  BSONReader.iterable[Element, Set](elementHandler readTry _)
+<!-- pandoc_sep: Sequence factories -->
+The `{ BSONReader, BSONWriter }.sequence` factories can be used to represent sequence of `Element` in BSON.
+
+```scala
+import reactivemongo.api.bson.BSONWriter
 
 val seqWriter: BSONWriter[Seq[Element]] =
   BSONWriter.sequence[Element](elementHandler writeTry _)
 
 // ---
 
-import reactivemongo.api.bson.{ BSONArray, BSONDocument }
+seqWriter.writeTry(Seq(Element("foo", 1), Element("bar", 2)))
+// Success: [ { 'str': 'foo', 'v': 1 }, { 'str': 'bar', 'v': 2 } ]
+```
 
-val fixture = BSONArray(
+<!-- pandoc_sep: Iterable factories -->
+The `{ BSONReader, BSONWriter }.iterable` factories can also be used (for example to work with `Set`).
+
+```scala
+import reactivemongo.api.bson.{ BSONArray, BSONDocument, BSONReader }
+
+val setReader: BSONReader[Set[Element]] =
+  BSONReader.iterable[Element, Set](elementHandler readTry _)
+
+// ---
+
+val itFixture2 = BSONArray(
   BSONDocument("str" -> "foo", "v" -> 1),
   BSONDocument("str" -> "bar", "v" -> 2))
 
-setReader.readTry(fixture)
+setReader.readTry(itFixture2)
 // Success: Set(Element("foo", 1), Element("bar", 2))
+```
 
-seqWriter.writeTry(Seq(Element("foo", 1), Element("bar", 2)))
-// Success: fixture
-{% endhighlight %}
-
-**Tuple factories:**
+##### Tuple factories
 
 New factories to create handler for tuple types (up to 5-arity) are provided.
 
 If an array is the wanted BSON representation:
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.{ BSONArray, BSONReader, BSONWriter }
 
 val readerArrAsStrInt = BSONReader.tuple2[String, Int]
@@ -366,33 +401,36 @@ readerArrAsStrInt.readTry(arr) // => Success(("Foo", 20))
 
 writerStrIntToArr.writeTry("Foo" -> 20)
 // => Success: arr = ['Foo', 20]
-{% endhighlight %}
+```
 
+<!-- pandoc_sep: Tuple factories (as document) -->
 If a document representation is wanted: 
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.{
   BSONDocument, BSONDocumentReader, BSONDocumentWriter
 }
 
-val writerStrIntToDoc = BSONDocumentWriter.tuple2[String, Int]("name", "age")
+val writerStrIntToDoc =
+  BSONDocumentWriter.tuple2[String, Int]("name", "age")
 
 writerStrIntToDoc.writeTry("Foo" -> 20)
 // => Success: {'name': 'Foo', 'age': 20}
 
-val readerDocAsStrInt = BSONDocumentReader.tuple2[String, Int]("name", "age")
+val readerDocAsStrInt =
+  BSONDocumentReader.tuple2[String, Int]("name", "age")
 
-reader.readTry(BSONDocument("name" -> "Foo", "age" -> 20))
+readerDocAsStrInt.readTry(BSONDocument("name" -> "Foo", "age" -> 20))
 // => Success(("Foo", 20))
-{% endhighlight %}
+```
 
-**Partial function:**
+##### Partial function
 
 There are new factories based on partial functions: `collect` and `collectFrom`.
 
 *BSON reader:*
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.{ BSONReader, BSONInteger }
 
 val intToStrCodeReader = BSONReader.collect[String] {
@@ -404,12 +442,12 @@ intToStrCodeReader.readTry(BSONInteger(0)) // Success("zero")
 
 intToStrCodeReader.readTry(BSONInteger(2))
 // => Failure(ValueDoesNotMatchException(..))
-{% endhighlight %}
+```
 
+<!-- pandoc_sep -->
 *BSON writer:*
 
-{% highlight scala %}
-import scala.util.Success
+```scala
 import reactivemongo.api.bson.{ BSONWriter, BSONInteger }
 
 val strCodeToIntWriter = BSONWriter.collect[String] {
@@ -421,11 +459,11 @@ strCodeToIntWriter.writeTry("zero") // Success(BSONInteger(0))
 
 strCodeToIntWriter.writeTry("3")
 // => Failure(IllegalArgumentException(..))
-{% endhighlight %}
+```
 
 *BSON document writer:*
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.{ BSONDocument, BSONDocumentWriter }
 
 case class Bar(value: String)
@@ -434,29 +472,32 @@ val writer2 = BSONDocumentWriter.collectFrom[Bar] {
   case Bar(value) if value.nonEmpty =>
     scala.util.Success(BSONDocument("value" -> value))
 }
-{% endhighlight %}
+```
 
 #### Macros
 
-The new library also provide similar macros, to easily materialized document readers and writers for Scala case classes and sealed traits.
+The new library also provides similar macros, to materialized document readers and writers for case classes and sealed traits.
 
-{% highlight scala %}
+```scala
 case class Person(name: String, age: Int)
 
 import reactivemongo.api.bson._
 
-val personHandler: BSONDocumentHandler[Person] = Macros.handler[Person]
+val personHandler: BSONDocumentHandler[Person] =
+  Macros.handler[Person]
 
 // Or only ...
-val personReader: BSONDocumentReader[Person] = Macros.reader[Person]
-val personWriter: BSONDocumentWriter[Person] = Macros.writer[Person]
-{% endhighlight %}
+val personReader: BSONDocumentReader[Person] =
+  Macros.reader[Person]
 
-This macro utilities offer new [configuration mechanism](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/MacroConfiguration.html).
+val personWriter: BSONDocumentWriter[Person] =
+  Macros.writer[Person]
+```
 
-The macro configuration can be used to specify a [field naming](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/FieldNaming.html), to customize the name of each BSON field corresponding to Scala field.
+<!-- pandoc_sep: Macro configuration -->
+There is a new [configuration mechanism](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/MacroConfiguration.html), to specify a [field naming](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/FieldNaming.html) and customize the name of each BSON field corresponding to Scala.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson._
 
 val withPascalCase: BSONDocumentHandler[Person] = {
@@ -467,14 +508,13 @@ val withPascalCase: BSONDocumentHandler[Person] = {
 }
 
 withPascalCase.writeTry(Person(name = "Jane", age = 32))
-/* Success {
-  BSONDocument("Name" -> "Jane", "Age" -> 32)
-} */
-{% endhighlight %}
+// Success { "Name": "Jane", "Age": 32) }
+```
 
-In a similar way, when using macros with sealed family/trait, the strategy to name the [discriminator field](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/MacroConfiguration.html#discriminator:String) and to set a Scala type as [discriminator value](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/TypeNaming.html) can be configured.
+<!-- pandoc_sep: Macro trait discriminator -->
+With sealed family/trait, it's also possible to configure the [discriminator field](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/MacroConfiguration.html#discriminator:String) and [discriminator values](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/TypeNaming.html) according Scala types.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson._
 
 sealed trait Family1
@@ -491,15 +531,17 @@ val family1Handler: BSONDocumentHandler[Family1] = {
 
   Macros.handler[Family1]
 }
-{% endhighlight %}
+```
 
+<!-- pandoc_sep: Macro options -->
 The nested type `Macros.Options` is replaced by similar type [`MacrosOptions`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/MacroOptions.html).
 
-> Note: The `Macros.Options.SaveSimpleName` of the previous BSON library has been removed in favour of a [configuration factory](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/MacroConfiguration$.html#simpleTypeName[Opts%3C:reactivemongo.api.bson.MacroOptions](implicitevidence$2:reactivemongo.api.bson.MacroOptions.ValueOf[Opts]):reactivemongo.api.bson.MacroConfiguration.Aux[Opts]) using similar `TypeNaming`.
+> *Note:* The `Macros.Options.SaveSimpleName` of the previous BSON library has been removed in favour of a [configuration factory](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/MacroConfiguration$.html#simpleTypeName[Opts%3C:reactivemongo.api.bson.MacroOptions](implicitevidence$2:reactivemongo.api.bson.MacroOptions.ValueOf[Opts]):reactivemongo.api.bson.MacroConfiguration.Aux[Opts]) using similar `TypeNaming`.
 
-The compile-time option `AutomaticMaterialization` has been added, when using the macros with sealed family, to explicitly indicate when you want to automatically materialize required instances for the subtypes (if missing from the implicit scope).
+The compile-time option [`AutomaticMaterialization`](https://javadoc.io/static/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/MacroOptions$$AutomaticMaterialization.html) has been added, when using the macros with sealed family, to indicate when you want to automatically materialize instances for the subtypes (if missing from the implicit scope).
 
-{% highlight scala %}
+<!-- pandoc_sep: AutomaticMaterialization option -->
+```scala
 sealed trait Color
 
 case object Red extends Color
@@ -513,17 +555,17 @@ object Color {
 
   // Use `UnionType` to define a subset of the `Color` type,
   type PredefinedColor =
-    UnionType[Red.type \/ Green \/ Blue.type] with AutomaticMaterialization
+    UnionType[Red.type \/ Green \/ Blue.type]
+    with AutomaticMaterialization
 
   val predefinedColor = Macros.handlerOpts[Color, PredefinedColor]
 }
-{% endhighlight %}
+```
 
-> Note: A new option `MacroOptions.DisableWarnings` allows to specifically exclude macro warnings.
+<!-- pandoc_sep: ReadDefaultValues option -->
+Using the new option [`ReadDefaultValues`](https://javadoc.io/static/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/MacroOptions$$ReadDefaultValues.html), the default values can be used by readers when there is no BSON value.
 
-Using the new option `MacroOptions.ReadDefaultValues`, the default values can be used by BSON reader when there is no corresponding BSON value.
-
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.{
   BSONDocument, BSONDocumentReader, Macros, MacroOptions
 }
@@ -532,18 +574,24 @@ case class FooWithDefault1(id: Int, title: String = "default")
 
 {
   val reader: BSONDocumentReader[FooWithDefault1] =
-    Macros.using[MacroOptions.ReadDefaultValues].reader[FooWithDefault1]
+    Macros.using[MacroOptions.ReadDefaultValues].
+      reader[FooWithDefault1]
 
   reader.readTry(BSONDocument("id" -> 1)) // missing BSON title
   // => Success: FooWithDefault1(id = 1, title = "default")
 }
-{% endhighlight %}
+```
 
+> *Note:* A new option [`DisableWarnings`](https://javadoc.io/static/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/MacroOptions$$DisableWarnings.html) allows to specifically exclude macro warnings.
+
+<!-- pandoc_sep: Value classes -->
 New macros for [Value classes](https://docs.scala-lang.org/overviews/core/value-classes.html) are new available.
 
-{% highlight scala %}
+```scala
 package object relexamples {
-  import reactivemongo.api.bson.{ BSONHandler, BSONReader, BSONWriter, Macros }
+  import reactivemongo.api.bson.{
+    BSONHandler, BSONReader, BSONWriter, Macros
+  }
 
   final class FooVal(val value: String) extends AnyVal
 
@@ -551,15 +599,30 @@ package object relexamples {
   val vr: BSONReader[FooVal] = Macros.valueReader[FooVal]
   val vw: BSONWriter[FooVal] = Macros.valueWriter[FooVal]
 }
-{% endhighlight %}
+```
 
-**Annotations:**
+##### Annotations
 
-The way `Option` is handled by the macros has been improved, also with a new annotation <span id="none-as-null">`@NoneAsNull`</span>, which write `None` values as `BSONNull` (instead of omitting field/value).
+The way `Option` is handled by the macros has been improved, also with a new annotation <span id="none-as-null">[`@NoneAsNull`](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/Macros$$Annotations$$NoneAsNull.html)</span>, which write `None` values as `BSONNull` (instead of omitting field/value).
 
-A <span id="a-flatten">new annotation [`@Flatten`](../api/reactivemongo/bson/Macros$$Annotations$$Flatten.html)</span> has been added, to indicate to the macros that the representation of a property must be flatten rather than a nested document.
+```scala
+import reactivemongo.api.bson.BSONDocument
+import reactivemongo.api.bson.Macros, Macros.Annotations.NoneAsNull
 
-{% highlight scala %}
+case class WithNull(
+  name: String,
+  @NoneAsNull score: Option[Int])
+
+Macros.writer[WithNull].writeTry(WithNull("foo", None))
+
+// Serialized with null: {'name': 'foo', 'score': null}
+// Rather than: {'name': 'foo'}
+```
+
+<!-- pandoc_sep: @Flatten -->
+Also, a <span id="a-flatten">new annotation [`@Flatten`](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/Macros$$Annotations$$Flatten.html)</span> has been added, to indicate to the macros that the representation of a property must be flatten rather than a nested document.
+
+```scala
 import reactivemongo.api.bson.BSONDocument
 import reactivemongo.api.bson.Macros.Annotations.Flatten
 
@@ -575,11 +638,12 @@ BSONDocument("name" -> "foo", "start" -> 0, "end" -> 1)
 // Rather than:
 // BSONDocument("name" -> "foo", "range" -> BSONDocument(
 //   "start" -> 0, "end" -> 1))
-{% endhighlight %}
+```
 
-The new <span id="a-defaultvalue">[`@DefaultValue`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/Macros$$Annotations$$DefaultValue.html)</span> can be used with `MacroOptions.ReadDefaultValues` to specify a default value only used when reading from BSON.
+<!-- pandoc_sep: @DefaultValue -->
+The new <span id="a-defaultvalue">[`@DefaultValue`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/Macros$$Annotations$$DefaultValue.html)</span> can be used with `ReadDefaultValues` to specify a default value only used when reading from BSON.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.{
   BSONDocument, BSONDocumentReader, Macros, MacroOptions
 }
@@ -596,38 +660,35 @@ case class FooWithDefault2(
   reader.readTry(BSONDocument("id" -> 1)) // missing BSON title
   // => Success: FooWithDefault2(id = 1, title = "default")
 }
-{% endhighlight %}
+```
 
-The new <span id="a-reader">[`@Reader`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/Macros$$Annotations$$Reader.html)</span> allows to indicate a specific BSON reader that must be used for a property, instead of resolving such reader from the implicit scope.
+<!-- pandoc_sep: @Reader -->
+The new <span id="a-reader">[`@Reader`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/Macros$$Annotations$$Reader.html)</span> allows to indicate a BSON reader to be used for a property, not using the implicit scope.
 
-{% highlight scala %}
-import reactivemongo.api.bson.{
-  BSONDocument, BSONDouble, BSONString, BSONReader
-}
-import reactivemongo.api.bson.Macros,
-  Macros.Annotations.Reader
+```scala
+import reactivemongo.api.bson.{ BSONDocument, BSONReader }
+import reactivemongo.api.bson.Macros, Macros.Annotations.Reader
 
 val scoreReader: BSONReader[Double] = BSONReader.collect[Double] {
-  case BSONString(v) => v.toDouble
-  case BSONDouble(b) => b
+  case reactivemongo.api.bson.BSONString(v) => v.toDouble
+  case reactivemongo.api.bson.BSONDouble(b) => b
 }
 
 case class CustomFoo1(
   title: String,
   @Reader(scoreReader) score: Double)
 
-val reader = Macros.reader[CustomFoo1]
-
-reader.readTry(BSONDocument(
+Macros.reader[CustomFoo1].readTry(BSONDocument(
   "title" -> "Bar",
   "score" -> "1.23" // accepted by annotated scoreReader
 ))
 // Success: CustomFoo1(title = "Bar", score = 1.23D)
-{% endhighlight %}
+```
 
-In a similar way, the new <span id="a-writer">[`@Writer`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/Macros$$Annotations$$Writer.html)</span> allows to indicate a specific BSON writer that must be used for a property, instead of resolving such writer from the implicit scope.
+<!-- pandoc_sep: @Writer -->
+Also the new <span id="a-writer">[`@Writer`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/bson/Macros$$Annotations$$Writer.html)</span> specifies the BSON writer to be used for a property, instead of the implicit scope.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.{ BSONString, BSONWriter }
 import reactivemongo.api.bson.Macros,
   Macros.Annotations.Writer
@@ -644,45 +705,56 @@ val writer = Macros.writer[CustomFoo2]
 
 writer.writeTry(CustomFoo2(title = "Bar", score = 1.23D))
 // Success: BSONDocument("title" -> "Bar", "score" -> "1.23")
-{% endhighlight %}
+```
 
 #### Extra libraries
 
 Some [extra libraries](./bson/extra.html) are provided along the new BSON one, to improve the integration.
 
+<!-- pandoc_hidden -->
 <strong id="geojson">[GeoJSON](./bson/extra.html#geojson):</strong>
+<!-- end_pandoc_hidden -->
 
 A new [GeoJSON](https://docs.mongodb.com/manual/reference/geojson/) library is provided, with the geometry types and the corresponding handlers to read from and write them to appropriate BSON representation.
 
 It can be configured in the `build.sbt` as below.
 
-{% highlight ocaml %}
-libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-geo" % "{{site._1_0_latest_minor}}"
-{% endhighlight %}
+```ocaml
+libraryDependencies ++= Seq(
+  "org.reactivemongo" %% "reactivemongo-bson-geo" % "{{site._1_0_latest_minor}}")
+```
 
 *See [Scaladoc](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-geo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/index.html)*
 
+<!-- pandoc_sep: Monocle -->
+<!-- pandoc_hidden -->
 <strong id="monocle">[Monocle](./bson/extra.html#monocle):</strong>
+<!-- end_pandoc_hidden -->
 
 The library that provides [Monocle](http://julien-truffaut.github.io/Monocle/) based optics, for BSON values.
 
 It can be configured in the `build.sbt` as below.
 
-{% highlight ocaml %}
-libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-monocle" % "{{site._1_0_latest_minor}}"
-{% endhighlight %}
+```ocaml
+libraryDependencies ++= Seq(
+  "org.reactivemongo" %% "reactivemongo-bson-monocle" % "{{site._1_0_latest_minor}}")
+```
 
 *See [Scaladoc](https://javadoc.io/doc/org.reactivemongo/reactivemongo-bson-monocle_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/monocle/index.html)*
 
+<!-- pandoc_sep: Specs2 -->
+<!-- pandoc_hidden -->
 <strong id="specs2">[Specs2](./bson/extra.html#specs2):</strong>
+<!-- end_pandoc_hidden -->
 
 The Specs2 library provides utilities to write tests using [specs2](https://etorreborre.github.io/specs2/) with BSON values.
 
 It can be configured in the `build.sbt` as below.
 
-{% highlight ocaml %}
-libraryDependencies += "org.reactivemongo" %% "reactivemongo-bson-specs2" % "{{site._1_0_latest_minor}}"
-{% endhighlight %}
+```ocaml
+libraryDependencies ++= Seq(
+  "org.reactivemongo" %% "reactivemongo-bson-specs2" % "{{site._1_0_latest_minor}}")
+```
 
 *See [Scaladoc](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-bson-geo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo-bson-geo_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-javadoc.jar/!/reactivemongo/api/bson/geo/index.html)*
 
@@ -698,16 +770,16 @@ The [query builder](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{
 - **`showRecordId`**: `boolean`; Optional. Determines whether to return the record identifier for each document.
 - **`collation`**: `document`; Optional; Specifies the collation to use for the operation (since 3.4).
 
+<!-- pandoc_sep: Collection API -->
 The collection API provides new builders for write operations. This supports bulk operations (e.g. insert many documents at once).
 
-**[`InsertBuilder`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/InsertOps.html#InsertBuilderextendsAnyRef)**
+#### [`InsertBuilder`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/InsertOps.html#InsertBuilderextendsAnyRef)
 
-The new [`insert`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#insert:GenericCollection.this.InsertBuilder) operation is providing an `InsertBuilder`, which supports,
+The new [`insert`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#insert:GenericCollection.this.InsertBuilder) operation is providing an `InsertBuilder`.
 
-- simple insert with [`.one`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/InsertOps$InsertBuilder.html#one[T](document:T)(implicitec:scala.concurrent.ExecutionContext,implicitwriter:InsertOps.this.pack.Writer[T]):scala.concurrent.Future[reactivemongo.api.commands.WriteResult]),
-- and bulk insert with [`.many`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/InsertOps$InsertBuilder.html#many[T](documents:Iterable[T])(implicitec:scala.concurrent.ExecutionContext,implicitwriter:InsertOps.this.pack.Writer[T]):scala.concurrent.Future[InsertOps.this.MultiBulkWriteResult]).
+It supports simple insert with [`.one`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/InsertOps$InsertBuilder.html#one[T](document:T)(implicitec:scala.concurrent.ExecutionContext,implicitwriter:InsertOps.this.pack.Writer[T]):scala.concurrent.Future[reactivemongo.api.commands.WriteResult]).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -724,28 +796,39 @@ val document1 = BSONDocument(
 // Simple: .insert.one(t)
 def simpleInsert(coll: BSONCollection): Future[WriteResult] =
   coll.insert.one(document1)
+```
 
-// Bulk: .insert.many(Seq(t1, t2, ..., tN))
-def bulkInsert(coll: BSONCollection): Future[coll.MultiBulkWriteResult] =
-  coll.insert(ordered = false).many(Seq(
-    document1, BSONDocument(
-      "firstName" -> "Foo",
-      "lastName" -> "Bar",
-      "age" -> 1)))
-{% endhighlight %}
+<!-- pandoc_sep: Bulk insert-->
+Bulk insert is supported by [`.many`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/InsertOps$InsertBuilder.html#many[T](documents:Iterable[T])(implicitec:scala.concurrent.ExecutionContext,implicitwriter:InsertOps.this.pack.Writer[T]):scala.concurrent.Future[InsertOps.this.MultiBulkWriteResult]) function.
 
-**[`UpdateBuilder`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/UpdateOps$UpdateBuilder.html)**
-
-The new [`update`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#update:GenericCollection.this.UpdateBuilder) operation returns an `UpdateBuilder`, which can be used to perform simple or bulk update.
-
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api.bson.BSONDocument
 import reactivemongo.api.bson.collection.BSONCollection
 
-def update1(personColl: BSONCollection) = {
+// Bulk: .insert.many(Seq(t1, t2, ..., tN))
+def bulkInsert(
+  coll: BSONCollection): Future[coll.MultiBulkWriteResult] =
+  coll.insert(ordered = false).many(Seq(
+    document1, BSONDocument(
+      "firstName" -> "Foo",
+      "lastName" -> "Bar",
+      "age" -> 1)))
+```
+
+#### [`UpdateBuilder`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/UpdateOps$UpdateBuilder.html)
+
+The new [`update`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#update:GenericCollection.this.UpdateBuilder) operation returns an `UpdateBuilder`. It supports simple update.
+
+```scala
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.api.bson.BSONDocument
+import reactivemongo.api.bson.collection.BSONCollection
+
+def simpleUpdate(personColl: BSONCollection) = {
   val selector = BSONDocument("name" -> "Jack")
 
   val modifier = BSONDocument(
@@ -754,35 +837,47 @@ def update1(personColl: BSONCollection) = {
       "firstName" -> "Jack"),
       "$unset" -> BSONDocument("name" -> 1))
 
-  // Simple update: get a future update
-  val futureUpdate1 = personColl.update.one(
+  personColl.update.one(
     q = selector, u = modifier,
     upsert = false, multi = false)
+}
+```
 
-  // Bulk update: multiple update
+<!-- pandoc_sep: Bulk update -->
+
+It also allows to perform bulk update using the [`.many`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/UpdateOps$UpdateBuilder.html#many(firstUpdate:UpdateOps.this.UpdateElement,updates:Iterable[UpdateOps.this.UpdateElement])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[UpdateOps.this.MultiBulkWriteResult]) function.
+
+```scala
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.api.bson.document
+import reactivemongo.api.bson.collection.BSONCollection
+
+def bulkUpdate(personColl: BSONCollection) = {
   val updateBuilder1 = personColl.update(ordered = true)
   val updates = Future.sequence(Seq(
     updateBuilder1.element(
-      q = BSONDocument("firstName" -> "Jane", "lastName" -> "Doh"),
-      u = BSONDocument("age" -> 18),
-      upsert = true,
-      multi = false),
+      q = document("firstName" -> "Jane", "lastName" -> "Doh"),
+      u = document("age" -> 18),
+      upsert = true, multi = false),
     updateBuilder1.element(
-      q = BSONDocument("firstName" -> "Bob"),
-      u = BSONDocument("age" -> 19),
-      upsert = false,
-      multi = true)))
+      q = document("firstName" -> "Bob"),
+      u = document("age" -> 19),
+      upsert = false, multi = true)))
 
-  val bulkUpdateRes1 = updates.flatMap { ops => updateBuilder1.many(ops) }
+  updates.flatMap { updateBuilder1.many(_) }
 }
-{% endhighlight %}
+```
 
-**[`DeleteBuilder`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/DeleteOps$DeleteBuilder.html)**
+#### [`DeleteBuilder`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/DeleteOps$DeleteBuilder.html)
 
-The [`.delete`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#delete:GenericCollection.this.DeleteBuilder) function returns a `DeleteBuilder`, to perform simple or bulk delete.
+The [`.delete`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#delete:GenericCollection.this.DeleteBuilder) function returns a `DeleteBuilder`.
+It supports simple deletion.
 
-{% highlight scala %}
-import scala.concurrent.Future
+> The `.remove` operation is now deprecated.
+
+```scala
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api.bson.BSONDocument
@@ -790,10 +885,21 @@ import reactivemongo.api.bson.collection.BSONCollection
 
 def simpleDelete1(personColl: BSONCollection) =
   personColl.delete.one(BSONDocument("firstName" -> "Stephane"))
+```
+
+<!-- pandoc_sep: Bulk delete -->
+
+Bulk deletion is supported with the [`.many`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/DeleteOps$DeleteBuilder.html#many(deletes:Iterable[DeleteOps.this.DeleteElement])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[DeleteOps.this.MultiBulkWriteResult]) function.
+
+```scala
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.api.bson.BSONDocument
+import reactivemongo.api.bson.collection.BSONCollection
 
 def bulkDelete1(personColl: BSONCollection) = {
   val deleteBuilder = personColl.delete(ordered = false)
-
   val deletes = Future.sequence(Seq(
     deleteBuilder.element(
       q = BSONDocument("firstName" -> "Stephane"),
@@ -806,16 +912,13 @@ def bulkDelete1(personColl: BSONCollection) = {
 
   deletes.flatMap { ops => deleteBuilder.many(ops) }
 }
-{% endhighlight %}
+```
 
-> The `.remove` operation is now deprecated.
+#### [`arrayFilters`](https://docs.mongodb.com/manual/release-notes/3.6/#arrayfilters)
 
-**`arrayFilters`**
+The `arrayFilters` criteria is supported by the [`findAndModify`](./tutorial/write-documents.html#find-and-modify) operation.
 
-The [`arrayFilters`](https://docs.mongodb.com/manual/release-notes/3.6/#arrayfilters) criteria is supported for [`findAndModify` and `update`](./tutorial/write-documents.html#find-and-modify) operations.
-
-{% highlight scala %}
-import scala.concurrent.Future
+```scala
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api.WriteConcern
@@ -827,37 +930,57 @@ def findAndUpdateArrayFilters(personColl: BSONCollection) =
     selector = BSONDocument.empty,
     modifier = personColl.updateModifier(
       update = BSONDocument(f"$$set" -> BSONDocument(
-        f"grades.$$[element]" -> 100)),
-      fetchNewObject = true,
-      upsert = false),
-    sort = None,
-    fields = None,
+        f"grades.$$[element]" -> 100))),
+    sort = None, fields = None,
     bypassDocumentValidation = false,
     writeConcern = WriteConcern.Journaled,
-    maxTime = None,
-    collation = None,
-    arrayFilters = Seq(
-      BSONDocument("elem.grade" -> BSONDocument(f"$$gte" -> 85))))
+    maxTime = None, collation = None,
+    arrayFilters = Seq(BSONDocument(
+      "elem.grade" -> BSONDocument(f"$$gte" -> 85))))
+```
+
+<!-- pandoc_sep: arrayFilters (update) -->
+
+`arrayFilters` is also supported on update.
+
+```scala
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.api.bson.BSONDocument
+import reactivemongo.api.bson.collection.BSONCollection
 
 def updateArrayFilters(personColl: BSONCollection) =
   personColl.update.one(
-    q = BSONDocument("grades" -> BSONDocument(f"$$gte" -> 100)),
+    q = BSONDocument(
+      "grades" -> BSONDocument(f"$$gte" -> 100)),
     u = BSONDocument(f"$$set" -> BSONDocument(
       f"grades.$$[element]" -> 100)),
     upsert = false,
     multi = true,
     collation = None,
-    arrayFilters = Seq(
-      BSONDocument("element" -> BSONDocument(f"$$gte" -> 100))))
-{% endhighlight %}
+    arrayFilters = Seq(BSONDocument(
+      "element" -> BSONDocument(f"$$gte" -> 100))))
+```
 
-The `.count(..)` collection operation now return a `Long` value (rather than `Int`).
+<!-- pandoc_sep: Count -->
 
-**[`WriteResult`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/WriteResult.html)**
+The [`.count`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#count(selector:Option[GenericCollection.this.pack.Document],limit:Option[Int],skip:Int,hint:Option[GenericCollection.this.Hint],readConcern:reactivemongo.api.ReadConcern,readPreference:reactivemongo.api.ReadPreference)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Long]) operation now returns a `Long` value (rather than `Int`).
+
+```scala
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import reactivemongo.api.bson.collection.BSONCollection
+
+def countPerson(personColl: BSONCollection): Future[Long] =
+  personColl.count(None/* all */)
+```
+
+#### [`WriteResult`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/WriteResult.html)
 
 A new utility is provided to extract exception details from an erroneous result.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.commands.WriteResult
 
 def printExceptionIfFailed(res: WriteResult) = res match {
@@ -867,13 +990,15 @@ def printExceptionIfFailed(res: WriteResult) = res match {
   case _ =>
     println("OK")
 }
-{% endhighlight %}
+```
+
+> *Reminder:* There is no need to check failure inside a `Future[WriteResult]` as soon as the `Future` is successful.
 
 **More:** [Find documents](./tutorial/find-documents.html), [Write documents](./tutorial/write-documents.html)
 
 ### Play
 
-[Play integration](./tutorial/play.html) has been upgraded, to support new versions and be compatible with the new [BSON library](#bson-library).
+[Play integration](./tutorial/play.html) has been upgraded, to support versions up to 2.8 and be compatible with the new [BSON library](#bson-library).
 
 The `JSONCollection` and `JSONSerializationPack` (from package `reactivemongo.play.json.collection`) have been removed, and JSON compatibility can be applied using standard collection and JSON conversions.
 
@@ -881,11 +1006,16 @@ The `JSONCollection` and `JSONSerializationPack` (from package `reactivemongo.pl
 
 #### JSON compatibility
 
-The JSON/BSON compatibility has been refactored.
+The JSON/BSON compatibility has been refactored. The main import is:
 
+```scala
+import reactivemongo.play.json.compat._
+```
+
+<!-- pandoc_sep: JSON example -->
 Considering the following `User` class:
 
-{% highlight scala %}
+```scala
 package object jsonexamples1 {
   import reactivemongo.api.bson._
 
@@ -893,27 +1023,24 @@ package object jsonexamples1 {
     _id: BSONObjectID, // Rather use UUID or String
     username: String,
     role: String,
-    created: BSONTimestamp, // Rather use Instance
+    created: BSONTimestamp, // Rather use Instant
     lastModified: BSONDateTime,
     sym: Option[BSONSymbol]) // Rather use String
 
   object User {
-    implicit val bsonWriter: BSONDocumentWriter[User] = Macros.writer[User]
+    implicit val bsonWriter: BSONDocumentWriter[User] =
+      Macros.writer[User]
 
-    implicit val bsonReader: BSONDocumentReader[User] = Macros.reader[User]
+    implicit val bsonReader: BSONDocumentReader[User] =
+      Macros.reader[User]
   }
 }
-{% endhighlight %}
+```
 
-The main import is:
-
-{% highlight scala %}
-import reactivemongo.play.json.compat._
-{% endhighlight %}
-
+<!-- pandoc_sep: JSON convertions (1) -->
 Then specific imports are available to enable conversions, according the use cases.
 
-{% highlight scala %}
+```scala
 import reactivemongo.play.json.compat._
 
 // Conversions from BSON to JSON extended syntax
@@ -924,13 +1051,13 @@ import lax._
 
 // Conversions from JSON to BSON
 import json2bson._
-{% endhighlight %}
+```
 
-**Convert BSON to JSON extended syntax:**
+##### Convert BSON to JSON extended syntax
 
 *Scala:*
 
-{% highlight scala %}
+```scala
 import _root_.play.api.libs.json._
 
 import _root_.reactivemongo.api.bson._
@@ -948,34 +1075,34 @@ val userJs = Json.toJson(User(
   created = BSONTimestamp(987654321L),
   lastModified = BSONDateTime(123456789L),
   sym = Some(BSONSymbol("foo"))))
-{% endhighlight %}
+```
 
+<!-- pandoc_sep: Convert BSON to JSON extended syntax (output) -->
 *JSON output:* (`userJs`)
 
-{% highlight javascript %}
+```javascript
 {
-  "_id": {"$$oid":"..."},
+  "_id": {"$oid":"..."},
   "username": "lorem",
   "role": "ipsum",
   "created": {
-    "$$timestamp": {"t":0,"i":987654321}
-          },
+    "$timestamp": {"t":0,"i":987654321}
+  },
   "lastModified": {
-    "$$date": {"$$numberLong":"123456789"}
-          },
+    "$date": {"$numberLong":"123456789"}
+  },
   "sym": {
-    "$$symbol":"foo"
+    "$symbol":"foo"
   }
 }
-{% endhighlight %}
+```
 
-**Convert BSON to JSON lax syntax:**
+##### Convert BSON to JSON lax syntax
 
 *Scala:*
 
-{% highlight scala %}
+```scala
 import _root_.play.api.libs.json._
-
 import _root_.reactivemongo.api.bson._
 
 // Global compatibility import:
@@ -991,21 +1118,27 @@ import jsonexamples1.User
 
 // Overrides BSONWriters for OID/Timestamp/DateTime
 // so that the BSON representation matches the JSON lax one
-implicit val bsonWriter: BSONDocumentWriter[User] = Macros.writer[User]
+implicit val bsonWriter: BSONDocumentWriter[User] =
+  Macros.writer[User]
 
 // Resolved from bsonWriter
 val laxJsonWriter: OWrites[User] = implicitly[OWrites[User]]
+```
+<!-- pandoc_sep: Convert BSON to JSON lax syntax (result) -->
+```scala
+import _root_.reactivemongo.api.bson._
+import jsonexamples1.User
 
 val laxUserJs = laxJsonWriter.writes(User(
   BSONObjectID.generate(), "lorem", "ipsum",
   created = BSONTimestamp(987654321L),
   lastModified = BSONDateTime(123456789L),
   sym = Some(BSONSymbol("foo"))))
-{% endhighlight %}
+```
 
 *JSON output:* (`userLaxJs`)
 
-{% highlight javascript %}
+```javascript
 {
   "_id": "...",
   "username": "lorem",
@@ -1014,23 +1147,24 @@ val laxUserJs = laxJsonWriter.writes(User(
   "lastModified": 123456789,
   "sym": "foo"
 }
-{% endhighlight %}
+```
 
-**Convert JSON to BSON:**
+##### Convert JSON to BSON
 
 Considering the `Street` class:
 
-{% highlight scala %}
+```scala
 package object jsonexamples2 {
  case class Street(
    number: Option[Int],
    name: String)
 }
-{% endhighlight %}
+```
 
-The BSON representation can be derived from the JSON as below.
+<!-- pandoc_sep: Convert JSON to BSON (2) -->
+The BSON representation can be derived from the JSON.
 
-{% highlight scala %}
+```scala
 import _root_.play.api.libs.json._
 import _root_.reactivemongo.api.bson._
 
@@ -1042,32 +1176,23 @@ import json2bson._ // Required import
 
 import jsonexamples2.Street
 
-implicit val jsonFormat: OFormat[Street] = Json.format[Street]
-
-// Expected BSON:
-val doc = BSONDocument(
-  "number" -> 1,
-  "name" -> "rue de la lune")
-
-val street = Street(Some(1), "rue de la lune")
+implicit val jsonFormat: OFormat[Street] =
+  Json.format[Street]
 
 // Resolved from jsonFormat
-val bsonStreetWriter = implicitly[BSONDocumentWriter[Street]]
+val bsonStreetWriter =
+  implicitly[BSONDocumentWriter[Street]]
 
-bsonStreetWriter.writeTry(street)
-/* Success: doc = {
-  'number': 1,
-  'name': 'rue de la lune'
-} */
-{% endhighlight %}
+bsonStreetWriter.writeTry(
+  Street(Some(1), "rue de la lune"))
+// Success: {'number':1, 'name':'rue de la lune'}
+```
 
-**Value converters:**
+##### Value converters
 
-Using the implicit value conversions provided by `json2bson`, it's possible to pass a JSON object wherever a BSON document is expected.
+Using the provided value conversions, a JSON object can be passed wherever a BSON document is expected.
 
-{% highlight scala %}
-import scala.concurrent.ExecutionContext
-
+```scala
 import reactivemongo.api.bson.BSONDocument
 
 def expectDoc(document: BSONDocument) =
@@ -1084,103 +1209,100 @@ import reactivemongo.play.json.compat._
 // Import JSON to BSON conversions
 import json2bson._ // Required import
 
-expectDoc(
-  document = Json.obj("age" -> Json.obj(f"$$gt" -> 1)))
-  /* doc = {
-  'age': {
-    '$gt': 1
-  }
-} */
-{% endhighlight %}
+expectDoc(document = Json.obj("age" -> Json.obj(f"$$gt" -> 1)))
+  // doc = { 'age': { '$gt': 1 } }
+```
 
 *[See documentation](./json/overview.html)*
 
 ### Aggregation
 
-There are newly supported by the [Aggregation Framework](./advanced-topics/aggregation.html).
+The [Aggregation Framework](./advanced-topics/aggregation.html) supports more stages.
 
-> An aggregation pipeline is now a list of operator(s), possibly empty.
+> An aggregation pipeline is now a list of stage operator(s), possibly empty.
 
-**addFields:**
+#### addFields
 
 The [`$addFields`](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/) stage can now be used.
 
-{% highlight javascript %}
+```scala
 import scala.concurrent.ExecutionContext
-
-import reactivemongo.api.bson.collection.BSONCollection
-
-def sumHomeworkQuizz(students: BSONCollection) =
-  students.aggregateWith1[BSONDocument]() { framework =>
-    import framework.AddFields
-
-    List(AddFields(document(
-      "totalHomework" -> document(f"$$sum" -> f"$$homework"),
-      "totalQuiz" -> document(f"$$sum" -> f"$$quiz"))), (
-      AddFields(document(
-        "totalScore" -> document(f"$$add" -> array(
-        f"$$totalHomework", f"$$totalQuiz", f"$$extraCredit")))))
-  }
-{% endhighlight %}
-
-**bucketAuto:**
-
-The [`$bucketAuto`](https://docs.mongodb.com/manual/reference/operator/aggregation/bucketAuto/) stage introduced by MongoDB 3.4 can be used as bellow.
-
-{% highlight scala %}
-import scala.concurrent.ExecutionContext
-
-import reactivemongo.api.Cursor
 
 import reactivemongo.api.bson._
 import reactivemongo.api.bson.collection.BSONCollection
 
-def populationBuckets(zipcodes: BSONCollection)(implicit ec: ExecutionContext) =
+def sumHomeworkQuizz(students: BSONCollection) =
+  students.aggregateWith[BSONDocument]() { framework =>
+    import framework.AddFields
+
+    List(AddFields(document(
+      "totalHomework" -> document(f"$$sum" -> f"$$homework"),
+      "totalQuiz" -> document(f"$$sum" -> f"$$quiz"))), 
+      AddFields(document(
+        "totalScore" -> document(f"$$add" -> array(
+        f"$$totalHomework", f"$$totalQuiz", f"$$extraCredit")))))
+  }
+```
+
+#### bucketAuto
+
+The [`$bucketAuto`](https://docs.mongodb.com/manual/reference/operator/aggregation/bucketAuto/) stage introduced by MongoDB 3.4 can be used as bellow.
+
+```scala
+import scala.concurrent.ExecutionContext
+
+import reactivemongo.api.bson._
+import reactivemongo.api.bson.collection.BSONCollection
+
+def populationBuckets(zipcodes: BSONCollection)(
+  implicit ec: ExecutionContext) =
   zipcodes.aggregateWith[BSONDocument]() { framework =>
     import framework.BucketAuto
 
-    List(BucketAuto(BSONString(f"$$population"), 2, None)())
-  }.collect[Set](Int.MaxValue, Cursor.FailOnError[Set[BSONDocument]]())
-{% endhighlight %}
+    List(BucketAuto(
+      BSONString(f"$$population"), 2, None)())
+  }.collect[Set]()
+```
 
-**count:**
+#### count
 
-If the goal is only to count the aggregated documents, the [`$count`](https://docs.mongodb.com/manual/reference/operator/aggregation/count/index.html) stage can be used.
+The [`$count`](https://docs.mongodb.com/manual/reference/operator/aggregation/count/index.html) stage counts the aggregated documents.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import reactivemongo.api.Cursor
-
-import reactivemongo.api.bson.{ BSONDocument, BSONDocumentReader, BSONString }
+import reactivemongo.api.bson._
 import reactivemongo.api.bson.collection.BSONCollection
 
 def countPopulatedStates1(col: BSONCollection): Future[Int] = {
-  implicit val countReader = BSONDocumentReader[Int] { doc =>
-    doc.getAsTry[Int]("popCount").get
+  implicit val countReader = BSONDocumentReader.from[Int] { doc =>
+    doc.getAsTry[Int]("popCount")
   }
 
   col.aggregateWith[Int]() { framework =>
     import framework.{ Count, Group, Match, SumField }
 
-    Group(BSONString("$state"))(
+    Group(BSONString(f"$$state"))(
       "totalPop" -> SumField("population")) +: List(
-        Match(BSONDocument("totalPop" -> BSONDocument("$gte" -> 10000000L))),
+        Match(BSONDocument(
+          "totalPop" -> BSONDocument(f"$$gte" -> 10000000L))),
         Count("popCount"))
   }.head
 }
-{% endhighlight %}
+```
 
-**facet:**
+#### facet
 
-The [`$facet`](https://docs.mongodb.com/manual/reference/operator/aggregation/facet/) stage is now supported, to create multi-faceted aggregations which characterize data across multiple dimensions, or facets.
+The [`$facet`](https://docs.mongodb.com/manual/reference/operator/aggregation/facet/) stage create multi-faceted aggregations, which characterize data across multiple dimensions (or facets).
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.bson.collection.BSONCollection
 
 def useFacetAgg(coll: BSONCollection) = {
-  import coll.AggregationFramework.{ Count, Facet, Out, UnwindField }
+  import coll.AggregationFramework.{
+    Count, Facet, Out, UnwindField
+  }
 
   Facet(Seq(
     "foo" -> List(UnwindField("bar"), Count("c")),
@@ -1191,22 +1313,18 @@ def useFacetAgg(coll: BSONCollection) = {
         { '$unwind': '$bar' },
         { '$count': 'c' }
       ],
-      'lorem': [
-        { '$out': 'ipsum' }
-      ]
+      'lorem': [ { '$out': 'ipsum' } ]
     }
   } */
 }
-{% endhighlight %}
+```
 
-**filter:**
+#### filter
 
 The [`$filter`](https://docs.mongodb.com/master/reference/operator/aggregation/filter/#definition) stage is now supported.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext.Implicits.global
-
-import reactivemongo.api.Cursor
 
 import reactivemongo.api.bson.{ BSONArray, BSONDocument, BSONString }
 import reactivemongo.api.bson.collection.BSONCollection
@@ -1220,50 +1338,46 @@ def salesWithItemGreaterThanHundered(sales: BSONCollection) =
     Project(BSONDocument("items" -> Filter(
       input = BSONString(f"$$items"),
       as = "item",
-      cond = BSONDocument(
-        f"$$gte" -> BSONArray(f"$$$$item.price", 100))))) +: List(sort)
+      cond = BSONDocument(f"$$gte" -> BSONArray(
+        f"$$$$item.price", 100))))) +: List(sort)
 
-  }.collect[List](Int.MaxValue, Cursor.FailOnError[List[BSONDocument]]())
-{% endhighlight %}
+  }.collect[List]()
+```
 
-**replaceRoot:**
+#### replaceRoot
 
 The [`$replaceRoot`](https://docs.mongodb.com/manual/reference/operator/aggregation/replaceRoot/#pipe._S_replaceRoot) stage is now supported.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api.bson.BSONDocument
 import reactivemongo.api.bson.collection.BSONCollection
 
-/* For a fruits collection:
-{
+/* For a fruits collection: {
    "_id" : 1,
    "fruit" : [ "apples", "oranges" ],
    "in_stock" : { "oranges" : 20, "apples" : 60 },
    "on_order" : { "oranges" : 35, "apples" : 75 }
-}, ...
-*/
+}, ... */
 
-def replaceRootTest(fruits: BSONCollection): Future[Option[BSONDocument]] = {
+def replaceRootTest(
+  fruits: BSONCollection): Future[Option[BSONDocument]] =
   fruits.aggregateWith[BSONDocument]() { framework =>
     import framework._
 
     List(ReplaceRootField("in_stock"))
-  }.headOption
-  // Results: { "oranges": 20, "apples": 60 }, ...
-}
-{% endhighlight %}
+  }.headOption // Result: { "oranges": 20, "apples": 60 }
+```
 
-**search:**
+#### search
 
 In ReactiveMongo the [Atlas Search](https://docs.atlas.mongodb.com/reference/atlas-search/tutorial/) feature can be applied through the aggregation framework.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
-import reactivemongo.api.Cursor
 import reactivemongo.api.bson.BSONDocument
 import reactivemongo.api.bson.collection.BSONCollection
 
@@ -1272,27 +1386,27 @@ def foo(col: BSONCollection)(
 
   import col.AggregationFramework.AtlasSearch, AtlasSearch.Term
 
-  col.aggregatorContext[BSONDocument](pipeline = List(AtlasSearch(Term(
-    path = "description",
-    query = "s*l*",
-    modifier = Some(Term.Wildcard) // wildcard: true
-  )))).prepared.cursor.collect[List]()
+  col.aggregatorContext[BSONDocument](
+    pipeline = List(AtlasSearch(Term(
+      path = "description",
+      query = "s*l*",
+      modifier = Some(Term.Wildcard) // wildcard: true
+    )))).prepared.cursor.collect[List]()
 }
-{% endhighlight %}
+```
 
-**slice:**
+#### slice
 
 The [`$slice`](https://docs.mongodb.com/manual/reference/operator/aggregation/slice) operator is also supported as bellow.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext
-
-import reactivemongo.api.Cursor
 
 import reactivemongo.api.bson._
 import reactivemongo.api.bson.collection.BSONCollection
 
-def sliceFavorites(coll: BSONCollection)(implicit ec: ExecutionContext) =
+def sliceFavorites(coll: BSONCollection)(
+  implicit ec: ExecutionContext) =
   coll.aggregateWith[BSONDocument]() { framework =>
     import framework.{ Project, Slice }
 
@@ -1302,34 +1416,33 @@ def sliceFavorites(coll: BSONCollection)(implicit ec: ExecutionContext) =
         array = BSONString(f"$$favorites"),
         n = BSONInteger(3)))))
   }.collect[Seq](4)
-{% endhighlight %}
+```
 
-**Miscellaneous:** Other stages are also supported.
+#### Miscellaneous
+
+Other stages are also supported.
 
 - [`$and`](https://docs.mongodb.com/manual/reference/operator/aggregation/and)
 - [`$allElementsTrue`](https://docs.mongodb.com/manual/reference/operator/aggregation/allElementsTrue)
-- [`$acosh`](https://docs.mongodb.com/manual/reference/operator/aggregation/acosh)
-- [`$acos`](https://docs.mongodb.com/manual/reference/operator/aggregation/acos)
+- [`$acosh`](https://docs.mongodb.com/manual/reference/operator/aggregation/acosh) and [`$acos`](https://docs.mongodb.com/manual/reference/operator/aggregation/acos)
 - [`$abs`](https://docs.mongodb.com/manual/reference/operator/aggregation/abs)
-- [`$planCacheStats`](https://docs.mongodb.com/manual/reference/operator/aggregation/planCacheStats)
-- [`$collStats`](https://docs.mongodb.com/manual/reference/operator/aggregation/collStats)
+- [`$planCacheStats`](https://docs.mongodb.com/manual/reference/operator/aggregation/planCacheStats) and [`$collStats`](https://docs.mongodb.com/manual/reference/operator/aggregation/collStats)
 - [`$bucket`](https://docs.mongodb.com/manual/reference/operator/aggregation/bucket)
 - [`$merge`](https://docs.mongodb.com/manual/reference/operator/aggregation/merge)
-- [`$listSessions`](https://docs.mongodb.com/manual/reference/operator/aggregation/listSessions)
-- [`$listLocalSessions`](https://docs.mongodb.com/manual/reference/operator/aggregation/listLocalSessions)
+- [`$listSessions`](https://docs.mongodb.com/manual/reference/operator/aggregation/listSessions) and [`$listLocalSessions`](https://docs.mongodb.com/manual/reference/operator/aggregation/listLocalSessions)
 - [`$currentOp`](https://docs.mongodb.com/manual/reference/operator/aggregation/currentOp)
 - [`$unset`](https://docs.mongodb.com/manual/reference/operator/aggregation/unset)
 - [`$sortByCount`](https://docs.mongodb.com/manual/reference/operator/aggregation/sortByCount)
 - [`$set`](https://docs.mongodb.com/manual/reference/operator/aggregation/set)
 - [`$replaceWith`](https://docs.mongodb.com/manual/reference/operator/aggregation/replaceWith)
 
-<strong id="change-stream">Change stream:</strong>
+##### Change stream
 
 Since MongoDB 3.6, it's possible to [watch the changes](https://docs.mongodb.com/manual/changeStreams/) applied on a collection.
 
 Now ReactiveMongo can obtain a stream of changes, and aggregate it.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.Cursor
 import reactivemongo.api.bson.BSONDocument
 import reactivemongo.api.bson.collection.BSONCollection
@@ -1343,7 +1456,7 @@ def filteredWatch(
     pipeline = List[PipelineOperator](Match(filter))).
     cursor[Cursor.WithOps]
 }
-{% endhighlight %}
+```
 
 **More:** [Aggregation Framework](./advanced-topics/aggregation.html)
 
@@ -1351,40 +1464,42 @@ def filteredWatch(
 
 The [GridFS API](./advanced-topics/gridfs.html) has been refactored, to be simpler and more safe.
 
+<!-- pandoc_hidden -->
 The `DefaultFileToSave` has been moved to the factory [`fileToSave`](https://static.javadoc.io/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/gridfs/GridFS.html#fileToSave[Id<:GridFS.this.pack.Value](filename:Option[String],contentType:Option[String],uploadDate:Option[Long],metadata:GridFS.this.pack.Document,id:Id):GridFS.this.FileToSave[Id]).
 
 Separate classes and traits `DefaultReadFile`, `ComputedMetadata`, `BasicMetadata` and `CustomMetadata` have been merged with the single class [`ReadFile`](https://static.javadoc.io/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/gridfs/ReadFile.html).
+<!-- end_pandoc_hidden -->
 
-As the underlying `files` and `chunks` collections are no longer part of the public GridFS API, a new function [`update`](https://static.javadoc.io/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/gridfs/GridFS.html#update) is provided to update the file metadata (also note the `DB.gridfs` utility).
+As the underlying `files` and `chunks` collections are no longer part of the public API, a new function [`update`](https://static.javadoc.io/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/gridfs/GridFS.html#update) is provided to update the file metadata.
+Also note the `DB.gridfs` utility.
 
-{% highlight scala %}
-import scala.concurrent.ExecutionContext
+```scala
+import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api.bson.{ BSONDocument, BSONObjectID }
 
 import reactivemongo.api.DB
-import reactivemongo.api.gridfs.GridFS
 
-def updateFile(db: DB, fileId: BSONObjectID)(implicit ec: ExecutionContext) =
+def updateFile(db: DB, fileId: BSONObjectID) =
   db.gridfs.update(fileId, BSONDocument(f"$$set" ->
     BSONDocument("meta" -> "data")))
-{% endhighlight %}
+```
 
 ### Monitoring
 
 A [new module](./advanced-topics/monitoring.html#kamon) is available to collect ReactiveMongo metrics with [Kamon](https://kamon.io/).
 
-{% highlight ocaml %}
+```ocaml
 "org.reactivemongo" %% "reactivemongo-kamon" % "{{site._1_0_latest_minor}}"
-{% endhighlight %}
+```
 
-Then the metrics can be configured in dashboards, according the used Kamon reporters.
-For example if using [Kamon APM](https://kamon.io/docs/latest/reporters/apm/).
+Then dashboards can be configured, for example if using [Kamon APM](https://kamon.io/docs/latest/reporters/apm/).
 
-<img src="./images/kamon-apm-graph-view.png" alt="Graph about established connections" class="screenshot" />
+![Graph about established connections](./images/kamon-apm-graph-view.png){:width="75%"}
 
 **More:** [Monitoring](./advanced-topics/monitoring.html)
 
+<!-- pandoc_hidden -->
 ### Administration
 
 The operations to manage a MongoDB instance can be executed using ReactiveMongo. This new release has new functions for DB administration.
@@ -1393,14 +1508,14 @@ The operations to manage a MongoDB instance can be executed using ReactiveMongo.
 
 The `DB` has now a [`ping`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/DB.html#ping(readPreference:reactivemongo.api.ReadPreference)(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Boolean]) operation, to execute a [ping command](https://docs.mongodb.com/manual/reference/command/ping/).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api.DB
 
 def ping(admin: DB): Future[Boolean] = admin.ping()
-{% endhighlight %}
+```
 
 ### Breaking changes
 
@@ -1408,8 +1523,6 @@ The [Typesafe Migration Manager](https://github.com/typesafehub/migration-manage
 It will validate all the future contributions, and help to make the API more stable.
 
 For the current {{site._1_0_latest_minor}} release, it has detected the following breaking changes.
-
-[![Test coverage](https://img.shields.io/badge/coverage-60%25-yellowgreen.svg)](https://reactivemongo.github.io/ReactiveMongo/coverage/{{site._1_0_latest_minor}}/)
 
 **Connection**
 
@@ -1422,3 +1535,4 @@ For the current {{site._1_0_latest_minor}} release, it has detected the followin
 **Core/internal**
 
 - `reactivemongo.core` packages after Netty 4.1.25 upgrade.
+<!-- end_pandoc_hidden -->

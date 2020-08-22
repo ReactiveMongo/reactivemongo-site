@@ -12,7 +12,7 @@ MongoDB offers different kinds of write operations: insertion, update or removal
 
 Insertions are done with the [`insert`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#insert:GenericCollection.this.InsertBuilder) function.
 
-{% highlight scala %}
+```scala
 import scala.util.{ Failure, Success }
 
 import scala.concurrent.Future
@@ -57,7 +57,7 @@ def bulkInsert(coll: BSONCollection): Future[Unit] = {
 
   writeRes.map(_ => {}) // in this example, do nothing with the success
 }
-{% endhighlight %}
+```
 
 **What does `WriteResult` mean?**
 
@@ -67,7 +67,7 @@ If the write result actually indicates an error, the `Future` will be in a [`fai
 
 Like all the other collection operations (in [`GenericCollection`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html) trait), you can insert any [writeable value](../bson/typeclasses.html) to `insert()`. With the default BSON serialization, that means provided there a [`BSONDocumentWriter`](https://static.javadoc.io/org.reactivemongo/reactivemongo-bson-api_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/bson/BSONDocumentWriter.html) for its type in the [implicit scope](http://docs.scala-lang.org/tutorials/FAQ/finding-implicits.html). So, considering the `Person` case class:
 
-{% highlight scala %}
+```scala
 import scala.util.{ Failure, Success }
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -85,7 +85,7 @@ def testInsert(personColl: BSONCollection) = {
     }
   }
 }
-{% endhighlight %}
+```
 
 **Error handling:**
 
@@ -95,7 +95,7 @@ When calling a write operation, it's possible to handle some specific error case
 - [`WriteResult.Message`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/WriteResult$$Message$.html): matches the errors according the message
 - [`WriteResult.Exception`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/WriteResult$$Message$.html): matches the exception details
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -120,13 +120,13 @@ def insertErrors(personColl: BSONCollection) = {
     case _ => ()
   }
 }
-{% endhighlight %}
+```
 
 ### Update a document
 
 Updates are done with the [`update`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#update:GenericCollection.this.UpdateBuilder) operation, which follows the same logic as `insert`.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -164,7 +164,7 @@ def update1(personColl: BSONCollection) = {
 
   val bulkUpdateRes1 = updates.flatMap { ops => updateBuilder1.many(ops) }
 }
-{% endhighlight %}
+```
 
 By default, the update operation only updates a single matching document. You can also indicate that the update should be applied to all the documents that are matching, with the `multi` parameter.
 
@@ -172,7 +172,7 @@ It's possible to automatically insert data if there is no matching document usin
 
 The [`arrayFilters`](https://docs.mongodb.com/manual/reference/command/update/#update-elements-match-arrayfilters-criteria) criteria can also be specified on update.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext
 
 import reactivemongo.api.bson.BSONDocument
@@ -189,13 +189,13 @@ def updateArrayFilters(personColl: BSONCollection)(
     collation = None,
     arrayFilters = Seq(
       BSONDocument("element" -> BSONDocument(f"$$gte" -> 100))))
-{% endhighlight %}
+```
 
 ### Delete a document
 
 The [`.delete`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#delete:GenericCollection.this.DeleteBuilder) function returns a [`DeleteBuilder`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/DeleteOps$DeleteBuilder.html), which allows to perform simple or bulk delete.
 
-{% highlight scala %}
+```scala
 import scala.util.{ Failure, Success }
 
 import scala.concurrent.Future
@@ -231,7 +231,7 @@ def bulkDelete1(personColl: BSONCollection) = {
 
   deletes.flatMap { ops => deleteBuilder.many(ops) }
 }
-{% endhighlight %}
+```
 
 > The `.remove` operation is now deprecated.
 
@@ -241,7 +241,7 @@ ReactiveMongo also supports the MongoDB [`findAndModify`](http://docs.mongodb.or
 
 In the case you want to update the age of a document in a collection of persons, and at the same time to return the information about the person before this change, it can be done using [`findAndUpdate`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#findAndUpdate[S,T](selector:S,update:T,fetchNewObject:Boolean,upsert:Boolean,sort:Option[GenericCollection.this.pack.Document],fields:Option[GenericCollection.this.pack.Document],bypassDocumentValidation:Boolean,writeConcern:reactivemongo.api.WriteConcern,maxTime:Option[scala.concurrent.duration.FiniteDuration],collation:Option[reactivemongo.api.Collation],arrayFilters:Seq[GenericCollection.this.pack.Document])(implicitswriter:GenericCollection.this.pack.Writer[S],implicitwriter:GenericCollection.this.pack.Writer[T],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[GenericCollection.this.FindAndModifyResult]).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -260,11 +260,11 @@ def update(collection: BSONCollection, age: Int): Future[Option[Person]] = {
 
   result.map(_.result[Person])
 }
-{% endhighlight %}
+```
 
 As on a simple update, it's possible to insert a new document when one does not already exist. 
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -279,11 +279,11 @@ def result(coll: BSONCollection): Future[Option[Person]] =
     BSONDocument("name" -> "James"),
     Person(name = "Foo", age = 25),
     upsert = true).map(_.result[Person])
-{% endhighlight %}
+```
 
 The [`findAndModify`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#findAndModify[S](selector:S,modifier:GenericCollection.this.FindAndModifyOp,sort:Option[GenericCollection.this.pack.Document],fields:Option[GenericCollection.this.pack.Document],bypassDocumentValidation:Boolean,writeConcern:reactivemongo.api.WriteConcern,maxTime:Option[scala.concurrent.duration.FiniteDuration],collation:Option[reactivemongo.api.Collation],arrayFilters:Seq[GenericCollection.this.pack.Document])(implicitswriter:GenericCollection.this.pack.Writer[S],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[GenericCollection.this.FindAndModifyResult]) approach can be used on removal.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.bson.{ BSONDocument, BSONDocumentReader }
@@ -292,11 +292,11 @@ import reactivemongo.api.bson.collection.BSONCollection
 def removedPerson(coll: BSONCollection, name: String)(implicit ec: ExecutionContext, reader: BSONDocumentReader[Person]): Future[Option[Person]] =
   coll.findAndRemove(BSONDocument("name" -> name)).
     map(_.result[Person])
-{% endhighlight %}
+```
 
 As when [using `update`](#update-a-document) [`arrayFilters`](https://docs.mongodb.com/manual/reference/command/findAndModify/index.html#specify-arrayfilters-for-an-array-update-operations) criteria can be specified for a `findAndModify` operation.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api.bson.BSONDocument
@@ -320,13 +320,13 @@ def findAndUpdateArrayFilters(personColl: BSONCollection) =
     collation = None,
     arrayFilters = Seq(
       BSONDocument("elem.grade" -> BSONDocument(f"$$gte" -> 85))))
-{% endhighlight %}
+```
 
 ### Session/transaction
 
 Starting in 3.6, MongoDB offers [session management](https://docs.mongodb.com/manual/reference/server-sessions/) to gather operations, and since MongoDB 4.0, [transactions](https://docs.mongodb.com/master/core/transactions/) can be defined for session.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.bson.BSONDocument
@@ -351,7 +351,7 @@ def testTx(db: DB)(implicit ec: ExecutionContext): Future[Unit] =
 
     _ <- dbWithSession.endSession()
   } yield ()
-{% endhighlight %}
+```
 
 The support for session and transaction is defined in the database API (still experimental).
 

@@ -46,7 +46,7 @@ The [MongoDB Aggregation Framework](http://docs.mongodb.org/manual/reference/ope
 
 Considering there is a `zipcodes` collection in a MongoDB, with the following documents.
 
-{% highlight javascript %}
+```javascript
 [
   { '_id': "10280", 'city': "NEW YORK", 'state': "NY",
     'population': 19746227, 'location': {'lon':-74.016323, 'lat':40.710537} },
@@ -57,7 +57,7 @@ Considering there is a `zipcodes` collection in a MongoDB, with the following do
   { '_id': "AO", 'city': "AOGASHIMA", 'state': "JP",
     'population': 200, 'location': {'lon':32.457, 'lat':139.767} }
 ]
-{% endhighlight %}
+```
 
 **Distinct state**
 
@@ -65,19 +65,19 @@ The [`distinct`](https://docs.mongodb.org/manual/reference/command/distinct/) co
 
 In the MongoDB shell, such command can be used to find the distinct states from the `zipcodes` collection, with results `"NY"`, `"FR"`, and `"JP"`.
 
-{% highlight javascript %}
+```javascript
 db.runCommand({ distinct: "state" })
-{% endhighlight %}
+```
 
 Using the ReactiveMongo API, it can be done with the corresponding [collection operation](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#distinct[T,M[_]%3C:Iterable[_]](key:String,selector:Option[GenericCollectionWithDistinctOps.this.pack.Document],readConcern:reactivemongo.api.ReadConcern,collation:Option[reactivemongo.api.Collation])(implicitreader:GenericCollectionWithDistinctOps.this.pack.NarrowValueReader[T],implicitec:scala.concurrent.ExecutionContext,implicitcbf:scala.collection.generic.CanBuildFrom[M[_],T,M[T]]):scala.concurrent.Future[M[T]]).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.bson.collection.BSONCollection
 
 def distinctStates(col: BSONCollection)(implicit ec: ExecutionContext): Future[Set[String]] = col.distinct[String, Set]("state")
-{% endhighlight %}
+```
 
 **States with population above 10000000**
 
@@ -85,16 +85,16 @@ It's possible to determine the states for which the <span id="sum">sum</span> of
 
 In the MongoDB shell, such aggregation is written as bellow (see the [example](http://docs.mongodb.org/manual/tutorial/aggregation-zip-code-data-set/#return-states-with-populations-above-10-million)).
 
-{% highlight javascript %}
+```javascript
 db.zipcodes.aggregate([
   { $group: { _id: "$state", totalPop: { $sum: "$pop" } } },
   { $match: { totalPop: { $gte: 10000000 } } }
 ])
-{% endhighlight %}
+```
 
 With ReactiveMongo, it <span id="match">can be done</span> using the [`.aggregatorContext`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#aggregatorContext[T](pipeline:List[GenericCollection.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:reactivemongo.api.ReadConcern,readPreference:reactivemongo.api.ReadPreference,writeConcern:reactivemongo.api.WriteConcern,batchSize:Option[Int],cursorOptions:reactivemongo.api.CursorOptions,maxTime:Option[scala.concurrent.duration.FiniteDuration],hint:Option[GenericCollection.this.Hint],comment:Option[String],collation:Option[reactivemongo.api.Collation])(implicitreader:GenericCollection.this.pack.Reader[T]):GenericCollection.this.AggregatorContext[T]).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -112,24 +112,24 @@ def populatedStates1(coll: BSONCollection): Future[List[BSONDocument]] = {
       Match(BSONDocument("totalPop" -> BSONDocument("$gte" -> 10000000L))))).
     prepared.cursor.collect[List]()
 }
-{% endhighlight %}
+```
 
 > The local `import coll.AggregationFramework._` is required, and cannot be replaced by a global static `import reactivemongo.api.bson.collection.BSONCollection.AggregationFramework._`.
 
 Then when calling `populatedStates(theZipCodeCol)`, the asynchronous result will be as bellow.
 
-{% highlight javascript %}
+```javascript
 [
   { "_id" -> "JP", "totalPop" -> 13185702 },
   { "_id" -> "NY", "totalPop" -> 19746227 }
 ]
-{% endhighlight %}
+```
 
 > Note that for the state "JP", the population of Aogashima (200) and of Tokyo (13185502) have been summed.
 
 If the goal is only to count the populated states, the <span id="count">[`$count`](https://docs.mongodb.com/manual/reference/operator/aggregation/count/index.html)</span> stage can be used.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -138,8 +138,8 @@ import reactivemongo.api.bson.{ BSONDocument, BSONDocumentReader, BSONString }
 import reactivemongo.api.bson.collection.BSONCollection
 
 def countPopulatedStates1(coll: BSONCollection): Future[Int] = {
-  implicit val countReader = BSONDocumentReader[Int] { doc =>
-    doc.getAsTry[Int]("popCount").get
+  implicit val countReader = BSONDocumentReader.from[Int] { doc =>
+    doc.getAsTry[Int]("popCount")
   }
 
   coll.aggregateWith[Int]() { framework =>
@@ -151,11 +151,11 @@ def countPopulatedStates1(coll: BSONCollection): Future[Int] = {
       Count("popCount"))
   }.head
 }
-{% endhighlight %}
+```
 
 As for the other commands in ReactiveMongo, it's possible to return the aggregation result as custom types (see [BSON readers](../bson/typeclasses.html)), rather than generic documents, for example considering a class `State` as bellow.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -178,13 +178,13 @@ def populatedStates2(coll: BSONCollection): Future[List[State]] = {
         "totalPop" -> BSONDocument("$gte" -> 10000000L))))).
     prepared.cursor.collect[List]()
 }
-{% endhighlight %}
+```
 
 *Using cursor:*
 
 The alternative [`.aggregateWith`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#aggregatorContext[T](pipeline:List[GenericCollection.this.PipelineOperator],explain:Boolean,allowDiskUse:Boolean,bypassDocumentValidation:Boolean,readConcern:reactivemongo.api.ReadConcern,readPreference:reactivemongo.api.ReadPreference,writeConcern:reactivemongo.api.WriteConcern,batchSize:Option[Int],cursorOptions:reactivemongo.api.CursorOptions,maxTime:Option[scala.concurrent.duration.FiniteDuration],hint:Option[GenericCollection.this.Hint],comment:Option[String],collation:Option[reactivemongo.api.Collation])(implicitreader:GenericCollection.this.pack.Reader[T]):GenericCollection.this.AggregatorContext[T]) builder can be used, to process the aggregation result with a [`Cursor`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/Cursor.html).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext
 
 import reactivemongo.api.bson._
@@ -200,7 +200,7 @@ def populatedStatesCursor(cities: BSONCollection)(implicit ec: ExecutionContext)
       Match(document("totalPop" -> document("$gte" -> 10000000L)))
     )
   }
-{% endhighlight %}
+```
 
 The [`GroupField`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala-major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/AggregationFramework#GroupFieldextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable) operator can be used instead of the `Group` one, to simply work with a single field.
 
@@ -212,25 +212,25 @@ The <span id="max">[`$max`](https://docs.mongodb.com/manual/reference/operator/a
 
 In the MongoDB shell, it would be executed as following.
 
-{% highlight javascript %}
+```javascript
 db.zipcodes.aggregate([
   { $group: { _id: "$state", maxPop: { $max: "$population" } } }
 ])
-{% endhighlight %}
+```
 
 It will return a result as bellow.
 
-{% highlight javascript %}
+```javascript
 [
   { _id: "JP", maxPop: 13185502 },
   { _id: "FR", maxPop: 148169 }
   { _id: "NY", maxPop: 19746227 }
 ]
-{% endhighlight %}
+```
 
 Using ReactiveMongo:
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.bson._
@@ -246,11 +246,11 @@ def mostPopulated(cities: BSONCollection)(implicit ec: ExecutionContext): Future
       "maxPop" -> MaxField("population")
     ))).prepared.cursor.collect[List]()
 }
-{% endhighlight %}
+```
 
 Similarly, the <span id="min">[`$min`](https://docs.mongodb.com/manual/reference/operator/aggregation/min/#grp._S_min)</span> accumulator can be used to get the least populated cities.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.bson._
@@ -266,7 +266,7 @@ def leastPopulated(cities: BSONCollection)(implicit ec: ExecutionContext): Futur
       "minPop" -> MinField("population")
     ))).prepared.cursor.collect[List]()
 }
-{% endhighlight %}
+```
 
 > The [`Min`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala-major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/GroupAggregation#MinextendsGroupAggregation.this.GroupFunctionwithProductwithSerializable) and the [`Max`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala-major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/GroupAggregation#MaxextendsGroupAggregation.this.GroupFunctionwithProductwithSerializable) operators can be used instead of `MinField` and `MaxField`, to use expressions in place of single fields.
 
@@ -276,23 +276,23 @@ The <span id="push">[`$push`](https://docs.mongodb.com/manual/reference/operator
 
 In the MongoDB shell, it can be done as bellow.
 
-{% highlight javascript %}
+```javascript
 db.zipcodes.aggregate([
   { $group: { _id: "$state", cities: { $push: "$city" } } }
 ])
-{% endhighlight %}
+```
 
 It will return the aggregation results:
 
-{% highlight javascript %}
+```javascript
 [
   { _id: "JP", cities: [ "TOKYO", "AOGASHIMA" ] },
   { _id: "FR", cities: [ "LE MANS" ] },
   { _id: "NY", cities: [ "NEW YORK" ] }
 }
-{% endhighlight %}
+```
 
-{% highlight javascript %}
+```javascript
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.bson._
@@ -308,11 +308,11 @@ def citiesPerState1(cities: BSONCollection)(implicit ec: ExecutionContext): Futu
       "cities" -> PushField("city")))).
     prepared.cursor.collect[List]()
 }
-{% endhighlight %}
+```
 
 Similarly the <span id="addToSet">[`$addToSet` accumulator](https://docs.mongodb.com/manual/reference/operator/aggregation/addToSet/#grp._S_addToSet)</span> can be applied to collect all the unique values in the array for each group (there it's equivalent to `$push`).
 
-{% highlight javascript %}
+```javascript
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.bson._
@@ -327,7 +327,7 @@ def citiesPerState1(cities: BSONCollection)(implicit ec: ExecutionContext): Futu
     "cities" -> AddFieldToSet("city"))).prepared.cursor.
     collect[List](-1, Cursor.FailOnError[List[BSONDocument]]())
 }
-{% endhighlight %}
+```
 
 > The [`AddToSet`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala-major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/GroupAggregation#AddToSetextendsGroupAggregation.this.GroupFunctionwithProductwithSerializable) and the [`Push`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala-major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/GroupAggregation#PushextendsGroupAggregation.this.GroupFunctionwithProductwithSerializable) operators can be used instead of `AddFieldToSet` and `PushField`, to use expressions in place of single fields.
 
@@ -337,19 +337,19 @@ The accumulator <span id="avg">`$avg`</span> can be used to find [the average po
 
 In the MongoDB shell, it can be done as following.
 
-{% highlight javascript %}
+```javascript
 db.zipcodes.aggregate([
    { $group: { _id: { state: "$state", city: "$city" }, pop: { $sum: "$pop" } } },
    { $group: { _id: "$_id.state", avgCityPop: { $avg: "$pop" } } }
 ])
-{% endhighlight %}
+```
 
 1. Group the documents by the combination of city and state, to get intermediate documents of the form `{ "_id" : { "state" : "NY", "city" : "NEW YORK" }, "pop" : 19746227 }`.
 2. Group the intermediate documents by the `_id.state` field (i.e. the state field inside the `_id` document), and get the average of population of each group (`$avg: "$pop"`).
 
 Using ReactiveMongo, it can be written as bellow.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.bson.{ BSONDocument, BSONString }
@@ -366,7 +366,7 @@ def avgPopByState(col: BSONCollection)(implicit ec: ExecutionContext): Future[Li
     Group(BSONString("$_id.state"))("avgCityPop" -> AvgField("pop")))).
     prepared.cursor.collect[List]()
 }
-{% endhighlight %}
+```
 
 > The [`Avg`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala-major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/GroupAggregation#AvgextendsGroupAggregation.this.GroupFunctionwithProductwithSerializable) operator can be used instead of `AvgField`, to use an expression in place of a single field.
 
@@ -374,7 +374,7 @@ def avgPopByState(col: BSONCollection)(implicit ec: ExecutionContext): Future[Li
 
 Aggregating the documents can be used to find the <span id="project"><span id="first"><span id="last">[largest and the smallest cities for each state](http://docs.mongodb.org/manual/tutorial/aggregation-zip-code-data-set/#return-largest-and-smallest-cities-by-state)</span></span></span>:
 
-{% highlight javascript %}
+```javascript
 db.zipcodes.aggregate([
    { $group:
       {
@@ -404,11 +404,11 @@ db.zipcodes.aggregate([
     }
   }
 ])
-{% endhighlight %}
+```
 
 A ReactiveMongo function can be written <span id="sort">as bellow</span>.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -451,11 +451,11 @@ def stateStats(col: BSONCollection): Future[List[StateStats]] = {
     collect[List](-1, Cursor.FailOnError[List[StateStats]]())
 
 }
-{% endhighlight %}
+```
 
 This function would return statistics like the following.
 
-{% highlight scala %}
+```scala
 List(
   StateStats(state = "NY",
     biggestCity = City(name = "NEW YORK", population = 19746227L),
@@ -466,13 +466,13 @@ List(
   StateStats(state = "JP",
     biggestCity = City(name = "TOKYO", population = 13185502L),
     smallestCity = City(name = "AOGASHIMA", population = 200L)))
-{% endhighlight %}
+```
 
 > The [`First`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala-major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/GroupAggregation#FirstextendsGroupAggregation.this.GroupFunctionwithProductwithSerializable) and the [`Last`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala-major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/GroupAggregation#LastextendsGroupAggregation.this.GroupFunctionwithProductwithSerializable) operators can be used instead of `FirstField` and `LastField`, to use expressions in place of single fields.
 
 The <span id="limit">[`$limit`](https://docs.mongodb.com/manual/reference/operator/aggregation/limit/#pipe._S_limit)</span> or the <span id="skip">[`$skip`](https://docs.mongodb.com/manual/reference/operator/aggregation/skip/#pipe._S_skip)</span> stages can be used to consider only some states:
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -505,7 +505,7 @@ def paginatedStats(col: BSONCollection, max: Int, offset: Int = 0): Future[List[
         "population" -> "$smallestPop"))))).
     prepared.cursor.collect[List]()
 }
-{% endhighlight %}
+```
 
 **Standard deviation of the japanese cities**
 
@@ -513,7 +513,7 @@ The group accumulators <span id="stdDevPop">[`$stdDevPop`](https://docs.mongodb.
 
 In the MongoDB, it can be done as following.
 
-{% highlight javascript %}
+```javascript
 db.zipcodes.aggregate([
    { $group:
       {
@@ -523,17 +523,17 @@ db.zipcodes.aggregate([
    },
    { $match: { _id: "JP" } }
 ])
-{% endhighlight %}
+```
 
 It will find the result:
 
-{% highlight javascript %}
+```javascript
 { _id: "JP", popDev: 6592651 }
-{% endhighlight %}
+```
 
 It can be done with ReactiveMongo as bellow.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.bson._
@@ -554,7 +554,7 @@ def populationSampleDeviation(cities: BSONCollection)(implicit ec: ExecutionCont
     Group(BSONString("$state"))("popDev" -> StdDevSampField("population")),
     Match(document("_id" -> "JP")))).prepared.cursor.headOption
 }
-{% endhighlight %}
+```
 
 > The [`StdDevPop`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala-major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/GroupAggregation#StdDevPopextendsGroupAggregation.this.GroupFunctionwithProductwithSerializable) and the [`StdDevSamp`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala-major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/GroupAggregation#StdDevSampextendsGroupAggregation.this.GroupFunctionwithProductwithSerializable) operators can be used instead of `StdDevPopField` and `StdDevSampField`, to use expressions in place of single fields.
 
@@ -562,24 +562,24 @@ def populationSampleDeviation(cities: BSONCollection)(implicit ec: ExecutionCont
 
 Consider the following [text indexes](https://docs.mongodb.org/manual/core/index-text/) is maintained for the fields `city` and `state` of the `zipcodes` collection.
 
-{% highlight javascript %}
+```javascript
 db.zipcodes.ensureIndex({ city: "text", state: "text" })
-{% endhighlight %}
+```
 
 Then it's possible to find documents using the [`$text` operator](https://docs.mongodb.org/v3.0/reference/operator/query/text/#op._S_text), and also the results can be [sorted](https://docs.mongodb.org/v3.0/reference/operator/aggregation/sort/#metadata-sort) according the [text scores](https://docs.mongodb.org/v3.0/reference/operator/query/text/#text-operator-text-score).
 
 For example to find the documents matching the text `"JP"`, and sort according the text score, the following query can be executed in the MongoDB shell.
 
-{% highlight javascript %}
+```javascript
 db.users.aggregate([
    { $match: { $text: { $search: "JP" } } },
    { $sort: { score: { $meta: "textScore" } } }
 ])
-{% endhighlight %}
+```
 
 A ReactiveMongo function can be written as bellow.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -598,7 +598,7 @@ def textFind(coll: BSONCollection): Future[List[BSONDocument]] = {
   coll.aggregatorContext[BSONDocument](pipeline).
     prepared.cursor.collect[List]()
 }
-{% endhighlight %}
+```
 
 This will return the sorted documents for the cities `TOKYO` and `AOGASHIMA`.
 
@@ -608,15 +608,15 @@ The [`$sample`](https://docs.mongodb.org/manual/reference/operator/aggregation/s
 
 In the MongoDB shell, it can be used as following to fetch a sample of 3 random documents.
 
-{% highlight javascript %}
+```javascript
 db.zipcodes.aggregate([
   { $sample: { size: 3 } }
 ])
-{% endhighlight %}
+```
 
 With ReactiveMongo, the <span id="sample">[`$sample`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala-major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/AggregationFramework#SampleextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)</span> operator can be used as follows.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.bson.BSONDocument
@@ -630,28 +630,28 @@ def randomZipCodes(coll: BSONCollection)(implicit ec: ExecutionContext): Future[
   coll.aggregatorContext[BSONDocument](List(Sample(3))).
     prepared.cursor.collect[List]()
 }
-{% endhighlight %}
+```
 
 **Population buckets**
 
 Since MongoDB 3.4, Using the [`$bucketAuto`](https://docs.mongodb.com/manual/reference/operator/aggregation/bucketAuto/) stage can be used in the MongoShell, to group the cities according their population, in an expected number of group so called 'buckets' (bellow 2).
 
-{% highlight javascript %}
+```javascript
 db.zipcodes.aggregate([
   { $bucketAuto: { groupBy: '$population', buckets: 2 } }
 ])
-{% endhighlight %}
+```
 
 Such aggregation with return the following results.
 
-{% highlight javascript %}
+```javascript
 { "_id" : { "min" : 200, "max" : 13185502 }, "count" : 2 }
 { "_id" : { "min" : 13185502, "max" : 19746227 }, "count" : 2 }
-{% endhighlight %}
+```
 
 This stage <span id="bucketAuto">[`$bucketAuto`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala-major}}/{{site._1_0_latest_minor}}/commands/AggregationFramework.html#BucketAutoextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable)</span> can be used in ReactiveMongo as bellow.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext
 
 import reactivemongo.api.bson._
@@ -664,7 +664,7 @@ def populationBuckets(zipcodes: BSONCollection)(implicit ec: ExecutionContext) =
 
     List(BucketAuto(BSONString(f"$$population"), 2, None)())
   }.collect[Set](Int.MaxValue, Cursor.FailOnError[Set[BSONDocument]]())
-{% endhighlight %}
+```
 
 ### Places
 
@@ -672,7 +672,7 @@ Let consider a collection of different kinds of place (e.g. Central Park ...), w
 
 This can be setup with the MongoDB shell as follows.
 
-{% highlight javascript %}
+```javascript
 db.place.createIndex({'loc':"2dsphere"});
 
 db.place.insert({
@@ -691,11 +691,11 @@ db.place.insert({
   "name": "La Guardia Airport",
   "category": "Airport"
 });
-{% endhighlight %}
+```
 
 The <span id="geoNear">[`$geoNear`](https://docs.mongodb.com/manual/reference/operator/aggregation/geoNear/)</span> aggregation can be used on the collection, to find the place near the geospatial coordinates `[ -73.9667, 40.78 ]`, within 1 km (1000 meters) and 5 km (5000 meters)
 
-{% highlight javascript %}
+```javascript
 db.places.aggregate([{
   $geoNear: {
     near: { type: "Point", coordinates: [ -73.9667, 40.78 ] },
@@ -708,11 +708,11 @@ db.places.aggregate([{
     spherical: true
   }
 }])
-{% endhighlight %}
+```
 
 The results will be of the following form:
 
-{% highlight javascript %}
+```javascript
 {
   "type": "public",
   "loc": {
@@ -729,11 +729,11 @@ The results will be of the following form:
     }
   }
 }
-{% endhighlight %}
+```
 
 It can be done with ReactiveMongo as follows.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.bson.{ array, document, Macros }
@@ -771,13 +771,13 @@ def placeArround(places: BSONCollection)(implicit ec: ExecutionContext): Future[
     limit = Some(5),
     spherical = true))).prepared.cursor.collect[List]()
 }
-{% endhighlight %}
+```
 
 ### Forecast
 
 Consider a collection of forecasts with the following document.
 
-{% highlight javascript %}
+```javascript
 {
   _id: 1,
   title: "123 Department Report",
@@ -804,11 +804,11 @@ Consider a collection of forecasts with the following document.
     }
   ]
 }
-{% endhighlight %}
+```
 
 Using the <span id="redact">[`$redact` stage](https://docs.mongodb.com/manual/reference/operator/aggregation/redact/)</span>, the MongoDB aggregation can be used to restricts the contents of the documents. It can be done in the MongoDB shell as follows:
 
-{% highlight javascript %}
+```javascript
 db.forecasts.aggregate([
   { $match: { year: 2014 } },
   { 
@@ -823,11 +823,11 @@ db.forecasts.aggregate([
     }
   }
 ])
-{% endhighlight %}
+```
 
 The corresponding results a redacted document.
 
-{% highlight javascript %}
+```javascript
 {
   "_id" : 1,
   "title" : "123 Department Report",
@@ -846,11 +846,11 @@ The corresponding results a redacted document.
     }
   ]
 }
-{% endhighlight %}
+```
 
 With ReactiveMongo, the aggregation framework can perform a similar redaction.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext
 
 import reactivemongo.api.bson._
@@ -875,33 +875,33 @@ def redactForecasts(forecasts: BSONCollection)(implicit ec: ExecutionContext) = 
       "else" -> "$$PRUNE"
     ))))).prepared.cursor.collect[List]()
 }
-{% endhighlight %}
+```
 
 ### Inventory
 
 Consider an `inventory` collection, with the following document.
 
-{% highlight javascript %}
+```javascript
 { "_id" : 1, "item" : "ABC1", "sizes": [ "S", "M", "L"] }
-{% endhighlight %}
+```
 
 The <span id="unwind">[`$unwind`](https://docs.mongodb.com/manual/reference/operator/aggregation/unwind/#pipe._S_unwind)</span> stage can be used as bellow in the MongoDB shell, to return a document for each size.
 
-{% highlight javascript %}
+```javascript
 db.inventory.aggregate( [ { $unwind : "$sizes" } ] )
-{% endhighlight %}
+```
 
 It will return results as bellow.
 
-{% highlight javascript %}
+```javascript
 { "_id" : 1, "item" : "ABC1", "sizes" : "S" }
 { "_id" : 1, "item" : "ABC1", "sizes" : "M" }
 { "_id" : 1, "item" : "ABC1", "sizes" : "L" }
-{% endhighlight %}
+```
 
 With ReactiveMongo, it can be done using [`Unwind`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala-major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/AggregationFramework#UnwindextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api.bson.BSONDocument
@@ -915,17 +915,17 @@ def sized(inventory: BSONCollection) = {
   inventory.aggregatorContext[BSONDocument](List(UnwindField("sizes"))).
     prepared.cursor.collect[List]()
 }
-{% endhighlight %}
+```
 
 If there is a second `price` collection, with the following document.
 
-{% highlight javascript %}
+```javascript
 { "_id" : 10, "item" : "ABC1", "price" : 12.34 }
-{% endhighlight %}
+```
 
 This can be joined using the MongoDB shell, with the <span id="lookup">[`$lookup`](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#pipe._S_lookup)</span> stage.
 
-{% highlight javascript %}
+```javascript
 db.inventory.aggregate([{
   $lookup: {
     from: "prices",
@@ -934,11 +934,11 @@ db.inventory.aggregate([{
     as: "prices"
   }
 }])
-{% endhighlight %}
+```
 
 It will result in the document thereafter.
 
-{% highlight javascript %}
+```javascript
 {
   "_id" : 1,
   "item" : "ABC1",
@@ -947,11 +947,11 @@ It will result in the document thereafter.
     { "_id" : 10, "item" : "ABC1", "price" : 12.34 }
   ]
 }
-{% endhighlight %}
+```
 
 It can be done with ReactiveMongo using the [`Lookup`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala-major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/AggregationFramework#LookupextendsAggregationFramework.this.PipelineOperatorwithProductwithSerializable) operator.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api.bson.BSONDocument
@@ -966,11 +966,11 @@ def priced(inventory: BSONCollection, prices: BSONCollection) = {
     pipeline = List(Lookup(inventory.name, "item", "item", "prices"))
   ).prepared.cursor.collect[List]()
 }
-{% endhighlight %}
+```
 
 The [`$facet`](https://docs.mongodb.com/manual/reference/operator/aggregation/facet/) allow to create multi-faceted aggregations, which characterize data across multiple dimensions (or facets); e.g.
 
-{% highlight javascript %}
+```javascript
 db.inventory.aggregate([{
   $facet: {
     'foo': [
@@ -982,11 +982,11 @@ db.inventory.aggregate([{
     ]
   }
 }])
-{% endhighlight %}
+```
 
 Such aggregation can be executed with ReactiveMongo as bellow.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.Cursor
@@ -1005,23 +1005,23 @@ def useFacetAgg(inventory: BSONCollection)(
     prepared.cursor.collect[List]()
 
 }
-{% endhighlight %}
+```
 
 ### Book library
 
 Consider a collection *books* that contains the following documents.
 
-{% highlight javascript %}
+```javascript
 { "_id" : 8751, "title" : "The Banquet", "author" : "Dante", "copies" : 2 }
 { "_id" : 8752, "title" : "Divine Comedy", "author" : "Dante", "copies" : 1 }
 { "_id" : 8645, "title" : "Eclogues", "author" : "Dante", "copies" : 2 }
 { "_id" : 7000, "title" : "The Odyssey", "author" : "Homer", "copies" : 10 }
 { "_id" : 7020, "title" : "Iliad", "author" : "Homer", "copies" : 10 }
-{% endhighlight %}
+```
 
 Then its documents can be aggregated and outputted to another collection, using the <span id="out">[`$out`](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#pipe._S_out)</span> stage.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -1037,14 +1037,14 @@ def outputBooks(books: BSONCollection, outColl: String): Future[Unit] = {
     Out(outColl))).
     prepared.cursor.head.map(_ => {})
 }
-{% endhighlight %}
+```
 
 For the current example, the result collection will contain the following documents.
 
-{% highlight javascript %}
+```javascript
 { "_id" : "Homer", "books" : [ "Iliad", "The Odyssey" ] }
 { "_id" : "Dante", "books" : [ "Divine Comedy", "Eclogues", "The Banquet" ] }
-{% endhighlight %}
+```
 
 ### Fruits
 
@@ -1052,7 +1052,7 @@ The <span id="replaceRoot">[`$replaceRoot`](https://docs.mongodb.com/manual/refe
 
 Consider a a collection of fruits as bellow.
 
-{% highlight javascript %}
+```javascript
 {
    "_id" : 1,
    "fruit" : [ "apples", "oranges" ],
@@ -1065,26 +1065,26 @@ Consider a a collection of fruits as bellow.
    "in_stock" : { "beets" : 130, "yams" : 200 },
    "on_order" : { "beets" : 90, "yams" : 145 }
 }
-{% endhighlight %}
+```
 
 The stage can be used in aggregation with MongoShell:
 
-{% highlight javascript %}
+```javascript
 db.produce.aggregate([
    { $replaceRoot: { newRoot: "$in_stock" } }
 ])
-{% endhighlight %}
+```
 
 It will return the following documents:
 
-{% highlight javascript %}
+```javascript
 { "oranges": 20, "apples": 60 }
 { "beets": 130, "yams": 200 }
-{% endhighlight %}
+```
 
 It can be done using ReactiveMongo.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -1099,13 +1099,13 @@ def replaceRootTest(fruits: BSONCollection): Future[Option[BSONDocument]] = {
     List(ReplaceRootField("in_stock"))
   }.headOption
 }
-{% endhighlight %}
+```
 
 ### Sales
 
 Consider a collection of sales as bellow.
 
-{% highlight javascript %}
+```javascript
 {
    _id: 0,
    items: [
@@ -1127,11 +1127,11 @@ Consider a collection of sales as bellow.
        { item_id: 4, quantity: 1, price: 23 }
     ]
 }
-{% endhighlight %}
+```
 
 Using the aggregate stages `$project` and <span id="filter">[`$filter`](https://docs.mongodb.com/master/reference/operator/aggregation/filter/#definition)</span> (since 3.2), in the MongoShell it's possible to filters the *items* array to only include documents that have a *price* greater than or equal to 100:
 
-{% highlight javascript %}
+```javascript
 db.sales.aggregate([ {
   $project: {
     items: {
@@ -1143,11 +1143,11 @@ db.sales.aggregate([ {
     }
   }
 } ])
-{% endhighlight %}
+```
 
 The same can be done using ReactiveMongo:
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import reactivemongo.api.bson.{ BSONArray, BSONDocument, BSONString }
@@ -1167,13 +1167,13 @@ def salesWithItemGreaterThanHundered(sales: BSONCollection) =
           f"$$gte" -> BSONArray(f"$$$$item.price", 100))))),
       Sort(Ascending("_id")))
   }.collect[List]()
-{% endhighlight %}
+```
 
 ### Database indexes aggregation
 
 The <span id="indexStats">[`$indexStats`](https://docs.mongodb.com/manual/reference/operator/aggregation/indexStats/#pipe._S_indexStats)</span> stage returns statistics regarding the use of each index for a collection.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -1192,13 +1192,13 @@ def aggregateIndexes(coll: BSONCollection) = {
 
   result
 }
-{% endhighlight %}
+```
 
 ### Students
 
 Considering the following collection of students:
 
-{% highlight javascript %}
+```javascript
 {
   _id: 1,
   student: "Maya",
@@ -1213,11 +1213,11 @@ Considering the following collection of students:
   quiz: [ 8, 8 ],
   extraCredit: 8
 }
-{% endhighlight %}
+```
 
 Then it's possible to sum the `homework` and `quiz` arrays using the <span id="addFields">[`$addFields`](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/)</span> as bellow in the MongoShell.
 
-{% highlight javascript %}
+```javascript
 db.scores.aggregate([
   {
     $addFields: {
@@ -1230,11 +1230,11 @@ db.scores.aggregate([
       { $add: [ "$totalHomework", "$totalQuiz", "$extraCredit" ] } }
   }
 ])
-{% endhighlight %}
+```
 
 It can be done using ReactiveMongo:
 
-{% highlight javascript %}
+```javascript
 import scala.concurrent.ExecutionContext
 
 import reactivemongo.api.collections.BSONCollection
@@ -1250,30 +1250,30 @@ def sumHomeworkQuizz(students: BSONCollection) =
         "totalScore" -> document(f"$$add" -> array(
         f"$$totalHomework", f"$$totalQuiz", f"$$extraCredit")))))
   }
-{% endhighlight %}
+```
 
 ### Users
 
 Consider the following user collection.
 
-{% highlight javascript %}
+```javascript
 { "_id" : 1, "name" : "dave123", favorites: [ "chocolate", "cake", "butter", "apples" ] }
 { "_id" : 2, "name" : "li", favorites: [ "apples", "pudding", "pie" ] }
 { "_id" : 3, "name" : "ahn", favorites: [ "pears", "pecans", "chocolate", "cherries" ] }
 { "_id" : 4, "name" : "ty", favorites: [ "ice cream" ] }
-{% endhighlight %}
+```
 
 The favorites of each user can be [sliced](https://docs.mongodb.com/manual/reference/operator/aggregation/slice/#example) to keep only the 3 top favorites:
 
-{% highlight javascript %}
+```javascript
 db.users.aggregate([
    { $project: { name: 1, favorites: { $slice: [ "$favorites", 3 ] } } }
 ])
-{% endhighlight %}
+```
 
 It's also supported by ReactiveMongo as bellow.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.ExecutionContext
 
 import reactivemongo.api.bson._
@@ -1290,7 +1290,7 @@ def sliceFavorites(coll: BSONCollection)(implicit ec: ExecutionContext) =
         array = BSONString(f"$$favorites"),
         n = BSONInteger(3)))))
   }.collect[Seq](4, Cursor.FailOnError[Seq[BSONDocument]]())
-{% endhighlight %}
+```
 
 ### Change stream
 
@@ -1298,7 +1298,7 @@ Since MongoDB 3.6, it's possible to [watch the changes](https://docs.mongodb.com
 
 Using ReactiveMongo, a pipeline can be used to aggregate the change stream.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.Cursor
 import reactivemongo.api.bson.BSONDocument
 import reactivemongo.api.bson.collection.BSONCollection
@@ -1312,7 +1312,7 @@ def filteredWatch(
     pipeline = List[PipelineOperator](Match(filter))).
     cursor[Cursor.WithOps]
 }
-{% endhighlight %}
+```
 
 ### Atlas Search
 
@@ -1320,7 +1320,7 @@ When using [MongoDB Atlas](../tutorial/mongodb-atlas.html), the specific aggrega
 
 For example with a `fruit` collection on MongoDB Atlas with the following documents:
 
-{% highlight javascript %}
+```javascript
 {
   "_id" : 1,
   "type" : "apple",
@@ -1331,11 +1331,11 @@ For example with a `fruit` collection on MongoDB Atlas with the following docume
   "type" : "banana",
   "description" : "Bananas are usually sold in bunches of five or six."
 }
-{% endhighlight %}
+```
 
 In the MongoDB shell, the search features can be used with a [term query](https://docs.atlas.mongodb.com/reference/atlas-search/term/) as below.
 
-{% highlight javascript %}
+```javascript
 db.fruit.aggregate([
   {
     $search: {
@@ -1347,11 +1347,11 @@ db.fruit.aggregate([
     }
   }
 ])
-{% endhighlight %}
+```
 
 In ReactiveMongo, such search aggregation can be applied using the corresponding [API](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala-major}}/{{site._1_0_latest_minor}}/reactivemongo/api/commands/AggregationFramework). <!-- TODO: More precise link -->
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.Cursor
@@ -1369,7 +1369,7 @@ def foo(col: BSONCollection)(
     modifier = Some(Term.Wildcard) // wildcard: true
   )))).prepared.cursor.collect[List]()
 }
-{% endhighlight %}
+```
 
 **See also:**
 

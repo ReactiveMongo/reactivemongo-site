@@ -10,15 +10,15 @@ In order to get and store data with MongoDB, ReactiveMongo provides an extensibl
 
 As long as you are working with [`BSONValue`s](../../api/index.html#reactivemongo.bson.BSONValue), some [default implementations of readers and writers](#provided-handlers) are provided by the following import.
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson._
-{% endhighlight %}
+```
 
 ### Custom reader
 
 Getting values follow the same principle using `getAs(String)` method. This method is parametrized with a type that can be transformed into a `BSONValue` using a `BSONReader` instance that is implicitly available in the scope (again, the default readers are already imported if you imported `reactivemongo.bson._`.) If the value could not be found, or if the reader could not deserialize it (often because the type did not match), `None` will be returned.
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson.BSONString
 
 val albumTitle2 = album2.getAs[String]("title")
@@ -26,13 +26,13 @@ val albumTitle2 = album2.getAs[String]("title")
 
 val albumTitle3 = album2.getAs[BSONString]("title")
 // Some(BSONString("Everybody Knows this is Nowhere"))
-{% endhighlight %}
+```
 
 In order to read values of custom types. To do so, a custom instance of [`BSONReader`](../../api/index.html#reactivemongo.bson.BSONReader), or of [`BSONDocumentReader`](../../api/index.html#reactivemongo.bson.BSONDocumentReader), must be resolved (in the implicit scope).
 
 *A `BSONReader` for a custom value class:*
 
-{% highlight scala %}
+```scala
 package object custom {
   class Score(val value: Float) extends AnyVal
 
@@ -43,7 +43,7 @@ package object custom {
       new Score(bson.as[BSONNumberLike].toFloat)
   }
 }
-{% endhighlight %}
+```
 
 > When reading a numeric value from MongoDB, it's recommended to use the typeclass [`BSONNumberLike`](../../api/index.html#reactivemongo.bson.BSONNumberLike), to benefit from numeric conversions it provides.
 
@@ -51,7 +51,7 @@ Once a custom `BSONReader` (or `BSONDocumentReader`) is defined, it can be used 
 
 *A `BSONDocumentReader` for a custom case class:*
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson._
 
 implicit object PersonReader extends BSONDocumentReader[Person] {
@@ -64,11 +64,11 @@ implicit object PersonReader extends BSONDocumentReader[Person] {
     opt.get // the person is required (or let throw an exception)
   }
 }
-{% endhighlight %}
+```
 
 Once a custom `BSONDocumentReader` can be resolved, it can be used when working with a query result.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 import reactivemongo.bson.{ BSONDocument, BSONDocumentReader }
 import reactivemongo.api.collections.bson.BSONCollection
@@ -77,7 +77,7 @@ import reactivemongo.api.collections.bson.BSONCollection
 implicit def personReader: BSONDocumentReader[Person] = ???
 
 def findPerson(personCollection: BSONCollection, name: String)(implicit ec: ExecutionContext): Future[Option[Person]] = personCollection.find(BSONDocument("fullName" -> name)).one[Person]
-{% endhighlight %}
+```
 
 *See [how to find documents](../tutorial/find-documents.html).*
 
@@ -85,7 +85,7 @@ def findPerson(personCollection: BSONCollection, name: String)(implicit ec: Exec
 
 Of course it also possible to write a value of a custom type, a custom instance of [`BSONWriter`](../../api/index.html#reactivemongo.bson.BSONWriter), or of [`BSONDocumentWriter`](../../api/index.html#reactivemongo.bson.BSONDocumentWriter) must be available.
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson._
 
 case class Score(value: Float)
@@ -96,30 +96,30 @@ implicit object ScoreWriter extends BSONWriter[Score, BSONDouble] {
 
 // Uses `BSONDouble` to write `Float`,
 // for compatibility with MongoDB numeric values
-{% endhighlight %}
+```
 
 Each value that can be written using a `BSONWriter` can be used directly when calling a `BSONDocument` constructor.
 
-{% highlight scala %}
+```scala
 val album2 = reactivemongo.bson.BSONDocument(
   "title" -> "Everybody Knows this is Nowhere",
   "releaseYear" -> 1969)
-{% endhighlight %}
+```
 
 Note that this does _not_ use implicit conversions, but rather implicit type classes.
 
-{% highlight scala %}
+```scala
 import reactivemongo.bson._
 
 implicit object PersonWriter extends BSONDocumentWriter[Person] {
   def write(person: Person): BSONDocument =
     BSONDocument("fullName" -> person.name, "personAge" -> person.age)
 }
-{% endhighlight %}
+```
 
 Once a `BSONDocumentWriter` is available, an instance of the custom class can be inserted or updated to the MongoDB.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.bson.BSONDocumentWriter
@@ -133,7 +133,7 @@ def create(personCollection: BSONCollection, person: Person)(implicit ec: Execut
   val writeResult = personCollection.insert(person)
   writeResult.map(_ => {/*once this is successful, just return successfully*/})
 }
-{% endhighlight %}
+```
 
 *See [how to write documents](../tutorial/write-documents.html).*
 
@@ -141,7 +141,7 @@ def create(personCollection: BSONCollection, person: Person)(implicit ec: Execut
 
 To ease the definition or reader and writer instances for your custom types, ReactiveMongo provides some helper [Macros](../../api/index.html#reactivemongo.bson.Macros).
 
-{% highlight scala %}
+```scala
 case class Person(name: String, age: Int)
 
 import reactivemongo.bson._
@@ -153,7 +153,7 @@ implicit val personHandler: BSONHandler[BSONDocument, Person] =
 implicit val personReader: BSONDocumentReader[Person] = Macros.reader[Person]
 implicit val personWriter: BSONDocumentWriter[Person] = Macros.writer[Person]
 */
-{% endhighlight %}
+```
 
 A [`BSONHandler`](../../api/index.html#reactivemongo.bson.BSONHandler) gathers both `BSONReader` and `BSONWriter` traits.
 

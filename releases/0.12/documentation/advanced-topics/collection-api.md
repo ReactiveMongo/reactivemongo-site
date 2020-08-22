@@ -12,7 +12,7 @@ For example, let consider the case of the [support of Play JSON](https://github.
 
 *BSON collection:*
 
-{% highlight scala %}
+```scala
 // using the default Collection implementation
 // (relying on the embedded BSON library)
 
@@ -39,11 +39,11 @@ val query1 =
 // run the query then convert the result to a `Person` instance
 // using the implicit (BSON) reader
 val result1: Future[Option[Person]] = collection1.find(query1).one[Person]
-{% endhighlight %}
+```
 
 *JSON collection:*
 
-{% highlight scala %}
+```scala
 // using the Play plugin's Collection implementation
 // (relying on Play's JSON library)
 import scala.concurrent.Future
@@ -64,7 +64,7 @@ val query2 = Json.obj("age" -> Json.obj("$gt" -> 25))
 // using the implicit (JSON) reader
 def result2(implicit jsonReads: Reads[Person]): Future[Option[Person]] =
   collection2.find(query2).one[Person]
-{% endhighlight %}
+```
 
 This is very useful when you don't want to explicitly convert your objects into yet another different structure – if your application uses JSON, it is perfectly understandable to want to avoid using BSON only for dealing with MongoDB.
 
@@ -72,7 +72,7 @@ This is very useful when you don't want to explicitly convert your objects into 
 
 This trait is almost empty.
 
-{% highlight scala %}
+```scala
 package simplified.api
 
 import reactivemongo.api.DB
@@ -88,11 +88,11 @@ trait Collection {
   /** Gets the full qualified name of this collection. */
   def fullCollectionName = db.name + "." + name
 }
-{% endhighlight %}
+```
 
 All the collection implementations must mix this trait in. They also provide implicit objects of type `CollectionProducer` that make new (specialized) instances of them. Since `db.collection()` is parametrized with `C <: Collection` and accepts an implicit `CollectionProducer[C]`, the returned instance of collection can be inferred to the right type if there is only one producer in the implicit scope, which is a typical situation.
 
-{% highlight scala %}
+```scala
 package simplifiedapi
 
 import reactivemongo.api.{ Collection, CollectionProducer }
@@ -100,7 +100,7 @@ import reactivemongo.api.{ Collection, CollectionProducer }
 trait DB {
   def collection[C <: Collection](name: String)(implicit producer: CollectionProducer[C])
 }
-{% endhighlight %}
+```
 
 Most of the implementations actually extend the trait `GenericCollection`.
 
@@ -110,7 +110,7 @@ This trait is much more complete than `Collection`. It defines common methods, l
 
 Let's take an example of how these types are used for `find()`, which is defined like this:
 
-{% highlight scala %}
+```scala
 package simplifiedapi
 
 import reactivemongo.api.collections.GenericQueryBuilder
@@ -121,7 +121,7 @@ trait GenericCollection {
 
   def find[S](selector: S)(implicit swriter: pack.Writer[S]): GenericQueryBuilder[pack.type]
 }
-{% endhighlight %}
+```
 
 This function takes a `selector` (or query) of type `S`. This object is then transformed into BSON thanks to the implicit `swriter` parameter. Moreover, you can notice that the return type is another trait, `GenericQueryBuilder`, with the same parameter type
 

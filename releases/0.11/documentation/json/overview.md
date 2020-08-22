@@ -10,11 +10,11 @@ This [Play JSON library](https://github.com/reactivemongo/reactivemongo-play-jso
 
 You can setup this serialization pack by adding the following dependency in your `project/Build.scala` (or `build.sbt`).
 
-{% highlight ocaml %}
+```ocaml
 libraryDependencies ++= Seq(
   "org.reactivemongo" %% "reactivemongo-play-json" % "{{site._0_11_latest_minor}}"
 )
-{% endhighlight %}
+```
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-play-json_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-play-json_2.11/)
 
@@ -22,9 +22,9 @@ libraryDependencies ++= Seq(
 
 Then, the following code enables this JSON serialization pack.
 
-{% highlight scala %}
+```scala
 import reactivemongo.play.json._
-{% endhighlight %}
+```
 
 ## Documents and values
 
@@ -68,7 +68,7 @@ Even better, when a client sends a JSON document, you can validate it and transf
 
 The support of Play JSON for ReactiveMongo provides some extensions of the result cursors, as `.jsArray()` to read underlying data as a JSON array.
 
-{% highlight scala %}
+```scala
 import play.api.libs.json._
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 
@@ -82,13 +82,13 @@ def jsonCollection: JSONCollection = ???
 type ResultType = JsObject // any type which is provided a `Writes[T]`
 
 jsonCollection.find(Json.obj()).cursor[ResultType].jsArray()
-{% endhighlight %}
+```
 
 ## Run a raw command
 
 The [command API](../advanced-topics/commands.html) can be used with the JSON serialization to execution a JSON object as a raw command.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import play.api.libs.json.{ JsObject, Json }
@@ -112,4 +112,4 @@ def rawResult(db: reactivemongo.api.DefaultDB)(implicit ec: ExecutionContext): F
 
   runner.apply(db, runner.rawCommand(commandDoc)).one[JsObject]
 }
-{% endhighlight %}
+```

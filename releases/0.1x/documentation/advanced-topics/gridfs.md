@@ -10,19 +10,19 @@ title: GridFS
 
 ReactiveMongo provides an [API for MongoDB GridFS](../../api/reactivemongo/gridfs/GridFS.GridFS), whose references can be resolved as bellow.
 
-{% highlight scala %}
+```scala
 import reactivemongo.api.{ BSONSerializationPack, DefaultDB }
 import reactivemongo.api.gridfs.GridFS
 
 type BSONGridFS = GridFS[BSONSerializationPack.type]
 def resolveGridFS(db: DefaultDB): BSONGridFS = GridFS(db)
-{% endhighlight %}
+```
 
 ### Save files to GridFS
 
 Once a reference to GridFS is obtained, it can be used to push a file in a streaming way (for now using Play Iteratees).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import play.api.libs.iteratee.Enumerator
@@ -46,13 +46,13 @@ def saveToGridFS(
 
   gridfs.save(data, gridfsObj)
 }
-{% endhighlight %}
+```
 
 The GridFS [`save`](../../api/reactivemongo/gridfs/GridFS.GridFS#save[Id%3C:GridFS.this.pack.Value](enumerator:play.api.libs.iteratee.Enumerator[Array[Byte]],file:reactivemongo.api.gridfs.FileToSave[GridFS.this.pack.type,Id],chunkSize:Int)(implicitreadFileReader:GridFS.this.pack.Reader[GridFS.this.ReadFile[Id]],implicitctx:scala.concurrent.ExecutionContext,implicitidProducer:reactivemongo.api.gridfs.IdProducer[Id],implicitdocWriter:reactivemongo.bson.BSONDocumentWriter[file.pack.Document]):scala.concurrent.Future[GridFS.this.ReadFile[Id]]) operation will return a reference to the stored object, represented with the [`ReadFile`](../../api/reactivemongo/gridfs/GridFS.ReadFile) type.
 
 An alternative operation [`saveWithMD5`](../../api/reactivemongo/gridfs/GridFS.GridFS#saveWithMD5[Id%3C:GridFS.this.pack.Value](enumerator:play.api.libs.iteratee.Enumerator[Array[Byte]],file:reactivemongo.api.gridfs.FileToSave[GridFS.this.pack.type,Id],chunkSize:Int)(implicitreadFileReader:GridFS.this.pack.Reader[GridFS.this.ReadFile[Id]],implicitctx:scala.concurrent.ExecutionContext,implicitidProducer:reactivemongo.api.gridfs.IdProducer[Id],implicitdocWriter:reactivemongo.bson.BSONDocumentWriter[file.pack.Document]):scala.concurrent.Future[GridFS.this.ReadFile[Id]]), which can automatically compute a MD5 checksum for the stored data.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import play.api.libs.iteratee.Enumerator
@@ -72,13 +72,13 @@ def saveWithComputedMD5(
 
   gridfs.saveWithMD5(data, gridfsObj)
 }
-{% endhighlight %}
+```
 
 The reference for a file save in this way will have `Some` [MD5 property](../../api/reactivemongo/gridfs/GridFS.ReadFile@md5:Option[String]).
 
 The [Akka Stream module](../tutorial/streaming.html#akka-stream) is providing the [`GridFSStreams.sinkWithMD5`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo-akkastream_{{site._0_1x_scala_major}}-{{site._0_1x_latest_minor}}-javadoc.jar/!/reactivemongo/akkastream/GridFSStreams.html#sinkWithMD5[Id%3C:GridFSStreams.this.gridfs.pack.Value](file:reactivemongo.api.gridfs.FileToSave[GridFSStreams.this.gridfs.pack.type,Id],chunkSize:Int)(implicitreadFileReader:GridFSStreams.this.gridfs.pack.Reader[GridFSStreams.this.gridfs.ReadFile[Id]],implicitec:scala.concurrent.ExecutionContext,implicitidProducer:reactivemongo.api.gridfs.IdProducer[Id],implicitdocWriter:reactivemongo.bson.BSONDocumentWriter[file.pack.Document]):akka.stream.scaladsl.Sink[akka.util.ByteString,scala.concurrent.Future[GridFSStreams.this.gridfs.ReadFile[Id]]]), which allows to stream data to a GridFS file.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 
 import akka.NotUsed
@@ -108,13 +108,13 @@ def saveWithComputedMD5(
 
   data.runWith(upload)
 }
-{% endhighlight %}
+```
 
 ### Find a file from GridFS
 
 A file previously stored in a GridFS can be retrieved as any MongoDB, using a [`find`](../../api/reactivemongo/gridfs/GridFS.GridFS#find[S,T%3C:GridFS.this.ReadFile[_]](selector:S)(implicitsWriter:GridFS.this.pack.Writer[S],implicitreadFileReader:GridFS.this.pack.Reader[T],implicitctx:scala.concurrent.ExecutionContext,implicitcp:reactivemongo.api.CursorProducer[T]):cp.ProducedCursor) operation.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.BSONSerializationPack
@@ -129,11 +129,11 @@ def gridfsByFilename(
   def cursor = gridfs.find(BSONDocument("filename" -> filename))
   cursor.head
 }
-{% endhighlight %}
+```
 
 The [Akka Stream module](../tutorial/streaming.html#akka-stream) is providing the [`GridFSStreams.source`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_{{site._0_1x_scala_major}}/{{site._0_1x_latest_minor}}/reactivemongo-akkastream_{{site._0_1x_scala_major}}-{{site._0_1x_latest_minor}}-javadoc.jar/!/reactivemongo/akkastream/GridFSStreams.html#source[Id%3C:GridFSStreams.this.gridfs.pack.Value](file:GridFSStreams.this.gridfs.ReadFile[Id],readPreference:reactivemongo.api.ReadPreference)(implicitm:akka.stream.Materializer,implicitidProducer:reactivemongo.api.gridfs.IdProducer[Id]):akka.stream.scaladsl.Source[akka.util.ByteString,scala.concurrent.Future[reactivemongo.akkastream.State]]) to stream data from GridFS file.
 
-{% highlight scala %}
+```scala
 import scala.concurrent.Future
 
 import akka.util.ByteString
@@ -161,13 +161,13 @@ def downloadGridFSFile(
 
   Source.fromFutureSource(src).mapMaterializedValue(_.flatten)
 }
-{% endhighlight %}
+```
 
 ### Delete a file
 
 A file can be removed from a GridFS using the [appropriate operation](../../api/reactivemongo/gridfs/GridFS.GridFS#remove[Id%3C:GridFS.this.pack.Value](id:Id)(implicitctx:scala.concurrent.ExecutionContext,implicitidProducer:reactivemongo.api.gridfs.IdProducer[Id]):scala.concurrent.Future[reactivemongo.api.commands.WriteResult]).
 
-{% highlight scala %}
+```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.BSONSerializationPack
@@ -180,7 +180,7 @@ def removeFrom(
   id: BSONValue // see ReadFile.id
 )(implicit ec: ExecutionContext): Future[Unit] =
   gridfs.remove(id).map(_ => {})
-{% endhighlight %}
+```
 
 **See also:**
 

@@ -1,3 +1,4 @@
+# For CircleCI, make sure to publish a new Docker image
 source 'https://rubygems.org'
 
 gem 'jekyll', '~> 3.6'

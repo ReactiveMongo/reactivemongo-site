@@ -34,10 +34,10 @@ If you get a compilation error like the following one, you need to update the co
 
 The **`.save`** operation on a BSON collection has been removed, and must be replaced by `.update(selectorDoc, updateDoc, upsert = true)`. This is to make the ReactiveMongo API more coherent, and benefit from the upsert semantic of the MongoDB update command.
 
-{% highlight text %}
+```text
 No Json serializer as JsObject found for type play.api.libs.json.JsObject.
 Try to implement an implicit OWrites or OFormat for this type.
-{% endhighlight %}
+```
 
 When using the **[support for Play JSON](json/overview.html)**, if the previous error occurs, it necessary to make sure `import reactivemongo.play.json._` is used, to import default BSON/JSON conversions.
 
