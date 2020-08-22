@@ -4,10 +4,8 @@ major_version: 1.0
 title: Release details
 date: \today
 fontsize: 11pt
-#monofont: Menlo
-#mainfont: Source Sans Pro
 monofont: Inconsolata
-mainfont: Helvetica
+mainfont: Lato
 
 header-includes:
 - \input{releases/1.0/documentation/beamer-includes}
@@ -22,6 +20,10 @@ This is the release details for ReactiveMongo {{site._1_0_latest_minor}}.
 {% endif %}
 
 The documentation is available [online](./index.html), and its code samples are compiled to make sure it's up-to-date.
+
+<!-- pandoc_hidden -->
+These release slides are [available](https://gist.githubusercontent.com/cchantep/edde9aeadc4dd3714ae6fd1cdd7b7c3a/raw/reactivemongo-{{site._1_0_latest_major}}_release-details.pdf)
+<!-- end_pandoc_hidden -->
 
 ### What's new?
 

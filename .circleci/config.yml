@@ -106,13 +106,13 @@ jobs:
 
       - restore_cache:
           keys:
-            - &jekyllconv_cache_key jekyll2pdf-4c8d688
+            - &jekyllconv_cache_key jekyll2pdf-b9a88b1
 
       - run:
           name: 'Setup Jekyll converters'
           command: |
                     GIST="c0cb2d4ba9e7b3289a1638bd05267921"
-                    REVISION="4c8d688afbe858c89e8ebaff96c5ac9014bad9d5"
+                    REVISION="b9a88b1c70b7cba8c93de8447381b73e0f62612c"
 
                     if [ ! -x 'project/jekyll2pandoc.sh' ]; then
                       echo "Installing Jekyll-to-PDF ..."
