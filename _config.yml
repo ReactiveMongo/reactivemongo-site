@@ -6,7 +6,7 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-latest_major_release: 0.1x
+latest_major_release: 1.0
 latest_release: 1.0.0
 exclude: [vendor,target]
 plugins:
