@@ -50,6 +50,7 @@ body {
   margin-right: 5px;
   list-style: none;
 }
+#header .nav li { font-weight:bold }
 
 h1 {
   text-align: center;
