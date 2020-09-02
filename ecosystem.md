@@ -9,8 +9,6 @@ ReactiveMongo is composed of subprojects.
 
 * [ReactiveMongo BSON](./releases/{{site.latest_major_release}}/documentation/bson/overview.html): the core BSON library of ReactiveMongo. Though it can be used separately from the rest of the project – it has no other dependency than the Scala library itself.
 
-* [ReactiveMongo BSON Macros](./releases/{{site.latest_major_release}}/documentation/bson/typeclasses.html): a small library on top of `ReactiveMongo-BSON`, that brings Macros for BSON. With this library you don't have any more to write yourself the [`BSONDocumentReader`](./releases/{{site.latest_major_release}}/api/index.html#reactivemongo.bson.BSONDocumentReader) or the [`BSONDocumentWriter`](./releases/{{site.latest_major_release}}/api/index.html#reactivemongo.bson.BSONDocumentWriter) to de/serialize, but rather generate them with compile-time macros.
-
 * [ReactiveMongo](./releases/{{site.latest_major_release}}/documentation/): well, the core of ReactiveMongo :)
 
 * Play Framework

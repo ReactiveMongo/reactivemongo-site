@@ -119,6 +119,6 @@ final class MySpec extends org.specs2.mutable.Specification {
 }
 ```
 
-> More [specs2 examples](specs2/src/test/scala/DiffableSpec.scala)
+> More [specs2 examples](https://github.com/ReactiveMongo/ReactiveMongo-BSON/specs2/src/test/scala/DiffableSpec.scala)
 
 *See [Scaladoc](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-bson-geo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo-bson-geo_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-javadoc.jar/!/reactivemongo/api/bson/geo/index.html)*
