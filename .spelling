@@ -51,6 +51,7 @@ GridFS.this.pack.Value
 Heroku
 InsertOps.this.MultiBulkWriteResult
 InsertOps.this.pack.Writer
+Instana
 Int
 Iterable
 Iteratee
@@ -69,6 +70,7 @@ KnockoutJS
 LastError
 Log4J
 Logback
+microservices
 MBeans
 MONGODB-CR
 Maven

@@ -66,3 +66,9 @@ The collected metrics are the following.
 - `reactivemongo.connectedChannels`: Number of connected channels to a same MongoDB node (see `nodeChannels`).
 - `reactivemongo.authenticatedChannels`: Number of authenticated channels to a same MongoDB node (see `connectedChannels`).
 - `reactivemongo.pingTime`: Response delay (in nanoseconds) for the last IsMaster request.
+
+## Instana
+
+Automatic ReactiveMongo Monitoring is part of Instana’s comprehensive microservices and cloud-native application monitoring solution.
+
+*[See documentation](https://www.instana.com/supported-technologies/reactivemongo-monitoring/)*
