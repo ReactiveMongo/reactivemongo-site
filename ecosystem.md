@@ -33,7 +33,7 @@ Conversions for circe and ReactiveMongo.
 **[Enumeratum for ReactiveMongo](https://github.com/lloydmeta/enumeratum/#reactivemongo-bson):**
 BSON codecs to use Enumeratum with MongoDB.
 
-**[ReactiveMongo Monitoring and Performance Management](https://www.instana.com/supported-technologies/reactivemongo-monitoring/):**
+**[Instana Monitoring and Performance Management for ReactiveMongo](https://www.instana.com/supported-technologies/reactivemongo-monitoring/):**
 Automatic ReactiveMongo Monitoring is part of Instana.
 
 **[ReactiveMongo Silhouette](https://github.com/mohiva/play-silhouette-persistence-reactivemongo):** 
