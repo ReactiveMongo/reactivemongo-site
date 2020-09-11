@@ -8,9 +8,9 @@ title: Documentation
 * [**Current stable version ({{site.latest_major_release}})**](/releases/{{site.latest_major_release}}/documentation/)
   * [Release Notes](/releases/{{site.latest_major_release}}/documentation/release-details.html)
   * [Documentation](/releases/{{site.latest_major_release}}/documentation/)
-    * [Driver API](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site.latest_major_release}}/{{site._1_0_latest_minor}}/)
-    * [JSON API](https://javadoc.io/doc/org.reactivemongo/reactivemongo-play-json-compat_{{site.latest_major_release}}/{{site._1_0_latest_minor}}-play28/)
-    * [Play module API](https://javadoc.io/doc/org.reactivemongo/play2-reactivemongo_{{site.latest_major_release}}/{{site._1_0_latest_minor}}-play28/)
+    * [Driver API](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/)
+    * [JSON API](https://javadoc.io/doc/org.reactivemongo/reactivemongo-play-json-compat_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}-play29/)
+    * [Play module API](https://javadoc.io/doc/org.reactivemongo/play2-reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}-play28/)
 * Older releases
   * [0.1x - 0.20](/releases/0.1x/documentation/index.html)
     * [Release Notes](/releases/0.1x/documentation/release-details.html)
