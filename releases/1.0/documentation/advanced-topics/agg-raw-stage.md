@@ -1,12 +1,12 @@
 ---
 layout: default
 major_version: 1.0
-title: Custom Aggregation Stage
+title: Raw Aggregation Stage
 ---
 
-## Custom Aggregation Stage
+## Raw Aggregation Stage
 
-You can also implement custom aggregate stage, using the [`PipelineOperator`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#PipelineOperator=AggregationOps.this.AggregationFramework.PipelineOperator) factory.
+You can also implement aggregate stage using raw BSON (e.g. when there is no convenient stage yet provided), using the [`PipelineOperator`](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#PipelineOperator=AggregationOps.this.AggregationFramework.PipelineOperator) factory.
 
 ```scala
 import scala.concurrent.ExecutionContext

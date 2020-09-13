@@ -40,7 +40,7 @@ The [MongoDB Aggregation Framework](http://docs.mongodb.org/manual/reference/ope
 - **[`$search`](#search)**: Applies the [Atlas Search](https://docs.atlas.mongodb.com/reference/atlas-search/tutorial/).
 - **[`$slice`](#slice)**: Returns a subset of an array.
 
-*[See custom aggregation stage](./agg-custom-stage.html)*
+*[See raw aggregation stage](./agg-raw-stage.html)*
 
 ### Zip codes
 
@@ -1376,7 +1376,7 @@ def foo(col: BSONCollection)(
 - The operators available to define an aggregation pipeline are documented in the [API reference](https://javadoc.io/doc/org.reactivemongo/reactivemongo_{{site._1_0_scala-major}}/{{site._1_0_latest_minor}}/reactivemongo/api/collections/GenericCollection.html#AggregationFramework=GenericCollection.this.AggregationFramework.type).
 - The [Aggregation Framework tests](https://github.com/ReactiveMongo/ReactiveMongo/blob/master/driver/src/test/scala/AggregationSpec.scala)
 
-[Next: Custom stage](./agg-custom-stage.html)
+[Next: Raw aggregation stage](./agg-raw-stage.html)
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="/javascripts/highlight.min.js"></script>
