@@ -5,7 +5,7 @@ title: Community
 
 ## Community
 
-**Any question?** Do not hesitate to ask on the [user mailing list](https://groups.google.com/forum/?fromgroups#!forum/reactivemongo).
+**Any question?** Do not hesitate to first search, then eventually to ask, on the [user mailing list](https://groups.google.com/forum/?fromgroups#!forum/reactivemongo) or on [StackOverflow](https://stackoverflow.com/questions/tagged/reactivemongo).
 
 If you wish to report an issue for ReactiveMongo, please first check the [reporting guide](https://github.com/ReactiveMongo/ReactiveMongo/blob/master/CONTRIBUTING.md#reporting-issues).
 
