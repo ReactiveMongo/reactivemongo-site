@@ -67,8 +67,8 @@ The collected metrics are the following.
 - `reactivemongo.pool-stopped`
 
 **Pool metrics:** (tagged by pool name)
-- `reactivemongo.awaitingRequests`: Total number of requests awaiting to be processed by MongoDB nodes.
-- `reactivemongo.maxAwaitingRequestsPerChannel`: Maximum number of requests that were awaiting to be processed for a single channel (see `maxInFlightRequestsPerChannel`).
+- `reactivemongo.awaitingRequests`: Total number of requests awaiting to be processed by MongoDB nodes (see `maxInFlightRequestsPerChannel`).
+- `reactivemongo.maxAwaitingRequestsPerChannel`: Maximum number of requests that were awaiting to be processed for a single channel.
 - `reactivemongo.numberOfNodes`: Number of nodes that are part of the set.
 - `reactivemongo.hasPrimary`: Indicates whether the primary node is known (0 or 1).
 - `reactivemongo.hasNearest`: Indicates whether the nearest node is known (0 or 1).
@@ -97,8 +97,8 @@ This library exposes the ReactiveMongo metrics using [StatsD integration for Dat
 
 **Pool metrics:** (tagged by pool name)
 
-- `awaitingRequests`: Total number of requests awaiting to be processed by MongoDB nodes.
-- `maxAwaitingRequestsPerChannel`: Maximum number of requests that were awaiting to be processed for a single channel (see `maxInFlightRequestsPerChannel`).
+- `awaitingRequests`: Total number of requests awaiting to be processed by MongoDB nodes (see `maxInFlightRequestsPerChannel`).
+- `maxAwaitingRequestsPerChannel`: Maximum number of requests that were awaiting to be processed for a single channel.
 - `numberOfNodes`: Number of nodes that are part of the set.
 - `hasPrimary`: Indicates whether the primary node is known (0 or 1).
 - `hasNearest`: Indicates whether the nearest node is known (0 or 1).
