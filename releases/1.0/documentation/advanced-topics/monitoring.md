@@ -91,9 +91,9 @@ This library exposes the ReactiveMongo metrics using [StatsD integration for Dat
 
 **Events:** (tagged by pool name)
 
-- `reactivemongo.pool-created`
-- `reactivemongo.pool-updated`
-- `reactivemongo.pool-stopped`
+- `pool-created`
+- `pool-updated`
+- `pool-stopped`
 
 **Pool metrics:** (tagged by pool name)
 
