@@ -8,6 +8,13 @@ title: Monitoring
 
 ReactiveMongo provides a mechanism to collect some metrics about MongoDB connections, that can be useful to monitor.
 
+**Supported:**
+
+- [JMX](#jmx)
+- [Kamon](#kamon)
+- [Datadog](#datadog)
+- [Instana](#instana)
+
 ## JMX
 
 A [JMX](https://en.wikipedia.org/wiki/Java_Management_Extensions) module is available.
@@ -104,6 +111,8 @@ This library exposes the ReactiveMongo metrics using [StatsD integration for Dat
 - `connectedChannels`: Number of connected channels to a same MongoDB node (see `nodeChannels`).
 - `authenticatedChannels`: Number of authenticated channels to a same MongoDB node (see `connectedChannels`).
 - `pingTime`: Response delay (in nanoseconds) for the last IsMaster request.
+
+<img src="../images/datadog1.png" alt="Datadog node metrics" class="screenshot" width="960" />
 
 ### Application configuration
 
