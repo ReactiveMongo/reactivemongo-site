@@ -77,7 +77,7 @@ This can be considered as a recommended environment.
 
 ### Migration
 
-A Scalafix module is available to migrate from ReactiveMongo 0.12+ to 1.0 (not yet available for Scala 2.13).
+A Scalafix module is available to migrate from ReactiveMongo 0.12+ to 1.0.
 
 To apply the migration rules, first [setup Scalafix](https://scalacenter.github.io/scalafix/docs/users/installation.html) in the SBT build, then configure the ReactiveMongo rules as bellow.
 

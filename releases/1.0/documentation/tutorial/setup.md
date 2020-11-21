@@ -34,6 +34,23 @@ If your project already has the Akka dependency, directly or transitively (e.g. 
 
 ReactiveMongo is tested against Akka from version 2.3.13 up to 2.6.x (2.6.5 for now).
 
+**Scalafix:**
+
+A Scalafix module is available to enforce good integration with (or [migrate](../release-details.html#migration) from previous releases).
+
+To apply the migration rules, first [setup Scalafix](https://scalacenter.github.io/scalafix/docs/users/installation.html) in the SBT build, then configure the ReactiveMongo rules as bellow.
+
+```ocaml
+scalafixDependencies in ThisBuild ++= Seq(
+  "org.reactivemongo" %% "reactivemongo-scalafix" % "{{site._1_0_latest_minor}}")
+```
+
+Once the rules are configured, they can be applied from SBT.
+
+```sh
+scalafix ReactiveMongoLinter --check
+```
+
 ### Logging
 
 SLF4J is now used by the ReactiveMongo logging, so a [SLF4J binding](http://www.slf4j.org/manual.html#swapping) must be provided (e.g. slf4j-simple).

@@ -36,6 +36,8 @@ BigDecimal
 BigInteger
 CosmosDB
 DB.this.pack.type
+Datadog
+DatadogD
 Decimal128
 DocumentDB
 Enumeratum
@@ -76,6 +78,7 @@ MONGODB-CR
 Maven
 MongoDB
 MongoShell
+Netcat
 Netty
 OOM
 PEM
@@ -92,13 +95,17 @@ Scala
 Scaladoc
 Scalafix
 Specs2
+StatsD
 Typesafe
 VPC
 WebSocket
 circe
+classpath
 dialog
+debuged
 epoll
 favorites
+hostname
 implicitarray
 implicitbinary
 implicitbnull
@@ -120,6 +127,7 @@ implicitundef
 kpoll
 logback-classic
 mongos
+mongo-scala-bson
 play.api.libs.json.JsValue
 play23
 reactivemongo.api.Serialization.Pack
@@ -182,6 +190,7 @@ typeclass
 stringified
 regex
 upsert
+unix
 Screencasts
 TCPNoDelay
 KeepAlive
