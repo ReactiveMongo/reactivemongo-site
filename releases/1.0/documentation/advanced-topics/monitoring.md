@@ -158,7 +158,7 @@ The following settings are optional (see [documentation](https://javadoc.io/stat
 
 **Troubleshooting:**
 
-This can be debuged using [Netcat](https://fr.wikipedia.org/wiki/Netcat), using an alternative port (e.g. `8126`), to ensure the monitoring is properly started: `nc -u -l 8126 | grep reactivemongo`; Must display StatsD entries as bellow.
+This can be debugged using [Netcat](https://fr.wikipedia.org/wiki/Netcat), using an alternative port (e.g. `8126`), to ensure the monitoring is properly started: `nc -u -l 8126 | grep reactivemongo`; Must display StatsD entries as bellow.
 
 ```
 _e{40,461}:reactivemongo.reactivemongo.pool-created|MongoConnectionOptions { appName: Supervisor-1/Connection-1, authenticationMechanism: SCRAM-SHA-1, nbChannelsPerNode: 10, maxInFlightRequestsPerChannel: 200, minIdleChannelsPerNode: 1, heartbeatFrequencyMS: 10000ms, connectTimeoutMS: 0ms, maxIdleTimeMS: 0ms, tcpNoDelay: false, keepAlive: false, sslEnabled: false, sslAllowsInvalidCert: false, writeConcern: WriteConcern(WaitForAcknowledgments(1),false,false,None), readPreference: Primary, readConcern: local }|d:1605894402|h:myapp|k:Supervisor-1|t:info|s:reactivemongo|#Supervisor-1.Connection-1,Supervisor-1_e{26,113}:reactivemongo.pool-updated|{{NodeSet None Node[localhost:32770: Unknown (0/1 available connections), latency=9223372036854775807, auth=0] }}|d:1605894403|h:myapp|k:Supervisor-1|t:info|s:reactivemongo|#Supervisor-1.Connection-1,Supervisor-1reactivemongo.awaitingRequests:0|g|#Supervisor-1.Connection-1,Supervisor-1
