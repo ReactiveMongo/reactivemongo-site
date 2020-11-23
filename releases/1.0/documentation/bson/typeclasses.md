@@ -43,9 +43,8 @@ package object custom {
 
   import reactivemongo.api.bson._
 
-  implicit object ScoreReader extends BSONReader[Score] {
-    def readTry(bson: BSONValue) =
-      bson.asTry[BSONNumberLike].flatMap(_.toFloat).map(new Score(_))
+  implicit val scoreReader: BSONReader[Score] = BSONReader.from[Score] { bson =>
+    bson.asTry[BSONNumberLike].flatMap(_.toFloat).map(new Score(_))
   }
 }
 ```
@@ -57,12 +56,13 @@ Once a custom `BSONReader` (or `BSONDocumentReader`) is defined, it can thus be 
 ```scala
 import reactivemongo.api.bson._
 
-implicit object PersonReader extends BSONDocumentReader[Person] {
-  def readDocument(bson: BSONDocument) = for {
-    name <- bson.getAsTry[String]("fullName")
-    age <- bson.getAsTry[BSONNumberLike]("personAge").flatMap(_.toInt)
-  } yield new Person(name, age)
-}
+val personReader1: BSONDocumentReader[Person] =
+  BSONDocumentReader.from[Person] { bson =>
+    for {
+      name <- bson.getAsTry[String]("fullName")
+      age <- bson.getAsTry[BSONNumberLike]("personAge").flatMap(_.toInt)
+    } yield new Person(name, age)
+  }
 ```
 
 Once a custom `BSONDocumentReader` can be resolved, it can be used when working with a query result.
@@ -73,7 +73,7 @@ import reactivemongo.api.bson.{ BSONDocument, BSONDocumentReader }
 import reactivemongo.api.bson.collection.BSONCollection
 
 // Provided the `Person` case class is defined, with its `BSONDocumentReader`
-implicit def personReader: BSONDocumentReader[Person] = ???
+implicit def personReader2: BSONDocumentReader[Person] = ???
 
 def findPerson(personCollection: BSONCollection, name: String)(implicit ec: ExecutionContext): Future[Option[Person]] = personCollection.find(BSONDocument("fullName" -> name)).one[Person]
 ```
@@ -89,10 +89,10 @@ import reactivemongo.api.bson._
 
 case class Score(value: Float)
 
-implicit object ScoreWriter extends BSONWriter[Score] {
-  def writeTry(score: Score) =
+implicit val scoreWriter1: BSONWriter[Score] =
+  BSONWriter.from[Score] { score =>
     scala.util.Success(BSONDouble(score.value))
-}
+  }
 
 // Uses `BSONDouble` to write `Float`,
 // for compatibility with MongoDB numeric values
@@ -544,13 +544,13 @@ import reactivemongo.api.bson.{ BSONString, BSONWriter }
 import reactivemongo.api.bson.Macros,
   Macros.Annotations.Writer
 
-val scoreWriter: BSONWriter[Double] = BSONWriter[Double] { d =>
+val scoreWriter2: BSONWriter[Double] = BSONWriter[Double] { d =>
   BSONString(d.toString) // write double as string
 }
 
 case class CustomFoo2(
   title: String,
-  @Writer(scoreWriter) score: Double)
+  @Writer(scoreWriter2) score: Double)
 
 val writer = Macros.writer[CustomFoo2]
 
