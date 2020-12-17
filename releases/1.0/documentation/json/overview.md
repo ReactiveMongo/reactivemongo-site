@@ -12,9 +12,11 @@ You can setup the Play JSON compatibility for ReactiveMongo by adding the follow
 
 ```ocaml
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "reactivemongo-play-json-compat" % "{{site._1_0_latest_minor}}-play27" // For Play 2.7.x (ajust accordingly)
+  "org.reactivemongo" %% "reactivemongo-play-json-compat" % "{{site._1_0_latest_minor}}-play29" // For Play 2.9.x (ajust accordingly)
 )
 ```
+
+> This library is compatible from Play 2.5 to 2.9.
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-play-json_{{site._1_0_scala_major}}/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-play-json_{{site._1_0_scala_major}}/) 
 [![Build Status](https://travis-ci.org/ReactiveMongo/ReactiveMongo-Play-Json.svg?branch=master)](https://travis-ci.org/ReactiveMongo/ReactiveMongo-Play-Json) 
@@ -39,7 +41,7 @@ import reactivemongo.play.json.compat._
 def foo(v: BSONValue): JsValue = v // ValueConverters.fromValue
 ```
 
-**API documentations:** [ReactiveMongo Play JSON API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}-play27/reactivemongo-play-json_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-play27-javadoc.jar/!/index.html)
+**API documentations:** [ReactiveMongo Play JSON API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}-play28/reactivemongo-play-json_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-play29-javadoc.jar/!/index.html)
 
 > If you want to use this JSON serialization outside of Play application, the dependency to the standalone Play JSON library must then be added: `"com.typesafe.play" %% "play-json" % version`.
 

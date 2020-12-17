@@ -10,9 +10,14 @@ This module is based on the [Play JSON serialization](../json/overview.html).
 
 ## Add Play2-ReactiveMongo to your dependencies
 
-The latest version of this plugin is for Play 2.4+, and can be enabled by adding the following dependency in your `project/Build.scala` (or `build.sbt`).
+The latest version of this plugin is for Play 2.5+, and can be enabled by adding the following dependency in your `project/Build.scala` (or `build.sbt`).
 
 ```ocaml
+// only for Play 2.8.x (Scala 2.12)
+libraryDependencies ++= Seq(
+  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._1_0_latest_minor}}-play28"
+)
+
 // only for Play 2.7.x (Scala 2.12)
 libraryDependencies ++= Seq(
   "org.reactivemongo" %% "play2-reactivemongo" % "{{site._1_0_latest_minor}}-play27"
@@ -45,13 +50,13 @@ If you want to use the latest snapshot, add the following instead (only for play
 resolvers += "Sonatype Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
 
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "1.0.0-SNAPSHOT"
+  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._1_0_latest_snapshot}}-play28"
 )
 ```
 
 ## Setup
 
-### Play 2.4+
+### Play 2.5+
 
 **`ReactiveMongoPlugin` is deprecated, long live to `ReactiveMongoModule` and `ReactiveMongoApi`**.
 

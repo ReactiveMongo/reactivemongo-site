@@ -23,6 +23,7 @@ _0_1x_scala_major: 2.12
 
 _1_0_latest_major: 1.0
 _1_0_latest_minor: 1.0.1
+_1_0_latest_minor: 1.0.2-SNAPSHOT
 _1_0_scala_major: 2.13
 
 algolia:
