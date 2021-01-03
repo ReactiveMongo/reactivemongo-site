@@ -239,7 +239,7 @@ At each streaming step, for each new value or error, you choose how you want to 
 
 - `Cont`: Continue processing.
 - `Done`: End processing, without error; A `Future.successful[T](t)` will be returned by `foldWhile[T]`.
-- `Stop`: Stop processing on an error; A `Future.failed` will be returned by `foldWhile[T]`.
+- `Fail`: Stop processing on an error; A `Future.failed` will be returned by `foldWhile[T]`.
 
 There are convenient handler functions, that are helpful to implement a custom streaming: `Cursor.{ ContOnError, DoneOnError, FailOnError, Ignore }`.
 
