@@ -6,7 +6,7 @@ title: Get started
 
 ## Get started
 
-For the impatient, bellow is a complete example.
+For the impatient, below is a complete example.
 
 First the ReactiveMongo dependencies must be configured. {% include sbt-dependency.md %}
 
