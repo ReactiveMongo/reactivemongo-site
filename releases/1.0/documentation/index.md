@@ -35,7 +35,7 @@ The various API of the ReactiveMongo driver itself, and also of the related libr
 
 **Recommended configuration:**
 
-The driver core and the modules are tested in a [container based environment](https://docs.travis-ci.com/user/ci-environment/#Virtualization-environments), with the specifications as bellow.
+The driver core and the modules are tested in a [container based environment](https://docs.travis-ci.com/user/ci-environment/#Virtualization-environments), with the specifications as per below.
 
 - 2 [cores](https://cloud.google.com/compute/) (64 bits)
 - 4 GB of system memory, with a maximum of 2 GB for the JVM
