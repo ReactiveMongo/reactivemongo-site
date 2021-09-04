@@ -80,6 +80,7 @@ The option `ssl` is needed if the MongoDB server is requiring SSL (`mongod --ssl
       - *delay*: The [initial delay](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/FailoverStrategy.html#initialDelay:scala.concurrent.duration.FiniteDuration) as a finite duration string accepted by the [`Duration` factory](http://www.scala-lang.org/api/current/index.html#scala.concurrent.duration.Duration$@apply(s:String):scala.concurrent.duration.Duration).
       - *retries*: The number of retry (`Int`).
       - *factor*: The `Double` value to multiply the retry counter with, to define the delay factor (`retryCount * factor`).
+- **`compressors`** (+1.0.7): The comma-delimited string of [compressors](https://docs.mongodb.com/manual/reference/connection-string/#mongodb-urioption-urioption.compressors) (`snappy`, `zlib` for MongoDB 3.6+, or `zstd` for MongoDB 4.2+) to enable network compression for communication between this client and a mongod/mongos instance. 
 
 *Read isolation & consistency:*
 
