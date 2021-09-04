@@ -127,6 +127,7 @@ implicitundef
 kpoll
 logback-classic
 mongos
+mongod
 mongo-scala-bson
 play.api.libs.json.JsValue
 play23
