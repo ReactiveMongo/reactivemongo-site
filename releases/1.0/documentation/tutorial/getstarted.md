@@ -15,6 +15,7 @@ Then the following code, from connection to operations on a collection, can be u
 ```scala
 import scala.concurrent.{ ExecutionContext, Future }
 
+import reactivemongo.api.bson.collection.BSONCollection
 import reactivemongo.api.{ Cursor, DB, MongoConnection, AsyncDriver }
 import reactivemongo.api.bson.{
   BSONDocumentWriter, BSONDocumentReader, Macros, document
@@ -34,7 +35,7 @@ object GetStarted {
   val futureConnection = parsedUri.flatMap(driver.connect(_))
   def db1: Future[DB] = futureConnection.flatMap(_.database("firstdb"))
   def db2: Future[DB] = futureConnection.flatMap(_.database("anotherdb"))
-  def personCollection = db1.map(_.collection("person"))
+  def personCollection: Future[BSONCollection] = db1.map(_.collection[BSONCollection]("person"))
 
   // Write Documents: insert or update
   
