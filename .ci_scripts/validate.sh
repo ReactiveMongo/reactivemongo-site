@@ -23,7 +23,7 @@ fi
 
 echo "[INFO] Compiling code samples ..."
 
-java $SBT_OPTS -jar "$SBT_JAR" error compile || exit 1
+java $SBT_OPTS -jar "$SBT_JAR" error test:compile || exit 1
 
 echo "[INFO] Building documentation ..."
 
