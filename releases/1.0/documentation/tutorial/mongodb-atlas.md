@@ -55,10 +55,10 @@ can't authenticate against replica set ... caused by :: Authentication failed
 When the MongoShell is successfully connected, the application configuration can be defined as below.
 
 ```javascript
-mongodb.uri = "mongodb+srv://${ATLAS_USERNAME}:${ATLAS_PASSWORD}@...-cluster-ej8gu.azure.mongodb.net/<dbname>?retryWrites=true&w=majority"
+mongodb.uri = "mongodb+srv://${ATLAS_USERNAME}:${ATLAS_PASSWORD}@...-cluster-ej8gu.azure.mongodb.net/<dbname>?retryWrites=true&w=majority&authenticationDatabase=admin"
 ```
 
-> *Note:* The URI is [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) format, supported by ReactiveMongo. 
+> *Note:* The URI is [DNS seedlist](https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format) format, supported by ReactiveMongo. The parameter `authenticationDatabase=admin` must be appended.
 
 It's necessary to make sure that the user is granted the appropriate permissions.
 

@@ -14,9 +14,11 @@ In ReactiveMongo, the database command can be executed using [`db.runCommand(<co
 import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.DB
-import reactivemongo.api.commands.{ Command, CommandWithResult }
+import reactivemongo.api.commands.{ Command, CommandKind, CommandWithResult }
 
-object Ping extends Command with CommandWithResult[Boolean]
+object Ping extends Command with CommandWithResult[Boolean] {
+  val commandKind: CommandKind = new CommandKind("ping")
+}
 
 import reactivemongo.api.bson.{
   BSONDocument, BSONDocumentReader, BSONDocumentWriter
@@ -39,11 +41,16 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 import reactivemongo.api.bson.collection.BSONCollection
 import reactivemongo.api.commands.{
-  CollectionCommand, CommandWithResult, ResolvedCollectionCommand
+  CollectionCommand, 
+  CommandKind,
+  CommandWithResult,
+  ResolvedCollectionCommand
 }
 
 class CountByName(val name: String)
-  extends CollectionCommand with CommandWithResult[Long]
+  extends CollectionCommand with CommandWithResult[Long] {
+  val commandKind: CommandKind = new CommandKind("count")
+}
 
 import reactivemongo.api.bson.{
   BSONDocument, BSONDocumentReader, BSONDocumentWriter
@@ -140,6 +147,7 @@ package customcmd
 import reactivemongo.api.SerializationPack
 import reactivemongo.api.commands.{
   Command,
+  CommandKind,
   CommandWithPack,
   CommandWithResult,
 }
@@ -150,7 +158,9 @@ trait CustomCommand[P <: SerializationPack] {
   case class Custom(
     name: String,
     query: pack.Document) extends Command
-      with CommandWithPack[pack.type] with CommandWithResult[CustomResult]
+      with CommandWithPack[pack.type] with CommandWithResult[CustomResult] {
+    val commandKind: CommandKind = new CommandKind(name)
+  }
 
   case class CustomResult(count: Int, matching: List[String])
 }
@@ -206,6 +216,7 @@ import reactivemongo.api.bson.collection.BSONSerializationPack
 
 import reactivemongo.api.commands.{
   Command,
+  CommandKind,
   CommandWithPack,
   CommandWithResult
 }
@@ -216,7 +227,9 @@ object BSONCustomCommand {
   case class Custom(
     name: String,
     query: pack.Document) extends Command
-      with CommandWithPack[pack.type] with CommandWithResult[CustomResult]
+      with CommandWithPack[pack.type] with CommandWithResult[CustomResult] {
+    val commandKind: CommandKind = new CommandKind(name)
+  }
 
   case class CustomResult(count: Int, matching: List[String])
 
@@ -272,6 +285,7 @@ For a collection command `db.aCollection.runCommand({ "custom": name, "query": {
 import reactivemongo.api.SerializationPack
 import reactivemongo.api.commands.{
   CollectionCommand,
+  CommandKind,
   CommandWithPack,
   CommandWithResult
 }
@@ -283,7 +297,9 @@ trait CustomCommand[P <: SerializationPack] {
   case class Custom(
     name: String,
     query: pack.Document) extends CollectionCommand
-      with CommandWithPack[pack.type] with CommandWithResult[CustomResult]
+      with CommandWithPack[pack.type] with CommandWithResult[CustomResult] {
+    val commandKind: CommandKind = new CommandKind(name)
+  }
 
   // { "count": int, "matching": [ "value1", "value2", ..., "valueN" ] }
   case class CustomResult(count: Int, matching: List[String])
