@@ -5,7 +5,7 @@ jobs:
     description: 'Build & Test'
 
     docker: # See ../circleci.dockerfile
-    - image: cchantep/reactivemongo-site:1.0.0-7935a6f-SNAPSHOT
+    - image: cchantep/reactivemongo-site:1.1.0-RC4
 
     working_directory: ~/repo
 
@@ -36,7 +36,7 @@ jobs:
           name: 'Build & validate'
           command: |
                     if [ ! -L node_modules ]; then
-                      ln -s /root/node_modules node_modules
+                      ln -s /node_modules node_modules
                     fi
                     java -version && ./.ci_scripts/validate.sh 1.6.2
 
@@ -74,7 +74,7 @@ jobs:
     description: 'Index to Algolia'
 
     docker:
-    - image: cchantep/reactivemongo-site:1.0.0-7935a6f-SNAPSHOT
+    - image: cchantep/reactivemongo-site:1.1.0-RC4
 
     working_directory: ~/repo
 
@@ -97,7 +97,7 @@ jobs:
         default: '1.0'
 
     docker:
-    - image: cchantep/reactivemongo-site:1.0.0-7935a6f-SNAPSHOT
+    - image: cchantep/reactivemongo-site:1.1.0-RC4
 
     working_directory: ~/repo
 
