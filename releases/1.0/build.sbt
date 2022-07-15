@@ -2,9 +2,9 @@ organization := "org.reactivemongo"
 
 name := "release_1_0"
 
-version := "1.1.0-RC4"
+version := "1.1.0-RC5"
 
-scalaVersion := "2.12.15"
+scalaVersion := "2.12.16"
 
 libraryDependencies ++= Seq(
   "reactivemongo-akkastream",
