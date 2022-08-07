@@ -13,7 +13,7 @@ lazy val `reactivemongo-site` = (project in file("."))
     scalaVersion := "2.11.12",
     ThisBuild / scalacOptions ++= Seq("-Ywarn-unused-import", "-unchecked"),
     libraryDependencies ++= Seq(
-      "org.reactivemongo" %% "reactivemongo" % "1.1.0-RC5"),
+      "org.reactivemongo" %% "reactivemongo" % "1.1.0-RC6"),
     ThisBuild / resolvers ++= Seq(
       Resolver.typesafeRepo("releases"),
       Resolver.sonatypeRepo("snapshots"),
