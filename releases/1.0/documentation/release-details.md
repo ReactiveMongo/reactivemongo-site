@@ -59,7 +59,7 @@ Slides for these release notes are [available](https://gist.githubusercontent.co
 
 This release is compatible with the following runtime.
 
-- [MongoDB](https://www.mongodb.org/) from 3.0 up to 6.0.
+- [MongoDB](https://www.mongodb.org/) from 3.6 up to 6.0.
 
 - [Scala](https://www.scala-lang.org) from 2.11 to 2.13.
 - [Akka](http://akka.io/) from 2.3.13 up to 2.6.5 (see [Setup](./tutorial/setup.html))
