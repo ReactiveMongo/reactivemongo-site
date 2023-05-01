@@ -2,7 +2,7 @@ organization := "org.reactivemongo"
 
 name := "release_1_0"
 
-version := "1.1.0-RC9"
+version := "1.1.0-RC10"
 
 scalaVersion := "2.12.17"
 
