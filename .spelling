@@ -82,6 +82,7 @@ Netcat
 Netty
 OOM
 PEM
+Pekko
 Play2-ReactiveMongo
 QueryBuilderFactory.this.pack.Reader
 ReactiveMongo
@@ -216,6 +217,7 @@ NettyPack
 2.5.x
 2.6.x
 4.1.x
+1.0.x.
 
 # Jekyll workaround
 index.html

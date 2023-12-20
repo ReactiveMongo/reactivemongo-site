@@ -13,24 +13,29 @@ This module is based on the [Play JSON serialization](../json/overview.html).
 The latest version of this plugin is for Play 2.5+, and can be enabled by adding the following dependency in your `project/Build.scala` (or `build.sbt`).
 
 ```ocaml
+// only for Play 2.9.x (Scala 2.13+)
+libraryDependencies ++= Seq(
+  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._1_0_latest_minor}}.play29"
+)
+
 // only for Play 2.8.x (Scala 2.12)
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._1_0_latest_minor}}-play28"
+  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._1_0_latest_minor}}.play28"
 )
 
 // only for Play 2.7.x (Scala 2.12)
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._1_0_latest_minor}}-play27"
+  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._1_0_latest_minor}}.play27"
 )
 
 // only for Play 2.6.x (Scala 2.12)
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._1_0_latest_minor}}-play26"
+  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._1_0_latest_minor}}.play26"
 )
 
 // only for Play 2.5.x (Scala 2.11)
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._1_0_latest_minor}}-play25"
+  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._1_0_latest_minor}}.play25"
 )
 ```
 
@@ -40,9 +45,9 @@ libraryDependencies ++= Seq(
 
 As for Play itself, this ReactiveMongo plugin requires a JVM 1.8+.
 
-The [API of this Play module](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}-play26/play2-reactivemongo_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-play26-javadoc.jar/!/index.html) can be browsed online.
+The [API of this Play module](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}.play26/play2-reactivemongo_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}.play26-javadoc.jar/!/index.html) can be browsed online.
 
-The API for the standalone JSON serialization is [also available](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}-play26/reactivemongo-play-json_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-play26-javadoc.jar/!/index.html).
+The API for the standalone JSON serialization is [also available](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}.play26/reactivemongo-play-json_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}.play26-javadoc.jar/!/index.html).
 
 If you want to use the latest snapshot, add the following instead (only for play > 2.4):
 
@@ -50,7 +55,7 @@ If you want to use the latest snapshot, add the following instead (only for play
 resolvers += "Sonatype Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
 
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._1_0_latest_snapshot}}-play28"
+  "org.reactivemongo" %% "play2-reactivemongo" % "{{site._1_0_latest_snapshot}}.play28"
 )
 ```
 
@@ -60,7 +65,7 @@ libraryDependencies ++= Seq(
 
 **`ReactiveMongoPlugin` is deprecated, long live to `ReactiveMongoModule` and `ReactiveMongoApi`**.
 
-Play has deprecated the plugins in version 2.4, therefore it is recommended to remove the former `ReactiveMongoPlugin` from your project. It must be replaced it by `ReactiveMongoModule` and [`ReactiveMongoApi`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}-play26/play2-reactivemongo_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-play26-javadoc.jar/!/index.html#play.modules.reactivemongo.ReactiveMongoApi) which is the interface to MongoDB.
+Play has deprecated the plugins in version 2.4, therefore it is recommended to remove the former `ReactiveMongoPlugin` from your project. It must be replaced it by `ReactiveMongoModule` and [`ReactiveMongoApi`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}.play26/play2-reactivemongo_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}.play26-javadoc.jar/!/index.html#play.modules.reactivemongo.ReactiveMongoApi) which is the interface to MongoDB.
 
 Thus, the dependency injection can be configured, so that the your controllers are given the new ReactiveMongo API.
 First, Add the line bellow to `application.conf`:
@@ -87,7 +92,7 @@ class MyController @Inject() (
 }
 ```
 
-The traits [`ReactiveMongoComponents`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}-play26/play2-reactivemongo_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-play26-javadoc.jar/!/index.html#play.modules.reactivemongo.ReactiveMongoComponents) and [`ReactiveMongoApiComponents`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}-play26/play2-reactivemongo_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-play26-javadoc.jar/!/index.html#play.modules.reactivemongo.ReactiveMongoApiComponents) can be used for [compile-time dependency injection](https://playframework.com/documentation/latest/ScalaCompileTimeDependencyInjection).
+The traits [`ReactiveMongoComponents`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}.play26/play2-reactivemongo_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}.play26-javadoc.jar/!/index.html#play.modules.reactivemongo.ReactiveMongoComponents) and [`ReactiveMongoApiComponents`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/play2-reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}.play26/play2-reactivemongo_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}.play26-javadoc.jar/!/index.html#play.modules.reactivemongo.ReactiveMongoApiComponents) can be used for [compile-time dependency injection](https://playframework.com/documentation/latest/ScalaCompileTimeDependencyInjection).
 
 ```scala
 import javax.inject.Inject

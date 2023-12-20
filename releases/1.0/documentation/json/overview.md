@@ -12,7 +12,7 @@ You can setup the Play JSON compatibility for ReactiveMongo by adding the follow
 
 ```ocaml
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "reactivemongo-play-json-compat" % "{{site._1_0_latest_minor}}-play29" // For Play 2.9.x (ajust accordingly)
+  "org.reactivemongo" %% "reactivemongo-play-json-compat" % "{{site._1_0_latest_minor}}.play29" // For Play 2.9.x (ajust accordingly)
 )
 ```
 
@@ -41,7 +41,7 @@ import reactivemongo.play.json.compat._
 def foo(v: BSONValue): JsValue = v // ValueConverters.fromValue
 ```
 
-**API documentations:** [ReactiveMongo Play JSON API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}-play28/reactivemongo-play-json_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-play29-javadoc.jar/!/index.html)
+**API documentations:** [ReactiveMongo Play JSON API](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-play-json_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}.play28/reactivemongo-play-json_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}.play29-javadoc.jar/!/index.html)
 
 > If you want to use this JSON serialization outside of Play application, the dependency to the standalone Play JSON library must then be added: `"com.typesafe.play" %% "play-json" % version`.
 

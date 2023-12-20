@@ -2,9 +2,9 @@ organization := "org.reactivemongo"
 
 name := "release_1_0"
 
-version := "1.1.0-RC11"
+version := "1.1.0-RC12"
 
-scalaVersion := "2.12.17"
+scalaVersion := "2.12.18"
 
 libraryDependencies ++= Seq(
   "reactivemongo-akkastream",
@@ -20,8 +20,8 @@ libraryDependencies ++= Seq(
 libraryDependencies ++= {
   val idx = version.value.lastIndexOf('-')
   val playVer = version.value.splitAt(idx) match {
-    case ("", major) => s"${major}-play27"
-    case (major, mod) => s"${major}-play27${mod}"
+    case ("", major) => s"${major}.play27"
+    case (major, mod) => s"${major}.play27${mod}"
   }
 
   Seq("play2-reactivemongo", "reactivemongo-play-json-compat").map(
