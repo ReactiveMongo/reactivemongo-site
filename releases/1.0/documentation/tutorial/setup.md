@@ -41,7 +41,6 @@ it must be compatible with the version pulled in by ReactiveMongo.
 
 ReactiveMongo is tested against Pekko from version 1.0.x.
 
-
 **Scalafix:**
 
 A Scalafix module is available to enforce good integration with (or [migrate](../release-details.html#migration) from previous releases).
