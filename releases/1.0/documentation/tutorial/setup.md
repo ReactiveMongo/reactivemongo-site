@@ -34,6 +34,13 @@ If your project already has the Akka dependency, directly or transitively (e.g. 
 
 ReactiveMongo is tested against Akka from version 2.3.13 up to 2.6.x (2.6.5 for now).
 
+**Pekko dependency:**
+
+If you use the [Pekko](https://pekko.apache.org/) based distribution and your project that already has a Pekko dependency, 
+it must be compatible with the version pulled in by ReactiveMongo.
+
+ReactiveMongo is tested against Pekko from version 1.0.x.
+
 **Scalafix:**
 
 A Scalafix module is available to enforce good integration with (or [migrate](../release-details.html#migration) from previous releases).
