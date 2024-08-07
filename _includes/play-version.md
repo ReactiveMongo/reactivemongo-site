@@ -1,0 +1,1 @@
+{% assign v = include.version | split: '-' %}{% if v.size > 1 %}{{ v[0] }}-{{ include.play_suffix }}.{{ v[1] }}{% else %}{{ include.version }}-{{ include.play_suffix }}{% endif %}

@@ -23,6 +23,7 @@ _0_1x_scala_major: 2.12
 
 _1_0_latest_major: 1.1
 _1_0_latest_minor: 1.1.0-RC13
+_1_0_latest_play: 1.1.0-play30.RC13
 _1_0_scala_major: 2.13
 
 algolia:
