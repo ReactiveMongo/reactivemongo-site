@@ -18,10 +18,6 @@ libraryDependencies ++= Seq(
 
 > This library is compatible from Play 2.5 to 3.0.
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-play-json_{{site._1_0_scala_major}}/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-play-json_{{site._1_0_scala_major}}/) 
-[![Build status](https://dl.circleci.com/status-badge/img/gh/ReactiveMongo/ReactiveMongo-Play-Json/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/ReactiveMongo/ReactiveMongo-Play-Json/tree/master) 
-[![Test coverage](https://img.shields.io/badge/coverage-69%25-green.svg)](https://reactivemongo.github.io/ReactiveMongo-Play-Json/coverage/{{site._1_0_latest_minor}}/)
-
 > If the dependency for the [Play plugin](../tutorial/play.html) (with the right version) is present, it already provides the JSON support and this JSON serialization pack must not be added as a separate dependency.
 
 The following import enables the compatibility.
