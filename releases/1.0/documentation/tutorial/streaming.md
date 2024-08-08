@@ -8,7 +8,15 @@ title: Streaming
 
 Instead of accumulating documents in memory, they can be processed as a stream, using a reactive [`Cursor`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/Cursor.html).
 
-ReactiveMongo can be used with several streaming frameworks: [Akka Streams](http://akka.io/docs/), [Pekko](https://pekko.apache.org/), or with custom processors using [`foldWhile`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/Cursor.html#foldWhile[A](z:=%3EA,maxDocs:Int)(suc:(A,T)=%3Ereactivemongo.api.Cursor.State[A],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]) (and the other similar operations).
+ReactiveMongo can be used with several streaming frameworks:
+
+- [Akka Streams](#akka-stream),
+- [Pekko](#pekko-stream),
+- or with custom processors using [`foldWhile`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/Cursor.html#foldWhile[A](z:=%3EA,maxDocs:Int)(suc:(A,T)=%3Ereactivemongo.api.Cursor.State[A],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]) (and the other similar operations).
+
+More:
+
+- Streaming with [GridFS](../advanced-topics/gridfs.html)
 
 ### Akka Stream
 
@@ -92,7 +100,89 @@ The `cumulateAge` sink extracts the age from the each document, and add it the c
 More:
 
 - [**ReactiveMongo AkkaStream API**](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-akkastream_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo-akkastream_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-javadoc.jar/!/index.html#package)
-- Streaming with [GridFS](../advanced-topics/gridfs.html)
+
+### Pekko Stream
+
+The [Pekko Stream](https://pekko.apache.org/) library can be used to consume ReactiveMongo results.
+
+The following dependency must be configured in your `project/Build.scala` (or `build.sbt`).
+
+```ocaml
+libraryDependencies += "org.reactivemongo" %% "reactivemongo-pekkostream" % "{{site._1_0_latest_minor}}"
+```
+
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-pekkostream_{{site._1_0_scala_major}}/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.reactivemongo/reactivemongo-pekkostream_{{site._1_0_scala_major}}/)
+
+The main features of this modules are as follows.
+
+- Get a [`Source`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-pekkostream_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo-pekkostream_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.pekkostream.PekkoStreamCursor#documentSource(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Option[T]])(implicitm:pekko.stream.Materializer):pekko.stream.scaladsl.Source[T,pekko.NotUsed]) of documents from a ReactiveMongo cursor. This is a document producer.
+- Run with a [`Flow`](http://doc.pekko.io/api/pekko/2.4.10/#pekko.stream.javadsl.Flow) or a [`Sink`](http://doc.pekko.io/api/pekko/2.4.10/#pekko.stream.javadsl.Sink), which will consume the documents, with possible transformation.
+
+To use the Pekko Stream support for the ReactiveMongo cursors, [`reactivemongo.pekkostream.cursorProducer`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-pekkostream_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo-pekkostream_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.pekkostream.package$$cursorFlattener$) must be imported.
+
+```scala
+import scala.concurrent.Future
+
+import pekko.stream.Materializer
+import pekko.stream.scaladsl.{ Sink, Source }
+
+import reactivemongo.api.bson.BSONDocument
+import reactivemongo.api.bson.collection.BSONCollection
+
+import reactivemongo.pekkostream.{ State, cursorProducer }
+// Provides the cursor producer with the Pekko Stream capabilities
+
+def processPerson1(collection: BSONCollection, query: BSONDocument)(implicit m: Materializer): Future[Seq[BSONDocument]] = {
+  val sourceOfPeople: Source[BSONDocument, Future[State]] =
+    collection.find(query).cursor[BSONDocument]().documentSource()
+
+  sourceOfPeople.runWith(Sink.seq[BSONDocument])
+}
+```
+
+The operation [`PekkoStreamCursor.documentSource`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-pekkostream_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo-pekkostream_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.pekkostream.PekkoStreamCursor#documentSource(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Option[T]])(implicitm:pekko.stream.Materializer):pekko.stream.scaladsl.Source[T,scala.concurrent.Future[reactivemongo.pekkostream.State]]) returns an `Source[T, Future[State]]` (with `Future[State]` representing the completion of the asynchronous materialization). In this case, we get a producer of documents (of type `BSONDocument`).
+
+Now that we have the producer, we need to define how the documents are processed, using a `Sink` or a `Flow` (with transformations).
+
+The line `sourceOfPeople.run(processDocuments)` returns a `Future[Unit]`. It will eventually return the final value of the sink, which is a `Seq` in our case.
+
+Obviously, we may use a pure `Sink` that performs some computation.
+
+```scala
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import pekko.NotUsed
+import pekko.stream.Materializer
+import pekko.stream.scaladsl.{ Sink, Source }
+
+import reactivemongo.api.bson.BSONDocument
+
+def processPerson2(sourceOfPeople: Source[BSONDocument, NotUsed])(implicit m: Materializer): Future[Float] = {
+  val cumulateAge: Sink[BSONDocument, Future[(Int, Int)]] =
+    Sink.fold(0 -> 0) {
+      case ((cumulatedAge, n), doc) =>
+        val age = doc.getAsOpt[Int]("age").getOrElse(0)
+        (cumulatedAge + age, n + 1)
+    }
+
+  val cumulated: Future[(Int, Int)] = sourceOfPeople runWith cumulateAge
+
+  val meanAge: Future[Float] =
+    cumulated.map { case (cumulatedAge, n) =>
+      if (n == 0) 0
+      else cumulatedAge / n
+    }
+
+  meanAge
+}
+```
+
+The `cumulateAge` sink extracts the age from the each document, and add it the current result. At the same time, it counts the processed documents. When the `cumulated` age is completed, it is divided by the number of documents to get the mean age.
+
+More:
+
+- [**ReactiveMongo PekkoStream API**](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-pekkostream_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo-pekkostream_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-javadoc.jar/!/index.html#package)
 
 ### Play Iteratees
 
