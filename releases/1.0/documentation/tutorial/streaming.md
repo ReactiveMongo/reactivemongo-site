@@ -8,7 +8,7 @@ title: Streaming
 
 Instead of accumulating documents in memory, they can be processed as a stream, using a reactive [`Cursor`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/Cursor.html).
 
-ReactiveMongo can be used with several streaming frameworks: [Play Iteratees](http://www.playframework.com/documentation/latest/Iteratees), [Akka Streams](http://akka.io/docs/), or with custom processors using [`foldWhile`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/Cursor.html#foldWhile[A](z:=%3EA,maxDocs:Int)(suc:(A,T)=%3Ereactivemongo.api.Cursor.State[A],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]) (and the other similar operations).
+ReactiveMongo can be used with several streaming frameworks: [Akka Streams](http://akka.io/docs/), [Pekko](https://pekko.apache.org/), or with custom processors using [`foldWhile`](https://javadoc.io/static/org.reactivemongo/reactivemongo_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo/api/Cursor.html#foldWhile[A](z:=%3EA,maxDocs:Int)(suc:(A,T)=%3Ereactivemongo.api.Cursor.State[A],err:reactivemongo.api.Cursor.ErrorHandler[A])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[A]) (and the other similar operations).
 
 ### Akka Stream
 
