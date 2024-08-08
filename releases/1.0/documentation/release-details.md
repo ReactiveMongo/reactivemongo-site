@@ -61,9 +61,9 @@ This release is compatible with the following runtime.
 
 - [MongoDB](https://www.mongodb.org/) from 3.6 up to 7.0.
 
-- [Scala](https://www.scala-lang.org) from 2.11 to 3.2.
+- [Scala](https://www.scala-lang.org) from 2.11 to 3.3.
 - [Akka](http://akka.io/) from 2.3.13 up to 2.6.5 (see [Setup](./tutorial/setup.html))
-- [Play Framework](https://playframework.com) from 2.3.13 to 2.8.1
+- [Play Framework](https://playframework.com) from 2.3.13 to 3.0.
 
 > MongoDB versions older than 3.0 are not longer (end of life 2018-2).
 
