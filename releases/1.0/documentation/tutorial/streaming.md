@@ -115,7 +115,7 @@ libraryDependencies += "org.reactivemongo" %% "reactivemongo-pekkostream" % "{{s
 
 The main features of this modules are as follows.
 
-- Get a [`Source`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-pekkostream_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo-pekkostream_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.pekkostream.PekkoStreamCursor#documentSource(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Option[T]])(implicitm:pekko.stream.Materializer):pekko.stream.scaladsl.Source[T,pekko.NotUsed]) of documents from a ReactiveMongo cursor. This is a document producer.
+- Get a [`Source`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-pekkostream_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo-pekkostream_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.pekkostream.PekkoStreamCursor#documentSource(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Option[T]])(implicitm:org.apache.pekko.stream.Materializer):org.apache.pekko.stream.scaladsl.Source[T,org.apache.pekko.NotUsed]) of documents from a ReactiveMongo cursor. This is a document producer.
 - Run with a [`Flow`](http://doc.pekko.io/api/pekko/2.4.10/#pekko.stream.javadsl.Flow) or a [`Sink`](http://doc.pekko.io/api/pekko/2.4.10/#pekko.stream.javadsl.Sink), which will consume the documents, with possible transformation.
 
 To use the Pekko Stream support for the ReactiveMongo cursors, [`reactivemongo.pekkostream.cursorProducer`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-pekkostream_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo-pekkostream_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.pekkostream.package$$cursorFlattener$) must be imported.
@@ -123,8 +123,8 @@ To use the Pekko Stream support for the ReactiveMongo cursors, [`reactivemongo.p
 ```scala
 import scala.concurrent.Future
 
-import pekko.stream.Materializer
-import pekko.stream.scaladsl.{ Sink, Source }
+import org.apache.pekko.stream.Materializer
+import org.apache.pekko.stream.scaladsl.{ Sink, Source }
 
 import reactivemongo.api.bson.BSONDocument
 import reactivemongo.api.bson.collection.BSONCollection
@@ -140,7 +140,7 @@ def processPerson1(collection: BSONCollection, query: BSONDocument)(implicit m: 
 }
 ```
 
-The operation [`PekkoStreamCursor.documentSource`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-pekkostream_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo-pekkostream_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.pekkostream.PekkoStreamCursor#documentSource(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Option[T]])(implicitm:pekko.stream.Materializer):pekko.stream.scaladsl.Source[T,scala.concurrent.Future[reactivemongo.pekkostream.State]]) returns an `Source[T, Future[State]]` (with `Future[State]` representing the completion of the asynchronous materialization). In this case, we get a producer of documents (of type `BSONDocument`).
+The operation [`PekkoStreamCursor.documentSource`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/reactivemongo/reactivemongo-pekkostream_{{site._1_0_scala_major}}/{{site._1_0_latest_minor}}/reactivemongo-pekkostream_{{site._1_0_scala_major}}-{{site._1_0_latest_minor}}-javadoc.jar/!/index.html#reactivemongo.pekkostream.PekkoStreamCursor#documentSource(maxDocs:Int,err:reactivemongo.api.Cursor.ErrorHandler[Option[T]])(implicitm:org.apache.pekko.stream.Materializer):org.apache.pekko.stream.scaladsl.Source[T,scala.concurrent.Future[reactivemongo.pekkostream.State]]) returns an `Source[T, Future[State]]` (with `Future[State]` representing the completion of the asynchronous materialization). In this case, we get a producer of documents (of type `BSONDocument`).
 
 Now that we have the producer, we need to define how the documents are processed, using a `Sink` or a `Flow` (with transformations).
 
@@ -152,9 +152,9 @@ Obviously, we may use a pure `Sink` that performs some computation.
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import pekko.NotUsed
-import pekko.stream.Materializer
-import pekko.stream.scaladsl.{ Sink, Source }
+import org.apache.pekko.NotUsed
+import org.apache.pekko.stream.Materializer
+import org.apache.pekko.stream.scaladsl.{ Sink, Source }
 
 import reactivemongo.api.bson.BSONDocument
 

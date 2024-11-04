@@ -10,10 +10,10 @@ lazy val release_1_0 = project.in((file(".") / "releases" / "1.0"))
 lazy val `reactivemongo-site` = (project in file("."))
   .settings(
     doc / excludeFilter := "releases",
-    scalaVersion := "2.12.19",
+    scalaVersion := "2.12.20",
     ThisBuild / scalacOptions ++= Seq("-Ywarn-unused-import", "-unchecked"),
     libraryDependencies ++= Seq(
-      "org.reactivemongo" %% "reactivemongo" % "1.1.0-RC13"),
+      "org.reactivemongo" %% "reactivemongo" % "1.1.0-RC14"),
     ThisBuild / resolvers ++= (
       Resolver.typesafeRepo("releases") +: (
         Resolver.sonatypeOssRepos("snapshots") ++ Resolver.sonatypeOssRepos("staging"))))
