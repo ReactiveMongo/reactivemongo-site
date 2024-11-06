@@ -5,7 +5,7 @@ jobs:
     description: 'Build & Test'
 
     docker: # See ../circleci.dockerfile
-    - image: cchantep/reactivemongo-site:1.1.0-RC4
+    - image: cchantep/reactivemongo-site:1.1.0-RC14
 
     working_directory: ~/repo
 
@@ -38,7 +38,8 @@ jobs:
                     if [ ! -L node_modules ]; then
                       ln -s /node_modules node_modules
                     fi
-                    java -version && ./.ci_scripts/validate.sh 1.6.2
+                    export PATH="$HOME/node_modules/markdown-spellcheck/bin/:$PATH"
+                    java -version && ./.ci_scripts/validate.sh 1.10.1
 
       - run:
           name: Run Jekyll in background
@@ -50,6 +51,11 @@ jobs:
                     }
 
                     trap on_term SIGTERM
+
+                    for D in `(ls -v -1 "$HOME/.local/share/gem/ruby" || true) | sort -r | head -n 1`; do
+                      export PATH="$HOME/.local/share/gem/ruby/$D/bin:$PATH"
+                      export GEM_PATH="$HOME/.local/share/gem/ruby/$D:$GEM_PATH"
+                    done
 
                     bundle exec jekyll serve
 

@@ -83,6 +83,7 @@ Netty
 OOM
 PEM
 Pekko
+PekkoStream
 Play2-ReactiveMongo
 QueryBuilderFactory.this.pack.Reader
 ReactiveMongo
@@ -334,6 +335,10 @@ reactivemongo.api.bson.BSONSymbol
 reactivemongo.api.bson.BSONArray
 reactivemongo.api.bson.BSONDocument
 reactivemongo.api.bson.BSONUndefined.type
+reactivemongo.pekkostream.State
+org.apache.pekko.stream.Materializer
+org.apache.pekko.stream.scaladsl.Source
+org.apache.pekko.NotUsed
 
 # Geo
 JP

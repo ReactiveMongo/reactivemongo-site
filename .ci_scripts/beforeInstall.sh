@@ -2,8 +2,8 @@
 
 set -e
 
-for D in `ls -v -1 "$HOME/.gem/ruby"`; do
-  export PATH="$HOME/.gem/ruby/$D/bin:$PATH"
+for D in `ls -v -1 "$HOME/.local/share/gem/ruby"`; do
+  export PATH="$HOME/.local/share/gem/ruby/$D/bin:$PATH"
 done
 
 if [ -d "$HOME/.local/bin" ]; then
@@ -16,7 +16,7 @@ if [ `which pip | wc -l` -eq 0 ]; then
 fi
 
 gem install --no-verbose --user-install jekyll pygments.rb || exit 1
-bundle install --path "$HOME/.bundle" || exit 2
+bundle install || exit 2
 pip install --user Pygments || exit 3
 
 cat > package.json << EOF
