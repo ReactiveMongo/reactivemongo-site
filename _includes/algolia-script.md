@@ -1,25 +1,66 @@
-<script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-<script src="//cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
 <script>
-  var c = algoliasearch("{{site.algolia.application_id}}", "{{site.algolia.search_only_api_key}}"), index = c.initIndex("reactivemongo"),
-  mv = '{% include major-version.md %}',
-  av = (mv == '0.1x') ? mv : parseFloat(mv);
-
-  autocomplete('#search-input', {hint: false}, [
-    {
-      source: autocomplete.sources.hits(index, {
-        hitsPerPage:5, facets:"major_version",
-        filters: ('major_version:'+av)
-      }),
-      displayKey: 'title',
-      templates: {
-        suggestion: function(suggestion) {
-          return suggestion._highlightResult.title.value;
-        }
+  (function() {
+    var searchClient = algoliasearch("{{site.algolia.application_id}}", "{{site.algolia.search_only_api_key}}");
+    var mv = '{% include major-version.md %}';
+    var av = (mv == '0.1x') ? mv : parseFloat(mv);
+    var input = document.getElementById('search-input');
+    var resultsContainer = document.createElement('div');
+    resultsContainer.id = 'search-results';
+    resultsContainer.className = 'algolia-autocomplete aa-dropdown-menu';
+    resultsContainer.style.display = 'none';
+    input.parentNode.appendChild(resultsContainer);
+    
+    var timeoutId;
+    input.addEventListener('input', function(e) {
+      clearTimeout(timeoutId);
+      var query = e.target.value;
+      
+      if (query.length < 2) {
+        resultsContainer.style.display = 'none';
+        return;
       }
-    }
-  ]).on('autocomplete:selected', function(event, suggestion, dataset) {
-    var url = suggestion.url, sel = suggestion.css_selector_parent;
-    self.location.href = (sel) ? (url + sel) : url
-  });
+      
+      timeoutId = setTimeout(function() {
+        searchClient.search([{
+          indexName: 'reactivemongo',
+          query: query,
+          params: {
+            hitsPerPage: 5,
+            facetFilters: ['major_version:' + av]
+          }
+        }]).then(function(results) {
+          var hits = results.results[0].hits;
+          if (hits.length === 0) {
+            resultsContainer.style.display = 'none';
+            return;
+          }
+          
+          resultsContainer.innerHTML = hits.map(function(hit) {
+            return '<div class="aa-suggestion" data-url="' + hit.url + '" data-sel="' + (hit.css_selector_parent || '') + '">' +
+              hit._highlightResult.title.value +
+              '</div>';
+          }).join('');
+          resultsContainer.style.display = 'block';
+        }).catch(function(err) {
+          console.error('Algolia search error:', err);
+        });
+      }, 300);
+    });
+    
+    resultsContainer.addEventListener('click', function(e) {
+      var suggestion = e.target.closest('.aa-suggestion');
+      if (suggestion) {
+        var url = suggestion.getAttribute('data-url');
+        var sel = suggestion.getAttribute('data-sel');
+        window.location.href = sel ? (url + sel) : url;
+      }
+    });
+    
+    document.addEventListener('click', function(e) {
+      if (!input.contains(e.target) && !resultsContainer.contains(e.target)) {
+        resultsContainer.style.display = 'none';
+      }
+    });
+  })();
 </script>
