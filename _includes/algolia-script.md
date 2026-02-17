@@ -1,7 +1,7 @@
-<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@5/dist/lite/builds/browser.umd.js"></script>
 <script>
   (function() {
-    var searchClient = algoliasearch("{{site.algolia.application_id}}", "{{site.algolia.search_only_api_key}}");
+    var client = algoliasearch.liteClient("{{site.algolia.application_id}}", "{{site.algolia.search_only_api_key}}");
     var mv = '{% include major-version.md %}';
     var av = (mv == '0.1x') ? mv : parseFloat(mv);
     var input = document.getElementById('search-input');
@@ -22,15 +22,15 @@
       }
       
       timeoutId = setTimeout(function() {
-        searchClient.search([{
-          indexName: 'reactivemongo',
-          query: query,
-          params: {
+        client.search({
+          requests: [{
+            indexName: 'reactivemongo',
+            query: query,
             hitsPerPage: 5,
             facetFilters: ['major_version:' + av]
-          }
-        }]).then(function(results) {
-          var hits = results.results[0].hits;
+          }]
+        }).then(function(response) {
+          var hits = response.results[0].hits;
           if (hits.length === 0) {
             resultsContainer.style.display = 'none';
             return;
