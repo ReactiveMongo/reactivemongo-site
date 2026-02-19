@@ -79,7 +79,7 @@ jobs:
     description: 'Index to Algolia'
 
     docker:
-    - image: cchantep/reactivemongo-site:1.1.0-RC4
+    - image: cchantep/reactivemongo-site:1.1.0-RC14
 
     working_directory: ~/repo
 
@@ -102,7 +102,7 @@ jobs:
         default: '1.0'
 
     docker:
-    - image: cchantep/reactivemongo-site:1.1.0-RC4
+    - image: cchantep/reactivemongo-site:1.1.0-RC14
 
     working_directory: ~/repo
 
