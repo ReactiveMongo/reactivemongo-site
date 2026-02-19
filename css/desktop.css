@@ -62,11 +62,14 @@ h1, h2, h3, h4, h5 {
 }
 #siteSearch pre { width: 100% }
 #poweredByAlgolia {
-  text-align: right;
-  margin-top: 2px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 4px;
 }
 #poweredByAlgolia img {
-  max-width: 96px
+  width: 90px;
+  height: auto;
+  vertical-align: middle;
 }
 
 #main {

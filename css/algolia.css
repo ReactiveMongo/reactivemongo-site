@@ -27,6 +27,7 @@
   width: 320px;
   float: right;
   position: relative;
+  white-space: nowrap;
 }
 
 .algolia-autocomplete .aa-dropdown-menu .aa-suggestion, #search-results .aa-suggestion {
@@ -49,7 +50,10 @@
 #search-input {
   color: #999;
   font-size: 18px;
+  width: 210px;
+  vertical-align: middle;
+  box-sizing: border-box;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  border-radius: 3px
+  border-radius: 3px;
 }
