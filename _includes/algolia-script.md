@@ -5,15 +5,11 @@
     var mv = '{% include major-version.md %}';
     var input = document.getElementById('search-input');
 
-    var form = document.getElementById('searchForm');
-    if (form) {
-      form.addEventListener('submit', function(e) { e.preventDefault(); });
-    }
     var resultsContainer = document.createElement('div');
     resultsContainer.id = 'search-results';
     resultsContainer.className = 'algolia-autocomplete aa-dropdown-menu';
     resultsContainer.style.display = 'none';
-    document.getElementById('siteSearch').appendChild(resultsContainer);
+    input.parentNode.appendChild(resultsContainer);
     
     var timeoutId;
     input.addEventListener('input', function(e) {

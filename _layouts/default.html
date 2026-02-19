@@ -39,14 +39,12 @@
           <li><a href="/community.html">Community</a></li>
         </ul>
 
-        <div id="siteSearch">
-          <form id="searchForm">
-            <input id="search-input" type="text" autocomplete="on" spellcheck="false" autocorrect="off" placeholder="Search" />
-          </form>
+        <form id="siteSearch" onsubmit="return false">
+          <input id="search-input" type="text" autocomplete="on" spellcheck="false" autocorrect="off" placeholder="Search" />
           <div id="poweredByAlgolia">
             <img src="/images/algolia-logo.svg" alt="Search by Algolia" />
           </div>
-        </div>
+        </form>
       </div>
     </div>
 
