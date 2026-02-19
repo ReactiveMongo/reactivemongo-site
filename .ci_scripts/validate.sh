@@ -12,6 +12,8 @@ for D in `(ls -v -1 "$HOME/.local/share/gem/ruby" || true) | sort -r | head -n 1
   export GEM_PATH="$HOME/.local/share/gem/ruby/$D:$GEM_PATH"
 done
 
+export GEM_PATH="$HOME/.rubygems:$GEM_PATH"
+
 if [ "x$SBT_JAR" = "x" ]; then
   SBT_JAR="$HOME/.sbt/launchers/$SBT_VER/sbt-launch.jar"
 fi
