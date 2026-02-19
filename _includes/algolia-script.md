@@ -1,7 +1,7 @@
 <script src="https://cdn.jsdelivr.net/npm/algoliasearch@5/dist/lite/builds/browser.umd.js"></script>
 <script>
   (function() {
-    var client = algoliasearch.liteClient("{{site.algolia.application_id}}", "{{site.algolia.search_only_api_key}}");
+    var client = window["algoliasearch/lite"].liteClient("{{site.algolia.application_id}}", "{{site.algolia.search_only_api_key}}");
     var mv = '{% include major-version.md %}';
     var av = (mv == '0.1x') ? mv : parseFloat(mv);
     var input = document.getElementById('search-input');

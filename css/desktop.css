@@ -62,8 +62,8 @@ h1, h2, h3, h4, h5 {
 }
 #siteSearch pre { width: 100% }
 #poweredByAlgolia {
-  float: right;
-  padding-right: 1em
+  text-align: right;
+  padding-top: 2px;
 }
 #poweredByAlgolia img {
   max-width: 96px
