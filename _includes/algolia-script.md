@@ -3,13 +3,17 @@
   (function() {
     var client = window["algoliasearch/lite"].liteClient("{{site.algolia.application_id}}", "{{site.algolia.search_only_api_key}}");
     var mv = '{% include major-version.md %}';
-    var av = (mv == '0.1x') ? mv : parseFloat(mv);
     var input = document.getElementById('search-input');
+
+    var form = document.getElementById('searchForm');
+    if (form) {
+      form.addEventListener('submit', function(e) { e.preventDefault(); });
+    }
     var resultsContainer = document.createElement('div');
     resultsContainer.id = 'search-results';
     resultsContainer.className = 'algolia-autocomplete aa-dropdown-menu';
     resultsContainer.style.display = 'none';
-    input.parentNode.appendChild(resultsContainer);
+    document.getElementById('siteSearch').appendChild(resultsContainer);
     
     var timeoutId;
     input.addEventListener('input', function(e) {
@@ -27,7 +31,7 @@
             indexName: 'reactivemongo',
             query: query,
             hitsPerPage: 5,
-            facetFilters: ['major_version:' + av]
+            facetFilters: ['major_version:' + mv]
           }]
         }).then(function(response) {
           var hits = response.results[0].hits;
