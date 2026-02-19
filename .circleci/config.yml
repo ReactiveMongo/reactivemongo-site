@@ -54,7 +54,6 @@ jobs:
 
                     for D in `(ls -v -1 "$HOME/.local/share/gem/ruby" || true) | sort -r | head -n 1`; do
                       export PATH="$HOME/.local/share/gem/ruby/$D/bin:$PATH"
-                      export GEM_PATH="$HOME/.local/share/gem/ruby/$D:$GEM_PATH"
                     done
 
                     bundle exec jekyll serve
