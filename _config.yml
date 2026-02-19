@@ -30,6 +30,6 @@ algolia:
   application_id: 'Y0CQ010OIG'
   index_name: 'reactivemongo'
   search_only_api_key: 'ab9de0dae62c589128703e9076090b2f'
-  nodes_to_index: 'p,ul'
+  nodes_to_index: 'p'
   settings:
     attributesForFaceting: ['major_version']
