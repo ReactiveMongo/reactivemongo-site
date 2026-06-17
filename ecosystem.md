@@ -24,17 +24,5 @@ ReactiveMongo is composed of subprojects.
 **[Acolyte for ReactiveMongo](http://acolyte.eu.org/reactive-mongo/):** 
 Framework to unit test a ReactiveMongo persistence.
 
-**[Akka Persistence MongoDB](https://github.com/scullxbones/akka-persistence-mongo):** 
-MongoDB support for [Akka Persistence](https://doc.akka.io/docs/akka/current/persistence.html), including a ReactiveMongo implementation.
-
-**[Circe BSON](https://github.com/circe/circe-bson):**
-Conversions for circe and ReactiveMongo.
-
 **[Enumeratum for ReactiveMongo](https://github.com/lloydmeta/enumeratum/#reactivemongo-bson):**
 BSON codecs to use Enumeratum with MongoDB.
-
-**[Instana Monitoring and Performance Management for ReactiveMongo](https://www.instana.com/supported-technologies/reactivemongo-monitoring/):**
-Automatic ReactiveMongo Monitoring is part of Instana.
-
-**[ReactiveMongo Silhouette](https://github.com/mohiva/play-silhouette-persistence-reactivemongo):** 
-An implementation of the Silhouette persistence layer using ReactiveMongo.
