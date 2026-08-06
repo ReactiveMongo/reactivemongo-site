@@ -17,6 +17,10 @@ jobs:
       - checkout
 
       # Validate site
+      # NOTE: Gem dependencies (including Dependabot updates) are handled by:
+      #   1. Cache key based on Gemfile.lock checksum - invalidates when dependencies change
+      #   2. Explicit 'bundle install --deployment' - ensures gems are always available
+      #   3. This approach ensures Dependabot PRs work without manual Docker image rebuilds
       - run:
           name: Prepare build checksum
           command: |
@@ -35,7 +39,9 @@ jobs:
 
       - run:
           name: Install Ruby dependencies
-          command: bundle install --deployment
+          command: |
+                    bundle config set deployment true
+                    bundle install
 
       - run:
           name: 'Build & validate'
