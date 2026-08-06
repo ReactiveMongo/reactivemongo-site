@@ -25,12 +25,17 @@ jobs:
 
       - restore_cache:
           keys:
+            - &gem_cache_key gems-{{ checksum "Gemfile.lock" }}
             - &build_cache_key sbt-{{ checksum "/tmp/build" }}
             - &branch_cache_key dep-{{ .Branch }}
 
       - run:
           name: Prepare artifact directories
           command: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
+
+      - run:
+          name: Install Ruby dependencies
+          command: bundle install --deployment
 
       - run:
           name: 'Build & validate'
@@ -62,6 +67,11 @@ jobs:
           key: *branch_cache_key
           paths:
             - ~/repo/node_modules
+
+      - save_cache:
+          key: *gem_cache_key
+          paths:
+            - ~/.bundle
 
       - save_cache:
           key: *build_cache_key
