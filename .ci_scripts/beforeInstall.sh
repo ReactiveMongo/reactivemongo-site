@@ -28,6 +28,7 @@ cat > package.json << EOF
   "devDependencies": {}
 }
 EOF
+
 npm i markdown-spellcheck -u || exit 4
 
 #find $HOME/.local -type f -print

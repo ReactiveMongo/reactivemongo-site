@@ -22,7 +22,10 @@ java $SBT_OPTS -jar "$SBT_JAR" error test:compile || exit 1
 echo "[INFO] Building documentation ..."
 echo "GEM_PATH=$GEM_PATH"
 
-bundle exec jekyll build || exit 2
+bundle exec jekyll build || (
+  gem install --no-verbose --user-install jekyll pygments.rb
+  bundle exec jekyll build
+) || exit 2
 
 echo "[INFO] Spell checking ..."
 mdspell -r --en-gb -n `find . -not -path '*/node_modules/*' -type f -name '*.md' | perl -pe 's|^\./||;s|[A-Za-z0-9.-]+|*|g' | sort -u | sed -e 's/$/.md/'` '!**/node_modules/**/*.md' '!**/vendor/**/*.md' || exit 3
