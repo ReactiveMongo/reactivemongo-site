@@ -27,7 +27,7 @@ lazy val `reactivemongo-site` = (project in file("."))
     doc / excludeFilter := "releases",
     scalaVersion := "2.12.20",
     ThisBuild / scalacOptions ++= Seq("-Ywarn-unused-import", "-unchecked"),
-    libraryDependencies += "org.reactivemongo" %% "reactivemongo" % "1.1.0-RC21",
+    libraryDependencies += "org.reactivemongo" %% "reactivemongo" % "1.1.0-RC22",
   ).aggregate(release_0_1x, release_1_0)
 
 organization := "org.reactivemongo"
