@@ -110,7 +110,7 @@ jobs:
                     fi
                     
                     bundle install
-                    bundle exec jekyll algolia || \
+                    bundle exec jekyll algolia
 
 
   publish_artifacts:
