@@ -105,9 +105,13 @@ jobs:
       - run:
           name: Indexing to Algolia
           command: |
-                    test "x$CIRCLE_BRANCH" = "xgh-pages" && \
+                    if [ ! "x$CIRCLE_BRANCH" = "xgh-pages" ]; then
+                      echo "Skip on branch $CIRCLE_BRANCH"
+                    fi
+                    
+                    bundle install
                     bundle exec jekyll algolia || \
-                    echo "Skip on branch $CIRCLE_BRANCH"
+
 
   publish_artifacts:
     description: Publish artifacts
